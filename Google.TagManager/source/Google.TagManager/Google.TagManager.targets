@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+		<_GoogleTagManagerAssemblyName>Google.TagManager, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleTagManagerAssemblyName>
+		<_GoogleTagManagerId>GTagMngr-3.15.0</_GoogleTagManagerId>
+	</PropertyGroup>
+
+	<ItemGroup Condition="'$(OutputType)'!='Library'">
+		<XamarinBuildDownload Include="$(_GoogleTagManagerId)">
+			<Url>https://www.gstatic.com/cpdc/648b8b8cfaaaa604-GoogleTagManager-3.15.0.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildRestoreResources Include="_GoogleTagManagerItems"/>
+	</ItemGroup>
+
+	<Target Name="_GoogleTagManagerItems">
+
+		<PropertyGroup>
+			<_GoogleTagManagerLibrariesDir>$(XamarinBuildDownloadDir)$(_GoogleTagManagerId)\Libraries\</_GoogleTagManagerLibrariesDir>
+		</PropertyGroup>
+
+		<ItemGroup>
+
+			<RestoreAssemblyResource Include="$(_GoogleTagManagerLibrariesDir)libTagManager.a">
+				<LogicalName>libTagManager.a</LogicalName>
+				<AssemblyName>$(_GoogleTagManagerAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+
+		</ItemGroup>
+	</Target>
+</Project>

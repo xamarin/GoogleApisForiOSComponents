@@ -1,0 +1,41 @@
+version: 1.0.2.2
+name: Google App Invites for iOS
+id: googleiosappinvite
+publisher: Xamarin Inc.
+publisher-url: http://xamarin.com
+src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Google.AppInvite
+summary: Enable your users to share your app with people they know
+icons:
+  - icons/googleiosappinvite_128x128.png
+  - icons/googleiosappinvite_512x512.png
+docs-url: https://developers.google.com/app-invites/ios/reference/api/index
+libraries:
+  ios-unified: 
+    - ../output/Google.AppInvite.dll
+    - ../../Google.SignIn/output/Google.SignIn.dll 
+    - ../../Google.Core/output/Google.Core.dll
+is_shell: true
+packages:
+  ios-unified:
+    - Xamarin.Google.iOS.AppInvite, Version=1.0.2.2
+samples:
+  - name: "AppInvite Sample"
+    path:  ../samples/AppInviteSample/AppInviteSample.sln
+    removeProjects: 
+      - Google.AppInvite
+      - Google.SignIn
+      - Google.Core
+    removeFiles:
+      - AppInviteSample/Makefile
+    installNuGets:
+      - project: AppInviteSample
+        packages:
+          - Xamarin.Google.iOS.AppInvite
+          - Xamarin.Google.iOS.Core
+          - Xamarin.Google.iOS.SignIn
+    removeNodes:
+      - "//xNS:Import[contains (@Project, 'Google.AppInvite.targets')]"
+      - "//xNS:Import[contains (@Project, 'Google.Core.targets')]"
+      - "//xNS:Import[contains (@Project, 'Google.SignIn.targets')]"
+local-nuget-repo: ../../tmp-nugets
+no_build: true

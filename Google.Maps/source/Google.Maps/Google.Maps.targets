@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+		<_GoogleMapsAssemblyName>Google.Maps, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleMapsAssemblyName>
+		<_GoogleMapsId>GMaps-1.11.1</_GoogleMapsId>
+	</PropertyGroup>
+	<ItemGroup Condition="'$(OutputType)'!='Library'">
+		<XamarinBuildRestoreResources Include="_GoogleMapsItems"/>
+		<XamarinBuildDownload Include="$(_GoogleMapsId)">
+			<Url>https://www.gstatic.com/cpdc/c0e534927c0c955e-GoogleMaps-1.11.1.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+	</ItemGroup>
+
+	<Target Name="_GoogleMapsItems">
+
+		<PropertyGroup>
+			<_GoogleMapsFrameworkDir>$(XamarinBuildDownloadDir)$(_GoogleMapsId)\Frameworks\GoogleMaps.framework\Versions\A\</_GoogleMapsFrameworkDir>
+			<_GoogleMapsBundleDir>$(_GoogleMapsFrameworkDir)Resources\GoogleMaps.bundle\</_GoogleMapsBundleDir>
+			<_GoogleMapsBundleLogicalPrefix>__monotouch_content_GoogleMaps.bundle_f</_GoogleMapsBundleLogicalPrefix>
+			<_GmsCoreBundleDir>$(_GoogleMapsBundleDir)GMSCoreResources.bundle\</_GmsCoreBundleDir>
+			<_GmsCoreLogicalPrefix>$(_GoogleMapsBundleLogicalPrefix)GMSCoreResources.bundle_f</_GmsCoreLogicalPrefix>
+		</PropertyGroup>
+
+		<ItemGroup>
+
+			<RestoreAssemblyResource Include="$(_GoogleMapsFrameworkDir)GoogleMaps">
+				<LogicalName>GoogleMaps</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)active.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)active.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)Info.plist">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)Info.plist</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)active%402x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)active%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)active%403x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)active%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)active_grouped.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)active__grouped.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)active_grouped%402x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)active__grouped%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)active_grouped%403x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)active__grouped%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)back.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)back.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)back%402x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)back%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)back%403x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)back%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)bubble_left.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)bubble__left.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)bubble_left%402x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)bubble__left%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)bubble_left%403x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)bubble__left%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)bubble_right.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)bubble__right.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)bubble_right%402x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)bubble__right%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)bubble_right%403x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)bubble__right%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)card_bg.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)card__bg.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)card_bg%402x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)card__bg%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)card_bg%403x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)card__bg%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)close.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)close.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)close%402x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)close%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)close%403x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)close%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)default_marker.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)default__marker.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)default_marker%402x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)default__marker%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)default_marker%403x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)default__marker%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)place_picker_nav_back.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)place__picker__nav__back.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)place_picker_nav_back%402x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)place__picker__nav__back%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)place_picker_search_icon.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)place__picker__search__icon.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)place_picker_search_icon%402x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)place__picker__search__icon%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)powered-by-google-dark.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)powered-by-google-dark.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)powered-by-google-dark%402x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)powered-by-google-dark%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)powered-by-google-dark%403x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)powered-by-google-dark%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)red_icons.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)red__icons.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)red_icons%402x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)red__icons%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)red_icons%403x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)red__icons%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)sad_cloud.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)sad__cloud.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)sad_cloud%402x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)sad__cloud%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)sad_cloud%403x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)sad__cloud%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)white_icons.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)white__icons.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)white_icons%402x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)white__icons%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)white_icons%403x.png">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)white__icons%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCacheStorage.momd\Storage.mom">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)GMSCacheStorage.momd_fStorage.mom</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCacheStorage.momd\Storage.omo">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)GMSCacheStorage.momd_fStorage.omo</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCacheStorage.momd\VersionInfo.plist">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)GMSCacheStorage.momd_fVersionInfo.plist</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)Assets.car">
+				<LogicalName>$(_GmsCoreLogicalPrefix)Assets.car</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)DroidSansMerged-Regular.ttf">
+				<LogicalName>$(_GmsCoreLogicalPrefix)DroidSansMerged-Regular.ttf</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)GMSNavNightModeSprites-0-1x.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)GMSNavNightModeSprites-0-1x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)GMSNavNightModeSprites-0-2x.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)GMSNavNightModeSprites-0-2x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)GMSNavNightModeSprites-0-3x.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)GMSNavNightModeSprites-0-3x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)GMSNavSprites-0-1x.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)GMSNavSprites-0-1x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)GMSNavSprites-0-2x.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)GMSNavSprites-0-2x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)GMSNavSprites-0-3x.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)GMSNavSprites-0-3x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)GMSSprites-0-1x.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)GMSSprites-0-1x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)GMSSprites-0-2x.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)GMSSprites-0-2x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)GMSSprites-0-3x.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)GMSSprites-0-3x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)Info.plist">
+				<LogicalName>$(_GmsCoreLogicalPrefix)Info.plist</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)Roboto-Black.ttf">
+				<LogicalName>$(_GmsCoreLogicalPrefix)Roboto-Black.ttf</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)Roboto-BlackItalic.ttf">
+				<LogicalName>$(_GmsCoreLogicalPrefix)Roboto-BlackItalic.ttf</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)Roboto-Bold.ttf">
+				<LogicalName>$(_GmsCoreLogicalPrefix)Roboto-Bold.ttf</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)Roboto-BoldItalic.ttf">
+				<LogicalName>$(_GmsCoreLogicalPrefix)Roboto-BoldItalic.ttf</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)Roboto-Italic.ttf">
+				<LogicalName>$(_GmsCoreLogicalPrefix)Roboto-Italic.ttf</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)Roboto-Light.ttf">
+				<LogicalName>$(_GmsCoreLogicalPrefix)Roboto-Light.ttf</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)Roboto-LightItalic.ttf">
+				<LogicalName>$(_GmsCoreLogicalPrefix)Roboto-LightItalic.ttf</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)Roboto-Medium.ttf">
+				<LogicalName>$(_GmsCoreLogicalPrefix)Roboto-Medium.ttf</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)Roboto-MediumItalic.ttf">
+				<LogicalName>$(_GmsCoreLogicalPrefix)Roboto-MediumItalic.ttf</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)Roboto-Regular.ttf">
+				<LogicalName>$(_GmsCoreLogicalPrefix)Roboto-Regular.ttf</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)Roboto-Thin.ttf">
+				<LogicalName>$(_GmsCoreLogicalPrefix)Roboto-Thin.ttf</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)Roboto-ThinItalic.ttf">
+				<LogicalName>$(_GmsCoreLogicalPrefix)Roboto-ThinItalic.ttf</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)RobotoCondensed-Italic.ttf">
+				<LogicalName>$(_GmsCoreLogicalPrefix)RobotoCondensed-Italic.ttf</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)RobotoCondensed-Regular.ttf">
+				<LogicalName>$(_GmsCoreLogicalPrefix)RobotoCondensed-Regular.ttf</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)Siemreap.ttf">
+				<LogicalName>$(_GmsCoreLogicalPrefix)Siemreap.ttf</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)Tharlon-Regular.ttf">
+				<LogicalName>$(_GmsCoreLogicalPrefix)Tharlon-Regular.ttf</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)button_background.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)button__background.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)button_background%402x.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)button__background%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)button_background%403x.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)button__background%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)button_compass.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)button__compass.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)button_compass%402x.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)button__compass%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)button_compass_night.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)button__compass__night.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)button_compass_night%402x.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)button__compass__night%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)button_my_location.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)button__my__location.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)button_my_location%402x.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)button__my__location%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)dav_one_way_16_256.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)dav__one__way__16__256.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)ic_compass_needle.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)ic__compass__needle.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)ic_compass_needle%402x.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)ic__compass__needle%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)ic_qu_direction_mylocation.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)ic__qu__direction__mylocation.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)ic_qu_direction_mylocation%402x.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)ic__qu__direction__mylocation%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)ic_qu_direction_mylocation%403x.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)ic__qu__direction__mylocation%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)polyline_colors_texture.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)polyline__colors__texture.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)polyline_colors_texture_dim.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)polyline__colors__texture__dim.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)road_1-1.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)road__1-1.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)road_128-32.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)road__128-32.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)road_16-4.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)road__16-4.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)road_2-1.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)road__2-1.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)road_256-64.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)road__256-64.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)road_32-8.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)road__32-8.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)road_4-1.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)road__4-1.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)road_64-16.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)road__64-16.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)road_8-2.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)road__8-2.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)watermark_dark.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)watermark__dark.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)watermark_dark%402x.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)watermark__dark%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)watermark_dark%403x.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)watermark__dark%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)watermark_light.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)watermark__light.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)watermark_light%402x.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)watermark__light%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)watermark_light%403x.png">
+				<LogicalName>$(_GmsCoreLogicalPrefix)watermark__light%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)ar.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)ar.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)ca.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)ca.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)cs.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)cs.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)da.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)da.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)de.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)de.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)el.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)el.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)en.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)en.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)en_AU.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)en__AU.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)en_GB.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)en__GB.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)en_IN.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)en__IN.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)es.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)es.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)es_MX.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)es__MX.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)fi.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)fi.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)fr.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)fr.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)fr_CA.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)fr__CA.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)he.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)he.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)hi.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)hi.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)hr.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)hr.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)hu.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)hu.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)id.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)id.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)it.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)it.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)ja.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)ja.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)ko.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)ko.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)ms.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)ms.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)nb.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)nb.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)nl.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)nl.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)pl.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)pl.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)pt.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)pt.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)pt_PT.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)pt__PT.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)ro.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)ro.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)ru.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)ru.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)sk.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)sk.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)sv.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)sv.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)th.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)th.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)tr.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)tr.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)uk.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)uk.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)vi.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)vi.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)zh_CN.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)zh__CN.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)zh_HK.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)zh__HK.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GmsCoreBundleDir)zh_TW.lproj\GMSCore.strings">
+				<LogicalName>$(_GmsCoreLogicalPrefix)zh__TW.lproj_fGMSCore.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)en.lproj\InfoPlist.strings">
+				<LogicalName>$(_GoogleMapsBundleLogicalPrefix)en.lproj_fInfoPlist.strings</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+		</ItemGroup>
+
+	</Target>
+</Project>

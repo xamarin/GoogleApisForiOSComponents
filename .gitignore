@@ -1,0 +1,8 @@
+packages
+bin
+obj
+output
+tools
+externals
+tmp-nugets
+*.designer.cs

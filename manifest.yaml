@@ -1,0 +1,48 @@
+- Name: Google.iOS.Core
+  BuildScript: ./Google.Core/build.cake
+  TriggerPaths: [ Google.Core ]
+  MacBuildTargets: [ samples, component ]
+- Name: Google.iOS.SignIn
+  BuildScript: ./Google.SignIn/build.cake
+  TriggerPaths: [ Google.SignIn ]
+  MacBuildTargets: [ samples, component ]
+- Name: Google.iOS.Analytics
+  BuildScript: ./Google.Analytics/build.cake
+  TriggerPaths: [ Google.Analytics ]
+  MacBuildTargets: [ samples, component ]
+- Name: Google.iOS.AppIndexing
+  BuildScript: ./Google.AppIndexing/build.cake
+  TriggerPaths: [ Google.AppIndexing ]
+  MacBuildTargets: [ samples, component ]
+- Name: Google.iOS.AppInvite
+  BuildScript: ./Google.AppInvite/build.cake
+  TriggerPaths: [ Google.AppInvite ]
+  MacBuildTargets: [ samples, component ]
+- Name: Google.iOS.Cast
+  BuildScript: ./Google.Cast/build.cake
+  TriggerPaths: [ Google.Cast ]
+  MacBuildTargets: [ samples, component ]
+- Name: Google.iOS.InstanceID
+  BuildScript: ./Google.InstanceID/build.cake
+  TriggerPaths: [ Google.InstanceID ]
+  MacBuildTargets: [ samples, component ]
+- Name: Google.iOS.GoogleCloudMessaging
+  BuildScript: ./Google.GoogleCloudMessaging/build.cake
+  TriggerPaths: [ Google.GoogleCloudMessaging ]
+  MacBuildTargets: [ samples, component ]
+- Name: Google.iOS.MobileAds
+  BuildScript: ./Google.MobileAds/build.cake
+  TriggerPaths: [ Google.MobileAds ]
+  MacBuildTargets: [ samples, component ]
+- Name: Google.iOS.Maps
+  BuildScript: ./Google.Maps/build.cake
+  TriggerPaths: [ Google.Maps ]
+  MacBuildTargets: [ samples, component ]
+- Name: Google.iOS.PlayGames
+  BuildScript: ./Google.PlayGames/build.cake
+  TriggerPaths: [ Google.PlayGames ]
+  MacBuildTargets: [ samples, component ]
+- Name: Google.iOS.TagManager
+  BuildScript: ./Google.TagManager/build.cake
+  TriggerPaths: [ Google.TagManager ]
+  MacBuildTargets: [ samples, component ]

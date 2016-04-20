@@ -1,0 +1,35 @@
+version: 2.4.0.2
+name: Google Sign-In for iOS
+id: googleiossignin
+publisher: Xamarin Inc.
+publisher-url: http://xamarin.com
+src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Google.SignIn
+summary: Get users into your apps quickly and securely, using a registration system they already use and trust.
+icons:
+  - icons/googleiossignin_128x128.png
+  - icons/googleiossignin_512x512.png
+docs-url: https://developers.google.com/identity/sign-in/ios/api/index
+libraries:
+  ios-unified: 
+    - ../output/Google.SignIn.dll
+    - ../../Google.Core/output/Google.Core.dll
+is_shell: true
+packages:
+  ios-unified:
+    - Xamarin.Google.iOS.SignIn, Version=2.4.0.2
+samples:
+  - name: "Sign-In Sample"
+    path:  ../samples/SignInExample/SignInExample.sln
+    removeProjects: 
+      - Google.SignIn
+      - Google.Core
+    installNuGets:
+      - project: SignInExample
+        packages:
+          - Xamarin.Google.iOS.Core
+          - Xamarin.Google.iOS.SignIn
+    removeNodes:
+      - "//xNS:Import[contains (@Project, 'Google.SignIn.targets')]"
+      - "//xNS:Import[contains (@Project, 'Google.Core.targets')]"
+local-nuget-repo: ../../tmp-nugets
+no_build: true

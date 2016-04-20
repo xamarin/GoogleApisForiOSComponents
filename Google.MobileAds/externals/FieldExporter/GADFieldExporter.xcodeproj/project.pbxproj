@@ -1,0 +1,442 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5C4026451726276E0055EBA2 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C5D8E38161A8C8500604B99 /* AdSupport.framework */; };
+		5C4026461726276E0055EBA2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C5D8E32161A8C5900604B99 /* AudioToolbox.framework */; };
+		5C4026471726276E0055EBA2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C5D8E1C161A896A00604B99 /* CoreGraphics.framework */; };
+		5C4026481726276E0055EBA2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C5D8E34161A8C6600604B99 /* MessageUI.framework */; };
+		5C4026491726276E0055EBA2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C5D8E36161A8C7000604B99 /* SystemConfiguration.framework */; };
+		5C40264C1726276E0055EBA2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C40264A1726276E0055EBA2 /* StoreKit.framework */; };
+		5C40264D1726276E0055EBA2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C40264B1726276E0055EBA2 /* UIKit.framework */; };
+		5C5D8E0F161A884300604B99 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C5D8E0E161A884300604B99 /* Foundation.framework */; };
+		5C5D8E14161A884300604B99 /* GADFieldExporter.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5C5D8E13161A884300604B99 /* GADFieldExporter.h */; };
+		5C5D8E16161A884300604B99 /* GADFieldExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C5D8E15161A884300604B99 /* GADFieldExporter.m */; };
+		64BF584DFA32C82DB6303ED3 /* libPods-GADFieldExporter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E161208A0F561E382A7CE2B /* libPods-GADFieldExporter.a */; };
+		7E4201EA1B016526004DBF25 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E4201E91B016526004DBF25 /* GoogleMobileAds.framework */; };
+		7E4201ED1B0165D4004DBF25 /* GADRequest+SimulatorID.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4201EC1B0165D4004DBF25 /* GADRequest+SimulatorID.m */; };
+		7EB01DBF1A9CFAAC003FF5AD /* DFPRequest+SimulatorID.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB01DBE1A9CFAAC003FF5AD /* DFPRequest+SimulatorID.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5C5D8E09161A884300604B99 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				5C5D8E14161A884300604B99 /* GADFieldExporter.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		36E963F6631AE56A16352AF5 /* Pods-GADFieldExporter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GADFieldExporter.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-GADFieldExporter/Pods-GADFieldExporter.debug.xcconfig"; sourceTree = "<group>"; };
+		5C40264A1726276E0055EBA2 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		5C40264B1726276E0055EBA2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5C5D8E0B161A884300604B99 /* libGADFieldExporter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGADFieldExporter.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C5D8E0E161A884300604B99 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5C5D8E13161A884300604B99 /* GADFieldExporter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GADFieldExporter.h; sourceTree = "<group>"; };
+		5C5D8E15161A884300604B99 /* GADFieldExporter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GADFieldExporter.m; sourceTree = "<group>"; };
+		5C5D8E1C161A896A00604B99 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5C5D8E32161A8C5900604B99 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		5C5D8E34161A8C6600604B99 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		5C5D8E36161A8C7000604B99 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5C5D8E38161A8C8500604B99 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		7E4201E91B016526004DBF25 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "../GoogleMobileAdsSdkiOS-7.2.2/GoogleMobileAds.framework"; sourceTree = "<group>"; };
+		7E4201EB1B0165D4004DBF25 /* GADRequest+SimulatorID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GADRequest+SimulatorID.h"; sourceTree = "<group>"; };
+		7E4201EC1B0165D4004DBF25 /* GADRequest+SimulatorID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GADRequest+SimulatorID.m"; sourceTree = "<group>"; };
+		7E87740E1C40E9600047AA4D /* GADFieldExporter-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GADFieldExporter-Prefix.pch"; sourceTree = "<group>"; };
+		7EB01DBD1A9CFAAC003FF5AD /* DFPRequest+SimulatorID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DFPRequest+SimulatorID.h"; sourceTree = "<group>"; };
+		7EB01DBE1A9CFAAC003FF5AD /* DFPRequest+SimulatorID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DFPRequest+SimulatorID.m"; sourceTree = "<group>"; };
+		9C545F52F8CEDCA84CE85D06 /* Pods-GADFieldExporter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GADFieldExporter.release.xcconfig"; path = "../Pods/Target Support Files/Pods-GADFieldExporter/Pods-GADFieldExporter.release.xcconfig"; sourceTree = "<group>"; };
+		9E161208A0F561E382A7CE2B /* libPods-GADFieldExporter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GADFieldExporter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5C5D8E08161A884300604B99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E4201EA1B016526004DBF25 /* GoogleMobileAds.framework in Frameworks */,
+				5C40264C1726276E0055EBA2 /* StoreKit.framework in Frameworks */,
+				5C40264D1726276E0055EBA2 /* UIKit.framework in Frameworks */,
+				5C4026451726276E0055EBA2 /* AdSupport.framework in Frameworks */,
+				5C4026461726276E0055EBA2 /* AudioToolbox.framework in Frameworks */,
+				5C4026471726276E0055EBA2 /* CoreGraphics.framework in Frameworks */,
+				5C4026481726276E0055EBA2 /* MessageUI.framework in Frameworks */,
+				5C4026491726276E0055EBA2 /* SystemConfiguration.framework in Frameworks */,
+				5C5D8E0F161A884300604B99 /* Foundation.framework in Frameworks */,
+				64BF584DFA32C82DB6303ED3 /* libPods-GADFieldExporter.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5C5D8E00161A884300604B99 = {
+			isa = PBXGroup;
+			children = (
+				5C5D8E10161A884300604B99 /* FieldExporter */,
+				5C5D8E0D161A884300604B99 /* Frameworks */,
+				5C5D8E0C161A884300604B99 /* Products */,
+				E677EC8CCCE4ACC39DE8B214 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		5C5D8E0C161A884300604B99 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5C5D8E0B161A884300604B99 /* libGADFieldExporter.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5C5D8E0D161A884300604B99 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7E4201E91B016526004DBF25 /* GoogleMobileAds.framework */,
+				5C40264A1726276E0055EBA2 /* StoreKit.framework */,
+				5C40264B1726276E0055EBA2 /* UIKit.framework */,
+				5C5D8E38161A8C8500604B99 /* AdSupport.framework */,
+				5C5D8E36161A8C7000604B99 /* SystemConfiguration.framework */,
+				5C5D8E34161A8C6600604B99 /* MessageUI.framework */,
+				5C5D8E32161A8C5900604B99 /* AudioToolbox.framework */,
+				5C5D8E1C161A896A00604B99 /* CoreGraphics.framework */,
+				5C5D8E0E161A884300604B99 /* Foundation.framework */,
+				9E161208A0F561E382A7CE2B /* libPods-GADFieldExporter.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5C5D8E10161A884300604B99 /* FieldExporter */ = {
+			isa = PBXGroup;
+			children = (
+				7E87740E1C40E9600047AA4D /* GADFieldExporter-Prefix.pch */,
+				5C5D8E13161A884300604B99 /* GADFieldExporter.h */,
+				5C5D8E15161A884300604B99 /* GADFieldExporter.m */,
+				7EB01DBD1A9CFAAC003FF5AD /* DFPRequest+SimulatorID.h */,
+				7EB01DBE1A9CFAAC003FF5AD /* DFPRequest+SimulatorID.m */,
+				7E4201EB1B0165D4004DBF25 /* GADRequest+SimulatorID.h */,
+				7E4201EC1B0165D4004DBF25 /* GADRequest+SimulatorID.m */,
+			);
+			path = FieldExporter;
+			sourceTree = "<group>";
+		};
+		E677EC8CCCE4ACC39DE8B214 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				36E963F6631AE56A16352AF5 /* Pods-GADFieldExporter.debug.xcconfig */,
+				9C545F52F8CEDCA84CE85D06 /* Pods-GADFieldExporter.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5C5D8E0A161A884300604B99 /* GADFieldExporter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C5D8E19161A884300604B99 /* Build configuration list for PBXNativeTarget "GADFieldExporter" */;
+			buildPhases = (
+				0D18AC17E1376827FD96BFA4 /* Check Pods Manifest.lock */,
+				5C5D8E07161A884300604B99 /* Sources */,
+				5C5D8E08161A884300604B99 /* Frameworks */,
+				5C5D8E09161A884300604B99 /* CopyFiles */,
+				25A803E54985FE5F191C8585 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GADFieldExporter;
+			productName = libAdmobExporter;
+			productReference = 5C5D8E0B161A884300604B99 /* libGADFieldExporter.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5C5D8E02161A884300604B99 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Alex Soto";
+			};
+			buildConfigurationList = 5C5D8E05161A884300604B99 /* Build configuration list for PBXProject "GADFieldExporter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5C5D8E00161A884300604B99;
+			productRefGroup = 5C5D8E0C161A884300604B99 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5C5D8E0A161A884300604B99 /* GADFieldExporter */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0D18AC17E1376827FD96BFA4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		25A803E54985FE5F191C8585 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-GADFieldExporter/Pods-GADFieldExporter-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5C5D8E07161A884300604B99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EB01DBF1A9CFAAC003FF5AD /* DFPRequest+SimulatorID.m in Sources */,
+				7E4201ED1B0165D4004DBF25 /* GADRequest+SimulatorID.m in Sources */,
+				5C5D8E16161A884300604B99 /* GADFieldExporter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5C5D8E17161A884300604B99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5C5D8E18161A884300604B99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5C5D8E1A161A884300604B99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36E963F6631AE56A16352AF5 /* Pods-GADFieldExporter.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
+				DSTROOT = /tmp/libAdmobExporter.dst;
+				EXECUTABLE_PREFIX = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/israelsoto/OldCode/Google,
+					AdMob,
+					"iOS/GoogleMobileAdsSdkiOS-7.0.0",
+					/Users/israelsoto/OldCode/Google,
+					AdMob,
+					"iOS/GoogleMobileAdsSdkiOS-7.0.0",
+					/Users/israelsoto/OldCode/Google,
+					AdMob,
+					"iOS/GoogleMobileAdsSdkiOS-7.0.0",
+					/Users/israelsoto/OldCode/Google,
+					AdMob,
+					"iOS/GoogleMobileAdsSdkiOS-7.2.2",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FieldExporter/GADFieldExporter-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Downloads/GoogleAdMobAdsSdkiOS-6.2.0\"",
+					"$(SRCROOT)",
+					"/Users/Alex/Downloads/GoogleMobileAdsSdkiOS-6.9.2",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"EventKit\"",
+					"-framework",
+					"\"EventKitUI\"",
+					"-framework",
+					"\"GoogleMobileAds\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-weak_framework",
+					"\"AdSupport\"",
+				);
+				PRODUCT_NAME = libGADFieldExporter;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s arm64 x86_64 i386";
+			};
+			name = Debug;
+		};
+		5C5D8E1B161A884300604B99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C545F52F8CEDCA84CE85D06 /* Pods-GADFieldExporter.release.xcconfig */;
+			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
+				DSTROOT = /tmp/libAdmobExporter.dst;
+				EXECUTABLE_PREFIX = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/israelsoto/OldCode/Google,
+					AdMob,
+					"iOS/GoogleMobileAdsSdkiOS-7.0.0",
+					/Users/israelsoto/OldCode/Google,
+					AdMob,
+					"iOS/GoogleMobileAdsSdkiOS-7.0.0",
+					/Users/israelsoto/OldCode/Google,
+					AdMob,
+					"iOS/GoogleMobileAdsSdkiOS-7.0.0",
+					/Users/israelsoto/OldCode/Google,
+					AdMob,
+					"iOS/GoogleMobileAdsSdkiOS-7.2.2",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FieldExporter/GADFieldExporter-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Downloads/GoogleAdMobAdsSdkiOS-6.2.0\"",
+					"$(SRCROOT)",
+					"/Users/Alex/Downloads/GoogleMobileAdsSdkiOS-6.9.2",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"EventKit\"",
+					"-framework",
+					"\"EventKitUI\"",
+					"-framework",
+					"\"GoogleMobileAds\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-weak_framework",
+					"\"AdSupport\"",
+				);
+				PRODUCT_NAME = libGADFieldExporter;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s arm64 x86_64 i386";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5C5D8E05161A884300604B99 /* Build configuration list for PBXProject "GADFieldExporter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C5D8E17161A884300604B99 /* Debug */,
+				5C5D8E18161A884300604B99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5C5D8E19161A884300604B99 /* Build configuration list for PBXNativeTarget "GADFieldExporter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C5D8E1A161A884300604B99 /* Debug */,
+				5C5D8E1B161A884300604B99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5C5D8E02161A884300604B99 /* Project object */;
+}

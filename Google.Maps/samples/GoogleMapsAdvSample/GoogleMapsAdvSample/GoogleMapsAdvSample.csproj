@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1AA78CE3-4FB5-4A85-B38C-320A5C8BDC8D}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>GoogleMapsAdvSample</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>GoogleMapsAdvSample</AssemblyName>
+    <IntermediateOutputPath>obj\unified\$(Platform)\$(Configuration)</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\unified\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchArch>i386, x86_64</MtouchArch>
+    <MtouchExtraArgs>--registrar:static</MtouchExtraArgs>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\unified\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>i386, x86_64</MtouchArch>
+    <MtouchExtraArgs>--registrar:static</MtouchExtraArgs>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\unified\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\unified\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\unified\iPhone\Ad-Hoc</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <BuildIpa>true</BuildIpa>
+    <ConsolePause>false</ConsolePause>
+    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\unified\iPhone\AppStore</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignProvision>Automatic:AppStore</CodesignProvision>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="MonoTouch.Dialog-1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Samples\" />
+    <Folder Include="Samples\Map Demos\" />
+    <Folder Include="Samples\Overlay Demos\" />
+    <Folder Include="Samples\Camera Demos\" />
+    <Folder Include="Samples\Services Demos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="DVCMenu.cs" />
+    <Compile Include="Samples\Map Demos\TrafficMapViewController.cs" />
+    <Compile Include="Samples\Map Demos\MyLocationViewController.cs" />
+    <Compile Include="Samples\Map Demos\MapTypesViewController.cs" />
+    <Compile Include="Samples\Map Demos\GestureControlViewController.cs" />
+    <Compile Include="Samples\Map Demos\BasicMapViewController.cs" />
+    <Compile Include="Samples\Overlay Demos\MarkersViewController.cs" />
+    <Compile Include="Samples\Overlay Demos\CustomMarkersViewController.cs" />
+    <Compile Include="Samples\Overlay Demos\MarkerEventsViewController.cs" />
+    <Compile Include="Samples\Overlay Demos\PolygonsViewController.cs" />
+    <Compile Include="Samples\Overlay Demos\PolylinesViewController.cs" />
+    <Compile Include="Samples\Overlay Demos\GroundOverlayViewController.cs" />
+    <Compile Include="Samples\Camera Demos\FitBoundsViewController.cs" />
+    <Compile Include="Samples\Camera Demos\CameraViewController.cs" />
+    <Compile Include="Samples\Camera Demos\MapLayerViewController.cs" />
+    <Compile Include="Samples\Services Demos\GeocoderViewController.cs" />
+    <Compile Include="Samples\Overlay Demos\TileLayerViewController.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\source\Google.Maps\Google.Maps.targets" />
+  <Import Project="..\packages\Xamarin.Build.Download.0.2.1\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.2.1\build\Xamarin.Build.Download.targets')" />
+  <Import Project="..\packages\Xamarin.Build.Download.0.2.1\build\Xamarin.Build.Download.props" Condition="Exists('..\packages\Xamarin.Build.Download.0.2.1\build\Xamarin.Build.Download.props')" />
+  <ItemGroup>
+    <BundleResource Include="Resources\arrow.png" />
+    <BundleResource Include="Resources\arrow%402x.png" />
+    <BundleResource Include="Resources\australia_large.png" />
+    <BundleResource Include="Resources\australia_large%402x.png" />
+    <BundleResource Include="Resources\australia.png" />
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\glow-marker.png" />
+    <BundleResource Include="Resources\glow-marker%402x.png" />
+    <BundleResource Include="Resources\Icon-72.png" />
+    <BundleResource Include="Resources\Icon-72%402x.png" />
+    <BundleResource Include="Resources\Icon.png" />
+    <BundleResource Include="Resources\Icon%402x.png" />
+    <BundleResource Include="Resources\newark_nj_1922.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\source\Google.Maps\Google.Maps.csproj">
+      <Project>{EB77B0C1-AC2F-483C-8587-6F0FE5ECBE5B}</Project>
+      <Name>Google.Maps</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

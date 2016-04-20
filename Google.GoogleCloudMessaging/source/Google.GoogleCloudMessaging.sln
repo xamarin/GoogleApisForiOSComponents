@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.Core", "..\..\Google.Core\source\Google.Core\Google.Core.csproj", "{C2355333-621E-4439-9F53-EB717D681699}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.GoogleCloudMessaging", "Google.GoogleCloudMessaging\Google.GoogleCloudMessaging.csproj", "{DF2DF651-439D-4797-9AD3-347DC364BD8C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2355333-621E-4439-9F53-EB717D681699}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2355333-621E-4439-9F53-EB717D681699}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2355333-621E-4439-9F53-EB717D681699}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2355333-621E-4439-9F53-EB717D681699}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF2DF651-439D-4797-9AD3-347DC364BD8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF2DF651-439D-4797-9AD3-347DC364BD8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF2DF651-439D-4797-9AD3-347DC364BD8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF2DF651-439D-4797-9AD3-347DC364BD8C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

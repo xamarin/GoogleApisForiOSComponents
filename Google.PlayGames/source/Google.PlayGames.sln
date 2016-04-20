@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.PlayGames", "Google.PlayGames\Google.PlayGames.csproj", "{91F95F4D-3436-4966-B6D4-E92BA4CCB872}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.Core", "..\..\Google.Core\source\Google.Core\Google.Core.csproj", "{C2355333-621E-4439-9F53-EB717D681699}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.SignIn", "..\..\Google.SignIn\source\Google.SignIn\Google.SignIn.csproj", "{3C142652-0DF6-4919-9F58-0FD8FA3A9F6D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C142652-0DF6-4919-9F58-0FD8FA3A9F6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C142652-0DF6-4919-9F58-0FD8FA3A9F6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C142652-0DF6-4919-9F58-0FD8FA3A9F6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C142652-0DF6-4919-9F58-0FD8FA3A9F6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91F95F4D-3436-4966-B6D4-E92BA4CCB872}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91F95F4D-3436-4966-B6D4-E92BA4CCB872}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91F95F4D-3436-4966-B6D4-E92BA4CCB872}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91F95F4D-3436-4966-B6D4-E92BA4CCB872}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2355333-621E-4439-9F53-EB717D681699}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2355333-621E-4439-9F53-EB717D681699}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2355333-621E-4439-9F53-EB717D681699}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2355333-621E-4439-9F53-EB717D681699}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

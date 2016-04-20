@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+		<_GoogleCoreAssemblyName>Google.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleCoreAssemblyName>
+		<_GoogleCoreItemsFolder>GCre-1.3.2</_GoogleCoreItemsFolder>
+		<_GoogleInterchangeUtilitiesItemsFolder>GIntrchngeU-1.1.0</_GoogleInterchangeUtilitiesItemsFolder>
+		<_GoogleNetworkingUtilitiesItemsFolder>GNtwrkngU-1.0.0</_GoogleNetworkingUtilitiesItemsFolder>
+		<_GoogleSymbolUtilitiesItemsFolder>GSymblU-1.0.3</_GoogleSymbolUtilitiesItemsFolder>
+		<_GoogleUtilitiesItemsFolder>GUtls-1.1.0</_GoogleUtilitiesItemsFolder>
+
+	</PropertyGroup>
+
+	<ItemGroup Condition="'$(OutputType)'!='Library'">
+
+		<XamarinBuildDownload Include="$(_GoogleCoreItemsFolder)">
+			<Url>https://www.gstatic.com/cpdc/95afb433bb90f682-Google-1.3.2.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+
+		<XamarinBuildDownload Include="$(_GoogleInterchangeUtilitiesItemsFolder)">
+			<Url>https://www.gstatic.com/cpdc/3815f819980209ed-GoogleInterchangeUtilities-1.1.0.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+
+		<XamarinBuildDownload Include="$(_GoogleNetworkingUtilitiesItemsFolder)">
+			<Url>https://www.gstatic.com/cpdc/d98e8c2a77d2ddaa-GoogleNetworkingUtilities-1.0.0.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+
+		<XamarinBuildDownload Include="$(_GoogleSymbolUtilitiesItemsFolder)">
+			<Url>https://www.gstatic.com/cpdc/a060f37adbad54ea-GoogleSymbolUtilities-1.0.3.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+
+		<XamarinBuildDownload Include="$(_GoogleUtilitiesItemsFolder)">
+			<Url>https://www.gstatic.com/cpdc/69b88f350b4a1272-GoogleUtilities-1.1.0.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+
+		<XamarinBuildRestoreResources Include="_GoogleCoreItems"/>
+	</ItemGroup>
+
+	<Target Name="_GoogleCoreItems">
+		<ItemGroup>
+
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleUtilitiesItemsFolder)\Libraries\libGTM_AddressBook.a">
+				<LogicalName>libGTM_AddressBook.a</LogicalName>
+				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleUtilitiesItemsFolder)\Libraries\libGTM_core.a">
+				<LogicalName>libGTM_core.a</LogicalName>
+				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleUtilitiesItemsFolder)\Libraries\libGTM_DebugUtils.a">
+				<LogicalName>libGTM_DebugUtils.a</LogicalName>
+				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleUtilitiesItemsFolder)\Libraries\libGTM_GTMURLBuilder.a">
+				<LogicalName>libGTM_GTMURLBuilder.a</LogicalName>
+				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleUtilitiesItemsFolder)\Libraries\libGTM_iPhone.a">
+				<LogicalName>libGTM_iPhone.a</LogicalName>
+				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleUtilitiesItemsFolder)\Libraries\libGTM_KVO.a">
+				<LogicalName>libGTM_KVO.a</LogicalName>
+				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleUtilitiesItemsFolder)\Libraries\libGTM_NSData+zlib.a">
+				<LogicalName>libGTM_NSData+zlib.a</LogicalName>
+				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleUtilitiesItemsFolder)\Libraries\libGTM_NSDictionary+URLArguments.a">
+				<LogicalName>libGTM_NSDictionary+URLArguments.a</LogicalName>
+				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleUtilitiesItemsFolder)\Libraries\libGTM_NSScannerJSON.a">
+				<LogicalName>libGTM_NSScannerJSON.a</LogicalName>
+				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleUtilitiesItemsFolder)\Libraries\libGTM_NSStringHTML.a">
+				<LogicalName>libGTM_NSStringHTML.a</LogicalName>
+				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleUtilitiesItemsFolder)\Libraries\libGTM_NSStringXML.a">
+				<LogicalName>libGTM_NSStringXML.a</LogicalName>
+				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleUtilitiesItemsFolder)\Libraries\libGTM_Regex.a">
+				<LogicalName>libGTM_Regex.a</LogicalName>
+				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleUtilitiesItemsFolder)\Libraries\libGTM_RoundedRectPath.a">
+				<LogicalName>libGTM_RoundedRectPath.a</LogicalName>
+				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleUtilitiesItemsFolder)\Libraries\libGTM_StringEncoding.a">
+				<LogicalName>libGTM_StringEncoding.a</LogicalName>
+				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleUtilitiesItemsFolder)\Libraries\libGTM_SystemVersion.a">
+				<LogicalName>libGTM_SystemVersion.a</LogicalName>
+				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleUtilitiesItemsFolder)\Libraries\libGTM_UIFont+LineHeight.a">
+				<LogicalName>libGTM_UIFont+LineHeight.a</LogicalName>
+				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleUtilitiesItemsFolder)\Libraries\libGTMStackTrace.a">
+				<LogicalName>libGTMStackTrace.a</LogicalName>
+				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleSymbolUtilitiesItemsFolder)\Libraries\libGSDK_Overload.a">
+				<LogicalName>libGSDK_Overload.a</LogicalName>
+				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleNetworkingUtilitiesItemsFolder)\Libraries\libGTMSessionFetcher_core.a">
+				<LogicalName>libGTMSessionFetcher_core.a</LogicalName>
+				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleNetworkingUtilitiesItemsFolder)\Libraries\libGTMSessionFetcher_full.a">
+				<LogicalName>libGTMSessionFetcher_full.a</LogicalName>
+				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleCoreItemsFolder)\Libraries\libGGLCore.a">
+				<LogicalName>libGGLCore.a</LogicalName>
+				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleInterchangeUtilitiesItemsFolder)\Libraries\libProtocolBuffers.a">
+				<LogicalName>libProtocolBuffers.a</LogicalName>
+				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+
+		</ItemGroup>
+	</Target>
+
+</Project>

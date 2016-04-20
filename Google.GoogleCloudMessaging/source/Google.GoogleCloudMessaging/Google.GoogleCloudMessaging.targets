@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+		<_GoogleCloudMessagingAssemblyName>Google.GoogleCloudMessaging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleCloudMessagingAssemblyName>
+		<_GoogleCloudMessagingId>GCldMssgng-1.1.2</_GoogleCloudMessagingId>
+		<_GoogleGCMIPhoneUtilitiesId>GIPhnU-1.2.0</_GoogleGCMIPhoneUtilitiesId>
+	</PropertyGroup>
+
+	<ItemGroup Condition="'$(OutputType)'!='Library'">
+		<XamarinBuildRestoreResources Include="_GoogleCloudMessagingItems"/>
+		<XamarinBuildDownload Include="$(_GoogleCloudMessagingId)">
+			<Url>https://www.gstatic.com/cpdc/8068217b5c9c084e-GoogleCloudMessaging-1.1.2.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+
+		<XamarinBuildDownload Include="$(_GoogleGCMIPhoneUtilitiesId)">
+			<Url>https://www.gstatic.com/cpdc/4730cbb3191ed1e7-GoogleIPhoneUtilities-1.2.0.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+	</ItemGroup>
+
+	<Target Name="_GoogleCloudMessagingItems">
+		<ItemGroup>
+
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleCloudMessagingId)\Libraries\libGcmLib.a">
+				<LogicalName>libGcmLib.a</LogicalName>
+				<AssemblyName>$(_GoogleCloudMessagingAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleGCMIPhoneUtilitiesId)\Libraries\libGIP_Locale.a">
+				<LogicalName>libGIP_Locale.a</LogicalName>
+				<AssemblyName>$(_GoogleCloudMessagingAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleGCMIPhoneUtilitiesId)\Libraries\libGIP_Reachability.a">
+				<LogicalName>libGIP_Reachability.a</LogicalName>
+				<AssemblyName>$(_GoogleCloudMessagingAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+
+		</ItemGroup>
+	</Target>
+</Project>
+
+

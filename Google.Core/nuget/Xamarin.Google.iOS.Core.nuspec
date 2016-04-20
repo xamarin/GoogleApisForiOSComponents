@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Xamarin.Google.iOS.Core</id>
+    <title>Google APIs Core iOS Library</title>
+    <version>1.3.2.2</version>
+    <authors>Xamarin Inc.</authors>
+    <owners>Xamarin Inc.</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>C# bindings for Google APIs Core iOS Library</description>
+    <copyright>Copyright 2015-2016</copyright>
+    <projectUrl>https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Google.Core</projectUrl>
+    <licenseUrl>https://github.com/xamarin/GoogleApisForiOSComponents/blob/master/Google.Core/License.md/</licenseUrl>
+    <iconUrl>https://xamarin-component-icons.s3.amazonaws.com/Xamarin.Google.iOS.png</iconUrl>
+    <dependencies>
+      <dependency id="Xamarin.Build.Download" version="0.2.1"/>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="output/Google.Core.dll" target="lib\Xamarin.iOS10" />
+
+    <!-- Add targets file for external native reference download -->
+    <file src="source/Google.Core/Google.Core.targets" target="build\Xamarin.Google.iOS.Core.targets"  />
+  </files>
+</package>

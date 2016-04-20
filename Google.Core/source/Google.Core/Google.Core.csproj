@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{C2355333-621E-4439-9F53-EB717D681699}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Google.Core</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>Google.Core</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="libGTM_AddressBook.linkwith.cs">
+      <DependentUpon>libGTM_AddressBook.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_core.linkwith.cs">
+      <DependentUpon>libGTM_core.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_DebugUtils.linkwith.cs">
+      <DependentUpon>libGTM_DebugUtils.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_GTMURLBuilder.linkwith.cs">
+      <DependentUpon>libGTM_GTMURLBuilder.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_iPhone.linkwith.cs">
+      <DependentUpon>libGTM_iPhone.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_KVO.linkwith.cs">
+      <DependentUpon>libGTM_KVO.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_NSData+zlib.linkwith.cs">
+      <DependentUpon>libGTM_NSData+zlib.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_NSDictionary+URLArguments.linkwith.cs">
+      <DependentUpon>libGTM_NSDictionary+URLArguments.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_NSScannerJSON.linkwith.cs">
+      <DependentUpon>libGTM_NSScannerJSON.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_NSStringHTML.linkwith.cs">
+      <DependentUpon>libGTM_NSStringHTML.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_NSStringXML.linkwith.cs">
+      <DependentUpon>libGTM_NSStringXML.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_Regex.linkwith.cs">
+      <DependentUpon>libGTM_Regex.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_RoundedRectPath.linkwith.cs">
+      <DependentUpon>libGTM_RoundedRectPath.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_StringEncoding.linkwith.cs">
+      <DependentUpon>libGTM_StringEncoding.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_SystemVersion.linkwith.cs">
+      <DependentUpon>libGTM_SystemVersion.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_UIFont+LineHeight.linkwith.cs">
+      <DependentUpon>libGTM_UIFont+LineHeight.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTMStackTrace.linkwith.cs">
+      <DependentUpon>libGTMStackTrace.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGSDK_Overload.linkwith.cs">
+      <DependentUpon>libGSDK_Overload.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTMSessionFetcher_core.linkwith.cs">
+      <DependentUpon>libGTMSessionFetcher_core.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTMSessionFetcher_full.linkwith.cs">
+      <DependentUpon>libGTMSessionFetcher_full.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGGLCore.linkwith.cs">
+      <DependentUpon>libGGLCore.a</DependentUpon>
+    </Compile>
+    <Compile Include="Loader.cs" />
+    <Compile Include="libProtocolBuffers.linkwith.cs">
+      <DependentUpon>libProtocolBuffers.a</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
+  <ItemGroup>
+    <None Include="Google.Core.targets" />
+  </ItemGroup>
+</Project>

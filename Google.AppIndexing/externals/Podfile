@@ -1,0 +1,6 @@
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '9.0'
+pod 'GoogleAppIndexing', '2.0.2'
+
