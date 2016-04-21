@@ -24,6 +24,13 @@ namespace Google.Maps
 		None
 	}
 
+	public enum FrameRate
+	{
+		PowerSave,
+		Conservative,
+		Maximum,
+	}
+
 	[Native]
 	public enum PlacesAutocompleteTypeFilter : long
 	{

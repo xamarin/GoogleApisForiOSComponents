@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.Google.iOS.InstanceID</id>
     <title>Google APIs Instance ID iOS Library</title>
-    <version>1.1.4.2</version>
+    <version>1.1.6.0</version>
     <authors>Xamarin Inc.</authors>
     <owners>Xamarin Inc.</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -14,7 +14,7 @@
     <iconUrl>https://xamarin-component-icons.s3.amazonaws.com/Xamarin.Google.iOS.png</iconUrl>
     <dependencies>
       <dependency id="Xamarin.Build.Download" version="0.2.1"/>
-      <dependency id="Xamarin.Google.iOS.Core" version="1.3.2.2"/>
+      <dependency id="Xamarin.Google.iOS.Core" version="2.0.3.0"/>
     </dependencies>
   </metadata>
   <files>

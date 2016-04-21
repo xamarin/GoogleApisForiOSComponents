@@ -1,4 +1,4 @@
-version: 1.0.2.2
+version: 1.0.2.3
 name: Google App Invites for iOS
 id: googleiosappinvite
 publisher: Xamarin Inc.
@@ -17,7 +17,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Google.iOS.AppInvite, Version=1.0.2.2
+    - Xamarin.Google.iOS.AppInvite, Version=1.0.2.3
 samples:
   - name: "AppInvite Sample"
     path:  ../samples/AppInviteSample/AppInviteSample.sln

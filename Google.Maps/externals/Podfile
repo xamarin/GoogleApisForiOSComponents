@@ -1,4 +1,4 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '7.0'
-pod 'GoogleMaps', '1.11.1'
+pod 'GoogleMaps', '1.13.0'

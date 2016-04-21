@@ -1,27 +1,22 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-
 	<PropertyGroup>
 		<_GoogleAppIndexingAssemblyName>Google.AppIndexing, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleAppIndexingAssemblyName>
-		<_GoogleAppIndexingItemsFolder>GAppIndxng-2.0.2</_GoogleAppIndexingItemsFolder>
+		<_GoogleAppIndexingItemsFolder>GAppIndxng-2.0.3</_GoogleAppIndexingItemsFolder>
 	</PropertyGroup>
-
 	<ItemGroup Condition="'$(OutputType)'!='Library'">
 		<XamarinBuildDownload Include="$(_GoogleAppIndexingItemsFolder)">
-			<Url>https://www.gstatic.com/cpdc/f4087bb21bf46c7e-GoogleAppIndexing-2.0.2.tar.gz</Url>
+			<Url>https://www.gstatic.com/cpdc/ff375df7e304b800-GoogleAppIndexing-2.0.3.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
-		<XamarinBuildRestoreResources Include="_GoogleAppIndexingItems"/>
+		<XamarinBuildRestoreResources Include="_GoogleAppIndexingItems" />
 	</ItemGroup>
-
 	<Target Name="_GoogleAppIndexingItems">
 		<ItemGroup>
-
 			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Frameworks\GoogleAppIndexing.framework\GoogleAppIndexing">
 				<LogicalName>GoogleAppIndexing</LogicalName>
 				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-
 			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\Info.plist">
 				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fInfo.plist</LogicalName>
 				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
@@ -166,9 +161,6 @@
 				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fzh-TW.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-
-
 		</ItemGroup>
 	</Target>
-
 </Project>
