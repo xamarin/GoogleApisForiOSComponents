@@ -54,6 +54,13 @@ Before the `.sln` files will compile in Xamarin Studio, the external dependencie
 The license for this repository is specified in 
 [License.md](License.md)
 
+## Contribution Guidelines
+
+You will need to complete a Contribution License Agreement before your pull request can be accepted. You can complete the CLA by going through the steps at [https://cla2.dotnetfoundation.org/][63].
+
+## .NET Foundation
+This project is part of the [.NET Foundation][64]
+
 
 [1]: Google.Analytics
 [2]: Google.AppIndexing
@@ -95,4 +102,6 @@ The license for this repository is specified in
 
 [61]: https://cocoapods.org/
 [62]: http://cakebuild.net
+[63]: https://cla2.dotnetfoundation.org/
+[64]:http://www.dotnetfoundation.org/projects
 
