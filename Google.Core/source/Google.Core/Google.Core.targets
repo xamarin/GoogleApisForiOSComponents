@@ -58,7 +58,7 @@
 				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleUtilitiesItemsFolder)\Libraries\libGTM_NSData+zlib.a">
-				<LogicalName>libGTM_NSData+zlib_external.a</LogicalName>
+				<LogicalName>libGTM_NSData+zlib.a</LogicalName>
 				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleUtilitiesItemsFolder)\Libraries\libGTM_NSDictionary+URLArguments_external.a">
