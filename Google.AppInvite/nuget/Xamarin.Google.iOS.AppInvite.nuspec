@@ -14,7 +14,7 @@
     <iconUrl>https://xamarin-component-icons.s3.amazonaws.com/Xamarin.Google.iOS.png</iconUrl>
     <dependencies>
       <dependency id="Xamarin.Build.Download" version="0.2.1"/>
-      <dependency id="Xamarin.Google.iOS.Core" version="2.0.3.0"/>
+      <dependency id="Xamarin.Google.iOS.Core" version="2.0.4.0"/>
       <dependency id="Xamarin.Google.iOS.SignIn" version="2.4.0.3"/>
     </dependencies>
   </metadata>
