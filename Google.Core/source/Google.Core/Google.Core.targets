@@ -6,7 +6,7 @@
 		<_GoogleInterchangeUtilitiesItemsFolder>GIntrchngeU-1.2.0</_GoogleInterchangeUtilitiesItemsFolder>
 		<_GoogleNetworkingUtilitiesItemsFolder>GNtwrkngU-1.2.0</_GoogleNetworkingUtilitiesItemsFolder>
 		<_GoogleSymbolUtilitiesItemsFolder>GSymblU-1.1.0</_GoogleSymbolUtilitiesItemsFolder>
-		<_GoogleUtilitiesItemsFolder>GUtls-1.2.0</_GoogleUtilitiesItemsFolder>
+		<_GoogleUtilitiesItemsFolder>GUtls-1.3.0</_GoogleUtilitiesItemsFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="'$(OutputType)'!='Library'">
 		<XamarinBuildDownload Include="$(_GoogleCoreItemsFolder)">
