@@ -8,13 +8,13 @@ using CoreGraphics;
 namespace Google.SignIn
 {
 	// typedef void (^GIDAuthenticationHandler)(GIDAuthentication *authentication, NSError *error);
-	delegate void AuthenticationHandler (Authentication authentication,NSError error);
+	delegate void AuthenticationHandler (Authentication authentication, NSError error);
 
 	// typedef void (^GIDAccessTokenHandler)(NSString *, NSError *);
-	delegate void AccessTokenHandler (string accessToken,NSError error);
+	delegate void AccessTokenHandler (string accessToken, NSError error);
 
 	// @interface GIDAuthentication : NSObject <NSCoding>
-	[BaseType (typeof(NSObject), Name = "GIDAuthentication")]
+	[BaseType (typeof (NSObject), Name = "GIDAuthentication")]
 	interface Authentication : INSCoding
 	{
 		// @property (readonly, nonatomic) NSString * clientID;
@@ -65,7 +65,7 @@ namespace Google.SignIn
 	}
 
 	// @interface GIDGoogleUser : NSObject <NSCoding>
-	[BaseType (typeof(NSObject), Name = "GIDGoogleUser")]
+	[BaseType (typeof (NSObject), Name = "GIDGoogleUser")]
 	interface GoogleUser : INSCoding
 	{
 		// @property (readonly, nonatomic) NSString * userID;
@@ -82,7 +82,7 @@ namespace Google.SignIn
 
 		// @property (readonly, nonatomic) NSArray * accessibleScopes;
 		[Export ("accessibleScopes")]
-		string[] AccessibleScopes { get; }
+		string [] AccessibleScopes { get; }
 
 		// @property (readonly, nonatomic) NSString * hostedDomain;
 		[Export ("hostedDomain")]
@@ -94,7 +94,7 @@ namespace Google.SignIn
 	}
 
 	// @interface GIDProfileData : NSObject <NSCoding>
-	[BaseType (typeof(NSObject), Name = "GIDProfileData")]
+	[BaseType (typeof (NSObject), Name = "GIDProfileData")]
 	interface ProfileData : INSCoding
 	{
 		// @property (readonly, nonatomic) NSString * email;
@@ -104,6 +104,14 @@ namespace Google.SignIn
 		// @property (readonly, nonatomic) NSString * name;
 		[Export ("name")]
 		string Name { get; }
+
+		// @property(nonatomic, readonly) NSString *givenName;
+		[Export ("givenName")]
+		string GivenName { get; }
+
+		// @property(nonatomic, readonly) NSString *familyName;
+		[Export ("familyName")]
+		string FamilyName { get; }
 
 		// @property (readonly, nonatomic) BOOL hasImage;
 		[Export ("hasImage")]
@@ -121,7 +129,7 @@ namespace Google.SignIn
 
 	// @protocol GIDSignInDelegate
 	[Protocol, Model]
-	[BaseType (typeof(NSObject), Name = "GIDSignInDelegate")]
+	[BaseType (typeof (NSObject), Name = "GIDSignInDelegate")]
 	interface SignInDelegate
 	{
 		// @required -(void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error;
@@ -145,7 +153,7 @@ namespace Google.SignIn
 
 	// @protocol GIDSignInUIDelegate <NSObject>
 	[Protocol, Model]
-	[BaseType (typeof(NSObject), Name = "GIDSignInUIDelegate")]
+	[BaseType (typeof (NSObject), Name = "GIDSignInUIDelegate")]
 	interface SignInUIDelegate
 	{
 		// @optional -(void)signInWillDispatch:(GIDSignIn *)signIn error:(NSError *)error;
@@ -162,10 +170,10 @@ namespace Google.SignIn
 	}
 
 	// @interface GIDSignIn : NSObject
-	[BaseType (typeof(NSObject), 
+	[BaseType (typeof (NSObject),
 		Name = "GIDSignIn",
-		Delegates = new string[] { "Delegate" },
-		Events = new Type[] { typeof(SignInDelegate) })]
+		Delegates = new string [] { "Delegate" },
+		Events = new Type [] { typeof (SignInDelegate) })]
 	interface SignIn
 	{
 		// extern NSString *const kGIDSignInErrorDomain;
@@ -190,7 +198,7 @@ namespace Google.SignIn
 
 		// @property (copy, nonatomic) NSArray * scopes;
 		[Export ("scopes", ArgumentSemantic.Copy)]
-		string[] Scopes { get; set; }
+		string [] Scopes { get; set; }
 
 		// @property (assign, nonatomic) BOOL shouldFetchBasicProfile;
 		[Export ("shouldFetchBasicProfile")]
@@ -207,6 +215,10 @@ namespace Google.SignIn
 		// @property (copy, nonatomic) NSString * language;
 		[Export ("language")]
 		string Language { get; set; }
+
+		// @property(nonatomic, copy) NSString *loginHint;
+		[Export ("loginHint")]
+		string LoginHint { get; set; }
 
 		// @property (copy, nonatomic) NSString * serverClientID;
 		[Export ("serverClientID")]
@@ -256,7 +268,7 @@ namespace Google.SignIn
 	}
 
 	// @interface GIDSignInButton : UIControl
-	[BaseType (typeof(UIControl), Name = "GIDSignInButton")]
+	[BaseType (typeof (UIControl), Name = "GIDSignInButton")]
 	interface SignInButton
 	{
 		// @property (assign, nonatomic) GIDSignInButtonStyle style;
@@ -266,20 +278,6 @@ namespace Google.SignIn
 		// @property (assign, nonatomic) GIDSignInButtonColorScheme colorScheme;
 		[Export ("colorScheme", ArgumentSemantic.Assign)]
 		ButtonColorScheme ColorScheme { get; set; }
-
-		// @property (nonatomic, weak) UIViewController * delegate;
-		[NullAllowed, Export ("delegate", ArgumentSemantic.Weak)]
-		UIViewController Delegate { get; set; }
-	}
-
-	// @interface GIDSignIn (UIViewController)
-	[Category]
-	[BaseType (typeof(UIViewController))]
-	interface UIViewController_GIDSignIn
-	{
-		// -(void)gid_signInWithGoogle;
-		[Export ("gid_signInWithGoogle")]
-		void SignInWithGoogle ();
 	}
 }
 

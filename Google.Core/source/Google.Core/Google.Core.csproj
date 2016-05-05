@@ -64,8 +64,8 @@
     <Compile Include="libGTM_KVO_external.linkwith.cs">
       <DependentUpon>libGTM_KVO_external.a</DependentUpon>
     </Compile>
-    <Compile Include="libGTM_NSData+zlib_external.linkwith.cs">
-      <DependentUpon>libGTM_NSData+zlib_external.a</DependentUpon>
+    <Compile Include="libGTM_NSData+zlib.linkwith.cs">
+      <DependentUpon>libGTM_NSData+zlib.a</DependentUpon>
     </Compile>
     <Compile Include="libGTM_NSDictionary+URLArguments_external.linkwith.cs">
       <DependentUpon>libGTM_NSDictionary+URLArguments_external.a</DependentUpon>

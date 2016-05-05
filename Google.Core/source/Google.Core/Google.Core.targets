@@ -2,15 +2,15 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_GoogleCoreAssemblyName>Google.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleCoreAssemblyName>
-		<_GoogleCoreItemsFolder>GCre-2.0.3</_GoogleCoreItemsFolder>
+		<_GoogleCoreItemsFolder>GCre-2.0.4</_GoogleCoreItemsFolder>
 		<_GoogleInterchangeUtilitiesItemsFolder>GIntrchngeU-1.2.0</_GoogleInterchangeUtilitiesItemsFolder>
 		<_GoogleNetworkingUtilitiesItemsFolder>GNtwrkngU-1.2.0</_GoogleNetworkingUtilitiesItemsFolder>
 		<_GoogleSymbolUtilitiesItemsFolder>GSymblU-1.1.0</_GoogleSymbolUtilitiesItemsFolder>
-		<_GoogleUtilitiesItemsFolder>GUtls-1.2.0</_GoogleUtilitiesItemsFolder>
+		<_GoogleUtilitiesItemsFolder>GUtls-1.3.0</_GoogleUtilitiesItemsFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="'$(OutputType)'!='Library'">
 		<XamarinBuildDownload Include="$(_GoogleCoreItemsFolder)">
-			<Url>https://www.gstatic.com/cpdc/a96d915a636d0afb-Google-2.0.3.tar.gz</Url>
+			<Url>https://www.gstatic.com/cpdc/a96d915a636d0afb-Google-2.0.4.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildDownload Include="$(_GoogleInterchangeUtilitiesItemsFolder)">
@@ -26,7 +26,7 @@
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildDownload Include="$(_GoogleUtilitiesItemsFolder)">
-			<Url>https://www.gstatic.com/cpdc/5a907179e75e34cf-GoogleUtilities-1.2.0.tar.gz</Url>
+			<Url>https://www.gstatic.com/cpdc/5a907179e75e34cf-GoogleUtilities-1.3.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildRestoreResources Include="_GoogleCoreItems" />
@@ -57,8 +57,8 @@
 				<LogicalName>libGTM_KVO_external.a</LogicalName>
 				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleUtilitiesItemsFolder)\Libraries\libGTM_NSData+zlib_external.a">
-				<LogicalName>libGTM_NSData+zlib_external.a</LogicalName>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleUtilitiesItemsFolder)\Libraries\libGTM_NSData+zlib.a">
+				<LogicalName>libGTM_NSData+zlib.a</LogicalName>
 				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleUtilitiesItemsFolder)\Libraries\libGTM_NSDictionary+URLArguments_external.a">

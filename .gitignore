@@ -6,3 +6,4 @@ tools
 externals
 tmp-nugets
 *.designer.cs
+*.userprefs

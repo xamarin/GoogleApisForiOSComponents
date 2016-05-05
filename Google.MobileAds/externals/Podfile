@@ -5,5 +5,5 @@ xcodeproj 'FieldExporter/GADFieldExporter.xcodeproj'
 platform :ios, '6.0'
 
 target 'GADFieldExporter' do
-  pod 'Google-Mobile-Ads-SDK', '7.6.0'
+  pod 'GoogleMobileAds', '7.7.1'
 end

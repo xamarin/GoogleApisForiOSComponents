@@ -1,58 +1,48 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-
 	<PropertyGroup>
 		<_GoogleSignInAssemblyName>Google.SignIn, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleSignInAssemblyName>
-		<_GoogleAppUtilitiesItemsFolder>GAppUtls-1.0.0</_GoogleAppUtilitiesItemsFolder>
-		<_GoogleAuthUtilitiesItemsFolder>GAthUtls-1.0.1</_GoogleAuthUtilitiesItemsFolder>
-		<_GoogleSignInItemsFolder>GSgnIn-2.4.0</_GoogleSignInItemsFolder>
-
+		<_GoogleAppUtilitiesItemsFolder>GAppUtls-1.1.0</_GoogleAppUtilitiesItemsFolder>
+		<_GoogleAuthUtilitiesItemsFolder>GAthUtls-2.0.0</_GoogleAuthUtilitiesItemsFolder>
+		<_GoogleSignInItemsFolder>GSgnIn-3.0.0</_GoogleSignInItemsFolder>
 	</PropertyGroup>
-
 	<ItemGroup Condition="'$(OutputType)'!='Library'">
-
 		<XamarinBuildDownload Include="$(_GoogleAppUtilitiesItemsFolder)">
-			<Url>https://www.gstatic.com/cpdc/6637f16866269276-GoogleAppUtilities-1.0.0.tar.gz</Url>
+			<Url>https://www.gstatic.com/cpdc/af37423bd94071ef-GoogleAppUtilities-1.1.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
-
 		<XamarinBuildDownload Include="$(_GoogleAuthUtilitiesItemsFolder)">
-			<Url>https://www.gstatic.com/cpdc/5fc4042ed8538ea9-GoogleAuthUtilities-1.0.1.tar.gz</Url>
+			<Url>https://www.gstatic.com/cpdc/69fbda2288e82105-GoogleAuthUtilities-2.0.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
-
 		<XamarinBuildDownload Include="$(_GoogleSignInItemsFolder)">
-			<Url>https://www.gstatic.com/cpdc/aabd2805ac7a9ef2-GoogleSignIn-2.4.0.tar.gz</Url>
+			<Url>https://www.gstatic.com/cpdc/7f66fc472e8b5701-GoogleSignIn-3.0.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
-
-		<XamarinBuildRestoreResources Include="_GoogleSignInItems"/>
+		<XamarinBuildRestoreResources Include="_GoogleSignInItems" />
 	</ItemGroup>
-
 	<Target Name="_GoogleSignInItems">
 		<ItemGroup>
-
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppUtilitiesItemsFolder)\Libraries\libOpenInChrome.a">
-				<LogicalName>libOpenInChrome.a</LogicalName>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppUtilitiesItemsFolder)\Libraries\libOpenInChrome_external.a">
+				<LogicalName>libOpenInChrome_external.a</LogicalName>
 				<AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAuthUtilitiesItemsFolder)\Libraries\libGTMOAuth2_external.a">
-				<LogicalName>libGTMOAuth2_external.a</LogicalName>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAuthUtilitiesItemsFolder)\Libraries\libGTMOAuth2_external_external.a">
+				<LogicalName>libGTMOAuth2_external_external.a</LogicalName>
 				<AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAuthUtilitiesItemsFolder)\Libraries\libGTMOAuth2_internal.a">
-				<LogicalName>libGTMOAuth2_internal.a</LogicalName>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAuthUtilitiesItemsFolder)\Libraries\libGTMOAuth2_internal_external.a">
+				<LogicalName>libGTMOAuth2_internal_external.a</LogicalName>
 				<AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleSignInItemsFolder)\Libraries\libSignIn.a">
-				<LogicalName>libSignIn.a</LogicalName>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleSignInItemsFolder)\Libraries\libSignIn_external.a">
+				<LogicalName>libSignIn_external.a</LogicalName>
 				<AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleSignInItemsFolder)\Libraries\libGIPNSURL+FIFE.a">
-				<LogicalName>libGIPNSURL+FIFE.a</LogicalName>
+			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleSignInItemsFolder)\Libraries\libGIPNSURL+FIFE_external.a">
+				<LogicalName>libGIPNSURL+FIFE_external.a</LogicalName>
 				<AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-
 			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleSignInItemsFolder)\Resources\GoogleSignIn.bundle\Info.plist">
 				<LogicalName>__monotouch_content_GoogleSignIn.bundle_fInfo.plist</LogicalName>
 				<AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
@@ -229,8 +219,6 @@
 				<LogicalName>__monotouch_content_GoogleSignIn.bundle_fzh__TW.lproj_fGoogleSignIn.strings</LogicalName>
 				<AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-
 		</ItemGroup>
 	</Target>
-
 </Project>
