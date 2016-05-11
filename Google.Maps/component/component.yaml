@@ -1,4 +1,4 @@
-version: 1.11.1.2
+version: 1.13.1.0
 name: Google Maps for iOS
 id: googleiosmaps
 publisher: Xamarin Inc.
@@ -15,7 +15,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Google.iOS.Maps, Version=1.11.1.2
+    - Xamarin.Google.iOS.Maps, Version=1.13.1.0
 samples:
   - name: "Google Maps Sample"
     path:  ../samples/GoogleMapsSample/GoogleMapsSample.sln

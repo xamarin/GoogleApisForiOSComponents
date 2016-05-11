@@ -39,72 +39,72 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="libGTM_AddressBook.linkwith.cs">
-      <DependentUpon>libGTM_AddressBook.a</DependentUpon>
-    </Compile>
-    <Compile Include="libGTM_core.linkwith.cs">
-      <DependentUpon>libGTM_core.a</DependentUpon>
-    </Compile>
-    <Compile Include="libGTM_DebugUtils.linkwith.cs">
-      <DependentUpon>libGTM_DebugUtils.a</DependentUpon>
-    </Compile>
-    <Compile Include="libGTM_GTMURLBuilder.linkwith.cs">
-      <DependentUpon>libGTM_GTMURLBuilder.a</DependentUpon>
-    </Compile>
-    <Compile Include="libGTM_iPhone.linkwith.cs">
-      <DependentUpon>libGTM_iPhone.a</DependentUpon>
-    </Compile>
-    <Compile Include="libGTM_KVO.linkwith.cs">
-      <DependentUpon>libGTM_KVO.a</DependentUpon>
-    </Compile>
-    <Compile Include="libGTM_NSData+zlib.linkwith.cs">
-      <DependentUpon>libGTM_NSData+zlib.a</DependentUpon>
-    </Compile>
-    <Compile Include="libGTM_NSDictionary+URLArguments.linkwith.cs">
-      <DependentUpon>libGTM_NSDictionary+URLArguments.a</DependentUpon>
-    </Compile>
-    <Compile Include="libGTM_NSScannerJSON.linkwith.cs">
-      <DependentUpon>libGTM_NSScannerJSON.a</DependentUpon>
-    </Compile>
-    <Compile Include="libGTM_NSStringHTML.linkwith.cs">
-      <DependentUpon>libGTM_NSStringHTML.a</DependentUpon>
-    </Compile>
-    <Compile Include="libGTM_NSStringXML.linkwith.cs">
-      <DependentUpon>libGTM_NSStringXML.a</DependentUpon>
-    </Compile>
-    <Compile Include="libGTM_Regex.linkwith.cs">
-      <DependentUpon>libGTM_Regex.a</DependentUpon>
-    </Compile>
-    <Compile Include="libGTM_RoundedRectPath.linkwith.cs">
-      <DependentUpon>libGTM_RoundedRectPath.a</DependentUpon>
-    </Compile>
-    <Compile Include="libGTM_StringEncoding.linkwith.cs">
-      <DependentUpon>libGTM_StringEncoding.a</DependentUpon>
-    </Compile>
-    <Compile Include="libGTM_SystemVersion.linkwith.cs">
-      <DependentUpon>libGTM_SystemVersion.a</DependentUpon>
-    </Compile>
-    <Compile Include="libGTM_UIFont+LineHeight.linkwith.cs">
-      <DependentUpon>libGTM_UIFont+LineHeight.a</DependentUpon>
-    </Compile>
-    <Compile Include="libGTMStackTrace.linkwith.cs">
-      <DependentUpon>libGTMStackTrace.a</DependentUpon>
-    </Compile>
-    <Compile Include="libGSDK_Overload.linkwith.cs">
-      <DependentUpon>libGSDK_Overload.a</DependentUpon>
-    </Compile>
-    <Compile Include="libGTMSessionFetcher_core.linkwith.cs">
-      <DependentUpon>libGTMSessionFetcher_core.a</DependentUpon>
-    </Compile>
-    <Compile Include="libGTMSessionFetcher_full.linkwith.cs">
-      <DependentUpon>libGTMSessionFetcher_full.a</DependentUpon>
-    </Compile>
     <Compile Include="libGGLCore.linkwith.cs">
       <DependentUpon>libGGLCore.a</DependentUpon>
     </Compile>
     <Compile Include="Loader.cs" />
-    <Compile Include="libProtocolBuffers.linkwith.cs">
-      <DependentUpon>libProtocolBuffers.a</DependentUpon>
+    <Compile Include="libGSDK_Overload_external.linkwith.cs">
+      <DependentUpon>libGSDK_Overload_external.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_AddressBook_external.linkwith.cs">
+      <DependentUpon>libGTM_AddressBook_external.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_core_external.linkwith.cs">
+      <DependentUpon>libGTM_core_external.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_DebugUtils_external.linkwith.cs">
+      <DependentUpon>libGTM_DebugUtils_external.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_GTMURLBuilder_external.linkwith.cs">
+      <DependentUpon>libGTM_GTMURLBuilder_external.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_iPhone_external.linkwith.cs">
+      <DependentUpon>libGTM_iPhone_external.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_KVO_external.linkwith.cs">
+      <DependentUpon>libGTM_KVO_external.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_NSData+zlib.linkwith.cs">
+      <DependentUpon>libGTM_NSData+zlib.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_NSDictionary+URLArguments_external.linkwith.cs">
+      <DependentUpon>libGTM_NSDictionary+URLArguments_external.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_NSScannerJSON_external.linkwith.cs">
+      <DependentUpon>libGTM_NSScannerJSON_external.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_NSStringHTML_external.linkwith.cs">
+      <DependentUpon>libGTM_NSStringHTML_external.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_NSStringXML_external.linkwith.cs">
+      <DependentUpon>libGTM_NSStringXML_external.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_Regex_external.linkwith.cs">
+      <DependentUpon>libGTM_Regex_external.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_RoundedRectPath_external.linkwith.cs">
+      <DependentUpon>libGTM_RoundedRectPath_external.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_StringEncoding_external.linkwith.cs">
+      <DependentUpon>libGTM_StringEncoding_external.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_SystemVersion_external.linkwith.cs">
+      <DependentUpon>libGTM_SystemVersion_external.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTM_UIFont+LineHeight_external.linkwith.cs">
+      <DependentUpon>libGTM_UIFont+LineHeight_external.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTMSessionFetcher_core_external.linkwith.cs">
+      <DependentUpon>libGTMSessionFetcher_core_external.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTMSessionFetcher_full_external.linkwith.cs">
+      <DependentUpon>libGTMSessionFetcher_full_external.a</DependentUpon>
+    </Compile>
+    <Compile Include="libGTMStackTrace_external.linkwith.cs">
+      <DependentUpon>libGTMStackTrace_external.a</DependentUpon>
+    </Compile>
+    <Compile Include="libProtocolBuffers_external.linkwith.cs">
+      <DependentUpon>libProtocolBuffers_external.a</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

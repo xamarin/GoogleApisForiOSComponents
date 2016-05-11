@@ -1,4 +1,4 @@
-version: 2.0.2.2
+version: 2.0.3.0
 name: Google App Indexing for iOS
 id: googleiosappindexing
 publisher: Xamarin Inc.
@@ -15,7 +15,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Google.iOS.AppIndexing, Version=2.0.2.2
+    - Xamarin.Google.iOS.AppIndexing, Version=2.0.3.0
 samples:
   - name: "AppIndexing Sample"
     path:  ../samples/AppIndexingSample/AppIndexingSample.sln
