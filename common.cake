@@ -53,6 +53,22 @@ Task ("tmp-nuget").IsDependentOn ("libs").Does (() =>
 	PackNuGets (newList.ToArray ());
 });
 
+
+Task ("nuget").IsDependentOn ("libs").IsDependentOn ("nuget-base").Does (() =>
+{
+	var fixer = new FilePath ("../nuget-mono-fix.sh").MakeAbsolute (Context.Environment);
+
+	foreach (var nuget in buildSpec.NuGets) {
+		foreach (var file in GetFiles ("./output/" + nuget.NuSpec.GetFilenameWithoutExtension () + "*.nupkg")) {
+			StartProcess ("/bin/sh",
+				new ProcessSettings {
+					Arguments = string.Format ("{0} {1}", fixer, file),
+				}
+			);
+		}
+	}
+});
+
 Task ("component").IsDependentOn ("nuget").IsDependentOn ("tmp-nuget").IsDependentOn ("component-base");
 
 FilePath GetCakeToolPath ()
