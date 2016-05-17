@@ -7,6 +7,7 @@ src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Googl
 summary: Connect with advertisers and show relevant ads in your app. Users click on ads, you make money.
 icons:
   - icons/googleadmob_128x128.png
+docs-url: https://developers.google.com/admob/
 libraries:
   ios-unified:
     - ../output/Google.MobileAds.dll
