@@ -40,6 +40,10 @@ namespace Google.MobileAds
 		[Static, Export ("kGADAdSizeSmartBannerLandscapeGlobal")]
 		AdSize SmartBannerLandscape { get; }
 
+		[Internal]
+		[Field ("kGADAdSizeFluid", "__Internal")]
+		IntPtr _Fluid { get; }
+
 		[Static, Export ("kGADAdSizeInvalidGlobal")]
 		AdSize Invalid { get; }
 
@@ -535,7 +539,7 @@ namespace Google.MobileAds
 
 	#region Search
 
-	[BaseType (typeof (NSObject), Name = "GADSearchRequest")]
+	[BaseType (typeof (Request), Name = "GADSearchRequest")]
 	interface SearchRequest
 	{
 

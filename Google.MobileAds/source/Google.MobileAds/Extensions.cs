@@ -29,6 +29,7 @@ namespace Google.MobileAds
 			get {
 				IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
 				kGADErrorDomain = (string)Dlfcn.GetStringConstant (RTLD_MAIN_ONLY, "kGADErrorDomain");
+				Dlfcn.dlclose (RTLD_MAIN_ONLY);
 
 				return kGADErrorDomain;
 			}
@@ -37,8 +38,8 @@ namespace Google.MobileAds
 
 				IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
 				IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kGADErrorDomain");
-
 				Marshal.WriteIntPtr (ptr, new NSString (kGADErrorDomain).Handle);
+				Dlfcn.dlclose (RTLD_MAIN_ONLY);
 			}
 		}
 	}
@@ -67,6 +68,21 @@ namespace Google.MobileAds
 
 		[Obsolete ("Use ADAdSizeCons.Skyscraper Instead")]
 		public static readonly CGSize GAD_SIZE_120x600 = AdSizeCons.Skyscraper.Size;
+
+		static AdSize? fluid;
+		public static AdSize Fluid {
+			get {
+				if (fluid != null)
+					return fluid.Value;
+
+				IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
+				IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kGADAdSizeFluid");
+				fluid = (AdSize)Marshal.PtrToStructure (ptr, typeof (AdSize));
+				Dlfcn.dlclose (RTLD_MAIN_ONLY);
+
+				return fluid.Value;
+			}
+		}
 	}
 
 }
@@ -76,7 +92,7 @@ namespace Google.MobileAds.DoubleClick
 	public partial class BannerView : Google.MobileAds.BannerView
 	{
 		[Obsolete ("Use ValidAdSizes property.")]
-		public void SetValidAdSizes (params AdSize[] sizes)
+		public void SetValidAdSizes (params AdSize [] sizes)
 		{
 			if (sizes == null)
 				throw new ArgumentNullException ("sizes");
