@@ -9,7 +9,7 @@ namespace Google.Cast
 {
 	[DisableDefaultCtor]
 	[Protocol]
-	[BaseType (typeof(NSObject))]
+	[BaseType (typeof (NSObject))]
 	interface Constants
 	{
 
@@ -17,7 +17,7 @@ namespace Google.Cast
 		NSString FrameworkVersion { get; }
 	}
 
-	[BaseType (typeof(NSObject), Name = "GCKApplicationMetadata")]
+	[BaseType (typeof (NSObject), Name = "GCKApplicationMetadata")]
 	interface ApplicationMetadata : INSCopying
 	{
 
@@ -43,7 +43,7 @@ namespace Google.Cast
 		NSUrl SenderAppLaunchUrl { get; }
 	}
 
-	[BaseType (typeof(NSObject), Name = "GCKCastChannel")]
+	[BaseType (typeof (NSObject), Name = "GCKCastChannel")]
 	interface CastChannel
 	{
 
@@ -86,7 +86,7 @@ namespace Google.Cast
 	}
 
 	[DisableDefaultCtor]
-	[BaseType (typeof(NSObject), Name = "GCKCastContext")]
+	[BaseType (typeof (NSObject), Name = "GCKCastContext")]
 	interface CastContext
 	{
 
@@ -96,7 +96,7 @@ namespace Google.Cast
 	}
 
 	[DisableDefaultCtor]
-	[BaseType (typeof(NSObject), Name = "GCKColor")]
+	[BaseType (typeof (NSObject), Name = "GCKColor")]
 	interface Color : INSCopying, INSCoding
 	{
 
@@ -163,7 +163,7 @@ namespace Google.Cast
 		Color GetWhite ();
 	}
 
-	[BaseType (typeof(NSObject), Name = "GCKDevice")]
+	[BaseType (typeof (NSObject), Name = "GCKDevice")]
 	interface Device : INSCopying, INSCoding
 	{
 
@@ -240,10 +240,10 @@ namespace Google.Cast
 	}
 
 
-	[BaseType (typeof(NSObject),
+	[BaseType (typeof (NSObject),
 		Name = "GCKDeviceManager",
-		Delegates = new string[] { "Delegate" },
-		Events = new Type[] { typeof(DeviceManagerDelegate) })]
+		Delegates = new string [] { "Delegate" },
+		Events = new Type [] { typeof (DeviceManagerDelegate) })]
 	interface DeviceManager
 	{
 
@@ -270,7 +270,8 @@ namespace Google.Cast
 		[Export ("device")]
 		Device Device { get; }
 
-		[Export ("delegate", ArgumentSemantic.Assign)] [NullAllowed]
+		[Export ("delegate", ArgumentSemantic.Assign)]
+		[NullAllowed]
 		IDeviceManagerDelegate Delegate { get; set; }
 
 		[Export ("deviceVolume", ArgumentSemantic.Assign)]
@@ -357,7 +358,7 @@ namespace Google.Cast
 
 	[Protocol]
 	[Model]
-	[BaseType (typeof(NSObject), Name = "GCKDeviceManagerDelegate")]
+	[BaseType (typeof (NSObject), Name = "GCKDeviceManagerDelegate")]
 	interface DeviceManagerDelegate
 	{
 
@@ -448,7 +449,7 @@ namespace Google.Cast
 	}
 
 	[DisableDefaultCtor]
-	[BaseType (typeof(NSObject), Name = "GCKDeviceScanner")]
+	[BaseType (typeof (NSObject), Name = "GCKDeviceScanner")]
 	interface DeviceScanner
 	{
 
@@ -495,7 +496,7 @@ namespace Google.Cast
 
 	[Protocol]
 	[Model]
-	[BaseType (typeof(NSObject), Name = "GCKDeviceScannerListener")]
+	[BaseType (typeof (NSObject), Name = "GCKDeviceScannerListener")]
 	interface DeviceScannerListener
 	{
 
@@ -510,7 +511,7 @@ namespace Google.Cast
 	}
 
 	[DisableDefaultCtor]
-	[BaseType (typeof(NSError), Name = "GCKError")]
+	[BaseType (typeof (NSError), Name = "GCKError")]
 	interface Error
 	{
 
@@ -526,7 +527,7 @@ namespace Google.Cast
 	}
 
 	[DisableDefaultCtor]
-	[BaseType (typeof(NSObject), Name = "GCKFilterCriteria")]
+	[BaseType (typeof (NSObject), Name = "GCKFilterCriteria")]
 	interface FilterCriteria : INSCopying, INSCoding
 	{
 
@@ -537,15 +538,15 @@ namespace Google.Cast
 		[Obsolete ("Use FromRunningApplication (string []) method")]
 		[Static]
 		[Export ("criteriaForRunningApplicationWithID:supportedNamespaces:")]
-		FilterCriteria FromRunningApplication ([NullAllowed] string applicationId, [NullAllowed] string[] supportedNamespaces);
+		FilterCriteria FromRunningApplication ([NullAllowed] string applicationId, [NullAllowed] string [] supportedNamespaces);
 
 		[Static]
 		[Export ("criteriaForRunningApplicationWithSupportedNamespaces:")]
-		FilterCriteria FromRunningApplication ([NullAllowed] string[] supportedNamespaces);
+		FilterCriteria FromRunningApplication ([NullAllowed] string [] supportedNamespaces);
 	}
 
 	[DisableDefaultCtor]
-	[BaseType (typeof(NSObject), Name = "GCKFrameworkResources")]
+	[BaseType (typeof (NSObject), Name = "GCKFrameworkResources")]
 	interface FrameworkResources
 	{
 		[Static]
@@ -568,10 +569,10 @@ namespace Google.Cast
 		UIStoryboard GetNib (string name, NSObject owner, [NullAllowed] NSDictionary objects);
 	}
 
-	[BaseType (typeof(CastChannel),
+	[BaseType (typeof (CastChannel),
 		Name = "GCKGenericChannel",
 		Delegates = new string [] { "Delegate" },
-		Events = new Type [] { typeof(GenericChannelDelegate) })]
+		Events = new Type [] { typeof (GenericChannelDelegate) })]
 	interface GenericChannel
 	{
 
@@ -590,7 +591,7 @@ namespace Google.Cast
 
 	[Model]
 	[Protocol]
-	[BaseType (typeof(NSObject), Name = "GCKGenericChannelDelegate")]
+	[BaseType (typeof (NSObject), Name = "GCKGenericChannelDelegate")]
 	interface GenericChannelDelegate
 	{
 
@@ -611,7 +612,7 @@ namespace Google.Cast
 		void DidDisconnect (GenericChannel channel);
 	}
 
-	[BaseType (typeof(NSObject), Name = "GCKImage")]
+	[BaseType (typeof (NSObject), Name = "GCKImage")]
 	interface Image : INSCopying, INSCoding
 	{
 
@@ -629,7 +630,7 @@ namespace Google.Cast
 	}
 
 	[DisableDefaultCtor]
-	[BaseType (typeof(NSObject), Name = "GCKJSONUtils")]
+	[BaseType (typeof (NSObject), Name = "GCKJSONUtils")]
 	interface JsonUtils
 	{
 
@@ -654,7 +655,7 @@ namespace Google.Cast
 		bool JsonEquals (NSObject actualJson, NSObject expectedJson);
 	}
 
-	[BaseType (typeof(NSObject), Name = "GCKLaunchOptions")]
+	[BaseType (typeof (NSObject), Name = "GCKLaunchOptions")]
 	interface LaunchOptions : INSCopying, INSCoding
 	{
 
@@ -672,7 +673,7 @@ namespace Google.Cast
 	}
 
 	[DisableDefaultCtor]
-	[BaseType (typeof(NSObject), Name = "GCKLogger")]
+	[BaseType (typeof (NSObject), Name = "GCKLogger")]
 	interface Logger
 	{
 
@@ -685,8 +686,8 @@ namespace Google.Cast
 		Logger SharedInstance { get; }
 
 		[Internal]
-		[Export ("logFromFunction:message:")]
-		void _Log ([PlainString] string function, IntPtr arrayParams);
+		[Export ("logFromFunction:message:", IsVariadic = true)]
+		void _Log (IntPtr function, string first, IntPtr subsequent);
 	}
 
 	interface ILoggerDelegate
@@ -696,20 +697,20 @@ namespace Google.Cast
 
 	[Model]
 	[Protocol]
-	[BaseType (typeof(NSObject), Name = "GCKLoggerDelegate")]
+	[BaseType (typeof (NSObject), Name = "GCKLoggerDelegate")]
 	interface LoggerDelegate
 	{
 
 		[Abstract]
 		[Export ("logFromFunction:message:")]
-		void Log ([PlainString] string function, string message);
+		void Log (IntPtr function, string message);
 	}
 
 
-	[BaseType (typeof(CastChannel),
+	[BaseType (typeof (CastChannel),
 		Name = "GCKMediaControlChannel",
-		Delegates = new string[] { "Delegate" },
-		Events = new Type[] { typeof(MediaControlChannelDelegate) })]
+		Delegates = new string [] { "Delegate" },
+		Events = new Type [] { typeof (MediaControlChannelDelegate) })]
 	interface MediaControlChannel
 	{
 
@@ -739,13 +740,13 @@ namespace Google.Cast
 		nint LoadMedia (MediaInformation mediaInfo, bool autoplay, double playPosition, [NullAllowed] NSObject customData);
 
 		[Export ("loadMedia:autoplay:playPosition:activeTrackIDs:")]
-		nint LoadMedia (MediaInformation mediaInfo, bool autoplay, double playPosition, [NullAllowed] NSNumber[] activeTrackIDs);
+		nint LoadMedia (MediaInformation mediaInfo, bool autoplay, double playPosition, [NullAllowed] NSNumber [] activeTrackIDs);
 
 		[Export ("loadMedia:autoplay:playPosition:activeTrackIDs:customData:")]
-		nint LoadMedia (MediaInformation mediaInfo, bool autoplay, double playPosition, [NullAllowed] NSNumber[] activeTrackIDs, [NullAllowed] NSObject customData);
+		nint LoadMedia (MediaInformation mediaInfo, bool autoplay, double playPosition, [NullAllowed] NSNumber [] activeTrackIDs, [NullAllowed] NSObject customData);
 
 		[Export ("setActiveTrackIDs:")]
-		nint SetActiveTrackIDs (NSNumber[] activeTrackIDs);
+		nint SetActiveTrackIDs (NSNumber [] activeTrackIDs);
 
 		[Export ("setTextTrackStyle:")]
 		nint SetTextTrackStyle (MediaTextTrackStyle textTrackStyle);
@@ -778,19 +779,19 @@ namespace Google.Cast
 		nint Seek (double position, MediaControlChannelResumeState resumeState, NSObject customData);
 
 		[Export ("queueLoadItems:startIndex:repeatMode:")]
-		nint QueueLoadItems (MediaQueueItem[] queueItems, nuint startIndex, MediaRepeatMode repeatMode);
+		nint QueueLoadItems (MediaQueueItem [] queueItems, nuint startIndex, MediaRepeatMode repeatMode);
 
 		[Export ("queueLoadItems:startIndex:repeatMode:customData:")]
-		nint QueueLoadItems (MediaQueueItem[] queueItems, nuint startIndex, MediaRepeatMode repeatMode, [NullAllowed] NSObject customData);
+		nint QueueLoadItems (MediaQueueItem [] queueItems, nuint startIndex, MediaRepeatMode repeatMode, [NullAllowed] NSObject customData);
 
 		[Export ("queueLoadItems:startIndex:playPosition:repeatMode:customData:")]
-		nint QueueLoadItems (MediaQueueItem[] queueItems, nuint startIndex, double playPosition, MediaRepeatMode repeatMode, [NullAllowed] NSObject customData);
+		nint QueueLoadItems (MediaQueueItem [] queueItems, nuint startIndex, double playPosition, MediaRepeatMode repeatMode, [NullAllowed] NSObject customData);
 
 		[Export ("queueInsertItems:beforeItemWithID:")]
-		nint QueueInsertItems (MediaQueueItem[] queueItems, nuint beforeItemID);
+		nint QueueInsertItems (MediaQueueItem [] queueItems, nuint beforeItemID);
 
 		[Export ("queueInsertItems:beforeItemWithID:customData:")]
-		nint QueueInsertItems (MediaQueueItem[] queueItems, nuint beforeItemID, NSObject customData);
+		nint QueueInsertItems (MediaQueueItem [] queueItems, nuint beforeItemID, NSObject customData);
 
 		[Export ("queueInsertItem:beforeItemWithID:")]
 		nint QueueInsertItem (MediaQueueItem item, nuint beforeItemID);
@@ -802,10 +803,10 @@ namespace Google.Cast
 		nint QueueInsertItemAndPlay (MediaQueueItem item, nuint beforeItemID, double playPosition, [NullAllowed] NSObject customData);
 
 		[Export ("queueUpdateItems:")]
-		nint QueueUpdateItems (MediaQueueItem[] queueItems);
+		nint QueueUpdateItems (MediaQueueItem [] queueItems);
 
 		[Export ("queueUpdateItems:customData:")]
-		nint QueueUpdateItems (MediaQueueItem[] queueItems, NSObject customData);
+		nint QueueUpdateItems (MediaQueueItem [] queueItems, NSObject customData);
 
 		[Export ("queueRemoveItemsWithIDs:")]
 		nint QueueRemoveItems (NSArray itemIDs);
@@ -817,10 +818,10 @@ namespace Google.Cast
 		nint QueueRemoveItem (nuint itemID);
 
 		[Export ("queueReorderItemsWithIDs:insertBeforeItemWithID:")]
-		nint QueueReorderItems (NSNumber[] queueItemIDs, nuint beforeItemID);
+		nint QueueReorderItems (NSNumber [] queueItemIDs, nuint beforeItemID);
 
 		[Export ("queueReorderItemsWithIDs:insertBeforeItemWithID:customData:")]
-		nint QueueReorderItems (NSNumber[] queueItemIDs, nuint beforeItemID, NSObject customData);
+		nint QueueReorderItems (NSNumber [] queueItemIDs, nuint beforeItemID, NSObject customData);
 
 		[Export ("queueMoveItemWithID:beforeItemWithID:")]
 		nint QueueMoveItem (nuint itemID, nuint beforeItemID);
@@ -872,7 +873,7 @@ namespace Google.Cast
 
 	[Protocol]
 	[Model]
-	[BaseType (typeof(NSObject), Name = "GCKMediaControlChannelDelegate")]
+	[BaseType (typeof (NSObject), Name = "GCKMediaControlChannelDelegate")]
 	interface MediaControlChannelDelegate
 	{
 
@@ -930,7 +931,7 @@ namespace Google.Cast
 	}
 
 	[DisableDefaultCtor]
-	[BaseType (typeof(NSObject), Name = "GCKMediaInformation")]
+	[BaseType (typeof (NSObject), Name = "GCKMediaInformation")]
 	interface MediaInformation : INSCopying
 	{
 
@@ -959,7 +960,7 @@ namespace Google.Cast
 		NSObject CustomData { get; }
 
 		[Export ("initWithContentID:streamType:contentType:metadata:streamDuration:mediaTracks:textTrackStyle:customData:")]
-		IntPtr Constructor (string contentID, MediaStreamType streamType, string contentType, MediaMetadata metadata, double streamDuration, MediaTrack[] mediaTracks, MediaTextTrackStyle textTrackStyle, [NullAllowed] NSObject customData);
+		IntPtr Constructor (string contentID, MediaStreamType streamType, string contentType, MediaMetadata metadata, double streamDuration, MediaTrack [] mediaTracks, MediaTextTrackStyle textTrackStyle, [NullAllowed] NSObject customData);
 
 		[Export ("initWithContentID:streamType:contentType:metadata:streamDuration:customData:")]
 		IntPtr Constructor (string contentID, MediaStreamType streamType, string contentType, MediaMetadata metadata, double streamDuration, [NullAllowed] NSObject customData);
@@ -967,7 +968,7 @@ namespace Google.Cast
 
 	[DisableDefaultCtor]
 	[Protocol]
-	[BaseType (typeof(NSObject), Name = "GCKMetadataKey")]
+	[BaseType (typeof (NSObject), Name = "GCKMetadataKey")]
 	interface MetadataKey
 	{
 
@@ -1032,7 +1033,7 @@ namespace Google.Cast
 		NSString LocationLongitude { get; }
 	}
 
-	[BaseType (typeof(NSObject), Name = "GCKMediaMetadata")]
+	[BaseType (typeof (NSObject), Name = "GCKMediaMetadata")]
 	interface MediaMetadata : INSCopying
 	{
 
@@ -1096,7 +1097,7 @@ namespace Google.Cast
 
 	[DisableDefaultCtor]
 	[Protocol]
-	[BaseType (typeof(NSObject), Name = "GCKMediaCommand")]
+	[BaseType (typeof (NSObject), Name = "GCKMediaCommand")]
 	interface MediaCommand
 	{
 
@@ -1126,7 +1127,7 @@ namespace Google.Cast
 
 	}
 
-	[BaseType (typeof(NSObject), Name = "GCKMediaStatus")]
+	[BaseType (typeof (NSObject), Name = "GCKMediaStatus")]
 	interface MediaStatus : INSCopying
 	{
 
@@ -1192,7 +1193,7 @@ namespace Google.Cast
 		nint QueueIndex (nuint itemID);
 	}
 
-	[BaseType (typeof(NSObject), Name = "GCKMediaTextTrackStyle")]
+	[BaseType (typeof (NSObject), Name = "GCKMediaTextTrackStyle")]
 	interface MediaTextTrackStyle : INSCopying
 	{
 
@@ -1238,7 +1239,7 @@ namespace Google.Cast
 	}
 
 	[DisableDefaultCtor]
-	[BaseType (typeof(NSObject), Name = "GCKMediaTrack")]
+	[BaseType (typeof (NSObject), Name = "GCKMediaTrack")]
 	interface MediaTrack : INSCopying
 	{
 
@@ -1271,7 +1272,7 @@ namespace Google.Cast
 	}
 
 	[Category]
-	[BaseType (typeof(NSDictionary), Name = "GCKTypedValueLookup")]
+	[BaseType (typeof (NSDictionary), Name = "GCKTypedValueLookup")]
 	interface TypedValueLookup
 	{
 
@@ -1327,7 +1328,7 @@ namespace Google.Cast
 		void SetBool (bool value, string key);
 	}
 
-	[BaseType (typeof(NSObject), Name = "GCKSenderApplicationInfo")]
+	[BaseType (typeof (NSObject), Name = "GCKSenderApplicationInfo")]
 	interface SenderApplicationInfo : INSCopying
 	{
 
@@ -1341,7 +1342,7 @@ namespace Google.Cast
 		NSUrl LaunchUrl { get; }
 	}
 
-	[BaseType (typeof(NSObject), Name = "GCKMediaQueueItem")]
+	[BaseType (typeof (NSObject), Name = "GCKMediaQueueItem")]
 	interface MediaQueueItem : INSCopying
 	{
 
@@ -1398,7 +1399,7 @@ namespace Google.Cast
 	}
 
 	[DisableDefaultCtor]
-	[BaseType (typeof(NSObject), Name = "GCKMediaQueueItemBuilder")]
+	[BaseType (typeof (NSObject), Name = "GCKMediaQueueItemBuilder")]
 	interface MediaQueueItemBuilder
 	{
 		//@property(nonatomic, copy, readwrite) GCKMediaInformation *mediaInformation;
@@ -1439,7 +1440,7 @@ namespace Google.Cast
 	}
 
 	[Category]
-	[BaseType (typeof(UIImage))]
+	[BaseType (typeof (UIImage))]
 	interface UIImage_GCKAdditions
 	{
 		// - (UIImage *)gck_imageWithTintColor:(UIColor *)color;
