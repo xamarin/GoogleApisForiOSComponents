@@ -738,16 +738,16 @@ namespace Google.Analytics
 		EcommerceProduct SetVariant (string productVariant);
 
 		[Export ("setPrice:")]
-		EcommerceProduct SetPrice (string productPrice);
+		EcommerceProduct SetPrice (NSNumber productPrice);
 
 		[Export ("setQuantity:")]
-		EcommerceProduct SetQuantity (string productQuantity);
+		EcommerceProduct SetQuantity (NSNumber productQuantity);
 
 		[Export ("setCouponCode:")]
 		EcommerceProduct SetCouponCode (string productCouponCode);
 
 		[Export ("setPosition:")]
-		EcommerceProduct SetPosition (string productPosition);
+		EcommerceProduct SetPosition (NSNumber productPosition);
 
 		[Export ("setCustomDimension:value:")]
 		EcommerceProduct SetCustomDimension (nuint index, string value);
