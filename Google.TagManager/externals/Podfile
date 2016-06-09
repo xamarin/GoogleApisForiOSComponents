@@ -2,5 +2,7 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '6.0'
+install! 'cocoapods', :integrate_targets => false
+
 pod 'GoogleTagManager', '3.15.0'
 

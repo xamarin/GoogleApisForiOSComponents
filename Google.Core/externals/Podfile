@@ -2,5 +2,7 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '7.0'
+install! 'cocoapods', :integrate_targets => false
+
 pod 'Google/Core', '2.0.4'
 pod 'GoogleInterchangeUtilities', '1.2.0'
