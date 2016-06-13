@@ -20,9 +20,9 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="output/Google.TagManager.dll" target="lib\Xamarin.iOS10" />
+    <file src="output/Google.TagManager.dll" target="lib/Xamarin.iOS10" />
 
     <!-- Add targets file for external native reference download -->
-    <file src="source/Google.TagManager/Google.TagManager.targets" target="build\Xamarin.Google.iOS.TagManager.targets"  />
+    <file src="source/Google.TagManager/Google.TagManager.targets" target="build/Xamarin.Google.iOS.TagManager.targets"  />
   </files>
 </package>

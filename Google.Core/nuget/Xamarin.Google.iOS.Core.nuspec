@@ -17,9 +17,9 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="output/Google.Core.dll" target="lib\Xamarin.iOS10" />
+    <file src="output/Google.Core.dll" target="lib/Xamarin.iOS10" />
 
     <!-- Add targets file for external native reference download -->
-    <file src="source/Google.Core/Google.Core.targets" target="build\Xamarin.Google.iOS.Core.targets"  />
+    <file src="source/Google.Core/Google.Core.targets" target="build/Xamarin.Google.iOS.Core.targets"  />
   </files>
 </package>

@@ -17,9 +17,9 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="output/Google.Maps.dll" target="lib\Xamarin.iOS10" />
+    <file src="output/Google.Maps.dll" target="lib/Xamarin.iOS10" />
 
     <!-- Add targets file for external native reference download -->
-    <file src="source/Google.Maps/Google.Maps.targets" target="build\Xamarin.Google.iOS.Maps.targets"  />
+    <file src="source/Google.Maps/Google.Maps.targets" target="build/Xamarin.Google.iOS.Maps.targets"  />
   </files>
 </package>

@@ -18,9 +18,9 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="output/Google.SignIn.dll" target="lib\Xamarin.iOS10" />
+    <file src="output/Google.SignIn.dll" target="lib/Xamarin.iOS10" />
 
     <!-- Add targets file for external native reference download -->
-    <file src="source/Google.SignIn/Google.SignIn.targets" target="build\Xamarin.Google.iOS.SignIn.targets"  />
+    <file src="source/Google.SignIn/Google.SignIn.targets" target="build/Xamarin.Google.iOS.SignIn.targets"  />
   </files>
 </package>
