@@ -1,9 +1,6 @@
-workspace 'GAIFieldExporter'
-xcodeproj 'FieldExporter/GAIFieldExporter.xcodeproj'
+source 'https://github.com/CocoaPods/Specs.git'
+
+install! 'cocoapods', :integrate_targets => false
 
 platform :ios, '5.0'
-install! 'cocoapods'
-
-target 'GAIFieldExporter' do
-  pod 'GoogleAnalytics', '3.14.0'
-end
+pod 'GoogleAnalytics', '3.14.0'
