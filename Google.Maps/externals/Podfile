@@ -1,4 +1,8 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '7.0'
-pod 'GoogleMaps', '1.13.1'
+install! 'cocoapods', :integrate_targets => false
+
+target 'GoogleMaps' do
+	pod 'GoogleMaps', '1.13.1'
+end

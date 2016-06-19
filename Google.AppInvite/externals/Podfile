@@ -2,6 +2,9 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '7.0'
-pod 'AppInvites', '1.0.2'
-pod 'Google/AppInvite', '1.1.0'
+install! 'cocoapods', :integrate_targets => false
 
+target 'GoogleAppInvite' do
+	pod 'AppInvites', '1.0.2'
+	pod 'Google/AppInvite', '1.1.0'
+end
