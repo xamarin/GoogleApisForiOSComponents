@@ -4,6 +4,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '7.0'
 install! 'cocoapods', :integrate_targets => false
 
-pod 'GGLInstanceID', '1.2.1'
-pod 'GoogleIPhoneUtilities', '1.2.0'
-
+target 'GoogleInstanceID' do
+	pod 'GGLInstanceID', '1.2.1'
+	pod 'GoogleIPhoneUtilities', '1.2.0'
+end
