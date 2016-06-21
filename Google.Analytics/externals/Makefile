@@ -3,7 +3,7 @@ POD=pod
 all: Podfile.lock
 
 Podfile.lock:
-	$(POD) --no-integrate install
+	$(POD) install
 
 clean:
 	rm -rf Podfile.lock Pods
