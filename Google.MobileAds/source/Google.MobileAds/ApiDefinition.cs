@@ -11,65 +11,49 @@ namespace Google.MobileAds
 	#region CustomLib
 	// This is a custom class created by me and is not part of Google Admob lib
 	// But it is necesary for this binding to work
-	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "GADFieldExporter")]
+	[Static]
 	interface AdSizeCons
 	{
 
-		[Static, Export ("kGADAdSizeBannerGlobal")]
-		AdSize Banner { get; }
+		[Internal]
+		[Field ("kGADAdSizeBanner", "__Internal")]
+		IntPtr _Banner { get; }
 
-		[Static, Export ("kGADAdSizeLargeBannerGlobal")]
-		AdSize LargeBanner { get; }
+		[Internal]
+		[Field ("kGADAdSizeLargeBanner", "__Internal")]
+		IntPtr _LargeBanner { get; }
 
-		[Static, Export ("kGADAdSizeMediumRectangleGlobal")]
-		AdSize MediumRectangle { get; }
+		[Internal]
+		[Field ("kGADAdSizeMediumRectangle", "__Internal")]
+		IntPtr _MediumRectangle { get; }
 
-		[Static, Export ("kGADAdSizeFullBannerGlobal")]
-		AdSize FullBanner { get; }
+		[Internal]
+		[Field ("kGADAdSizeFullBanner", "__Internal")]
+		IntPtr _FullBanner { get; }
 
-		[Static, Export ("kGADAdSizeLeaderboardGlobal")]
-		AdSize Leaderboard { get; }
+		[Internal]
+		[Field ("kGADAdSizeLeaderboard", "__Internal")]
+		IntPtr _Leaderboard { get; }
 
-		[Static, Export ("kGADAdSizeSkyscraperGlobal")]
-		AdSize Skyscraper { get; }
+		[Internal]
+		[Field ("kGADAdSizeSkyscraper", "__Internal")]
+		IntPtr _Skyscraper { get; }
 
-		[Static, Export ("kGADAdSizeSmartBannerPortraitGlobal")]
-		AdSize SmartBannerPortrait { get; }
+		[Internal]
+		[Field ("kGADAdSizeSmartBannerPortrait", "__Internal")]
+		IntPtr _SmartBannerPortrait { get; }
 
-		[Static, Export ("kGADAdSizeSmartBannerLandscapeGlobal")]
-		AdSize SmartBannerLandscape { get; }
+		[Internal]
+		[Field ("kGADAdSizeSmartBannerLandscape", "__Internal")]
+		IntPtr _SmartBannerLandscape { get; }
 
 		[Internal]
 		[Field ("kGADAdSizeFluid", "__Internal")]
 		IntPtr _Fluid { get; }
 
-		[Static, Export ("kGADAdSizeInvalidGlobal")]
-		AdSize Invalid { get; }
-
-		[Static, Export ("GADAdSizeFromCGSizeGlobal:")]
-		AdSize GetFromCGSize (CGSize size);
-
-		[Static, Export ("GADAdSizeFullWidthPortraitWithHeightGlobal:")]
-		AdSize GetFullWidthPortrait (nfloat height);
-
-		[Static, Export ("GADAdSizeFullWidthLandscapeWithHeightGlobal:")]
-		AdSize GetFullWidthLandscape (nfloat height);
-
-		[Static, Export ("GADAdSize:equalToSizeGlobal:")]
-		bool Equals (AdSize size, AdSize toSize);
-
-		[Static, Export ("CGSizeFromGADAdSizeGlobal:")]
-		CGSize GetCGSize (AdSize size);
-
-		[Static, Export ("isGADAdSizeValidGlobal:")]
-		bool IsAdSizeValid (AdSize size);
-
-		[Static, Export ("NSStringFromGADAdSizeGlobal:")]
-		NSString GetNSString (AdSize size);
-
-		[Static, Export ("NSValueFromGADAdSizeGlobal:")]
-		NSValue GetNSValue (AdSize size);
+		[Internal]
+		[Field ("kGADAdSizeInvalid", "__Internal")]
+		IntPtr _Invalid { get; }
 	}
 	#endregion
 
@@ -333,10 +317,8 @@ namespace Google.MobileAds
 	[BaseType (typeof (NSObject), Name = "GADRequest")]
 	interface Request : INSCopying
 	{
-
-		[Static]
-		[Export ("simulatorID")]
-		NSObject GetSimulatorId ();
+		[Field ("kGADSimulatorID", "__Internal")]
+		NSString SimulatorId { get; }
 
 		[Static]
 		[Export ("request")]
@@ -1911,12 +1893,10 @@ namespace Google.MobileAds.DoubleClick
 	[BaseType (typeof (Google.MobileAds.Request), Name = "DFPRequest")]
 	interface Request
 	{
-
 		[New]
-		[Static]
-		[Export ("simulatorID")]
-		NSObject GetSimulatorId ();
-
+		[Field ("kDFPSimulatorID", "__Internal")]
+		NSString SimulatorId { get; }
+		
 		[Export ("publisherProvidedID", ArgumentSemantic.Copy)]
 		string PublisherProvidedID { get; set; }
 

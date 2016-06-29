@@ -1,4 +1,4 @@
-version: 7.7.1.1
+version: 7.7.1.2
 name: Google Mobile Ads for iOS
 id: googleiosmobileads
 publisher: Xamarin Inc
@@ -14,7 +14,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Google.iOS.MobileAds, Version=7.7.1.1
+    - Xamarin.Google.iOS.MobileAds, Version=7.7.1.2
 samples:
   - name: "Google Mobile Ads AdMob Sample"
     path:  ../samples/MobileAdsExample/MobileAdsExample.sln

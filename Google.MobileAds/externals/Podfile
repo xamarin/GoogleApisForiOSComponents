@@ -1,10 +1,8 @@
 source 'https://github.com/CocoaPods/Specs.git'
-workspace 'GADFieldExporter'
-xcodeproj 'FieldExporter/GADFieldExporter.xcodeproj'
 
 platform :ios, '6.0'
-install! 'cocoapods'
+install! 'cocoapods', :integrate_targets => false
 
-target 'GADFieldExporter' do
+target 'GoogleMobileAds' do
   pod 'GoogleMobileAds', '7.7.1'
 end
