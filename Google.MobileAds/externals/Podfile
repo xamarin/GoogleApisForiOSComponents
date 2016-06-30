@@ -3,6 +3,7 @@ workspace 'GADFieldExporter'
 xcodeproj 'FieldExporter/GADFieldExporter.xcodeproj'
 
 platform :ios, '6.0'
+install! 'cocoapods'
 
 target 'GADFieldExporter' do
   pod 'GoogleMobileAds', '7.7.1'

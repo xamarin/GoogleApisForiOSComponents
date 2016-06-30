@@ -8,7 +8,7 @@ POD=pod
 all: Podfile.lock Info.plist
 
 Podfile.lock :
-	$(POD) --no-integrate install
+	$(POD) install
 
 ### Temporary workaround. Removes the CFBundleExecutable key from Info.plist files that causes Apple rejection.
 Info.plist:

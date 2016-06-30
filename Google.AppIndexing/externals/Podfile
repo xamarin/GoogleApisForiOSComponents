@@ -2,5 +2,8 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '7.0'
-pod 'GoogleAppIndexing', '2.0.3'
+install! 'cocoapods', :integrate_targets => false
 
+target 'GoogleAppIndexing' do
+	pod 'GoogleAppIndexing', '2.0.3'
+end
