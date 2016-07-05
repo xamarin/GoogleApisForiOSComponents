@@ -60,5 +60,7 @@
 	</array>
 	<key>XSLaunchImageAssets</key>
 	<string>Resources/Images.xcassets/LaunchImage-1.launchimage</string>
+	<key>CFBundleName</key>
+	<string>Collect Stars</string>
 </dict>
 </plist>

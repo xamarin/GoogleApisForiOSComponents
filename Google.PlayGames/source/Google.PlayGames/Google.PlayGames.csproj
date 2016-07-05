@@ -42,9 +42,6 @@
     <Compile Include="Loader.cs" />
     <Compile Include="Extras.cs" />
     <Compile Include="PlayGames.linkwith.cs" />
-    <Compile Include="libGPGFieldExporter.linkwith.cs">
-      <DependentUpon>libGPGFieldExporter.a</DependentUpon>
-    </Compile>
     <Compile Include="GoogleOpenSource.linkwith.cs">
       <DependentUpon>GoogleOpenSource</DependentUpon>
     </Compile>
@@ -59,11 +56,6 @@
     <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
-  <ItemGroup>
-    <ObjcBindingNativeLibrary Include="..\..\externals\libGPGFieldExporter.a">
-      <Link>libGPGFieldExporter.a</Link>
-    </ObjcBindingNativeLibrary>
-  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Google.SignIn\source\Google.SignIn\Google.SignIn.csproj">
       <Project>{3C142652-0DF6-4919-9F58-0FD8FA3A9F6D}</Project>

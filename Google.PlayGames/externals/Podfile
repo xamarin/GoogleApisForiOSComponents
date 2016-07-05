@@ -2,8 +2,8 @@ workspace 'GPGFieldExporter'
 xcodeproj 'FieldExporter/GPGFieldExporter.xcodeproj'
 
 platform :ios, '7.0'
-install! 'cocoapods'
+install! 'cocoapods', :integrate_targets => false
 
-target 'GPGFieldExporter' do
+target 'GooglePlayGames' do
   pod 'GooglePlayGames', '5.1.1'
 end

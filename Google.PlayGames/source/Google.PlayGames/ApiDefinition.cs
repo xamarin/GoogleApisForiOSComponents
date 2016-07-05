@@ -6,42 +6,34 @@ using System;
 #region "PlayGameServices"
 namespace Google.Play.GameServices
 {
-	[DisableDefaultCtor]
-	[Protocol]
-	[BaseType (typeof(NSObject), Name = "GPGFieldExporter")]
+	[Static]
 	interface PlayGamesConstants
 	{
+		[Field ("GPGErrorDomain", "__Internal")]
+		NSString ErrorDomain { get; }
 
-		[Static]
-		[Export ("kGPGMultiplayerVariantDefaultExported")]
+		[Field ("kGPGMultiplayerVariantDefault", "__Internal")]
 		int MultiplayerVariantDefault { get; }
 
-		[Static]
-		[Export ("kGPGMultiplayerVariantMinExported")]
+		[Field ("kGPGMultiplayerVariantMin", "__Internal")]
 		int MultiplayerVariantMin { get; }
 
-		[Static]
-		[Export ("kGPGRealTimeMinPlayersExported")]
+		[Field ("kGPGRealTimeMinPlayers", "__Internal")]
 		int RealTimeMinPlayers { get; }
 
-		[Static]
-		[Export ("kGPGRealTimeMaxPlayersExported")]
+		[Field ("kGPGRealTimeMaxPlayers", "__Internal")]
 		int RealTimeMaxPlayers { get; }
 
-		[Static]
-		[Export ("kGPGRealTimeInvalidReliableSendIdExported")]
+		[Field ("kGPGRealTimeInvalidReliableSendId", "__Internal")]
 		int RealTimeInvalidReliableSendId { get; }
 
-		[Static]
-		[Export ("kGPGTurnBasedMinPlayersExported")]
+		[Field ("kGPGTurnBasedMinPlayers", "__Internal")]
 		int TurnBasedMinPlayers { get; }
 
-		[Static]
-		[Export ("kGPGTurnBasedMaxPlayersExported")]
+		[Field ("kGPGTurnBasedMaxPlayers", "__Internal")]
 		int TurnBasedMaxPlayers { get; }
 
-		[Static]
-		[Export ("kGPGTurnBasedParticipantResultPlacingUninitializedExported")]
+		[Field ("kGPGTurnBasedParticipantResultPlacingUninitialized", "__Internal")]
 		int TurnBasedParticipantResultPlacingUninitialized { get; }
 	}
 
