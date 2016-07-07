@@ -21,9 +21,9 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="output/Google.PlayGames.dll" target="lib\Xamarin.iOS10" />
+    <file src="output/Google.PlayGames.dll" target="lib/Xamarin.iOS10" />
 
     <!-- Add targets file for external native reference download -->
-    <file src="source/Google.PlayGames/Google.PlayGames.targets" target="build\Xamarin.Google.iOS.PlayGames.targets"  />
+    <file src="source/Google.PlayGames/Google.PlayGames.targets" target="build/Xamarin.Google.iOS.PlayGames.targets"  />
   </files>
 </package>

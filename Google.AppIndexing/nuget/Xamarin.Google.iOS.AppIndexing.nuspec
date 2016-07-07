@@ -17,9 +17,9 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="output/Google.AppIndexing.dll" target="lib\Xamarin.iOS10" />
+    <file src="output/Google.AppIndexing.dll" target="lib/Xamarin.iOS10" />
 
     <!-- Add targets file for external native reference download -->
-    <file src="source/Google.AppIndexing/Google.AppIndexing.targets" target="build\Xamarin.Google.iOS.AppIndexing.targets"  />
+    <file src="source/Google.AppIndexing/Google.AppIndexing.targets" target="build/Xamarin.Google.iOS.AppIndexing.targets"  />
   </files>
 </package>

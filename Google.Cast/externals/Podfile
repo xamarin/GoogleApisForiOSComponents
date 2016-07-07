@@ -1,5 +1,8 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '6.0'
-pod 'google-cast-sdk', '2.10.4'
+install! 'cocoapods', :integrate_targets => false
 
+target 'GoogleCast' do
+	pod 'google-cast-sdk', '2.10.4'
+end

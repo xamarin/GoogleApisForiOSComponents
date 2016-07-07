@@ -2,6 +2,9 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '7.0'
-pod 'GoogleCloudMessaging', '1.1.2'
-pod 'Google/CloudMessaging', '2.0.3'
+install! 'cocoapods', :integrate_targets => false
 
+target 'GoogleCloudMessaging' do
+	pod 'GoogleCloudMessaging', '1.1.2'
+	pod 'Google/CloudMessaging', '2.0.3'
+end

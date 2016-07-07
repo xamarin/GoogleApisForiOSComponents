@@ -1,5 +1,8 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '7.0'
-pod 'GoogleSignIn',  '3.0.0'
+install! 'cocoapods', :integrate_targets => false
 
+target 'GoogleSignIn' do
+	pod 'GoogleSignIn',  '3.0.0'
+end

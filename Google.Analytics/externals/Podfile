@@ -2,6 +2,7 @@ workspace 'GAIFieldExporter'
 xcodeproj 'FieldExporter/GAIFieldExporter.xcodeproj'
 
 platform :ios, '5.0'
+install! 'cocoapods'
 
 target 'GAIFieldExporter' do
   pod 'GoogleAnalytics', '3.14.0'
