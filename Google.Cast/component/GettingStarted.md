@@ -149,46 +149,48 @@ var mediaInformation = new MediaInformation ("http://dummyurl.com/kitten.mp4",
 MediaControlChannel.LoadMedia (mediaInformation, true, 0);
 ```
 
-### Methods with IntPtr type as parameter
+### Logger.Delegate property
 
-Sometimes, a message on Objective-C, on its parameters, has pointers to some struct and we do magic to bind those pointers to manage types on C# side but, on some circumstances, we are not able to use that magic, so we bind those parameters with `IntPtr` type, making hard to use those parameters.
+Google Cast has a class named `Logger` that tracks every method that is being invoked. To make use of this functionality, you need to set the `Logger.Delegate` property with an instance of `LoggerHandler` class.
 
-So, we left here a method list that has `IntPtr` type as parameter and an example of how you could handle that parameter:
-
-#### ILoggerDelegate.Log method
-
-On Objective-C side Google has the following protocol method with `const char *` parameter:
-
-```
-/**
- * Logs a message.
- *
- * @param function The calling function, normally <code>__func__</code>.
- * @param message The log message.
- */
-- (void)logFromFunction:(const char *)function message:(NSString *)message;
-```
-
-On C# side, we bound it as:
-
-```
-[Export ("logFromFunction:message:")]
-void Log (IntPtr function, string message);
-```
-
-As you can see, on Objective-C, Google has a C string as parameter and we bound it as IntPtr, a pointer to the beginning of the string. A way to handle this when you call the method is using Marshal class to convert the IntPtr to a string struct:
+We leave an example of how to use the `LoggerHandler` class:
 
 ```csharp
-public class MyLogger : NSObject, ILoggerDelegate
+public void SomeMethod ()
 {
-    public void Log(IntPtr function, string message)
-    {
-    	// Cast IntPtr to string
-    	var func = System.Runtime.InteropServices.Marshal.PtrToStringAnsi (function);
-        Console.WriteLine($"{function} {message}");
-    }
+	...
+	Google.Cast.Logger.SharedInstance.Delegate = new Google.Cast.LoggerHandler ((fuction, message) => {
+		// Do your magic here!
+	});
+	...
+	
 }
 ```
+
+or:
+
+```csharp
+...
+void Log (string fuction, string message)
+{
+	// Do your magic here!
+}
+
+...
+public void SomeMethod ()
+{
+	...
+	Google.Cast.Logger.SharedInstance.Delegate = new Google.Cast.LoggerHandler (Log);
+	...
+	
+}
+```
+
+As you can see, you can make use of lambda expression or create a method to assign your implementation. Every time that internal code calls the log or you make use of `Logger.SharedInstance.Log` method, your implementation will be called.
+
+If you wish to change your log implementation, you can assign a new instance of `LoggerHandler` class to `Logger.Delegate` property or you can make use of `LoggerHandler.SetLogImplementation` method to change it. You can pass `null` to `Logger.Delegate` property to stop calling the Logger.
+
+**We do not recommend you to implement the LoggerDelegate class or the ILoggerDelegate interface directly to a class. Please, assign an instance of `LoggerHandler` class to `Logger.Delegate` property.**
 
 ## External Links
 

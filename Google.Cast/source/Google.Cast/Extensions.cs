@@ -122,20 +122,34 @@ namespace Google.Cast
 		}
 
 
-		public void Log (string function, params string [] message)
+		public void Log (string function, string format, params object [] args)
 		{
-			if (message == null)
-				throw new ArgumentNullException ("Message");
+			var message = string.Format (format, args);
+			_Log (function, message);
+		}
+	}
 
-			var pNativeArr = Marshal.AllocHGlobal ((message.Length - 1) * IntPtr.Size);
+	public class LoggerHandler : NSObject, ILoggerDelegate
+	{
+		public delegate void UserLogImplementation (string function, string message);
+		UserLogImplementation implementation;
 
-			for (int i = 1; i < message.Length; i++)
-				Marshal.WriteIntPtr (pNativeArr, (i - 1) * IntPtr.Size, ((NSString)message [i]).Handle);
+		public LoggerHandler (UserLogImplementation implementation)
+		{
+			this.implementation = implementation;
+		}
 
-			var pFunction = Marshal.StringToHGlobalUni (function);
+		public void _Log (IntPtr function, string message)
+		{
+			var func = Marshal.PtrToStringAnsi (function);
 
-			_Log (pFunction, message [0], pNativeArr);
-			Marshal.FreeHGlobal (pNativeArr);
+			if (implementation != null)
+				implementation (func, message);
+		}
+
+		public void SetLogImplementation (UserLogImplementation implementation)
+		{
+			this.implementation = implementation;
 		}
 	}
 

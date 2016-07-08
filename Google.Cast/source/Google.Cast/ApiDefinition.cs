@@ -686,8 +686,8 @@ namespace Google.Cast
 		Logger SharedInstance { get; }
 
 		[Internal]
-		[Export ("logFromFunction:message:", IsVariadic = true)]
-		void _Log (IntPtr function, string first, IntPtr subsequent);
+		[Export ("logFromFunction:message:")]
+		void _Log ([PlainString] string function, string message);
 	}
 
 	interface ILoggerDelegate
@@ -703,7 +703,7 @@ namespace Google.Cast
 
 		[Abstract]
 		[Export ("logFromFunction:message:")]
-		void Log (IntPtr function, string message);
+		void _Log (IntPtr function, string message);
 	}
 
 
