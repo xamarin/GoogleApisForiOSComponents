@@ -151,23 +151,11 @@ MediaControlChannel.LoadMedia (mediaInformation, true, 0);
 
 ### Logger.Delegate property
 
-Google Cast has a class named `Logger` that tracks every method that is being invoked. To make use of this functionality, you need to set the `Logger.Delegate` property with an instance of `LoggerHandler` class.
-
-We leave an example of how to use the `LoggerHandler` class:
-
-```csharp
-public void SomeMethod ()
-{
-	...
-	Google.Cast.Logger.SharedInstance.Delegate = new Google.Cast.LoggerHandler ((fuction, message) => {
-		// Do your magic here!
-	});
-	...
-	
-}
-```
-
-or:
+Due to a known Xamarin.iOS [defect](https://bugzilla.xamarin.com/show_bug.cgi?id=41512), implementing the
+[GCKLoggerDelegate](https://developers.google.com/cast/docs/reference/ios/protocol_g_c_k_logger_delegate-p) protocol in
+C# is limited to a workaround at this time.  The `Google.Cast.LoggerHandler` has been provided as part of the 
+Google Cast Xamarin.iOS component to implement the `GCKLoggerDelegate` protocol in C# and call a function that you
+provide when a message is logged.
 
 ```csharp
 ...
@@ -186,11 +174,8 @@ public void SomeMethod ()
 }
 ```
 
-As you can see, you can make use of lambda expression or create a method to assign your implementation. Every time that internal code calls the log or you make use of `Logger.SharedInstance.Log` method, your implementation will be called.
-
-If you wish to change your log implementation, you can assign a new instance of `LoggerHandler` class to `Logger.Delegate` property or you can make use of `LoggerHandler.SetLogImplementation` method to change it. You can pass `null` to `Logger.Delegate` property to stop calling the Logger.
-
-**We do not recommend you to implement the LoggerDelegate class or the ILoggerDelegate interface directly to a class. Please, assign an instance of `LoggerHandler` class to `Logger.Delegate` property.**
+**We do not recommend you to extend the LoggerDelegate class or implement the ILoggerDelegate interface directly to a
+class. Instead assign an instance of `LoggerHandler` class to `Logger.Delegate` property.**
 
 ## External Links
 
