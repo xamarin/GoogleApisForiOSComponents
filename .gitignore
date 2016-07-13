@@ -7,3 +7,4 @@ externals
 tmp-nugets
 *.designer.cs
 *.userprefs
+*.DS_Store
