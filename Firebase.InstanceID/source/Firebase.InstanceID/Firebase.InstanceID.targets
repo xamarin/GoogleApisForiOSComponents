@@ -13,7 +13,7 @@
 	</ItemGroup>
 	<Target Name="_FirebaseInstanceIDItemsFolder">
 		<PropertyGroup>
-			<_FirebaseInstanceIDSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseInstanceIDItemsFolder)\46b87f251519815b-FirebaseInstanceID-1.0.7\Frameworks\</_FirebaseInstanceIDSDKBaseFolder>
+			<_FirebaseInstanceIDSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseInstanceIDItemsFolder)\Frameworks\</_FirebaseInstanceIDSDKBaseFolder>
 		</PropertyGroup>
 		<ItemGroup>
 			<RestoreAssemblyResource Include="$(_FirebaseInstanceIDSDKBaseFolder)FirebaseInstanceID.framework\FirebaseInstanceID">

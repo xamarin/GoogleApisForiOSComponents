@@ -32,10 +32,10 @@
 	<Target Name="_FirebaseAnalyticsItemsFolder">
 
 		<PropertyGroup>
-			<_FirebaseAnalyticsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseAnalyticsItemsFolder)\FirebaseAnalytics-3.2.1\Frameworks\frameworks\</_FirebaseAnalyticsSDKBaseFolder>
-			<_GoogleSymbolUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleSymbolUtilitiesItemsFolder)\dbffca986f6337f8-GoogleSymbolUtilities-1.1.1\Frameworks\</_GoogleSymbolUtilitiesSDKBaseFolder>
-			<_GoogleUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleUtilitiesItemsFolder)\732a619a9bd45fa5-GoogleUtilities-1.3.1\Frameworks\</_GoogleUtilitiesSDKBaseFolder>
-			<_GoogleInterchangeUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleInterchangeUtilitiesItemsFolder)\0d17b56f78556d27-GoogleInterchangeUtilities-1.2.1\Frameworks\</_GoogleInterchangeUtilitiesSDKBaseFolder>
+			<_FirebaseAnalyticsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseAnalyticsItemsFolder)\Frameworks\frameworks\</_FirebaseAnalyticsSDKBaseFolder>
+			<_GoogleSymbolUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleSymbolUtilitiesItemsFolder)\Frameworks\</_GoogleSymbolUtilitiesSDKBaseFolder>
+			<_GoogleUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleUtilitiesItemsFolder)\Frameworks\</_GoogleUtilitiesSDKBaseFolder>
+			<_GoogleInterchangeUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleInterchangeUtilitiesItemsFolder)\Frameworks\</_GoogleInterchangeUtilitiesSDKBaseFolder>
 		</PropertyGroup>
 
 		<ItemGroup>
