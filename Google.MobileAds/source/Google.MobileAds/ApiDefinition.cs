@@ -445,7 +445,7 @@ namespace Google.MobileAds
 	{
 		// @optional -(void)rewardBasedVideoAdDidReceiveAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd;
 		[EventArgs ("RewardBasedVideoAd")]
-		[EventName ("ReceivedAd")]
+		[EventName ("AdReceived")]
 		[Export ("rewardBasedVideoAdDidReceiveAd:")]
 		void DidReceiveAd (RewardBasedVideoAd rewardBasedVideoAd);
 
@@ -456,7 +456,7 @@ namespace Google.MobileAds
 		void DidOpen (RewardBasedVideoAd rewardBasedVideoAd);
 
 		[EventArgs ("RewardBasedVideoAd")]
-		[EventName ("StartedPlaying")]
+		[EventName ("PlayingStarted")]
 		// @optional -(void)rewardBasedVideoAdDidStartPlaying:(GADRewardBasedVideoAd *)rewardBasedVideoAd;
 		[Export ("rewardBasedVideoAdDidStartPlaying:")]
 		void DidStartPlaying (RewardBasedVideoAd rewardBasedVideoAd);
@@ -474,7 +474,7 @@ namespace Google.MobileAds
 
 		// @optional -(void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd didRewardUserWithReward:(GADAdReward *)reward;
 		[EventArgs ("RewardBasedVideoAdReward")]
-		[EventName ("RewardedUser")]
+		[EventName ("UserRewarded")]
 		[Export ("rewardBasedVideoAd:didRewardUserWithReward:")]
 		void DidRewardUser (RewardBasedVideoAd rewardBasedVideoAd, AdReward reward);
 
