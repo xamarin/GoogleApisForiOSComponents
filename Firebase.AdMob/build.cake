@@ -1,0 +1,30 @@
+
+#load "../common.cake"
+
+var TARGET = Argument ("t", Argument ("target", "Default"));
+
+buildSpec = new BuildSpec () {
+
+	Samples = new ISolutionBuilder [] {
+		new IOSSolutionBuilder { SolutionPath = "./samples/MobileAdsExample/MobileAdsExample.sln", BuildsOn = BuildPlatforms.Mac }, 
+	},
+
+	NuGets = new [] {
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Firebase.iOS.AdMob.nuspec", BuildsOn = BuildPlatforms.Mac},
+	},
+
+	Components = new [] {
+		new Component {ManifestDirectory = "./component", BuildsOn = BuildPlatforms.Mac},
+	},
+};
+
+MyDependencies = new [] { "Firebase.Analytics", "Google.MobileAds" };
+
+Task ("clean").IsDependentOn ("clean-base").Does (() =>
+{
+	InvokeOtherGoogleModules (MyDependencies, "clean");
+});
+
+SetupXamarinBuildTasks (buildSpec, Tasks, Task);
+
+RunTarget (TARGET);
