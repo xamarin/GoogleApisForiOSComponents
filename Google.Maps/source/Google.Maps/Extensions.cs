@@ -10,69 +10,62 @@ using static ObjCRuntime.Runtime;
 
 namespace Google.Maps
 {
+	[Preserve (AllMembers = true)]
 	public partial class Constants
 	{
 		public static double EarthRadius { get { return 6371009.0; } }
 
-		static CGRect? groundOverlayDefaultAnchor = null;
+		static CGPoint? groundOverlayDefaultAnchor;
 
-		public static CGRect GroundOverlayDefaultAnchor {
+		public static CGPoint GroundOverlayDefaultAnchor {
 			get {
-				if (groundOverlayDefaultAnchor != null)
-					return groundOverlayDefaultAnchor.Value;
-
-				IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
-				IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kGMSGroundOverlayDefaultAnchor");
-				groundOverlayDefaultAnchor = (CGRect)Marshal.PtrToStructure (ptr, typeof (CGRect));
-				Dlfcn.dlclose (RTLD_MAIN_ONLY);
+				if (groundOverlayDefaultAnchor == null) {
+					IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
+					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kGMSGroundOverlayDefaultAnchor");
+					groundOverlayDefaultAnchor = (CGPoint)Marshal.PtrToStructure (ptr, typeof (CGPoint));
+					Dlfcn.dlclose (RTLD_MAIN_ONLY);
+				}
 
 				return groundOverlayDefaultAnchor.Value;
 			}
 		}
 
-		static CGPoint? markerDefaultGroundAnchor = null;
+		static CGPoint? markerDefaultGroundAnchor;
 
 		public static CGPoint MarkerDefaultGroundAnchor {
 			get {
-				if (markerDefaultGroundAnchor != null)
-					return markerDefaultGroundAnchor.Value;
-
-				IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
-				IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kGMSMarkerDefaultGroundAnchor");
-				markerDefaultGroundAnchor = (CGPoint)Marshal.PtrToStructure (ptr, typeof (CGPoint));
-				Dlfcn.dlclose (RTLD_MAIN_ONLY);
+				if (markerDefaultGroundAnchor == null) {
+					IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
+					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kGMSMarkerDefaultGroundAnchor");
+					markerDefaultGroundAnchor = (CGPoint)Marshal.PtrToStructure (ptr, typeof (CGPoint));
+					Dlfcn.dlclose (RTLD_MAIN_ONLY);
+				}
 
 				return markerDefaultGroundAnchor.Value;
 			}
 		}
 
-		static CGPoint? markerDefaultInfoWindowAnchor = null;
+		static CGPoint? markerDefaultInfoWindowAnchor;
 
 		public static CGPoint MarkerDefaultInfoWindowAnchor {
 			get {
-				if (markerDefaultInfoWindowAnchor != null)
-					return markerDefaultInfoWindowAnchor.Value;
-
-				IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
-				IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kGMSMarkerDefaultInfoWindowAnchor");
-				markerDefaultInfoWindowAnchor = (CGPoint)Marshal.PtrToStructure (ptr, typeof (CGPoint));
-				Dlfcn.dlclose (RTLD_MAIN_ONLY);
+				if (markerDefaultInfoWindowAnchor == null) {
+					IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
+					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kGMSMarkerDefaultInfoWindowAnchor");
+					markerDefaultInfoWindowAnchor = (CGPoint)Marshal.PtrToStructure (ptr, typeof (CGPoint));
+					Dlfcn.dlclose (RTLD_MAIN_ONLY);
+				}
 
 				return markerDefaultInfoWindowAnchor.Value;
 			}
 		}
 
-		static UIImage tileLayerNoTile = null;
+		static UIImage tileLayerNoTile;
 
 		public static UIImage TileLayerNoTile {
 			get {
-				if (tileLayerNoTile != null)
-					return tileLayerNoTile;
-
-				IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
-				IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kGMSTileLayerNoTile");
-				tileLayerNoTile = GetNSObject<UIImage> (ptr);
-				Dlfcn.dlclose (RTLD_MAIN_ONLY);
+				if (tileLayerNoTile == null)
+					tileLayerNoTile = GetNSObject<UIImage> (_TileLayerNoTile);
 
 				return tileLayerNoTile;
 			}
