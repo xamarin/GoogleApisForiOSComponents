@@ -1,3 +1,8 @@
+=begin
+Check if main version or subversion number has changed. 
+If yes, please, update *.targets file located in binding 
+project, also, update Podfile file if needed.
+=end
 
 source 'https://github.com/CocoaPods/Specs.git'
 

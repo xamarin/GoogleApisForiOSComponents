@@ -1,0 +1,34 @@
+=begin
+Last run Firebase/AdMob installed:
+- FirebaseAnalytics (3.2.1)
+- FirebaseInstanceID (1.0.7)
+- GoogleInterchangeUtilities (1.2.1)
+- GoogleSymbolUtilities (1.1.1)
+- GoogleUtilities (1.3.1)
+- Google-Mobile-Ads-SDK (7.8.1)
+
+Check if main version or subversion number has changed. 
+If yes, please, update *.targets files located in binding 
+projects, also, update Podfile files if needed.
+
+In .targets file, located in Google.MobileAds binding, you can find:
+- Google-Mobile-Ads-SDK (7.8.1)
+
+In .targets file, located in Firebase.Analytics binding, you can find:
+- FirebaseAnalytics (3.2.1)
+- GoogleInterchangeUtilities (1.2.1)
+- GoogleSymbolUtilities (1.1.1)
+- GoogleUtilities (1.3.1)
+
+In .targets file, located in Firebase.InstanceID binding, you can find:
+- FirebaseInstanceID (1.0.7)
+=end
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '6.0'
+install! 'cocoapods', :integrate_targets => false
+
+target 'FirebaseAdMob' do
+	pod 'Firebase/AdMob', '3.3.0'
+end

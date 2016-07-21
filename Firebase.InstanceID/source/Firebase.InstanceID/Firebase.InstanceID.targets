@@ -9,9 +9,9 @@
 			<Url>https://www.gstatic.com/cpdc/46b87f251519815b-FirebaseInstanceID-1.0.7.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
-		<XamarinBuildRestoreResources Include="_FirebaseInstanceIDItemsFolder" />
+		<XamarinBuildRestoreResources Include="_FirebaseInstanceIDItems" />
 	</ItemGroup>
-	<Target Name="_FirebaseInstanceIDItemsFolder">
+	<Target Name="_FirebaseInstanceIDItems">
 		<PropertyGroup>
 			<_FirebaseInstanceIDSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseInstanceIDItemsFolder)\Frameworks\</_FirebaseInstanceIDSDKBaseFolder>
 		</PropertyGroup>

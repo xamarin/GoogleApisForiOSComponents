@@ -23,6 +23,8 @@ MyDependencies = new [] { "Firebase.Analytics", "Google.MobileAds" };
 Task ("clean").IsDependentOn ("clean-base").Does (() =>
 {
 	InvokeOtherGoogleModules (MyDependencies, "clean");
+	RunMake ("./externals/", "clean");
+	DeleteFiles ("../tmp-nugets/Xamarin.Google.iOS.Core*");
 });
 
 SetupXamarinBuildTasks (buildSpec, Tasks, Task);

@@ -26,10 +26,10 @@
 			<Url>https://www.gstatic.com/cpdc/0d17b56f78556d27-GoogleInterchangeUtilities-1.2.1.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
-		<XamarinBuildRestoreResources Include="_FirebaseAnalyticsItemsFolder"/>
+		<XamarinBuildRestoreResources Include="_FirebaseAnalyticsItems"/>
 	</ItemGroup>
 
-	<Target Name="_FirebaseAnalyticsItemsFolder">
+	<Target Name="_FirebaseAnalyticsItems">
 
 		<PropertyGroup>
 			<_FirebaseAnalyticsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseAnalyticsItemsFolder)\Frameworks\frameworks\</_FirebaseAnalyticsSDKBaseFolder>
