@@ -1,8 +1,45 @@
+=begin
+Last run GoogleSignIn installed:
+- FirebaseAnalytics (3.2.1)
+- FirebaseInstanceID (1.0.7)
+- Google (3.0.3)
+- GoogleAppUtilities (1.1.1)
+- GoogleAuthUtilities (2.0.1)
+- GoogleInterchangeUtilities (1.2.1)
+- GoogleNetworkingUtilities (1.2.1)
+- GoogleSignIn (4.0.0)
+- GoogleSymbolUtilities (1.1.1)
+- GoogleUtilities (1.3.1)
+
+Check if main version or subversion number has changed. 
+If yes, please, update *.targets files located in binding 
+projects, also, update Podfile files if needed.
+
+In .targets file, located in Google.SignIn binding, you can find:
+- GoogleSignIn (4.0.0)
+- GoogleNetworkingUtilities (1.2.1)
+- GoogleAppUtilities (1.1.1)
+- GoogleAuthUtilities (2.0.1)
+
+In .targets file, located in Google.Core binding, you can find:
+- Google (3.0.3)
+
+In .targets file, located in Firebase.Analytics binding, you can find:
+- FirebaseAnalytics (3.2.1)
+- GoogleInterchangeUtilities (1.2.1)
+- GoogleSymbolUtilities (1.1.1)
+- GoogleUtilities (1.3.1)
+
+In .targets file, located in Firebase.InstanceID binding, you can find:
+- FirebaseInstanceID (1.0.7)
+=end
+
 source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '7.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'GoogleSignIn' do
-	pod 'GoogleSignIn',  '3.0.0'
+	pod 'GoogleSignIn',  '4.0.0'
+	pod 'Google/SignIn', '3.0.3'
 end
