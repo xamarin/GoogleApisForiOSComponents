@@ -12,14 +12,25 @@
 		<XamarinBuildRestoreResources Include="_GoogleCoreItems" />
 	</ItemGroup>
 	<Target Name="_GoogleCoreItems">
+
 		<PropertyGroup>
 			<_GoogleCoreSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleCoreItemsFolder)\Frameworks\</_GoogleCoreSDKBaseFolder>
 		</PropertyGroup>
+
 		<ItemGroup>
-			<RestoreAssemblyResource Include="$(_GoogleCoreSDKBaseFolder)\GGLCore.framework\GGLCore">
+			<RestoreAssemblyResource Include="$(_GoogleCoreSDKBaseFolder)GGLCore.framework\GGLCore">
+				<LogicalName>GGLCore</LogicalName>
+				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCoreSDKBaseFolder)GGLAnalytics.framework\GGLAnalytics">
+				<LogicalName>GGLAnalytics</LogicalName>
+				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCoreSDKBaseFolder)GGLSignIn.framework\GGLSignIn">
 				<LogicalName>GGLCore</LogicalName>
 				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 		</ItemGroup>
+		
 	</Target>
 </Project>

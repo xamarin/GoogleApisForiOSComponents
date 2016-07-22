@@ -12,14 +12,17 @@
 		<XamarinBuildRestoreResources Include="_FirebaseInstanceIDItems" />
 	</ItemGroup>
 	<Target Name="_FirebaseInstanceIDItems">
+
 		<PropertyGroup>
 			<_FirebaseInstanceIDSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseInstanceIDItemsFolder)\Frameworks\</_FirebaseInstanceIDSDKBaseFolder>
 		</PropertyGroup>
+
 		<ItemGroup>
 			<RestoreAssemblyResource Include="$(_FirebaseInstanceIDSDKBaseFolder)FirebaseInstanceID.framework\FirebaseInstanceID">
 				<LogicalName>FirebaseInstanceID</LogicalName>
 				<AssemblyName>$(_FirebaseInstanceIDAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 		</ItemGroup>
+
 	</Target>
 </Project>

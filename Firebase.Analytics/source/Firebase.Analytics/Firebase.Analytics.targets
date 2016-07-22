@@ -39,7 +39,6 @@
 		</PropertyGroup>
 
 		<ItemGroup>
-
 			<RestoreAssemblyResource Include="$(_FirebaseAnalyticsSDKBaseFolder)FirebaseAnalytics.framework\FirebaseAnalytics">
 				<LogicalName>FirebaseAnalytics</LogicalName>
 				<AssemblyName>$(_FirebaseAnalyticsAssemblyName)</AssemblyName>
@@ -56,7 +55,7 @@
 				<LogicalName>GoogleInterchangeUtilities</LogicalName>
 				<AssemblyName>$(_FirebaseAnalyticsAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			
 		</ItemGroup>
+		
 	</Target>
 </Project>
