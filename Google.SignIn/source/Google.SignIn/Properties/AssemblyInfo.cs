@@ -17,7 +17,7 @@ using Foundation;
 [assembly: AssemblyConfiguration ("")]
 [assembly: AssemblyCompany ("")]
 [assembly: AssemblyProduct ("")]
-[assembly: AssemblyCopyright ("billholmes")]
+[assembly: AssemblyCopyright ("Xamarin")]
 [assembly: AssemblyTrademark ("")]
 [assembly: AssemblyCulture ("")]
 
