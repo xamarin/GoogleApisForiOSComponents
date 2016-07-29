@@ -3,6 +3,6 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '6.0'
 install! 'cocoapods', :integrate_targets => false
 
-target 'GoogleMobileAds' do
-  pod 'GoogleMobileAds', '7.7.1'
+target 'Google-Mobile-Ads-SDK' do
+  pod 'Google-Mobile-Ads-SDK', '7.8.1'
 end
