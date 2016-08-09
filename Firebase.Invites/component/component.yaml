@@ -1,0 +1,41 @@
+version: 1.1.0.0
+name: Firebase Invites for iOS
+id: firebaseiosinvite
+publisher: Xamarin Inc.
+publisher-url: http://xamarin.com
+src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Firebase.Invites
+summary: Enable your users to share your app with people they know
+icons:
+  - icons/googleiosappinvite_128x128.png
+  - icons/googleiosappinvite_512x512.png
+docs-url: https://firebase.google.com/docs/invites/
+libraries:
+  ios-unified: 
+    - ../output/Firebase.Invites.dll
+    - ../../Firebase.Analytics/output/Firebase.Analytics.dll
+    - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
+    - ../../Google.Core/output/Google.Core.dll
+    - ../../Google.SignIn/output/Google.SignIn.dll
+is_shell: true
+packages:
+  ios-unified:
+    - Xamarin.Firebase.iOS.Invites, Version=1.1.0.0
+samples:
+  - name: "AppInvite Sample"
+    path: ../samples/AppInviteSample/AppInviteSample.sln
+    removeProjects: 
+      - Google.AppInvite
+      - Google.SignIn
+      - Google.Core
+    removeFiles:
+      - AppInviteSample/Makefile
+    installNuGets:
+      - project: AppInviteSample
+        packages:
+          - Xamarin.Firebase.iOS.Analytics
+    removeNodes:
+      - "//xNS:Import[contains (@Project, 'Google.AppInvite.targets')]"
+      - "//xNS:Import[contains (@Project, 'Google.Core.targets')]"
+      - "//xNS:Import[contains (@Project, 'Google.SignIn.targets')]"
+local-nuget-repo: ../../tmp-nugets
+no_build: true

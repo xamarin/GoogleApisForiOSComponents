@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Xamarin.Firebase.iOS.Invites</id>
+    <title>Firebase APIs Invites iOS Library</title>
+    <version>1.1.0.0</version>
+    <authors>Xamarin Inc.</authors>
+    <owners>Xamarin Inc.</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>C# bindings for Firebase APIs Invites iOS Library</description>
+    <copyright>Copyright 2016</copyright>
+    <projectUrl>https://components.xamarin.com/view/googleiosappinvite</projectUrl>
+    <licenseUrl>https://components.xamarin.com/license/googleiosappinvite</licenseUrl>
+    <iconUrl>https://xamarin-component-icons.s3.amazonaws.com/Xamarin.Google.iOS.png</iconUrl>
+    <dependencies>
+      <dependency id="Xamarin.Build.Download" version="0.2.1"/>
+      <dependency id="Xamarin.Firebase.iOS.DynamicLinks" version="1.1.0.0"/>
+      <dependency id="Xamarin.Google.iOS.SignIn" version="4.0.0.0"/>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="output/Firebase.Invites.dll" target="lib/Xamarin.iOS10" />
+
+    <!-- Add targets file for external native reference download -->
+    <file src="source/Firebase.Invites/Firebase.Invites.targets" target="build/Xamarin.Firebase.iOS.Invites.targets"  />
+  </files>
+</package>
