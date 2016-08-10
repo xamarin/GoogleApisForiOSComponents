@@ -6,7 +6,7 @@
 		<_GoogleAnalyticsItemsFolder>GAnlytcs-3.14</_GoogleAnalyticsItemsFolder>
 	</PropertyGroup>
 
-	<ItemGroup Condition="'$(OutputType)'!='Library'">
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GoogleAnalyticsItemsFolder)">
 			<Url>https://www.gstatic.com/cpdc/69fd9fe84a8fea60-GoogleAnalytics-3.14.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
