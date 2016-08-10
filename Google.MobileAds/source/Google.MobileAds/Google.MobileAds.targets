@@ -4,7 +4,7 @@
 		<_GoogleMobileAdsAssemblyName>Google.MobileAds, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleMobileAdsAssemblyName>
 		<_GoogleMobileAdsId>Gmbladssdk-7.8.1</_GoogleMobileAdsId>
 	</PropertyGroup>
-	<ItemGroup Condition="'$(OutputType)'!='Library'">
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildRestoreResources Include="_GoogleMobileAdsItems" />
 		<XamarinBuildDownload Include="$(_GoogleMobileAdsId)">
 			<Url>https://www.gstatic.com/cpdc/1dbc5a8a168d6314-Google-Mobile-Ads-SDK-7.8.1.tar.gz</Url>

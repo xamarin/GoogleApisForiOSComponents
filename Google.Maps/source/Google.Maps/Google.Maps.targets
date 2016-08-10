@@ -4,7 +4,7 @@
 		<_GoogleMapsAssemblyName>Google.Maps, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleMapsAssemblyName>
 		<_GoogleMapsId>GMaps-1.13.2</_GoogleMapsId>
 	</PropertyGroup>
-	<ItemGroup Condition="'$(OutputType)'!='Library'">
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildRestoreResources Include="_GoogleMapsItems" />
 		<XamarinBuildDownload Include="$(_GoogleMapsId)">
 			<Url>https://www.gstatic.com/cpdc/aa3052925ceeea2d-GoogleMaps-1.13.2.tar.gz</Url>
