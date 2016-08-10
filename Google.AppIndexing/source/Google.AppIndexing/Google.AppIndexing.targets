@@ -4,7 +4,7 @@
 		<_GoogleAppIndexingAssemblyName>Google.AppIndexing, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleAppIndexingAssemblyName>
 		<_GoogleAppIndexingItemsFolder>GAppIndxng-2.0.3</_GoogleAppIndexingItemsFolder>
 	</PropertyGroup>
-	<ItemGroup Condition="'$(OutputType)'!='Library'">
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GoogleAppIndexingItemsFolder)">
 			<Url>https://www.gstatic.com/cpdc/ff375df7e304b800-GoogleAppIndexing-2.0.3.tar.gz</Url>
 			<Kind>Tgz</Kind>

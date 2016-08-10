@@ -8,7 +8,7 @@
 		<_GoogleSymbolUtilitiesItemsFolder>GSymblU-1.1.0</_GoogleSymbolUtilitiesItemsFolder>
 		<_GoogleUtilitiesItemsFolder>GUtls-1.3.0</_GoogleUtilitiesItemsFolder>
 	</PropertyGroup>
-	<ItemGroup Condition="'$(OutputType)'!='Library'">
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GoogleCoreItemsFolder)">
 			<Url>https://www.gstatic.com/cpdc/a96d915a636d0afb-Google-2.0.4.tar.gz</Url>
 			<Kind>Tgz</Kind>

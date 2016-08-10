@@ -1,4 +1,4 @@
-version: 5.1.1.4
+version: 5.1.1.5
 name: Google Play Games for iOS
 id: googleiosplaygames
 publisher: Xamarin Inc.
@@ -17,7 +17,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Google.iOS.PlayGames, Version=5.1.1.4
+    - Xamarin.Google.iOS.PlayGames, Version=5.1.1.5
 samples:
   - name: "Collect All The Stars"
     path:  ../samples/CollectAllTheStars/CollectAllTheStars.sln

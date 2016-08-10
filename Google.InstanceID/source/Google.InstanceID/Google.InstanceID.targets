@@ -5,7 +5,7 @@
 		<_GGLInstanceIDId>GGLInstncID-1.2.1</_GGLInstanceIDId>
 		<_GoogleIIDIPhoneUtilitiesId>GIPhnU-1.2.0</_GoogleIIDIPhoneUtilitiesId>
 	</PropertyGroup>
-	<ItemGroup Condition="'$(OutputType)'!='Library'">
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildRestoreResources Include="_GoogleInstanceIDItems" />
 		<XamarinBuildDownload Include="$(_GGLInstanceIDId)">
 			<Url>https://www.gstatic.com/cpdc/170d1b170ae1d063-GGLInstanceID-1.2.1.tar.gz</Url>

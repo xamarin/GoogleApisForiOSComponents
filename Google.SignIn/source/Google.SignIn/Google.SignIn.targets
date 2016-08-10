@@ -6,7 +6,7 @@
 		<_GoogleAuthUtilitiesItemsFolder>GAthUtls-2.0.0</_GoogleAuthUtilitiesItemsFolder>
 		<_GoogleSignInItemsFolder>GSgnIn-3.0.0</_GoogleSignInItemsFolder>
 	</PropertyGroup>
-	<ItemGroup Condition="'$(OutputType)'!='Library'">
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GoogleAppUtilitiesItemsFolder)">
 			<Url>https://www.gstatic.com/cpdc/af37423bd94071ef-GoogleAppUtilities-1.1.0.tar.gz</Url>
 			<Kind>Tgz</Kind>

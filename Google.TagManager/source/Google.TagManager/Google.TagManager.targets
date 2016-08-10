@@ -6,7 +6,7 @@
 		<_GoogleTagManagerId>GTagMngr-3.15.0</_GoogleTagManagerId>
 	</PropertyGroup>
 
-	<ItemGroup Condition="'$(OutputType)'!='Library'">
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GoogleTagManagerId)">
 			<Url>https://www.gstatic.com/cpdc/648b8b8cfaaaa604-GoogleTagManager-3.15.0.tar.gz</Url>
 			<Kind>Tgz</Kind>

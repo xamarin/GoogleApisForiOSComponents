@@ -12,7 +12,7 @@
 
 	</PropertyGroup>
 
-	<ItemGroup Condition="'$(OutputType)'!='Library'">
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 
 		<XamarinBuildDownload Include="$(_GoogleSICoreItemsFolder)">
 			<Url>http://www.gstatic.com/cpdc/c425d47546e9a4c5-Google-1.1.0.tar.gz</Url>

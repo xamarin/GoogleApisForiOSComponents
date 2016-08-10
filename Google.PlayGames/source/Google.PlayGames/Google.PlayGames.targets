@@ -7,7 +7,7 @@
 		<_GooglePlusOpenSourceId>GPlsOpnSrc-1.7.1</_GooglePlusOpenSourceId>
 	</PropertyGroup>
 
-	<ItemGroup Condition="'$(OutputType)'!='Library'">
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildRestoreResources Include="_GooglePlayGamesItems"/>
 		<XamarinBuildDownload Include="$(_GooglePlayGamesId)">
 			<Url>https://developers.google.com/games/services/downloads/gpg-cpp-sdk.v2.1.zip</Url>

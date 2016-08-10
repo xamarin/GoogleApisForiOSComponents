@@ -1,4 +1,4 @@
-version: 1.2.0.0
+version: 1.2.0.1
 name: Google Cloud Messaging for iOS
 id: googleiosgcm
 publisher: Xamarin Inc.
@@ -17,7 +17,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Google.iOS.GoogleCloudMessaging, Version=1.2.0.0
+    - Xamarin.Google.iOS.GoogleCloudMessaging, Version=1.2.0.1
 samples:
   - name: "GoogleCloudMessaging Sample"
     path:  ../samples/GoogleCloudMessagingSample/GoogleCloudMessagingSample.sln
