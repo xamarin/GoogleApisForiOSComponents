@@ -1,0 +1,39 @@
+version: 1.1.0.0
+name: Firebase Cloud Messaging for iOS
+id: firebaseioscloudmessaging
+publisher: Xamarin Inc.
+publisher-url: http://xamarin.com
+src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Firebase.CloudMessaging
+summary: Firebase Cloud Messaging for iOS is a service that allows you to send data from your server to your iOS users.
+icons:
+  - icons/googleiosappinvite_128x128.png
+  - icons/googleiosappinvite_512x512.png
+docs-url: https://firebase.google.com/docs/cloud-messaging/
+libraries:
+  ios-unified: 
+    - ../output/Firebase.CloudMessaging.dll
+    - ../../Firebase.Analytics/output/Firebase.Analytics.dll
+    - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
+is_shell: true
+packages:
+  ios-unified:
+    - Xamarin.Firebase.iOS.CloudMessaging, Version=1.1.0.0
+samples:
+  - name: "AppInvite Sample"
+    path: ../samples/AppInviteSample/AppInviteSample.sln
+    removeProjects: 
+      - Google.AppInvite
+      - Google.SignIn
+      - Google.Core
+    removeFiles:
+      - AppInviteSample/Makefile
+    installNuGets:
+      - project: AppInviteSample
+        packages:
+          - Xamarin.Firebase.iOS.Analytics
+    removeNodes:
+      - "//xNS:Import[contains (@Project, 'Google.AppInvite.targets')]"
+      - "//xNS:Import[contains (@Project, 'Google.Core.targets')]"
+      - "//xNS:Import[contains (@Project, 'Google.SignIn.targets')]"
+local-nuget-repo: ../../tmp-nugets
+no_build: true
