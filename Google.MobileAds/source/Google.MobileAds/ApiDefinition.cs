@@ -1984,6 +1984,10 @@ namespace Google.MobileAds.DoubleClick
 	[BaseType (typeof (Google.MobileAds.Request), Name = "DFPRequest")]
 	interface Request
 	{
+        [Static]
+        [Export("request")]
+        Request GetDefaultRequest();
+
 		[New]
 		[Field ("kDFPSimulatorID", "__Internal")]
 		NSString SimulatorId { get; }
