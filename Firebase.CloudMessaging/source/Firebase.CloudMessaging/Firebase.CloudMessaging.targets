@@ -5,7 +5,7 @@
 		<_FirebaseCloudMessagingItemsFolder>FCldM-1.1.0</_FirebaseCloudMessagingItemsFolder>
 		<_GoogleIPhoneUtilitiesItemsFolder>GIPhnU-1.2.1</_GoogleIPhoneUtilitiesItemsFolder>
 	</PropertyGroup>
-	<ItemGroup Condition="'$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+	<ItemGroup Condition="'$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True'">
 		<XamarinBuildDownload Include="$(_FirebaseCloudMessagingItemsFolder)">
 			<Url>https://www.gstatic.com/cpdc/3f0ef7767a9e83f5-FirebaseMessaging-1.1.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
