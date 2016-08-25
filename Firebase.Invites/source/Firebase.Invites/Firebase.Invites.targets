@@ -38,7 +38,7 @@
 				<LogicalName>GoogleParsingUtilities</LogicalName>
 				<AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlusUtilitiesItemsFolder)GooglePlusUtilities.framework\GooglePlusUtilities">
+			<RestoreAssemblyResource Include="$(_GooglePlusUtilitiesSDKBaseFolder)GooglePlusUtilities.framework\GooglePlusUtilities">
 				<LogicalName>GooglePlusUtilities</LogicalName>
 				<AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>

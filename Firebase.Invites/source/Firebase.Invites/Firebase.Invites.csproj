@@ -37,7 +37,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Loader.cs" />
     <Compile Include="FirebaseInvites.linkwith.cs">
-      <DependentUpon>..\..\..\Google.SignIn\source\Google.SignIn\libSignIn_external.a</DependentUpon>
+      <DependentUpon>FirebaseInvites</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

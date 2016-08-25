@@ -1,24 +1,17 @@
 using ObjCRuntime;
 
-[assembly: LinkWith ("GoogleSignIn",
+[assembly: LinkWith ("FirebaseInvites",
 	LinkTarget.ArmV7 | LinkTarget.Simulator | LinkTarget.Simulator64 | LinkTarget.Arm64,
-	LinkerFlags = "-ObjC -lsqlite3",
-	Frameworks = "CoreText Security StoreKit",
-	WeakFrameworks = "SafariServices",
 	SmartLink = true,
-	ForceLoad = true)]
+	ForceLoad = true,
+    Frameworks = "CoreGraphics Security")]
 
-[assembly: LinkWith ("GoogleNetworkingUtilities",
+[assembly: LinkWith ("GoogleParsingUtilities",
 	LinkTarget.ArmV7 | LinkTarget.Simulator | LinkTarget.Simulator64 | LinkTarget.Arm64,
 	SmartLink = true,
 	ForceLoad = true)]
 
-[assembly: LinkWith ("GoogleAppUtilities",
-	LinkTarget.ArmV7 | LinkTarget.Simulator | LinkTarget.Simulator64 | LinkTarget.Arm64,
-	SmartLink = true,
-	ForceLoad = true)]
-
-[assembly: LinkWith ("GoogleAuthUtilities",
+[assembly: LinkWith ("GooglePlusUtilities",
 	LinkTarget.ArmV7 | LinkTarget.Simulator | LinkTarget.Simulator64 | LinkTarget.Arm64,
 	SmartLink = true,
 	ForceLoad = true)]
