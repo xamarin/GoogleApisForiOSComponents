@@ -2,10 +2,10 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_GoogleSignInAssemblyName>Google.SignIn, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleSignInAssemblyName>
-		<_GoogleSignInItemsFolder>GSgnIn-4.0.0</_GoogleSignInItemsFolder>
+		<_GoogleSignInItemsFolder>GSgnI-4.0.0</_GoogleSignInItemsFolder>
 		<_GoogleNetworkingUtilitiesItemsFolder>GNtwrkngU-1.2.1</_GoogleNetworkingUtilitiesItemsFolder>
-		<_GoogleAppUtilitiesItemsFolder>GAppUtlts-1.1.1</_GoogleAppUtilitiesItemsFolder>
-		<_GoogleAuthUtilitiesItemsFolder>GAthUtlts-2.0.1</_GoogleAuthUtilitiesItemsFolder>
+		<_GoogleAppUtilitiesItemsFolder>GAppU-1.1.1</_GoogleAppUtilitiesItemsFolder>
+		<_GoogleAuthUtilitiesItemsFolder>GAthU-2.0.1</_GoogleAuthUtilitiesItemsFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GoogleSignInItemsFolder)">
