@@ -49,9 +49,6 @@ namespace Google.Core
 	[BaseType (typeof(NSObject), Name = "GGLContext")]
 	interface Context
 	{
-		[Field ("kSimulatorDispatchIntervalInSeconds", "__Internal")]
-		double SimulatorDispatchIntervalInSeconds { get; }
-
 		// @property (readonly, nonatomic, strong) GGLConfiguration * configuration;
 		[Export ("configuration", ArgumentSemantic.Strong)]
 		Configuration Configuration { get; }

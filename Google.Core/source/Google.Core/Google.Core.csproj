@@ -40,7 +40,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GGLCore.linkwith.cs">
-      <DependentUpon>libGGLCore.a</DependentUpon>
+      <DependentUpon>GGLCore</DependentUpon>
     </Compile>
     <Compile Include="Loader.cs" />
   </ItemGroup>
