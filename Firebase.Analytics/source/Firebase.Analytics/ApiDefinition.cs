@@ -9,7 +9,7 @@ namespace Firebase.Analytics
 {
 	// @interface FIRAnalytics : NSObject
 	[BaseType (typeof (NSObject), Name = "FIRAnalytics")]
-	interface AnalyticsApi
+	interface Analytics
 	{
 		// +(void)logEventWithName:(NSString * _Nonnull)name parameters:(NSDictionary<NSString *,NSObject *> * _Nullable)parameters;
 		[Static]

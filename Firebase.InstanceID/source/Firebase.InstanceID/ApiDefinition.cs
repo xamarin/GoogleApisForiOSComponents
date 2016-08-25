@@ -22,7 +22,7 @@ namespace Firebase.InstanceID
 	// @interface FIRInstanceID : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRInstanceID")]
-	interface InstanceIdApi
+	interface InstanceId
 	{
 		// extern NSString *const _Nonnull kFIRInstanceIDScopeFirebaseMessaging;
 		[Field ("kFIRInstanceIDScopeFirebaseMessaging", "__Internal")]
@@ -36,7 +36,7 @@ namespace Firebase.InstanceID
 		// +(instancetype _Nonnull)instanceID;
 		[Static]
 		[Export ("instanceID")]
-		InstanceIdApi SharedInstance { get; }
+		InstanceId SharedInstance { get; }
 
 		// -(void)setAPNSToken:(NSData * _Nonnull)token type:(FIRInstanceIDAPNSTokenType)type;
 		[Export ("setAPNSToken:type:")]
