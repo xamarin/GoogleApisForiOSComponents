@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using UIKit;
+using Firebase.Analytics;
 
 namespace AnalyticsSample
 {
@@ -15,12 +16,32 @@ namespace AnalyticsSample
 			set;
 		}
 
+		UINavigationController navigationController;
+
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
 
+			Window = new UIWindow (UIScreen.MainScreen.Bounds);
+			navigationController = new UINavigationController (new MainViewController ());
+			Window.RootViewController = navigationController;
+			Window.MakeKeyAndVisible ();
+
+			App.Configure ();
+
 			return true;
+		}
+
+		public static void ShowMessage (string title, string message, UIViewController fromViewController)
+		{
+			if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
+				var alert = UIAlertController.Create (title, message, UIAlertControllerStyle.Alert);
+				alert.AddAction (UIAlertAction.Create ("Ok", UIAlertActionStyle.Default, (obj) => { }));
+				fromViewController.PresentViewController (alert, true, null);
+			} else {
+				new UIAlertView (title, message, null, "Ok", null).Show ();
+			}
 		}
 
 		public override void OnResignActivation (UIApplication application)

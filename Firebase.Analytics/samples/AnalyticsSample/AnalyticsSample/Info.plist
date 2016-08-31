@@ -5,7 +5,7 @@
 	<key>CFBundleName</key>
 	<string>AnalyticsSample</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.xamarin.firebase.analyticssample</string>
+	<string>com.xamarin.firebase.ios.analyticssample</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -20,8 +20,6 @@
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
