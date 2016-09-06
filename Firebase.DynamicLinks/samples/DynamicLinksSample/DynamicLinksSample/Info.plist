@@ -5,7 +5,7 @@
 	<key>CFBundleName</key>
 	<string>DynamicLinksSample</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.xamarin.firebase.dynamiclinkssample</string>
+	<string>com.xamarin.firebase.ios.dynamiclinkssample</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -13,7 +13,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
-	<string>7.0</string>
+	<string>8.0</string>
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
@@ -34,5 +34,18 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcons.appiconset</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.xamarin.firebase.dynamiclinkssample</string>
+			</array>
+			<key>CFBundleURLName</key>
+			<string>Bundle ID</string>
+			<key>CFBundleURLTypes</key>
+			<string>Editor</string>
+		</dict>
+	</array>
 </dict>
 </plist>

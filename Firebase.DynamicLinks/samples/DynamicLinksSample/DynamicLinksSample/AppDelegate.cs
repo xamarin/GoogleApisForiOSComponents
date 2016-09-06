@@ -1,6 +1,10 @@
 ﻿using Foundation;
 using UIKit;
 
+using Firebase.Analytics;
+using Firebase.DynamicLinks;
+using System;
+
 namespace DynamicLinksSample
 {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the
@@ -19,39 +23,75 @@ namespace DynamicLinksSample
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
+			App.Configure ();
 
 			return true;
 		}
 
-		public override void OnResignActivation (UIApplication application)
+		// Handle Custom Url Schemes for iOS 9 or later
+		public override bool OpenUrl (UIApplication app, NSUrl url, NSDictionary options)
 		{
-			// Invoked when the application is about to move from active to inactive state.
-			// This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) 
-			// or when the user quits the application and it begins the transition to the background state.
-			// Games should use this method to pause the game.
+			return OpenUrl (app, url, null, null);
 		}
 
-		public override void DidEnterBackground (UIApplication application)
+		// Handle Custom Url Schemes for iOS 9 or later
+		public override bool OpenUrl (UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
 		{
-			// Use this method to release shared resources, save user data, invalidate timers and store the application state.
-			// If your application supports background exection this method is called instead of WillTerminate when the user quits.
+			Console.WriteLine ("I'm handling a link through the OpenUrl method.");
+
+			var dynamicLink = DynamicLinks.SharedInstance?.FromCustomSchemeUrl (url);
+
+			if (dynamicLink == null)
+				return false;
+
+			// Handle the deep link
+			return true;
 		}
 
-		public override void WillEnterForeground (UIApplication application)
+		// Handle links received as Universal Links on iOS 9 or later
+		public override bool ContinueUserActivity (UIApplication application, NSUserActivity userActivity, UIApplicationRestorationHandler completionHandler)
 		{
-			// Called as part of the transiton from background to active state.
-			// Here you can undo many of the changes made on entering the background.
+			return DynamicLinks.SharedInstance.HandleUniversalLink (userActivity.WebPageUrl, (dynamicLink, error) => {
+				if (error != null) {
+					ShowMessage ("Seems that something wrong happened with Universal Links.", error.LocalizedDescription, application.KeyWindow.RootViewController);
+					return;
+				}
+
+				if (dynamicLink.Url == null) {
+					ShowMessage ("Dynamic Link Received", "But it seems that it does not have an Url to evaluate.", application.KeyWindow.RootViewController);
+					return;
+				}
+
+				//ShowMessage ("Your Dynamic Link Url", dynamicLink?.Url.ToString (), application.KeyWindow.RootViewController);
+
+				if (string.IsNullOrWhiteSpace (dynamicLink.Url.Path) || dynamicLink.Url.Path == "/") {
+					GoToViewController (string.Empty);
+				} else {
+					GoToViewController (dynamicLink.Url.PathComponents [1]);
+				}
+			});
 		}
 
-		public override void OnActivated (UIApplication application)
+		void GoToViewController (string path)
 		{
-			// Restart any tasks that were paused (or not yet started) while the application was inactive. 
-			// If the application was previously in the background, optionally refresh the user interface.
+			if (path == string.Empty) {
+				(Window.RootViewController as UINavigationController).PushViewController (new MenuViewController (), true);
+			} else {
+				var imageViewController = Window.RootViewController.Storyboard.InstantiateViewController ("ImageViewControllerId") as ImageViewController;
+				imageViewController.CompanyLogo = path == "platform" ? CompanyLogo.Xamarin : CompanyLogo.Firebase;
+				(Window.RootViewController as UINavigationController).PushViewController (imageViewController, true);
+			}
 		}
 
-		public override void WillTerminate (UIApplication application)
+		public static void ShowMessage (string title, string message, UIViewController fromViewController)
 		{
-			// Called when the application is about to terminate. Save data, if needed. See also DidEnterBackground.
+			if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
+				var alert = UIAlertController.Create (title, message, UIAlertControllerStyle.Alert);
+				alert.AddAction (UIAlertAction.Create ("Ok", UIAlertActionStyle.Default, (obj) => { }));
+				fromViewController.PresentViewController (alert, true, null);
+			} else {
+				new UIAlertView (title, message, null, "Ok", null).Show ();
+			}
 		}
 	}
 }

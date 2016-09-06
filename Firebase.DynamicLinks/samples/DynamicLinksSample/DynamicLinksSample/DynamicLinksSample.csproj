@@ -76,7 +76,7 @@
     <CodesignKey>iPhone Developer</CodesignKey>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
     <MtouchDebug>true</MtouchDebug>
-    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchFastDev>false</MtouchFastDev>
     <MtouchProfiling>true</MtouchProfiling>
     <MtouchUseSGen>true</MtouchUseSGen>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
@@ -87,12 +87,14 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
+    <CodesignProvision></CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="MonoTouch.Dialog-1" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Contents.json" />
@@ -113,9 +115,14 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="ViewController.cs" />
-    <Compile Include="ViewController.designer.cs">
-      <DependentUpon>ViewController.cs</DependentUpon>
+    <Compile Include="InitialViewController.cs" />
+    <Compile Include="InitialViewController.designer.cs">
+      <DependentUpon>InitialViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuViewController.cs" />
+    <Compile Include="ImageViewController.cs" />
+    <Compile Include="ImageViewController.designer.cs">
+      <DependentUpon>ImageViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -131,6 +138,11 @@
       <Project>{44E2D44F-2072-4885-AA39-1C4DD5E65E5C}</Project>
       <Name>Firebase.DynamicLinks</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="GoogleService-Info.plist" />
+    <BundleResource Include="Resources\FirebaseLogo.png" />
+    <BundleResource Include="Resources\XamarinLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\Firebase.InstanceID.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.Analytics\source\Firebase.Analytics\Firebase.Analytics.targets" />
