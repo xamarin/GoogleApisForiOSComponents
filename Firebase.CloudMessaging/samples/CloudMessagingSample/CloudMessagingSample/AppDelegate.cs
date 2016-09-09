@@ -42,8 +42,6 @@ namespace CloudMessagingSample
 			// Monitor token generation
 			InstanceId.Notifications.ObserveTokenRefresh (TokenRefreshNotification);
 
-			ConnectToFCM (Window.RootViewController);
-
 			return true;
 		}
 
@@ -95,11 +93,15 @@ namespace CloudMessagingSample
 			});
 		}
 
-		public static void ShowMessage (string title, string message, UIViewController fromViewController)
+		public static void ShowMessage (string title, string message, UIViewController fromViewController, Action actionForOk = null)
 		{
 			if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
 				var alert = UIAlertController.Create (title, message, UIAlertControllerStyle.Alert);
-				alert.AddAction (UIAlertAction.Create ("Ok", UIAlertActionStyle.Default, (obj) => { }));
+				alert.AddAction (UIAlertAction.Create ("Ok", UIAlertActionStyle.Default, (obj) => {
+					if (actionForOk != null) {
+						actionForOk ();
+					}
+				}));
 				fromViewController.PresentViewController (alert, true, null);
 			} else {
 				new UIAlertView (title, message, null, "Ok", null).Show ();

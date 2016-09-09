@@ -7,12 +7,20 @@ namespace CloudMessagingSample
 {
 	public class UserInfoViewController : DialogViewController
 	{
-		UITextView textView;
 
 		public UserInfoViewController (AppDelegate appDelegate) : base (UITableViewStyle.Grouped, null, true)
 		{
 			Root = new RootElement ("Notification Content");
 			appDelegate.NotificationReceived += AppDelegate_NotificationReceived;
+		}
+
+		public override void ViewDidAppear (bool animated)
+		{
+			base.ViewDidAppear (animated);
+
+			AppDelegate.ShowMessage ("Hey!", "To see this sample in action, send a notification from Firebase Console", this, () => {
+				AppDelegate.ConnectToFCM (this);
+			});
 		}
 
 		void AppDelegate_NotificationReceived (object sender, UserInfoEventArgs e)
