@@ -1,5 +1,8 @@
 ﻿using Foundation;
 using UIKit;
+using Firebase.Analytics;
+using Firebase.Invites;
+using Google.SignIn;
 
 namespace InvitesSample
 {
@@ -19,39 +22,45 @@ namespace InvitesSample
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
+			App.Configure ();
 
 			return true;
 		}
 
-		public override void OnResignActivation (UIApplication application)
+		// Support for iOS 9 or later
+		public override bool OpenUrl (UIApplication app, NSUrl url, NSDictionary options)
 		{
-			// Invoked when the application is about to move from active to inactive state.
-			// This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) 
-			// or when the user quits the application and it begins the transition to the background state.
-			// Games should use this method to pause the game.
+			var openUrlOptions = new UIApplicationOpenUrlOptions (options);
+			return OpenUrl (app, url, openUrlOptions.SourceApplication, openUrlOptions.Annotation);
 		}
 
-		public override void DidEnterBackground (UIApplication application)
+		// Support for iOS 8 or before
+		public override bool OpenUrl (UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
 		{
-			// Use this method to release shared resources, save user data, invalidate timers and store the application state.
-			// If your application supports background exection this method is called instead of WillTerminate when the user quits.
+			// Handle App Invite requests
+			var invite = Invites.HandleUrl (url, sourceApplication, annotation);
+
+			if (invite != null) {
+				var matchType = invite.MatchType == ReceivedInviteMatchType.Weak ? "Weak" : "Strong";
+				var message = $"Deep link from {sourceApplication}\nInvite ID: {invite.InviteId}\nApp Url: {invite.DeepLink}\nMatch Type: {matchType}";
+				ShowMessage ("Depp-Link Data", message, Window.RootViewController);
+
+				return true;
+			}
+
+			// Handle Sign In
+			return SignIn.SharedInstance.HandleUrl (url, sourceApplication, annotation);
 		}
 
-		public override void WillEnterForeground (UIApplication application)
+		public static void ShowMessage (string title, string message, UIViewController fromViewController)
 		{
-			// Called as part of the transiton from background to active state.
-			// Here you can undo many of the changes made on entering the background.
-		}
-
-		public override void OnActivated (UIApplication application)
-		{
-			// Restart any tasks that were paused (or not yet started) while the application was inactive. 
-			// If the application was previously in the background, optionally refresh the user interface.
-		}
-
-		public override void WillTerminate (UIApplication application)
-		{
-			// Called when the application is about to terminate. Save data, if needed. See also DidEnterBackground.
+			if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
+				var alert = UIAlertController.Create (title, message, UIAlertControllerStyle.Alert);
+				alert.AddAction (UIAlertAction.Create ("Ok", UIAlertActionStyle.Default, (obj) => { }));
+				fromViewController.PresentViewController (alert, true, null);
+			} else {
+				new UIAlertView (title, message, null, "Ok", null).Show ();
+			}
 		}
 	}
 }

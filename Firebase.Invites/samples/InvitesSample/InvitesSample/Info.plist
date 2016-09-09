@@ -5,7 +5,7 @@
 	<key>CFBundleName</key>
 	<string>InvitesSample</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.xamarin.firebase.invitessample</string>
+	<string>com.xamarin.firebase.ios.invitessample</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -29,10 +29,19 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcons.appiconset</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.542613023302-1bp5rsoa292g4rvvm479vvvcsiirnu0u</string>
+			</array>
+			<key>CFBundleURLTypes</key>
+			<string>Editor</string>
+		</dict>
+	</array>
 </dict>
 </plist>

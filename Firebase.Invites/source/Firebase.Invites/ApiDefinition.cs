@@ -36,7 +36,7 @@ namespace Firebase.Invites
 	{
 		// @optional -(void)inviteFinishedWithInvitations:(NSArray * _Nonnull)invitationIds error:(NSError * _Nullable)error;
 		[Export ("inviteFinishedWithInvitations:error:")]
-		void Error (string [] invitationIds, [NullAllowed] NSError error);
+		void InviteFinished (string [] invitationIds, [NullAllowed] NSError error);
 	}
 
 	interface IInviteBuilder
