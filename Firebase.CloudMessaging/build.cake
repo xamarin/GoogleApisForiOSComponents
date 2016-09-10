@@ -18,7 +18,7 @@ buildSpec = new BuildSpec () {
 	},
 
 	Samples = new ISolutionBuilder [] {
-		new IOSSolutionBuilder { SolutionPath = "./samples/GoogleCloudMessagingSample/GoogleCloudMessagingSample.sln", BuildsOn = BuildPlatforms.Mac }, 
+		new IOSSolutionBuilder { SolutionPath = "./samples/CloudMessagingSample/CloudMessagingSample.sln", BuildsOn = BuildPlatforms.Mac }, 
 	},
 
 	NuGets = new [] {

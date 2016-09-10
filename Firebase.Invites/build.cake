@@ -18,7 +18,7 @@ buildSpec = new BuildSpec () {
 	},
 
 	Samples = new ISolutionBuilder [] {
-		new IOSSolutionBuilder { SolutionPath = "./samples/AppInviteSample/AppInviteSample.sln", BuildsOn = BuildPlatforms.Mac }, 
+		new IOSSolutionBuilder { SolutionPath = "./samples/InvitesSample/InvitesSample.sln", BuildsOn = BuildPlatforms.Mac }, 
 	},
 
 	NuGets = new [] {

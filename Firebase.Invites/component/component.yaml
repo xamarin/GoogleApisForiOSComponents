@@ -12,30 +12,35 @@ docs-url: https://firebase.google.com/docs/invites/
 libraries:
   ios-unified: 
     - ../output/Firebase.Invites.dll
+    - ../../Google.SignIn/output/Google.SignIn.dll
+    - ../../Google.Core/output/Google.Core.dll
+    - ../../Firebase.Analytics/output/Firebase.DynamicLinks.dll
     - ../../Firebase.Analytics/output/Firebase.Analytics.dll
     - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
-    - ../../Google.Core/output/Google.Core.dll
-    - ../../Google.SignIn/output/Google.SignIn.dll
 is_shell: true
 packages:
   ios-unified:
     - Xamarin.Firebase.iOS.Invites, Version=1.1.0.0
 samples:
-  - name: "AppInvite Sample"
-    path: ../samples/AppInviteSample/AppInviteSample.sln
+  - name: "Invites Sample"
+    path: ../samples/InvitesSample/InvitesSample.sln
     removeProjects: 
-      - Google.AppInvite
+      - Firebase.Invites
       - Google.SignIn
       - Google.Core
-    removeFiles:
-      - AppInviteSample/Makefile
+      - Firebase.DynamicLinks
+      - Firebase.Analytics
+      - Firebase.InstanceID
     installNuGets:
-      - project: AppInviteSample
+      - project: InvitesSample
         packages:
-          - Xamarin.Firebase.iOS.Analytics
+          - Xamarin.Firebase.iOS.Invites
     removeNodes:
-      - "//xNS:Import[contains (@Project, 'Google.AppInvite.targets')]"
-      - "//xNS:Import[contains (@Project, 'Google.Core.targets')]"
+      - "//xNS:Import[contains (@Project, 'Firebase.Invites.targets')]"
       - "//xNS:Import[contains (@Project, 'Google.SignIn.targets')]"
+      - "//xNS:Import[contains (@Project, 'Google.Core.targets')]"
+      - "//xNS:Import[contains (@Project, 'Firebase.DynamicLinks.targets')]"
+      - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"
+      - "//xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]"
 local-nuget-repo: ../../tmp-nugets
 no_build: true

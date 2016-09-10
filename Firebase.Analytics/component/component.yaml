@@ -18,13 +18,13 @@ packages:
   ios-unified:
     - Xamarin.Firebase.iOS.Analytics, Version=3.2.1.0
 samples:
-  - name: "Cute Animals Sample"
-    path:  ../samples/CuteAnimalsiOS/CuteAnimalsiOS.sln
+  - name: "Analytics Sample"
+    path:  ../samples/AnalyticsSample/AnalyticsSample.sln
     removeProjects: 
       - Firebase.Analytics
       - Firebase.InstanceID
     installNuGets:
-      - project: CuteAnimalsiOS
+      - project: AnalyticsSample
         packages:
           - Xamarin.Firebase.iOS.Analytics
     removeNodes:

@@ -19,12 +19,10 @@ packages:
   ios-unified:
     - Xamarin.Firebase.iOS.AdMob, Version=7.8.1.0
 samples:
-  - name: "Firebase AdMob Sample"
-    path: ../samples/MobileAdsExample/MobileAdsExample.sln
-    removeProjects: 
-      - Google.MobileAds
+  - name: "AdMob Sample"
+    path: ../samples/AdMobSample/AdMobSample.sln
     installNuGets:
-      - project: MobileAdsExample
+      - project: AdMobSample
         packages:
           - Xamarin.Firebase.iOS.AdMob
     removeNodes:

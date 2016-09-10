@@ -19,21 +19,19 @@ packages:
   ios-unified:
     - Xamarin.Firebase.iOS.CloudMessaging, Version=1.1.0.0
 samples:
-  - name: "AppInvite Sample"
-    path: ../samples/AppInviteSample/AppInviteSample.sln
+  - name: "Cloud Messaging Sample"
+    path: ../samples/CloudMessagingSample/CloudMessagingSample.sln
     removeProjects: 
-      - Google.AppInvite
-      - Google.SignIn
-      - Google.Core
-    removeFiles:
-      - AppInviteSample/Makefile
+      - Firebase.CloudMessaging
+      - Firebase.Analytics
+      - Firebase.InstanceID
     installNuGets:
-      - project: AppInviteSample
+      - project: CloudMessagingSample
         packages:
-          - Xamarin.Firebase.iOS.Analytics
+          - Xamarin.Firebase.iOS.CloudMessaging
     removeNodes:
-      - "//xNS:Import[contains (@Project, 'Google.AppInvite.targets')]"
-      - "//xNS:Import[contains (@Project, 'Google.Core.targets')]"
-      - "//xNS:Import[contains (@Project, 'Google.SignIn.targets')]"
+      - "//xNS:Import[contains (@Project, 'Firebase.CloudMessaging.targets')]"
+      - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"
+      - "//xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]"
 local-nuget-repo: ../../tmp-nugets
 no_build: true
