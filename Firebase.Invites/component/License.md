@@ -1,8 +1,8 @@
 **Xamarin is not responsible for, nor does it grant any licenses to, third-party packages. Some packages may require or install dependencies which are governed by additional licenses.**
 
-Note: This component depends on [Google App Invites](https://developers.google.com/app-invites/), which is subject to the [Google Mobile Developer Services Terms of Service](https://developers.google.com/mobile/terms).
+Note: This component depends on [Firebase Invites](https://firebase.google.com/docs/invites/ios), which is subject to the [Terms of Service for Firebase Services](https://firebase.google.com/terms/).
 
-### Xamarin Component for Google App Invites for iOS
+### Xamarin Component for Firebase Invites for iOS
 
 **The MIT License (MIT)**
 
@@ -14,4 +14,4 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-20160427
+20160910

@@ -1,8 +1,8 @@
 **Xamarin is not responsible for, nor does it grant any licenses to, third-party packages. Some packages may require or install dependencies which are governed by additional licenses.**
 
-Note: This component depends on [Google Analytics for iOS](https://developers.google.com/analytics/devguides/collection/ios/v3/), which is subject to the [Google Analytics Terms of Service](http://www.google.com/analytics/terms/us.html) and [Measurement Protocol / SDK / User ID Policy](https://developers.google.com/analytics/devguides/collection/protocol/policy)
+Note: This component depends on [Firebase Analytics for iOS](https://firebase.google.com/docs/analytics/ios/start), which is subject to the [Firebase Analytics Terms of Service](https://firebase.google.com/terms/analytics) and [Measurement Protocol / SDK / User ID Policy](https://firebase.google.com/policies/analytics)
 
-### Xamarin Component for Google Analytics for iOS
+### Xamarin Component for Firebase Analytics for iOS
 
 **The MIT License (MIT)**
 
@@ -14,4 +14,4 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-20160427
+20160910
