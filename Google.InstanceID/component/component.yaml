@@ -6,8 +6,8 @@ publisher-url: http://xamarin.com
 src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Google.InstanceID
 summary: Instance ID provides a unique ID per instance of your Android and iOS apps.
 icons:
-  - icons/googleiosinstanceid_128x128.png
-  - icons/googleiosinstanceid_512x512.png
+  - ../../icons/googleiosinstanceid_128x128.png
+  - ../../icons/googleiosinstanceid_512x512.png
 docs-url: https://developers.google.com/instance-id/
 libraries:
   ios-unified: 

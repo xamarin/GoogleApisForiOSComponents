@@ -6,7 +6,8 @@ publisher-url: https://xamarin.com
 src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Firebae.AdMob
 summary: Connect with advertisers and show relevant ads in your app. Users click on ads, you make money.
 icons:
-  - icons/googleadmob_128x128.png
+  - ../../icons/firebaseiosadmob_128x128.png
+  - ../../icons/firebaseiosadmob_512x512.png
 docs-url: https://firebase.google.com/docs/admob/
 libraries:
   ios-unified:

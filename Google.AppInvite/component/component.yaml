@@ -6,8 +6,8 @@ publisher-url: http://xamarin.com
 src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Google.AppInvite
 summary: Enable your users to share your app with people they know
 icons:
-  - icons/googleiosappinvite_128x128.png
-  - icons/googleiosappinvite_512x512.png
+  - ../../icons/googleiosappinvite_128x128.png
+  - ../../icons/googleiosappinvite_512x512.png
 docs-url: https://developers.google.com/app-invites/ios/reference/api/index
 libraries:
   ios-unified: 

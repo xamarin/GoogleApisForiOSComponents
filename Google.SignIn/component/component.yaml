@@ -6,8 +6,8 @@ publisher-url: http://xamarin.com
 src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Google.SignIn
 summary: Get users into your apps quickly and securely, using a registration system they already use and trust.
 icons:
-  - icons/googleiossignin_128x128.png
-  - icons/googleiossignin_512x512.png
+  - ../../icons/googleiossignin_128x128.png
+  - ../../icons/googleiossignin_512x512.png
 docs-url: https://developers.google.com/identity/sign-in/ios/api/index
 libraries:
   ios-unified: 

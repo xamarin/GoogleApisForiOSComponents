@@ -6,8 +6,8 @@ publisher-url: http://xamarin.com
 src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Google.PlayGames
 summary: "Find, retain, and match players for your mobile games."
 icons:
-  - icons/googleiosplaygames_128x128.png
-  - icons/googleiosplaygames_512x512.png
+  - ../../icons/googleiosplaygames_128x128.png
+  - ../../icons/googleiosplaygames_512x512.png
 docs-url: https://developers.google.com/games/services/
 libraries:
   ios-unified: 

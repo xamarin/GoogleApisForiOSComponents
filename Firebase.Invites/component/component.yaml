@@ -6,8 +6,8 @@ publisher-url: http://xamarin.com
 src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Firebase.Invites
 summary: Enable your users to share your app with people they know
 icons:
-  - icons/googleiosappinvite_128x128.png
-  - icons/googleiosappinvite_512x512.png
+  - ../../icons/firebaseiosinvites_128x128.png
+  - ../../icons/firebaseiosinvites_512x512.png
 docs-url: https://firebase.google.com/docs/invites/
 libraries:
   ios-unified: 

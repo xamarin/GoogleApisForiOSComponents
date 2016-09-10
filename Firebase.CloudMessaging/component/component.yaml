@@ -6,8 +6,8 @@ publisher-url: http://xamarin.com
 src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Firebase.CloudMessaging
 summary: Firebase Cloud Messaging for iOS is a service that allows you to send data from your server to your iOS users.
 icons:
-  - icons/googleiosappinvite_128x128.png
-  - icons/googleiosappinvite_512x512.png
+  - ../../icons/firebaseioscloudmessaging_128x128.png
+  - ../../icons/firebaseioscloudmessaging_512x512.png
 docs-url: https://firebase.google.com/docs/cloud-messaging/
 libraries:
   ios-unified: 

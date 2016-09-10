@@ -6,8 +6,8 @@ publisher-url: https://xamarin.com
 src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Firebase.Analytics
 summary: "Firebase Analytics is a free app measurement solution that provides insight on app usage and user engagement."
 icons:
-  - icons/googleiosanalytics_128x128.png
-  - icons/googleiosanalytics_512x512.png
+  - ../../icons/firebaseiosanalytics_128x128.png
+  - ../../icons/firebaseiosanalytics_512x512.png
 docs-url: https://firebase.google.com/docs/analytics/
 libraries:
   ios-unified: 
