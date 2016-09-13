@@ -41,7 +41,7 @@ namespace Firebase.CloudMessaging
 		// +(instancetype _Nonnull)messaging;
 		[Static]
 		[Export ("messaging")]
-		Messaging GetInstance ();
+		Messaging SharedInstance { get; }
 
 		// -(void)connectWithCompletion:(FIRMessagingConnectCompletion _Nonnull)handler;
 		[Export ("connectWithCompletion:")]

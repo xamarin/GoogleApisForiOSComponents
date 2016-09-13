@@ -16,7 +16,6 @@ namespace CloudMessagingSample
 		public event EventHandler<UserInfoEventArgs> NotificationReceived;
 
 		// class-level declarations
-		static Messaging messaging;
 
 		public override UIWindow Window {
 			get;
@@ -27,9 +26,10 @@ namespace CloudMessagingSample
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
-			App.Configure ();
-
 			(Window.RootViewController as UINavigationController).PushViewController (new UserInfoViewController (this), true);
+
+			// Monitor token generation
+			InstanceId.Notifications.ObserveTokenRefresh (TokenRefreshNotification);
 
 			// Register your app for remote notifications.
 			var allNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound;
@@ -37,10 +37,7 @@ namespace CloudMessagingSample
 			UIApplication.SharedApplication.RegisterUserNotificationSettings (settings);
 			UIApplication.SharedApplication.RegisterForRemoteNotifications ();
 
-			messaging = Messaging.GetInstance ();
-
-			// Monitor token generation
-			InstanceId.Notifications.ObserveTokenRefresh (TokenRefreshNotification);
+			App.Configure ();
 
 			return true;
 		}
@@ -49,7 +46,7 @@ namespace CloudMessagingSample
 		{
 			// Use this method to release shared resources, save user data, invalidate timers and store the application state.
 			// If your application supports background exection this method is called instead of WillTerminate when the user quits.
-			messaging?.Disconnect ();
+			Messaging.SharedInstance.Disconnect ();
 			Console.WriteLine ("Disconnected from FMC");
 		}
 
@@ -57,9 +54,15 @@ namespace CloudMessagingSample
 		{
 			// If you are receiving a notification message while your app is in the background,
 			// this callback will not be fired 'till the user taps on the notification launching the application.
+
+			// If you disable method swizzling, you'll need to call this method. 
+			// This lets FCM track message delivery and analytics, which is performed
+			// automatically with method swizzling enabled.
+			//Messaging.GetInstance ().AppDidReceiveMessage (userInfo);
+
 			if (NotificationReceived == null)
 				return;
-
+			
 			var e = new UserInfoEventArgs { UserInfo = userInfo };
 			NotificationReceived (this, e);
 		}
@@ -84,11 +87,12 @@ namespace CloudMessagingSample
 
 		public static void ConnectToFCM (UIViewController fromViewController)
 		{
-			messaging?.Connect (error => {
+			Messaging.SharedInstance.Connect (error => {
 				if (error != null) {
 					ShowMessage ("Unable to connect to FCM", error.LocalizedDescription, fromViewController);
 				} else {
 					ShowMessage ("Success!", "Connected to FCM", fromViewController);
+					Console.WriteLine ($"Token: {InstanceId.SharedInstance.Token}");
 				}
 			});
 		}
