@@ -98,9 +98,8 @@ namespace Firebase.Analytics
 
 		// +(FIRApp * _Nullable)defaultApp;
 		[Static]
-		[return: NullAllowed]
 		[Export ("defaultApp")]
-		App GetDefault ();
+		App DefaultInstance { get; }
 
 		// +(FIRApp * _Nullable)appNamed:(NSString * _Nonnull)name;
 		[Static]
@@ -154,7 +153,7 @@ namespace Firebase.Analytics
 		// +(FIROptions *)defaultOptions;
 		[Static]
 		[Export ("defaultOptions")]
-		Options GetDefault ();
+		Options DefaultInstance { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * APIKey;
 		[Export ("APIKey")]
