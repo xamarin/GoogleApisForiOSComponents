@@ -1,97 +1,96 @@
-# Get your Google Analytics Tracking Id
+# Get Started with Firebase Analytics for iOS
 
-Follow the instructions in [this page](https://support.google.com/analytics/answer/2614741) to set up and get the tracking ID for a new app property in either a new or existing Google Analytics account.
+Firebase Analytics collects usage and behavior data for your app. The SDK logs two primary types of information:
 
-# iOS Getting Started
+* **Events:** What is happening in your app, such as user actions, system events, or errors.
+* **User properties:** Attributes you define to describe segments of your userbase, such as language preference or geographic location.
 
-There are two steps to getting started with the iOS SDK:
+## Add Firebase to your app
 
-1. Initialize the tracker
-2. Add screen measurement
+1. Create a Firebase project in the [Firebase console][1], if you don't already have one. If you already have an existing Google project associated with your mobile app, click **Import Google Project**. Otherwise, click **Create New Project**.
+2. Click **Add Firebase to your iOS app** and follow the setup steps. If you're importing an existing Google project, this may happen automatically and you can just [download the config file][2].
+3. When prompted, enter your app's bundle ID. It's important to enter the bundle ID your app is using; this can only be set when you add an app to your Firebase project.
+4. At the end, you'll download a `GoogleService-Info.plist` file. You can [download this file][2] again at any time.
 
-After completing these steps, you'll be able to measure the following with Google Analytics:
+## Configure Analytics in your app
 
-* App installations
-* Active users and demographics
-* Screens and user engagement
-* Crashes and exceptions
+Once you have your `GoogleService-Info.plist` file downloaded in your computer, do the following steps in Xamarin Studio:
 
-## Initializing the tracker
-
-To initialize the tracker, use the `Google.Analytics` namespace in your AppDelegate and add this code to your AppDelegate's `FinishedLaunching` method:
-
-```csharp
-using Google.Analytics;
-//...
-
-// Shared GA tracker
-public IGAITracker Tracker;
-
-// Learn how to get your own Tracking Id from:
-// https://support.google.com/analytics/answer/2614741?hl=en
-public static readonly string TrackingId = "UA-TRACKING-ID";
-
-public override bool FinishedLaunching (UIApplication app, NSDictionary options)
-{
-
-	// Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
-	Gai.SharedInstance.DispatchInterval = 20;
-	
-	// Optional: automatically send uncaught exceptions to Google Analytics.
-	Gai.SharedInstance.TrackUncaughtExceptions = true;
-	
-	// Initialize tracker.
-	Tracker = Gai.SharedInstance.GetTracker (TrackingId);
-}
-```
-
-**Note**: When you obtain a tracker for a given tracking Id, the tracker instance is persisted in the library. When you call `GetTracker` with the same tracking Id later, the same tracker instance will be returned. Also, the Google Analytics SDK exposes a default tracker instance that gets set to the first tracker instance created. It can be accessed by:
+1. Add `GoogleService-Info.plist` file to your app project.
+2. Set `GoogleService-Info.plist` **build action** behaviour to `Bundle Resource` by Right clicking/Build Action.
+3. Open `GoogleService-Info.plist` file and change `IS_ANALYTICS_ENABLED` value to `Yes`. 
+4. Add the following line of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Analytics` namespace):
 
 ```csharp
-Gai.SharedInstance.DefaultTracker
+App.Configure ();
 ```
 
-Note that in the above example, "UA-TRACKING-ID" here is a placeholder for the tracking ID assigned to you when you created your Google Analytics property. If you are only using one property ID in your app, using the default tracker method is best.
+## Log events
 
-## Implementing screen measurement
+Events provide insight on what is happening in your app, such as user actions, system events, or errors.
 
-To implement it you must provide the view name to be used in your Google Analytics reports. A good place to put this is the view controller's initializer method, if you have one, or the `ViewDidAppear` method:
+Analytics automatically logs some [events][3] for you; you don't need to add any code to receive them. If your app needs to collect additional data, you can log up to 500 different Analytics Event types in your app. There is no limit on the total volume of events your app logs.
+
+After you have configured Analytics in your app, you can begin to log events with the `Analytics.LogEvent` method. You can find some constants names ready to be used with your log:
+
+* Suggested events: see the `EventNamesConstants` class.
+* Prescribed parameters: see the `ParameterNamesConstants` class.
+
+It is very easy to log an event, the following example demonstrates how to log an event with constants values (don't forget to import `Firebase.Analytics` namespace):
 
 ```csharp
-using Google.Analytics;
-//...
-
-public override void ViewDidAppear (bool animated)
-{
-	base.ViewDidAppear (animated);
-	
-	// This screen name value will remain set on the tracker and sent with
-	// hits until it is set to a new value or to null.
-	Gai.SharedInstance.DefaultTracker.Set (GaiConstants.ScreenName, "Main View");
-
-	Gai.SharedInstance.DefaultTracker.Send (DictionaryBuilder.CreateAppView ().Build ());
-}
+NSString [] keys = { ParameterNamesConstants.ContentType, ParameterNamesConstants.ItemId };
+NSObject [] values = { new NSString ("cont"), new NSString ("1") };
+var parameters = NSDictionary<NSString, NSObject>.FromObjectsAndKeys (keys, values, keys.Length);
+Analytics.LogEvent (EventNamesConstants.SelectContent, parameters);
 ```
 
-**Note**: `GaiConstants` is a static class containing all the constants you can set in the `Set` method from the `DictionaryBuilder` class.
+Or without constants values:
 
-To learn more about screen measurement, see the [Screens Developer Guide](https://developers.google.com/analytics/devguides/collection/ios/v3/screens).
+```csharp
+NSString [] keys = { new NSString ("Name") };
+NSObject [] values = { new NSString ("Image name") };
+var parameters = NSDictionary<NSString, NSObject>.FromObjectsAndKeys (keys, values, keys.Length);
+Analytics.LogEvent ("share_image", parameters);
+```
 
-Congratulations! Your Xamarin.iOS app is now setup to send data to Google Analytics.
+One important thing to know about custom parameters is that they are not represented directly in your Analytics reports but they can be used as filters in [audience][4] definitions that can be applied to every report. Custom parameters are also included in data [exported to BigQuery][5] if your app is linked to a BigQuery project.
 
-## Next steps
+Also, `ParameterNamesConstants.Value` is a general purpose parameter that is useful for accumulating a key metric that pertains to an event. Examples include revenue, distance, time, and points.
 
-You can do much more with Google Analytics, including measuring campaigns, in-app payments and transactions, and user interaction events. See the following developer guides to learn how to add these features to your implementation:
+**_Note: Data logged to Analytics can take hours to be refreshed on reports._**
 
-* [Advanced Configuration](https://developers.google.com/analytics/devguides/collection/ios/v3/advanced) – Learn more about advanced configuration options, including using multiple trackers.
-* [Measuring Campaigns](https://developers.google.com/analytics/devguides/collection/ios/v3/campaigns) – Learn how to implement campaign measurement to understand which channels and campaigns are driving app installs.
-* [Measuring Events](https://developers.google.com/analytics/devguides/collection/ios/v3/events) – Learn how to measure user engagement with interactive content like buttons, videos, and other media using Events.
-* [Measuring In-App Payments](https://developers.google.com/analytics/devguides/collection/ios/v3/ecommerce) – Learn how to measure in-app payments and transactions.
-* [User timings](https://developers.google.com/analytics/devguides/collection/ios/v3/usertimings) – Learn how to measure user timings in your app to measure load times, engagement with media, and more.
+## Set User Properties
 
-# More Resources
+User properties are attributes you define to describe segments of your userbase, such as language preference or geographic location.
 
-* [Google Analytics Developer Portal](https://developers.google.com/analytics/devguides/collection/)
+Analytics automatically logs some [user properties][6]; you don't need to add any code to enable them. If your app needs to collect additional data, you can set up to 25 different Analytics User Properties in your app.
 
+**_Note: The Age, Gender, and Interests properties are automatically collected only if your app links to the Ad Support framework. Linking to this framework also automatically collects the Advertising Identifier (IDFA)._**
 
-###### The [original content material](https://developers.google.com/analytics/devguides/collection/) of this page is licensed under the [Creative Commons Attribution 3.0 License](http://creativecommons.org/licenses/by/3.0/) and has been adapted to match this page format.
+To set a user property you need to:
+
+1. [Register][7] the property in the **Analytics** page of the [Firebase console][1].
+2. Add code to set an Analytics user property with the `Analytics.SetUserProperty` method. You can use the name and value of your choosing for each property (don't forget to import `Firebase.Analytics` namespace):
+
+```csharp
+// Pass null as value if you want to remove a registered user property
+Analytics.SetUserProperty ("your value", "your property name");
+```
+
+### Known issues
+
+* App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][8])
+* Passing `-FIRAnalyticsDebugEnabled` to Run arguments doesn't enable debug console. (Bug [#43899][9])
+
+<sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/analytics/ios/start) to see original Firebase documentation._</sub>
+
+[1]: https://firebase.google.com/console/
+[2]: http://support.google.com/firebase/answer/7015592
+[3]: https://support.google.com/firebase/answer/6317485
+[4]: https://support.google.com/firebase/answer/6317509?hl=en&ref_topic=6317489
+[5]: https://support.google.com/firebase/answer/6318765
+[6]: https://support.google.com/firebase/answer/6317486
+[7]: https://support.google.com/firebase/answer/6317519?hl=en&ref_topic=6317489#create-property
+[8]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689
+[9]: https://bugzilla.xamarin.com/show_bug.cgi?id=43899
