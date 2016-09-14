@@ -23,28 +23,32 @@ namespace DynamicLinksSample
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
+
+			// Set DeepLinkUrlScheme to the custom URL scheme you defined in your
+			// Info.plist.
+			Options.DefaultInstance.DeepLinkUrlScheme = "com.xamarin.firebase.ios.dynamiclinkssample";
 			App.Configure ();
 
 			return true;
 		}
 
-		// Handle Custom Url Schemes for iOS 9 or later
+		// Handle Custom Url Schemes for iOS 9 or newer
 		public override bool OpenUrl (UIApplication app, NSUrl url, NSDictionary options)
 		{
 			return OpenUrl (app, url, null, null);
 		}
 
-		// Handle Custom Url Schemes for iOS 9 or later
+		// Handle Custom Url Schemes for iOS 8 or older
 		public override bool OpenUrl (UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
 		{
 			Console.WriteLine ("I'm handling a link through the OpenUrl method.");
-
 			var dynamicLink = DynamicLinks.SharedInstance?.FromCustomSchemeUrl (url);
 
 			if (dynamicLink == null)
 				return false;
 
-			// Handle the deep link
+			// Handle the deep link. For example, show the deep-linked content or
+			// apply a promotional offer to the user's account.
 			return true;
 		}
 
@@ -61,8 +65,6 @@ namespace DynamicLinksSample
 					ShowMessage ("Dynamic Link Received", "But it seems that it does not have an Url to evaluate.", application.KeyWindow.RootViewController);
 					return;
 				}
-
-				//ShowMessage ("Your Dynamic Link Url", dynamicLink?.Url.ToString (), application.KeyWindow.RootViewController);
 
 				if (string.IsNullOrWhiteSpace (dynamicLink.Url.Path) || dynamicLink.Url.Path == "/") {
 					GoToViewController (string.Empty);

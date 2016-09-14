@@ -8,6 +8,7 @@ using CoreGraphics;
 namespace Firebase.DynamicLinks
 {
 	// @interface FIRDynamicLink : NSObject
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRDynamicLink")]
 	interface DynamicLink
 	{

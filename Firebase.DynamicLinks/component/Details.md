@@ -1,27 +1,15 @@
+Firebase Dynamic Links are smart URLs that dynamically change behavior to provide the best experience across different platforms.
 
-App Invites provide a powerful way to organically grow your app, user-to-user. Your users recommend your app to their friends using personalized, contextual invitations powered by Google. App Invites provide a great onboarding experience to your new users. Google optimizes your app install rates by reducing friction and using relevant context at every step of the user invitation flow.
+## Key capabilities
 
-### App Invites flow
+* **Dynamic Links are durable and survive app installs:** Delight users by personalizing the first-open experience. Avoid losing conversions when potential users don't already have your app installed.
+* **Dynamically control the user experience:** Dynamic Links work seamlessly across iOS, Android, and desktop and mobile web. Dynamic Links can be configured to provide the best possible user experience, whether that's a personalized app launch, a fast interstitial, or opening your mobile website.
+* **Know which content and campaigns are working:** Use Dynamic Links in marketing campaigns and for content sharing to know exactly which campaigns and content drive growth.
 
-App Invites always begins with a user sending an invite from your app. The following diagram illustrates the App Invites flow.
+## How does it work?
 
-![AppInviteFlow](https://developers.google.com/app-invites/images/ai-ios-flow.svg)
+You create a Dynamic Link either by using the Firebase console or by forming a URL by adding Dynamic Link parameters to a domain specific to your app. These parameters specify the links you want to open, depending on the user's platform and whether your app is installed.
 
-### Sending an invitation
+When a user opens one of your Dynamic Links, if your app isn't yet installed, the user is sent to the Play Store or App Store to install your app (unless you specify otherwise), and your app opens. You can then retrieve the link that was passed to your app and handle the link as appropriate for your app.
 
-
-You allow a user to send an invitation from your application by using the `IInviteBuilder` interface in your app’s ViewController file. The invite must include a title and can also include a message and deep link data.
-
-The Open method of `IInviteBuilder` opens the contact chooser dialog where the user selects the contacts to invite. The invite can be sent via email or SMS.
-
-### Receiving an invitation
-
-When a user receives and choose to open an invitation URL, the invitation flow branches according to whether or not your app is already installed on the recipient’s device. If the recipient doesn’t have your app, the flow branches to let the user install it. If the recipient is already one of your users, then the optional deep link information in the invite passes to your app for processing.
-
-**App is already installed**
-
-If the recipient has already installed your app, the app will receive the invite URL containing the optional deep link data.
-
-**App is not installed**
-
-If the recipient has not yet installed the app, they can choose to install the app from the iTunes App Store. When the app is opened for the first time, the App Invites SDK will supply a deep link if one is available.
+<sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/dynamic-links/) to see original Firebase documentation._</sub>
