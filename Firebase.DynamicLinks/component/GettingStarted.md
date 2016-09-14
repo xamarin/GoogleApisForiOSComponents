@@ -80,7 +80,7 @@ public override bool OpenUrl (UIApplication application, NSUrl url, string sourc
 
 Override `ContinueUserActivity (UIApplication, NSUserActivity, UIApplicationRestorationHandler)` method to handle links received as [Universal Links][5] on iOS 9 and newer:
 
-```
+```csharp
 // Handle links received as Universal Links on iOS 9 or later
 		public override bool ContinueUserActivity (UIApplication application, NSUserActivity userActivity, UIApplicationRestorationHandler completionHandler)
 		{

@@ -8,6 +8,8 @@ Using Firebase Cloud Messaging, you can notify a client app that new email or ot
 
 ## How does it work?
 
+![FirebaseCloudMessaging_HowItWorks](https://firebase.google.com/docs/cloud-messaging/images/messaging-overview.png)
+
 A Firebase Cloud Messaging implementation includes an app server that interacts with FCM via HTTP or XMPP protocol, and a client app.
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/cloud-messaging/) to see original Firebase documentation._</sub>

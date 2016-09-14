@@ -8,6 +8,8 @@ Firebase Dynamic Links are smart URLs that dynamically change behavior to provid
 
 ## How does it work?
 
+![FirebaseDynamicLinks_HowItWorks](https://firebase.google.com/docs/dynamic-links/images/web-to-app.png)
+
 You create a Dynamic Link either by using the Firebase console or by forming a URL by adding Dynamic Link parameters to a domain specific to your app. These parameters specify the links you want to open, depending on the user's platform and whether your app is installed.
 
 When a user opens one of your Dynamic Links, if your app isn't yet installed, the user is sent to the Play Store or App Store to install your app (unless you specify otherwise), and your app opens. You can then retrieve the link that was passed to your app and handle the link as appropriate for your app.
