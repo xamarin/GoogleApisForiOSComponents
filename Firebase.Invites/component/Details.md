@@ -1,27 +1,19 @@
+Firebase Invites is a cross-platform solution for sending personalized email and SMS invitations, on-boarding users, and measuring the impact of invitations.
 
-App Invites provide a powerful way to organically grow your app, user-to-user. Your users recommend your app to their friends using personalized, contextual invitations powered by Google. App Invites provide a great onboarding experience to your new users. Google optimizes your app install rates by reducing friction and using relevant context at every step of the user invitation flow.
+Firebase Invites builds on Firebase Dynamic Links. While Dynamic Links ensure that recipients of links have the best possible experience for their platform and the apps they have installed, Firebase Invites ensures the best possible experience for sending links.
 
-### App Invites flow
+## Key capabilities
 
-App Invites always begins with a user sending an invite from your app. The following diagram illustrates the App Invites flow.
+* **Rich sharing that's easy for users:** Firebase Invites makes it simple for users to send content to their friends, over both SMS and email, by ensuring that referral codes, recipe entries, or other shared content gets passed along with the invitation—no cutting-and-pasting required.
+* **Rich sharing that's easy to implement:** Firebase Invites handles the invitation flow for you, allowing you to deliver a straightforward user experience without taking engineering time away from the rest of your app.
+* **Invitations that survive the installation process:** Because Firebase Invites is built on Dynamic Links, invitations work across the App Store and Play Store installation processes and ensure that recipients get the referral code or shared content, whether or not they have your app installed.
 
-![AppInviteFlow](https://developers.google.com/app-invites/images/ai-ios-flow.svg)
+## How does it work?
 
-### Sending an invitation
+![FirebaseInvites_HowItWorks](https://firebase.google.com/docs/invites/images/send-invitations.png)
 
+When a user taps one of your app's Share buttons and chooses the Firebase Invites channel—usually named "Email and SMS"—the Firebase Invites sharing screen opens. From the sharing screen, the user selects recipients from their Google contacts and contacts stored locally on the device, optionally customizes the invitation message and sends the invitations. Invitations are sent by email or SMS, depending on the available contact information, and contain a Dynamic Link to your app.
 
-You allow a user to send an invitation from your application by using the `IInviteBuilder` interface in your app’s ViewController file. The invite must include a title and can also include a message and deep link data.
+When the invitation's recipients open the Dynamic Link in the invitation, they are sent to the Play Store or App Store if they need to install your app; then, your app opens and can retrieve and handle the link.
 
-The Open method of `IInviteBuilder` opens the contact chooser dialog where the user selects the contacts to invite. The invite can be sent via email or SMS.
-
-### Receiving an invitation
-
-When a user receives and choose to open an invitation URL, the invitation flow branches according to whether or not your app is already installed on the recipient’s device. If the recipient doesn’t have your app, the flow branches to let the user install it. If the recipient is already one of your users, then the optional deep link information in the invite passes to your app for processing.
-
-**App is already installed**
-
-If the recipient has already installed your app, the app will receive the invite URL containing the optional deep link data.
-
-**App is not installed**
-
-If the recipient has not yet installed the app, they can choose to install the app from the iTunes App Store. When the app is opened for the first time, the App Invites SDK will supply a deep link if one is available.
+<sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/invites/) to see original Firebase documentation._</sub>
