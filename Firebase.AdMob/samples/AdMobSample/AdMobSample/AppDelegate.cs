@@ -1,5 +1,7 @@
 ﻿using Foundation;
 using UIKit;
+using Firebase.Analytics;
+using Google.MobileAds;
 
 namespace AdMobSample
 {
@@ -19,6 +21,10 @@ namespace AdMobSample
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
+
+			(Window.RootViewController as UINavigationController).PushViewController (new AdsViewController (), true);
+
+			App.Configure ();
 
 			return true;
 		}

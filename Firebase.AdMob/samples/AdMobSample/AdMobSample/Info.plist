@@ -5,7 +5,7 @@
 	<key>CFBundleName</key>
 	<string>AdMobSample</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.xamarin.firebase.admobsample</string>
+	<string>com.xamarin.firebase.ios.admobsample</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
