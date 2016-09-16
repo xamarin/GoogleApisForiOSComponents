@@ -40,10 +40,16 @@ namespace AdMobSample
 			};
 		}
 
+		public override void ViewDidAppear (bool animated)
+		{
+			base.ViewDidAppear (animated);
+
+			CreateAndRequestInterstitial ();
+		}
+
 		void AddToTableView ()
 		{
 			if (adViewTableView == null) {
-
 				// Setup your BannerView, review AdSizeCons class for more Ad sizes. 
 				adViewTableView = new BannerView (size: AdSizeCons.SmartBannerPortrait) {
 					AdUnitID = bannerId,
@@ -60,7 +66,7 @@ namespace AdMobSample
 					}
 				};
 			}
-			adViewTableView.LoadRequest (Request.GetDefaultRequest ());
+			adViewTableView.LoadRequest (GetRequest ());
 		}
 
 		void RemoveAdFromTableView ()
@@ -98,7 +104,7 @@ namespace AdMobSample
 					}
 				};
 			}
-			adViewWindow.LoadRequest (Request.GetDefaultRequest ());
+			adViewWindow.LoadRequest (GetRequest ());
 		}
 
 		void RemoveAdFromWindow ()
@@ -119,37 +125,34 @@ namespace AdMobSample
 
 		void AddToView ()
 		{
-			if (interstitialRequested)
+			if (!adInterstitial.IsReady)
 				return;
 
-			if (adInterstitial == null) {
-				adInterstitial = new Interstitial (intersitialId);
-
-				adInterstitial.ScreenDismissed += (sender, e) => {
-					interstitialRequested = false;
-
-					// You need to explicitly Dispose Interstitial when you dont need it anymore
-					// to avoid crashes if pending request are in progress
-					adInterstitial.Dispose ();
-					adInterstitial = null;
-				};
-			}
-
-			interstitialRequested = true;
-			adInterstitial.LoadRequest (Request.GetDefaultRequest ());
-
-			ShowInterstitial ();
+			adInterstitial.PresentFromRootViewController (NavigationController);
 		}
 
-		async void ShowInterstitial ()
+		void CreateAndRequestInterstitial ()
 		{
-			// We need to wait until the Intersitial is ready to show
-			do {
-				await Task.Delay (100);
-			} while (!adInterstitial.IsReady);
+			adInterstitial = new Interstitial (intersitialId);
+			adInterstitial.ScreenDismissed += (sender, e) => {
+				// Interstitial is a one time use object. That means once an interstitial is shown, HasBeenUsed 
+				// returns true and the interstitial can't be used to load another ad. 
+				// To request another interstitial, you'll need to create a new Interstitial object.
+				adInterstitial.Dispose ();
+				adInterstitial = null;
+				CreateAndRequestInterstitial ();
+			};
+			adInterstitial.LoadRequest (GetRequest ());
+		}
 
-			// Once is ready, show it
-			InvokeOnMainThread (() => adInterstitial.PresentFromRootViewController (NavigationController));
+		Request GetRequest ()
+		{
+			var request = Request.GetDefaultRequest ();
+			// Requests test ads on devices you specify. Your test device ID is printed to the console when
+			// an ad request is made. GADBannerView automatically returns test ads when running on a
+			// simulator. After you get your device ID, add it here
+			request.TestDevices = new [] { Request.SimulatorId.ToString () };
+			return request;
 		}
 	}
 }
