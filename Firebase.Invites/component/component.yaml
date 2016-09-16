@@ -14,7 +14,7 @@ libraries:
     - ../output/Firebase.Invites.dll
     - ../../Google.SignIn/output/Google.SignIn.dll
     - ../../Google.Core/output/Google.Core.dll
-    - ../../Firebase.Analytics/output/Firebase.DynamicLinks.dll
+    - ../../Firebase.DynamicLinks/output/Firebase.DynamicLinks.dll
     - ../../Firebase.Analytics/output/Firebase.Analytics.dll
     - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
 is_shell: true
