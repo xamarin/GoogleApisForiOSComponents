@@ -1,3 +1,27 @@
+- Name: Firebase.iOS.InstanceID
+  BuildScript: ./Firebase.InstanceID/build.cake
+  TriggerPaths: [ Firebase.InstanceID ]
+  MacBuildTargets: [ samples, component ]
+- Name: Firebase.iOS.Analytics
+  BuildScript: ./Firebase.Analytics/build.cake
+  TriggerPaths: [ Firebase.Analytics ]
+  MacBuildTargets: [ samples, component ]
+- Name: Firebase.iOS.DynamicLinks
+  BuildScript: ./Firebase.DynamicLinks/build.cake
+  TriggerPaths: [ Firebase.DynamicLinks ]
+  MacBuildTargets: [ samples, component ]
+- Name: Firebase.iOS.CloudMessaging
+  BuildScript: ./Firebase.CloudMessaging/build.cake
+  TriggerPaths: [ Firebase.CloudMessaging ]
+  MacBuildTargets: [ samples, component ]
+- Name: Firebase.iOS.Invites
+  BuildScript: ./Firebase.Invites/build.cake
+  TriggerPaths: [ Firebase.Invites ]
+  MacBuildTargets: [ samples, component ]
+- Name: Firebase.iOS.AdMob
+  BuildScript: ./Firebase.AdMob/build.cake
+  TriggerPaths: [ Firebase.AdMob ]
+  MacBuildTargets: [ samples, component ]
 - Name: Google.iOS.Core
   BuildScript: ./Google.Core/build.cake
   TriggerPaths: [ Google.Core ]
