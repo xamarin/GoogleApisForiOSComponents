@@ -1956,12 +1956,15 @@ namespace Google.MobileAds.DoubleClick
 		void DidReceiveCustomRenderedInterstitial (Interstitial interstitial, CustomRenderedAd customRenderedAd);
 	}
 
+    [DisableDefaultCtor]
 	[BaseType (typeof (Google.MobileAds.Interstitial),
 		Name = "DFPInterstitial",
 		Delegates = new string [] { "CustomRenderedInterstitialDelegate" },
 		Events = new Type [] { typeof (CustomRenderedInterstitialDelegate) })]
 	interface Interstitial
 	{
+        [Export("initWithAdUnitID:")]
+        IntPtr Constructor(string adUnitID);
 
 		[New]
 		[Export ("adUnitID", ArgumentSemantic.Copy)]
@@ -1984,6 +1987,10 @@ namespace Google.MobileAds.DoubleClick
 	[BaseType (typeof (Google.MobileAds.Request), Name = "DFPRequest")]
 	interface Request
 	{
+        [Static]
+        [Export("request")]
+        Request GetDefaultRequest();
+
 		[New]
 		[Field ("kDFPSimulatorID", "__Internal")]
 		NSString SimulatorId { get; }
