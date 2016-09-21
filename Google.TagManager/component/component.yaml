@@ -1,4 +1,4 @@
-version: 3.15.0.5
+version: 5.0.6.0
 name: Google Tag Manager for iOS
 id: googleiostagmanager
 publisher: Xamarin Inc.
@@ -15,7 +15,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Google.iOS.TagManager, Version=3.15.0.5
+    - Xamarin.Google.iOS.TagManager, Version=5.0.6.0
 samples:
   - name: "Cute Animals iOS"
     path:  ../samples/CuteAnimalsiOS/CuteAnimalsiOS.sln
