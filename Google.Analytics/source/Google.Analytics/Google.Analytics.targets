@@ -15,14 +15,17 @@
 	</ItemGroup>
 
 	<Target Name="_GoogleAnalyticsItems">
-		<ItemGroup>
 
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAnalyticsItemsFolder)\Libraries\libGoogleAnalytics.a">
+		<PropertyGroup>
+			<_GoogleAnalyticsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleAnalyticsItemsFolder)\Libraries\</_GoogleAnalyticsSDKBaseFolder>
+		</PropertyGroup>
+		
+		<ItemGroup>
+			<RestoreAssemblyResource Include="$(_GoogleAnalyticsSDKBaseFolder)libGoogleAnalytics.a">
 				<LogicalName>libGoogleAnalytics.a</LogicalName>
 				<AssemblyName>$(_GoogleAnalyticsAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-
 		</ItemGroup>
+		
 	</Target>
-
 </Project>

@@ -3,12 +3,12 @@
 
 	<PropertyGroup>
 		<_GoogleTagManagerAssemblyName>Google.TagManager, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleTagManagerAssemblyName>
-		<_GoogleTagManagerId>GTagMngr-3.15.0</_GoogleTagManagerId>
+		<_GoogleTagManagerItemsFolder>GTagM-5.0.6</_GoogleTagManagerItemsFolder>
 	</PropertyGroup>
 
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
-		<XamarinBuildDownload Include="$(_GoogleTagManagerId)">
-			<Url>https://www.gstatic.com/cpdc/648b8b8cfaaaa604-GoogleTagManager-3.15.0.tar.gz</Url>
+		<XamarinBuildDownload Include="$(_GoogleTagManagerItemsFolder)">
+			<Url>https://www.gstatic.com/cpdc/0a0d06d2083b5ef9-GoogleTagManager-5.0.6.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildRestoreResources Include="_GoogleTagManagerItems"/>
@@ -17,16 +17,19 @@
 	<Target Name="_GoogleTagManagerItems">
 
 		<PropertyGroup>
-			<_GoogleTagManagerLibrariesDir>$(XamarinBuildDownloadDir)$(_GoogleTagManagerId)\Libraries\</_GoogleTagManagerLibrariesDir>
+			<_GoogleTagManagerSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleTagManagerItemsFolder)\Frameworks\</_GoogleTagManagerSDKBaseFolder>
 		</PropertyGroup>
 
 		<ItemGroup>
-
-			<RestoreAssemblyResource Include="$(_GoogleTagManagerLibrariesDir)libTagManager.a">
-				<LogicalName>libTagManager.a</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleTagManagerSDKBaseFolder)GoogleTagManager.framework\GoogleTagManager">
+				<LogicalName>GoogleTagManager</LogicalName>
 				<AssemblyName>$(_GoogleTagManagerAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-
+			<RestoreAssemblyResource Include="$(_GoogleTagManagerSDKBaseFolder)GoogleTagManager.framework\Resources\TagManagerResources.bundle\TAGRuntime.js.dat">
+				<LogicalName>__monotouch_content_TagManagerResources.bundle_fTAGRuntime.js.dat</LogicalName>
+				<AssemblyName>$(_GoogleTagManagerAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 		</ItemGroup>
+		
 	</Target>
 </Project>
