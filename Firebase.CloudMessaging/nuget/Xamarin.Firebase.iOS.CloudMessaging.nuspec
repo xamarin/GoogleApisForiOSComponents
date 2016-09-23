@@ -8,7 +8,7 @@
     <owners>Xamarin Inc.</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>C# bindings for Firebase APIs Cloud Messaging iOS Library</description>
-    <copyright>Copyright 2016</copyright>
+    <copyright>Copyright 2016 Microsoft</copyright>
     <projectUrl>https://components.xamarin.com/view/googleiosgcm</projectUrl>
     <licenseUrl>https://components.xamarin.com/license/googleiosgcm</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseioscloudmessaging_128x128.png</iconUrl>
