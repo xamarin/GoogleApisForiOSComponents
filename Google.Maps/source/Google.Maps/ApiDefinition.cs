@@ -1590,6 +1590,21 @@ namespace Google.Maps
 		[Export ("sharedClient")]
 		PlacesClient SharedClient ();
 
+		// + (BOOL)provideAPIKey:(NSString *)key;
+		[Static]
+		[Export ("provideAPIKey:")]
+		bool ProvideApiKey (string key);
+
+		// + (NSString *)openSourceLicenseInfo;
+		[Static]
+		[Export ("openSourceLicenseInfo")]
+		string OpenSourceLicenseInfo { get; }
+
+		// + (NSString *)SDKVersion;
+		[Static]
+		[Export ("SDKVersion")]
+		string SdkVersion { get; }
+
 		// -(void)reportDeviceAtPlaceWithID:(NSString *)placeID;
 		[Export ("reportDeviceAtPlaceWithID:")]
 		void ReportDeviceAtPlace (string placeID);
@@ -2402,7 +2417,4 @@ namespace Google.Maps
 		[Export ("website", ArgumentSemantic.Copy)]
 		string Website { get; set; }
 	}
-
-
-
 }
