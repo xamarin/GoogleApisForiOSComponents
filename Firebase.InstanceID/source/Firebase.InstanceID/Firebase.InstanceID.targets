@@ -14,7 +14,7 @@
 	<Target Name="_FirebaseInstanceIDItems">
 
 		<PropertyGroup>
-			<_FirebaseInstanceIDSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseInstanceIDItemsFolder)\Frameworks\</_FirebaseInstanceIDSDKBaseFolder>
+			<_FirebaseInstanceIDSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseInstanceIDItemsFolder)\Frameworks\frameworks\</_FirebaseInstanceIDSDKBaseFolder>
 		</PropertyGroup>
 
 		<ItemGroup>

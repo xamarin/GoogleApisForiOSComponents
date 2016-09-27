@@ -40,6 +40,9 @@ namespace Firebase.Analytics
 		static NSString beginCheckout = new NSString ("begin_checkout");
 		public static NSString BeginCheckout { get; } = beginCheckout;
 
+		static NSString earnVirtualCurrency = new NSString ("earn_virtual_currency");
+		public static NSString EarnVirtualCurrency { get; } = earnVirtualCurrency;
+
 		static NSString ecommercePurchase = new NSString ("ecommerce_purchase");
 		public static NSString EcommercePurchase { get; } = ecommercePurchase;
 

@@ -194,5 +194,9 @@ namespace Firebase.Analytics
 		// -(instancetype)initWithGoogleAppID:(NSString *)googleAppID bundleID:(NSString *)bundleID GCMSenderID:(NSString *)GCMSenderID APIKey:(NSString *)APIKey clientID:(NSString *)clientID trackingID:(NSString *)trackingID androidClientID:(NSString *)androidClientID databaseURL:(NSString *)databaseURL storageBucket:(NSString *)storageBucket deepLinkURLScheme:(NSString *)deepLinkURLScheme;
 		[Export ("initWithGoogleAppID:bundleID:GCMSenderID:APIKey:clientID:trackingID:androidClientID:databaseURL:storageBucket:deepLinkURLScheme:")]
 		IntPtr Constructor (string googleAppId, string bundleId, string gcmSenderId, string ApiKey, string clientId, string trackingId, string androidClientId, string databaseUrl, string storageBucket, string deepLinkUrlScheme);
+
+		// - (instancetype)initWithContentsOfFile:(NSString *)plistPath;
+		[Export ("initWithContentsOfFile:")]
+		IntPtr Constructor (string plistPath);
 	}
 }
