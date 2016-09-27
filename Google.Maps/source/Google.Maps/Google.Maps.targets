@@ -3,22 +3,22 @@
 
 	<PropertyGroup>
 		<_GoogleMapsAssemblyName>Google.Maps, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleMapsAssemblyName>
-		<_GoogleMapsItemsFolder>GMps-2.0.1</_GoogleMapsItemsFolder>
-		<_GooglePlacesItemsFolder>GPlcs-2.0.1</_GooglePlacesItemsFolder>
-		<_GooglePlacePickerItemsFolder>GPlcP-2.0.1</_GooglePlacePickerItemsFolder>
+		<_GoogleMapsItemsFolder>GMps-2.1.0</_GoogleMapsItemsFolder>
+		<_GooglePlacesItemsFolder>GPlcs-2.1.0</_GooglePlacesItemsFolder>
+		<_GooglePlacePickerItemsFolder>GPlcP-2.1.0</_GooglePlacePickerItemsFolder>
 	</PropertyGroup>
 
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GoogleMapsItemsFolder)">
-			<Url>https://www.gstatic.com/cpdc/5a212b0fa429156f-GoogleMaps-2.0.1.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/7afc1a08cd75f719/GoogleMaps-2.1.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildDownload Include="$(_GooglePlacesItemsFolder)">
-			<Url>https://www.gstatic.com/cpdc/2b9e8b99fc05d124-GooglePlaces-2.0.1.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/1204948f0f6ac434/GooglePlaces-2.1.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildDownload Include="$(_GooglePlacePickerItemsFolder)">
-			<Url>https://www.gstatic.com/cpdc/58e6bc3d698639c1-GooglePlacePicker-2.0.1.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/0b221e876f036871/GooglePlacePicker-2.1.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildRestoreResources Include="_GoogleMapsItems" />

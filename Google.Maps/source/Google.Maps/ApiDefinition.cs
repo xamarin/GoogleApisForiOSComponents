@@ -835,6 +835,24 @@ namespace Google.Maps
 		double CameraViewingAngle { get; set; }
 	}
 
+	// @interface GMSMapStyle : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "GMSMapStyle")]
+	interface MapStyle
+	{
+		// + (GMS_NULLABLE_INSTANCETYPE)styleWithJSONString:(NSString *)style error:(NSError* __autoreleasing GMS_NULLABLE_PTR*)error;
+		[Static]
+		[return: NullAllowed]
+		[Export ("styleWithJSONString:error:")]
+		MapStyle FromJson (string jsonStyle, [NullAllowed] NSError error);
+
+		// (GMS_NULLABLE_INSTANCETYPE) styleWithContentsOfFileURL:(NSURL*)fileURL error:(NSError* __autoreleasing GMS_NULLABLE_PTR*)error;
+		[Static]
+		[return: NullAllowed]
+		[Export ("styleWithContentsOfFileURL:error:")]
+		MapStyle FromUrl (NSUrl fileUrl, [NullAllowed] NSError error);
+	}
+
 	interface IMapViewDelegate
 	{
 
@@ -872,6 +890,10 @@ namespace Google.Maps
 
 		[Export ("mapView:didTapOverlay:"), EventArgs ("GMSOverlayEvent"), EventName ("OverlayTapped")]
 		void DidTapOverlay (MapView mapView, Overlay overlay);
+
+		// - (void)mapView:(GMSMapView *)mapView didTapPOIWithPlaceID:(NSString*)placeID name:(NSString*)name location:(CLLocationCoordinate2D)location;
+		[Export ("mapView:didTapPOIWithPlaceID:name:location:"), EventArgs ("GMSPoiWithPlaceIdEvent"), EventName ("PoiWithPlaceIdTapped")]
+		void DidTapPoiWithPlaceId (MapView mapView, string placeId, string name, CLLocationCoordinate2D location);
 
 		[Export ("mapView:markerInfoWindow:"), DelegateName ("GMSInfoFor"), DefaultValue (null)]
 		UIView MarkerInfoWindow (MapView mapView, Marker marker);
@@ -943,6 +965,11 @@ namespace Google.Maps
 		[Export ("mapType", ArgumentSemantic.Assign)]
 		MapViewType MapType { get; set; }
 
+		// @property(nonatomic, strong, nullable) GMSMapStyle *mapStyle;
+		[NullAllowed]
+		[Export ("mapStyle", ArgumentSemantic.Strong)]
+		MapStyle MapStyle { get; set; }
+
 		[Export ("minZoom", ArgumentSemantic.Assign)]
 		float MinZoom { get; }
 
@@ -999,6 +1026,10 @@ namespace Google.Maps
 
 		[Export ("moveCamera:")]
 		void MoveCamera (CameraUpdate update);
+
+		// - (BOOL)areEqualForRenderingPosition:(GMSCameraPosition *)position position:(GMSCameraPosition*)otherPosition;
+		[Export ("areEqualForRenderingPosition:position:")]
+		bool Equals (CameraPosition position, CameraPosition otherPosition);
 	}
 
 	[BaseType (typeof (MapView))]
@@ -1041,6 +1072,7 @@ namespace Google.Maps
 		UIImage Icon { get; set; }
 
 		// @property(nonatomic, strong) UIView *iconView;
+		[NullAllowed]
 		[Export ("iconView", ArgumentSemantic.Strong)]
 		UIView IconView { get; set; }
 

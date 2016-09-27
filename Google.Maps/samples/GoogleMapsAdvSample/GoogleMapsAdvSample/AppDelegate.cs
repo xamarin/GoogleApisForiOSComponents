@@ -20,8 +20,7 @@ namespace GoogleMapsAdvSample
 		DVCMenu dvc;
 		UINavigationController navController;
 
-		//const string MapsApiKey = "<Get your ID at https://code.google.com/apis/console/>";
-		const string MapsApiKey = "AIzaSyD73QX07I6Wni2y0sIg-H7iTDl0eZ9i93w";
+		const string MapsApiKey = "<Get your ID at https://code.google.com/apis/console/>";
 
 		//
 		// This method is invoked when the application has loaded and is ready to run. In this
