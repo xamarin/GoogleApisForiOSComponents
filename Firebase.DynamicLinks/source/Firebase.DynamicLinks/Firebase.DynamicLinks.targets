@@ -2,11 +2,11 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_FirebaseDynamicLinksAssemblyName>Firebase.DynamicLinks, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseDynamicLinksAssemblyName>
-		<_FirebaseDynamicLinksItemsFolder>FDynmcL-1.1.0</_FirebaseDynamicLinksItemsFolder>
+		<_FirebaseDynamicLinksItemsFolder>FDynmcL-1.3.0</_FirebaseDynamicLinksItemsFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="'$(OutputType)'!='Library'">
 		<XamarinBuildDownload Include="$(_FirebaseDynamicLinksItemsFolder)">
-			<Url>https://www.gstatic.com/cpdc/f4d0bf184d09bab7-FirebaseDynamicLinks-1.1.0.tar.gz</Url>
+			<Url>https://www.gstatic.com/cpdc/17ed66cefeb35c5d/FirebaseDynamicLinks-1.3.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildRestoreResources Include="_FirebaseDynamicLinksItems" />
@@ -14,7 +14,7 @@
 	<Target Name="_FirebaseDynamicLinksItems">
 
 		<PropertyGroup>
-			<_FirebaseDynamicLinksSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseDynamicLinksItemsFolder)\Frameworks\</_FirebaseDynamicLinksSDKBaseFolder>
+			<_FirebaseDynamicLinksSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseDynamicLinksItemsFolder)\Frameworks\frameworks\</_FirebaseDynamicLinksSDKBaseFolder>
 		</PropertyGroup>
 
 		<ItemGroup>
