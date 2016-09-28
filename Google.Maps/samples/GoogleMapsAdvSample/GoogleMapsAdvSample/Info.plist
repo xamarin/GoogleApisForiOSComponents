@@ -9,13 +9,13 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>MinimumOSVersion</key>
-	<string>8.0</string>
+	<string>7.0</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>googlechromes</string>
 		<string>comgooglemaps</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.xamarin.googlemapsadvsample</string>
+	<string>com.xamarin.google.mapsadvsample</string>
 </dict>
 </plist>

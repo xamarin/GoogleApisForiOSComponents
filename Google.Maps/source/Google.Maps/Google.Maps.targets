@@ -1,913 +1,944 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
 	<PropertyGroup>
 		<_GoogleMapsAssemblyName>Google.Maps, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleMapsAssemblyName>
-		<_GoogleMapsId>GMaps-1.13.2</_GoogleMapsId>
+		<_GoogleMapsItemsFolder>GMps-2.1.0</_GoogleMapsItemsFolder>
+		<_GooglePlacesItemsFolder>GPlcs-2.1.0</_GooglePlacesItemsFolder>
+		<_GooglePlacePickerItemsFolder>GPlcP-2.1.0</_GooglePlacePickerItemsFolder>
 	</PropertyGroup>
+
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
-		<XamarinBuildRestoreResources Include="_GoogleMapsItems" />
-		<XamarinBuildDownload Include="$(_GoogleMapsId)">
-			<Url>https://www.gstatic.com/cpdc/aa3052925ceeea2d-GoogleMaps-1.13.2.tar.gz</Url>
+		<XamarinBuildDownload Include="$(_GoogleMapsItemsFolder)">
+			<Url>https://dl.google.com/dl/cpdc/7afc1a08cd75f719/GoogleMaps-2.1.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
+		<XamarinBuildDownload Include="$(_GooglePlacesItemsFolder)">
+			<Url>https://dl.google.com/dl/cpdc/1204948f0f6ac434/GooglePlaces-2.1.0.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildDownload Include="$(_GooglePlacePickerItemsFolder)">
+			<Url>https://dl.google.com/dl/cpdc/0b221e876f036871/GooglePlacePicker-2.1.0.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildRestoreResources Include="_GoogleMapsItems" />
 	</ItemGroup>
+	
 	<Target Name="_GoogleMapsItems">
+
 		<PropertyGroup>
-			<_GoogleMapsFrameworkDir>$(XamarinBuildDownloadDir)$(_GoogleMapsId)\Frameworks\GoogleMaps.framework\Versions\A\</_GoogleMapsFrameworkDir>
-			<_GoogleMapsBundleDir>$(_GoogleMapsFrameworkDir)Resources\GoogleMaps.bundle\</_GoogleMapsBundleDir>
-			<_GoogleMapsBundleLogicalPrefix>__monotouch_content_GoogleMaps.bundle_f</_GoogleMapsBundleLogicalPrefix>
-			<_GmsCoreBundleDir>$(_GoogleMapsBundleDir)GMSCoreResources.bundle\</_GmsCoreBundleDir>
-			<_GmsCoreLogicalPrefix>$(_GoogleMapsBundleLogicalPrefix)GMSCoreResources.bundle_f</_GmsCoreLogicalPrefix>
+			<_GoogleMapsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleMapsItemsFolder)\Subspecs\Maps\Frameworks\</_GoogleMapsSDKBaseFolder>
+			<_GoogleMapsBaseSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleMapsItemsFolder)\Subspecs\Base\Frameworks\</_GoogleMapsBaseSDKBaseFolder>
+			<_GooglePlacesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GooglePlacesItemsFolder)\Frameworks\</_GooglePlacesSDKBaseFolder>
+			<_GooglePlacePickerSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GooglePlacePickerItemsFolder)\Frameworks\</_GooglePlacePickerSDKBaseFolder>
 		</PropertyGroup>
+
 		<ItemGroup>
-			<RestoreAssemblyResource Include="$(_GoogleMapsFrameworkDir)GoogleMaps">
+			<RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\GoogleMaps">
 				<LogicalName>GoogleMaps</LogicalName>
 				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)Info.plist">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fInfo.plist</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)bubble_left.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fbubble__left.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)bubble_left%402x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fbubble__left%402x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)bubble_left%403x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fbubble__left%403x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)bubble_right.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fbubble__right.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)bubble_right%402x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fbubble__right%402x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)bubble_right%403x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fbubble__right%403x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)default_marker.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fdefault__marker.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)default_marker%402x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fdefault__marker%402x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)default_marker%403x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fdefault__marker%403x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCacheStorage.momd\Storage.mom">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCacheStorage.momd_fStorage.mom</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCacheStorage.momd\Storage.omo">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCacheStorage.momd_fStorage.omo</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCacheStorage.momd\VersionInfo.plist">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCacheStorage.momd_fVersionInfo.plist</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\DroidSansMerged-Regular.ttf">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fDroidSansMerged-Regular.ttf</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\GMSNavNightModeSprites-0-1x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fGMSNavNightModeSprites-0-1x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\GMSNavNightModeSprites-0-2x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fGMSNavNightModeSprites-0-2x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\GMSNavNightModeSprites-0-3x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fGMSNavNightModeSprites-0-3x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\GMSNavSprites-0-1x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fGMSNavSprites-0-1x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\GMSNavSprites-0-2x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fGMSNavSprites-0-2x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\GMSNavSprites-0-3x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fGMSNavSprites-0-3x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\GMSSprites-0-1x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fGMSSprites-0-1x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\GMSSprites-0-2x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fGMSSprites-0-2x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\GMSSprites-0-3x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fGMSSprites-0-3x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\Info.plist">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fInfo.plist</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\Roboto-Black.ttf">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRoboto-Black.ttf</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\Roboto-BlackItalic.ttf">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRoboto-BlackItalic.ttf</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\Roboto-Bold.ttf">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRoboto-Bold.ttf</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\Roboto-BoldItalic.ttf">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRoboto-BoldItalic.ttf</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\Roboto-Italic.ttf">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRoboto-Italic.ttf</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\Roboto-Light.ttf">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRoboto-Light.ttf</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\Roboto-LightItalic.ttf">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRoboto-LightItalic.ttf</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\Roboto-Medium.ttf">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRoboto-Medium.ttf</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\Roboto-MediumItalic.ttf">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRoboto-MediumItalic.ttf</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\Roboto-Regular.ttf">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRoboto-Regular.ttf</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\Roboto-Thin.ttf">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRoboto-Thin.ttf</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\Roboto-ThinItalic.ttf">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRoboto-ThinItalic.ttf</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\RobotoCondensed-Italic.ttf">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRobotoCondensed-Italic.ttf</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\RobotoCondensed-Regular.ttf">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRobotoCondensed-Regular.ttf</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\Siemreap.ttf">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fSiemreap.ttf</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\Tharlon-Regular.ttf">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fTharlon-Regular.ttf</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\button_background.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fbutton__background.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\button_background%402x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fbutton__background%402x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\button_background%403x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fbutton__background%403x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\button_compass.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fbutton__compass.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\button_compass%402x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fbutton__compass%402x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\button_compass_night.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fbutton__compass__night.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\button_compass_night%402x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fbutton__compass__night%402x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\button_my_location.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fbutton__my__location.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\button_my_location%402x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fbutton__my__location%402x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\dav_one_way_16_256.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fdav__one__way__16__256.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\googlelogo_56x20_with_2_stroke_color_60x22pt.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fgooglelogo__56x20__with__2__stroke__color__60x22pt.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\googlelogo_56x20_with_2_stroke_color_60x22pt%402x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fgooglelogo__56x20__with__2__stroke__color__60x22pt%402x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\googlelogo_56x20_with_2_stroke_color_60x22pt%403x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fgooglelogo__56x20__with__2__stroke__color__60x22pt%403x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\googlelogo_light_56x20_with_2_stroke_color_60x22pt.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fgooglelogo__light__56x20__with__2__stroke__color__60x22pt.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\googlelogo_light_56x20_with_2_stroke_color_60x22pt%402x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fgooglelogo__light__56x20__with__2__stroke__color__60x22pt%402x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\googlelogo_light_56x20_with_2_stroke_color_60x22pt%403x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fgooglelogo__light__56x20__with__2__stroke__color__60x22pt%403x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\ic_compass_needle.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fic__compass__needle.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\ic_compass_needle%402x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fic__compass__needle%402x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\ic_qu_direction_mylocation.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fic__qu__direction__mylocation.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\ic_qu_direction_mylocation%402x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fic__qu__direction__mylocation%402x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\ic_qu_direction_mylocation%403x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fic__qu__direction__mylocation%403x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\polyline_colors_texture.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fpolyline__colors__texture.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\polyline_colors_texture_dim.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fpolyline__colors__texture__dim.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\polyline_colors_texture_dim_multiwaypoint.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fpolyline__colors__texture__dim__multiwaypoint.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\polyline_colors_texture_multiwaypoint.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fpolyline__colors__texture__multiwaypoint.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\road_1-1.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_froad__1-1.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\road_128-32.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_froad__128-32.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\road_16-4.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_froad__16-4.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\road_2-1.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_froad__2-1.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\road_256-64.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_froad__256-64.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\road_32-8.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_froad__32-8.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\road_4-1.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_froad__4-1.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\road_64-16.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_froad__64-16.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\road_8-2.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_froad__8-2.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\ar.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_far.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\ca.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fca.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\cs.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fcs.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\da.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fda.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\de.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fde.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\el.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fel.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\en.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fen.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\en_AU.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fen__AU.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\en_GB.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fen__GB.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\en_IN.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fen__IN.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\es.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fes.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\es_419.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fes__419.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\es_MX.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fes__MX.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\fi.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_ffi.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\fr.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_ffr.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\fr_CA.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_ffr__CA.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\he.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fhe.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\hi.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fhi.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\hr.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fhr.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\hu.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fhu.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\id.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fid.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\it.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fit.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\ja.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fja.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\ko.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fko.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\ms.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fms.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\nb.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fnb.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\nl.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fnl.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\pl.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fpl.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\pt.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fpt.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\pt_BR.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fpt__BR.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\pt_PT.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fpt__PT.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\ro.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fro.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\ru.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fru.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\sk.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fsk.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\sv.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fsv.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\th.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fth.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\tr.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_ftr.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\uk.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fuk.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\vi.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fvi.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\zh_CN.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fzh__CN.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\zh_HK.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fzh__HK.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GMSCoreResources.bundle\zh_TW.lproj\GMSCore.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fzh__TW.lproj_fGMSCore.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\Info.plist">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fInfo.plist</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\red_icons.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fred__icons.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\red_icons%402x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fred__icons%402x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\red_icons%403x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fred__icons%403x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\white_icons.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fwhite__icons.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\white_icons%402x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fwhite__icons%402x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\white_icons%403x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fwhite__icons%403x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\ar.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_far.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\ca.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fca.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\cs.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fcs.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\da.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fda.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\de.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fde.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\el.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fel.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\en.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fen.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\en_AU.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fen__AU.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\en_GB.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fen__GB.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\en_IN.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fen__IN.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\es.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fes.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\es_419.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fes__419.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\es_MX.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fes__MX.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\fi.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_ffi.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\fr.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_ffr.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\fr_CA.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_ffr__CA.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\he.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fhe.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\hi.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fhi.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\hr.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fhr.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\hu.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fhu.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\id.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fid.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\it.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fit.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\ja.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fja.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\ko.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fko.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\ms.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fms.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\nb.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fnb.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\nl.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fnl.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\pl.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fpl.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\pt.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fpt.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\pt_BR.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fpt__BR.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\pt_PT.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fpt__PT.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\ro.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fro.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\ru.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fru.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\sk.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fsk.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\sv.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fsv.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\th.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fth.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\tr.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_ftr.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\uk.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fuk.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\vi.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fvi.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\zh_CN.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fzh__CN.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\zh_HK.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fzh__HK.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlacePicker.bundle\zh_TW.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlacePicker.bundle_fzh__TW.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\Info.plist">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fInfo.plist</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\powered-by-google-dark.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fpowered-by-google-dark.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\powered-by-google-dark%402x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fpowered-by-google-dark%402x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\powered-by-google-dark%403x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fpowered-by-google-dark%403x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\powered-by-google-light.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fpowered-by-google-light.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\powered-by-google-light%402x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fpowered-by-google-light%402x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\powered-by-google-light%403x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fpowered-by-google-light%403x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\sad_cloud.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fsad__cloud.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\sad_cloud%402x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fsad__cloud%402x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\sad_cloud%403x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fsad__cloud%403x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\sad_cloud_dark.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fsad__cloud__dark.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\sad_cloud_dark%402x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fsad__cloud__dark%402x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\sad_cloud_dark%403x.png">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fsad__cloud__dark%403x.png</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\ar.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_far.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\ca.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fca.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\cs.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fcs.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\da.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fda.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\de.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fde.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\el.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fel.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\en.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fen.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\en_AU.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fen__AU.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\en_GB.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fen__GB.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\en_IN.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fen__IN.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\es.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fes.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\es_419.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fes__419.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\es_MX.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fes__MX.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\fi.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_ffi.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\fr.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_ffr.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\fr_CA.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_ffr__CA.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\he.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fhe.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\hi.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fhi.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\hr.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fhr.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\hu.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fhu.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\id.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fid.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\it.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fit.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\ja.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fja.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\ko.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fko.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\ms.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fms.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\nb.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fnb.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\nl.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fnl.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\pl.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fpl.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\pt.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fpt.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\pt_BR.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fpt__BR.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\pt_PT.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fpt__PT.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\ro.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fro.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\ru.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fru.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\sk.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fsk.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\sv.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fsv.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\th.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fth.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\tr.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_ftr.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\uk.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fuk.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\vi.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fvi.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\zh_CN.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fzh__CN.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\zh_HK.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fzh__HK.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)GooglePlaces.bundle\zh_TW.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fGooglePlaces.bundle_fzh__TW.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMapsBundleDir)en.lproj\InfoPlist.strings">
-				<LogicalName>__monotouch_content_GoogleMaps.bundle_fen.lproj_fInfoPlist.strings</LogicalName>
-				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMapsCore.framework\Versions\A\GoogleMapsCore">
+				<LogicalName>GoogleMapsCore</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsBaseSDKBaseFolder)GoogleMapsBase.framework\Versions\A\GoogleMapsBase">
+				<LogicalName>GoogleMapsBase</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\GooglePlaces">
+				<LogicalName>GooglePlaces</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\GooglePlacePicker">
+				<LogicalName>GooglePlacePicker</LogicalName>
+				<AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\Info.plist">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fInfo.plist</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\bubble_left.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fbubble__left.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\bubble_left%402x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fbubble__left%402x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\bubble_left%403x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fbubble__left%403x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\bubble_right.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fbubble__right.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\bubble_right%402x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fbubble__right%402x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\bubble_right%403x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fbubble__right%403x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\default_marker.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fdefault__marker.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\default_marker%402x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fdefault__marker%402x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\default_marker%403x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fdefault__marker%403x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\oss_licenses_maps.txt.gz">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_foss__licenses__maps.txt.gz</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCacheStorage.momd\Storage.mom">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCacheStorage.momd_fStorage.mom</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCacheStorage.momd\Storage.omo">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCacheStorage.momd_fStorage.omo</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCacheStorage.momd\VersionInfo.plist">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCacheStorage.momd_fVersionInfo.plist</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\DroidSansMerged-Regular.ttf">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fDroidSansMerged-Regular.ttf</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavNightModeSprites-0-1x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fGMSNavNightModeSprites-0-1x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavNightModeSprites-0-2x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fGMSNavNightModeSprites-0-2x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavNightModeSprites-0-3x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fGMSNavNightModeSprites-0-3x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavSprites-0-1x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fGMSNavSprites-0-1x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavSprites-0-2x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fGMSNavSprites-0-2x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavSprites-0-3x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fGMSNavSprites-0-3x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSSprites-0-1x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fGMSSprites-0-1x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSSprites-0-2x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fGMSSprites-0-2x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSSprites-0-3x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fGMSSprites-0-3x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\Info.plist">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fInfo.plist</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\Roboto-Black.ttf">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRoboto-Black.ttf</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\Roboto-BlackItalic.ttf">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRoboto-BlackItalic.ttf</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\Roboto-Bold.ttf">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRoboto-Bold.ttf</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\Roboto-BoldItalic.ttf">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRoboto-BoldItalic.ttf</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\Roboto-Italic.ttf">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRoboto-Italic.ttf</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\Roboto-Light.ttf">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRoboto-Light.ttf</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\Roboto-LightItalic.ttf">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRoboto-LightItalic.ttf</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\Roboto-Medium.ttf">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRoboto-Medium.ttf</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\Roboto-MediumItalic.ttf">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRoboto-MediumItalic.ttf</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\Roboto-Regular.ttf">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRoboto-Regular.ttf</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\Roboto-Thin.ttf">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRoboto-Thin.ttf</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\Roboto-ThinItalic.ttf">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRoboto-ThinItalic.ttf</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\RobotoCondensed-Italic.ttf">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRobotoCondensed-Italic.ttf</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\RobotoCondensed-Regular.ttf">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fRobotoCondensed-Regular.ttf</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\Siemreap.ttf">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fSiemreap.ttf</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\Tharlon-Regular.ttf">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fTharlon-Regular.ttf</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_background.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fbutton__background.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_background%402x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fbutton__background%402x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_background%403x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fbutton__background%403x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_compass.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fbutton__compass.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_compass%402x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fbutton__compass%402x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_compass_night.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fbutton__compass__night.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_compass_night%402x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fbutton__compass__night%402x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_my_location.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fbutton__my__location.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_my_location%402x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fbutton__my__location%402x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\dav_one_way_16_256.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fdav__one__way__16__256.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\googlelogo_56x20_with_2_stroke_color_60x22pt.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fgooglelogo__56x20__with__2__stroke__color__60x22pt.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\googlelogo_56x20_with_2_stroke_color_60x22pt%402x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fgooglelogo__56x20__with__2__stroke__color__60x22pt%402x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\googlelogo_56x20_with_2_stroke_color_60x22pt%403x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fgooglelogo__56x20__with__2__stroke__color__60x22pt%403x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\googlelogo_light_56x20_with_2_stroke_color_60x22pt.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fgooglelogo__light__56x20__with__2__stroke__color__60x22pt.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\googlelogo_light_56x20_with_2_stroke_color_60x22pt%402x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fgooglelogo__light__56x20__with__2__stroke__color__60x22pt%402x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\googlelogo_light_56x20_with_2_stroke_color_60x22pt%403x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fgooglelogo__light__56x20__with__2__stroke__color__60x22pt%403x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fic__compass__needle.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle%402x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fic__compass__needle%402x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_qu_direction_mylocation.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fic__qu__direction__mylocation.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_qu_direction_mylocation%402x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fic__qu__direction__mylocation%402x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_qu_direction_mylocation%403x.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fic__qu__direction__mylocation%403x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\polyline_colors_texture.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fpolyline__colors__texture.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\polyline_colors_texture_dim.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fpolyline__colors__texture__dim.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_1-1.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_froad__1-1.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_128-32.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_froad__128-32.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_16-4.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_froad__16-4.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_2-1.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_froad__2-1.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_256-64.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_froad__256-64.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_32-8.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_froad__32-8.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_4-1.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_froad__4-1.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_64-16.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_froad__64-16.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_8-2.png">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_froad__8-2.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ar.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_far.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ca.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fca.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\cs.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fcs.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\da.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fda.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\de.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fde.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\el.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fel.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\en.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fen.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\en_AU.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fen__AU.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\en_GB.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fen__GB.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\en_IN.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fen__IN.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\es.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fes.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\es_419.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fes__419.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\es_MX.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fes__MX.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\fi.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_ffi.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\fr.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_ffr.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\fr_CA.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_ffr__CA.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\he.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fhe.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\hi.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fhi.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\hr.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fhr.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\hu.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fhu.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\id.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fid.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\it.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fit.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ja.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fja.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ko.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fko.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ms.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fms.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\nb.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fnb.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\nl.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fnl.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\pl.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fpl.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\pt.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fpt.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\pt_BR.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fpt__BR.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\pt_PT.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fpt__PT.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ro.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fro.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ru.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fru.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\sk.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fsk.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\sv.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fsv.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\th.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fth.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\tr.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_ftr.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\uk.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fuk.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\vi.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fvi.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\zh_CN.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fzh__CN.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\zh_HK.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fzh__HK.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\zh_TW.lproj\GMSCore.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fGMSCoreResources.bundle_fzh__TW.lproj_fGMSCore.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Versions\A\Resources\GoogleMaps.bundle\en.lproj\InfoPlist.strings">
+                <LogicalName>__monotouch_content_GoogleMaps.bundle_fen.lproj_fInfoPlist.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\Info.plist">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fInfo.plist</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\oss_licenses_places.txt.gz">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_foss__licenses__places.txt.gz</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\powered-by-google-dark.png">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fpowered-by-google-dark.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\powered-by-google-dark%402x.png">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fpowered-by-google-dark%402x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\powered-by-google-dark%403x.png">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fpowered-by-google-dark%403x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\powered-by-google-light.png">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fpowered-by-google-light.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\powered-by-google-light%402x.png">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fpowered-by-google-light%402x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\powered-by-google-light%403x.png">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fpowered-by-google-light%403x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\sad_cloud.png">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fsad__cloud.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\sad_cloud%402x.png">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fsad__cloud%402x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\sad_cloud%403x.png">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fsad__cloud%403x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\sad_cloud_dark.png">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fsad__cloud__dark.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\sad_cloud_dark%402x.png">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fsad__cloud__dark%402x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\sad_cloud_dark%403x.png">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fsad__cloud__dark%403x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\ar.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_far.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\ca.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fca.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\cs.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fcs.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\da.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fda.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\de.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fde.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\el.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fel.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\en.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fen.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\en_AU.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fen__AU.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\en_GB.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fen__GB.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\en_IN.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fen__IN.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\es.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fes.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\es_419.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fes__419.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\es_MX.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fes__MX.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\fi.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_ffi.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\fr.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_ffr.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\fr_CA.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_ffr__CA.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\he.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fhe.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\hi.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fhi.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\hr.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fhr.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\hu.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fhu.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\id.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fid.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\it.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fit.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\ja.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fja.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\ko.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fko.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\ms.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fms.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\nb.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fnb.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\nl.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fnl.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\pl.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fpl.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\pt.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fpt.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\pt_BR.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fpt__BR.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\pt_PT.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fpt__PT.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\ro.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fro.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\ru.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fru.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\sk.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fsk.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\sv.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fsv.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\th.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fth.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\tr.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_ftr.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\uk.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fuk.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\vi.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fvi.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\zh_CN.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fzh__CN.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\zh_HK.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fzh__HK.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Versions\A\Resources\GooglePlaces.bundle\zh_TW.lproj\GooglePlaces.strings">
+                <LogicalName>__monotouch_content_GooglePlaces.bundle_fzh__TW.lproj_fGooglePlaces.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\Info.plist">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fInfo.plist</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\red_icons.png">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fred__icons.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\red_icons%402x.png">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fred__icons%402x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\red_icons%403x.png">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fred__icons%403x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\white_icons.png">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fwhite__icons.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\white_icons%402x.png">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fwhite__icons%402x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\white_icons%403x.png">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fwhite__icons%403x.png</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\ar.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_far.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\ca.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fca.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\cs.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fcs.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\da.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fda.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\de.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fde.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\el.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fel.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\en.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fen.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\en_AU.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fen__AU.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\en_GB.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fen__GB.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\en_IN.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fen__IN.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\es.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fes.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\es_419.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fes__419.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\es_MX.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fes__MX.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\fi.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_ffi.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\fr.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_ffr.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\fr_CA.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_ffr__CA.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\he.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fhe.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\hi.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fhi.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\hr.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fhr.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\hu.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fhu.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\id.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fid.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\it.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fit.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\ja.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fja.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\ko.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fko.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\ms.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fms.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\nb.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fnb.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\nl.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fnl.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\pl.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fpl.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\pt.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fpt.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\pt_BR.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fpt__BR.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\pt_PT.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fpt__PT.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\ro.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fro.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\ru.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fru.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\sk.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fsk.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\sv.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fsv.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\th.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fth.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\tr.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_ftr.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\uk.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fuk.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\vi.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fvi.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\zh_CN.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fzh__CN.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\zh_HK.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fzh__HK.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Versions\A\Resources\GooglePlacePicker.bundle\zh_TW.lproj\GooglePlacePicker.strings">
+                <LogicalName>__monotouch_content_GooglePlacePicker.bundle_fzh__TW.lproj_fGooglePlacePicker.strings</LogicalName>
+                <AssemblyName>$(_GoogleMapsAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
 		</ItemGroup>
+		
 	</Target>
 </Project>
