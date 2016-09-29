@@ -2,12 +2,12 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_FirebaseCloudMessagingAssemblyName>Firebase.CloudMessaging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseCloudMessagingAssemblyName>
-		<_FirebaseCloudMessagingItemsFolder>FCldM-1.1.0</_FirebaseCloudMessagingItemsFolder>
+		<_FirebaseCloudMessagingItemsFolder>FCldM-1.2.0</_FirebaseCloudMessagingItemsFolder>
 		<_GoogleIPhoneUtilitiesItemsFolder>GIPhnU-1.2.1</_GoogleIPhoneUtilitiesItemsFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="'$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True'">
 		<XamarinBuildDownload Include="$(_FirebaseCloudMessagingItemsFolder)">
-			<Url>https://www.gstatic.com/cpdc/3f0ef7767a9e83f5-FirebaseMessaging-1.1.0.tar.gz</Url>
+			<Url>https://www.gstatic.com/cpdc/543f98d0a21bcb15/FirebaseMessaging-1.2.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildDownload Include="$(_GoogleIPhoneUtilitiesItemsFolder)">
@@ -19,7 +19,7 @@
 	<Target Name="_FirebaseCloudMessagingItems">
 
 		<PropertyGroup>
-			<_FirebaseCloudMessagingSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseCloudMessagingItemsFolder)\Frameworks\</_FirebaseCloudMessagingSDKBaseFolder>
+			<_FirebaseCloudMessagingSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseCloudMessagingItemsFolder)\Frameworks\frameworks\</_FirebaseCloudMessagingSDKBaseFolder>
 			<_GoogleIPhoneUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleIPhoneUtilitiesItemsFolder)\Frameworks\</_GoogleIPhoneUtilitiesSDKBaseFolder>
 		</PropertyGroup>
 

@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using UIKit;
+using UserNotifications;
 
 using Firebase.InstanceID;
 using Firebase.Analytics;
@@ -11,7 +12,7 @@ namespace CloudMessagingSample
 	// The UIApplicationDelegate for the application. This class is responsible for launching the
 	// User Interface of the application, as well as listening (and optionally responding) to application events from iOS.
 	[Register ("AppDelegate")]
-	public class AppDelegate : UIApplicationDelegate
+	public class AppDelegate : UIApplicationDelegate, IUNUserNotificationCenterDelegate, IMessagingDelegate
 	{
 		public event EventHandler<UserInfoEventArgs> NotificationReceived;
 
@@ -32,9 +33,25 @@ namespace CloudMessagingSample
 			InstanceId.Notifications.ObserveTokenRefresh (TokenRefreshNotification);
 
 			// Register your app for remote notifications.
-			var allNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound;
-			var settings = UIUserNotificationSettings.GetSettingsForTypes (allNotificationTypes, null);
-			UIApplication.SharedApplication.RegisterUserNotificationSettings (settings);
+			if (UIDevice.CurrentDevice.CheckSystemVersion (10, 0)) {
+				// iOS 10 or later
+				var authOptions = UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound;
+				UNUserNotificationCenter.Current.RequestAuthorization (authOptions, (granted, error) => {
+					Console.WriteLine (granted);
+				});
+
+				// For iOS 10 display notification (sent via APNS)
+				UNUserNotificationCenter.Current.Delegate = this;
+
+				// For iOS 10 data message (sent via FCM)
+				Messaging.SharedInstance.RemoteMessageDelegate = this;
+			} else {
+				// iOS 9 or before
+				var allNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound;
+				var settings = UIUserNotificationSettings.GetSettingsForTypes (allNotificationTypes, null);
+				UIApplication.SharedApplication.RegisterUserNotificationSettings (settings);
+			}
+
 			UIApplication.SharedApplication.RegisterForRemoteNotifications ();
 
 			App.Configure ();
@@ -50,6 +67,13 @@ namespace CloudMessagingSample
 			Console.WriteLine ("Disconnected from FMC");
 		}
 
+		public override void WillEnterForeground (UIApplication application)
+		{
+			//ConnectToFCM (Window.RootViewController);
+		}
+
+		// To receive notifications in foregroung on iOS 9 and below.
+		// To receive notifications in background in any iOS version
 		public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
 		{
 			// If you are receiving a notification message while your app is in the background,
@@ -73,6 +97,45 @@ namespace CloudMessagingSample
 		//	InstanceId.SharedInstance.SetApnsToken (deviceToken, ApnsTokenType.Sandbox);
 		//}
 
+		// To receive notifications in foreground on iOS 10 devices.
+		[Export ("userNotificationCenter:willPresentNotification:withCompletionHandler:")]
+		public void WillPresentNotification (UNUserNotificationCenter center, UNNotification notification, Action<UNNotificationPresentationOptions> completionHandler)
+		{
+			if (NotificationReceived == null)
+				return;
+
+			var e = new UserInfoEventArgs { UserInfo = notification.Request.Content.UserInfo };
+			NotificationReceived (this, e);
+		}
+
+		// Receive data message on iOS 10 devices.
+		public void ApplicationReceivedRemoteMessage (RemoteMessage remoteMessage)
+		{
+			Console.WriteLine (remoteMessage.AppData);
+		}
+
+		//////////////////
+		////////////////// WORKAROUND
+		//////////////////
+
+		#region Workaround for handling notifications in background for iOS 10
+
+		[Export ("userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:")]
+		public void DidReceiveNotificationResponse (UNUserNotificationCenter center, UNNotificationResponse response, Action completionHandler)
+		{
+			if (NotificationReceived == null)
+				return;
+
+			var e = new UserInfoEventArgs { UserInfo = response.Notification.Request.Content.UserInfo };
+			NotificationReceived (this, e);
+		}
+
+		#endregion
+
+		//////////////////
+		////////////////// END OF WORKAROUND
+		//////////////////
+		/// 
 		void TokenRefreshNotification (object sender, NSNotificationEventArgs e)
 		{
 			// This method will be fired everytime a new token is generated, including the first

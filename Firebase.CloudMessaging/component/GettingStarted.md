@@ -35,11 +35,29 @@ Either at startup, or at the desired point in your application flow, register yo
 
 ```csharp
 // Register your app for remote notifications.
-var allNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound;
-var settings = UIUserNotificationSettings.GetSettingsForTypes (allNotificationTypes, null);
-UIApplication.SharedApplication.RegisterUserNotificationSettings (settings);
+if (UIDevice.CurrentDevice.CheckSystemVersion (10, 0)) {
+	// iOS 10 or later
+	var authOptions = UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound;
+	UNUserNotificationCenter.Current.RequestAuthorization (authOptions, (granted, error) => {
+		Console.WriteLine (granted);
+	});
+
+	// For iOS 10 display notification (sent via APNS)
+	UNUserNotificationCenter.Current.Delegate = this;
+
+	// For iOS 10 data message (sent via FCM)
+	Messaging.SharedInstance.RemoteMessageDelegate = this;
+} else {
+	// iOS 9 or before
+	var allNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound;
+	var settings = UIUserNotificationSettings.GetSettingsForTypes (allNotificationTypes, null);
+	UIApplication.SharedApplication.RegisterUserNotificationSettings (settings);
+}
+
 UIApplication.SharedApplication.RegisterForRemoteNotifications ();
 ```
+
+For devices running iOS 10 and above, you must assign your delegate object to the `UNUserNotificationCenter` object to receive display notifications, and the `Messaging` object to receive data messages, before your app finishes launching. 
 
 At this point you have all set to start using Firebase Cloud Messaging component.
 
@@ -79,9 +97,11 @@ public override void DidEnterBackground (UIApplication application)
 
 ### Handling messages
 
-Override AppDelegate's `DidReceiveRemoteNotification` method to handle notifications received when the client app is in the foreground, and all data messages that are sent to the client. The message is a dictionary of keys and values:
+For devices running iOS 9 and below, override AppDelegate's `DidReceiveRemoteNotification` method **to handle notifications received when the client app is in the foreground**, and all data messages that are sent to the client. The message is a dictionary of keys and values:
 
 ```csharp
+// To receive notifications in foregroung on iOS 9 and below.
+// To receive notifications in background in any iOS version
 public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
 {
 	// If you are receiving a notification message while your app is in the background,
@@ -89,6 +109,24 @@ public override void DidReceiveRemoteNotification (UIApplication application, NS
 	
 	// Do your magic to handle the notification data
 	System.Console.WriteLine (userInfo);
+}
+```
+
+For devices running iOS 10 and above, implement `IUNUserNotificationCenterDelegate` interface and override `WillPresentNotification` method **to handle notifications received when the client app is in the foreground**. The message is a `UNNotification` object. Implement `IMessagingDelegate` interface and override `ApplicationReceivedRemoteMessage` to handle all data messages that are sent to the client. The message is a `RemoteMessage` object:
+
+```csharp
+// To receive notifications in foreground on iOS 10 devices.
+[Export ("userNotificationCenter:willPresentNotification:withCompletionHandler:")]
+public void WillPresentNotification (UNUserNotificationCenter center, UNNotification notification, Action<UNNotificationPresentationOptions> completionHandler)
+{
+	// Do your magic to handle the notification data
+	System.Console.WriteLine (notification.Request.Content.UserInfo);
+}
+
+// Receive data message on iOS 10 devices.
+public void ApplicationReceivedRemoteMessage (RemoteMessage remoteMessage)
+{
+	Console.WriteLine (remoteMessage.AppData);
 }
 ```
 
@@ -114,9 +152,22 @@ public override void DidReceiveRemoteNotification (UIApplication application, NS
 
 ### Receive and handle messages with notification in the payload
 
-When your app is in the background, iOS directs messages with the notification key to the system tray. A user tap on a notification opens the app, and the content of the notification is passed to the didReceiveRemoteNotification callback if implemented in the AppDelegate.
+When your app is in the background, iOS directs messages with the notification key to the system tray. A user tap on a notification opens the app, and the content of the notification is passed to the `DidReceiveRemoteNotification` method if implemented in the AppDelegate.
 
 If you want to open your app and perform a specific action, set click_action in the [notification payload][6]. Use the value that you would use for the category key in the APNs payload.
+
+### Known issue - iOS 10 does not call DidReceiveRemoteNotification
+
+There's a problem with iOS 10 and handling your notifications when your app is in background state or closed. When your app is in background state or closed and you tap a notification related to your app, the expected behaviour is that your app is opened and `DidReceiveRemoteNotification` method is called to handle the notification data but it seems that `DidReceiveRemoteNotification` method is never called (this will be fixed on iOS 10.1). In the meanwhile time, you can workaround this by implementing `DidReceiveNotificationResponse` method from `IUNUserNotificationCenterDelegate` interface:
+
+```csharp
+[Export ("userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:")]
+public void DidReceiveNotificationResponse (UNUserNotificationCenter center, UNNotificationResponse response, Action completionHandler)
+{
+	// Do your magic to handle the notification data
+	System.Console.WriteLine (userInfo);
+}
+```
 
 ## Send a message to a single device
 

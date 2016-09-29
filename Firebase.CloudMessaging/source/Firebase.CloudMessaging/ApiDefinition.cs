@@ -18,6 +18,33 @@ namespace Firebase.CloudMessaging
 		MessageStatus Status { get; }
 	}
 
+	// @interface FIRMessagingRemoteMessage : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FIRMessagingRemoteMessage")]
+	interface RemoteMessage
+	{
+		// @property(nonatomic, readonly, strong, nonnull) NSDictionary *appData;
+		[Export ("appData", ArgumentSemantic.Strong)]
+		NSDictionary AppData { get; }
+	}
+
+	interface IMessagingDelegate
+	{
+	}
+
+	// @protocol FIRMessagingDelegate <NSObject>
+	[Introduced (PlatformName.iOS, 10, 0)]
+	[Model]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "FIRMessagingDelegate")]
+	interface MessagingDelegate
+	{
+		// - (void)applicationReceivedRemoteMessage:(nonnull FIRMessagingRemoteMessage *)remoteMessage;
+		[Abstract]
+		[Export ("applicationReceivedRemoteMessage:")]
+		void ApplicationReceivedRemoteMessage (RemoteMessage remoteMessage);
+	}
+
 	// @interface FIRMessaging : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRMessaging")]
@@ -37,6 +64,12 @@ namespace Firebase.CloudMessaging
 		[Notification]
 		[Field ("FIRMessagingMessagesDeletedNotification", "__Internal")]
 		NSString MessagesDeletedNotification { get; }
+
+		// @property(nonatomic, weak, nullable) id<FIRMessagingDelegate> remoteMessageDelegate;
+		[Introduced (PlatformName.iOS, 10, 0)]
+		[NullAllowed]
+		[Export ("remoteMessageDelegate", ArgumentSemantic.Weak)]
+		IMessagingDelegate RemoteMessageDelegate { get; set; }
 
 		// +(instancetype _Nonnull)messaging;
 		[Static]
