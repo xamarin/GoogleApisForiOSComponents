@@ -47,7 +47,7 @@ namespace CloudMessagingSample
 			// Use this method to release shared resources, save user data, invalidate timers and store the application state.
 			// If your application supports background exection this method is called instead of WillTerminate when the user quits.
 			Messaging.SharedInstance.Disconnect ();
-			Console.WriteLine ("Disconnected from FMC");
+			Console.WriteLine ("Disconnected from FCM");
 		}
 
 		public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
