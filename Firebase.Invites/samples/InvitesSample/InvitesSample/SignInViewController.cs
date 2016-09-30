@@ -20,7 +20,7 @@ namespace InvitesSample
 
 			// Before a user can send Invites, the user must be signed in with their Google Account.
 			BtnSignIn.Enabled = false;
-			SignIn.SharedInstance.ClientID = App.GetDefault ().Options.ClientId;
+			SignIn.SharedInstance.ClientID = App.DefaultInstance.Options.ClientId;
 			SignIn.SharedInstance.Delegate = this;
 			SignIn.SharedInstance.UIDelegate = this;
 			SignIn.SharedInstance.SignInUserSilently ();

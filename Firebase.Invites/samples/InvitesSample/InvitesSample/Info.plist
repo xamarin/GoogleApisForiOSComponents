@@ -43,5 +43,7 @@
 			<string>Editor</string>
 		</dict>
 	</array>
+	<key>NSContactsUsageDescription</key>
+	<string>Allow the app to access to your contacts.</string>
 </dict>
 </plist>

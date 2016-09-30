@@ -1,10 +1,10 @@
 =begin
 Last run FirebaseInvites installed:
-- Firebase (3.3.0)
-- FirebaseAnalytics (3.2.1)
-- FirebaseDynamicLinks (1.1.0)
-- FirebaseInstanceID (1.0.7)
-- FirebaseInvites (1.1.0)
+- Firebase (3.6.0)
+- FirebaseAnalytics (3.4.2)
+- FirebaseDynamicLinks (1.3.0)
+- FirebaseInstanceID (1.0.8)
+- FirebaseInvites (1.2.1)
 - GoogleAppUtilities (1.1.1)
 - GoogleAuthUtilities (2.0.1)
 - GoogleInterchangeUtilities (1.2.1)
@@ -20,12 +20,12 @@ If yes, please, update *.targets files located in binding
 projects, also, update Podfile files if needed.
 
 In .targets file, located in Firebase.Invites binding, you can find:
-- FirebaseInvites (1.1.0)
+- FirebaseInvites (1.2.1)
 - GoogleParsingUtilities (1.1.1)
 - GooglePlusUtilities (1.1.1)
 
 In .targets file, located in Firebase.DynamicLinks binding, you can find:
--  FirebaseDynamicLinks (1.1.0)
+-  FirebaseDynamicLinks (1.3.0)
 
 In .targets file, located in Google.SignIn binding, you can find:
 - GoogleSignIn (4.0.0)
@@ -37,13 +37,13 @@ In .targets file, located in Google.Core binding, you can find:
 - Google (3.0.3)
 
 In .targets file, located in Firebase.Analytics binding, you can find:
-- FirebaseAnalytics (3.2.1)
+- FirebaseAnalytics (3.4.2)
 - GoogleInterchangeUtilities (1.2.1)
 - GoogleSymbolUtilities (1.1.1)
 - GoogleUtilities (1.3.1)
 
 In .targets file, located in Firebase.InstanceID binding, you can find:
-- FirebaseInstanceID (1.0.7)
+- FirebaseInstanceID (1.0.8)
 =end
 
 source 'https://github.com/CocoaPods/Specs.git'
@@ -52,6 +52,6 @@ platform :ios, '7.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'FirebaseInvites' do
-	pod 'FirebaseInvites', '1.1.0'
-	pod 'Firebase/Invites', '3.3.0'
+	pod 'FirebaseInvites', '1.2.1'
+	pod 'Firebase/Invites', '3.6.0'
 end

@@ -39,7 +39,22 @@ App.Configure ();
 
 ## Google Sign-In
 
-Users must be signed in with their Google Accounts to send invitations. Follow [Google Sign-In getting started][4] to integrate Sign-In into your app.
+Users must be signed in with their Google Accounts to send invitations. Follow [Google Sign-In getting started][4] to integrate Sign-In into your 
+app.
+
+## iOS 10 and Privacy Enhancements
+
+Apple has made several enhancements to both security and privacy in iOS 10 that will help the developer improve the security of their apps and ensure the end user's privacy. 
+
+Apps running on iOS 10 (or later) must statically declare their intent to access specific features or user information by entering one or more **Privacy Keys** in your `Info.plist` files that explain to the user why the app wishes to gain access. If your app fails to provide the required keys will be silently terminated by the system when they attempt to access one of the restricted features or user information, **without any error!**
+
+### Give your app access to your Contacts
+
+Invites, before sending your invitation, access to your Contacts to show you a list with them so you can invite everyone to try your awesome app! To allow Invites to achieve this, you need to do the following steps in Xamarin Studio:
+
+1. Open your `Info.plist` and go to **Source** tab.
+2. Add a new entry and search for **Privacy - Contacts Usage Description**.
+3. Add your message that will be displayed when Invites tries to access to your contacts as value.
 
 ## Handle incoming app invites
 
