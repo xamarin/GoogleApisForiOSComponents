@@ -25,6 +25,8 @@ namespace AdMobSample
 			(Window.RootViewController as UINavigationController).PushViewController (new AdsViewController (), true);
 
 			App.Configure ();
+			// Get your Application Id here: https://apps.admob.com/#account/appmgmt:
+			MobileAds.Configure ("ca-app-pub-XXXXXXXXXXXXXXXX~NNNNNNNNNN");
 
 			return true;
 		}

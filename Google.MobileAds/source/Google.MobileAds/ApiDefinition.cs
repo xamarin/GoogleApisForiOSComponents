@@ -14,7 +14,6 @@ namespace Google.MobileAds
 	[Static]
 	interface AdSizeCons
 	{
-
 		[Internal]
 		[Field ("kGADAdSizeBanner", "__Internal")]
 		IntPtr _Banner { get; }
@@ -67,6 +66,11 @@ namespace Google.MobileAds
 		[Export ("sharedInstance")]
 		MobileAds SharedInstance { get; }
 
+		// + (void)configureWithApplicationID:(NSString *)applicationID;
+		[Static]
+		[Export ("configureWithApplicationID:")]
+		void Configure (string applicationId);
+
 		// +(void)disableAutomatedInAppPurchaseReporting;
 		[Static]
 		[Export ("disableAutomatedInAppPurchaseReporting")]
@@ -84,6 +88,10 @@ namespace Google.MobileAds
 		// @property(nonatomic, assign) BOOL applicationMuted;
 		[Export ("applicationMuted", ArgumentSemantic.Assign)]
 		bool ApplicationMuted { get; set; }
+
+		// - (BOOL)isSDKVersionAtLeastMajor:(NSInteger)major minor:(NSInteger)minor patch:(NSInteger)patch;
+		[Export ("isSDKVersionAtLeastMajor:minor:patch:")]
+		void IsSDKVersionAtLeast (nint major, nint minor, nint patch);
 	}
 
 	interface IAdNetworkExtras
@@ -443,6 +451,12 @@ namespace Google.MobileAds
 	[BaseType (typeof (NSObject), Name = "GADRewardBasedVideoAdDelegate")]
 	interface RewardBasedVideoAdDelegate
 	{
+		// @optional -(void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd didFailToLoadwithError:(NSError *)error;
+		[EventArgs ("RewardBasedVideoAdError")]
+		[EventName ("FailedToLoad")]
+		[Export ("rewardBasedVideoAd:didFailToLoadWithError:")]
+		void DidFailToLoad (RewardBasedVideoAd rewardBasedVideoAd, NSError error);
+
 		// @optional -(void)rewardBasedVideoAdDidReceiveAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd;
 		[EventArgs ("RewardBasedVideoAd")]
 		[EventName ("AdReceived")]
@@ -477,12 +491,6 @@ namespace Google.MobileAds
 		[EventName ("UserRewarded")]
 		[Export ("rewardBasedVideoAd:didRewardUserWithReward:")]
 		void DidRewardUser (RewardBasedVideoAd rewardBasedVideoAd, AdReward reward);
-
-		// @optional -(void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd didFailToLoadwithError:(NSError *)error;
-		[EventArgs ("RewardBasedVideoAdError")]
-		[EventName ("FailedToLoad")]
-		[Export ("rewardBasedVideoAd:didFailToLoadWithError:")]
-		void DidFailToLoad (RewardBasedVideoAd rewardBasedVideoAd, NSError error);
 	}
 
 	interface IAdSizeDelegate
@@ -624,6 +632,10 @@ namespace Google.MobileAds
 		// - (BOOL)hasVideoContent;
 		[Export ("hasVideoContent")]
 		bool HasVideoContent ();
+
+		// - (double)aspectRatio;
+		[Export ("aspectRatio")]
+		double AspectRatio { get; }
 	}
 
 	interface IVideoControllerDelegate
@@ -857,6 +869,10 @@ namespace Google.MobileAds
 		// @property (readonly, copy, nonatomic) NSDecimalNumber * starRating;
 		[Export ("starRating", ArgumentSemantic.Copy)]
 		NSDecimalNumber StarRating { get; }
+
+		// @property(nonatomic, strong, readonly) GADVideoController *videoController;
+		[Export ("videoController", ArgumentSemantic.Strong)]
+		VideoController VideoController { get; }
 	}
 
 	interface INativeAppInstallAdLoaderDelegate
@@ -925,6 +941,11 @@ namespace Google.MobileAds
 		[NullAllowed]
 		[Export ("starRatingView", ArgumentSemantic.Weak)]
 		UIView StarRatingView { get; set; }
+
+		// @property(nonatomic, weak) UIView * __nullable mediaView __attribute__((iboutlet));
+		[NullAllowed]
+		[Export ("mediaView", ArgumentSemantic.Weak)]
+		UIView MediaView { get; set; }
 	}
 
 	// @interface GADNativeContentAd : GADNativeAd
@@ -1834,6 +1855,12 @@ namespace Google.MobileAds
 		[Abstract]
 		[Export ("advertiser")]
 		string GetAdvertiser ();
+	}
+
+	// @interface GADMediaView : UIView
+	[BaseType (typeof (NSObject), Name = "GADMediaView")]
+	interface MediaView
+	{
 	}
 
 	#endregion

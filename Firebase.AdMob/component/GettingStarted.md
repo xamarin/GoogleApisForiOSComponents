@@ -25,18 +25,31 @@ Once you have your `GoogleService-Info.plist` file downloaded in your computer, 
 App.Configure ();
 ```
 
+## Initialize the Google Mobile Ads SDK
+
+At app launch, initialize the Google Mobile Ads SDK by calling `Configure` method:
+
+```csharp
+// Get your Application Id here: https://apps.admob.com/#account/appmgmt:
+MobileAds.Configure ("ca-app-pub-XXXXXXXXXXXXXXXX~NNNNNNNNNN");
+```
+
+Initializing the Google Mobile Ads SDK at app launch allows the SDK to fetch app-level settings and perform configuration tasks as early as possible. This can help reduce latency for the initial ad request. Initialization requires an app ID. App IDs are unique identifiers given to mobile apps when they're registered in the AdMob console.
+
+To find your app ID, click the [App management][3] option under the settings dropdown (located in the upper right hand corner) on the AdMob account page. App IDs have the form **ca-app-pub-XXXXXXXXXXXXXXXX~NNNNNNNNNN**.
+
 ## Banner Ads
 
 ### Banner sizes
 
-| Size (WxH)					| Description		| Availability			| AdSize constant	|
-|:-----------------------:	|:-------------------------:	|:--------------------:	|:-------------------------:	|
-| 320x50						| Standard banner	| Phones and tablets	| kGADAdSizeBanner	|
-| 320x100						| Large banner	| Phones and tablets	| kGADAdSizeLargeBanner	|
-| 300x250						| IAB medium rectangle	| Phones and tablets 	| kGADAdSizeMediumRectangle	|
-| 468x60 						| IAB full-size banner	| Tablets 				| kGADAdSizeFullBanner	|
-| 728x90						| IAB leaderboard	| Tablets	| kGADAdSizeLeaderboard			|
-| Screen width x 32,50,90	| Smart banner	| Phones and tablets	| kGADAdSizeSmartBannerPortrait, kGADAdSizeSmartBannerLandscape	|
+| Size (WxH)              | Description          | Availability         | AdSize constant                                               |
+|:-----------------------:|:--------------------:|:--------------------:|:-------------------------------------------------------------:|
+| 320x50                  | Standard banner      | Phones and tablets   | kGADAdSizeBanner                                              |
+| 320x100                 | Large banner         | Phones and tablets   | kGADAdSizeLargeBanner                                         |
+| 300x250                 | IAB medium rectangle | Phones and tablets   | kGADAdSizeMediumRectangle                                     |
+| 468x60                  | IAB full-size banner | Tablets              | kGADAdSizeFullBanner                                          |
+| 728x90                  | IAB leaderboard      | Tablets              | kGADAdSizeLeaderboard                                         |
+| Screen width x 32,50,90 | Smart banner         | Phones and tablets   | kGADAdSizeSmartBannerPortrait, kGADAdSizeSmartBannerLandscape |
 
 ### Smart Banners
 
@@ -198,6 +211,6 @@ To ensure your ads are not impacted by ATS, Apple has provided the following exc
 
 [1]: https://firebase.google.com/console/
 [2]: http://support.google.com/firebase/answer/7015592
-[3]: https://firebase.google.com/docs/admob/ios/banner#banner_size
+[3]: https://apps.admob.com/#account/appmgmt:
 [4]: https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/plist/info/NSAppTransportSecurity
 [5]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689
