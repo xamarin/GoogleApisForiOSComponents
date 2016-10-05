@@ -124,10 +124,6 @@
     <Compile Include="ImageViewController.designer.cs">
       <DependentUpon>ImageViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="ImageViewControlle.cs" />
-    <Compile Include="ImageViewControlle.designer.cs">
-      <DependentUpon>ImageViewControlle.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\Firebase.InstanceID.csproj">

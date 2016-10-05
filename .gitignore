@@ -4,7 +4,6 @@ obj
 output
 tools
 tmp-nugets
-*.designer.cs
 *.userprefs
 *.DS_Store
 Pods/
