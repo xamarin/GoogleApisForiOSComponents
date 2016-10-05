@@ -38,10 +38,10 @@
   BuildScript: ./Google.AppIndexing/build.cake
   TriggerPaths: [ Google.AppIndexing ]
   MacBuildTargets: [ samples, component ]
-- Name: Google.iOS.AppInvite
-  BuildScript: ./Google.AppInvite/build.cake
-  TriggerPaths: [ Google.AppInvite ]
-  MacBuildTargets: [ samples, component ]
+# - Name: Google.iOS.AppInvite
+#   BuildScript: ./Google.AppInvite/build.cake
+#   TriggerPaths: [ Google.AppInvite ]
+#   MacBuildTargets: [ samples, component ]
 - Name: Google.iOS.Cast
   BuildScript: ./Google.Cast/build.cake
   TriggerPaths: [ Google.Cast ]
@@ -50,14 +50,14 @@
   BuildScript: ./Google.InstanceID/build.cake
   TriggerPaths: [ Google.InstanceID ]
   MacBuildTargets: [ samples, component ]
-- Name: Google.iOS.GoogleCloudMessaging
-  BuildScript: ./Google.GoogleCloudMessaging/build.cake
-  TriggerPaths: [ Google.GoogleCloudMessaging ]
-  MacBuildTargets: [ samples, component ]
+# - Name: Google.iOS.GoogleCloudMessaging
+#   BuildScript: ./Google.GoogleCloudMessaging/build.cake
+#   TriggerPaths: [ Google.GoogleCloudMessaging ]
+#   MacBuildTargets: [ samples, component ]
 - Name: Google.iOS.MobileAds
   BuildScript: ./Google.MobileAds/build.cake
   TriggerPaths: [ Google.MobileAds ]
-  MacBuildTargets: [ samples, component ]
+  MacBuildTargets: [ samples, nuget ]
 - Name: Google.iOS.Maps
   BuildScript: ./Google.Maps/build.cake
   TriggerPaths: [ Google.Maps ]
