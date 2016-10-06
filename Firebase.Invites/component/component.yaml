@@ -1,6 +1,6 @@
 version: 1.2.1.0
 name: Firebase Invites for iOS
-id: firebaseiosinvite
+id: firebaseiosinvites
 publisher: Xamarin Inc.
 publisher-url: http://xamarin.com
 src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Firebase.Invites
