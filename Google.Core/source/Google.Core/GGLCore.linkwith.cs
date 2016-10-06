@@ -7,8 +7,3 @@ using ObjCRuntime;
 	LinkerFlags = "-ObjC -lz -lstdc++ -lsqlite3",
 	SmartLink = true,
 	ForceLoad = true)]
-
-[assembly: LinkWith ("GGLSignIn",
-	LinkTarget.ArmV7 | LinkTarget.Simulator | LinkTarget.Simulator64 | LinkTarget.Arm64,
-	SmartLink = true,
-	ForceLoad = true)]

@@ -22,10 +22,6 @@
 				<LogicalName>GGLCore</LogicalName>
 				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCoreSDKBaseFolder)GGLSignIn.framework\GGLSignIn">
-				<LogicalName>GGLSignIn</LogicalName>
-				<AssemblyName>$(_GoogleCoreAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
 		</ItemGroup>
 		
 	</Target>
