@@ -3,7 +3,7 @@ using ObjCRuntime;
 
 [assembly: LinkWith ("FirebaseAnalytics", 
                      LinkTarget.ArmV7 | LinkTarget.Arm64 | LinkTarget.Simulator | LinkTarget.Simulator64,
-                     Frameworks = "AddressBook CoreGraphics StoreKit",
+                     Frameworks = "AddressBook AdSupport CoreGraphics StoreKit SystemConfiguration",
                      LinkerFlags = "-ObjC -lc++ -lsqlite3 -lz",
                      ForceLoad = true,
                      SmartLink = true)]
@@ -15,8 +15,6 @@ using ObjCRuntime;
 
 [assembly: LinkWith ("GoogleUtilities",
 		     LinkTarget.ArmV7 | LinkTarget.Arm64 | LinkTarget.Simulator | LinkTarget.Simulator64,
-                     Frameworks = "AddressBook CoreGraphics",
-                     LinkerFlags = "-lz",
 		     ForceLoad = true,
 		     SmartLink = true)]
 
