@@ -12,23 +12,32 @@ docs-url: "https://developers.google.com/tag-manager/"
 libraries:
   ios-unified: 
     - ../output/Google.TagManager.dll
+    - ../../Google.Analytics/output/Google.Analytics.dll
+    - ../../Firebase.Analytics/output/Firebase.Analytics.dll
+    - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
 is_shell: true
 packages:
   ios-unified:
     - Xamarin.Google.iOS.TagManager, Version=5.0.6.0
 samples:
-  - name: "Cute Animals iOS"
-    path:  ../samples/CuteAnimalsiOS/CuteAnimalsiOS.sln
+  - name: "Tag Manager Sample"
+    path:  ../samples/TagManagerSample/TagManagerSample.sln
     removeProjects: 
+      - Firebase.InstanceID
+      - Firebase.Analytics
       - Google.Analytics
       - Google.TagManager
     installNuGets:
       - project: CuteAnimalsiOS
         packages:
+          - Xamarin.Firebase.iOS.InstanceID
+          - Xamarin.Firebase.iOS.Analytics
           - Xamarin.Google.iOS.Analytics
           - Xamarin.Google.iOS.TagManager
     removeNodes:
-      - "//xNS:Import[contains (@Project, 'Google.TagManager.targets')]"
+      - "//xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]"
+      - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"
       - "//xNS:Import[contains (@Project, 'Google.Analytics.targets')]"
+      - "//xNS:Import[contains (@Project, 'Google.TagManager.targets')]"
 local-nuget-repo: ../../tmp-nugets
 no_build: true
