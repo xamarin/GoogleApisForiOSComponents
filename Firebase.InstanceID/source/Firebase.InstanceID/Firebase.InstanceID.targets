@@ -4,7 +4,7 @@
 		<_FirebaseInstanceIDAssemblyName>Firebase.InstanceID, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseInstanceIDAssemblyName>
 		<_FirebaseInstanceIDItemsFolder>FInstncID-1.0.8</_FirebaseInstanceIDItemsFolder>
 	</PropertyGroup>
-	<ItemGroup Condition="'$(OutputType)'!='Library'">
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_FirebaseInstanceIDItemsFolder)">
 			<Url>https://www.gstatic.com/cpdc/18da95d517c54d0f/FirebaseInstanceID-1.0.8.tar.gz</Url>
 			<Kind>Tgz</Kind>

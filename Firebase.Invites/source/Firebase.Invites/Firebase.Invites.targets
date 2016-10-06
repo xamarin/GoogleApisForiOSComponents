@@ -6,7 +6,7 @@
 		<_GoogleParsingUtilitiesItemsFolder>GPrsngU-1.1.1</_GoogleParsingUtilitiesItemsFolder>
 		<_GooglePlusUtilitiesItemsFolder>GPlsU-1.1.1</_GooglePlusUtilitiesItemsFolder>
 	</PropertyGroup>
-	<ItemGroup Condition="'$(OutputType)'!='Library'">
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_FirebaseInvitesItemsFolder)">
 			<Url>https://www.gstatic.com/cpdc/c0b7df34e90aa433/FirebaseInvites-1.2.1.tar.gz</Url>
 			<Kind>Tgz</Kind>

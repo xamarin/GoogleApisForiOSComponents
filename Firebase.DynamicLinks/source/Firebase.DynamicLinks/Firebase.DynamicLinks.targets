@@ -4,7 +4,7 @@
 		<_FirebaseDynamicLinksAssemblyName>Firebase.DynamicLinks, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseDynamicLinksAssemblyName>
 		<_FirebaseDynamicLinksItemsFolder>FDynmcL-1.3.0</_FirebaseDynamicLinksItemsFolder>
 	</PropertyGroup>
-	<ItemGroup Condition="'$(OutputType)'!='Library'">
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_FirebaseDynamicLinksItemsFolder)">
 			<Url>https://www.gstatic.com/cpdc/17ed66cefeb35c5d/FirebaseDynamicLinks-1.3.0.tar.gz</Url>
 			<Kind>Tgz</Kind>

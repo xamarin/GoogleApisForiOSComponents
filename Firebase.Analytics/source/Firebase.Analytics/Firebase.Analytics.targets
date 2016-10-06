@@ -9,7 +9,7 @@
 		<_GoogleInterchangeUtilitiesItemsFolder>GIntrchngU-1.2.1</_GoogleInterchangeUtilitiesItemsFolder>
 	</PropertyGroup>
 
-	<ItemGroup Condition="'$(OutputType)'!='Library'">
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_FirebaseAnalyticsItemsFolder)">
 			<Url>https://www.gstatic.com/cpdc/0b602bd07626bdbe/FirebaseAnalytics-3.4.2.tar.gz</Url>
 			<Kind>Tgz</Kind>
