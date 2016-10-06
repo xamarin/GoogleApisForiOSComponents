@@ -13,6 +13,8 @@ libraries:
   ios-unified: 
     - ../output/Google.SignIn.dll
     - ../../Google.Core/output/Google.Core.dll
+    - ../../Firebase.Analytics/output/Firebase.Analytics.dll
+    - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
 is_shell: true
 packages:
   ios-unified:
@@ -23,13 +25,19 @@ samples:
     removeProjects: 
       - Google.SignIn
       - Google.Core
+      - Firebase.Analytics
+      - Firebase.InstanceID
     installNuGets:
       - project: SignInExample
         packages:
           - Xamarin.Google.iOS.Core
           - Xamarin.Google.iOS.SignIn
+          - Xamarin.Firebase.iOS.Analytics
+          - Xamarin.Firebase.iOS.InstanceID
     removeNodes:
       - "//xNS:Import[contains (@Project, 'Google.SignIn.targets')]"
       - "//xNS:Import[contains (@Project, 'Google.Core.targets')]"
+      - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"
+      - "//xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]"
 local-nuget-repo: ../../tmp-nugets
 no_build: true
