@@ -96,6 +96,8 @@
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\Firebase.InstanceID.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.Analytics\source\Firebase.Analytics\Firebase.Analytics.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Google.Core\source\Google.Core\Google.Core.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Google.SignIn\source\Google.SignIn\Google.SignIn.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\source\Google.PlayGames\Google.PlayGames.targets" />
@@ -113,6 +115,14 @@
     <ProjectReference Include="..\..\..\..\Google.SignIn\source\Google.SignIn\Google.SignIn.csproj">
       <Project>{3C142652-0DF6-4919-9F58-0FD8FA3A9F6D}</Project>
       <Name>Google.SignIn</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Firebase.Analytics\source\Firebase.Analytics\Firebase.Analytics.csproj">
+      <Project>{87BB564C-85A8-4EC1-AD16-EC0A1ACCEE56}</Project>
+      <Name>Firebase.Analytics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\Firebase.InstanceID.csproj">
+      <Project>{D6AA184C-DA45-4BBB-988A-451B20C7B804}</Project>
+      <Name>Firebase.InstanceID</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
