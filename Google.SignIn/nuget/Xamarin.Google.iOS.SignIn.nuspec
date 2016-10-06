@@ -3,18 +3,18 @@
   <metadata>
     <id>Xamarin.Google.iOS.SignIn</id>
     <title>Google APIs Sign In iOS Library</title>
-    <version>3.0.0.0</version>
+    <version>4.0.0.0</version>
     <authors>Xamarin Inc.</authors>
     <owners>Xamarin Inc.</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>C# bindings for Google APIs Sign In iOS Library</description>
-    <copyright>Copyright 2015-2016</copyright>
+    <copyright>Copyright 2015-2016 Microsoft</copyright>
     <projectUrl>https://components.xamarin.com/view/googleiossignin</projectUrl>
     <licenseUrl>https://components.xamarin.com/license/googleiossignin</licenseUrl>
-    <iconUrl>https://xamarin-component-icons.s3.amazonaws.com/Xamarin.Google.iOS.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/googleiossignin_128x128.png</iconUrl>
     <dependencies>
-      <dependency id="Xamarin.Build.Download" version="0.2.1"/>
-      <dependency id="Xamarin.Google.iOS.Core" version="2.0.4.0"/>
+      <dependency id="Xamarin.Build.Download" version="0.2.2"/>
+      <dependency id="Xamarin.Google.iOS.Core" version="3.0.3.0"/>
     </dependencies>
   </metadata>
   <files>

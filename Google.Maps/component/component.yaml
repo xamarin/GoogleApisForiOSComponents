@@ -1,4 +1,4 @@
-version: 1.13.1.0
+version: 1.13.2.2
 name: Google Maps for iOS
 id: googleiosmaps
 publisher: Xamarin Inc.
@@ -6,8 +6,8 @@ publisher-url: http://xamarin.com
 src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Google.Maps
 summary: "Add custom markers, styled maps, 3D buildings, indoor floor plans, street view, satellite imagery, and more to your iOS app."
 icons:
-  - icons/googleiosmaps_128x128.png
-  - icons/googleiosmaps_512x512.png
+  - ../../icons/googleiosmaps_128x128.png
+  - ../../icons/googleiosmaps_512x512.png
 docs-url: "https://developers.google.com/maps/documentation/ios/"
 libraries:
   ios-unified: 
@@ -15,7 +15,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Google.iOS.Maps, Version=1.13.1.0
+    - Xamarin.Google.iOS.Maps, Version=1.13.2.2
 samples:
   - name: "Google Maps Sample"
     path:  ../samples/GoogleMapsSample/GoogleMapsSample.sln

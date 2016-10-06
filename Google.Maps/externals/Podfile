@@ -4,5 +4,5 @@ platform :ios, '7.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'GoogleMaps' do
-	pod 'GoogleMaps', '1.13.1'
+	pod 'GoogleMaps', '1.13.2'
 end

@@ -2,12 +2,12 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_GoogleMobileAdsAssemblyName>Google.MobileAds, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleMobileAdsAssemblyName>
-		<_GoogleMobileAdsId>Gmbladssdk-7.7.1</_GoogleMobileAdsId>
+		<_GoogleMobileAdsId>Gmbladssdk-7.11.0</_GoogleMobileAdsId>
 	</PropertyGroup>
-	<ItemGroup Condition="'$(OutputType)'!='Library'">
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildRestoreResources Include="_GoogleMobileAdsItems" />
 		<XamarinBuildDownload Include="$(_GoogleMobileAdsId)">
-			<Url>https://www.gstatic.com/cpdc/55fad17a8c2158f8-GoogleMobileAds-7.7.1.tar.gz</Url>
+			<Url>https://www.gstatic.com/cpdc/1f35d1cbe636d847-Google-Mobile-Ads-SDK-7.11.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 	</ItemGroup>

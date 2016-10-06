@@ -15,13 +15,13 @@ namespace Google.Cast
 
 	public partial class MediaQueueItem
 	{
-		public nuint[] ActiveTrackIDs {
+		public nuint [] ActiveTrackIDs {
 			get {
 				if (_ActiveTrackIDs == null)
 					return null;
 
 				var activeTrackIds = _ActiveTrackIDs;
-				var items = new nuint[activeTrackIds.Count];
+				var items = new nuint [activeTrackIds.Count];
 
 				for (nuint i = 0; i < activeTrackIds.Count; i++)
 					items [i] = activeTrackIds.GetItem<NSNumber> (i).NUIntValue;
@@ -30,14 +30,14 @@ namespace Google.Cast
 			}
 		}
 
-		public MediaQueueItem (MediaInformation mediaInformation, bool autoplay, double startTime, double preloadTime, nuint[] activeTrackIDs, NSObject customData)
+		public MediaQueueItem (MediaInformation mediaInformation, bool autoplay, double startTime, double preloadTime, nuint [] activeTrackIDs, NSObject customData)
 		{
 			var activeTracksIdsObjC = NSArray.FromObjects (activeTrackIDs);
 			Handle = _InitWithMediaInformation (mediaInformation, autoplay, startTime, preloadTime, activeTracksIdsObjC, customData);
 		}
 
 		[DesignatedInitializer]
-		public MediaQueueItem (MediaInformation mediaInformation, bool autoplay, double startTime, double playbackDuration, double preloadTime, nuint[] activeTrackIDs, NSObject customData)
+		public MediaQueueItem (MediaInformation mediaInformation, bool autoplay, double startTime, double playbackDuration, double preloadTime, nuint [] activeTrackIDs, NSObject customData)
 		{
 			var activeTracksIdsObjC = NSArray.FromObjects (activeTrackIDs);
 			Handle = _InitWithMediaInformation (mediaInformation, autoplay, startTime, playbackDuration, preloadTime, activeTracksIdsObjC, customData);
@@ -46,18 +46,18 @@ namespace Google.Cast
 
 	public partial class MediaQueueItemBuilder
 	{
-		public nuint[] ActiveTrackIDs {
+		public nuint [] ActiveTrackIDs {
 			get {
 				if (_ActiveTrackIDs == null)
 					return null;
 
 				var activeTrackIds = _ActiveTrackIDs;
-				var items = new nuint[activeTrackIds.Count];
+				var items = new nuint [activeTrackIds.Count];
 
 				for (nuint i = 0; i < activeTrackIds.Count; i++)
-					items [i] = activeTrackIds.GetItem<NSNumber> (i).NUIntValue;               
+					items [i] = activeTrackIds.GetItem<NSNumber> (i).NUIntValue;
 
-				return items;               
+				return items;
 			}
 			set {
 				_ActiveTrackIDs = value != null ? NSArray.FromObjects (value) : null;
@@ -68,25 +68,25 @@ namespace Google.Cast
 	public partial class MediaControlChannel
 	{
 
-		public nint QueueRemoveItems (nuint[] itemIDs)
+		public nint QueueRemoveItems (nuint [] itemIDs)
 		{
-			var arr = NSArray.FromObjects (itemIDs);            
+			var arr = NSArray.FromObjects (itemIDs);
 			return QueueRemoveItems (arr);
 		}
 
-		public nint QueueRemoveItems (nuint[] itemIDs, NSObject customData)
+		public nint QueueRemoveItems (nuint [] itemIDs, NSObject customData)
 		{
 			var arr = NSArray.FromObjects (itemIDs);
 			return QueueRemoveItems (arr, customData);
 		}
 
-		public nint QueueReorderItems (nuint[] queueItemIDs, nuint beforeItemID)
+		public nint QueueReorderItems (nuint [] queueItemIDs, nuint beforeItemID)
 		{
 			//var arr = NSArray.FromObjects (queueItemIDs);
 			return QueueReorderItems (queueItemIDs, beforeItemID);
 		}
 
-		public nint QueueReorderItems (nuint[] queueItemIDs, nuint beforeItemID, NSObject customData)
+		public nint QueueReorderItems (nuint [] queueItemIDs, nuint beforeItemID, NSObject customData)
 		{
 			//var arr = NSArray.FromObjects (queueItemIDs);
 			return QueueReorderItems (queueItemIDs, beforeItemID, customData);
@@ -122,32 +122,48 @@ namespace Google.Cast
 		}
 
 
-		public void Log (string function, params string[] message)
+		public void Log (string function, string format, params object [] args)
 		{
-			if (message == null)
-				throw new ArgumentNullException ("Message");
+			var message = string.Format (format, args);
+			_Log (function, message);
+		}
+	}
 
-			var pNativeArr = Marshal.AllocHGlobal ((message.Length - 1) * IntPtr.Size);
+	public class LoggerHandler : NSObject, ILoggerDelegate
+	{
+		public delegate void UserLogImplementation (string function, string message);
+		UserLogImplementation implementation;
 
-			for (int i = 1; i < message.Length; i++)
-				Marshal.WriteIntPtr (pNativeArr, (i - 1) * IntPtr.Size, ((NSString)message [i]).Handle);
+		public LoggerHandler (UserLogImplementation implementation)
+		{
+			this.implementation = implementation;
+		}
 
-			_Log (message [0], pNativeArr);
-			Marshal.FreeHGlobal (pNativeArr);
+		public void _Log (IntPtr function, string message)
+		{
+			var func = Marshal.PtrToStringAnsi (function);
+
+			if (implementation != null)
+				implementation (func, message);
+		}
+
+		public void SetLogImplementation (UserLogImplementation implementation)
+		{
+			this.implementation = implementation;
 		}
 	}
 
 	public partial class MediaControlChannel
 	{
 
-		public nint LoadMedia (MediaInformation mediaInfo, bool autoplay, double playPosition, nint[] activeTrackIDs)
+		public nint LoadMedia (MediaInformation mediaInfo, bool autoplay, double playPosition, nint [] activeTrackIDs)
 		{
 			if (activeTrackIDs == null || activeTrackIDs.Length == 0) {
-				NSNumber[] numbers = null;
+				NSNumber [] numbers = null;
 				return LoadMedia (mediaInfo, autoplay, playPosition, numbers);
 			}
 
-			var integers = new NSNumber[activeTrackIDs.Length];
+			var integers = new NSNumber [activeTrackIDs.Length];
 
 			for (int i = 0; i < activeTrackIDs.Length; i++)
 				integers [i] = new NSNumber (activeTrackIDs [i]);
@@ -155,14 +171,14 @@ namespace Google.Cast
 			return LoadMedia (mediaInfo, autoplay, playPosition, integers);
 		}
 
-		public nint LoadMedia (MediaInformation mediaInfo, bool autoplay, double playPosition, nint[] activeTrackIDs, NSObject customData)
+		public nint LoadMedia (MediaInformation mediaInfo, bool autoplay, double playPosition, nint [] activeTrackIDs, NSObject customData)
 		{
 			if (activeTrackIDs == null) {
-				NSNumber[] numbers = null;
+				NSNumber [] numbers = null;
 				return LoadMedia (mediaInfo, autoplay, playPosition, numbers, customData);
 			}
 
-			var integers = new NSNumber[activeTrackIDs.Length];
+			var integers = new NSNumber [activeTrackIDs.Length];
 
 			for (int i = 0; i < activeTrackIDs.Length; i++)
 				integers [i] = new NSNumber (activeTrackIDs [i]);
@@ -170,9 +186,9 @@ namespace Google.Cast
 			return LoadMedia (mediaInfo, autoplay, playPosition, integers, customData);
 		}
 
-		public nint SetActiveTrackIDs (nint[] activeTrackIDs)
+		public nint SetActiveTrackIDs (nint [] activeTrackIDs)
 		{
-			var integers = new NSNumber[activeTrackIDs.Length];
+			var integers = new NSNumber [activeTrackIDs.Length];
 
 			for (int i = 0; i < activeTrackIDs.Length; i++)
 				integers [i] = new NSNumber (activeTrackIDs [i]);

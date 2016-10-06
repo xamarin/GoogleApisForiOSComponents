@@ -1,4 +1,4 @@
-version: 2.0.3.0
+version: 2.0.3.1
 name: Google App Indexing for iOS
 id: googleiosappindexing
 publisher: Xamarin Inc.
@@ -6,8 +6,8 @@ publisher-url: http://xamarin.com
 src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Google.AppIndexing
 summary: Get your app found in Google Search.
 icons:
-  - icons/googleiosappindexing_128x128.png
-  - icons/googleiosappindexing_512x512.png
+  - ../../icons/googleiosappindexing_128x128.png
+  - ../../icons/googleiosappindexing_512x512.png
 docs-url: https://developers.google.com/app-indexing/
 libraries:
   ios-unified: 
@@ -15,7 +15,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Google.iOS.AppIndexing, Version=2.0.3.0
+    - Xamarin.Google.iOS.AppIndexing, Version=2.0.3.1
 samples:
   - name: "AppIndexing Sample"
     path:  ../samples/AppIndexingSample/AppIndexingSample.sln

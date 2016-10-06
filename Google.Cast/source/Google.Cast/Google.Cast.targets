@@ -2,9 +2,9 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_GoogleCastAssemblyName>Google.Cast, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleCastAssemblyName>
-		<_GoogleCastItemsFolder>GCstSDK-2.10.2</_GoogleCastItemsFolder>
+		<_GoogleCastItemsFolder>GCstSDK-2.10.4</_GoogleCastItemsFolder>
 	</PropertyGroup>
-	<ItemGroup Condition="'$(OutputType)'!='Library'">
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GoogleCastItemsFolder)">
 			<Url>https://redirector.gvt1.com/edgedl/chromecast/sdk/ios/GoogleCastSDK-2.10.4-Release-ios-default-External.zip</Url>
 			<Kind>Zip</Kind>

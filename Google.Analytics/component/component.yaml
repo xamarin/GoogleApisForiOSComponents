@@ -1,4 +1,4 @@
-version: 3.14.0.6
+version: 3.17.0.0
 name: Google Analytics for iOS
 id: googleiosanalytics
 publisher: Xamarin Inc.
@@ -6,8 +6,8 @@ publisher-url: http://xamarin.com
 src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Google.Analytics
 summary: "Collect, configure, and analyze your data to reach the right audience."
 icons:
-  - icons/googleiosanalytics_128x128.png
-  - icons/googleiosanalytics_512x512.png
+  - ../../icons/googleiosanalytics_128x128.png
+  - ../../icons/googleiosanalytics_512x512.png
 docs-url: https://developers.google.com/analytics/
 libraries:
   ios-unified: 
@@ -15,7 +15,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Google.iOS.Analytics, Version=3.14.0.6
+    - Xamarin.Google.iOS.Analytics, Version=3.17.0.0
 samples:
   - name: "Cute Animals Sample"
     path:  ../samples/CuteAnimalsiOS/CuteAnimalsiOS.sln

@@ -17,7 +17,7 @@ using Foundation;
 [assembly: AssemblyConfiguration ("")]
 [assembly: AssemblyCompany ("")]
 [assembly: AssemblyProduct ("")]
-[assembly: AssemblyCopyright ("israelsoto")]
+[assembly: AssemblyCopyright ("Microsoft")]
 [assembly: AssemblyTrademark ("")]
 [assembly: AssemblyCulture ("")]
 

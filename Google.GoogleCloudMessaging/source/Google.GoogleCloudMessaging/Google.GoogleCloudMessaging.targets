@@ -5,7 +5,7 @@
 		<_GoogleCloudMessagingId>GCldMssgng-1.2.0</_GoogleCloudMessagingId>
 		<_GoogleGCMIPhoneUtilitiesId>GIPhnU-1.2.0</_GoogleGCMIPhoneUtilitiesId>
 	</PropertyGroup>
-	<ItemGroup Condition="'$(OutputType)'!='Library'">
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildRestoreResources Include="_GoogleCloudMessagingItems" />
 		<XamarinBuildDownload Include="$(_GoogleCloudMessagingId)">
 			<Url>https://www.gstatic.com/cpdc/1ee08e474579fa86-GoogleCloudMessaging-1.2.0.tar.gz</Url>

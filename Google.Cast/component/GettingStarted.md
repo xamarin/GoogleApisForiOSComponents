@@ -149,6 +149,34 @@ var mediaInformation = new MediaInformation ("http://dummyurl.com/kitten.mp4",
 MediaControlChannel.LoadMedia (mediaInformation, true, 0);
 ```
 
+### Logger.Delegate property
+
+Due to a known Xamarin.iOS [defect](https://bugzilla.xamarin.com/show_bug.cgi?id=41512), implementing the
+[GCKLoggerDelegate](https://developers.google.com/cast/docs/reference/ios/protocol_g_c_k_logger_delegate-p) protocol in
+C# is limited to a workaround at this time.  The `Google.Cast.LoggerHandler` has been provided as part of the 
+Google Cast Xamarin.iOS component to implement the `GCKLoggerDelegate` protocol in C# and call a function that you
+provide when a message is logged.
+
+```csharp
+...
+void Log (string fuction, string message)
+{
+	// Do your magic here!
+}
+
+...
+public void SomeMethod ()
+{
+	...
+	Google.Cast.Logger.SharedInstance.Delegate = new Google.Cast.LoggerHandler (Log);
+	...
+	
+}
+```
+
+**We do not recommend you to extend the LoggerDelegate class or implement the ILoggerDelegate interface directly to a
+class. Instead assign an instance of `LoggerHandler` class to `Logger.Delegate` property.**
+
 ## External Links
 
 iOS Api: [https://developers.google.com/cast/docs/reference/ios/](https://developers.google.com/cast/docs/reference/ios/)

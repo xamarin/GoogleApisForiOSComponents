@@ -3,19 +3,19 @@
   <metadata>
     <id>Xamarin.Google.iOS.GoogleCloudMessaging</id>
     <title>Google APIs Google Cloud Messaging iOS Library</title>
-    <version>1.2.0.0</version>
+    <version>1.2.0.1</version>
     <authors>Xamarin Inc.</authors>
     <owners>Xamarin Inc.</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>C# bindings for Google APIs Google Cloud Messaging iOS Library</description>
-    <copyright>Copyright 2015-2016</copyright>
+    <copyright>Copyright 2015-2016 Microsoft</copyright>
     <projectUrl>https://components.xamarin.com/view/googleiosgcm</projectUrl>
     <licenseUrl>https://components.xamarin.com/license/googleiosgcm</licenseUrl>
-    <iconUrl>https://xamarin-component-icons.s3.amazonaws.com/Xamarin.Google.iOS.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/googleiosgcm_128x128.png</iconUrl>
     <dependencies>
-      <dependency id="Xamarin.Build.Download" version="0.2.1"/>
-      <dependency id="Xamarin.Google.iOS.Core" version="2.0.4.0"/>
-      <dependency id="Xamarin.Google.iOS.InstanceID" version="1.2.1.0"/>
+      <dependency id="Xamarin.Build.Download" version="0.2.2"/>
+      <dependency id="Xamarin.Google.iOS.Core" version="2.0.4.1"/>
+      <dependency id="Xamarin.Google.iOS.InstanceID" version="1.2.1.1"/>
     </dependencies>
   </metadata>
   <files>

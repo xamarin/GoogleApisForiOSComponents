@@ -11,65 +11,48 @@ namespace Google.MobileAds
 	#region CustomLib
 	// This is a custom class created by me and is not part of Google Admob lib
 	// But it is necesary for this binding to work
-	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "GADFieldExporter")]
+	[Static]
 	interface AdSizeCons
 	{
+		[Internal]
+		[Field ("kGADAdSizeBanner", "__Internal")]
+		IntPtr _Banner { get; }
 
-		[Static, Export ("kGADAdSizeBannerGlobal")]
-		AdSize Banner { get; }
+		[Internal]
+		[Field ("kGADAdSizeLargeBanner", "__Internal")]
+		IntPtr _LargeBanner { get; }
 
-		[Static, Export ("kGADAdSizeLargeBannerGlobal")]
-		AdSize LargeBanner { get; }
+		[Internal]
+		[Field ("kGADAdSizeMediumRectangle", "__Internal")]
+		IntPtr _MediumRectangle { get; }
 
-		[Static, Export ("kGADAdSizeMediumRectangleGlobal")]
-		AdSize MediumRectangle { get; }
+		[Internal]
+		[Field ("kGADAdSizeFullBanner", "__Internal")]
+		IntPtr _FullBanner { get; }
 
-		[Static, Export ("kGADAdSizeFullBannerGlobal")]
-		AdSize FullBanner { get; }
+		[Internal]
+		[Field ("kGADAdSizeLeaderboard", "__Internal")]
+		IntPtr _Leaderboard { get; }
 
-		[Static, Export ("kGADAdSizeLeaderboardGlobal")]
-		AdSize Leaderboard { get; }
+		[Internal]
+		[Field ("kGADAdSizeSkyscraper", "__Internal")]
+		IntPtr _Skyscraper { get; }
 
-		[Static, Export ("kGADAdSizeSkyscraperGlobal")]
-		AdSize Skyscraper { get; }
+		[Internal]
+		[Field ("kGADAdSizeSmartBannerPortrait", "__Internal")]
+		IntPtr _SmartBannerPortrait { get; }
 
-		[Static, Export ("kGADAdSizeSmartBannerPortraitGlobal")]
-		AdSize SmartBannerPortrait { get; }
-
-		[Static, Export ("kGADAdSizeSmartBannerLandscapeGlobal")]
-		AdSize SmartBannerLandscape { get; }
+		[Internal]
+		[Field ("kGADAdSizeSmartBannerLandscape", "__Internal")]
+		IntPtr _SmartBannerLandscape { get; }
 
 		[Internal]
 		[Field ("kGADAdSizeFluid", "__Internal")]
 		IntPtr _Fluid { get; }
 
-		[Static, Export ("kGADAdSizeInvalidGlobal")]
-		AdSize Invalid { get; }
-
-		[Static, Export ("GADAdSizeFromCGSizeGlobal:")]
-		AdSize GetFromCGSize (CGSize size);
-
-		[Static, Export ("GADAdSizeFullWidthPortraitWithHeightGlobal:")]
-		AdSize GetFullWidthPortrait (nfloat height);
-
-		[Static, Export ("GADAdSizeFullWidthLandscapeWithHeightGlobal:")]
-		AdSize GetFullWidthLandscape (nfloat height);
-
-		[Static, Export ("GADAdSize:equalToSizeGlobal:")]
-		bool Equals (AdSize size, AdSize toSize);
-
-		[Static, Export ("CGSizeFromGADAdSizeGlobal:")]
-		CGSize GetCGSize (AdSize size);
-
-		[Static, Export ("isGADAdSizeValidGlobal:")]
-		bool IsAdSizeValid (AdSize size);
-
-		[Static, Export ("NSStringFromGADAdSizeGlobal:")]
-		NSString GetNSString (AdSize size);
-
-		[Static, Export ("NSValueFromGADAdSizeGlobal:")]
-		NSValue GetNSValue (AdSize size);
+		[Internal]
+		[Field ("kGADAdSizeInvalid", "__Internal")]
+		IntPtr _Invalid { get; }
 	}
 	#endregion
 
@@ -82,6 +65,11 @@ namespace Google.MobileAds
 		[Static]
 		[Export ("sharedInstance")]
 		MobileAds SharedInstance { get; }
+
+		// + (void)configureWithApplicationID:(NSString *)applicationID;
+		[Static]
+		[Export ("configureWithApplicationID:")]
+		void Configure (string applicationId);
 
 		// +(void)disableAutomatedInAppPurchaseReporting;
 		[Static]
@@ -100,6 +88,10 @@ namespace Google.MobileAds
 		// @property(nonatomic, assign) BOOL applicationMuted;
 		[Export ("applicationMuted", ArgumentSemantic.Assign)]
 		bool ApplicationMuted { get; set; }
+
+		// - (BOOL)isSDKVersionAtLeastMajor:(NSInteger)major minor:(NSInteger)minor patch:(NSInteger)patch;
+		[Export ("isSDKVersionAtLeastMajor:minor:patch:")]
+		void IsSDKVersionAtLeast (nint major, nint minor, nint patch);
 	}
 
 	interface IAdNetworkExtras
@@ -136,8 +128,8 @@ namespace Google.MobileAds
 
 	[BaseType (typeof (UIView),
 		Name = "GADBannerView",
-		Delegates = new string [] { "Delegate" },
-		Events = new Type [] { typeof (BannerViewDelegate) })]
+		Delegates = new string [] { "Delegate", "AdSizeDelegate" },
+		Events = new Type [] { typeof (BannerViewDelegate), typeof (AdSizeDelegate) })]
 	interface BannerView
 	{
 
@@ -150,6 +142,7 @@ namespace Google.MobileAds
 		[Export ("initWithAdSize:")]
 		IntPtr Constructor (AdSize size);
 
+		[NullAllowed]
 		[Export ("adUnitID", ArgumentSemantic.Copy)]
 		string AdUnitID { get; set; }
 
@@ -168,12 +161,18 @@ namespace Google.MobileAds
 		[Export ("inAppPurchaseDelegate", ArgumentSemantic.Weak)]
 		IInAppPurchaseDelegate InAppPurchaseDelegate { get; set; }
 
+		// @property(nonatomic, weak, GAD_NULLABLE) IBOutlet id<GADAdSizeDelegate> adSizeDelegate;
+		[NullAllowed]
+		[Export ("adSizeDelegate", ArgumentSemantic.Weak)]
+		IAdSizeDelegate AdSizeDelegate { get; set; }
+
 		[Export ("loadRequest:")]
 		void LoadRequest ([NullAllowed] Request request);
 
 		[Export ("autoloadEnabled", ArgumentSemantic.Assign)]
 		bool AutoloadEnabled { [Bind ("isAutoloadEnabled")] get; set; }
 
+		[NullAllowed]
 		[Export ("adNetworkClassName")]
 		string AdNetworkClassName { get; }
 
@@ -182,6 +181,7 @@ namespace Google.MobileAds
 		bool HasAutoRefreshed { get; }
 
 		[Obsolete ("Use adNetworkClassName.")]
+		[NullAllowed]
 		[Export ("mediatedAdView", ArgumentSemantic.Weak)]
 		UIView MediatedAdView { get; }
 	}
@@ -274,7 +274,7 @@ namespace Google.MobileAds
 		IInAppPurchaseDelegate InAppPurchaseDelegate { get; set; }
 
 		[Export ("loadRequest:")]
-		void LoadRequest (Request request);
+		void LoadRequest ([NullAllowed] Request request);
 
 		[Export ("isReady", ArgumentSemantic.Assign)]
 		bool IsReady { get; }
@@ -314,6 +314,12 @@ namespace Google.MobileAds
 		[Export ("interstitialWillPresentScreen:")]
 		void WillPresentScreen (Interstitial ad);
 
+		// - (void)interstitialDidFailToPresentScreen:(GADInterstitial *)ad;
+		[EventArgs ("InterstitialE")]
+		[EventName ("FailedToPresentScreen")]
+		[Export ("interstitialDidFailToPresentScreen:")]
+		void DidFailToPresentScreen (Interstitial ad);
+
 		[EventArgs ("InterstitialE")]
 		[Export ("interstitialWillDismissScreen:")]
 		void WillDismissScreen (Interstitial ad);
@@ -333,10 +339,8 @@ namespace Google.MobileAds
 	[BaseType (typeof (NSObject), Name = "GADRequest")]
 	interface Request : INSCopying
 	{
-
-		[Static]
-		[Export ("simulatorID")]
-		NSObject GetSimulatorId ();
+		[Field ("kGADSimulatorID", "__Internal")]
+		NSString SimulatorId { get; }
 
 		[Static]
 		[Export ("request")]
@@ -346,21 +350,23 @@ namespace Google.MobileAds
 		void RegisterAdNetworkExtras (IAdNetworkExtras extras);
 
 		[Export ("adNetworkExtrasFor:")]
-		IAdNetworkExtras AdNetworkExtrasFor (Class clazz);
+		IAdNetworkExtras AdNetworkExtrasFor ([NullAllowed] Class aClass);
 
 		[Export ("removeAdNetworkExtrasFor:")]
-		void RemoveAdNetworkExtrasFor (Class clazz);
+		void RemoveAdNetworkExtrasFor (Class aClass);
 
 		[Static]
 		[Export ("sdkVersion")]
 		string SdkVersion { get; }
 
+		[NullAllowed]
 		[Export ("testDevices", ArgumentSemantic.Copy)]
 		string [] TestDevices { get; set; }
 
 		[Export ("gender", ArgumentSemantic.Assign)]
 		Gender Gender { get; set; }
 
+		[NullAllowed]
 		[Export ("birthday", ArgumentSemantic.Copy)]
 		NSDate Birthday { get; set; }
 
@@ -378,9 +384,11 @@ namespace Google.MobileAds
 		[Export ("keywords", ArgumentSemantic.Copy)]
 		string [] Keywords { get; set; }
 
+		[NullAllowed]
 		[Export ("contentURL", ArgumentSemantic.Copy)]
 		string ContentUrl { get; set; }
 
+		[NullAllowed]
 		[Export ("requestAgent", ArgumentSemantic.Copy)]
 		string RequestAgent { get; set; }
 
@@ -443,9 +451,15 @@ namespace Google.MobileAds
 	[BaseType (typeof (NSObject), Name = "GADRewardBasedVideoAdDelegate")]
 	interface RewardBasedVideoAdDelegate
 	{
+		// @optional -(void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd didFailToLoadwithError:(NSError *)error;
+		[EventArgs ("RewardBasedVideoAdError")]
+		[EventName ("FailedToLoad")]
+		[Export ("rewardBasedVideoAd:didFailToLoadWithError:")]
+		void DidFailToLoad (RewardBasedVideoAd rewardBasedVideoAd, NSError error);
+
 		// @optional -(void)rewardBasedVideoAdDidReceiveAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd;
 		[EventArgs ("RewardBasedVideoAd")]
-		[EventName ("ReceivedAd")]
+		[EventName ("AdReceived")]
 		[Export ("rewardBasedVideoAdDidReceiveAd:")]
 		void DidReceiveAd (RewardBasedVideoAd rewardBasedVideoAd);
 
@@ -456,7 +470,7 @@ namespace Google.MobileAds
 		void DidOpen (RewardBasedVideoAd rewardBasedVideoAd);
 
 		[EventArgs ("RewardBasedVideoAd")]
-		[EventName ("StartedPlaying")]
+		[EventName ("PlayingStarted")]
 		// @optional -(void)rewardBasedVideoAdDidStartPlaying:(GADRewardBasedVideoAd *)rewardBasedVideoAd;
 		[Export ("rewardBasedVideoAdDidStartPlaying:")]
 		void DidStartPlaying (RewardBasedVideoAd rewardBasedVideoAd);
@@ -474,15 +488,9 @@ namespace Google.MobileAds
 
 		// @optional -(void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd didRewardUserWithReward:(GADAdReward *)reward;
 		[EventArgs ("RewardBasedVideoAdReward")]
-		[EventName ("RewardedUser")]
+		[EventName ("UserRewarded")]
 		[Export ("rewardBasedVideoAd:didRewardUserWithReward:")]
 		void DidRewardUser (RewardBasedVideoAd rewardBasedVideoAd, AdReward reward);
-
-		// @optional -(void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd didFailToLoadwithError:(NSError *)error;
-		[EventArgs ("RewardBasedVideoAdError")]
-		[EventName ("FailedToLoad")]
-		[Export ("rewardBasedVideoAd:didFailToLoadWithError:")]
-		void DidFailToLoad (RewardBasedVideoAd rewardBasedVideoAd, NSError error);
 	}
 
 	interface IAdSizeDelegate
@@ -606,9 +614,54 @@ namespace Google.MobileAds
 		IntPtr Constructor (AdSize size);
 
 		// @property(nonatomic, weak) IBOutlet id<GADAdSizeDelegate> adSizeDelegate;
+		[New]
 		[NullAllowed]
 		[Export ("adSizeDelegate", ArgumentSemantic.Weak)]
 		IAdSizeDelegate AdSizeDelegate { get; set; }
+	}
+
+	// @interface GADVideoController : NSObject
+	[BaseType (typeof (NSObject), Name = "GADVideoController")]
+	interface VideoController
+	{
+		// @property (nonatomic, weak, GAD_NULLABLE) id<GADVideoControllerDelegate> delegate;
+		[NullAllowed]
+		[Export ("delegate", ArgumentSemantic.Weak)]
+		IVideoControllerDelegate Delegate { get; set; }
+
+		// - (BOOL)hasVideoContent;
+		[Export ("hasVideoContent")]
+		bool HasVideoContent ();
+
+		// - (double)aspectRatio;
+		[Export ("aspectRatio")]
+		double AspectRatio { get; }
+	}
+
+	interface IVideoControllerDelegate
+	{
+	}
+
+	// @protocol GADVideoControllerDelegate<NSObject>
+	[Model]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "GADVideoControllerDelegate")]
+	interface VideoControllerDelegate
+	{
+		// - (void)videoControllerDidEndVideoPlayback:(GADVideoController*)videoController;
+		[EventArgs ("VideoControllerVideoPlaybackEnded")]
+		[EventName ("VideoPlaybackEnded")]
+		[Export ("videoControllerDidEndVideoPlayback:")]
+		void DidEndVideoPlayback (VideoController videoController);
+	}
+
+	// @interface GADVideoOptions : GADAdLoaderOptions
+	[BaseType (typeof (AdLoaderOptions), Name = "GADVideoOptions")]
+	interface VideoOptions
+	{
+		// @property(nonatomic, assign) BOOL startMuted;
+		[Export ("startMuted", ArgumentSemantic.Assign)]
+		bool StartMuted { get; set; }
 	}
 
 	#endregion
@@ -642,13 +695,17 @@ namespace Google.MobileAds
 		[Export ("delegate", ArgumentSemantic.Weak)]
 		IAdLoaderDelegate Delegate { get; set; }
 
+		// @property(nonatomic, readonly) NSString *adUnitID;
+		[Export ("adUnitID")]
+		string AdUnitID { get; }
+
 		// -(instancetype)initWithAdUnitID:(NSString *)adUnitID rootViewController:(UIViewController *)rootViewController adTypes:(NSArray *)adTypes options:(NSArray *)options;
 		[Export ("initWithAdUnitID:rootViewController:adTypes:options:")]
-		IntPtr Constructor (string adUnitID, UIViewController rootViewController, [NullAllowed] NSObject [] adTypes, [NullAllowed] AdLoaderOptions [] options);
+		IntPtr Constructor (string adUnitID, [NullAllowed] UIViewController rootViewController, [NullAllowed] NSObject [] adTypes, [NullAllowed] AdLoaderOptions [] options);
 
 		// -(void)loadRequest:(GADRequest *)request;
 		[Export ("loadRequest:")]
-		void LoadRequest (Request request);
+		void LoadRequest ([NullAllowed] Request request);
 	}
 
 	[Static]
@@ -812,6 +869,10 @@ namespace Google.MobileAds
 		// @property (readonly, copy, nonatomic) NSDecimalNumber * starRating;
 		[Export ("starRating", ArgumentSemantic.Copy)]
 		NSDecimalNumber StarRating { get; }
+
+		// @property(nonatomic, strong, readonly) GADVideoController *videoController;
+		[Export ("videoController", ArgumentSemantic.Strong)]
+		VideoController VideoController { get; }
 	}
 
 	interface INativeAppInstallAdLoaderDelegate
@@ -880,6 +941,11 @@ namespace Google.MobileAds
 		[NullAllowed]
 		[Export ("starRatingView", ArgumentSemantic.Weak)]
 		UIView StarRatingView { get; set; }
+
+		// @property(nonatomic, weak) UIView * __nullable mediaView __attribute__((iboutlet));
+		[NullAllowed]
+		[Export ("mediaView", ArgumentSemantic.Weak)]
+		UIView MediaView { get; set; }
 	}
 
 	// @interface GADNativeContentAd : GADNativeAd
@@ -1007,11 +1073,15 @@ namespace Google.MobileAds
 	{
 		// -(instancetype)initWithAdSize:(id)adSize origin:(CGPoint)origin;
 		[Export ("initWithAdSize:origin:")]
-		IntPtr Constructor (NSObject adSize, CGPoint origin);
+		IntPtr Constructor (AdSize adSize, CGPoint origin);
 
 		// -(instancetype)initWithAdSize:(id)adSize;
 		[Export ("initWithAdSize:")]
-		IntPtr Constructor (NSObject adSize);
+		IntPtr Constructor (AdSize adSize);
+
+		// @property(nonatomic, strong, readonly) GADVideoController *videoController;
+		[Export ("videoController", ArgumentSemantic.Strong)]
+		VideoController VideoController { get; set; }
 
 		// @property (copy, nonatomic) NSString * adUnitID;
 		[Export ("adUnitID")]
@@ -1031,13 +1101,17 @@ namespace Google.MobileAds
 		[Export ("delegate", ArgumentSemantic.Weak)]
 		INativeExpressAdViewDelegate Delegate { get; set; }
 
-		// -(void)loadRequest:(id)request;
-		[Export ("loadRequest:")]
-		void LoadRequest (Request request);
-
 		// @property (getter = isAutoloadEnabled, assign, nonatomic) BOOL autoloadEnabled;
 		[Export ("autoloadEnabled")]
 		bool AutoloadEnabled { [Bind ("isAutoloadEnabled")] get; set; }
+
+		// - (void)setAdOptions:(NSArray *)adOptions;
+		[Export ("setAdOptions:")]
+		void SetAdOptions (AdLoaderOptions [] adOptions);
+
+		// -(void)loadRequest:(id)request;
+		[Export ("loadRequest:")]
+		void LoadRequest (Request request);
 
 		// @property (readonly, nonatomic, weak) NSString * _Nullable adNetworkClassName;
 		[Export ("adNetworkClassName", ArgumentSemantic.Weak)]
@@ -1299,6 +1373,11 @@ namespace Google.MobileAds
 		[Abstract]
 		[Export ("handlesUserClicks")]
 		bool HandlesUserClicks ();
+
+		// - (BOOL)handlesUserImpressions;
+		[Abstract]
+		[Export ("handlesUserImpressions")]
+		bool HandlesUserImpressions ();
 
 		// @required @property (nonatomic, weak) id<GADCustomEventNativeAdDelegate> _Nullable delegate;
 		[Abstract]
@@ -1643,6 +1722,10 @@ namespace Google.MobileAds
 		// @optional -(void)mediatedNativeAd:(id<GADMediatedNativeAd>)mediatedNativeAd didRecordClickOnAssetWithName:(NSString *)assetName view:(UIView *)view viewController:(UIViewController *)viewController;
 		[Export ("mediatedNativeAd:didRecordClickOnAssetWithName:view:viewController:")]
 		void DidRecordClick (IMediatedNativeAd mediatedNativeAd, string assetName, UIView view, UIViewController viewController);
+
+		// - (void)mediatedNativeAd:(id<GADMediatedNativeAd>)mediatedNativeAd didUntrackView:(UIView*)view;
+		[Export ("mediatedNativeAd:didUntrackView:")]
+		void DidUntrackView (IMediatedNativeAd mediatedNativeAd, UIView view);
 	}
 
 	// @interface GADMediatedNativeAdNotificationSource : NSObject
@@ -1650,6 +1733,12 @@ namespace Google.MobileAds
 	[BaseType (typeof (NSObject), Name = "GADMediatedNativeAdNotificationSource")]
 	interface MediatedNativeAdNotificationSource
 	{
+
+		// + (void)mediatedNativeAdDidRecordImpression:(id<GADMediatedNativeAd>)mediatedNativeAd;
+		[Static]
+		[Export ("mediatedNativeAdDidRecordImpression:")]
+		void DidRecordImpression (IMediatedNativeAd mediatedNativeAd);
+
 		// + (void)mediatedNativeAdDidRecordClick:(id<GADMediatedNativeAd>)mediatedNativeAd;
 		[Static]
 		[Export ("mediatedNativeAdDidRecordClick:")]
@@ -1768,6 +1857,12 @@ namespace Google.MobileAds
 		string GetAdvertiser ();
 	}
 
+	// @interface GADMediaView : UIView
+	[BaseType (typeof (NSObject), Name = "GADMediaView")]
+	interface MediaView
+	{
+	}
+
 	#endregion
 }
 
@@ -1792,6 +1887,7 @@ namespace Google.MobileAds.DoubleClick
 		IntPtr Constructor (AdSize size);
 
 		[New]
+		[NullAllowed]
 		[Export ("adUnitID", ArgumentSemantic.Copy)]
 		string AdUnitID { get; set; }
 
@@ -1799,14 +1895,17 @@ namespace Google.MobileAds.DoubleClick
 		[Export ("appEventDelegate", ArgumentSemantic.Weak)]
 		IAppEventDelegate AppEventDelegate { get; set; }
 
+		[New]
 		[NullAllowed]
 		[Export ("adSizeDelegate", ArgumentSemantic.Weak)]
 		IAdSizeDelegate AdSizeDelegate { get; set; }
 
+		[NullAllowed]
 		[Export ("validAdSizes", ArgumentSemantic.Copy)]
 		NSValue [] ValidAdSizes { get; set; }
 
 		// @property(nonatomic, strong) GADCorrelator *correlator;
+		[NullAllowed]
 		[Export ("correlator", ArgumentSemantic.Strong)]
 		Google.MobileAds.Correlator Correlator { get; set; }
 
@@ -1884,18 +1983,22 @@ namespace Google.MobileAds.DoubleClick
 		void DidReceiveCustomRenderedInterstitial (Interstitial interstitial, CustomRenderedAd customRenderedAd);
 	}
 
+	[DisableDefaultCtor]
 	[BaseType (typeof (Google.MobileAds.Interstitial),
 		Name = "DFPInterstitial",
 		Delegates = new string [] { "CustomRenderedInterstitialDelegate" },
 		Events = new Type [] { typeof (CustomRenderedInterstitialDelegate) })]
 	interface Interstitial
 	{
+		[Export ("initWithAdUnitID:")]
+		IntPtr Constructor (string adUnitID);
 
 		[New]
 		[Export ("adUnitID", ArgumentSemantic.Copy)]
 		string AdUnitID { get; }
 
 		// @property(nonatomic, strong) GADCorrelator *correlator;
+		[NullAllowed]
 		[Export ("correlator", ArgumentSemantic.Strong)]
 		Google.MobileAds.Correlator Correlator { get; set; }
 
@@ -1911,18 +2014,24 @@ namespace Google.MobileAds.DoubleClick
 	[BaseType (typeof (Google.MobileAds.Request), Name = "DFPRequest")]
 	interface Request
 	{
+		[New]
+		[Field ("kDFPSimulatorID", "__Internal")]
+		NSString SimulatorId { get; }
 
 		[New]
 		[Static]
-		[Export ("simulatorID")]
-		NSObject GetSimulatorId ();
+		[Export ("request")]
+		Request GetDefaultRequest ();
 
+		[NullAllowed]
 		[Export ("publisherProvidedID", ArgumentSemantic.Copy)]
 		string PublisherProvidedID { get; set; }
 
+		[NullAllowed]
 		[Export ("categoryExclusions", ArgumentSemantic.Copy)]
 		string [] CategoryExclusions { get; set; }
 
+		[NullAllowed]
 		[Export ("customTargeting", ArgumentSemantic.Copy)]
 		NSDictionary CustomTargeting { get; set; }
 

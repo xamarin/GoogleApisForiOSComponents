@@ -6,490 +6,373 @@ using CoreGraphics;
 
 namespace Google.Analytics
 {
-	// Custom Class to export all the constants inside Google Analytics SDK
-	[DisableDefaultCtor]
-	[BaseType (typeof(NSObject), Name = "GAIFieldExporter")]
+	[Static]
 	interface GaiConstants
 	{
+		[Field ("kGAIUseSecure", "__Internal")]
+		NSString UseSecure { get; }
 
-		[Static]
-		[Export ("kGAIHitTypeGlobal")]
+		[Field ("kGAIHitType", "__Internal")]
 		NSString HitType { get; }
 
-		[Static]
-		[Export ("kGAITrackingIdGlobal")]
+		[Field ("kGAITrackingId", "__Internal")]
 		NSString TrackingId { get; }
 
-		[Static]
-		[Export ("kGAIClientIdGlobal")]
+		[Field ("kGAIClientId", "__Internal")]
 		NSString ClientId { get; }
 
-		[Static]
-		[Export ("kGAIDataSourceGlobal")]
+		[Field ("kGAIDataSource", "__Internal")]
 		NSString DataSource { get; }
 
-		[Static]
-		[Export ("kGAIAnonymizeIpGlobal")]
+		[Field ("kGAIAnonymizeIp", "__Internal")]
 		NSString AnonymizeIp { get; }
 
-		[Static]
-		[Export ("kGAISessionControlGlobal")]
+		[Field ("kGAISessionControl", "__Internal")]
 		NSString SessionControl { get; }
 
-		[Static]
-		[Export ("kGAIDeviceModelVersionGlobal")]
+		[Field ("kGAIDeviceModelVersion", "__Internal")]
 		NSString DeviceModelVersion { get; }
 
-		[Static]
-		[Export ("kGAIScreenResolutionGlobal")]
+		[Field ("kGAIScreenResolution", "__Internal")]
 		NSString ScreenResolution { get; }
 
-		[Static]
-		[Export ("kGAIViewportSizeGlobal")]
+		[Field ("kGAIViewportSize", "__Internal")]
 		NSString ViewportSize { get; }
 
-		[Static]
-		[Export ("kGAIEncodingGlobal")]
+		[Field ("kGAIEncoding", "__Internal")]
 		NSString Encoding { get; }
 
-		[Static]
-		[Export ("kGAIScreenColorsGlobal")]
+		[Field ("kGAIScreenColors", "__Internal")]
 		NSString ScreenColors { get; }
 
-		[Static]
-		[Export ("kGAILanguageGlobal")]
+		[Field ("kGAILanguage", "__Internal")]
 		NSString Language { get; }
 
-		[Static]
-		[Export ("kGAIJavaEnabledGlobal")]
+		[Field ("kGAIJavaEnabled", "__Internal")]
 		NSString JavaEnabled { get; }
 
-		[Static]
-		[Export ("kGAIFlashVersionGlobal")]
+		[Field ("kGAIFlashVersion", "__Internal")]
 		NSString FlashVersion { get; }
 
-		[Static]
-		[Export ("kGAINonInteractionGlobal")]
+		[Field ("kGAINonInteraction", "__Internal")]
 		NSString NonInteraction { get; }
 
-		[Static]
-		[Export ("kGAIReferrerGlobal")]
+		[Field ("kGAIReferrer", "__Internal")]
 		NSString Referrer { get; }
 
-		[Static]
-		[Export ("kGAILocationGlobal")]
+		[Field ("kGAILocation", "__Internal")]
 		NSString Location { get; }
 
-		[Static]
-		[Export ("kGAIHostnameGlobal")]
+		[Field ("kGAIHostname", "__Internal")]
 		NSString Hostname { get; }
 
-		[Static]
-		[Export ("kGAIPageGlobal")]
+		[Field ("kGAIPage", "__Internal")]
 		NSString Page { get; }
 
-		[Static]
-		[Export ("kGAIDescriptionGlobal")] [New]
+		[Field ("kGAIDescription", "__Internal")]
 		NSString Description { get; }
 
-		[Static]
-		[Export ("kGAIScreenNameGlobal")]
+		[Field ("kGAIScreenName", "__Internal")]
 		NSString ScreenName { get; }
 
-		[Static]
-		[Export ("kGAITitleGlobal")]
+		[Field ("kGAITitle", "__Internal")]
 		NSString Title { get; }
 
-		[Static]
-		[Export ("kGAIAdMobHitIdGlobal")]
+		[Field ("kGAIAdMobHitId", "__Internal")]
 		NSString AdMobHitId { get; }
 
-		[Static]
-		[Export ("kGAIAppNameGlobal")]
+		[Field ("kGAIAppName", "__Internal")]
 		NSString AppName { get; }
 
-		[Static]
-		[Export ("kGAIAppVersionGlobal")]
+		[Field ("kGAIAppVersion", "__Internal")]
 		NSString AppVersion { get; }
 
-		[Static]
-		[Export ("kGAIAppIdGlobal")]
+		[Field ("kGAIAppId", "__Internal")]
 		NSString AppId { get; }
 
-		[Static]
-		[Export ("kGAIAppInstallerIdGlobal")]
+		[Field ("kGAIAppInstallerId", "__Internal")]
 		NSString AppInstallerId { get; }
 
-		[Static]
-		[Export ("kGAIEventCategoryGlobal")]
+		[Field ("kGAIUserId", "__Internal")]
+		NSString UserId { get; }
+
+		[Field ("kGAIEventCategory", "__Internal")]
 		NSString EventCategory { get; }
 
-		[Static]
-		[Export ("kGAIEventActionGlobal")]
+		[Field ("kGAIEventAction", "__Internal")]
 		NSString EventAction { get; }
 
-		[Static]
-		[Export ("kGAIEventLabelGlobal")]
+		[Field ("kGAIEventLabel", "__Internal")]
 		NSString EventLabel { get; }
 
-		[Static]
-		[Export ("kGAIEventValueGlobal")]
+		[Field ("kGAIEventValue", "__Internal")]
 		NSString EventValue { get; }
 
-		[Static]
-		[Export ("kGAISocialNetworkGlobal")]
+		[Field ("kGAISocialNetwork", "__Internal")]
 		NSString SocialNetwork { get; }
 
-		[Static]
-		[Export ("kGAISocialActionGlobal")]
+		[Field ("kGAISocialAction", "__Internal")]
 		NSString SocialAction { get; }
 
-		[Static]
-		[Export ("kGAISocialTargetGlobal")]
+		[Field ("kGAISocialTarget", "__Internal")]
 		NSString SocialTarget { get; }
 
-		[Static]
-		[Export ("kGAITransactionIdGlobal")]
+		[Field ("kGAITransactionId", "__Internal")]
 		NSString TransactionId { get; }
 
-		[Static]
-		[Export ("kGAITransactionAffiliationGlobal")]
+		[Field ("kGAITransactionAffiliation", "__Internal")]
 		NSString TransactionAffiliation { get; }
 
-		[Static]
-		[Export ("kGAITransactionRevenueGlobal")]
+		[Field ("kGAITransactionRevenue", "__Internal")]
 		NSString TransactionRevenue { get; }
 
-		[Static]
-		[Export ("kGAITransactionShippingGlobal")]
+		[Field ("kGAITransactionShipping", "__Internal")]
 		NSString TransactionShipping { get; }
 
-		[Static]
-		[Export ("kGAITransactionTaxGlobal")]
+		[Field ("kGAITransactionTax", "__Internal")]
 		NSString TransactionTax { get; }
 
-		[Static]
-		[Export ("kGAICurrencyCodeGlobal")]
+		[Field ("kGAICurrencyCode", "__Internal")]
 		NSString CurrencyCode { get; }
 
-		[Static]
-		[Export ("kGAIItemPriceGlobal")]
+		[Field ("kGAIItemPrice", "__Internal")]
 		NSString ItemPrice { get; }
 
-		[Static]
-		[Export ("kGAIItemQuantityGlobal")]
+		[Field ("kGAIItemQuantity", "__Internal")]
 		NSString ItemQuantity { get; }
 
-		[Static]
-		[Export ("kGAIItemSkuGlobal")]
+		[Field ("kGAIItemSku", "__Internal")]
 		NSString ItemSku { get; }
 
-		[Static]
-		[Export ("kGAIItemNameGlobal")]
+		[Field ("kGAIItemName", "__Internal")]
 		NSString ItemName { get; }
 
-		[Static]
-		[Export ("kGAIItemCategoryGlobal")]
+		[Field ("kGAIItemCategory", "__Internal")]
 		NSString ItemCategory { get; }
 
-		[Static]
-		[Export ("kGAICampaignSourceGlobal")]
+		[Field ("kGAICampaignSource", "__Internal")]
 		NSString CampaignSource { get; }
 
-		[Static]
-		[Export ("kGAICampaignMediumGlobal")]
+		[Field ("kGAICampaignMedium", "__Internal")]
 		NSString CampaignMedium { get; }
 
-		[Static]
-		[Export ("kGAICampaignNameGlobal")]
+		[Field ("kGAICampaignName", "__Internal")]
 		NSString CampaignName { get; }
 
-		[Static]
-		[Export ("kGAICampaignKeywordGlobal")]
+		[Field ("kGAICampaignKeyword", "__Internal")]
 		NSString CampaignKeyword { get; }
 
-		[Static]
-		[Export ("kGAICampaignContentGlobal")]
+		[Field ("kGAICampaignContent", "__Internal")]
 		NSString CampaignContent { get; }
 
-		[Static]
-		[Export ("kGAICampaignIdGlobal")]
+		[Field ("kGAICampaignId", "__Internal")]
 		NSString CampaignId { get; }
 
-		[Static]
-		[Export ("kGAICampaignAdNetworkClickIdGlobal")]
+		[Field ("kGAICampaignAdNetworkClickId", "__Internal")]
 		NSString CampaignAdNetworkClickId { get; }
 
-		[Static]
-		[Export ("kGAICampaignAdNetworkIdGlobal")]
+		[Field ("kGAICampaignAdNetworkId", "__Internal")]
 		NSString CampaignAdNetworkId { get; }
 
-		[Static]
-		[Export ("kGAITimingCategoryGlobal")]
+		[Field ("kGAITimingCategory", "__Internal")]
 		NSString TimingCategory { get; }
 
-		[Static]
-		[Export ("kGAITimingVarGlobal")]
+		[Field ("kGAITimingVar", "__Internal")]
 		NSString TimingVar { get; }
 
-		[Static]
-		[Export ("kGAITimingValueGlobal")]
+		[Field ("kGAITimingValue", "__Internal")]
 		NSString TimingValue { get; }
 
-		[Static]
-		[Export ("kGAITimingLabelGlobal")]
+		[Field ("kGAITimingLabel", "__Internal")]
 		NSString TimingLabel { get; }
 
-		[Static]
-		[Export ("kGAIExDescriptionGlobal")]
+		[Field ("kGAIExDescription", "__Internal")]
 		NSString ExDescription { get; }
 
-		[Static]
-		[Export ("kGAIExFatalGlobal")]
+		[Field ("kGAIExFatal", "__Internal")]
 		NSString ExFatal { get; }
 
-		[Static]
-		[Export ("kGAISampleRateGlobal")]
+		[Field ("kGAISampleRate", "__Internal")]
 		NSString SampleRate { get; }
 
-		[Static]
-		[Export ("kGAIIdfaGlobal")]
+		[Field ("kGAIIdfa", "__Internal")]
 		NSString Idfa { get; }
 
-		[Static]
-		[Export ("kGAIAdTargetingEnabledGlobal")]
+		[Field ("kGAIAdTargetingEnabled", "__Internal")]
 		NSString AdTargetingEnabled { get; }
 
 		[Obsolete ("Use ScreenView property instead")]
-		[Static]
-		[Export ("kGAIAppViewGlobal")]
+		[Field ("kGAIAppView", "__Internal")]
 		NSString AppView { get; }
 
-		[Static]
-		[Export ("kGAIScreenViewGlobal")]
+		[Field ("kGAIScreenView", "__Internal")]
 		NSString ScreenView { get; }
 
-		[Static]
-		[Export ("kGAIEventGlobal")]
+		[Field ("kGAIEvent", "__Internal")]
 		NSString Event { get; }
 
-		[Static]
-		[Export ("kGAISocialGlobal")]
+		[Field ("kGAISocial", "__Internal")]
 		NSString Social { get; }
 
-		[Static]
-		[Export ("kGAITransactionGlobal")]
+		[Field ("kGAITransaction", "__Internal")]
 		NSString Transaction { get; }
 
-		[Static]
-		[Export ("kGAIItemGlobal")]
+		[Field ("kGAIItem", "__Internal")]
 		NSString Item { get; }
 
-		[Static]
-		[Export ("kGAIExceptionGlobal")]
+		[Field ("kGAIException", "__Internal")]
 		NSString Exception { get; }
 
-		[Static]
-		[Export ("kGAITimingGlobal")]
+		[Field ("kGAITiming", "__Internal")]
 		NSString Timing { get; }
 
-		[Static]
-		[Export ("kGAIProductGlobal")]
+		[Field ("kGAIProduct", "__Internal")]
 		NSString Product { get; }
 
-		[Static]
-		[Export ("kGAIVersionGlobal")]
+		[Field ("kGAIVersion", "__Internal")]
 		NSString Version { get; }
 
-		[Static]
-		[Export ("kGAIErrorDomainGlobal")]
+		[Field ("kGAIErrorDomain", "__Internal")]
 		NSString ErrorDomain { get; }
 	}
 
-	// Custom Class to export all the constants inside GAIEcommerceFields
-	[DisableDefaultCtor]
-	[BaseType (typeof(NSObject), Name = "GAIEcommerceFieldExporter")]
+	[Static]
 	interface EcommerceConstants
 	{
 
-		[Static]
-		[Export ("kGAIProductIdGlobal")]
+		[Field ("kGAIProductId", "__Internal")]
 		NSString ProductId { get; }
 
-		[Static]
-		[Export ("kGAIProductNameGlobal")]
+		[Field ("kGAIProductName", "__Internal")]
 		NSString ProductName { get; }
 
-		[Static]
-		[Export ("kGAIProductBrandGlobal")]
+		[Field ("kGAIProductBrand", "__Internal")]
 		NSString ProductBrand { get; }
 
-		[Static]
-		[Export ("kGAIProductCategoryGlobal")]
+		[Field ("kGAIProductCategory", "__Internal")]
 		NSString ProductCategory { get; }
 
-		[Static]
-		[Export ("kGAIProductVariantGlobal")]
+		[Field ("kGAIProductVariant", "__Internal")]
 		NSString ProductVariant { get; }
 
-		[Static]
-		[Export ("kGAIProductPriceGlobal")]
+		[Field ("kGAIProductPrice", "__Internal")]
 		NSString ProductPrice { get; }
 
-		[Static]
-		[Export ("kGAIProductQuantityGlobal")]
+		[Field ("kGAIProductQuantity", "__Internal")]
 		NSString ProductQuantity { get; }
 
-		[Static]
-		[Export ("kGAIProductCouponCodeGlobal")]
+		[Field ("kGAIProductCouponCode", "__Internal")]
 		NSString ProductCouponCode { get; }
 
-		[Static]
-		[Export ("kGAIProductPositionGlobal")]
+		[Field ("kGAIProductPosition", "__Internal")]
 		NSString ProductPosition { get; }
 
-		[Static]
-		[Export ("kGAIProductActionGlobal")]
+		[Field ("kGAIProductAction", "__Internal")]
 		NSString ProductAction { get; }
 
-		[Static]
-		[Export ("kGAIPADetailGlobal")]
+		[Field ("kGAIPADetail", "__Internal")]
 		NSString PADetail { get; }
 
-		[Static]
-		[Export ("kGAIPAClickGlobal")]
+		[Field ("kGAIPAClick", "__Internal")]
 		NSString PAClick { get; }
 
-		[Static]
-		[Export ("kGAIPAAddGlobal")]
+		[Field ("kGAIPAAdd", "__Internal")]
 		NSString PAAdd { get; }
 
-		[Static]
-		[Export ("kGAIPARemoveGlobal")]
+		[Field ("kGAIPARemove", "__Internal")]
 		NSString PARemove { get; }
 
-		[Static]
-		[Export ("kGAIPACheckoutGlobal")]
+		[Field ("kGAIPACheckout", "__Internal")]
 		NSString PACheckout { get; }
 
-		[Static]
-		[Export ("kGAIPACheckoutOptionGlobal")]
+		[Field ("kGAIPACheckoutOption", "__Internal")]
 		NSString PACheckoutOption { get; }
 
-		[Static]
-		[Export ("kGAIPAPurchaseGlobal")]
+		[Field ("kGAIPAPurchase", "__Internal")]
 		NSString PAPurchase { get; }
 
-		[Static]
-		[Export ("kGAIPARefundGlobal")]
+		[Field ("kGAIPARefund", "__Internal")]
 		NSString PARefund { get; }
 
-		[Static]
-		[Export ("kGAIPATransactionIdGlobal")]
+		[Field ("kGAIPATransactionId", "__Internal")]
 		NSString PATransactionId { get; }
 
-		[Static]
-		[Export ("kGAIPAAffiliationGlobal")]
+		[Field ("kGAIPAAffiliation", "__Internal")]
 		NSString PAAffiliation { get; }
 
-		[Static]
-		[Export ("kGAIPARevenueGlobal")]
+		[Field ("kGAIPARevenue", "__Internal")]
 		NSString PARevenue { get; }
 
-		[Static]
-		[Export ("kGAIPATaxGlobal")]
+		[Field ("kGAIPATax", "__Internal")]
 		NSString PATax { get; }
 
-		[Static]
-		[Export ("kGAIPAShippingGlobal")]
+		[Field ("kGAIPAShipping", "__Internal")]
 		NSString PAShipping { get; }
 
-		[Static]
-		[Export ("kGAIPACouponCodeGlobal")]
+		[Field ("kGAIPACouponCode", "__Internal")]
 		NSString PACouponCode { get; }
 
-		[Static]
-		[Export ("kGAICheckoutStepGlobal")]
+		[Field ("kGAICheckoutStep", "__Internal")]
 		NSString CheckoutStep { get; }
 
-		[Static]
-		[Export ("kGAICheckoutOptionGlobal")]
+		[Field ("kGAICheckoutOption", "__Internal")]
 		NSString CheckoutOption { get; }
 
-		[Static]
-		[Export ("kGAIProductActionListGlobal")]
+		[Field ("kGAIProductActionList", "__Internal")]
 		NSString ProductActionList { get; }
 
-		[Static]
-		[Export ("kGAIProductListSourceGlobal")]
+		[Field ("kGAIProductListSource", "__Internal")]
 		NSString ProductListSource { get; }
 
-		[Static]
-		[Export ("kGAIImpressionNameGlobal")]
+		[Field ("kGAIImpressionName", "__Internal")]
 		NSString ImpressionName { get; }
 
-		[Static]
-		[Export ("kGAIImpressionListSourceGlobal")]
+		[Field ("kGAIImpressionListSource", "__Internal")]
 		NSString ImpressionListSource { get; }
 
-		[Static]
-		[Export ("kGAIImpressionProductGlobal")]
+		[Field ("kGAIImpressionProduct", "__Internal")]
 		NSString ImpressionProduct { get; }
 
-		[Static]
-		[Export ("kGAIImpressionProductIdGlobal")]
+		[Field ("kGAIImpressionProductId", "__Internal")]
 		NSString ImpressionProductId { get; }
 
-		[Static]
-		[Export ("kGAIImpressionProductNameGlobal")]
+		[Field ("kGAIImpressionProductName", "__Internal")]
 		NSString ImpressionProductName { get; }
 
-		[Static]
-		[Export ("kGAIImpressionProductBrandGlobal")]
+		[Field ("kGAIImpressionProductBrand", "__Internal")]
 		NSString ImpressionProductBrand { get; }
 
-		[Static]
-		[Export ("kGAIImpressionProductCategoryGlobal")]
+		[Field ("kGAIImpressionProductCategory", "__Internal")]
 		NSString ImpressionProductCategory { get; }
 
-		[Static]
-		[Export ("kGAIImpressionProductVariantGlobal")]
+		[Field ("kGAIImpressionProductVariant", "__Internal")]
 		NSString ImpressionProductVariant { get; }
 
-		[Static]
-		[Export ("kGAIImpressionProductPositionGlobal")]
+		[Field ("kGAIImpressionProductPosition", "__Internal")]
 		NSString ImpressionProductPosition { get; }
 
-		[Static]
-		[Export ("kGAIImpressionProductPriceGlobal")]
+		[Field ("kGAIImpressionProductPrice", "__Internal")]
 		NSString ImpressionProductPrice { get; }
 
-		[Static]
-		[Export ("kGAIPromotionIdGlobal")]
+		[Field ("kGAIPromotionId", "__Internal")]
 		NSString PromotionId { get; }
 
-		[Static]
-		[Export ("kGAIPromotionNameGlobal")]
+		[Field ("kGAIPromotionName", "__Internal")]
 		NSString PromotionName { get; }
 
-		[Static]
-		[Export ("kGAIPromotionCreativeGlobal")]
+		[Field ("kGAIPromotionCreative", "__Internal")]
 		NSString PromotionCreative { get; }
 
-		[Static]
-		[Export ("kGAIPromotionPositionGlobal")]
+		[Field ("kGAIPromotionPosition", "__Internal")]
 		NSString PromotionPosition { get; }
 
-		[Static]
-		[Export ("kGAIPromotionActionGlobal")]
+		[Field ("kGAIPromotionAction", "__Internal")]
 		NSString PromotionAction { get; }
 
-		[Static]
-		[Export ("kGAIPromotionViewGlobal")]
+		[Field ("kGAIPromotionView", "__Internal")]
 		NSString PromotionView { get; }
 
-		[Static]
-		[Export ("kGAIPromotionClickGlobal")]
+		[Field ("kGAIPromotionClick", "__Internal")]
 		NSString PromotionClick { get; }
 	}
 

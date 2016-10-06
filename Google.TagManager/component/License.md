@@ -1,6 +1,6 @@
 **Xamarin is not responsible for, nor does it grant any licenses to, third-party packages. Some packages may require or install dependencies which are governed by additional licenses.**
 
-Note: This component depends on [Google Tag Manager for iOS](https://developers.google.com/tag-manager/ios/v3/), which is subject to the [Google Analytics Terms of Service](http://www.google.com/analytics/terms/us.html) and [Measurement Protocol / SDK / User ID Policy](https://developers.google.com/analytics/devguides/collection/protocol/policy)
+Note: This component depends on [Google Tag Manager for iOS](https://developers.google.com/tag-manager/ios/v5/), which is subject to the [Google Analytics Terms of Service](http://www.google.com/analytics/terms/us.html) and [Measurement Protocol / SDK / User ID Policy](https://developers.google.com/analytics/devguides/collection/protocol/policy)
 
 ### Xamarin Component for Google Tag Manager for iOS
 

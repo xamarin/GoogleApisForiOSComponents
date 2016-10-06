@@ -46,9 +46,6 @@
     </Compile>
     <Compile Include="Loader.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="libGADFieldExporter.linkwith.cs">
-      <DependentUpon>libGADFieldExporter.a</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
@@ -57,11 +54,6 @@
     <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
-  <ItemGroup>
-    <ObjcBindingNativeLibrary Include="..\..\externals\libGADFieldExporter.a">
-      <Link>libGADFieldExporter.a</Link>
-    </ObjcBindingNativeLibrary>
-  </ItemGroup>
   <ItemGroup>
     <None Include="Google.MobileAds.targets" />
   </ItemGroup>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<_FirebaseCloudMessagingAssemblyName>Firebase.CloudMessaging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseCloudMessagingAssemblyName>
+		<_FirebaseCloudMessagingItemsFolder>FCldM-1.2.0</_FirebaseCloudMessagingItemsFolder>
+		<_GoogleIPhoneUtilitiesItemsFolder>GIPhnU-1.2.1</_GoogleIPhoneUtilitiesItemsFolder>
+	</PropertyGroup>
+	<ItemGroup Condition="'$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True'">
+		<XamarinBuildDownload Include="$(_FirebaseCloudMessagingItemsFolder)">
+			<Url>https://www.gstatic.com/cpdc/543f98d0a21bcb15/FirebaseMessaging-1.2.0.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildDownload Include="$(_GoogleIPhoneUtilitiesItemsFolder)">
+			<Url>https://www.gstatic.com/cpdc/d6579239fea27cae-GoogleIPhoneUtilities-1.2.1.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildRestoreResources Include="_FirebaseCloudMessagingItems" />
+	</ItemGroup>
+	<Target Name="_FirebaseCloudMessagingItems">
+
+		<PropertyGroup>
+			<_FirebaseCloudMessagingSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseCloudMessagingItemsFolder)\Frameworks\frameworks\</_FirebaseCloudMessagingSDKBaseFolder>
+			<_GoogleIPhoneUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleIPhoneUtilitiesItemsFolder)\Frameworks\</_GoogleIPhoneUtilitiesSDKBaseFolder>
+		</PropertyGroup>
+
+		<ItemGroup>
+			<RestoreAssemblyResource Include="$(_FirebaseCloudMessagingSDKBaseFolder)FirebaseMessaging.framework\FirebaseMessaging">
+				<LogicalName>FirebaseMessaging</LogicalName>
+				<AssemblyName>$(_FirebaseCloudMessagingAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleIPhoneUtilitiesSDKBaseFolder)GoogleIPhoneUtilities.framework\GoogleIPhoneUtilities">
+				<LogicalName>GoogleIPhoneUtilities</LogicalName>
+				<AssemblyName>$(_FirebaseCloudMessagingAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+		</ItemGroup>
+
+	</Target>
+</Project>
