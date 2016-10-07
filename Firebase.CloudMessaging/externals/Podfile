@@ -1,5 +1,5 @@
 =begin
-Last run FirebaseDynamicLinks installed:
+Last run FirebaseMessaging installed:
 - Firebase (3.6.0)
 - FirebaseAnalytics (3.4.2)
 - FirebaseInstanceID (1.0.8)
@@ -13,7 +13,7 @@ Check if main version or subversion number has changed.
 If yes, please, update *.targets files located in binding 
 projects, also, update Podfile files if needed.
 
-In .targets file, located in Firebase.Messaging binding, you can find:
+In .targets file, located in Firebase.CloudMessaging binding, you can find:
 - FirebaseMessaging (1.2.0)
 - GoogleIPhoneUtilities (1.2.1)
 
