@@ -4,5 +4,5 @@ platform :ios, '5.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'GoogleAnalytics' do
-	pod 'GoogleAnalytics', '3.14.0'
+	pod 'GoogleAnalytics', '3.17.0'
 end
