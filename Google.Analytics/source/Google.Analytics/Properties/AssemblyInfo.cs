@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 
 using Foundation;
@@ -17,7 +17,7 @@ using Foundation;
 [assembly: AssemblyConfiguration ("")]
 [assembly: AssemblyCompany ("")]
 [assembly: AssemblyProduct ("")]
-[assembly: AssemblyCopyright ("Xamarin")]
+[assembly: AssemblyCopyright ("Microsoft")]
 [assembly: AssemblyTrademark ("")]
 [assembly: AssemblyCulture ("")]
 
