@@ -6,7 +6,8 @@ namespace Google.Core
 	{
 		static Loader ()
 		{
-			
+			Firebase.InstanceID.Loader.ForceLoad ();
+			Firebase.Analytics.Loader.ForceLoad ();
 		}
 
 		public static void ForceLoad () {}
@@ -23,6 +24,3 @@ namespace ApiDefinition
 		}
 	}
 }
-
-
-

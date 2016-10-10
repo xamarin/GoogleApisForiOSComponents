@@ -6,8 +6,8 @@ publisher-url: http://xamarin.com
 src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Google.GoogleCloudMessaging
 summary: Simple and reliable messaging to reach over a billion devices.
 icons:
-  - icons/googleiosgcm_128x128.png
-  - icons/googleiosgcm_512x512.png
+  - ../../icons/googleiosgcm_128x128.png
+  - ../../icons/googleiosgcm_512x512.png
 docs-url: https://developers.google.com/cloud-messaging/
 libraries:
   ios-unified: 

@@ -24,41 +24,13 @@ namespace Google.Core
 		[Export ("trackingID")]
 		string TrackingId { get; }
 
-		// @property (readonly, copy, nonatomic) NSString * bannerAdUnitID;
-		[Export ("bannerAdUnitID")]
-		string BannerAdUnitId { get; }
-
-		// @property (readonly, copy, nonatomic) NSString * interstitialAdUnitID;
-		[Export ("interstitialAdUnitID")]
-		string InterstitialAdUnitId { get; }
-
-		// @property (readonly, copy, nonatomic) NSString * gcmSenderID;
-		[Export ("gcmSenderID")]
-		string GcmSenderId { get; }
-
-		// @property (readonly, copy, nonatomic) NSString * androidClientID;
-		[Export ("androidClientID")]
-		string AndroidClientId { get; }
-
 		// @property (readonly, copy, nonatomic) NSString * googleAppID;
 		[Export ("googleAppID")]
 		string GoogleAppId { get; }
 
-		// @property (readonly, nonatomic) BOOL isAdsEnabled;
-		[Export ("isAdsEnabled")]
-		bool IsAdsEnabled { get; }
-
 		// @property (readonly, nonatomic) BOOL isAnalyticsEnabled;
 		[Export ("isAnalyticsEnabled")]
 		bool IsAnalyticsEnabled { get; }
-
-		// @property (readonly, nonatomic) BOOL isAppInviteEnabled;
-		[Export ("isAppInviteEnabled")]
-		bool IsAppInviteEnabled { get; }
-
-		// @property (readonly, nonatomic) BOOL isGCMEnabled;
-		[Export ("isGCMEnabled")]
-		bool IsGcmEnabled { get; }
 
 		// @property (readonly, nonatomic) BOOL isMeasurementEnabled;
 		[Export ("isMeasurementEnabled")]

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Xamarin.Firebase.iOS.AdMob</id>
+    <title>Firebase APIs AdMob iOS Library</title>
+    <version>7.11.0.0</version>
+    <authors>Xamarin Inc.</authors>
+    <owners>Xamarin Inc.</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>C# bindings for Firebase APIs AdMob iOS Library</description>
+    <copyright>Copyright 2016 Microsoft</copyright>
+    <projectUrl>https://components.xamarin.com/view/firebaseiosadmob</projectUrl>
+    <licenseUrl>https://components.xamarin.com/license/firebaseiosadmob</licenseUrl>
+    <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseiosadmob_128x128.png</iconUrl>
+    <dependencies>
+      <dependency id="Xamarin.Build.Download" version="0.2.2"/>
+      <dependency id="Xamarin.Google.iOS.MobileAds" version="7.11.0.0"/>
+      <dependency id="Xamarin.Firebase.iOS.Analytics" version="3.4.2.0"/>
+    </dependencies>
+  </metadata>
+</package>

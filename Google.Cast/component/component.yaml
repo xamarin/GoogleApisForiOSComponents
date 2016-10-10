@@ -6,8 +6,8 @@ publisher-url: http://xamarin.com
 src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Google.Cast
 summary: "Extend your app to the big screen with Google Cast"
 icons:
-  - icons/googleioscast_128x128.png
-  - icons/googleioscast_512x512.png
+  - ../../icons/googleioscast_128x128.png
+  - ../../icons/googleioscast_512x512.png
 docs-url: "https://developers.google.com/cast/"
 libraries:
   ios-unified: 

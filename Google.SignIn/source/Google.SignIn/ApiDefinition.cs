@@ -204,14 +204,6 @@ namespace Google.SignIn
 		[Export ("shouldFetchBasicProfile")]
 		bool ShouldFetchBasicProfile { get; set; }
 
-		// @property (assign, nonatomic) BOOL allowsSignInWithBrowser;
-		[Export ("allowsSignInWithBrowser")]
-		bool AllowsSignInWithBrowser { get; set; }
-
-		// @property (assign, nonatomic) BOOL allowsSignInWithWebView;
-		[Export ("allowsSignInWithWebView")]
-		bool AllowsSignInWithWebView { get; set; }
-
 		// @property (copy, nonatomic) NSString * language;
 		[Export ("language")]
 		string Language { get; set; }
@@ -260,11 +252,6 @@ namespace Google.SignIn
 		// -(void)disconnect;
 		[Export ("disconnect")]
 		void DisconnectUser ();
-
-		// -(void)checkGoogleSignInAppInstalled:(void (^)(BOOL))callback;
-		[Obsolete ("This method always calls back with |NO| on iOS 9 or above.")]
-		[Export ("checkGoogleSignInAppInstalled:"), Async]
-		void CheckGoogleSignInAppInstalled (Action<bool> callback);
 	}
 
 	// @interface GIDSignInButton : UIControl

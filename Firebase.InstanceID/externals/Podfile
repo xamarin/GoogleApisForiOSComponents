@@ -1,0 +1,14 @@
+=begin
+Check if main version or subversion number has changed. 
+If yes, please, update *.targets file located in binding 
+project, also, update Podfile file if needed.
+=end
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '7.0'
+install! 'cocoapods', :integrate_targets => false
+
+target 'FirebaseInstanceID' do
+	pod 'FirebaseInstanceID', '1.0.8'
+end

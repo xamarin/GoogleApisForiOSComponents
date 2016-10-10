@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Xamarin.Firebase.iOS.Analytics</id>
+    <title>Firebase APIs Analytics iOS Library</title>
+    <version>3.4.2.0</version>
+    <authors>Xamarin Inc.</authors>
+    <owners>Xamarin Inc.</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>C# bindings for Firebase APIs Analytics iOS Library</description>
+    <copyright>Copyright 2016 Microsoft</copyright>
+    <projectUrl>https://components.xamarin.com/view/firebaseiosanalytics</projectUrl>
+    <licenseUrl>https://components.xamarin.com/license/firebaseiosanalytics</licenseUrl>
+    <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseiosanalytics_128x128.png</iconUrl>
+    <dependencies>
+      <dependency id="Xamarin.Build.Download" version="0.2.2"/>
+      <dependency id="Xamarin.Firebase.iOS.InstanceID" version="1.0.8.0"/>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="output/Firebase.Analytics.dll" target="lib/Xamarin.iOS10" />
+
+    <!-- Add targets file for external native reference download -->
+    <file src="source/Firebase.Analytics/Firebase.Analytics.targets" target="build/Xamarin.Firebase.iOS.Analytics.targets"  />
+  </files>
+</package>
