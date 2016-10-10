@@ -25,6 +25,9 @@ samples:
       - project: AdMobSample
         packages:
           - Xamarin.Firebase.iOS.AdMob
+          - Xamarin.Google.iOS.MobileAds
+          - Xamarin.Firebase.iOS.Analytics
+          - Xamarin.Firebase.iOS.InstanceID
     removeNodes:
       - "//xNS:Import[contains (@Project, 'Google.MobileAds.targets')]"
       - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"

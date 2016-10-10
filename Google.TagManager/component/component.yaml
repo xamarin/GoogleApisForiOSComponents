@@ -28,7 +28,7 @@ samples:
       - Google.Analytics
       - Google.TagManager
     installNuGets:
-      - project: CuteAnimalsiOS
+      - project: TagManagerSample
         packages:
           - Xamarin.Firebase.iOS.InstanceID
           - Xamarin.Firebase.iOS.Analytics
