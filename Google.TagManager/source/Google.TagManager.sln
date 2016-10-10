@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.Analytics", "..\..\G
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.TagManager", "Google.TagManager\Google.TagManager.csproj", "{9B44B6D4-926F-4E0C-AF0B-0F31EBDBC6AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firebase.InstanceID", "..\..\Firebase.InstanceID\source\Firebase.InstanceID\Firebase.InstanceID.csproj", "{D6AA184C-DA45-4BBB-988A-451B20C7B804}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firebase.Analytics", "..\..\Firebase.Analytics\source\Firebase.Analytics\Firebase.Analytics.csproj", "{87BB564C-85A8-4EC1-AD16-EC0A1ACCEE56}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +23,13 @@ Global
 		{EA3C7951-A91C-437E-9626-F16E31214A0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA3C7951-A91C-437E-9626-F16E31214A0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA3C7951-A91C-437E-9626-F16E31214A0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6AA184C-DA45-4BBB-988A-451B20C7B804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6AA184C-DA45-4BBB-988A-451B20C7B804}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6AA184C-DA45-4BBB-988A-451B20C7B804}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6AA184C-DA45-4BBB-988A-451B20C7B804}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87BB564C-85A8-4EC1-AD16-EC0A1ACCEE56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87BB564C-85A8-4EC1-AD16-EC0A1ACCEE56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87BB564C-85A8-4EC1-AD16-EC0A1ACCEE56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87BB564C-85A8-4EC1-AD16-EC0A1ACCEE56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

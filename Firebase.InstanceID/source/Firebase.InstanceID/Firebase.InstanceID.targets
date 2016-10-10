@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<_FirebaseInstanceIDAssemblyName>Firebase.InstanceID, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseInstanceIDAssemblyName>
+		<_FirebaseInstanceIDItemsFolder>FInstncID-1.0.8</_FirebaseInstanceIDItemsFolder>
+	</PropertyGroup>
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+		<XamarinBuildDownload Include="$(_FirebaseInstanceIDItemsFolder)">
+			<Url>https://www.gstatic.com/cpdc/18da95d517c54d0f/FirebaseInstanceID-1.0.8.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildRestoreResources Include="_FirebaseInstanceIDItems" />
+	</ItemGroup>
+	<Target Name="_FirebaseInstanceIDItems">
+
+		<PropertyGroup>
+			<_FirebaseInstanceIDSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseInstanceIDItemsFolder)\Frameworks\frameworks\</_FirebaseInstanceIDSDKBaseFolder>
+		</PropertyGroup>
+
+		<ItemGroup>
+			<RestoreAssemblyResource Include="$(_FirebaseInstanceIDSDKBaseFolder)FirebaseInstanceID.framework\FirebaseInstanceID">
+				<LogicalName>FirebaseInstanceID</LogicalName>
+				<AssemblyName>$(_FirebaseInstanceIDAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+		</ItemGroup>
+
+	</Target>
+</Project>
