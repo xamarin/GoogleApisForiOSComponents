@@ -29,6 +29,11 @@ samples:
       - project: AuthSample
         packages:
           - Xamarin.Firebase.iOS.Auth
+          - Xamarin.Google.iOS.SignIn
+          - Xamarin.Google.iOS.Core
+          - Xamarin.Firebase.iOS.Analytics
+          - Xamarin.Firebase.iOS.InstanceID
+          - Xamarin.Facebook.iOS
     removeNodes:
       - "//xNS:Import[contains (@Project, 'Firebase.Auth.targets')]"
       - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"

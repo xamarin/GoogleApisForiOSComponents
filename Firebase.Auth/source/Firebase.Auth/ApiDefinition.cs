@@ -252,7 +252,7 @@ namespace Firebase.Auth
 
 		// -(void)unlinkFromProvider:(NSString * _Nonnull)provider completion:(FIRAuthResultCallback _Nullable)completion;
 		[Export ("unlinkFromProvider:completion:")]
-		void Unlink (string provider, [NullAllowed] AuthResultHandler completion);
+		void Unlink (string providerId, [NullAllowed] AuthResultHandler completion);
 
 		// -(void)sendEmailVerificationWithCompletion:(FIRSendEmailVerificationCallback _Nullable)completion;
 		[Export ("sendEmailVerificationWithCompletion:")]
