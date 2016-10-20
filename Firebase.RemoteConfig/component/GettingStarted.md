@@ -114,26 +114,11 @@ During app development, you might want to refresh the cache very frequently (man
 
 ### Known issues
 
-* App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][9])
+* App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][4])
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/remote-config/use-config-ios) to see original Firebase documentation._</sub>
 
 [1]: https://firebase.google.com/console/
 [2]: http://support.google.com/firebase/answer/7015592
 [3]: https://firebase.google.com/docs/remote-config/parameters
-[9]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689
-
-
-
-
-
-
-[1]: https://firebase.google.com/console/
-[2]: http://support.google.com/firebase/answer/7015592
-[3]: https://firebase.google.com/docs/cloud-messaging/ios/certs
-[4]: https://firebase.google.com/docs/cloud-messaging/ios/client#upload_your_apns_certificate
-[5]: https://firebase.google.com/docs/cloud-messaging/ios/client#register_for_remote_notifications
-[6]: https://firebase.google.com/docs/cloud-messaging/http-server-ref#notification-payload-support
-[7]: https://firebase.google.com/docs/cloud-messaging/ios/topic-messaging#build_send_requests
-[8]: https://firebase.google.com/docs/cloud-messaging/ios/device-group
-[9]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689
+[4]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689
