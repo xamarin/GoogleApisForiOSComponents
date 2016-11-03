@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+		<_FirebaseDatabaseAssemblyName>Firebase.Database, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseDatabaseAssemblyName>
+		<_FirebaseDatabaseItemsFolder>FDtbs-3.0.3</_FirebaseDatabaseItemsFolder>
+	</PropertyGroup>
+
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+		<XamarinBuildDownload Include="$(_FirebaseDatabaseItemsFolder)">
+			<Url>https://www.gstatic.com/cpdc/dd2185c8104bac0e/FirebaseDatabase-3.0.3.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildRestoreResources Include="_FirebaseDatabaseItems"/>
+	</ItemGroup>
+
+	<Target Name="_FirebaseDatabaseItems">
+
+		<PropertyGroup>
+			<_FirebaseDatabaseSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseDatabaseItemsFolder)\Frameworks\</_FirebaseDatabaseSDKBaseFolder>
+		</PropertyGroup>
+
+		<ItemGroup>
+			<RestoreAssemblyResource Include="$(_FirebaseDatabaseSDKBaseFolder)FirebaseDatabase.framework\FirebaseDatabase">
+				<LogicalName>FirebaseDatabase</LogicalName>
+				<AssemblyName>$(_FirebaseDatabaseAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+		</ItemGroup>
+		
+	</Target>
+</Project>

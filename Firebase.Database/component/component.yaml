@@ -1,0 +1,42 @@
+version: 3.0.3.0
+name: Firebase Database for iOS
+id: firebaseiosdatabase
+publisher: Xamarin Inc.
+publisher-url: http://xamarin.com
+src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Firebase.Database
+summary: Store and sync data with the Firebase Realtime Database. Data is synced across all clients in realtime, and remains available when your app goes offline.
+icons:
+  - ../../icons/firebaseiosdatabase_128x128.png
+  - ../../icons/firebaseiosdatabase_512x512.png
+docs-url: https://firebase.google.com/docs/database/
+libraries:
+  ios-unified: 
+    - ../output/Firebase.Database.dll
+    - ../../Firebase.Analytics/output/Firebase.Analytics.dll
+    - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
+is_shell: true
+packages:
+  ios-unified:
+    - Xamarin.Firebase.iOS.Database, Version=3.0.3.0
+samples:
+  - name: "Database Sample"
+    path: ../samples/DatabaseSample/DatabaseSample.sln
+    removeProjects: 
+      - Firebase.Database
+      - Firebase.Auth
+      - Firebase.Analytics
+      - Firebase.InstanceID
+    installNuGets:
+      - project: DatabaseSample
+        packages:
+          - Xamarin.Firebase.iOS.Database
+          - Xamarin.Firebase.iOS.Auth
+          - Xamarin.Firebase.iOS.Analytics
+          - Xamarin.Firebase.iOS.InstanceID
+    removeNodes:
+      - "//xNS:Import[contains (@Project, 'Firebase.Database.targets')]"
+      - "//xNS:Import[contains (@Project, 'Firebase.Auth.targets')]"
+      - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"
+      - "//xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]"
+local-nuget-repo: ../../tmp-nugets
+no_build: true
