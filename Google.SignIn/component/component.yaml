@@ -1,4 +1,4 @@
-version: 4.0.0.0
+version: 4.0.1.0
 name: Google Sign-In for iOS
 id: googleiossignin
 publisher: Xamarin Inc.
@@ -18,7 +18,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Google.iOS.SignIn, Version=4.0.0.0
+    - Xamarin.Google.iOS.SignIn, Version=4.0.1.0
 samples:
   - name: "Sign-In Sample"
     path:  ../samples/SignInExample/SignInExample.sln

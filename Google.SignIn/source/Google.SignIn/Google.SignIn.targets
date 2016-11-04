@@ -2,237 +2,199 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_GoogleSignInAssemblyName>Google.SignIn, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleSignInAssemblyName>
-		<_GoogleSignInItemsFolder>GSgnI-4.0.0</_GoogleSignInItemsFolder>
-		<_GoogleNetworkingUtilitiesItemsFolder>GNtwrkngU-1.2.1</_GoogleNetworkingUtilitiesItemsFolder>
-		<_GoogleAppUtilitiesItemsFolder>GAppU-1.1.1</_GoogleAppUtilitiesItemsFolder>
-		<_GoogleAuthUtilitiesItemsFolder>GAthU-2.0.1</_GoogleAuthUtilitiesItemsFolder>
+		<_GoogleSignInItemsFolder>GSgnI-4.0.1</_GoogleSignInItemsFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GoogleSignInItemsFolder)">
-			<Url>https://www.gstatic.com/cpdc/03b4b5d3dabf3365-GoogleSignIn-4.0.0.tar.gz</Url>
-			<Kind>Tgz</Kind>
-		</XamarinBuildDownload>
-		<XamarinBuildDownload Include="$(_GoogleNetworkingUtilitiesItemsFolder)">
-			<Url>https://www.gstatic.com/cpdc/9a35b867a7ad8af0-GoogleNetworkingUtilities-1.2.1.tar.gz</Url>
-			<Kind>Tgz</Kind>
-		</XamarinBuildDownload>
-		<XamarinBuildDownload Include="$(_GoogleAppUtilitiesItemsFolder)">
-			<Url>https://www.gstatic.com/cpdc/bea34d9a0098d2a2-GoogleAppUtilities-1.1.1.tar.gz</Url>
-			<Kind>Tgz</Kind>
-		</XamarinBuildDownload>
-		<XamarinBuildDownload Include="$(_GoogleAuthUtilitiesItemsFolder)">
-			<Url>https://www.gstatic.com/cpdc/6db66aa0bf94952a-GoogleAuthUtilities-2.0.1.tar.gz</Url>
-			<Kind>Tgz</Kind>
+			<Url>https://developers.google.com/identity/sign-in/ios/sdk/google_signin_sdk_4_0_1.zip</Url>
+			<Kind>Zip</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildRestoreResources Include="_GoogleSignInItems" />
 	</ItemGroup>
 	<Target Name="_GoogleSignInItems">
 
 		<PropertyGroup>
-			<_GoogleSignInSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleSignInItemsFolder)\</_GoogleSignInSDKBaseFolder>
-			<_GoogleNetworkingUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleNetworkingUtilitiesItemsFolder)\Frameworks\</_GoogleNetworkingUtilitiesSDKBaseFolder>
-			<_GoogleAppUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleAppUtilitiesItemsFolder)\Frameworks\</_GoogleAppUtilitiesSDKBaseFolder>
-			<_GoogleAuthUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleAuthUtilitiesItemsFolder)\Frameworks\</_GoogleAuthUtilitiesSDKBaseFolder>
+			<_GoogleSignInSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleSignInItemsFolder)\google_signin_sdk_4_0_1\</_GoogleSignInSDKBaseFolder>
 		</PropertyGroup>
 
 		<ItemGroup>
-			<RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Frameworks\GoogleSignIn.framework\GoogleSignIn">
+			<RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.framework\GoogleSignIn">
 				<LogicalName>GoogleSignIn</LogicalName>
 				<AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleNetworkingUtilitiesSDKBaseFolder)GoogleNetworkingUtilities.framework\GoogleNetworkingUtilities">
-				<LogicalName>GoogleNetworkingUtilities</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignInDependencies.framework\GoogleSignInDependencies">
+				<LogicalName>GoogleSignInDependencies</LogicalName>
 				<AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleAppUtilitiesSDKBaseFolder)GoogleAppUtilities.framework\GoogleAppUtilities">
+			<RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleAppUtilities.framework\GoogleAppUtilities">
 				<LogicalName>GoogleAppUtilities</LogicalName>
 				<AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleAuthUtilitiesSDKBaseFolder)GoogleAuthUtilities.framework\GoogleAuthUtilities">
-				<LogicalName>GoogleAuthUtilities</LogicalName>
-				<AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\Info.plist">
+			<RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\Info.plist">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fInfo.plist</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\Roboto-Bold.ttf">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\Roboto-Bold.ttf">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fRoboto-Bold.ttf</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\google.png">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\google.png">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fgoogle.png</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\google%402x.png">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\google%402x.png">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fgoogle%402x.png</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\google%403x.png">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\google%403x.png">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fgoogle%403x.png</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\gplus.png">
-                <LogicalName>__monotouch_content_GoogleSignIn.bundle_fgplus.png</LogicalName>
-                <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
-            </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\gplus%402x.png">
-                <LogicalName>__monotouch_content_GoogleSignIn.bundle_fgplus%402x.png</LogicalName>
-                <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
-            </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\gplus%403x.png">
-                <LogicalName>__monotouch_content_GoogleSignIn.bundle_fgplus%403x.png</LogicalName>
-                <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
-            </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\ar.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\ar.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_far.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\ca.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\ca.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fca.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\cs.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\cs.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fcs.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\da.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\da.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fda.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\de.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\de.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fde.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\el.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\el.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fel.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\en.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\en.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fen.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\en_GB.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\en_GB.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fen__GB.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\es.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\es.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fes.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\es_MX.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\es_MX.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fes__MX.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\fi.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\fi.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_ffi.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\fr.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\fr.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_ffr.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\he.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\he.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fhe.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\hr.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\hr.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fhr.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\hu.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\hu.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fhu.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\id.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\id.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fid.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\it.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\it.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fit.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\ja.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\ja.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fja.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\ko.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\ko.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fko.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\ms.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\ms.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fms.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\nb.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\nb.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fnb.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\nl.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\nl.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fnl.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\pl.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\pl.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fpl.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\pt.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\pt.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fpt.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\pt_BR.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\pt_BR.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fpt__BR.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\pt_PT.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\pt_PT.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fpt__PT.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\ro.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\ro.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fro.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\ru.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\ru.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fru.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\sk.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\sk.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fsk.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\sv.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\sv.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fsv.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\th.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\th.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fth.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\tr.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\tr.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_ftr.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\uk.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\uk.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fuk.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\vi.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\vi.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fvi.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\zh_CN.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\zh_CN.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fzh__CN.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\zh_TW.lproj\GoogleSignIn.strings">
+            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)GoogleSignIn.bundle\zh_TW.lproj\GoogleSignIn.strings">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fzh__TW.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleAuthUtilitiesSDKBaseFolder)GoogleAuthUtilities.framework\Resources\GTMOAuth2ViewTouch.xib">
-    			<LogicalName>__monotouch_content_GoogleAuthUtilities.framework_fResources_fGTMOAuth2ViewTouch.xib</LogicalName>
-    			<AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
-  			</RestoreAssemblyResource>
-</ItemGroup>
+		</ItemGroup>
 
 	</Target>
 </Project>
