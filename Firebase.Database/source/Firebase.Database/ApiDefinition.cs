@@ -176,7 +176,7 @@ namespace Firebase.Database
 
 	delegate void DatabaseReferenceCompletionHandler ([NullAllowed] NSError error, DatabaseReference reference);
 	delegate TransactionResult DatabaseReferenceTransactionHandler (MutableData currentData);
-	delegate void DatabaseReferenceTransactionCompletionHandler ([NullAllowed] NSError error, bool commited, [NullAllowed] DatabaseReference reference);
+	delegate void DatabaseReferenceTransactionCompletionHandler ([NullAllowed] NSError error, bool commited, [NullAllowed] DataSnapshot snapshot);
 
 	// @interface FIRDatabaseReference : FIRDatabaseQuery
 	[BaseType (typeof (DatabaseQuery), Name = "FIRDatabaseReference")]

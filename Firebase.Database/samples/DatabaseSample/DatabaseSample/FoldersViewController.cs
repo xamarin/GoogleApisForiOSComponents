@@ -17,9 +17,23 @@ namespace DatabaseSample
 		UIBarButtonItem btnNewFolder;
 		UIBarButtonItem btnRefresh;
 
+		// Reference that points to user data.
+		// Points to https://MyDatabaseId.firebaseio.com/users
 		DatabaseReference userNode;
+
+		// Reference that points to total of folders that user has.
+		// Points to https://MyDatabaseId.firebaseio.com/users/«userUid»/foldersCount
 		DatabaseReference foldersCountNode;
+
+		// Reference that points to user's folders.
+		// Points to https://MyDatabaseId.firebaseio.com/folders/«userUid»/
 		DatabaseReference foldersNode;
+
+		// Get all user's folder ordered by "negativeLastModified" node.
+		// Why we negative the last modified value? Because sorted values are in ascending order, from the lowest value to the highest.
+		// In other words, in the first position comes the oldest modified folder and in the last position comes the most recent modified folder.
+		// Firebase doesn't have a way to get list is descending order.
+		// With this hack we invert the list, making folders to be sorted in "descending" order.
 		DatabaseQuery foldersByDate;
 
 		List<Folder> folders;
@@ -41,6 +55,8 @@ namespace DatabaseSample
 
 		public override void ViewWillAppear (bool animated)
 		{
+			// If is the first time that view will appear, means you need to login anonymously,
+			// otherwise, refresh the table
 			if (string.IsNullOrWhiteSpace (AppDelegate.UserUid)) {
 				auth.SignInAnonymously (SignInAnonymouslyCompleted);
 			} else {
@@ -52,6 +68,7 @@ namespace DatabaseSample
 
 		public override void ViewWillDisappear (bool animated)
 		{
+			// Everytime that you change of view controller, clean node observers to avoid leaks of memory
 			RemoveObserversFromNodes ();
 
 			base.ViewWillDisappear (animated);
@@ -85,6 +102,7 @@ namespace DatabaseSample
 			indicatorView.StartAnimating ();
 		}
 
+		// Clean node observers to avoid leaks of memory 
 		void RemoveObserversFromNodes ()
 		{
 			userNode.RemoveAllObservers ();
@@ -93,6 +111,7 @@ namespace DatabaseSample
 			foldersByDate.RemoveAllObservers ();
 		}
 
+		// If for some reason you cannot login anonymously, you have a refresh button to try again
 		void BtnRefresh_Clicked (object sender, EventArgs e)
 		{
 			if (string.IsNullOrWhiteSpace (AppDelegate.UserUid)) {
@@ -102,6 +121,7 @@ namespace DatabaseSample
 			}
 		}
 
+		// Gets the folder name and verifies that folder name is written correctly
 		void btnNewFolder_Clicked (object sender, EventArgs e)
 		{
 			UIAlertHelper.ShowMessage ("Create a new folder",
@@ -134,10 +154,13 @@ namespace DatabaseSample
 						   });
 		}
 
+		// Sign in Anonymously
 		void SignInAnonymouslyCompleted (User user, NSError error)
 		{
 			if (error == null) {
 				AppDelegate.UserUid = user.Uid;
+
+				// Points to https://MyDatabaseId.firebaseio.com/users
 				userNode = AppDelegate.RootNode.GetChild ("users").GetChild (AppDelegate.UserUid);
 
 				VerifyIfUserExists ();
@@ -181,51 +204,71 @@ namespace DatabaseSample
 				indicatorView.StopAnimating ();
 			}
 		}
-			                           
+
+		// Check in Firebase Database if user exists
 		void VerifyIfUserExists ()
 		{
+			// Get value of user with ObserveEvent method
 			userNode.ObserveEvent (DataEventType.Value, (snapshot) => {
 				if (!snapshot.Exists) {
 					CreateUser ();
 				} else {
+					// Points to https://MyDatabaseId.firebaseio.com/users/«userUid»/foldersCount
 					foldersCountNode = userNode.GetChild ("foldersCount");
+					// Points to https://MyDatabaseId.firebaseio.com/folders/«userUid»/
 					foldersNode = AppDelegate.RootNode.GetChild ("folders").GetChild (AppDelegate.UserUid);
+					// Points to https://MyDatabaseId.firebaseio.com/folders/«userUid»/ but sorted by "negativeLastModified" value
 					foldersByDate = foldersNode.GetQueryOrderedByChild ("negativeLastModified");
+
 					GetFoldersCount ();
 				}
 			});
 		}
 
+		// Create user in Firebase Database
 		void CreateUser ()
 		{
+			// Create data to be saved in node
 			var created = AppDelegate.GetUtcTimestamp ();
 			foldersCount = 0;
 			object [] keys = { "created", "foldersCount" };
 			object [] values = { created, foldersCount };
 			var data = NSDictionary.FromObjectsAndKeys (values, keys, keys.Length);
 
+			// Keep data offline
 			userNode.KeepSynced (true);
+			// Save data in user node
 			userNode.SetValue (data);
 
+			// Points to https://MyDatabaseId.firebaseio.com/users/«userUid»/foldersCount
 			foldersCountNode = userNode.GetChild ("foldersCount");
+			// Points to https://MyDatabaseId.firebaseio.com/folders/«userUid»/
 			foldersNode = AppDelegate.RootNode.GetChild ("folders").GetChild (AppDelegate.UserUid);
+			// Points to https://MyDatabaseId.firebaseio.com/folders/«userUid»/ but sorted by "negativeLastModified" value
 			foldersByDate = foldersNode.GetQueryOrderedByChild ("negativeLastModified");
 		}
-			                           
+			                          
+		// Creates the folder in Firebase Database
 		void CreateFolder (string folderName)
 		{
+			// Create folder key node
 			var folderNodeName = folderName.Replace (' ', '_');
 			folderNodeName = char.ToLower (folderNodeName [0]) + folderNodeName.Substring (1, folderNodeName.Length - 1);
 
+			// Create data to be saved in node
 			var created = AppDelegate.GetUtcTimestamp ();
 			object [] keys = { "created", "lastModified", "name", "negativeLastModified", "notesCount" };
 			object [] values = { created, created, folderName, -created, 0 };
 			var data = NSDictionary.FromObjectsAndKeys (values, keys, keys.Length);
 
+			// Points to https://MyDatabaseId.firebaseio.com/folders/«userUid»/«folderUid»
 			DatabaseReference folderNode = foldersNode.GetChild (folderNodeName);
+			// Keep data offline
 			folderNode.KeepSynced (true);
+			// Save data in folder node 
 			folderNode.SetValue (data);
 
+			// Increment folders count in Firebase Database
 			foldersCountNode.SetValue (NSNumber.FromNUInt (++foldersCount));
 
 			GetFolders ();
@@ -235,16 +278,20 @@ namespace DatabaseSample
 		{
 			indicatorView.StartAnimating ();
 
+			// Get folders count to know when to stop and refresh the table view when we get folders sorted by "negativeLastModified"
 			foldersCountNode.ObserveEvent (DataEventType.Value, (snapshot) => {
 				foldersCount = snapshot.GetValue<NSNumber> ().NUIntValue;
 				GetFolders ();
 			});
 		}
 
+		// Get folder's data to be shown in TableView
 		void GetFolders ()
 		{
+			// Clean folders list
 			folders.Clear ();
 
+			// If we don't have folders to show, refresh the table to show nothing
 			if (foldersCount == 0) {
 				btnNewFolder.Enabled = true;
 				btnRefresh.Enabled = false;
@@ -253,6 +300,7 @@ namespace DatabaseSample
 				return;
 			}
 
+			// Get folders ordered by "negativeLastModified" value
 			foldersByDate.ObserveEvent (DataEventType.ChildAdded, (snapshot, prevKey) => {
 				var data = snapshot.GetValue<NSDictionary> ();
 				var created = (data ["created"] as NSNumber).StringValue;
@@ -270,6 +318,7 @@ namespace DatabaseSample
 					NotesCount = notesCount
 				});
 
+				// If we finished reading folders, refresh the Table View
 				if (folders.Count == (int)foldersCount) {
 					btnNewFolder.Enabled = true;
 					btnRefresh.Enabled = false;
@@ -279,6 +328,7 @@ namespace DatabaseSample
 			});
 		}
 
+		// Erase all data from a folder node
 		void DeleteFolder (Folder folder)
 		{
 			foldersNode.GetChild (folder.Node).RemoveValue ();
@@ -291,6 +341,7 @@ namespace DatabaseSample
 			return folders.Exists (f => f.Name == name);
 		}
 
+		// Verifies that name only contains alphanumeric, dashes, underscores and spaces
 		bool VerifyFolderName (string name)
 		{
 			return Regex.IsMatch (name, @"^[\w -]+$");

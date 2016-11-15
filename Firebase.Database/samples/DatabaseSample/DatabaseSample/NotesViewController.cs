@@ -15,10 +15,19 @@ namespace DatabaseSample
 		UIBarButtonItem btnNewNote;
 		UILabel lblNotesCount;
 
-		DatabaseReference lastModifiedNode;
-		DatabaseReference negativeLastModifiedNode;
+		// Reference that points to folder's notes count node.
+		// Points to https://MyDatabaseId.firebaseio.com/folders/«userUid»/«folderUid»/notesCount
 		DatabaseReference notesCountNode;
+
+		// Reference that points to user's notes.
+		// Points to https://MyDatabaseId.firebaseio.com/notes/«userUid»/«folderUid»/
 		DatabaseReference notesNode;
+
+		// Get all user's notes ordered by "negativeLastModified" node.
+		// Why we negative the last modified value? Because sorted values are in ascending order, from the lowest value to the highest.
+		// In other words, in the first position comes the oldest modified note and in the last position comes the most recent modified note.
+		// Firebase doesn't have a way to get list is descending order.
+		// With this hack we invert the list, making notes to be sorted in "descending" order.
 		DatabaseQuery notesByDate;
 
 		List<Note> notes;
@@ -83,21 +92,22 @@ namespace DatabaseSample
 		void CreateNodes ()
 		{
 			var folderNode = AppDelegate.RootNode.GetChild ("folders").GetChild (AppDelegate.UserUid).GetChild (Folder.Node);
-			lastModifiedNode = folderNode.GetChild ("lastModified");
-			negativeLastModifiedNode = folderNode.GetChild ("negativeLastModified");
+			// Points to https://MyDatabaseId.firebaseio.com/folders/«userUid»/«folderUid»/notesCount
 			notesCountNode = folderNode.GetChild ("notesCount");
+			// Points to https://MyDatabaseId.firebaseio.com/notes/«userUid»/«folderUid»/
 			notesNode = AppDelegate.RootNode.GetChild ("notes").GetChild (AppDelegate.UserUid).GetChild (Folder.Node);
+			// Points to https://MyDatabaseId.firebaseio.com/notes/«userUid»/«folderUid»/ but sorted by "negativeLastModified" value
 			notesByDate = notesNode.GetQueryOrderedByChild ("negativeLastModified");
 		}
 
+		// Clean node observers to avoid leaks of memory 
 		void RemoveObserversFromNodes ()
 		{
-			lastModifiedNode.RemoveAllObservers ();
-			negativeLastModifiedNode.RemoveAllObservers ();
 			notesCountNode.RemoveAllObservers ();
 			notesNode.RemoveAllObservers ();
 		}
 
+		// Go to next View Controller to write a note
 		void btnNewNote_Clicked (object sender, EventArgs e)
 		{
 			var viewController = Storyboard.InstantiateViewController ("NoteViewControllerID") as NoteViewController;
@@ -110,21 +120,28 @@ namespace DatabaseSample
 		{
 			indicatorView.StartAnimating ();
 
+			// Get notes count to know when to stop and refresh the table view when we get notes sorted by "negativeLastModified"
 			notesCountNode.ObserveEvent (DataEventType.Value, (snapshot) => {
 				notesCount = snapshot.GetValue<NSNumber> ().NUIntValue;
 				GetNotes ();
+			}, (error) => {
+				Console.WriteLine (error.LocalizedDescription);
 			});
 		}
 
+		// Get notes's data to be shown in TableView
 		void GetNotes ()
 		{
+			// Clean folders list
 			notes.Clear ();
 
+			// If we don't have notes to show, refresh the table to show nothing
 			if (notesCount == 0) {
 				TableView.ReloadData ();
 				return;
 			}
 
+			// Get notes ordered by "negativeLastModified" value
 			notesByDate.ObserveEvent (DataEventType.ChildAdded, (snapshot, prevKey) => {
 				var data = snapshot.GetValue<NSDictionary> ();
 				var content = data ["content"]?.ToString ();
@@ -142,11 +159,13 @@ namespace DatabaseSample
 					Title = title
 				});
 
+				// If we finished reading folders, refresh the Table View
 				if (notes.Count == (int)notesCount)
 					TableView.ReloadData ();
 			});
 		}
 
+		// Erase all data from a note node
 		void DeleteNote (Note note)
 		{
 			notesNode.GetChild (note.Node).RemoveValue ();
