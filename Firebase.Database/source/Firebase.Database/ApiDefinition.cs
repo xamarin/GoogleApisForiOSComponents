@@ -28,7 +28,7 @@ namespace Firebase.Database
 
 		// -(FIRDatabaseReference * _Nonnull)reference;
 		[Export ("reference")]
-		DatabaseReference RootReference { get; }
+		DatabaseReference GetRootReference ();
 
 		// -(FIRDatabaseReference * _Nonnull)referenceWithPath:(NSString * _Nonnull)path;
 		[Export ("referenceWithPath:")]

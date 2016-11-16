@@ -31,7 +31,7 @@ namespace DatabaseSample
 			App.Configure ();
 
 			Database.DefaultInstance.PersistenceEnabled = true;
-			RootNode = Database.DefaultInstance.RootReference;
+			RootNode = Database.DefaultInstance.GetRootReference ();
 
 			return true;
 		}
