@@ -225,12 +225,12 @@ namespace Firebase.Storage
 
 		// -(FIRStorageReference * _Nonnull)root;
 		[Export ("root")]
-		StorageReference GetRootReference ();
+		StorageReference Root { get; }
 
 		// -(FIRStorageReference * _Nullable)parent;
 		[NullAllowed]
 		[Export ("parent")]
-		StorageReference GetParent ();
+		StorageReference Parent { get; }
 
 		// -(FIRStorageReference * _Nonnull)child:(NSString * _Nonnull)path;
 		[Export ("child:")]
@@ -266,7 +266,7 @@ namespace Firebase.Storage
 
 		// -(void)downloadURLWithCompletion:(void (^ _Nonnull)(NSURL * _Nullable, NSError * _Nullable))completion;
 		[Export ("downloadURLWithCompletion:")]
-		void DownloadUrl (StorageDownloadUrlCompletionHandler completion);
+		void GetDownloadUrl (StorageDownloadUrlCompletionHandler completion);
 
 		// -(FIRStorageDownloadTask * _Nonnull)writeToFile:(NSURL * _Nonnull)fileURL;
 		[Export ("writeToFile:")]
