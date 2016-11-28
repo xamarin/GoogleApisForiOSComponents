@@ -49,7 +49,7 @@ Firebase data is written to a `Database` reference and retrieved by attaching an
 To read or write data from the database, you need an instance of `DatabaseReference`:
 
 ```csharp
-DatabaseReference rootNode = Database.DefaultInstance.RootReference;
+DatabaseReference rootNode = Database.DefaultInstance.GetRootReference ();
 ```
 
 Doing this, you will have a variable called `rootNode` that points to **https://yourFirebaseDatabase/**
