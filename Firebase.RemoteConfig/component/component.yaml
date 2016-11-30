@@ -8,7 +8,7 @@ summary: Firebase Remote Config is a cloud service that lets you change the appe
 icons:
   - ../../icons/firebaseiosremoteconfig_128x128.png
   - ../../icons/firebaseiosremoteconfig_512x512.png
-docs-url: https://firebase.google.com/docs/cloud-messaging/
+docs-url: https://firebase.google.com/docs/remote-config/
 libraries:
   ios-unified: 
     - ../output/Firebase.RemoteConfig.dll

@@ -22,7 +22,7 @@ buildSpec = new BuildSpec () {
 	},
 
 	NuGets = new [] {
-		new NuGetInfo { NuSpec = "./nuget/Xamarin.FIrebase.iOS.RemoteConfig.nuspec", BuildsOn = BuildPlatforms.Mac},
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Firebase.iOS.RemoteConfig.nuspec", BuildsOn = BuildPlatforms.Mac},
 	},
 
 	Components = new [] {
