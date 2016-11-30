@@ -4,7 +4,7 @@ id: firebaseiosauth
 publisher: Xamarin Inc.
 publisher-url: http://xamarin.com
 src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Firebase.Auth
-summary: Firebase Authentication allows you to manage your own account system without any backend code. It supports email and password accounts, as well as several 3rd party authentication mechanisms.
+summary: Firebase Auth allows you to manage your own account system without any backend code. It supports email and password accounts and 3rd party auth mechanisms.
 icons:
   - ../../icons/firebaseiosauth_128x128.png
   - ../../icons/firebaseiosauth_512x512.png
@@ -29,11 +29,8 @@ samples:
       - project: AuthSample
         packages:
           - Xamarin.Firebase.iOS.Auth
-          - Xamarin.Google.iOS.SignIn
-          - Xamarin.Google.iOS.Core
           - Xamarin.Firebase.iOS.Analytics
           - Xamarin.Firebase.iOS.InstanceID
-          - Xamarin.Facebook.iOS
     removeNodes:
       - "//xNS:Import[contains (@Project, 'Firebase.Auth.targets')]"
       - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"

@@ -11,7 +11,7 @@ icons:
 docs-url: https://firebase.google.com/docs/storage/
 libraries:
   ios-unified: 
-    - ../output/Firebase.CloudMessaging.dll
+    - ../output/Firebase.Storage.dll
     - ../../Firebase.Analytics/output/Firebase.Analytics.dll
     - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
 is_shell: true
@@ -23,14 +23,20 @@ samples:
     path: ../samples/StorageSample/StorageSample.sln
     removeProjects: 
       - Firebase.Storage
+      - Firebase.Database
+      - Firebase.Auth
       - Firebase.Analytics
       - Firebase.InstanceID
     installNuGets:
       - project: StorageSample
         packages:
           - Xamarin.Firebase.iOS.Storage
+          - Xamarin.Firebase.iOS.Analytics
+          - Xamarin.Firebase.iOS.InstanceID
     removeNodes:
       - "//xNS:Import[contains (@Project, 'Firebase.Storage.targets')]"
+      - "//xNS:Import[contains (@Project, 'Firebase.Database.targets')]"
+      - "//xNS:Import[contains (@Project, 'Firebase.Auth.targets')]"
       - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"
       - "//xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]"
 local-nuget-repo: ../../tmp-nugets

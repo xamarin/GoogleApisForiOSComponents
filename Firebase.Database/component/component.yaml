@@ -30,7 +30,6 @@ samples:
       - project: DatabaseSample
         packages:
           - Xamarin.Firebase.iOS.Database
-          - Xamarin.Firebase.iOS.Auth
           - Xamarin.Firebase.iOS.Analytics
           - Xamarin.Firebase.iOS.InstanceID
     removeNodes:
