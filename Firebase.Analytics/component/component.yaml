@@ -27,6 +27,7 @@ samples:
       - project: AnalyticsSample
         packages:
           - Xamarin.Firebase.iOS.Analytics
+          - Xamarin.Firebase.iOS.InstanceID
     removeNodes:
       - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"
       - "//xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]"

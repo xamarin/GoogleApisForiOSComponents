@@ -35,6 +35,11 @@ samples:
       - project: InvitesSample
         packages:
           - Xamarin.Firebase.iOS.Invites
+          - Xamarin.Google.iOS.SignIn
+          - Xamarin.Google.iOS.Core
+          - Xamarin.Firebase.iOS.DynamicLinks
+          - Xamarin.Firebase.iOS.Analytics
+          - Xamarin.Firebase.iOS.InstanceID
     removeNodes:
       - "//xNS:Import[contains (@Project, 'Firebase.Invites.targets')]"
       - "//xNS:Import[contains (@Project, 'Google.SignIn.targets')]"

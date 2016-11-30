@@ -29,6 +29,8 @@ samples:
       - project: CloudMessagingSample
         packages:
           - Xamarin.Firebase.iOS.CloudMessaging
+          - Xamarin.Firebase.iOS.Analytics
+          - Xamarin.Firebase.iOS.InstanceID
     removeNodes:
       - "//xNS:Import[contains (@Project, 'Firebase.CloudMessaging.targets')]"
       - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"

@@ -17,7 +17,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Firebase.iOS.AdMob, Version=7.8.1.0
+    - Xamarin.Firebase.iOS.AdMob, Version=7.11.0.0
 samples:
   - name: "AdMob Sample"
     path: ../samples/AdMobSample/AdMobSample.sln
@@ -25,6 +25,9 @@ samples:
       - project: AdMobSample
         packages:
           - Xamarin.Firebase.iOS.AdMob
+          - Xamarin.Google.iOS.MobileAds
+          - Xamarin.Firebase.iOS.Analytics
+          - Xamarin.Firebase.iOS.InstanceID
     removeNodes:
       - "//xNS:Import[contains (@Project, 'Google.MobileAds.targets')]"
       - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"
