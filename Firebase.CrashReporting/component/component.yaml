@@ -1,0 +1,41 @@
+version: 1.0.7.0
+name: Firebase Crash Reporting for iOS
+id: firebaseioscrashreporting
+publisher: Xamarin Inc.
+publisher-url: http://xamarin.com
+src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Firebase.CrashReporting
+summary: Firebase Crash Reporting provides analytics about the stability and number of bugs affecting your app, as well as diagnostic information for quickly fixing them.
+icons:
+  - ../../icons/firebaseioscrashreporting_128x128.png
+  - ../../icons/firebaseioscrashreporting_512x512.png
+docs-url: https://firebase.google.com/docs/crash/
+libraries:
+  ios-unified: 
+    - ../output/Firebase.CrashReporting.dll
+    - ../../Firebase.Analytics/output/Firebase.Analytics.dll
+    - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
+is_shell: true
+packages:
+  ios-unified:
+    - Xamarin.Firebase.iOS.CrashReporting, Version=1.0.7.0
+    - Xamarin.Firebase.iOS.Analytics, Version=3.4.2.0
+    - Xamarin.Firebase.iOS.InstanceID, Version=1.0.8.0
+samples:
+  - name: "Crash Reporting Sample"
+    path: ../samples/CrashReportingSample/CrashReportingSample.sln
+    removeProjects: 
+      - Firebase.CrashReporting
+      - Firebase.Analytics
+      - Firebase.InstanceID
+    installNuGets:
+      - project: CrashReportingSample
+        packages:
+          - Xamarin.Firebase.iOS.CrashReporting
+          - Xamarin.Firebase.iOS.Analytics
+          - Xamarin.Firebase.iOS.InstanceID
+    removeNodes:
+      - "//xNS:Import[contains (@Project, 'Firebase.CrashReporting.targets')]"
+      - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"
+      - "//xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]"
+local-nuget-repo: ../../tmp-nugets
+no_build: true

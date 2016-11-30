@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<_FirebaseCrashReportingAssemblyName>Firebase.CrashReporting, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseCrashReportingAssemblyName>
+		<_FirebaseCrashReportingItemsFolder>FCrshR-1.0.7</_FirebaseCrashReportingItemsFolder>
+	</PropertyGroup>
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+		<XamarinBuildDownload Include="$(_FirebaseCrashReportingItemsFolder)">
+			<Url>https://www.gstatic.com/cpdc/a51b0e91cc93b3ed/FirebaseCrash-1.0.7.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildRestoreResources Include="_FirebaseCrashReportingItems" />
+	</ItemGroup>
+	<Target Name="_FirebaseCrashReportingItems">
+
+		<PropertyGroup>
+			<_FirebaseCrashReportingSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseCrashReportingItemsFolder)\Frameworks\frameworks\</_FirebaseCrashReportingSDKBaseFolder>
+		</PropertyGroup>
+
+		<ItemGroup>
+			<RestoreAssemblyResource Include="$(_FirebaseCrashReportingSDKBaseFolder)FirebaseCrash.framework\FirebaseCrash">
+				<LogicalName>FirebaseCrash</LogicalName>
+				<AssemblyName>$(_FirebaseCrashReportingAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+		</ItemGroup>
+
+	</Target>
+</Project>
