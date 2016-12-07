@@ -14,6 +14,10 @@
   BuildScript: ./Firebase.CloudMessaging/build.cake
   TriggerPaths: [ Firebase.CloudMessaging ]
   MacBuildTargets: [ samples, component ]
+- Name: Firebase.iOS.Core
+  BuildScript: ./Firebase.Core/build.cake
+  TriggerPaths: [ Firebase.Core ]
+  MacBuildTargets: [ samples, component ]
 - Name: Firebase.iOS.Database
   BuildScript: ./Firebase.Database/build.cake
   TriggerPaths: [ Firebase.Database ]
