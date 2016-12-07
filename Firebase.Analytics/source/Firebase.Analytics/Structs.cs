@@ -3,6 +3,7 @@ using ObjCRuntime;
 
 namespace Firebase.Analytics
 {
+	[Obsolete ("Use -FIRDebugEnabled and -FIRDebugDisabled flags.")]
 	[Native]
 	public enum LogLevel : long
 	{

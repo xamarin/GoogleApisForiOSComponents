@@ -7,6 +7,7 @@ namespace Firebase.Analytics
 		static Loader ()
 		{
 			Firebase.InstanceID.Loader.ForceLoad ();
+			Firebase.Core.Loader.ForceLoad ();
 		}
 
 		public static void ForceLoad () { }

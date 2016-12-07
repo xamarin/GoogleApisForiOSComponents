@@ -3,6 +3,15 @@ using Foundation;
 
 namespace Firebase.Analytics
 {
+	public partial class App
+	{
+		[Obsolete ("Use From method instead.")]
+		public App Get (string name)
+		{
+			return From (name);
+		}
+	}
+
 	public partial class Analytics
 	{
 		public static void LogEvent (NSString name, NSDictionary<NSString, NSObject> parameters)
