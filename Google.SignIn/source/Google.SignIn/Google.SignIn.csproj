@@ -64,6 +64,10 @@
       <Project>{87BB564C-85A8-4EC1-AD16-EC0A1ACCEE56}</Project>
       <Name>Firebase.Analytics</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.csproj">
+      <Project>{0AD1ED63-C008-41B3-8ADB-04696B4880E3}</Project>
+      <Name>Firebase.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Google.SignIn.targets" />

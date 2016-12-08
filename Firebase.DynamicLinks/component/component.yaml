@@ -1,4 +1,4 @@
-version: 1.3.0.0
+version: 1.3.0.1
 name: Firebase Dynamic Links for iOS
 id: firebaseiosdynamiclinks
 publisher: Xamarin Inc.
@@ -13,27 +13,31 @@ libraries:
   ios-unified: 
     - ../output/Firebase.DynamicLinks.dll
     - ../../Firebase.Analytics/output/Firebase.Analytics.dll
+    - ../../Firebase.Core/output/Firebase.Core.dll
     - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Firebase.iOS.DynamicLinks, Version=1.3.0.0
+    - Xamarin.Firebase.iOS.DynamicLinks, Version=1.3.0.1
 samples:
   - name: "Dynamic Links Sample"
     path: ../samples/DynamicLinksSample/DynamicLinksSample.sln
     removeProjects: 
       - Firebase.DynamicLinks
       - Firebase.Analytics
+      - Firebase.Core
       - Firebase.InstanceID
     installNuGets:
       - project: DynamicLinksSample
         packages:
           - Xamarin.Firebase.iOS.DynamicLinks
           - Xamarin.Firebase.iOS.Analytics
+          - Xamarin.Firebase.iOS.Core
           - Xamarin.Firebase.iOS.InstanceID
     removeNodes:
       - "//xNS:Import[contains (@Project, 'Firebase.DynamicLinks.targets')]"
       - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"
+      - "//xNS:Import[contains (@Project, 'Firebase.Core.targets')]"
       - "//xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]"
 local-nuget-repo: ../../tmp-nugets
 no_build: true

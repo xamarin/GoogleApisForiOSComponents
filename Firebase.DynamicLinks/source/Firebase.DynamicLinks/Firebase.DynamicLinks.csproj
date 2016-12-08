@@ -56,6 +56,10 @@
       <Project>{D6AA184C-DA45-4BBB-988A-451B20C7B804}</Project>
       <Name>Firebase.InstanceID</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.csproj">
+      <Project>{0AD1ED63-C008-41B3-8ADB-04696B4880E3}</Project>
+      <Name>Firebase.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>

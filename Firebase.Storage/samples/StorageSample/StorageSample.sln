@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firebase.Storage", "..\..\s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firebase.Auth", "..\..\..\Firebase.Auth\source\Firebase.Auth\Firebase.Auth.csproj", "{B6D38028-B1CF-4351-B53B-B5D35F19FC4A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firebase.Core", "..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.csproj", "{0AD1ED63-C008-41B3-8ADB-04696B4880E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
@@ -69,5 +71,13 @@ Global
 		{B6D38028-B1CF-4351-B53B-B5D35F19FC4A}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{B6D38028-B1CF-4351-B53B-B5D35F19FC4A}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{B6D38028-B1CF-4351-B53B-B5D35F19FC4A}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{0AD1ED63-C008-41B3-8ADB-04696B4880E3}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{0AD1ED63-C008-41B3-8ADB-04696B4880E3}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{0AD1ED63-C008-41B3-8ADB-04696B4880E3}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{0AD1ED63-C008-41B3-8ADB-04696B4880E3}.Release|iPhone.Build.0 = Release|Any CPU
+		{0AD1ED63-C008-41B3-8ADB-04696B4880E3}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{0AD1ED63-C008-41B3-8ADB-04696B4880E3}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{0AD1ED63-C008-41B3-8ADB-04696B4880E3}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{0AD1ED63-C008-41B3-8ADB-04696B4880E3}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal

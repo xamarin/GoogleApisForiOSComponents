@@ -1,4 +1,4 @@
-version: 5.0.6.0
+version: 5.0.6.1
 name: Google Tag Manager for iOS
 id: googleiostagmanager
 publisher: Xamarin Inc.
@@ -14,16 +14,18 @@ libraries:
     - ../output/Google.TagManager.dll
     - ../../Google.Analytics/output/Google.Analytics.dll
     - ../../Firebase.Analytics/output/Firebase.Analytics.dll
+    - ../../Firebase.Core/output/Firebase.Core.dll
     - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Google.iOS.TagManager, Version=5.0.6.0
+    - Xamarin.Google.iOS.TagManager, Version=5.0.6.1
 samples:
   - name: "Tag Manager Sample"
     path:  ../samples/TagManagerSample/TagManagerSample.sln
     removeProjects: 
       - Firebase.InstanceID
+      - Firebase.Core
       - Firebase.Analytics
       - Google.Analytics
       - Google.TagManager
@@ -31,11 +33,13 @@ samples:
       - project: TagManagerSample
         packages:
           - Xamarin.Firebase.iOS.InstanceID
+          - Xamarin.Firebase.iOS.Core
           - Xamarin.Firebase.iOS.Analytics
           - Xamarin.Google.iOS.Analytics
           - Xamarin.Google.iOS.TagManager
     removeNodes:
       - "//xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]"
+      - "//xNS:Import[contains (@Project, 'Firebase.Core.targets')]"
       - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"
       - "//xNS:Import[contains (@Project, 'Google.Analytics.targets')]"
       - "//xNS:Import[contains (@Project, 'Google.TagManager.targets')]"

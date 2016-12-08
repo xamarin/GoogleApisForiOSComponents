@@ -135,12 +135,17 @@
       <Project>{9B44B6D4-926F-4E0C-AF0B-0F31EBDBC6AF}</Project>
       <Name>Google.TagManager</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.csproj">
+      <Project>{0AD1ED63-C008-41B3-8ADB-04696B4880E3}</Project>
+      <Name>Firebase.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="GoogleService-Info.plist" />
     <BundleResource Include="Resources\GTM-NB7LRB.json" />
   </ItemGroup>
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\Firebase.InstanceID.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.Analytics\source\Firebase.Analytics\Firebase.Analytics.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Google.Analytics\source\Google.Analytics\Google.Analytics.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\source\Google.TagManager\Google.TagManager.targets" />
