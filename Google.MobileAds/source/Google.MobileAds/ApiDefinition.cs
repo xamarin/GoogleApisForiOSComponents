@@ -427,6 +427,11 @@ namespace Google.MobileAds
 		[Export ("ready")]
 		bool Ready { [Bind ("isReady")] get; }
 
+		// @property(nonatomic, readonly, copy, GAD_NULLABLE) NSString *adNetworkClassName;
+		[NullAllowed]
+		[Export ("adNetworkClassName")]
+		string AdNetworkClassName { get; }
+
 		// +(GADRewardBasedVideoAd *)sharedInstance;
 		[Static]
 		[Export ("sharedInstance")]
@@ -451,11 +456,18 @@ namespace Google.MobileAds
 	[BaseType (typeof (NSObject), Name = "GADRewardBasedVideoAdDelegate")]
 	interface RewardBasedVideoAdDelegate
 	{
+		// - (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd didRewardUserWithReward:(GADAdReward*)reward;
+		[Abstract]
+		[EventArgs ("RewardBasedVideoAdReward")]
+		[EventName ("UserRewarded")]
+		[Export ("rewardBasedVideoAd:didRewardUserWithReward:")]
+		void DidRewardUser (RewardBasedVideoAd rewardBasedVideoAd, AdReward reward);
+
 		// @optional -(void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd didFailToLoadwithError:(NSError *)error;
 		[EventArgs ("RewardBasedVideoAdError")]
 		[EventName ("FailedToLoad")]
 		[Export ("rewardBasedVideoAd:didFailToLoadWithError:")]
-		void DidFailToLoad (RewardBasedVideoAd rewardBasedVideoAd, NSError error);
+		void DidFailToLoad (RewardBasedVideoAd rewardBasedVideoAd, [NullAllowed] NSError error);
 
 		// @optional -(void)rewardBasedVideoAdDidReceiveAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd;
 		[EventArgs ("RewardBasedVideoAd")]
@@ -469,9 +481,9 @@ namespace Google.MobileAds
 		[Export ("rewardBasedVideoAdDidOpen:")]
 		void DidOpen (RewardBasedVideoAd rewardBasedVideoAd);
 
+		// @optional -(void)rewardBasedVideoAdDidStartPlaying:(GADRewardBasedVideoAd *)rewardBasedVideoAd;
 		[EventArgs ("RewardBasedVideoAd")]
 		[EventName ("PlayingStarted")]
-		// @optional -(void)rewardBasedVideoAdDidStartPlaying:(GADRewardBasedVideoAd *)rewardBasedVideoAd;
 		[Export ("rewardBasedVideoAdDidStartPlaying:")]
 		void DidStartPlaying (RewardBasedVideoAd rewardBasedVideoAd);
 
@@ -485,12 +497,6 @@ namespace Google.MobileAds
 		[EventArgs ("RewardBasedVideoAd")]
 		[Export ("rewardBasedVideoAdWillLeaveApplication:")]
 		void WillLeaveApplication (RewardBasedVideoAd rewardBasedVideoAd);
-
-		// @optional -(void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd didRewardUserWithReward:(GADAdReward *)reward;
-		[EventArgs ("RewardBasedVideoAdReward")]
-		[EventName ("UserRewarded")]
-		[Export ("rewardBasedVideoAd:didRewardUserWithReward:")]
-		void DidRewardUser (RewardBasedVideoAd rewardBasedVideoAd, AdReward reward);
 	}
 
 	interface IAdSizeDelegate
@@ -520,7 +526,6 @@ namespace Google.MobileAds
 	[BaseType (typeof (NSObject), Name = "GADAppEventDelegate")]
 	interface AppEventDelegate
 	{
-
 		[Export ("adView:didReceiveAppEvent:withInfo:")]
 		void AdViewDidReceiveAppEvent (BannerView banner, string name, string info);
 
@@ -834,6 +839,14 @@ namespace Google.MobileAds
 		nfloat Scale { get; }
 	}
 
+	[BaseType (typeof (AdLoaderOptions), Name = "GADNativeAdViewAdOptions")]
+	interface NativeAdViewAdOptions
+	{
+		// @property(nonatomic, assign) GADAdChoicesPosition preferredAdChoicesPosition;
+		[Export ("preferredAdChoicesPosition", ArgumentSemantic.Assign)]
+		AdChoicesPosition PreferredAdChoicesPosition { get; set; }
+	}
+
 	// @interface GADNativeAppInstallAd : GADNativeAd
 	[BaseType (typeof (NativeAd), Name = "GADNativeAppInstallAd")]
 	interface NativeAppInstallAd
@@ -851,26 +864,32 @@ namespace Google.MobileAds
 		NativeAdImage Icon { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * body;
+		[NullAllowed]
 		[Export ("body")]
 		string Body { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * store;
+		[NullAllowed]
 		[Export ("store")]
 		string Store { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * price;
+		[NullAllowed]
 		[Export ("price")]
 		string Price { get; }
 
 		// @property (readonly, nonatomic, strong) NSArray * images;
+		[NullAllowed]
 		[Export ("images", ArgumentSemantic.Strong)]
 		NativeAdImage [] Images { get; }
 
 		// @property (readonly, copy, nonatomic) NSDecimalNumber * starRating;
+		[NullAllowed]
 		[Export ("starRating", ArgumentSemantic.Copy)]
 		NSDecimalNumber StarRating { get; }
 
 		// @property(nonatomic, strong, readonly) GADVideoController *videoController;
+		[NullAllowed]
 		[Export ("videoController", ArgumentSemantic.Strong)]
 		VideoController VideoController { get; }
 	}
@@ -899,6 +918,7 @@ namespace Google.MobileAds
 		IntPtr Constructor (CGRect frame);
 
 		// @property (nonatomic, strong) GADNativeAppInstallAd * nativeAppInstallAd;
+		[NullAllowed]
 		[Export ("nativeAppInstallAd", ArgumentSemantic.Strong)]
 		NativeAppInstallAd NativeAppInstallAd { get; set; }
 
@@ -961,18 +981,22 @@ namespace Google.MobileAds
 		string Body { get; }
 
 		// @property (readonly, copy, nonatomic) NSArray * images;
+		[NullAllowed]
 		[Export ("images", ArgumentSemantic.Copy)]
 		NativeAdImage [] Images { get; }
 
 		// @property (readonly, nonatomic, strong) NativeAdImage * logo;
+		[NullAllowed]
 		[Export ("logo", ArgumentSemantic.Strong)]
 		NativeAdImage Logo { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * callToAction;
+		[NullAllowed]
 		[Export ("callToAction")]
 		string CallToAction { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * advertiser;
+		[NullAllowed]
 		[Export ("advertiser")]
 		string Advertiser { get; }
 	}
@@ -1000,6 +1024,7 @@ namespace Google.MobileAds
 		IntPtr Constructor (CGRect frame);
 
 		// @property (nonatomic, strong) GADNativeContentAd * nativeContentAd;
+		[NullAllowed]
 		[Export ("nativeContentAd", ArgumentSemantic.Strong)]
 		NativeContentAd NativeContentAd { get; set; }
 
@@ -1443,6 +1468,40 @@ namespace Google.MobileAds
 
 		[Export ("isTesting", ArgumentSemantic.Assign)]
 		bool IsTesting { get; }
+	}
+
+	interface IDebugOptionsViewControllerDelegate
+	{
+	}
+
+	// @protocol GADDebugOptionsViewControllerDelegate<NSObject>
+	[Model]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "GADDebugOptionsViewControllerDelegate")]
+	interface DebugOptionsViewControllerDelegate
+	{
+		// - (void)debugOptionsViewControllerDidDismiss:(GADDebugOptionsViewController*)controller;
+		[Abstract]
+		[EventArgs ("DebugOptionsViewControllerDismissed")]
+		[EventName ("Dismissed")]
+		[Export ("debugOptionsViewControllerDidDismiss:")]
+		void DidDismiss (DebugOptionsViewController controller);
+	}
+
+	// @interface GADDebugOptionsViewController : UIViewController
+	[DisableDefaultCtor]
+	[BaseType (typeof (UIViewController), Name = "GADDebugOptionsViewController")]
+	interface DebugOptionsViewController
+	{
+		// + (instancetype)debugOptionsViewControllerWithAdUnitID:(NSString*)adUnitID;
+		[Static]
+		[Export ("debugOptionsViewControllerWithAdUnitID:")]
+		DebugOptionsViewController GetInstance (string adUnitId);
+
+		// @property(nonatomic, weak, GAD_NULLABLE) IBOutlet id<GADDebugOptionsViewControllerDelegate> delegate;
+		[NullAllowed]
+		[Export ("delegate", ArgumentSemantic.Weak)]
+		IDebugOptionsViewControllerDelegate Delegate { get; set; }
 	}
 
 	// @interface GADDynamicHeightSearchRequest : GADRequest

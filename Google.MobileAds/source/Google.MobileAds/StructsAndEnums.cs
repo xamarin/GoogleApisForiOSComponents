@@ -73,4 +73,13 @@ namespace Google.MobileAds
 		Portrait,
 		Landscape
 	}
+
+	[Native]
+	public enum AdChoicesPosition : long
+	{
+		TopRightCorner,
+		TopLeftCorner,
+		BottomRightCorner,
+		BottomLeftCorner
+	}
 }
