@@ -6,6 +6,7 @@ namespace Firebase.Invites
 		public Loader ()
 		{
 			Firebase.InstanceID.Loader.ForceLoad ();
+			Firebase.Core.Loader.ForceLoad ();
 			Firebase.Analytics.Loader.ForceLoad ();
 			Google.Core.Loader.ForceLoad ();
 			Google.SignIn.Loader.ForceLoad ();

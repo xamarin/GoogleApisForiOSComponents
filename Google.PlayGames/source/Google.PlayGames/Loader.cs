@@ -6,10 +6,11 @@ namespace Google.Play.GameServices
 	{
 		static Loader ()
 		{
+			Firebase.InstanceID.Loader.ForceLoad ();
+			Firebase.Core.Loader.ForceLoad ();
+			Firebase.Analytics.Loader.ForceLoad ();
 			Google.SignIn.Loader.ForceLoad ();
 			Google.Core.Loader.ForceLoad ();
-			Firebase.Analytics.Loader.ForceLoad ();
-			Firebase.InstanceID.Loader.ForceLoad ();
 		}
 
 		public static void ForceLoad ()
