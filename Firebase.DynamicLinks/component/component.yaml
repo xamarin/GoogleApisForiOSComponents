@@ -1,4 +1,4 @@
-version: 1.3.0.1
+version: 1.3.1.0
 name: Firebase Dynamic Links for iOS
 id: firebaseiosdynamiclinks
 publisher: Xamarin Inc.
@@ -18,7 +18,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Firebase.iOS.DynamicLinks, Version=1.3.0.1
+    - Xamarin.Firebase.iOS.DynamicLinks, Version=1.3.1.0
 samples:
   - name: "Dynamic Links Sample"
     path: ../samples/DynamicLinksSample/DynamicLinksSample.sln
