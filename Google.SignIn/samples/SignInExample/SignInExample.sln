@@ -5,13 +5,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignInExample", "SignInExam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.SignIn", "..\..\source\Google.SignIn\Google.SignIn.csproj", "{3C142652-0DF6-4919-9F58-0FD8FA3A9F6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.Core", "..\..\..\Google.Core\source\Google.Core\Google.Core.csproj", "{C2355333-621E-4439-9F53-EB717D681699}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firebase.InstanceID", "..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\Firebase.InstanceID.csproj", "{D6AA184C-DA45-4BBB-988A-451B20C7B804}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firebase.Analytics", "..\..\..\Firebase.Analytics\source\Firebase.Analytics\Firebase.Analytics.csproj", "{87BB564C-85A8-4EC1-AD16-EC0A1ACCEE56}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firebase.Core", "..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.csproj", "{0AD1ED63-C008-41B3-8ADB-04696B4880E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.Core", "..\..\..\Google.Core\source\Google.Core\Google.Core.csproj", "{C2355333-621E-4439-9F53-EB717D681699}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,14 +37,6 @@ Global
 		{7571880D-0FA2-43A3-BA08-A0F68B590253}.Release|iPhone.Build.0 = Release|iPhone
 		{7571880D-0FA2-43A3-BA08-A0F68B590253}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{7571880D-0FA2-43A3-BA08-A0F68B590253}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
-		{C2355333-621E-4439-9F53-EB717D681699}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{C2355333-621E-4439-9F53-EB717D681699}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{C2355333-621E-4439-9F53-EB717D681699}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{C2355333-621E-4439-9F53-EB717D681699}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{C2355333-621E-4439-9F53-EB717D681699}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{C2355333-621E-4439-9F53-EB717D681699}.Release|iPhone.Build.0 = Release|Any CPU
-		{C2355333-621E-4439-9F53-EB717D681699}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{C2355333-621E-4439-9F53-EB717D681699}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{D6AA184C-DA45-4BBB-988A-451B20C7B804}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
 		{D6AA184C-DA45-4BBB-988A-451B20C7B804}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
 		{D6AA184C-DA45-4BBB-988A-451B20C7B804}.Release|iPhone.ActiveCfg = Release|Any CPU
@@ -69,5 +61,13 @@ Global
 		{0AD1ED63-C008-41B3-8ADB-04696B4880E3}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{0AD1ED63-C008-41B3-8ADB-04696B4880E3}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{0AD1ED63-C008-41B3-8ADB-04696B4880E3}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{C2355333-621E-4439-9F53-EB717D681699}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{C2355333-621E-4439-9F53-EB717D681699}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{C2355333-621E-4439-9F53-EB717D681699}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{C2355333-621E-4439-9F53-EB717D681699}.Release|iPhone.Build.0 = Release|Any CPU
+		{C2355333-621E-4439-9F53-EB717D681699}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{C2355333-621E-4439-9F53-EB717D681699}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{C2355333-621E-4439-9F53-EB717D681699}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{C2355333-621E-4439-9F53-EB717D681699}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal
