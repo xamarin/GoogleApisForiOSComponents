@@ -4,6 +4,7 @@
 		<_GoogleSignInAssemblyName>Google.SignIn, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleSignInAssemblyName>
 		<_GoogleSignInItemsFolder>GSgnI-4.0.1</_GoogleSignInItemsFolder>
 		<_GoogleAppUtilitiesItemsFolder>GAppU-1.1.2</_GoogleAppUtilitiesItemsFolder>
+		<_GoogleNetworkingUtilitiesItemsFolder>GNtwrkngU-1.2.2</_GoogleNetworkingUtilitiesItemsFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GoogleSignInItemsFolder)">
@@ -14,7 +15,10 @@
 			<Url>https://dl.google.com/dl/cpdc/09f214fda7470397/GoogleAppUtilities-1.1.2.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
-
+		<XamarinBuildDownload Include="$(_GoogleNetworkingUtilitiesItemsFolder)">
+			<Url>https://dl.google.com/dl/cpdc/54fd7b7ef8fd3edc/GoogleNetworkingUtilities-1.2.2.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
 		<XamarinBuildRestoreResources Include="_GoogleSignInItems" />
 	</ItemGroup>
 	<Target Name="_GoogleSignInItems">
@@ -22,6 +26,7 @@
 		<PropertyGroup>
 			<_GoogleSignInSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleSignInItemsFolder)\</_GoogleSignInSDKBaseFolder>
 			<_GoogleAppUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleAppUtilitiesItemsFolder)\Frameworks\frameworks\</_GoogleAppUtilitiesSDKBaseFolder>
+			<_GoogleNetworkingUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleNetworkingUtilitiesItemsFolder)\Frameworks\frameworks\</_GoogleNetworkingUtilitiesSDKBaseFolder>
 		</PropertyGroup>
 
 		<ItemGroup>
@@ -31,6 +36,10 @@
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleAppUtilitiesSDKBaseFolder)GoogleAppUtilities.framework\GoogleAppUtilities">
 				<LogicalName>GoogleAppUtilities</LogicalName>
+				<AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleNetworkingUtilitiesSDKBaseFolder)GoogleNetworkingUtilities.framework\GoogleNetworkingUtilities">
+				<LogicalName>GoogleNetworkingUtilities</LogicalName>
 				<AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\Info.plist">

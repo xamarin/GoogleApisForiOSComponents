@@ -16,9 +16,3 @@ using ObjCRuntime;
                      LinkTarget.ArmV7 | LinkTarget.Simulator | LinkTarget.Simulator64 | LinkTarget.Arm64,
                      SmartLink = true,
                      ForceLoad = true)]
-
-[assembly: LinkWith ("GoogleNetworkingUtilities",
-		     LinkTarget.ArmV7 | LinkTarget.Simulator | LinkTarget.Simulator64 | LinkTarget.Arm64,
-                     Frameworks = "Security",
-		     SmartLink = true,
-		     ForceLoad = true)]
