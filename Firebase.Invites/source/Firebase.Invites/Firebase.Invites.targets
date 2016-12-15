@@ -2,21 +2,26 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_FirebaseInvitesAssemblyName>Firebase.Invites, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseInvitesAssemblyName>
-		<_FirebaseInvitesItemsFolder>FInvts-1.2.1</_FirebaseInvitesItemsFolder>
-		<_GoogleParsingUtilitiesItemsFolder>GPrsngU-1.1.1</_GoogleParsingUtilitiesItemsFolder>
-		<_GooglePlusUtilitiesItemsFolder>GPlsU-1.1.1</_GooglePlusUtilitiesItemsFolder>
+		<_FirebaseInvitesItemsFolder>FInvts-1.2.2</_FirebaseInvitesItemsFolder>
+		<_GoogleParsingUtilitiesItemsFolder>GPrsngU-1.1.2</_GoogleParsingUtilitiesItemsFolder>
+		<_GooglePlusUtilitiesItemsFolder>GPlsU-1.1.2</_GooglePlusUtilitiesItemsFolder>
+		<_GoogleNetworkingUtilitiesItemsFolder>GNtwrkngU-1.2.2</_GoogleNetworkingUtilitiesItemsFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_FirebaseInvitesItemsFolder)">
-			<Url>https://www.gstatic.com/cpdc/c0b7df34e90aa433/FirebaseInvites-1.2.1.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/eff8dce84b572651/FirebaseInvites-1.2.2.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildDownload Include="$(_GoogleParsingUtilitiesItemsFolder)">
-			<Url>https://www.gstatic.com/cpdc/c1b1117b986da6c2-GoogleParsingUtilities-1.1.1.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/c995f4f43ac9bf0b/GoogleParsingUtilities-1.1.2.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildDownload Include="$(_GooglePlusUtilitiesItemsFolder)">
-			<Url>https://www.gstatic.com/cpdc/4dd1b33dd6d6b4fb-GooglePlusUtilities-1.1.1.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/cd2d58a4e9d5fc9b/GooglePlusUtilities-1.1.2.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildDownload Include="$(_GoogleNetworkingUtilitiesItemsFolder)">
+			<Url>https://dl.google.com/dl/cpdc/54fd7b7ef8fd3edc/GoogleNetworkingUtilities-1.2.2.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildRestoreResources Include="_FirebaseInvitesItems" />
@@ -25,8 +30,9 @@
 
 		<PropertyGroup>
 			<_FirebaseInvitesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseInvitesItemsFolder)\Frameworks\frameworks\</_FirebaseInvitesSDKBaseFolder>
-			<_GoogleParsingUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleParsingUtilitiesItemsFolder)\Frameworks\</_GoogleParsingUtilitiesSDKBaseFolder>
-			<_GooglePlusUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GooglePlusUtilitiesItemsFolder)\Frameworks\</_GooglePlusUtilitiesSDKBaseFolder>
+			<_GoogleParsingUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleParsingUtilitiesItemsFolder)\Frameworks\frameworks\</_GoogleParsingUtilitiesSDKBaseFolder>
+			<_GooglePlusUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GooglePlusUtilitiesItemsFolder)\Frameworks\frameworks\</_GooglePlusUtilitiesSDKBaseFolder>
+			<_GoogleNetworkingUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleNetworkingUtilitiesItemsFolder)\Frameworks\frameworks\</_GoogleNetworkingUtilitiesSDKBaseFolder>
 		</PropertyGroup>
 
 		<ItemGroup>
@@ -40,6 +46,10 @@
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GooglePlusUtilitiesSDKBaseFolder)GooglePlusUtilities.framework\GooglePlusUtilities">
 				<LogicalName>GooglePlusUtilities</LogicalName>
+				<AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleNetworkingUtilitiesSDKBaseFolder)GoogleNetworkingUtilities.framework\GoogleNetworkingUtilities">
+				<LogicalName>GoogleNetworkingUtilities</LogicalName>
 				<AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\GINInviteACLCollectionTableViewCell.nib">
