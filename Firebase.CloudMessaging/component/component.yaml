@@ -1,4 +1,4 @@
-version: 1.2.0.1
+version: 1.2.1.0
 name: Firebase Cloud Messaging for iOS
 id: firebaseioscloudmessaging
 publisher: Xamarin Inc.
@@ -18,7 +18,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Firebase.iOS.CloudMessaging, Version=1.2.0.1
+    - Xamarin.Firebase.iOS.CloudMessaging, Version=1.2.1.0
 samples:
   - name: "Cloud Messaging Sample"
     path: ../samples/CloudMessagingSample/CloudMessagingSample.sln
@@ -32,6 +32,7 @@ samples:
         packages:
           - Xamarin.Firebase.iOS.CloudMessaging
           - Xamarin.Firebase.iOS.Analytics
+          - Xamarin.Firebase.iOS.Core
           - Xamarin.Firebase.iOS.InstanceID
     removeNodes:
       - "//xNS:Import[contains (@Project, 'Firebase.CloudMessaging.targets')]"
