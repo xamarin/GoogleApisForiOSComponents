@@ -8,3 +8,4 @@ tmp-nugets
 *.DS_Store
 Pods/
 Podfile.lock
+build
