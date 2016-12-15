@@ -92,18 +92,6 @@
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
     <Reference Include="MonoTouch.Dialog-1" />
-    <Reference Include="Firebase.InstanceID">
-      <HintPath>..\packages\Xamarin.Firebase.iOS.InstanceID.1.0.8\lib\Xamarin.iOS10\Firebase.InstanceID.dll</HintPath>
-    </Reference>
-    <Reference Include="Firebase.Analytics">
-      <HintPath>..\packages\Xamarin.Firebase.iOS.Analytics.3.4.2\lib\Xamarin.iOS10\Firebase.Analytics.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Core">
-      <HintPath>..\packages\Xamarin.Google.iOS.Core.3.0.3\lib\Xamarin.iOS10\Google.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.SignIn">
-      <HintPath>..\packages\Xamarin.Google.iOS.SignIn.4.0.0\lib\Xamarin.iOS10\Google.SignIn.dll</HintPath>
-    </Reference>
     <Reference Include="Facebook">
       <HintPath>..\packages\Xamarin.Facebook.iOS.4.16.1\lib\Xamarin.iOS10\Facebook.dll</HintPath>
     </Reference>
@@ -163,6 +151,14 @@
       <Project>{87BB564C-85A8-4EC1-AD16-EC0A1ACCEE56}</Project>
       <Name>Firebase.Analytics</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Google.Core\source\Google.Core\Google.Core.csproj">
+      <Project>{C2355333-621E-4439-9F53-EB717D681699}</Project>
+      <Name>Google.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Google.SignIn\source\Google.SignIn\Google.SignIn.csproj">
+      <Project>{3C142652-0DF6-4919-9F58-0FD8FA3A9F6D}</Project>
+      <Name>Google.SignIn</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\user.png" />
@@ -171,11 +167,9 @@
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\Firebase.InstanceID.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.Analytics\source\Firebase.Analytics\Firebase.Analytics.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Google.SignIn\source\Google.SignIn\Google.SignIn.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Google.Core\source\Google.Core\Google.Core.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\source\Firebase.Auth\Firebase.Auth.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Build.Download.0.2.2\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.2.2\build\Xamarin.Build.Download.targets')" />
-  <Import Project="..\packages\Xamarin.Firebase.iOS.InstanceID.1.0.8\build\Xamarin.Firebase.iOS.InstanceID.targets" Condition="Exists('..\packages\Xamarin.Firebase.iOS.InstanceID.1.0.8\build\Xamarin.Firebase.iOS.InstanceID.targets')" />
-  <Import Project="..\packages\Xamarin.Firebase.iOS.Analytics.3.4.2\build\Xamarin.Firebase.iOS.Analytics.targets" Condition="Exists('..\packages\Xamarin.Firebase.iOS.Analytics.3.4.2\build\Xamarin.Firebase.iOS.Analytics.targets')" />
-  <Import Project="..\packages\Xamarin.Google.iOS.Core.3.0.3\build\Xamarin.Google.iOS.Core.targets" Condition="Exists('..\packages\Xamarin.Google.iOS.Core.3.0.3\build\Xamarin.Google.iOS.Core.targets')" />
-  <Import Project="..\packages\Xamarin.Google.iOS.SignIn.4.0.0\build\Xamarin.Google.iOS.SignIn.targets" Condition="Exists('..\packages\Xamarin.Google.iOS.SignIn.4.0.0\build\Xamarin.Google.iOS.SignIn.targets')" />
 </Project>

@@ -24,6 +24,8 @@ samples:
     path: ../samples/AuthSample/AuthSample.sln
     removeProjects: 
       - Firebase.Auth
+      - Google.SignIn
+      - Google.Core
       - Firebase.Analytics
       - Firebase.Core
       - Firebase.InstanceID
@@ -31,11 +33,15 @@ samples:
       - project: AuthSample
         packages:
           - Xamarin.Firebase.iOS.Auth
+          - Xamarin.Google.iOS.SignIn
+          - Xamarin.Google.iOS.Core
           - Xamarin.Firebase.iOS.Analytics
           - Xamarin.Firebase.iOS.Core
           - Xamarin.Firebase.iOS.InstanceID
     removeNodes:
       - "//xNS:Import[contains (@Project, 'Firebase.Auth.targets')]"
+      - "//xNS:Import[contains (@Project, 'Google.SignIn.targets')]"
+      - "//xNS:Import[contains (@Project, 'Google.Core.targets')]"
       - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"
       - "//xNS:Import[contains (@Project, 'Firebase.Core.targets')]"
       - "//xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]"
