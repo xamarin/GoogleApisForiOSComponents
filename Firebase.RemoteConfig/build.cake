@@ -7,22 +7,22 @@ buildSpec = new BuildSpec () {
 
 	Libs = new ISolutionBuilder [] { 
 		new DefaultSolutionBuilder {
-			SolutionPath = "source/Firebase.CloudMessaging.sln",
+			SolutionPath = "source/Firebase.RemoteConfig.sln",
 			BuildsOn = BuildPlatforms.Mac,
 			OutputFiles = new [] { 
 				new OutputFileCopy {
-					FromFile = "./source/Firebase.CloudMessaging/bin/Release/Firebase.CloudMessaging.dll",
+					FromFile = "./source/Firebase.RemoteConfig/bin/Release/Firebase.RemoteConfig.dll",
 				},
 			}
 		}
 	},
 
 	Samples = new ISolutionBuilder [] {
-		new IOSSolutionBuilder { SolutionPath = "./samples/CloudMessagingSample/CloudMessagingSample.sln", BuildsOn = BuildPlatforms.Mac }, 
+		new IOSSolutionBuilder { SolutionPath = "./samples/RemoteConfigSample/RemoteConfigSample.sln", BuildsOn = BuildPlatforms.Mac }, 
 	},
 
 	NuGets = new [] {
-		new NuGetInfo { NuSpec = "./nuget/Xamarin.Firebase.iOS.CloudMessaging.nuspec", BuildsOn = BuildPlatforms.Mac},
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Firebase.iOS.RemoteConfig.nuspec", BuildsOn = BuildPlatforms.Mac},
 	},
 
 	Components = new [] {
@@ -37,7 +37,7 @@ Task ("clean").IsDependentOn ("clean-base").Does (() =>
 {
 	InvokeOtherGoogleModules (MyDependencies, "clean");
 	RunMake ("./externals/", "clean");
-	DeleteFiles ("../tmp-nugets/Xamarin.Firebase.iOS.CloudMessaging*");
+	DeleteFiles ("../tmp-nugets/Xamarin.Firebase.iOS.RemoteConfig*");
 });
 
 
