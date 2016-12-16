@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<_FirebaseCoreAssemblyName>Firebase.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseCoreAssemblyName>
+		<_FirebaseCoreItemsFolder>FCr-3.4.4</_FirebaseCoreItemsFolder>
+	</PropertyGroup>
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+		<XamarinBuildDownload Include="$(_FirebaseCoreItemsFolder)">
+			<Url>https://dl.google.com/dl/cpdc/45f8dcf1d763c6c2/FirebaseCore-3.4.4.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildRestoreResources Include="_FirebaseCoreItemsFolder" />
+	</ItemGroup>
+	<Target Name="_FirebaseCoreItemsFolder">
+
+		<PropertyGroup>
+			<_FirebaseCoreSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseCoreItemsFolder)\Frameworks\frameworks\</_FirebaseCoreSDKBaseFolder>
+		</PropertyGroup>
+
+		<ItemGroup>
+			<RestoreAssemblyResource Include="$(_FirebaseCoreSDKBaseFolder)FirebaseCore.framework\FirebaseCore">
+				<LogicalName>FirebaseCore</LogicalName>
+				<AssemblyName>$(_FirebaseCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+		</ItemGroup>
+
+	</Target>
+</Project>

@@ -7,6 +7,7 @@ namespace Firebase.CloudMessaging
 		static Loader ()
 		{
 			Firebase.InstanceID.Loader.ForceLoad ();
+			Firebase.Core.Loader.ForceLoad ();
 			Firebase.Analytics.Loader.ForceLoad ();
 		}
 

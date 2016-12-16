@@ -60,6 +60,17 @@ Also, `ParameterNamesConstants.Value` is a general purpose parameter that is use
 
 **_Note: Data logged to Analytics can take hours to be refreshed on reports._**
 
+## View events in the dashboard
+
+You can view aggregrated statistics about your Analytics events in the Firebase console dashboards. These dashboards update periodically throughout the day.
+
+You can access this data in the Firebase console as follows:
+
+1. In the [Firebase console][1], open your project.
+2. Select **Analytics** from the menu to view the Analytics reporting dashboard.
+
+The **Events** tab shows the [event reports][10] that are automatically created for each distinct type of Analytics event logged by your app. Read more about the [Analytics reporting dashboard][11] in the Firebase Help Center.
+
 ## Set User Properties
 
 User properties are attributes you define to describe segments of your userbase, such as language preference or geographic location.
@@ -78,6 +89,15 @@ To set a user property you need to:
 Analytics.SetUserProperty ("your value", "your property name");
 ```
 
+***Note:*** *Once the property is registered, it can take several hours for data collected with the property to be included in reports. When the new data is available, the user property can be used as a report filter or audience definition.*
+
+You can access this data in the Firebase console as follows:
+
+1. In the [Firebase console][1], open your project.
+2. Select **Analytics** from the menu to view the Analytics reporting dashboard.
+
+The **User Properties** tab shows a list of user properties that you have defined for your app. You can use these properties as a filter on many of the reports available in Firebase Analytics. Read more about the [Analytics reporting dashboard][11] in the Firebase Help Center.
+
 ### Known issues
 
 * App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][8])
@@ -94,3 +114,5 @@ Analytics.SetUserProperty ("your value", "your property name");
 [7]: https://support.google.com/firebase/answer/6317519?hl=en&ref_topic=6317489#create-property
 [8]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689
 [9]: https://bugzilla.xamarin.com/show_bug.cgi?id=43899
+[10]: https://support.google.com/firebase/answer/6317522?hl=en&ref_topic=6317489
+[11]: https://support.google.com/firebase/answer/6317517?hl=en&ref_topic=6317489

@@ -127,12 +127,17 @@
       <Project>{C5B2256A-D3E4-4419-9486-1020885EE738}</Project>
       <Name>Firebase.RemoteConfig</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.csproj">
+      <Project>{0AD1ED63-C008-41B3-8ADB-04696B4880E3}</Project>
+      <Name>Firebase.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="GoogleService-Info.plist" />
     <BundleResource Include="RemoteConfigDefaults.plist" />
   </ItemGroup>
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\Firebase.InstanceID.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.Analytics\source\Firebase.Analytics\Firebase.Analytics.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\source\Firebase.RemoteConfig\Firebase.RemoteConfig.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

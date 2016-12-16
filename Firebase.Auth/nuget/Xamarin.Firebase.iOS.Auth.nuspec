@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.Firebase.iOS.Auth</id>
     <title>Firebase APIs Auth iOS Library</title>
-    <version>3.0.5.0</version>
+    <version>3.0.6.0</version>
     <authors>Xamarin Inc.</authors>
     <owners>Xamarin Inc.</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -14,7 +14,7 @@
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseiosauth_128x128.png</iconUrl>
     <dependencies>
       <dependency id="Xamarin.Build.Download" version="0.2.2"/>
-      <dependency id="Xamarin.Firebase.iOS.Analytics" version="3.4.2.0"/>
+      <dependency id="Xamarin.Firebase.iOS.Analytics" version="3.5.1.0"/>
     </dependencies>
   </metadata>
   <files>

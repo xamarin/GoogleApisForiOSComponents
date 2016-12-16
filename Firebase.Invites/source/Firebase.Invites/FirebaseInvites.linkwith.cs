@@ -2,7 +2,7 @@ using ObjCRuntime;
 
 [assembly: LinkWith ("FirebaseInvites",
                      LinkTarget.ArmV7 | LinkTarget.Simulator | LinkTarget.Simulator64 | LinkTarget.Arm64,
-		     Frameworks = "AssetsLibrary CoreMotion MessageUI QuartzCore CoreGraphics Security",
+		     Frameworks = "AddressBook AssetsLibrary CoreMotion MessageUI QuartzCore CoreGraphics Security",
 		     LinkerFlags = "-ObjC -lc++",
 		     SmartLink = true,
                      ForceLoad = true)]

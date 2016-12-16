@@ -54,6 +54,10 @@ namespace Firebase.Database
 		[Export ("persistenceEnabled")]
 		bool PersistenceEnabled { get; set; }
 
+		// @property (nonatomic) NSUInteger persistenceCacheSizeBytes;
+		[Export ("persistenceCacheSizeBytes")]
+		nuint PersistenceCacheSizeBytes { get; set; }
+
 		// @property (nonatomic, strong) dispatch_queue_t _Nonnull callbackQueue;
 		[Export ("callbackQueue", ArgumentSemantic.Strong)]
 		DispatchQueue CallbackQueue { get; set; }

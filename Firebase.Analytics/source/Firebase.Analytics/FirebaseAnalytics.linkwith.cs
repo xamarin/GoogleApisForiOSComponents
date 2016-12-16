@@ -13,11 +13,6 @@ using ObjCRuntime;
 		     ForceLoad = true,
 		     SmartLink = true)]
 
-[assembly: LinkWith ("GoogleUtilities",
-		     LinkTarget.ArmV7 | LinkTarget.Arm64 | LinkTarget.Simulator | LinkTarget.Simulator64,
-		     ForceLoad = true,
-		     SmartLink = true)]
-
 [assembly: LinkWith ("GoogleInterchangeUtilities",
 		     LinkTarget.ArmV7 | LinkTarget.Arm64 | LinkTarget.Simulator | LinkTarget.Simulator64,
 		     ForceLoad = true,

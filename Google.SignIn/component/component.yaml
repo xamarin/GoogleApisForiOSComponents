@@ -1,4 +1,4 @@
-version: 4.0.0.0
+version: 4.0.1.0
 name: Google Sign-In for iOS
 id: googleiossignin
 publisher: Xamarin Inc.
@@ -14,11 +14,12 @@ libraries:
     - ../output/Google.SignIn.dll
     - ../../Google.Core/output/Google.Core.dll
     - ../../Firebase.Analytics/output/Firebase.Analytics.dll
+    - ../../Firebase.Core/output/Firebase.Core.dll
     - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Google.iOS.SignIn, Version=4.0.0.0
+    - Xamarin.Google.iOS.SignIn, Version=4.0.1.0
 samples:
   - name: "Sign-In Sample"
     path:  ../samples/SignInExample/SignInExample.sln
@@ -26,6 +27,7 @@ samples:
       - Google.SignIn
       - Google.Core
       - Firebase.Analytics
+      - Firebase.Core
       - Firebase.InstanceID
     installNuGets:
       - project: SignInExample
@@ -33,11 +35,13 @@ samples:
           - Xamarin.Google.iOS.Core
           - Xamarin.Google.iOS.SignIn
           - Xamarin.Firebase.iOS.Analytics
+          - Xamarin.Firebase.iOS.Core
           - Xamarin.Firebase.iOS.InstanceID
     removeNodes:
       - "//xNS:Import[contains (@Project, 'Google.SignIn.targets')]"
       - "//xNS:Import[contains (@Project, 'Google.Core.targets')]"
       - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"
+      - "//xNS:Import[contains (@Project, 'Firebase.Core.targets')]"
       - "//xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]"
 local-nuget-repo: ../../tmp-nugets
 no_build: true

@@ -147,11 +147,16 @@
       <Project>{3C142652-0DF6-4919-9F58-0FD8FA3A9F6D}</Project>
       <Name>Google.SignIn</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.csproj">
+      <Project>{0AD1ED63-C008-41B3-8ADB-04696B4880E3}</Project>
+      <Name>Firebase.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="GoogleService-Info.plist" />
   </ItemGroup>
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\Firebase.InstanceID.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.Analytics\source\Firebase.Analytics\Firebase.Analytics.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.DynamicLinks\source\Firebase.DynamicLinks\Firebase.DynamicLinks.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Google.Core\source\Google.Core\Google.Core.targets" />

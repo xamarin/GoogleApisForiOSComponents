@@ -1,9 +1,7 @@
 ﻿using System;
 
-using UIKit;
 using Foundation;
 using ObjCRuntime;
-using CoreGraphics;
 
 namespace Firebase.Analytics
 {
@@ -43,9 +41,17 @@ namespace Firebase.Analytics
 		[Static]
 		[Export ("handleUserActivity:")]
 		void HandleUserActivity (NSObject userActivity);
+
+		// + (void)setScreenName:(nullable NSString *)screenName screenClass:(nullable NSString *)screenClassOverride;
+		[Static]
+		[Export ("setScreenName:screenClass:")]
+		void setScreenNameAndClass ([NullAllowed] string screenName, [NullAllowed] string screenClassOverride);
 	}
 
-	// @interface FIRAnalyticsConfiguration : NSObject
+
+	#region Firebase.Core
+
+	//@interface FIRAnalyticsConfiguration : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRAnalyticsConfiguration")]
 	interface AnalyticsConfiguration
@@ -105,7 +111,7 @@ namespace Firebase.Analytics
 		[Static]
 		[return: NullAllowed]
 		[Export ("appNamed:")]
-		App Get (string name);
+		App From (string name);
 
 		// +(NSDictionary * _Nullable)allApps;
 		[Static]
@@ -199,4 +205,6 @@ namespace Firebase.Analytics
 		[Export ("initWithContentsOfFile:")]
 		IntPtr Constructor (string plistPath);
 	}
+
+	#endregion
 }

@@ -2,26 +2,21 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_GoogleSignInAssemblyName>Google.SignIn, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleSignInAssemblyName>
-		<_GoogleSignInItemsFolder>GSgnI-4.0.0</_GoogleSignInItemsFolder>
-		<_GoogleNetworkingUtilitiesItemsFolder>GNtwrkngU-1.2.1</_GoogleNetworkingUtilitiesItemsFolder>
-		<_GoogleAppUtilitiesItemsFolder>GAppU-1.1.1</_GoogleAppUtilitiesItemsFolder>
-		<_GoogleAuthUtilitiesItemsFolder>GAthU-2.0.1</_GoogleAuthUtilitiesItemsFolder>
+		<_GoogleSignInItemsFolder>GSgnI-4.0.1</_GoogleSignInItemsFolder>
+		<_GoogleAppUtilitiesItemsFolder>GAppU-1.1.2</_GoogleAppUtilitiesItemsFolder>
+		<_GoogleNetworkingUtilitiesItemsFolder>GNtwrkngU-1.2.2</_GoogleNetworkingUtilitiesItemsFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GoogleSignInItemsFolder)">
-			<Url>https://www.gstatic.com/cpdc/03b4b5d3dabf3365-GoogleSignIn-4.0.0.tar.gz</Url>
-			<Kind>Tgz</Kind>
-		</XamarinBuildDownload>
-		<XamarinBuildDownload Include="$(_GoogleNetworkingUtilitiesItemsFolder)">
-			<Url>https://www.gstatic.com/cpdc/9a35b867a7ad8af0-GoogleNetworkingUtilities-1.2.1.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/1e9a99db415f062f/GoogleSignIn-4.0.1.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildDownload Include="$(_GoogleAppUtilitiesItemsFolder)">
-			<Url>https://www.gstatic.com/cpdc/bea34d9a0098d2a2-GoogleAppUtilities-1.1.1.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/09f214fda7470397/GoogleAppUtilities-1.1.2.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
-		<XamarinBuildDownload Include="$(_GoogleAuthUtilitiesItemsFolder)">
-			<Url>https://www.gstatic.com/cpdc/6db66aa0bf94952a-GoogleAuthUtilities-2.0.1.tar.gz</Url>
+		<XamarinBuildDownload Include="$(_GoogleNetworkingUtilitiesItemsFolder)">
+			<Url>https://dl.google.com/dl/cpdc/54fd7b7ef8fd3edc/GoogleNetworkingUtilities-1.2.2.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildRestoreResources Include="_GoogleSignInItems" />
@@ -30,9 +25,8 @@
 
 		<PropertyGroup>
 			<_GoogleSignInSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleSignInItemsFolder)\</_GoogleSignInSDKBaseFolder>
-			<_GoogleNetworkingUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleNetworkingUtilitiesItemsFolder)\Frameworks\</_GoogleNetworkingUtilitiesSDKBaseFolder>
-			<_GoogleAppUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleAppUtilitiesItemsFolder)\Frameworks\</_GoogleAppUtilitiesSDKBaseFolder>
-			<_GoogleAuthUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleAuthUtilitiesItemsFolder)\Frameworks\</_GoogleAuthUtilitiesSDKBaseFolder>
+			<_GoogleAppUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleAppUtilitiesItemsFolder)\Frameworks\frameworks\</_GoogleAppUtilitiesSDKBaseFolder>
+			<_GoogleNetworkingUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleNetworkingUtilitiesItemsFolder)\Frameworks\frameworks\</_GoogleNetworkingUtilitiesSDKBaseFolder>
 		</PropertyGroup>
 
 		<ItemGroup>
@@ -40,16 +34,12 @@
 				<LogicalName>GoogleSignIn</LogicalName>
 				<AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleNetworkingUtilitiesSDKBaseFolder)GoogleNetworkingUtilities.framework\GoogleNetworkingUtilities">
-				<LogicalName>GoogleNetworkingUtilities</LogicalName>
-				<AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleAppUtilitiesSDKBaseFolder)GoogleAppUtilities.framework\GoogleAppUtilities">
 				<LogicalName>GoogleAppUtilities</LogicalName>
 				<AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleAuthUtilitiesSDKBaseFolder)GoogleAuthUtilities.framework\GoogleAuthUtilities">
-				<LogicalName>GoogleAuthUtilities</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleNetworkingUtilitiesSDKBaseFolder)GoogleNetworkingUtilities.framework\GoogleNetworkingUtilities">
+				<LogicalName>GoogleNetworkingUtilities</LogicalName>
 				<AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\Info.plist">
@@ -70,18 +60,6 @@
             </RestoreAssemblyResource>
             <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\google%403x.png">
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fgoogle%403x.png</LogicalName>
-                <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
-            </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\gplus.png">
-                <LogicalName>__monotouch_content_GoogleSignIn.bundle_fgplus.png</LogicalName>
-                <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
-            </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\gplus%402x.png">
-                <LogicalName>__monotouch_content_GoogleSignIn.bundle_fgplus%402x.png</LogicalName>
-                <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
-            </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\gplus%403x.png">
-                <LogicalName>__monotouch_content_GoogleSignIn.bundle_fgplus%403x.png</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
             <RestoreAssemblyResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\ar.lproj\GoogleSignIn.strings">
@@ -228,10 +206,6 @@
                 <LogicalName>__monotouch_content_GoogleSignIn.bundle_fzh__TW.lproj_fGoogleSignIn.strings</LogicalName>
                 <AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_GoogleAuthUtilitiesSDKBaseFolder)GoogleAuthUtilities.framework\Resources\GTMOAuth2ViewTouch.xib">
-    			<LogicalName>__monotouch_content_GoogleAuthUtilities.framework_fResources_fGTMOAuth2ViewTouch.xib</LogicalName>
-    			<AssemblyName>$(_GoogleSignInAssemblyName)</AssemblyName>
-  			</RestoreAssemblyResource>
 </ItemGroup>
 
 	</Target>

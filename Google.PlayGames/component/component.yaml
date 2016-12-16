@@ -1,4 +1,4 @@
-version: 5.1.1.6
+version: 5.1.1.7
 name: Google Play Games for iOS
 id: googleiosplaygames
 publisher: Xamarin Inc.
@@ -15,11 +15,12 @@ libraries:
     - ../../Google.Core/output/Google.Core.dll
     - ../../Google.SignIn/output/Google.SignIn.dll
     - ../../Firebase.Analytics/output/Firebase.Analytics.dll
+    - ../../Firebase.Core/output/Firebase.Core.dll
     - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Google.iOS.PlayGames, Version=5.1.1.6
+    - Xamarin.Google.iOS.PlayGames, Version=5.1.1.7
 samples:
   - name: "Collect All The Stars"
     path:  ../samples/CollectAllTheStars/CollectAllTheStars.sln
@@ -28,6 +29,7 @@ samples:
       - Google.SignIn
       - Google.PlayGames
       - Firebase.Analytics
+      - Firebase.Core
       - Firebase.InstanceID
     installNuGets:
       - project: CollectAllTheStars
@@ -36,12 +38,14 @@ samples:
           - Xamarin.Google.iOS.SignIn
           - Xamarin.Google.iOS.PlayGames
           - Xamarin.Firebase.iOS.Analytics
+          - Xamarin.Firebase.iOS.Core
           - Xamarin.Firebase.iOS.InstanceID
     removeNodes:
       - "//xNS:Import[contains (@Project, 'Google.PlayGames.targets')]"
       - "//xNS:Import[contains (@Project, 'Google.Core.targets')]"
       - "//xNS:Import[contains (@Project, 'Google.SignIn.targets')]"
       - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"
+      - "//xNS:Import[contains (@Project, 'Firebase.Core.targets')]"
       - "//xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]"
 local-nuget-repo: ../../tmp-nugets
 no_build: true
