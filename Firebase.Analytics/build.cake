@@ -9,6 +9,7 @@ buildSpec = new BuildSpec () {
 		new DefaultSolutionBuilder {
 			SolutionPath = "source/Firebase.Analytics.sln",
 			BuildsOn = BuildPlatforms.Mac,
+			Configuration = "Release",
 			OutputFiles = new [] { 
 				new OutputFileCopy {
 					FromFile = "./source/Firebase.Analytics/bin/Release/Firebase.Analytics.dll",
@@ -18,7 +19,7 @@ buildSpec = new BuildSpec () {
 	},
 
 	Samples = new ISolutionBuilder [] {
-		new IOSSolutionBuilder { SolutionPath = "./samples/AnalyticsSample/AnalyticsSample.sln", BuildsOn = BuildPlatforms.Mac }, 
+		new IOSSolutionBuilder { SolutionPath = "./samples/AnalyticsSample/AnalyticsSample.sln", Configuration = "Release|iPhone", BuildsOn = BuildPlatforms.Mac }, 
 	},
 
 	NuGets = new [] {
