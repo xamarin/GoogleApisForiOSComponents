@@ -1,9 +1,10 @@
 
 #tool nuget:?package=XamarinComponent&version=1.1.0.42
 
-#addin nuget:?package=Cake.Xamarin.Build&version=1.0.14.0
-#addin nuget:?package=Cake.Xamarin
-#addin nuget:?package=Cake.XCode
+#addin nuget:?package=Cake.XCode&version=2.0.9
+#addin nuget:?package=Cake.Xamarin.Build&version=1.0.16
+#addin nuget:?package=Cake.Xamarin&version=1.3.0.3
+#addin nuget:?package=Cake.FileHelpers&version=1.0.3.2
 
 BuildSpec buildSpec = null;
 
@@ -28,6 +29,7 @@ Task ("externals")
 	.Does (() => 
 {
 	InvokeOtherGoogleModules (MyDependencies, "externals");
+	CocoaPodRepoUpdate ();
 	RunMake ("./externals/", "all");
 });
 
