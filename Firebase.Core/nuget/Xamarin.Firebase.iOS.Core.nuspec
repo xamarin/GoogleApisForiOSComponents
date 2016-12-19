@@ -21,5 +21,6 @@
 
     <!-- Add targets file for external native reference download -->
     <file src="source/Firebase.Core/Firebase.Core.targets" target="build/Xamarin.Firebase.iOS.Core.targets"  />
+    <file src="External-Dependency-Info" target="THIRD-PARTY-NOTICES" />
   </files>
 </package>
