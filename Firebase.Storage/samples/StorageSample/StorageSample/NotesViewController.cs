@@ -99,7 +99,8 @@ namespace StorageSample
 			var btnNotesCount = new UIBarButtonItem (lblNotesCount);
 
 			btnNewNote = new UIBarButtonItem (UIBarButtonSystemItem.Compose, btnNewNote_Clicked) {
-				TintColor = UIColor.White
+				TintColor = UIColor.White,
+				Enabled = false
 			};
 
 			SetToolbarItems (new [] { space, space, btnIndicator, btnNotesCount, space, space, btnNewNote }, false);
@@ -248,6 +249,8 @@ namespace StorageSample
 			notes.Clear ();
 
 			lblNotesCount.Text = $"{notesCount} note{notesCount != 1 ? "s" : ""}";
+
+			btnNewNote.Enabled = true;
 
 			// If we don't have notes to show, refresh the table to show nothing
 			if (notesCount == 0) {
