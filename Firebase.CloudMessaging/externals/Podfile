@@ -1,7 +1,7 @@
 =begin
 Last run FirebaseMessaging installed:
-- FirebaseAnalytics (3.5.1)
-- FirebaseCore (3.4.4)
+- FirebaseAnalytics (3.6.0)
+- FirebaseCore (3.4.5)
 - FirebaseInstanceID (1.0.8)
 - FirebaseMessaging (1.2.1)
 - GoogleInterchangeUtilities (1.2.2)
@@ -16,13 +16,13 @@ In .targets file, located in Firebase.CloudMessaging binding, you can find:
 - FirebaseMessaging (1.2.1)
 
 In .targets file, located in Firebase.Analytics binding, you can find:
-- FirebaseAnalytics (3.5.1)
-- GoogleInterchangeUtilities (1.2.2)
+- FirebaseAnalytics (3.6.0)
 - GoogleSymbolUtilities (1.1.2)
 
 In .targets file, located in Firebase.Core binding, you can find:
 - FirebaseCore (3.4.4)
 - GoogleToolboxForMac (2.1.0)
+- GoogleInterchangeUtilities (1.2.2)
 
 In .targets file, located in Firebase.InstanceID binding, you can find:
 - FirebaseInstanceID (1.0.8)
@@ -34,5 +34,5 @@ platform :ios, '7.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'FirebaseMessaging' do
-	pod 'Firebase/Messaging', '3.8.0'
+	pod 'Firebase/Messaging', '3.10.0'
 end
