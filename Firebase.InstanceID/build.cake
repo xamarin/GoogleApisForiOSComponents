@@ -8,6 +8,7 @@ buildSpec = new BuildSpec () {
 		new DefaultSolutionBuilder {
 			SolutionPath = "source/Firebase.InstanceID.sln",
 			BuildsOn = BuildPlatforms.Mac,
+			Configuration = "Release", 
 			OutputFiles = new [] { 
 				new OutputFileCopy {
 					FromFile = "./source/Firebase.InstanceID/bin/Release/Firebase.InstanceID.dll",

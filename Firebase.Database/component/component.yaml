@@ -35,6 +35,7 @@ samples:
           - Xamarin.Firebase.iOS.Analytics
           - Xamarin.Firebase.iOS.Core
           - Xamarin.Firebase.iOS.InstanceID
+          - Xamarin.Firebase.iOS.Auth
     removeNodes:
       - "//xNS:Import[contains (@Project, 'Firebase.Database.targets')]"
       - "//xNS:Import[contains (@Project, 'Firebase.Auth.targets')]"

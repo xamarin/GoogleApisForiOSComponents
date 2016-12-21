@@ -9,6 +9,7 @@ buildSpec = new BuildSpec () {
 		new DefaultSolutionBuilder {
 			SolutionPath = "source/Google.MobileAds.sln",
 			BuildsOn = BuildPlatforms.Mac,
+			Configuration = "Release", 
 			OutputFiles = new [] { 
 				new OutputFileCopy {
 					FromFile = "./source/Google.MobileAds/bin/Release/Google.MobileAds.dll",
@@ -18,7 +19,7 @@ buildSpec = new BuildSpec () {
 	},
 
 	Samples = new ISolutionBuilder [] {
-		new IOSSolutionBuilder { SolutionPath = "./samples/MobileAdsExample/MobileAdsExample.sln", BuildsOn = BuildPlatforms.Mac }, 
+		new IOSSolutionBuilder { SolutionPath = "./samples/MobileAdsExample/MobileAdsExample.sln", Configuration = "Release|iPhone", BuildsOn = BuildPlatforms.Mac }, 
 	},
 
 	NuGets = new [] {

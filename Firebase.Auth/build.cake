@@ -9,6 +9,7 @@ buildSpec = new BuildSpec () {
 		new DefaultSolutionBuilder {
 			SolutionPath = "source/Firebase.Auth.sln",
 			BuildsOn = BuildPlatforms.Mac,
+			Configuration = "Release",
 			OutputFiles = new [] { 
 				new OutputFileCopy {
 					FromFile = "./source/Firebase.Auth/bin/Release/Firebase.Auth.dll",
@@ -18,7 +19,7 @@ buildSpec = new BuildSpec () {
 	},
 
 	Samples = new ISolutionBuilder [] {
-		new IOSSolutionBuilder { SolutionPath = "./samples/AuthSample/AuthSample.sln", BuildsOn = BuildPlatforms.Mac }, 
+		new IOSSolutionBuilder { SolutionPath = "./samples/AuthSample/AuthSample.sln", Configuration = "Release|iPhone", BuildsOn = BuildPlatforms.Mac }, 
 	},
 
 	NuGets = new [] {

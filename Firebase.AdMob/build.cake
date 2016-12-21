@@ -6,7 +6,7 @@ var TARGET = Argument ("t", Argument ("target", "Default"));
 buildSpec = new BuildSpec () {
 
 	Samples = new ISolutionBuilder [] {
-		new IOSSolutionBuilder { SolutionPath = "./samples/AdMobSample/AdMobSample.sln", BuildsOn = BuildPlatforms.Mac }, 
+		new IOSSolutionBuilder { SolutionPath = "./samples/AdMobSample/AdMobSample.sln", Configuration = "Release|iPhone", BuildsOn = BuildPlatforms.Mac }, 
 	},
 
 	NuGets = new [] {

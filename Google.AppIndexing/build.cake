@@ -9,6 +9,7 @@ buildSpec = new BuildSpec () {
 		new DefaultSolutionBuilder {
 			SolutionPath = "source/Google.AppIndexing.sln",
 			BuildsOn = BuildPlatforms.Mac,
+			Configuration = "Release", 
 			OutputFiles = new [] { 
 				new OutputFileCopy {
 					FromFile = "./source/Google.AppIndexing/bin/Release/Google.AppIndexing.dll",
@@ -18,7 +19,7 @@ buildSpec = new BuildSpec () {
 	},
 
 	Samples = new ISolutionBuilder [] {
-		new IOSSolutionBuilder { SolutionPath = "./samples/AppIndexingSample/AppIndexingSample.sln", BuildsOn = BuildPlatforms.Mac }, 
+		new IOSSolutionBuilder { SolutionPath = "./samples/AppIndexingSample/AppIndexingSample.sln", Configuration = "Release|iPhone", BuildsOn = BuildPlatforms.Mac }, 
 	},
 
 	NuGets = new [] {

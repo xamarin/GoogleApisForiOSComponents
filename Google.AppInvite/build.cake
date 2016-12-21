@@ -9,6 +9,7 @@ buildSpec = new BuildSpec () {
 		new DefaultSolutionBuilder {
 			SolutionPath = "source/Google.AppInvite.sln",
 			BuildsOn = BuildPlatforms.Mac,
+			Configuration = "Release", 
 			OutputFiles = new [] { 
 				new OutputFileCopy {
 					FromFile = "./source/Google.AppInvite/bin/Release/Google.AppInvite.dll",
@@ -18,7 +19,7 @@ buildSpec = new BuildSpec () {
 	},
 
 	Samples = new ISolutionBuilder [] {
-		new IOSSolutionBuilder { SolutionPath = "./samples/AppInviteSample/AppInviteSample.sln", BuildsOn = BuildPlatforms.Mac }, 
+		new IOSSolutionBuilder { SolutionPath = "./samples/AppInviteSample/AppInviteSample.sln", Configuration = "Release|iPhone", BuildsOn = BuildPlatforms.Mac }, 
 	},
 
 	NuGets = new [] {

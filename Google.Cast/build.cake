@@ -9,6 +9,7 @@ buildSpec = new BuildSpec () {
 		new DefaultSolutionBuilder {
 			SolutionPath = "source/Google.Cast.sln",
 			BuildsOn = BuildPlatforms.Mac,
+			Configuration = "Release", 
 			OutputFiles = new [] { 
 				new OutputFileCopy {
 					FromFile = "./source/Google.Cast/bin/Release/Google.Cast.dll",
@@ -18,7 +19,7 @@ buildSpec = new BuildSpec () {
 	},
 
 	Samples = new ISolutionBuilder [] {
-		new IOSSolutionBuilder { SolutionPath = "./samples/GoogleCastSample/GoogleCastSample.sln", BuildsOn = BuildPlatforms.Mac }, 
+		new IOSSolutionBuilder { SolutionPath = "./samples/GoogleCastSample/GoogleCastSample.sln", Configuration = "Release|iPhone", BuildsOn = BuildPlatforms.Mac }, 
 	},
 
 	NuGets = new [] {

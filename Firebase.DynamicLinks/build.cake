@@ -8,6 +8,7 @@ buildSpec = new BuildSpec () {
 	Libs = new ISolutionBuilder [] { 
 		new DefaultSolutionBuilder {
 			SolutionPath = "source/Firebase.DynamicLinks.sln",
+			Configuration = "Release", 
 			BuildsOn = BuildPlatforms.Mac,
 			OutputFiles = new [] { 
 				new OutputFileCopy {
@@ -18,7 +19,7 @@ buildSpec = new BuildSpec () {
 	},
 
 	Samples = new ISolutionBuilder [] {
-		new IOSSolutionBuilder { SolutionPath = "./samples/DynamicLinksSample/DynamicLinksSample.sln", BuildsOn = BuildPlatforms.Mac }, 
+		new IOSSolutionBuilder { SolutionPath = "./samples/DynamicLinksSample/DynamicLinksSample.sln", Configuration = "Release|iPhone", BuildsOn = BuildPlatforms.Mac }, 
 	},
 
 	NuGets = new [] {

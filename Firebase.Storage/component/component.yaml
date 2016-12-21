@@ -33,9 +33,12 @@ samples:
       - project: StorageSample
         packages:
           - Xamarin.Firebase.iOS.Storage
+          - Xamarin.Firebase.iOS.Auth
+          - Xamarin.Firebase.iOS.Database
           - Xamarin.Firebase.iOS.Analytics
           - Xamarin.Firebase.iOS.Core
           - Xamarin.Firebase.iOS.InstanceID
+
     removeNodes:
       - "//xNS:Import[contains (@Project, 'Firebase.Storage.targets')]"
       - "//xNS:Import[contains (@Project, 'Firebase.Database.targets')]"
@@ -44,4 +47,9 @@ samples:
       - "//xNS:Import[contains (@Project, 'Firebase.Core.targets')]"
       - "//xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]"
 local-nuget-repo: ../../tmp-nugets
+
+additional-files:
+  - source: "../External-Dependency-Info"
+    destination: "THIRD-PARTY-NOTICES"
+
 no_build: true
