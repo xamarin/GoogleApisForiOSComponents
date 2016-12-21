@@ -239,6 +239,7 @@ namespace Google.MobileAds
 	interface CorrelatorAdLoaderOptions
 	{
 		// @property (nonatomic, strong) GADCorrelator * correlator;
+		[NullAllowed]
 		[Export ("correlator", ArgumentSemantic.Strong)]
 		Correlator Correlator { get; set; }
 	}
@@ -247,6 +248,7 @@ namespace Google.MobileAds
 	interface Extras : AdNetworkExtras
 	{
 
+		[NullAllowed]
 		[Export ("additionalParameters", ArgumentSemantic.Copy)]
 		NSDictionary AdditionalParameters { get; set; }
 	}
@@ -467,7 +469,7 @@ namespace Google.MobileAds
 		[EventArgs ("RewardBasedVideoAdError")]
 		[EventName ("FailedToLoad")]
 		[Export ("rewardBasedVideoAd:didFailToLoadWithError:")]
-		void DidFailToLoad (RewardBasedVideoAd rewardBasedVideoAd, [NullAllowed] NSError error);
+		void DidFailToLoad (RewardBasedVideoAd rewardBasedVideoAd, NSError error);
 
 		// @optional -(void)rewardBasedVideoAdDidReceiveAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd;
 		[EventArgs ("RewardBasedVideoAd")]
@@ -527,10 +529,10 @@ namespace Google.MobileAds
 	interface AppEventDelegate
 	{
 		[Export ("adView:didReceiveAppEvent:withInfo:")]
-		void AdViewDidReceiveAppEvent (BannerView banner, string name, string info);
+		void AdViewDidReceiveAppEvent (BannerView banner, string name, [NullAllowed] string info);
 
 		[Export ("interstitial:didReceiveAppEvent:withInfo:")]
-		void InterstitialDidReceiveAppEvent (Interstitial interstitial, string name, string info);
+		void InterstitialDidReceiveAppEvent (Interstitial interstitial, string name, [NullAllowed] string info);
 	}
 
 	interface ISwipeableBannerViewDelegate
@@ -556,33 +558,42 @@ namespace Google.MobileAds
 	interface SearchRequest
 	{
 
+		[NullAllowed]
 		[Export ("query", ArgumentSemantic.Copy)]
 		string Query { get; set; }
 
+		[NullAllowed]
 		[Export ("backgroundColor", ArgumentSemantic.Copy)]
 		UIColor BackgroundColor { get; }
 
+		[NullAllowed]
 		[Export ("gradientFrom", ArgumentSemantic.Copy)]
 		UIColor GradientFrom { get; }
 
+		[NullAllowed]
 		[Export ("gradientTo", ArgumentSemantic.Copy)]
 		UIColor GradientTo { get; }
 
+		[NullAllowed]
 		[Export ("headerColor", ArgumentSemantic.Copy)]
 		UIColor HeaderColor { get; set; }
 
+		[NullAllowed]
 		[Export ("descriptionTextColor", ArgumentSemantic.Copy)]
 		UIColor DescriptionTextColor { get; set; }
 
+		[NullAllowed]
 		[Export ("anchorTextColor", ArgumentSemantic.Copy)]
 		UIColor AnchorTextColor { get; set; }
 
+		[NullAllowed]
 		[Export ("fontFamily", ArgumentSemantic.Copy)]
 		string FontFamily { get; set; }
 
 		[Export ("headerTextSize", ArgumentSemantic.Assign)]
 		nuint HeaderTextSize { get; set; }
 
+		[NullAllowed]
 		[Export ("borderColor", ArgumentSemantic.Copy)]
 		UIColor BorderColor { get; set; }
 
@@ -592,6 +603,7 @@ namespace Google.MobileAds
 		[Export ("borderThickness", ArgumentSemantic.Assign)]
 		nuint BorderThickness { get; set; }
 
+		[NullAllowed]
 		[Export ("customChannels", ArgumentSemantic.Copy)]
 		string CustomChannels { get; set; }
 
@@ -773,10 +785,12 @@ namespace Google.MobileAds
 		UIViewController RootViewController { get; set; }
 
 		// @property (readonly, copy, nonatomic) NSDictionary * extraAssets;
+		[NullAllowed]
 		[Export ("extraAssets", ArgumentSemantic.Copy)]
 		NSDictionary ExtraAssets { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * adNetworkClassName;
+		[NullAllowed]
 		[Export ("adNetworkClassName")]
 		string AdNetworkClassName { get; }
 	}
@@ -827,11 +841,12 @@ namespace Google.MobileAds
 		IntPtr Constructor (NSUrl url, nfloat scale);
 
 		// @property (readonly, nonatomic, strong) UIImage * image;
+		[NullAllowed]
 		[Export ("image", ArgumentSemantic.Strong)]
 		UIImage Image { get; }
 
 		// @property (readonly, nonatomic, strong) NSURL * imageURL;
-		[Export ("imageURL", ArgumentSemantic.Strong)]
+		[Export ("imageURL", ArgumentSemantic.Copy)]
 		NSUrl ImageUrl { get; }
 
 		// @property (readonly, assign, nonatomic) CGFloat scale;
@@ -852,14 +867,17 @@ namespace Google.MobileAds
 	interface NativeAppInstallAd
 	{
 		// @property (readonly, copy, nonatomic) NSString * headline;
+		[NullAllowed]
 		[Export ("headline")]
 		string Headline { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * callToAction;
+		[NullAllowed]
 		[Export ("callToAction")]
 		string CallToAction { get; }
 
 		// @property (readonly, nonatomic, strong) GADNativeAdImage * icon;
+		[NullAllowed]
 		[Export ("icon", ArgumentSemantic.Strong)]
 		NativeAdImage Icon { get; }
 
@@ -973,10 +991,12 @@ namespace Google.MobileAds
 	interface NativeContentAd
 	{
 		// @property (readonly, copy, nonatomic) NSString * headline;
+		[NullAllowed]
 		[Export ("headline")]
 		string Headline { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * body;
+		[NullAllowed]
 		[Export ("body")]
 		string Body { get; }
 
@@ -999,6 +1019,11 @@ namespace Google.MobileAds
 		[NullAllowed]
 		[Export ("advertiser")]
 		string Advertiser { get; }
+
+		// @property(nonatomic, strong, readonly, GAD_NULLABLE) GADVideoController *videoController;
+		[NullAllowed]
+		[Export ("videoController", ArgumentSemantic.Strong)]
+		VideoController VideoController { get; }
 	}
 
 	interface INativeContentAdLoaderDelegate
@@ -1057,6 +1082,11 @@ namespace Google.MobileAds
 		[NullAllowed]
 		[Export ("advertiserView", ArgumentSemantic.Weak)]
 		UIView AdvertiserView { get; set; }
+
+		// @property(nonatomic, weak, GAD_NULLABLE) IBOutlet GADMediaView *mediaView __attribute__((iboutlet));
+		[NullAllowed]
+		[Export ("mediaView", ArgumentSemantic.Weak)]
+		MediaView MediaView { get; set; }
 	}
 
 	// @interface GADNativeCustomTemplateAd : GADNativeAd
@@ -1071,11 +1101,23 @@ namespace Google.MobileAds
 		[Export ("availableAssetKeys")]
 		string [] AvailableAssetKeys { get; }
 
+		// @property(nonatomic, readonly, strong, GAD_NULLABLE) GADVideoController *videoController;
+		[NullAllowed]
+		[Export ("videoController", ArgumentSemantic.Strong)]
+		VideoController VideoController { get; }
+
+		// @property(nonatomic, readonly, strong, GAD_NULLABLE) GADMediaView *mediaView;
+		[NullAllowed]
+		[Export ("mediaView", ArgumentSemantic.Strong)]
+		MediaView MediaView { get; }
+
 		// -(GADNativeAdImage *)imageForKey:(NSString *)key;
+		[return: NullAllowed]
 		[Export ("imageForKey:")]
 		NativeAdImage ImageForKey (string key);
 
 		// -(NSString *)stringForKey:(NSString *)key;
+		[return: NullAllowed]
 		[Export ("stringForKey:")]
 		string StringForKey (string key);
 
@@ -1097,10 +1139,12 @@ namespace Google.MobileAds
 	interface NativeExpressAdView
 	{
 		// -(instancetype)initWithAdSize:(id)adSize origin:(CGPoint)origin;
+		[NullAllowed]
 		[Export ("initWithAdSize:origin:")]
 		IntPtr Constructor (AdSize adSize, CGPoint origin);
 
 		// -(instancetype)initWithAdSize:(id)adSize;
+		[NullAllowed]
 		[Export ("initWithAdSize:")]
 		IntPtr Constructor (AdSize adSize);
 
@@ -1109,6 +1153,7 @@ namespace Google.MobileAds
 		VideoController VideoController { get; set; }
 
 		// @property (copy, nonatomic) NSString * adUnitID;
+		[NullAllowed]
 		[Export ("adUnitID")]
 		string AdUnitID { get; set; }
 
@@ -1135,10 +1180,12 @@ namespace Google.MobileAds
 		void SetAdOptions (AdLoaderOptions [] adOptions);
 
 		// -(void)loadRequest:(id)request;
+		[return: NullAllowed]
 		[Export ("loadRequest:")]
 		void LoadRequest (Request request);
 
 		// @property (readonly, nonatomic, weak) NSString * _Nullable adNetworkClassName;
+		[NullAllowed]
 		[Export ("adNetworkClassName", ArgumentSemantic.Weak)]
 		string AdNetworkClassName { get; }
 	}
@@ -1244,7 +1291,7 @@ namespace Google.MobileAds
 	{
 		[Abstract]
 		[Export ("requestBannerAd:parameter:label:request:")]
-		void RequestBannerAd (AdSize adSize, string serverParameter, string serverLabel, CustomEventRequest request);
+		void RequestBannerAd (AdSize adSize, [NullAllowed] string serverParameter, [NullAllowed] string serverLabel, CustomEventRequest request);
 
 		[Abstract]
 		[NullAllowed]
@@ -1273,7 +1320,7 @@ namespace Google.MobileAds
 
 		[Abstract]
 		[Export ("customEventBanner:didFailAd:")]
-		void DidFailAd (ICustomEventBanner customEvent, NSError error);
+		void DidFailAd (ICustomEventBanner customEvent, [NullAllowed] NSError error);
 
 		[Abstract]
 		[Export ("customEventBannerWasClicked:")]
@@ -1306,8 +1353,9 @@ namespace Google.MobileAds
 
 		[Export ("setExtras:forLabel:")]
 		[PostGet ("AllExtras")]
-		void SetExtras (NSDictionary extras, string label);
+		void SetExtras ([NullAllowed] NSDictionary extras, string label);
 
+		[return: NullAllowed]
 		[Export ("extrasForLabel:")]
 		NSDictionary ExtrasForLabel (string label);
 
@@ -1340,7 +1388,7 @@ namespace Google.MobileAds
 
 		[Abstract]
 		[Export ("requestInterstitialAdWithParameter:label:request:")]
-		void RequestInterstitialAd (string serverParameter, string serverLabel, CustomEventRequest request);
+		void RequestInterstitialAd ([NullAllowed] string serverParameter, [NullAllowed] string serverLabel, CustomEventRequest request);
 
 		[Abstract]
 		[Export ("presentFromRootViewController:")]
@@ -1361,7 +1409,7 @@ namespace Google.MobileAds
 		void DidReceiveAd (ICustomEventInterstitial customEvent);
 
 		[Export ("customEventInterstitial:didFailAd:")]
-		void DidFailAd (ICustomEventInterstitial customEvent, NSError error);
+		void DidFailAd (ICustomEventInterstitial customEvent, [NullAllowed] NSError error);
 
 		[Export ("customEventInterstitialWasClicked:")]
 		void DidClickAd (ICustomEventInterstitial customEvent);
@@ -1406,6 +1454,7 @@ namespace Google.MobileAds
 
 		// @required @property (nonatomic, weak) id<GADCustomEventNativeAdDelegate> _Nullable delegate;
 		[Abstract]
+		[return: NullAllowed]
 		[Export ("delegate")]
 		ICustomEventNativeAdDelegate GetDelegate ();
 
@@ -1441,6 +1490,7 @@ namespace Google.MobileAds
 		[Export ("userGender", ArgumentSemantic.Assign)]
 		Gender UserGender { get; }
 
+		[NullAllowed]
 		[Export ("userBirthday", ArgumentSemantic.Copy)]
 		NSDate UserBirthday { get; }
 
@@ -1456,6 +1506,7 @@ namespace Google.MobileAds
 		[Export ("userLocationAccuracyInMeters", ArgumentSemantic.Assign)]
 		nfloat UserLocationAccuracyInMeters { get; }
 
+		[NullAllowed]
 		[Export ("userLocationDescription", ArgumentSemantic.Copy)]
 		string UserLocationDescription { get; }
 
@@ -1463,6 +1514,7 @@ namespace Google.MobileAds
 		[Export ("userKeywords", ArgumentSemantic.Copy)]
 		NSObject [] UserKeywords { get; }
 
+		[NullAllowed]
 		[Export ("additionalParameters", ArgumentSemantic.Copy)]
 		NSDictionary AdditionalParameters { get; }
 
@@ -1509,6 +1561,7 @@ namespace Google.MobileAds
 	interface DynamicHeightSearchRequest
 	{
 		// @property (copy, nonatomic) NSString * query;
+		[NullAllowed]
 		[Export ("query")]
 		string Query { get; set; }
 
@@ -1521,14 +1574,17 @@ namespace Google.MobileAds
 		bool AdTestEnabled { get; set; }
 
 		// @property (copy, nonatomic) NSString * channel;
+		[NullAllowed]
 		[Export ("channel")]
 		string Channel { get; set; }
 
 		// @property (copy, nonatomic) NSString * hostLanguage;
+		[NullAllowed]
 		[Export ("hostLanguage")]
 		string HostLanguage { get; set; }
 
 		// @property (copy, nonatomic) NSString * locationExtensionTextColor;
+		[NullAllowed]
 		[Export ("locationExtensionTextColor")]
 		string LocationExtensionTextColor { get; set; }
 
@@ -1557,6 +1613,7 @@ namespace Google.MobileAds
 		bool SiteLinksExtensionEnabled { get; set; }
 
 		// @property (copy, nonatomic) NSString * CSSWidth;
+		[NullAllowed]
 		[Export ("CSSWidth")]
 		string CssWidth { get; set; }
 
@@ -1569,6 +1626,7 @@ namespace Google.MobileAds
 		string FontFamily { get; set; }
 
 		// @property (copy, nonatomic) NSString * attributionFontFamily;
+		[NullAllowed]
 		[Export ("attributionFontFamily")]
 		string AttributionFontFamily { get; set; }
 
@@ -1593,42 +1651,52 @@ namespace Google.MobileAds
 		nfloat TitleFontSize { get; set; }
 
 		// @property (copy, nonatomic) NSString * adBorderColor;
+		[NullAllowed]
 		[Export ("adBorderColor")]
 		string AdBorderColor { get; set; }
 
 		// @property (copy, nonatomic) NSString * adSeparatorColor;
+		[NullAllowed]
 		[Export ("adSeparatorColor")]
 		string AdSeparatorColor { get; set; }
 
 		// @property (copy, nonatomic) NSString * annotationTextColor;
+		[NullAllowed]
 		[Export ("annotationTextColor")]
 		string AnnotationTextColor { get; set; }
 
 		// @property (copy, nonatomic) NSString * attributionTextColor;
+		[NullAllowed]
 		[Export ("attributionTextColor")]
 		string AttributionTextColor { get; set; }
 
 		// @property (copy, nonatomic) NSString * backgroundColor;
+		[NullAllowed]
 		[Export ("backgroundColor")]
 		string BackgroundColor { get; set; }
 
 		// @property (copy, nonatomic) NSString * borderColor;
+		[NullAllowed]
 		[Export ("borderColor")]
 		string BorderColor { get; set; }
 
 		// @property (copy, nonatomic) NSString * domainLinkColor;
+		[NullAllowed]
 		[Export ("domainLinkColor")]
 		string DomainLinkColor { get; set; }
 
 		// @property (copy, nonatomic) NSString * textColor;
+		[NullAllowed]
 		[Export ("textColor")]
 		string TextColor { get; set; }
 
 		// @property (copy, nonatomic) NSString * titleLinkColor;
+		[NullAllowed]
 		[Export ("titleLinkColor")]
 		string TitleLinkColor { get; set; }
 
 		// @property (copy, nonatomic) NSString * adBorderCSSSelections;
+		[NullAllowed]
 		[Export ("adBorderCSSSelections")]
 		string AdBorderCssSelections { get; set; }
 
@@ -1641,6 +1709,7 @@ namespace Google.MobileAds
 		nfloat AttributionBottomSpacing { get; set; }
 
 		// @property (copy, nonatomic) NSString * borderCSSSelections;
+		[NullAllowed]
 		[Export ("borderCSSSelections")]
 		string BorderCssSelections { get; set; }
 
@@ -1751,11 +1820,13 @@ namespace Google.MobileAds
 	{
 		// @required -(id<GADMediatedNativeAdDelegate>)mediatedNativeAdDelegate;
 		[Abstract]
+		[return: NullAllowed]
 		[Export ("mediatedNativeAdDelegate")]
 		IMediatedNativeAdDelegate GetMediatedNativeAdDelegate ();
 
 		// @required -(NSDictionary *)extraAssets;
 		[Abstract]
+		[return: NullAllowed]
 		[Export ("extraAssets")]
 		NSDictionary ExtraAssets ();
 	}
@@ -1836,41 +1907,49 @@ namespace Google.MobileAds
 	{
 		// @required -(NSString *)headline;
 		[Abstract]
+		[return: NullAllowed]
 		[Export ("headline")]
 		string GetHeadline ();
 
 		// @required -(NSArray *)images;
 		[Abstract]
+		[return: NullAllowed]
 		[Export ("images")]
 		NativeAdImage [] GetImages ();
 
 		// @required -(NSString *)body;
 		[Abstract]
+		[return: NullAllowed]
 		[Export ("body")]
 		string GetBody ();
 
 		// @required -(GADNativeAdImage *)icon;
 		[Abstract]
+		[return: NullAllowed]
 		[Export ("icon")]
 		NativeAdImage GetIcon ();
 
 		// @required -(NSString *)callToAction;
 		[Abstract]
+		[return: NullAllowed]
 		[Export ("callToAction")]
 		string GetCallToAction ();
 
 		// @required -(NSDecimalNumber *)starRating;
 		[Abstract]
+		[return: NullAllowed]
 		[Export ("starRating")]
 		NSDecimalNumber StarRating ();
 
 		// @required -(NSString *)store;
 		[Abstract]
+		[return: NullAllowed]
 		[Export ("store")]
 		string GetStore ();
 
 		// @required -(NSString *)price;
 		[Abstract]
+		[return: NullAllowed]
 		[Export ("price")]
 		string GetPrice ();
 	}
@@ -1887,31 +1966,37 @@ namespace Google.MobileAds
 	{
 		// @required -(NSString *)headline;
 		[Abstract]
+		[return: NullAllowed]
 		[Export ("headline")]
 		string GetHeadline ();
 
 		// @required -(NSString *)body;
 		[Abstract]
+		[return: NullAllowed]
 		[Export ("body")]
 		string GetBody ();
 
 		// @required -(NSArray *)images;
 		[Abstract]
+		[return: NullAllowed]
 		[Export ("images")]
 		NativeAdImage [] GetImages ();
 
 		// @required -(GADNativeAdImage *)logo;
 		[Abstract]
+		[return: NullAllowed]
 		[Export ("logo")]
 		NativeAdImage GetLogo ();
 
 		// @required -(NSString *)callToAction;
 		[Abstract]
+		[return: NullAllowed]
 		[Export ("callToAction")]
 		string GetCallToAction ();
 
 		// @required -(NSString *)advertiser;
 		[Abstract]
+		[return: NullAllowed]
 		[Export ("advertiser")]
 		string GetAdvertiser ();
 	}
