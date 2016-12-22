@@ -1,15 +1,15 @@
 THIRD-PARTY SOFTWARE NOTICES AND INFORMATION
 Do not translate or localize
 
-Xamarin Components for Firebase Storage for iOS incorporates third party 
+Xamarin Components for Firebase Invites for iOS incorporates third party 
 material from the projects listed below. The original copyright notice and 
 the license under which Microsoft received such third party material are set 
 forth below.  Microsoft reserves all other rights not expressly granted, 
 whether by implication, estoppel or otherwise.
 
 ########################################
-# Google Toolbox for Mac - Session Fetcher
-# https://github.com/google/gtm-session-fetcher
+# Google APIs Client Library for Objective-C (REST)
+# https://github.com/google/google-api-objectivec-client-for-rest
 ########################################
 
 
@@ -217,5 +217,5 @@ whether by implication, estoppel or otherwise.
                                 
 
 ########################################
-# end - Google Toolbox for Mac - Session Fetcher
+# end - Google APIs Client Library for Objective-C (REST)
 ########################################

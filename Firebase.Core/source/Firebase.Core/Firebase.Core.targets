@@ -2,11 +2,16 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_FirebaseCoreAssemblyName>Firebase.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseCoreAssemblyName>
-		<_FirebaseCoreItemsFolder>FCr-3.4.4</_FirebaseCoreItemsFolder>
+		<_FirebaseCoreItemsFolder>FCr-3.4.5</_FirebaseCoreItemsFolder>
+		<_GoogleInterchangeUtilitiesItemsFolder>GIntrchngU-1.2.2</_GoogleInterchangeUtilitiesItemsFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_FirebaseCoreItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/45f8dcf1d763c6c2/FirebaseCore-3.4.4.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/23ffbc519fdeb8d5/FirebaseCore-3.4.5.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildDownload Include="$(_GoogleInterchangeUtilitiesItemsFolder)">
+			<Url>https://dl.google.com/dl/cpdc/1a7f7ba905b2c029/GoogleInterchangeUtilities-1.2.2.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildRestoreResources Include="_FirebaseCoreItemsFolder" />
@@ -15,12 +20,17 @@
 
 		<PropertyGroup>
 			<_FirebaseCoreSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseCoreItemsFolder)\Frameworks\frameworks\</_FirebaseCoreSDKBaseFolder>
+			<_GoogleInterchangeUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleInterchangeUtilitiesItemsFolder)\Frameworks\frameworks\</_GoogleInterchangeUtilitiesSDKBaseFolder>
 		</PropertyGroup>
 
 		<ItemGroup>
 			<RestoreAssemblyResource Include="$(_FirebaseCoreSDKBaseFolder)FirebaseCore.framework\FirebaseCore">
 				<LogicalName>FirebaseCore</LogicalName>
 				<AssemblyName>$(_FirebaseCoreAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleInterchangeUtilitiesSDKBaseFolder)GoogleInterchangeUtilities.framework\GoogleInterchangeUtilities">
+				<LogicalName>GoogleInterchangeUtilities</LogicalName>
+				<AssemblyName>$(_FirebaseAnalyticsAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 		</ItemGroup>
 

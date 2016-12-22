@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.Firebase.iOS.Storage</id>
     <title>Firebase APIs Storage iOS Library</title>
-    <version>1.0.4.1</version>
+    <version>1.0.5.0</version>
     <authors>Xamarin Inc.</authors>
     <owners>Xamarin Inc.</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -14,7 +14,7 @@
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseiosstorage_128x128.png</iconUrl>
     <dependencies>
       <dependency id="Xamarin.Build.Download" version="0.2.2"/>
-      <dependency id="Xamarin.Firebase.iOS.Analytics" version="3.5.1.0"/>
+      <dependency id="Xamarin.Firebase.iOS.Analytics" version="3.6.0.0"/>
     </dependencies>
   </metadata>
   <files>
@@ -22,6 +22,5 @@
 
     <!-- Add targets file for external native reference download -->
     <file src="source/Firebase.Storage/Firebase.Storage.targets" target="build/Xamarin.Firebase.iOS.Storage.targets"  />
-    <file src="External-Dependency-Info" target="THIRD-PARTY-NOTICES" />
   </files>
 </package>

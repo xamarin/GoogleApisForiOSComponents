@@ -2,21 +2,11 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_FirebaseInvitesAssemblyName>Firebase.Invites, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseInvitesAssemblyName>
-		<_FirebaseInvitesItemsFolder>FInvts-1.2.2</_FirebaseInvitesItemsFolder>
-		<_GoogleParsingUtilitiesItemsFolder>GPrsngU-1.1.2</_GoogleParsingUtilitiesItemsFolder>
-		<_GooglePlusUtilitiesItemsFolder>GPlsU-1.1.2</_GooglePlusUtilitiesItemsFolder>
+		<_FirebaseInvitesItemsFolder>FInvts-1.2.3</_FirebaseInvitesItemsFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_FirebaseInvitesItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/eff8dce84b572651/FirebaseInvites-1.2.2.tar.gz</Url>
-			<Kind>Tgz</Kind>
-		</XamarinBuildDownload>
-		<XamarinBuildDownload Include="$(_GoogleParsingUtilitiesItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/c995f4f43ac9bf0b/GoogleParsingUtilities-1.1.2.tar.gz</Url>
-			<Kind>Tgz</Kind>
-		</XamarinBuildDownload>
-		<XamarinBuildDownload Include="$(_GooglePlusUtilitiesItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/cd2d58a4e9d5fc9b/GooglePlusUtilities-1.1.2.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/8acd76462fcbc31d/FirebaseInvites-1.2.3.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildRestoreResources Include="_FirebaseInvitesItems" />
@@ -25,21 +15,11 @@
 
 		<PropertyGroup>
 			<_FirebaseInvitesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseInvitesItemsFolder)\Frameworks\frameworks\</_FirebaseInvitesSDKBaseFolder>
-			<_GoogleParsingUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleParsingUtilitiesItemsFolder)\Frameworks\frameworks\</_GoogleParsingUtilitiesSDKBaseFolder>
-			<_GooglePlusUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GooglePlusUtilitiesItemsFolder)\Frameworks\frameworks\</_GooglePlusUtilitiesSDKBaseFolder>
 		</PropertyGroup>
 
 		<ItemGroup>
 			<RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\FirebaseInvites">
 				<LogicalName>FirebaseInvites</LogicalName>
-				<AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleParsingUtilitiesSDKBaseFolder)GoogleParsingUtilities.framework\GoogleParsingUtilities">
-				<LogicalName>GoogleParsingUtilities</LogicalName>
-				<AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlusUtilitiesSDKBaseFolder)GooglePlusUtilities.framework\GooglePlusUtilities">
-				<LogicalName>GooglePlusUtilities</LogicalName>
 				<AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\GINInviteACLCollectionTableViewCell.nib">

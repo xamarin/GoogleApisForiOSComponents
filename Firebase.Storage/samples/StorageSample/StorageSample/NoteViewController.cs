@@ -84,6 +84,7 @@ namespace StorageSample
 		{
 			// Lost focus in TextView to hide the keyboard
 			TxtContent.ResignFirstResponder ();
+			txtTitle.ResignFirstResponder ();
 
 			// Means that photos will appear, we are not closing the note UI
 			// to execute Save or Delete task
