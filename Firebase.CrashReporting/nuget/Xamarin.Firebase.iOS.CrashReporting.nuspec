@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.Firebase.iOS.CrashReporting</id>
     <title>Firebase APIs Crash Reporting iOS Library</title>
-    <version>1.0.7.0</version>
+    <version>1.1.4.0</version>
     <authors>Xamarin Inc.</authors>
     <owners>Xamarin Inc.</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -14,7 +14,7 @@
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseioscrashreporting_128x128.png</iconUrl>
     <dependencies>
       <dependency id="Xamarin.Build.Download" version="0.2.2"/>
-      <dependency id="Xamarin.Firebase.iOS.Analytics" version="3.4.2.0"/>
+      <dependency id="Xamarin.Firebase.iOS.Analytics" version="3.6.0.0"/>
       <dependency id="Xamarin.Firebase.iOS.InstanceID" version="1.0.8.0"/>
     </dependencies>
   </metadata>
@@ -22,6 +22,13 @@
     <file src="output/Firebase.CrashReporting.dll" target="lib/Xamarin.iOS10" />
 
     <!-- Add targets file for external native reference download -->
-    <file src="source/Firebase.CrashReporting/Firebase.CrashReporting.targets" target="build/Xamarin.Firebase.iOS.CrashReporting.targets"  />
+    <file src="source/Firebase.CrashReporting/Firebase.CrashReporting.targets" target="build/Xamarin.Firebase.iOS.CrashReporting.targets" />
+    
+    <!-- Add necessary files for upload symbols to Firebase Console-->
+    <file src="source/Firebase.CrashReporting/xamarin_upload_symbols.sh" target="content/scripts/xamarin_upload_symbols.sh" />
+    <file src="externals/Pods/FirebaseCrash/batch-upload" target="content/scripts/batch-upload" />
+    <file src="externals/Pods/FirebaseCrash/dump_syms" target="content/scripts/dump_syms" />
+    <file src="externals/Pods/FirebaseCrash/extract-keys" target="content/scripts/extract-keys" />
+    <file src="externals/Pods/FirebaseCrash/upload-sym-util.bash" target="content/scripts/upload-sym-util.bash" />
   </files>
 </package>

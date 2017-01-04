@@ -41,19 +41,71 @@ App.Configure ();
 
 ## Create your first error
 
-1. Add an assert to your AppDelegate's didFinishLaunchingWithOptions method to cause a crash when the app launches, right after the Firebase initialization call:
+Add a crash code right after Firebase initialization call in your AppDelegate's `FinishedLaunching` method to cause a crash when the app launches:
 
 ```csharp
+App.Configure ();
 
+// Cause crash code
+var crash = new NSObject ();
+crash.PerformSelector (new Selector ("doesNotRecognizeSelector"), crash, 0);
 ```
 
-1. Launch the app from Xamarin Studio.
-2. Click Stop in Xamarin Studio to detach from the debugger.
-3. Launch the app directly from the home screen on the device or emulator.
+Don't run the app yet, please read **Upload symbol files** before running.
+
+## Upload symbol files
+
+In order to view human-readable crash reports, you need to upload symbol files to Firebase Console after each build. To achieve this, you will need to upload the executable of your app that is generated after a build (the executable file lives inside of **Your.app** that is generated commonly inside of **bin** folder of your project). But first, you will need to download the **service account key** to authenticate your uploads:
+
+1. Go to [Firebase Console][1] and select your project.
+2. Open **project settings** and go to **Service Accounts** tab.
+3. Select **Crash Reporting** and click on **Generate New Private Key** button.
+4. Name the file as **service-account.json** and save it in the root of your project folder.
+
+### Upload symbol files with Xamarin Studio
+
+Follow these steps to upload your app symbols with Xamarin Studio:
+
+* In Xamarin Studio, select **Debug** configuration (Target can be device or simulator) and build the app (cmd + k) (don't run it).
+* Open **Project Options** of your app and go to **Build** > **Custom Commands**.
+* Double check that **Debug** configuration is selected.
+* In Combobox select **Before Build** option.
+* Paste the following command in **Command** text field:
+
+```
+sh ../packages/Xamarin.Firebase.iOS.CrashReporting.1.1.4/content/scripts/xamarin_upload_symbols.sh -n ${ProjectName} -b ${TargetDir} -i ${ProjectDir}/Info.plist -p ${ProjectDir}/GoogleService-Info.plist -s ${ProjectDir}/service-account.json
+```
+
+***Note:*** *If you upgrade the Xamarin.Firebase.iOS.CrashReporting nuget version, don't forget to update the version in command.*
+
+* Save options changed.
+* Now, build your app with **Debug** configuration again. Depending of your internet connection, the build can take some minutes because the script is uploading your symbols to Firebase.
+
+### Upload symbol files with Terminal
+
+Follow these steps to upload your app symbols with Terminal:
+
+* In Xamarin Studio, select **Debug** configuration (Target can be device or simulator) and build the app (cmd + k) (don't run it).
+* Go to **packages/Xamarin.Firebase.iOS.CrashReporting.X.X.X/content/** folder and copy the **scripts** folder to your project folder.
+* In Terminal, go to project folder and run the following command:
+
+```
+sh scripts/xamarin_upload_symbols.sh -n YOUR_APP_NAME -b bin/Debug/[iPhone|iPhoneSimulator] -i Info.plist -p GoogleService-Info.plist -s service-account.json
+```
+
+* Depending of your internet connection, the script can take some minutes because is uploading your symbols to Firebase.
+
+## Upload your first error to Firebase
+
+After you uploaded your symbol files to Firebase, do the following steps to view your crash in Firebase Console:
+
+1. In Xamarin Studio, select **Debug** configuration and run your app.
+2. Wait until your app crashes, when it crashes, stop the debugging.
+3. Launch the app directly from the home screen on the device or simulator.
 4. Wait until your app crashes.
 5. Remove the crashing line so your app can start successfully.
-6. Launch the quickstart from Xamarin Studio again. Within 15 secs you should see a log message indicating that the report was successfully uploaded.
-7. Check the Crash Reporting section of the [Firebase console][1] to see the error. Note that it takes 1-2 minutes for errors to show there.
+6. Run your app again.
+7. Within 20 minutes your crash should show up in **Crash Reporting** section of Firebase Console.
 
 ## Create custom logs
 
@@ -65,16 +117,19 @@ using Firebase.CrashReporting;
 // ...
 
 CrashReporting.Log ("Cause Crash button clicked");
-// TODO: Cause crash code
+
+// Cause crash code
+var crash = new NSObject ();
+crash.PerformSelector (new Selector ("doesNotRecognizeSelector"), crash, 0);
 ```
 
 ### Known issues
 
-* App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][4])
+* App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][3])
+* The Firebase SDK does not currently support using the `NSException` class in the Xcode simulator. If you use this class, it will result in malformed stack traces in the Firebase console. As a workaround, either use a physical device or test with a different type of exception.
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/crash/ios) to see original Firebase documentation._</sub>
 
 [1]: https://firebase.google.com/console/
 [2]: http://support.google.com/firebase/answer/7015592
-[3]: https://firebase.google.com/docs/remote-config/parameters
-[4]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689
+[3]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689

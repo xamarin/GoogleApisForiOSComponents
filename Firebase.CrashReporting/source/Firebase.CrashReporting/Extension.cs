@@ -12,6 +12,9 @@ namespace Firebase.CrashReporting
 
 		public static void Log (string message)
 		{
+			if (message == null)
+				throw new ArgumentNullException (nameof (message));
+
 			var pMessage = NSString.CreateNative (message);
 			_FIRCrashLogv (pMessage, IntPtr.Zero);
 			NSString.ReleaseNative (pMessage);
