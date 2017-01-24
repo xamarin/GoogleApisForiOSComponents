@@ -55,7 +55,7 @@ Don't run the app yet, please read **Upload symbol files** before running.
 
 ## Upload symbol files
 
-In order to view human-readable crash reports, you need to upload symbol files to Firebase Console after each build. To achieve this, you will need to upload the executable of your app that is generated after a build (the executable file lives inside of **Your.app** that is generated commonly inside of **bin** folder of your project). But first, you will need to download the **service account key** to authenticate your uploads:
+In order to view human-readable crash reports, you will need to upload symbol files to Firebase Console after each build. To achieve this, you will need to upload the executable of your app that is generated after each build (the executable file lives inside of **Your.app** that is generated commonly inside of **bin** folder of your project). But first, you will need to download the **service account key** to authenticate your uploads:
 
 1. Go to [Firebase Console][1] and select your project.
 2. Open **project settings** and go to **Service Accounts** tab.
@@ -73,10 +73,8 @@ Follow these steps to upload your app symbols with Xamarin Studio:
 * Paste the following command in **Command** text field:
 
 ```
-sh ../packages/Xamarin.Firebase.iOS.CrashReporting.1.1.4/content/scripts/xamarin_upload_symbols.sh -n ${ProjectName} -b ${TargetDir} -i ${ProjectDir}/Info.plist -p ${ProjectDir}/GoogleService-Info.plist -s ${ProjectDir}/service-account.json
+sh ${ProjectDir}/scripts/FirebaseCrashReporting/batch-upload -p ${ProjectDir}/GoogleService-Info.plist -i ${ProjectDir}/Info.plist ${ProjectDir}/service-account.json ${TargetDir}/${ProjectName}.app/${ProjectName}
 ```
-
-***Note:*** *If you upgrade the Xamarin.Firebase.iOS.CrashReporting nuget version, don't forget to update the version in command.*
 
 * Save options changed.
 * Now, build your app with **Debug** configuration again. Depending of your internet connection, the build can take some minutes because the script is uploading your symbols to Firebase.
@@ -86,14 +84,13 @@ sh ../packages/Xamarin.Firebase.iOS.CrashReporting.1.1.4/content/scripts/xamarin
 Follow these steps to upload your app symbols with Terminal:
 
 * In Xamarin Studio, select **Debug** configuration (Target can be device or simulator) and build the app (cmd + k) (don't run it).
-* Go to **packages/Xamarin.Firebase.iOS.CrashReporting.X.X.X/content/** folder and copy the **scripts** folder to your project folder.
 * In Terminal, go to project folder and run the following command:
 
 ```
-sh scripts/xamarin_upload_symbols.sh -n YOUR_APP_NAME -b bin/Debug/[iPhone|iPhoneSimulator] -i Info.plist -p GoogleService-Info.plist -s service-account.json
+sh scripts/FirebaseCrashReporting/batch-upload -p GoogleService-Info.plist -i Info.plist service-account.json bin/Debug/[iPhone|iPhoneSimulator]/[YourAppName].app/[YourAppName]
 ```
 
-* Depending of your internet connection, the script can take some minutes because is uploading your symbols to Firebase.
+* Depending of your internet connection, the script can take some minutes because it's uploading your symbols to Firebase.
 
 ## Upload your first error to Firebase
 

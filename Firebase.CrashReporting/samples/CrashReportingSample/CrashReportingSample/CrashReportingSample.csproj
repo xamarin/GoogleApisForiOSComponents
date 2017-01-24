@@ -68,7 +68,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\iPhone\DebugTest</OutputPath>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
     <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -87,14 +87,6 @@
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
     <MtouchNoSymbolStrip>false</MtouchNoSymbolStrip>
-    <CustomCommands>
-      <CustomCommands>
-        <Command>
-          <type>BeforeBuild</type>
-          <command>sh ../packages/Xamarin.Firebase.iOS.CrashReporting.1.1.4/content/scripts/xamarin_upload_symbols.sh -n ${ProjectName} -b ${TargetDir} -i ${ProjectDir}/Info.plist -p ${ProjectDir}/GoogleService-Info.plist -s ${ProjectDir}/service-account.json</command>
-        </Command>
-      </CustomCommands>
-    </CustomCommands>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
