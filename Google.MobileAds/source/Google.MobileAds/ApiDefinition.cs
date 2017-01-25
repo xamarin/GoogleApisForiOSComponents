@@ -685,6 +685,13 @@ namespace Google.MobileAds
 
 	#region Loading
 
+	// @interface GADAdChoicesView : UIView
+	[BaseType (typeof (UIView), Name = "GADAdChoicesView")]
+	interface AdChoicesView
+	{
+
+	}
+
 	interface IAdDelegate
 	{
 	}
@@ -907,7 +914,6 @@ namespace Google.MobileAds
 		NSDecimalNumber StarRating { get; }
 
 		// @property(nonatomic, strong, readonly) GADVideoController *videoController;
-		[NullAllowed]
 		[Export ("videoController", ArgumentSemantic.Strong)]
 		VideoController VideoController { get; }
 	}
@@ -984,6 +990,11 @@ namespace Google.MobileAds
 		[NullAllowed]
 		[Export ("mediaView", ArgumentSemantic.Weak)]
 		UIView MediaView { get; set; }
+
+		// @property(nonatomic, weak, GAD_NULLABLE) IBOutlet GADAdChoicesView *adChoicesView;
+		[NullAllowed]
+		[Export ("adChoicesView", ArgumentSemantic.Weak)]
+		AdChoicesView AdChoicesView { get; set; }
 	}
 
 	// @interface GADNativeContentAd : GADNativeAd
@@ -1020,8 +1031,7 @@ namespace Google.MobileAds
 		[Export ("advertiser")]
 		string Advertiser { get; }
 
-		// @property(nonatomic, strong, readonly, GAD_NULLABLE) GADVideoController *videoController;
-		[NullAllowed]
+		// @property(nonatomic, strong, readonly) GADVideoController *videoController;
 		[Export ("videoController", ArgumentSemantic.Strong)]
 		VideoController VideoController { get; }
 	}
@@ -1087,6 +1097,11 @@ namespace Google.MobileAds
 		[NullAllowed]
 		[Export ("mediaView", ArgumentSemantic.Weak)]
 		MediaView MediaView { get; set; }
+
+		// @property(nonatomic, weak, GAD_NULLABLE) IBOutlet GADAdChoicesView *adChoicesView;
+		[NullAllowed]
+		[Export ("adChoicesView", ArgumentSemantic.Weak)]
+		AdChoicesView AdChoicesView { get; set; }
 	}
 
 	// @interface GADNativeCustomTemplateAd : GADNativeAd
@@ -1101,8 +1116,7 @@ namespace Google.MobileAds
 		[Export ("availableAssetKeys")]
 		string [] AvailableAssetKeys { get; }
 
-		// @property(nonatomic, readonly, strong, GAD_NULLABLE) GADVideoController *videoController;
-		[NullAllowed]
+		// @property(nonatomic, readonly, strong) GADVideoController *videoController;
 		[Export ("videoController", ArgumentSemantic.Strong)]
 		VideoController VideoController { get; }
 
@@ -1952,6 +1966,11 @@ namespace Google.MobileAds
 		[return: NullAllowed]
 		[Export ("price")]
 		string GetPrice ();
+
+		// - (UIView *GAD_NULLABLE_TYPE)adChoicesView;
+		[return: NullAllowed]
+		[Export ("adChoicesView")]
+		UIView GetAdChoicesView ();
 	}
 
 	interface IMediatedNativeContentAd
@@ -1999,6 +2018,11 @@ namespace Google.MobileAds
 		[return: NullAllowed]
 		[Export ("advertiser")]
 		string GetAdvertiser ();
+
+		// - (UIView *GAD_NULLABLE_TYPE)adChoicesView;
+		[return: NullAllowed]
+		[Export ("adChoicesView")]
+		UIView GetAdChoicesView ();
 	}
 
 	// @interface GADMediaView : UIView
@@ -2060,11 +2084,19 @@ namespace Google.MobileAds.DoubleClick
 		[Export ("customRenderedBannerViewDelegate", ArgumentSemantic.Weak)]
 		ICustomRenderedBannerViewDelegate CustomRenderedBannerViewDelegate { get; set; }
 
+		// @property(nonatomic, strong, readonly) GADVideoController *videoController;
+		[Export ("videoController", ArgumentSemantic.Strong)]
+		Google.MobileAds.VideoController VideoController { get; }
+
 		[Export ("recordImpression")]
 		void RecordImpression ();
 
 		[Export ("resize:")]
 		void Resize (AdSize size);
+
+		// - (void)setAdOptions:(NSArray *)adOptions;
+		[Export ("setAdOptions:")]
+		void SetAdOptions (Google.MobileAds.AdLoaderOptions [] adOptions);
 
 		[Internal]
 		[Export ("setValidAdSizesWithSizes:", IsVariadic = true)]
