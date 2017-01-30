@@ -30,6 +30,7 @@ namespace TagManagerSample
 			Window.RootViewController = navigationController;
 			Window.MakeKeyAndVisible ();
 
+			TagManager.Configure ();
 			App.Configure ();
 
 			return true;
@@ -44,6 +45,14 @@ namespace TagManagerSample
 			} else {
 				new UIAlertView (title, message, null, "Ok", null).Show ();
 			}
+		}
+
+
+		public override bool OpenUrl (UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
+		{
+			// Functionality to test preview containers of Google Tag Manager
+			Analytics.HandleOpenUrl (url);
+			return true;
 		}
 
 		public override void OnResignActivation (UIApplication application)

@@ -34,7 +34,14 @@
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>CFBundleURLTypes</key>
 	<array>
-		<dict/>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.xamarin.google.ios.tagmanagersample</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>tagmanager.c.com.xamarin.google.ios.tagmanagersample</string>
+			</array>
+		</dict>
 	</array>
 </dict>
 </plist>
