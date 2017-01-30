@@ -46,6 +46,7 @@
     <Compile Include="libTagManager.linkwith.cs">
       <DependentUpon>libTagManager.a</DependentUpon>
     </Compile>
+    <Compile Include="Extension.cs" />
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />

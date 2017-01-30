@@ -10,16 +10,17 @@
 3. When prompted, enter your app's bundle ID. It's important to enter the bundle ID your app is using; this can only be set when you add an app to your Firebase project.
 4. At the end, you'll download a `GoogleService-Info.plist` file. You can [download this file][2] again at any time.
 
-## Configure Analytics in your app
+## Configure Tag Manager in your app
 
 Once you have your `GoogleService-Info.plist` file downloaded in your computer, do the following steps in Xamarin Studio:
 
 1. Add `GoogleService-Info.plist` file to your app project.
 2. Set `GoogleService-Info.plist` **build action** behaviour to `Bundle Resource` by Right clicking/Build Action.
 3. Open `GoogleService-Info.plist` file and change `IS_ANALYTICS_ENABLED` value to `Yes`. 
-4. Add the following line of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Analytics` namespace):
+4. Add the following lines of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Analytics` and `Google.TagManager` namespaces):
 
 ```csharp
+TagManager.Configure ();
 App.Configure ();
 ```
 
@@ -30,7 +31,9 @@ App.Configure ();
 3. Click Versions in the top navigation bar.
 4. Click Actions > Download on the selected container version.
 5. The name of the downloaded file is the container ID with a .json extension.
-6. Add `GTM-XXXXXX.json` file to your Resources folder in your app project in Xamarin Studio.
+6. In Xamarin Studio, create a folder named **container** inside of your **Resources** folder.
+7. Add **GTM-XXXXXX.json** file into your **container** folder in your project.
+8. Verify that **GTM-XXXXXX.json** build action behaviour is `Bundle Resource` by Right clicking/Build Action.
 
 ## Log events and variables
 
