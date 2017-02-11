@@ -41,9 +41,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Loader.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="GoogleCast.linkwith.cs">
-      <DependentUpon>GoogleCast</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
@@ -54,5 +51,937 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
   <ItemGroup>
     <None Include="Google.Cast.targets" />
+    <None Include="GoogleCast.linkwith.cs">
+      <DependentUpon>GoogleCast</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework">
+      <Kind>Framework</Kind>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\GCKGuestModePairingViewController.nib">
+      <Link>Resources\GoogleCastResources.bundle\Base.lproj\GCKGuestModePairingViewController.nib</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\4HD-aa-FNo-view-1HP-BM-J3I.nib">
+      <Link>Resources\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\4HD-aa-FNo-view-1HP-BM-J3I.nib</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\6is-ze-qoP-view-Vah-jq-ZgN.nib">
+      <Link>Resources\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\6is-ze-qoP-view-Vah-jq-ZgN.nib</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\9V7-ce-5KJ-view-WQF-my-40r.nib">
+      <Link>Resources\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\9V7-ce-5KJ-view-WQF-my-40r.nib</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\C87-rF-Kff-view-Z93-bw-eCT.nib">
+      <Link>Resources\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\C87-rF-Kff-view-Z93-bw-eCT.nib</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\CastContainer.nib">
+      <Link>Resources\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\CastContainer.nib</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\CastInstructions.nib">
+      <Link>Resources\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\CastInstructions.nib</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\DeviceConnectionNavigation.nib">
+      <Link>Resources\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\DeviceConnectionNavigation.nib</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\ExpandedMediaControlsViewController.nib">
+      <Link>Resources\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\ExpandedMediaControlsViewController.nib</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\Info.plist">
+      <Link>Resources\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\Info.plist</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\MediaTrackSelectionController.nib">
+      <Link>Resources\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\MediaTrackSelectionController.nib</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\MediaTrackSelectionNavigation.nib">
+      <Link>Resources\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\MediaTrackSelectionNavigation.nib</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\MiniMediaControlsViewController.nib">
+      <Link>Resources\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\MiniMediaControlsViewController.nib</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\a4H-bv-VbH-view-Xbz-9K-eDJ.nib">
+      <Link>Resources\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\a4H-bv-VbH-view-Xbz-9K-eDJ.nib</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\egs-hj-bEX-view-MTY-Nw-q8O.nib">
+      <Link>Resources\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\egs-hj-bEX-view-MTY-Nw-q8O.nib</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\mzQ-08-M2L-view-QcC-yO-nhF.nib">
+      <Link>Resources\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\mzQ-08-M2L-view-QcC-yO-nhF.nib</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\audio_track_48pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\audio_track_48pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\audio_track_48pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\audio_track_48pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\audio_track_48pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\audio_track_48pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_connected_24pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\cast_connected_24pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_connected_24pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\cast_connected_24pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_connected_24pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\cast_connected_24pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_disconnected_24pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\cast_disconnected_24pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_disconnected_24pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\cast_disconnected_24pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_disconnected_24pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\cast_disconnected_24pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_on0.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\cast_on0.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_on0%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\cast_on0%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_on0%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\cast_on0%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_on1.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\cast_on1.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_on1%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\cast_on1%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_on1%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\cast_on1%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_on2.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\cast_on2.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_on2%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\cast_on2%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_on2%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\cast_on2%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\closed_caption_36pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\closed_caption_36pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\closed_caption_36pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\closed_caption_36pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\closed_caption_36pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\closed_caption_36pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\closed_caption_48pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\closed_caption_48pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\closed_caption_48pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\closed_caption_48pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\closed_caption_48pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\closed_caption_48pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\collapse_arrow_24pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\collapse_arrow_24pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\collapse_arrow_24pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\collapse_arrow_24pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\collapse_arrow_24pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\collapse_arrow_24pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\forward_30_36pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\forward_30_36pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\forward_30_36pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\forward_30_36pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\forward_30_36pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\forward_30_36pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\forward_30_48pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\forward_30_48pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\forward_30_48pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\forward_30_48pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\forward_30_48pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\forward_30_48pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\hardware_speaker_24pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\hardware_speaker_24pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\hardware_speaker_24pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\hardware_speaker_24pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\hardware_speaker_24pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\hardware_speaker_24pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\hardware_speaker_group_24pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\hardware_speaker_group_24pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\hardware_speaker_group_24pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\hardware_speaker_group_24pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\hardware_speaker_group_24pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\hardware_speaker_group_24pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\hardware_tv_24pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\hardware_tv_24pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\hardware_tv_24pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\hardware_tv_24pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\hardware_tv_24pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\hardware_tv_24pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\pause_48pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\pause_48pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\pause_48pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\pause_48pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\pause_48pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\pause_48pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\pause_circle_filled_64pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\pause_circle_filled_64pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\pause_circle_filled_64pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\pause_circle_filled_64pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\pause_circle_filled_64pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\pause_circle_filled_64pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\play_48pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\play_48pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\play_48pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\play_48pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\play_48pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\play_48pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\play_circle_filled_64pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\play_circle_filled_64pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\play_circle_filled_64pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\play_circle_filled_64pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\play_circle_filled_64pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\play_circle_filled_64pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\replay_30_36pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\replay_30_36pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\replay_30_36pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\replay_30_36pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\replay_30_36pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\replay_30_36pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\replay_30_48pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\replay_30_48pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\replay_30_48pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\replay_30_48pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\replay_30_48pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\replay_30_48pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\skip_next_36pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\skip_next_36pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\skip_next_36pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\skip_next_36pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\skip_next_36pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\skip_next_36pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\skip_next_48pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\skip_next_48pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\skip_next_48pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\skip_next_48pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\skip_next_48pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\skip_next_48pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\skip_previous_36pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\skip_previous_36pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\skip_previous_36pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\skip_previous_36pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\skip_previous_36pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\skip_previous_36pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\skip_previous_48pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\skip_previous_48pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\skip_previous_48pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\skip_previous_48pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\skip_previous_48pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\skip_previous_48pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\sliderthumb_focused_dark.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\sliderthumb_focused_dark.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\sliderthumb_focused_dark%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\sliderthumb_focused_dark%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\sliderthumb_focused_dark%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\sliderthumb_focused_dark%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\sliderthumb_focused_light.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\sliderthumb_focused_light.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\sliderthumb_focused_light%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\sliderthumb_focused_light%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\sliderthumb_focused_light%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\sliderthumb_focused_light%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\sliderthumb_normal_dark.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\sliderthumb_normal_dark.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\sliderthumb_normal_dark%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\sliderthumb_normal_dark%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\sliderthumb_normal_dark%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\sliderthumb_normal_dark%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\sliderthumb_normal_light.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\sliderthumb_normal_light.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\sliderthumb_normal_light%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\sliderthumb_normal_light%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\sliderthumb_normal_light%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\sliderthumb_normal_light%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\stop_36pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\stop_36pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\stop_36pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\stop_36pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\stop_36pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\stop_36pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\stop_48pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\stop_48pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\stop_48pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\stop_48pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\stop_48pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\stop_48pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_mute_36pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\volume_mute_36pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_mute_36pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\volume_mute_36pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_mute_36pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\volume_mute_36pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_mute_48pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\volume_mute_48pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_mute_48pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\volume_mute_48pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_mute_48pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\volume_mute_48pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_off_36pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\volume_off_36pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_off_36pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\volume_off_36pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_off_36pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\volume_off_36pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_off_48pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\volume_off_48pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_off_48pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\volume_off_48pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_off_48pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\volume_off_48pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_up_36pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\volume_up_36pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_up_36pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\volume_up_36pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_up_36pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\volume_up_36pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_up_48pt.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\volume_up_48pt.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_up_48pt%402x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\volume_up_48pt%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_up_48pt%403x.png">
+      <Link>Resources\GoogleCastResources.bundle\Icons\volume_up_48pt%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\af.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\af.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\af.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\af.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\af.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\af.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ar.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\ar.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ar.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\ar.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ar.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\ar.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\bg.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\bg.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\bg.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\bg.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\bg.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\bg.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\bn.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\bn.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\bn.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\bn.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\bn.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\bn.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ca.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\ca.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ca.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\ca.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ca.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\ca.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\cs.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\cs.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\cs.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\cs.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\cs.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\cs.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\da.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\da.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\da.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\da.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\da.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\da.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\de.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\de.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\de.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\de.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\de.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\de.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\el.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\el.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\el.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\el.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\el.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\el.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\en.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\en.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\en.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\en.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\en.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\en.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\en_GB.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\en_GB.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\en_GB.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\en_GB.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\en_GB.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\en_GB.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\en_US.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\en_US.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\en_US.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\en_US.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\en_US.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\en_US.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\es.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\es.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\es.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\es.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\es.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\es.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\es_419.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\es_419.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\es_419.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\es_419.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\es_419.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\es_419.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\et.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\et.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\et.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\et.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\et.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\et.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\fa.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\fa.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\fa.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\fa.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\fa.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\fa.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\fi.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\fi.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\fi.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\fi.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\fi.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\fi.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\fil.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\fil.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\fil.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\fil.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\fil.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\fil.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\fr.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\fr.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\fr.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\fr.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\fr.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\fr.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\hi.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\hi.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\hi.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\hi.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\hi.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\hi.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\hr.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\hr.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\hr.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\hr.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\hr.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\hr.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\hu.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\hu.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\hu.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\hu.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\hu.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\hu.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\hy.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\hy.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\hy.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\hy.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\hy.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\hy.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\id.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\id.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\id.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\id.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\id.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\id.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\is.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\is.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\is.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\is.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\is.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\is.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\it.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\it.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\it.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\it.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\it.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\it.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\iw.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\iw.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\iw.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\iw.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\iw.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\iw.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ja.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\ja.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ja.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\ja.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ja.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\ja.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ka.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\ka.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ka.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\ka.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ka.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\ka.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\km.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\km.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\km.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\km.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\km.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\km.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ko.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\ko.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ko.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\ko.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ko.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\ko.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\lo.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\lo.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\lo.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\lo.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\lo.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\lo.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\lt.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\lt.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\lt.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\lt.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\lt.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\lt.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\lv.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\lv.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\lv.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\lv.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\lv.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\lv.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\mk.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\mk.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\mk.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\mk.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\mk.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\mk.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\mn.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\mn.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\mn.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\mn.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\mn.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\mn.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\mr.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\mr.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\mr.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\mr.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\mr.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\mr.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ms.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\ms.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ms.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\ms.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ms.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\ms.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\my.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\my.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\my.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\my.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\my.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\my.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ne.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\ne.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ne.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\ne.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ne.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\ne.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\nl.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\nl.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\nl.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\nl.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\nl.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\nl.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\no.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\no.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\no.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\no.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\no.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\no.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\pl.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\pl.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\pl.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\pl.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\pl.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\pl.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\pt.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\pt.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\pt.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\pt.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\pt.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\pt.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\pt_PT.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\pt_PT.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\pt_PT.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\pt_PT.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\pt_PT.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\pt_PT.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ro.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\ro.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ro.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\ro.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ro.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\ro.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ru.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\ru.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ru.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\ru.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ru.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\ru.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\si.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\si.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\si.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\si.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\si.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\si.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\sk.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\sk.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\sk.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\sk.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\sk.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\sk.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\sl.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\sl.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\sl.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\sl.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\sl.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\sl.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\sr.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\sr.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\sr.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\sr.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\sr.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\sr.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\sv.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\sv.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\sv.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\sv.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\sv.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\sv.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\sw.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\sw.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\sw.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\sw.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\sw.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\sw.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ta.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\ta.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ta.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\ta.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\ta.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\ta.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\th.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\th.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\th.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\th.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\th.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\th.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\tr.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\tr.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\tr.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\tr.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\tr.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\tr.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\uk.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\uk.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\uk.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\uk.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\uk.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\uk.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\vi.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\vi.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\vi.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\vi.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\vi.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\vi.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\zh.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\zh.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\zh.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\zh.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\zh.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\zh.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\zh_CN.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\zh_CN.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\zh_CN.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\zh_CN.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\zh_CN.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\zh_CN.lproj\Localizable.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\zh_TW.lproj\CastComponents.strings">
+      <Link>Resources\GoogleCastResources.bundle\zh_TW.lproj\CastComponents.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\zh_TW.lproj\GCKGuestModePairingViewController.strings">
+      <Link>Resources\GoogleCastResources.bundle\zh_TW.lproj\GCKGuestModePairingViewController.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\google-cast-sdk\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework\GoogleCastResources.bundle\zh_TW.lproj\Localizable.strings">
+      <Link>Resources\GoogleCastResources.bundle\zh_TW.lproj\Localizable.strings</Link>
+    </BundleResource>
   </ItemGroup>
 </Project>
