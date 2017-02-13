@@ -3,7 +3,6 @@
 	<PropertyGroup>
 		<_GoogleCastAssemblyName>Google.Cast, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleCastAssemblyName>
 		<_GoogleCastItemsFolder>GCst-3.3.0</_GoogleCastItemsFolder>
-		<_GoogleCastSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleCastItemsFolder)\GoogleCastSDK-Public-3.3.0-Release\</_GoogleCastSDKBaseFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GoogleCastItemsFolder)">
@@ -13,14 +12,19 @@
 		<XamarinBuildRestoreResources Include="_GoogleCastItems" />
 	</ItemGroup>
 	<ItemGroup>
-    <NativeReference Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework">
-      	<IsCxx>False</IsCxx>
-		<LinkerFlags>-lc++</LinkerFlags>
-		<Frameworks>Accelerate AudioToolbox AVFoundation CFNetwork CoreBluetooth CoreGraphics CoreMedia CoreText Foundation MediaAccessibility MediaPlayer QuartzCore Security SystemConfiguration UIKit</Frameworks>
-      	<Kind>Framework</Kind>
-    </NativeReference>
+    	<NativeReference Include="$(XamarinBuildDownloadDir)$(_GoogleCastItemsFolder)\GoogleCastSDK-Public-3.3.0-Release\GoogleCast.framework">
+      		<IsCxx>False</IsCxx>
+			<LinkerFlags>-lc++</LinkerFlags>
+			<Frameworks>Accelerate AudioToolbox AVFoundation CFNetwork CoreBluetooth CoreGraphics CoreMedia CoreText Foundation MediaAccessibility MediaPlayer QuartzCore Security SystemConfiguration UIKit</Frameworks>
+      		<Kind>Framework</Kind>
+    	</NativeReference>
   	</ItemGroup>
 	<Target Name="_GoogleCastItems">
+
+		<PropertyGroup>
+			<_GoogleCastSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleCastItemsFolder)\GoogleCastSDK-Public-3.3.0-Release\</_GoogleCastSDKBaseFolder>
+		</PropertyGroup>
+		
 		<ItemGroup>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\GCKGuestModePairingViewController.nib">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fBase.lproj_fGCKGuestModePairingViewController.nib</LogicalName>

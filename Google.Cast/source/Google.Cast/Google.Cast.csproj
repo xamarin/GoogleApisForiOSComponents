@@ -41,9 +41,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Loader.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="GoogleCast.linkwith.cs">
-      <DependentUpon>GoogleCast</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />

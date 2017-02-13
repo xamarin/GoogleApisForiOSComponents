@@ -20,7 +20,7 @@ namespace CastSample
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
 
-			var test = typeof (Google.Cast.CastSession);
+			System.Console.WriteLine (Google.Cast.Common.FrameworkVersion);
 
 			return true;
 		}
