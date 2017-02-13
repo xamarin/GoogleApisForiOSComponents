@@ -3495,9 +3495,10 @@ namespace Google.Cast
 		[Export ("applyStyle")]
 		void ApplyStyle ();
 
-		// @property (readonly, nonatomic, strong) GCKUIStyleAttributesCastViews * _Nonnull castViews;
-		[Export ("castViews", ArgumentSemantic.Strong)]
-		UIStyleAttributesCastViews CastViews { get; }
+		// The GCKUIStyleAttributesCastViews class is non-external
+		//// @property (readonly, nonatomic, strong) GCKUIStyleAttributesCastViews * _Nonnull castViews;
+		//[Export ("castViews", ArgumentSemantic.Strong)]
+		//UIStyleAttributesCastViews CastViews { get; }
 	}
 
 	// @interface GCKUIStyleAttributes : NSObject
@@ -3611,99 +3612,6 @@ namespace Google.Cast
 		// @property (assign, readwrite, nonatomic) CGSize headingTextShadowOffset;
 		[Export ("headingTextShadowOffset", ArgumentSemantic.Assign)]
 		CGSize HeadingTextShadowOffset { get; set; }
-	}
-
-	// @interface GCKUIStyleAttributesInstructions : GCKUIStyleAttributes
-	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesInstructions")]
-	interface UIStyleAttributesInstructions
-	{
-	}
-
-	// @interface GCKUIStyleAttributesGuestModePairingDialog : GCKUIStyleAttributes
-	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesGuestModePairingDialog")]
-	interface UIStyleAttributesGuestModePairingDialog
-	{
-	}
-
-	// @interface GCKUIStyleAttributesTrackSelector : GCKUIStyleAttributes
-	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesTrackSelector")]
-	interface UIStyleAttributesTrackSelector
-	{
-	}
-
-	// @interface GCKUIStyleAttributesMiniController : GCKUIStyleAttributes
-	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesMiniController")]
-	interface UIStyleAttributesMiniController
-	{
-	}
-
-	// @interface GCKUIStyleAttributesExpandedController : GCKUIStyleAttributes
-	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesExpandedController")]
-	interface UIStyleAttributesExpandedController
-	{
-	}
-
-	// @interface GCKUIStyleAttributesDeviceChooser : GCKUIStyleAttributes
-	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesDeviceChooser")]
-	interface UIStyleAttributesDeviceChooser
-	{
-	}
-
-	// @interface GCKUIStyleAttributesConnectionController : GCKUIStyleAttributes
-	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesConnectionController")]
-	interface UIStyleAttributesConnectionController
-	{
-	}
-
-	// @interface GCKUIStyleAttributesMediaControl : GCKUIStyleAttributes
-	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesMediaControl")]
-	interface UIStyleAttributesMediaControl
-	{
-		// @property (readonly, nonatomic, strong) GCKUIStyleAttributesExpandedController * _Nonnull expandedController;
-		[Export ("expandedController", ArgumentSemantic.Strong)]
-		UIStyleAttributesExpandedController ExpandedController { get; }
-
-		// @property (readonly, nonatomic, strong) GCKUIStyleAttributesMiniController * _Nonnull miniController;
-		[Export ("miniController", ArgumentSemantic.Strong)]
-		UIStyleAttributesMiniController MiniController { get; }
-
-		// @property (readonly, nonatomic, strong) GCKUIStyleAttributesTrackSelector * _Nonnull trackSelector;
-		[Export ("trackSelector", ArgumentSemantic.Strong)]
-		UIStyleAttributesTrackSelector TrackSelector { get; }
-	}
-
-	// @interface GCKUIStyleAttributesDeviceControl : GCKUIStyleAttributes
-	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesDeviceControl")]
-	interface UIStyleAttributesDeviceControl
-	{
-		// @property (readonly, nonatomic, strong) GCKUIStyleAttributesDeviceChooser * _Nonnull deviceChooser;
-		[Export ("deviceChooser", ArgumentSemantic.Strong)]
-		UIStyleAttributesDeviceChooser DeviceChooser { get; }
-
-		// @property (readonly, nonatomic, strong) GCKUIStyleAttributesConnectionController * _Nonnull connectionController;
-		[Export ("connectionController", ArgumentSemantic.Strong)]
-		UIStyleAttributesConnectionController ConnectionController { get; }
-
-		// @property (readonly, nonatomic, strong) GCKUIStyleAttributesGuestModePairingDialog * _Nonnull guestModePairingDialog;
-		[Export ("guestModePairingDialog", ArgumentSemantic.Strong)]
-		UIStyleAttributesGuestModePairingDialog GuestModePairingDialog { get; }
-	}
-
-	// @interface GCKUIStyleAttributesCastViews : GCKUIStyleAttributes
-	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesCastViews")]
-	interface UIStyleAttributesCastViews
-	{
-		// @property (readonly, nonatomic, strong) GCKUIStyleAttributesDeviceControl * _Nonnull deviceControl;
-		[Export ("deviceControl", ArgumentSemantic.Strong)]
-		UIStyleAttributesDeviceControl DeviceControl { get; }
-
-		// @property (readonly, nonatomic, strong) GCKUIStyleAttributesMediaControl * _Nonnull mediaControl;
-		[Export ("mediaControl", ArgumentSemantic.Strong)]
-		UIStyleAttributesMediaControl MediaControl { get; }
-
-		// @property (readonly, nonatomic, strong) GCKUIStyleAttributesInstructions * _Nonnull instructions;
-		[Export ("instructions", ArgumentSemantic.Strong)]
-		UIStyleAttributesInstructions Instructions { get; }
 	}
 
 	// @interface GCKUIUtils : NSObject

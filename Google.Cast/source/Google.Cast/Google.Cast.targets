@@ -2,402 +2,524 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_GoogleCastAssemblyName>Google.Cast, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleCastAssemblyName>
-		<_GoogleCastItemsFolder>GCstSDK-2.10.4</_GoogleCastItemsFolder>
+		<_GoogleCastItemsFolder>GCst-3.3.0</_GoogleCastItemsFolder>
+		<_GoogleCastSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleCastItemsFolder)\GoogleCastSDK-Public-3.3.0-Release\</_GoogleCastSDKBaseFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GoogleCastItemsFolder)">
-			<Url>https://redirector.gvt1.com/edgedl/chromecast/sdk/ios/GoogleCastSDK-2.10.4-Release-ios-default-External.zip</Url>
+			<Url>https://redirector.gvt1.com/edgedl/chromecast/sdk/ios/GoogleCastSDK-Public-3.3.0-Release-ios.zip</Url>
 			<Kind>Zip</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildRestoreResources Include="_GoogleCastItems" />
 	</ItemGroup>
+	<ItemGroup>
+    <NativeReference Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework">
+      	<IsCxx>False</IsCxx>
+		<LinkerFlags>-lc++</LinkerFlags>
+		<Frameworks>Accelerate AudioToolbox AVFoundation CFNetwork CoreBluetooth CoreGraphics CoreMedia CoreText Foundation MediaAccessibility MediaPlayer QuartzCore Security SystemConfiguration UIKit</Frameworks>
+      	<Kind>Framework</Kind>
+    </NativeReference>
+  	</ItemGroup>
 	<Target Name="_GoogleCastItems">
-		<PropertyGroup>
-			<_GoogleCastSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleCastItemsFolder)\GoogleCastSDK-2.10.4-Release\</_GoogleCastSDKBaseFolder>
-		</PropertyGroup>
 		<ItemGroup>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\Versions\A\GoogleCast">
-				<LogicalName>GoogleCast</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\GCKGuestModePairingViewController.nib">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fBase.lproj_fGCKGuestModePairingViewController.nib</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\cast_off.imageset\Contents.json">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcast__off.imageset_fContents.json</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\4HD-aa-FNo-view-1HP-BM-J3I.nib">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fBase.lproj_fCastComponents.storyboardc_f4HD-aa-FNo-view-1HP-BM-J3I.nib</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\cast_off.imageset\cast_off%401x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcast__off.imageset_fcast__off%401x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\6is-ze-qoP-view-Vah-jq-ZgN.nib">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fBase.lproj_fCastComponents.storyboardc_f6is-ze-qoP-view-Vah-jq-ZgN.nib</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\cast_off.imageset\cast_off%402x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcast__off.imageset_fcast__off%402x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\9V7-ce-5KJ-view-WQF-my-40r.nib">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fBase.lproj_fCastComponents.storyboardc_f9V7-ce-5KJ-view-WQF-my-40r.nib</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\cast_off.imageset\cast_off%403x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcast__off.imageset_fcast__off%403x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\C87-rF-Kff-view-Z93-bw-eCT.nib">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fBase.lproj_fCastComponents.storyboardc_fC87-rF-Kff-view-Z93-bw-eCT.nib</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\cast_on.imageset\Contents.json">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcast__on.imageset_fContents.json</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\CastContainer.nib">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fBase.lproj_fCastComponents.storyboardc_fCastContainer.nib</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\cast_on.imageset\cast_on%401x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcast__on.imageset_fcast__on%401x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\CastInstructions.nib">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fBase.lproj_fCastComponents.storyboardc_fCastInstructions.nib</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\cast_on.imageset\cast_on%402x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcast__on.imageset_fcast__on%402x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\DeviceConnectionNavigation.nib">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fBase.lproj_fCastComponents.storyboardc_fDeviceConnectionNavigation.nib</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\cast_on.imageset\cast_on%403x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcast__on.imageset_fcast__on%403x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\ExpandedMediaControlsViewController.nib">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fBase.lproj_fCastComponents.storyboardc_fExpandedMediaControlsViewController.nib</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\cast_on0.imageset\Contents.json">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcast__on0.imageset_fContents.json</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\Info.plist">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fBase.lproj_fCastComponents.storyboardc_fInfo.plist</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\cast_on0.imageset\cast_on0%401x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcast__on0.imageset_fcast__on0%401x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\MediaTrackSelectionController.nib">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fBase.lproj_fCastComponents.storyboardc_fMediaTrackSelectionController.nib</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\cast_on0.imageset\cast_on0%402x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcast__on0.imageset_fcast__on0%402x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\MediaTrackSelectionNavigation.nib">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fBase.lproj_fCastComponents.storyboardc_fMediaTrackSelectionNavigation.nib</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\cast_on0.imageset\cast_on0%403x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcast__on0.imageset_fcast__on0%403x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\MiniMediaControlsViewController.nib">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fBase.lproj_fCastComponents.storyboardc_fMiniMediaControlsViewController.nib</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\cast_on1.imageset\Contents.json">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcast__on1.imageset_fContents.json</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\a4H-bv-VbH-view-Xbz-9K-eDJ.nib">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fBase.lproj_fCastComponents.storyboardc_fa4H-bv-VbH-view-Xbz-9K-eDJ.nib</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\cast_on1.imageset\cast_on1%401x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcast__on1.imageset_fcast__on1%401x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\egs-hj-bEX-view-MTY-Nw-q8O.nib">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fBase.lproj_fCastComponents.storyboardc_fegs-hj-bEX-view-MTY-Nw-q8O.nib</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\cast_on1.imageset\cast_on1%402x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcast__on1.imageset_fcast__on1%402x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\CastComponents.storyboardc\mzQ-08-M2L-view-QcC-yO-nhF.nib">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fBase.lproj_fCastComponents.storyboardc_fmzQ-08-M2L-view-QcC-yO-nhF.nib</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\cast_on1.imageset\cast_on1%403x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcast__on1.imageset_fcast__on1%403x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\audio_track_48pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_faudio__track__48pt.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\cast_on2.imageset\Contents.json">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcast__on2.imageset_fContents.json</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\audio_track_48pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_faudio__track__48pt%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\cast_on2.imageset\cast_on2%401x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcast__on2.imageset_fcast__on2%401x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\audio_track_48pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_faudio__track__48pt%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\cast_on2.imageset\cast_on2%402x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcast__on2.imageset_fcast__on2%402x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_connected_24pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fcast__connected__24pt.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\cast_on2.imageset\cast_on2%403x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcast__on2.imageset_fcast__on2%403x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_connected_24pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fcast__connected__24pt%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\check.imageset\Contents.json">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcheck.imageset_fContents.json</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_connected_24pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fcast__connected__24pt%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\check.imageset\check%401x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcheck.imageset_fcheck%401x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_disconnected_24pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fcast__disconnected__24pt.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\check.imageset\check%402x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcheck.imageset_fcheck%402x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_disconnected_24pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fcast__disconnected__24pt%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\check.imageset\check%403x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcheck.imageset_fcheck%403x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_disconnected_24pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fcast__disconnected__24pt%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\cling.imageset\Contents.json">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcling.imageset_fContents.json</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_on0.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fcast__on0.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\cling.imageset\cling%401x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcling.imageset_fcling%401x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_on0%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fcast__on0%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\cling.imageset\cling%402x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcling.imageset_fcling%402x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_on0%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fcast__on0%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\cling.imageset\cling%403x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fcling.imageset_fcling%403x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_on1.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fcast__on1.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_music_outline.imageset\Contents.json">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__music__outline.imageset_fContents.json</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_on1%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fcast__on1%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_music_outline.imageset\icon_music_outline%401x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__music__outline.imageset_ficon__music__outline%401x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_on1%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fcast__on1%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_music_outline.imageset\icon_music_outline%402x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__music__outline.imageset_ficon__music__outline%402x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_on2.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fcast__on2.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_music_outline.imageset\icon_music_outline%403x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__music__outline.imageset_ficon__music__outline%403x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_on2%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fcast__on2%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_music_solid.imageset\Contents.json">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__music__solid.imageset_fContents.json</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\cast_on2%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fcast__on2%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_music_solid.imageset\icon_music_solid%401x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__music__solid.imageset_ficon__music__solid%401x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\closed_caption_36pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fclosed__caption__36pt.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_music_solid.imageset\icon_music_solid%402x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__music__solid.imageset_ficon__music__solid%402x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\closed_caption_36pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fclosed__caption__36pt%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_music_solid.imageset\icon_music_solid%403x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__music__solid.imageset_ficon__music__solid%403x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\closed_caption_36pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fclosed__caption__36pt%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_play_outline.imageset\Contents.json">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__play__outline.imageset_fContents.json</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\closed_caption_48pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fclosed__caption__48pt.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_play_outline.imageset\icon_play_outline%401x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__play__outline.imageset_ficon__play__outline%401x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\closed_caption_48pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fclosed__caption__48pt%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_play_outline.imageset\icon_play_outline%402x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__play__outline.imageset_ficon__play__outline%402x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\closed_caption_48pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fclosed__caption__48pt%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_play_outline.imageset\icon_play_outline%403x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__play__outline.imageset_ficon__play__outline%403x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\collapse_arrow_24pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fcollapse__arrow__24pt.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_play_solid.imageset\Contents.json">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__play__solid.imageset_fContents.json</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\collapse_arrow_24pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fcollapse__arrow__24pt%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_play_solid.imageset\icon_play_solid%401x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__play__solid.imageset_ficon__play__solid%401x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\collapse_arrow_24pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fcollapse__arrow__24pt%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_play_solid.imageset\icon_play_solid%402x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__play__solid.imageset_ficon__play__solid%402x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\forward_30_36pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fforward__30__36pt.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_play_solid.imageset\icon_play_solid%403x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__play__solid.imageset_ficon__play__solid%403x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\forward_30_36pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fforward__30__36pt%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_settings_outline.imageset\Contents.json">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__settings__outline.imageset_fContents.json</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\forward_30_36pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fforward__30__36pt%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_settings_outline.imageset\icon_settings_outline%401x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__settings__outline.imageset_ficon__settings__outline%401x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\forward_30_48pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fforward__30__48pt.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_settings_outline.imageset\icon_settings_outline%402x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__settings__outline.imageset_ficon__settings__outline%402x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\forward_30_48pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fforward__30__48pt%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_settings_outline.imageset\icon_settings_outline%403x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__settings__outline.imageset_ficon__settings__outline%403x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\forward_30_48pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fforward__30__48pt%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_settings_solid.imageset\Contents.json">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__settings__solid.imageset_fContents.json</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\hardware_speaker_24pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fhardware__speaker__24pt.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_settings_solid.imageset\icon_settings_solid%401x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__settings__solid.imageset_ficon__settings__solid%401x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\hardware_speaker_24pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fhardware__speaker__24pt%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_settings_solid.imageset\icon_settings_solid%402x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__settings__solid.imageset_ficon__settings__solid%402x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\hardware_speaker_24pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fhardware__speaker__24pt%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_settings_solid.imageset\icon_settings_solid%403x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__settings__solid.imageset_ficon__settings__solid%403x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\hardware_speaker_group_24pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fhardware__speaker__group__24pt.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_volume0.imageset\Contents.json">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__volume0.imageset_fContents.json</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\hardware_speaker_group_24pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fhardware__speaker__group__24pt%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_volume0.imageset\icon_volume0%401x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__volume0.imageset_ficon__volume0%401x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\hardware_speaker_group_24pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fhardware__speaker__group__24pt%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_volume0.imageset\icon_volume0%402x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__volume0.imageset_ficon__volume0%402x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\hardware_tv_24pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fhardware__tv__24pt.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_volume0.imageset\icon_volume0%403x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__volume0.imageset_ficon__volume0%403x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\hardware_tv_24pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fhardware__tv__24pt%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_volume1.imageset\Contents.json">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__volume1.imageset_fContents.json</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\hardware_tv_24pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fhardware__tv__24pt%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_volume1.imageset\icon_volume1%401x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__volume1.imageset_ficon__volume1%401x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\pause_48pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fpause__48pt.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_volume1.imageset\icon_volume1%402x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__volume1.imageset_ficon__volume1%402x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\pause_48pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fpause__48pt%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_volume1.imageset\icon_volume1%403x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__volume1.imageset_ficon__volume1%403x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\pause_48pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fpause__48pt%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_volume2.imageset\Contents.json">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__volume2.imageset_fContents.json</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\pause_circle_filled_64pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fpause__circle__filled__64pt.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_volume2.imageset\icon_volume2%401x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__volume2.imageset_ficon__volume2%401x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\pause_circle_filled_64pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fpause__circle__filled__64pt%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_volume2.imageset\icon_volume2%402x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__volume2.imageset_ficon__volume2%402x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\pause_circle_filled_64pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fpause__circle__filled__64pt%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_volume2.imageset\icon_volume2%403x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__volume2.imageset_ficon__volume2%403x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\play_48pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fplay__48pt.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_volume3.imageset\Contents.json">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__volume3.imageset_fContents.json</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\play_48pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fplay__48pt%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_volume3.imageset\icon_volume3%401x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__volume3.imageset_ficon__volume3%401x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\play_48pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fplay__48pt%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_volume3.imageset\icon_volume3%402x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__volume3.imageset_ficon__volume3%402x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\play_circle_filled_64pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fplay__circle__filled__64pt.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\icon_volume3.imageset\icon_volume3%403x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_ficon__volume3.imageset_ficon__volume3%403x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\play_circle_filled_64pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fplay__circle__filled__64pt%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\media_left.imageset\Contents.json">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fmedia__left.imageset_fContents.json</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\play_circle_filled_64pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fplay__circle__filled__64pt%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\media_left.imageset\media_left%401x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fmedia__left.imageset_fmedia__left%401x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\replay_30_36pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_freplay__30__36pt.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\media_left.imageset\media_left%402x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fmedia__left.imageset_fmedia__left%402x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\replay_30_36pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_freplay__30__36pt%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\media_left.imageset\media_left%403x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fmedia__left.imageset_fmedia__left%403x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\replay_30_36pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_freplay__30__36pt%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\media_next.imageset\Contents.json">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fmedia__next.imageset_fContents.json</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\replay_30_48pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_freplay__30__48pt.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\media_next.imageset\media_next%401x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fmedia__next.imageset_fmedia__next%401x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\replay_30_48pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_freplay__30__48pt%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\media_next.imageset\media_next%402x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fmedia__next.imageset_fmedia__next%402x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\replay_30_48pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_freplay__30__48pt%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\media_next.imageset\media_next%403x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fmedia__next.imageset_fmedia__next%403x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\skip_next_36pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fskip__next__36pt.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\media_pause.imageset\Contents.json">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fmedia__pause.imageset_fContents.json</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\skip_next_36pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fskip__next__36pt%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\media_pause.imageset\media_pause%401x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fmedia__pause.imageset_fmedia__pause%401x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\skip_next_36pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fskip__next__36pt%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\media_pause.imageset\media_pause%402x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fmedia__pause.imageset_fmedia__pause%402x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\skip_next_48pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fskip__next__48pt.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\media_pause.imageset\media_pause%403x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fmedia__pause.imageset_fmedia__pause%403x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\skip_next_48pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fskip__next__48pt%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\media_play.imageset\Contents.json">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fmedia__play.imageset_fContents.json</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\skip_next_48pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fskip__next__48pt%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\media_play.imageset\media_play%401x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fmedia__play.imageset_fmedia__play%401x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\skip_previous_36pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fskip__previous__36pt.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\media_play.imageset\media_play%402x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fmedia__play.imageset_fmedia__play%402x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\skip_previous_36pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fskip__previous__36pt%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\media_play.imageset\media_play%403x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fmedia__play.imageset_fmedia__play%403x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\skip_previous_36pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fskip__previous__36pt%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\media_prev.imageset\Contents.json">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fmedia__prev.imageset_fContents.json</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\skip_previous_48pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fskip__previous__48pt.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\media_prev.imageset\media_prev%401x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fmedia__prev.imageset_fmedia__prev%401x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\skip_previous_48pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fskip__previous__48pt%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\media_prev.imageset\media_prev%402x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fmedia__prev.imageset_fmedia__prev%402x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\skip_previous_48pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fskip__previous__48pt%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\media_prev.imageset\media_prev%403x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fmedia__prev.imageset_fmedia__prev%403x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\sliderthumb_focused_dark.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fsliderthumb__focused__dark.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\media_right.imageset\Contents.json">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fmedia__right.imageset_fContents.json</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\sliderthumb_focused_dark%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fsliderthumb__focused__dark%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\media_right.imageset\media_right%401x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fmedia__right.imageset_fmedia__right%401x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\sliderthumb_focused_dark%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fsliderthumb__focused__dark%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\media_right.imageset\media_right%402x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fmedia__right.imageset_fmedia__right%402x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\sliderthumb_focused_light.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fsliderthumb__focused__light.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)CastFrameworkAssets.xcassets\media_right.imageset\media_right%403x.png">
-				<LogicalName>__monotouch_content_CastFrameworkAssets.xcassets_fmedia__right.imageset_fmedia__right%403x.png</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\sliderthumb_focused_light%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fsliderthumb__focused__light%402x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\GCKGuestModePairingViewController.nib\objects-8.0+.nib">
-				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fBase.lproj_fGCKGuestModePairingViewController.nib_fobjects-8.0+.nib</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\sliderthumb_focused_light%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fsliderthumb__focused__light%403x.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\GCKGuestModePairingViewController.nib\objects.nib">
-				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fBase.lproj_fGCKGuestModePairingViewController.nib_fobjects.nib</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\sliderthumb_normal_dark.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fsliderthumb__normal__dark.png</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Base.lproj\GCKGuestModePairingViewController.nib\runtime.nib">
-				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fBase.lproj_fGCKGuestModePairingViewController.nib_fruntime.nib</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\sliderthumb_normal_dark%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fsliderthumb__normal__dark%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\sliderthumb_normal_dark%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fsliderthumb__normal__dark%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\sliderthumb_normal_light.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fsliderthumb__normal__light.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\sliderthumb_normal_light%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fsliderthumb__normal__light%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\sliderthumb_normal_light%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fsliderthumb__normal__light%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\stop_36pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fstop__36pt.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\stop_36pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fstop__36pt%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\stop_36pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fstop__36pt%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\stop_48pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fstop__48pt.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\stop_48pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fstop__48pt%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\stop_48pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fstop__48pt%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_mute_36pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fvolume__mute__36pt.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_mute_36pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fvolume__mute__36pt%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_mute_36pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fvolume__mute__36pt%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_mute_48pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fvolume__mute__48pt.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_mute_48pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fvolume__mute__48pt%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_mute_48pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fvolume__mute__48pt%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_off_36pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fvolume__off__36pt.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_off_36pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fvolume__off__36pt%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_off_36pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fvolume__off__36pt%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_off_48pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fvolume__off__48pt.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_off_48pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fvolume__off__48pt%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_off_48pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fvolume__off__48pt%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_up_36pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fvolume__up__36pt.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_up_36pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fvolume__up__36pt%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_up_36pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fvolume__up__36pt%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_up_48pt.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fvolume__up__48pt.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_up_48pt%402x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fvolume__up__48pt%402x.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\Icons\volume_up_48pt%403x.png">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fIcons_fvolume__up__48pt%403x.png</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\af.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_faf.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\af.lproj\GCKGuestModePairingViewController.strings">
@@ -408,12 +530,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_faf.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ar.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_far.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ar.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_far.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ar.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_far.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\bg.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fbg.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\bg.lproj\GCKGuestModePairingViewController.strings">
@@ -424,12 +554,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fbg.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\bn.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fbn.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\bn.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fbn.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\bn.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fbn.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ca.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fca.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ca.lproj\GCKGuestModePairingViewController.strings">
@@ -440,12 +578,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fca.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\cs.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fcs.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\cs.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fcs.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\cs.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fcs.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\da.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fda.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\da.lproj\GCKGuestModePairingViewController.strings">
@@ -456,12 +602,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fda.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\de.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fde.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\de.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fde.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\de.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fde.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\el.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fel.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\el.lproj\GCKGuestModePairingViewController.strings">
@@ -472,12 +626,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fel.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\en.lproj\GCKGuestModePairingViewController.xib_Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fen.lproj_fGCKGuestModePairingViewController.xib__Localizable.strings</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\en.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fen.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\en.lproj\GCKGuestModePairingViewController.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fen.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\en.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fen.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\en_GB.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fen__GB.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\en_GB.lproj\GCKGuestModePairingViewController.strings">
@@ -488,12 +650,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fen__GB.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\en_US.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fen__US.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\en_US.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fen__US.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\en_US.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fen__US.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\es.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fes.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\es.lproj\GCKGuestModePairingViewController.strings">
@@ -504,12 +674,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fes.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\es_419.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fes__419.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\es_419.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fes__419.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\es_419.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fes__419.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\et.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fet.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\et.lproj\GCKGuestModePairingViewController.strings">
@@ -520,12 +698,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fet.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\fa.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_ffa.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\fa.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_ffa.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\fa.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_ffa.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\fi.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_ffi.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\fi.lproj\GCKGuestModePairingViewController.strings">
@@ -536,12 +722,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_ffi.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\fil.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_ffil.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\fil.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_ffil.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\fil.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_ffil.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\fr.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_ffr.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\fr.lproj\GCKGuestModePairingViewController.strings">
@@ -552,12 +746,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_ffr.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\hi.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fhi.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\hi.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fhi.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\hi.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fhi.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\hr.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fhr.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\hr.lproj\GCKGuestModePairingViewController.strings">
@@ -568,12 +770,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fhr.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\hu.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fhu.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\hu.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fhu.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\hu.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fhu.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\hy.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fhy.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\hy.lproj\GCKGuestModePairingViewController.strings">
@@ -584,12 +794,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fhy.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\id.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fid.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\id.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fid.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\id.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fid.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\is.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fis.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\is.lproj\GCKGuestModePairingViewController.strings">
@@ -600,12 +818,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fis.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\it.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fit.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\it.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fit.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\it.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fit.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\iw.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fiw.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\iw.lproj\GCKGuestModePairingViewController.strings">
@@ -616,12 +842,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fiw.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ja.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fja.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ja.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fja.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ja.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fja.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ka.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fka.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ka.lproj\GCKGuestModePairingViewController.strings">
@@ -632,12 +866,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fka.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\km.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fkm.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\km.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fkm.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\km.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fkm.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ko.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fko.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ko.lproj\GCKGuestModePairingViewController.strings">
@@ -648,12 +890,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fko.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\lo.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_flo.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\lo.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_flo.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\lo.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_flo.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\lt.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_flt.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\lt.lproj\GCKGuestModePairingViewController.strings">
@@ -664,12 +914,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_flt.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\lv.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_flv.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\lv.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_flv.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\lv.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_flv.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\mk.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fmk.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\mk.lproj\GCKGuestModePairingViewController.strings">
@@ -680,12 +938,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fmk.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\mn.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fmn.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\mn.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fmn.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\mn.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fmn.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\mr.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fmr.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\mr.lproj\GCKGuestModePairingViewController.strings">
@@ -696,12 +962,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fmr.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ms.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fms.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ms.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fms.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ms.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fms.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\my.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fmy.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\my.lproj\GCKGuestModePairingViewController.strings">
@@ -712,12 +986,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fmy.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ne.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fne.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ne.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fne.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ne.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fne.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\nl.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fnl.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\nl.lproj\GCKGuestModePairingViewController.strings">
@@ -728,12 +1010,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fnl.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\no.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fno.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\no.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fno.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\no.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fno.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\pl.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fpl.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\pl.lproj\GCKGuestModePairingViewController.strings">
@@ -744,12 +1034,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fpl.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\pt.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fpt.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\pt.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fpt.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\pt.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fpt.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\pt_PT.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fpt__PT.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\pt_PT.lproj\GCKGuestModePairingViewController.strings">
@@ -760,12 +1058,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fpt__PT.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ro.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fro.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ro.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fro.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ro.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fro.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ru.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fru.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ru.lproj\GCKGuestModePairingViewController.strings">
@@ -776,12 +1082,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fru.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\si.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fsi.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\si.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fsi.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\si.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fsi.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\sk.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fsk.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\sk.lproj\GCKGuestModePairingViewController.strings">
@@ -792,12 +1106,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fsk.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\sl.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fsl.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\sl.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fsl.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\sl.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fsl.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\sr.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fsr.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\sr.lproj\GCKGuestModePairingViewController.strings">
@@ -808,12 +1130,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fsr.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\sv.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fsv.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\sv.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fsv.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\sv.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fsv.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\sw.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fsw.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\sw.lproj\GCKGuestModePairingViewController.strings">
@@ -824,12 +1154,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fsw.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ta.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fta.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ta.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fta.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\ta.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fta.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\th.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fth.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\th.lproj\GCKGuestModePairingViewController.strings">
@@ -840,12 +1178,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fth.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\tr.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_ftr.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\tr.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_ftr.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\tr.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_ftr.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\uk.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fuk.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\uk.lproj\GCKGuestModePairingViewController.strings">
@@ -856,6 +1202,10 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fuk.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\vi.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fvi.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\vi.lproj\GCKGuestModePairingViewController.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fvi.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
@@ -864,12 +1214,20 @@
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fvi.lproj_fLocalizable.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\zh.lproj\GCKGuestModePairingViewController.xib_Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fzh.lproj_fGCKGuestModePairingViewController.xib__Localizable.strings</LogicalName>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\zh.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fzh.lproj_fCastComponents.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\zh.lproj\GCKGuestModePairingViewController.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fzh.lproj_fGCKGuestModePairingViewController.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\zh.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fzh.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\zh_CN.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fzh__CN.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\zh_CN.lproj\GCKGuestModePairingViewController.strings">
@@ -878,6 +1236,10 @@
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\zh_CN.lproj\Localizable.strings">
 				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fzh__CN.lproj_fLocalizable.strings</LogicalName>
+				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\zh_TW.lproj\CastComponents.strings">
+				<LogicalName>__monotouch_content_GoogleCastResources.bundle_fzh__TW.lproj_fCastComponents.strings</LogicalName>
 				<AssemblyName>$(_GoogleCastAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GoogleCastSDKBaseFolder)GoogleCast.framework\GoogleCastResources.bundle\zh_TW.lproj\GCKGuestModePairingViewController.strings">
