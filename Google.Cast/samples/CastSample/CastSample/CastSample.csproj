@@ -92,6 +92,9 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
@@ -99,6 +102,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="POCO\" />
+    <Folder Include="Models\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -112,16 +119,29 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="ViewController.cs" />
-    <Compile Include="ViewController.designer.cs">
-      <DependentUpon>ViewController.cs</DependentUpon>
+    <Compile Include="POCO\Track.cs" />
+    <Compile Include="POCO\Source.cs" />
+    <Compile Include="POCO\Video.cs" />
+    <Compile Include="Models\MediaListModel.cs" />
+    <Compile Include="POCO\Category.cs" />
+    <Compile Include="Controllers\TableViewController.cs" />
+    <Compile Include="Controllers\TableViewController.designer.cs">
+      <DependentUpon>TableViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\MediaCell.cs" />
+    <Compile Include="Views\MediaCell.designer.cs">
+      <DependentUpon>MediaCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ImageFetcher.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\source\Google.Cast\Google.Cast.csproj">
       <Project>{2E11B34E-2811-45CC-90F3-428B9A88F86A}</Project>
       <Name>Google.Cast</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Videos.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\source\Google.Cast\Google.Cast.targets" />

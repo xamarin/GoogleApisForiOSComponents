@@ -7,8 +7,8 @@ using Foundation;
 
 namespace CastSample
 {
-	[Register ("ViewController")]
-	partial class ViewController
+	[Register ("TableViewController")]
+	partial class TableViewController
 	{
 		void ReleaseDesignerOutlets ()
 		{

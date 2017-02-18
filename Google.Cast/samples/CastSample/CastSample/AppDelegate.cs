@@ -1,60 +1,75 @@
 ﻿using Foundation;
 using UIKit;
 
+using Google.Cast;
+using System;
+
 namespace CastSample
 {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the
 	// User Interface of the application, as well as listening (and optionally responding) to application events from iOS.
 	[Register ("AppDelegate")]
-	public class AppDelegate : UIApplicationDelegate
+	public class AppDelegate : UIApplicationDelegate, ILoggerDelegate
 	{
 		// class-level declarations
+
+		// You can add your own app id here that you get by registering
+		// with the Google Cast SDK Developer Console https://cast.google.com/publish
+		public static readonly string ReceiverApplicationId = "CC1AD845";
 
 		public override UIWindow Window {
 			get;
 			set;
 		}
 
+		#region App Life Cycle
+
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
 
-			System.Console.WriteLine (Google.Cast.Common.FrameworkVersion);
+			// Contains options that affect the behavior of the framework.
+			var options = new CastOptions (ReceiverApplicationId);
+
+			// CastContext coordinates all of the framework's activities.
+			CastContext.SetSharedInstance (options);
+
+			// Google Cast Logger
+			Logger.SharedInstance.Delegate = this;
+
+			// Use UICastContainerViewController as the Initial Controller.
+			// Wraps our View Controllers and add a UIMiniMediaControlsViewController
+			// at the bottom; a persistent bar to control remote videos.
+			var appStoryboard = UIStoryboard.FromName ("Main", null);
+			var navigationController = appStoryboard.InstantiateInitialViewController () as UINavigationController;
+			var castContainer = CastContext.SharedInstance.CreateCastContainerController (navigationController);
+			castContainer.MiniMediaControlsItemEnabled = true;
+
+			// Used to highlight the Cast button when it is first shown to users.
+			CastContext.SharedInstance.PresentCastInstructionsViewControllerOnce ();
+
+			// Use Default Expanded Media Controls
+			CastContext.SharedInstance.UseDefaultExpandedMediaControls = true;
+
+			Window = new UIWindow (UIScreen.MainScreen.Bounds);
+			Window.RootViewController = castContainer;
+			Window.MakeKeyAndVisible ();
 
 			return true;
 		}
 
-		public override void OnResignActivation (UIApplication application)
+		#endregion
+
+		#region Logger Delegate
+
+		[Export ("logMessage:fromFunction:")]
+		void LogMessage (string message, string function)
 		{
-			// Invoked when the application is about to move from active to inactive state.
-			// This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) 
-			// or when the user quits the application and it begins the transition to the background state.
-			// Games should use this method to pause the game.
+			Console.WriteLine ($"{function} {message}");
 		}
 
-		public override void DidEnterBackground (UIApplication application)
-		{
-			// Use this method to release shared resources, save user data, invalidate timers and store the application state.
-			// If your application supports background exection this method is called instead of WillTerminate when the user quits.
-		}
-
-		public override void WillEnterForeground (UIApplication application)
-		{
-			// Called as part of the transiton from background to active state.
-			// Here you can undo many of the changes made on entering the background.
-		}
-
-		public override void OnActivated (UIApplication application)
-		{
-			// Restart any tasks that were paused (or not yet started) while the application was inactive. 
-			// If the application was previously in the background, optionally refresh the user interface.
-		}
-
-		public override void WillTerminate (UIApplication application)
-		{
-			// Called when the application is about to terminate. Save data, if needed. See also DidEnterBackground.
-		}
+		#endregion
 	}
 }
 

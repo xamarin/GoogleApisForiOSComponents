@@ -1809,7 +1809,7 @@ namespace Google.Cast
 		NSString SeriesTitle { get; }
 
 		[Field ("kGCKMetadataKeyStudio", "__Internal")]
-		NSString KeyStudio { get; }
+		NSString Studio { get; }
 
 		[Field ("kGCKMetadataKeyWidth", "__Internal")]
 		NSString Width { get; }
