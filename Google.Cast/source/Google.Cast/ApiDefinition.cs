@@ -3144,7 +3144,7 @@ namespace Google.Cast
 		// @required -(NSUInteger)buttonCount;
 		[Abstract]
 		[Export ("buttonCount")]
-		nuint ButtonCount ();
+		nuint GetButtonCount ();
 
 		// @required -(void)setButtonType:(GCKUIMediaButtonType)buttonType atIndex:(NSUInteger)index;
 		[Abstract]
@@ -3154,7 +3154,7 @@ namespace Google.Cast
 		// @required -(GCKUIMediaButtonType)buttonTypeAtIndex:(NSUInteger)index;
 		[Abstract]
 		[Export ("buttonTypeAtIndex:")]
-		UIMediaButtonType ButtonType (nuint index);
+		UIMediaButtonType GetButtonType (nuint index);
 
 		// @required -(void)setCustomButton:(UIButton * _Nullable)customButton atIndex:(NSUInteger)index;
 		[Abstract]
@@ -3165,7 +3165,7 @@ namespace Google.Cast
 		[Abstract]
 		[return: NullAllowed]
 		[Export ("customButtonAtIndex:")]
-		UIButton CustomButton (nuint index);
+		UIButton GetCustomButton (nuint index);
 	}
 
 	// typedef NSString * _Nonnull (^GCKUIValueFormatter)(const id _Nonnull);

@@ -180,6 +180,9 @@ namespace CastSample
 			// Play video on Cast device.
 			castSession.RemoteMediaClient.LoadMedia (mediaInformation, true);
 
+			NavigationItem.BackBarButtonItem = new UIBarButtonItem ("", UIBarButtonItemStyle.Plain, null, null);
+			(UIApplication.SharedApplication.Delegate as AppDelegate).CastControlBarsEnabled = false;
+
 			// Allow the app to manage every manageable aspect of a
 			// cast session, with the exception of receiver volume control
 			// and session lifecycle (connect/stop casting). 

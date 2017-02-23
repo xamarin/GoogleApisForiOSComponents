@@ -1,8 +1,9 @@
-﻿using Foundation;
+﻿using System;
+
 using UIKit;
+using Foundation;
 
 using Google.Cast;
-using System;
 
 namespace CastSample
 {
@@ -70,6 +71,18 @@ namespace CastSample
 		}
 
 		#endregion
+
+		// Property to control the visibility of the mini controller.
+		public bool CastControlBarsEnabled {
+			get {
+				var castContainer = Window.RootViewController as UICastContainerViewController;
+				return castContainer.MiniMediaControlsItemEnabled;
+			}
+			set {
+				var castContainer = Window.RootViewController as UICastContainerViewController;
+				castContainer.MiniMediaControlsItemEnabled = value;
+			}
+		}
 	}
 }
 
