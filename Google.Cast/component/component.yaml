@@ -18,11 +18,11 @@ packages:
     - Xamarin.Google.iOS.Cast, Version=3.3.0.0
 samples:
   - name: "Cast Sample"
-    path:  ../samples/GoogleCastSample/GoogleCastSample.sln
+    path:  ../samples/CastSample/CastSample.sln
     removeProjects: 
       - Google.Cast
     installNuGets:
-      - project: GoogleCastSample
+      - project: CastSample
         packages:
           - Xamarin.Google.iOS.Cast
     removeNodes:
