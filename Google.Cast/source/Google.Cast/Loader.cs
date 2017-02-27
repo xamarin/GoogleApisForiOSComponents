@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GoogleCast
+namespace Google.Cast
 {
 	public class Loader
 	{
@@ -18,7 +18,7 @@ namespace ApiDefinition
 	{
 		static Messaging ()
 		{
-			GoogleCast.Loader.ForceLoad ();
+			Google.Cast.Loader.ForceLoad ();
 		}
 	}
 }

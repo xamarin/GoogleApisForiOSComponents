@@ -12,6 +12,15 @@ namespace Google.Cast
 	}
 
 	[Native]
+	public enum CastState : ulong
+	{
+		NoDevicesAvailable = 0,
+		NotConnected = 1,
+		Connecting = 2,
+		Connected = 3
+	}
+
+	[Native]
 	public enum ConnectionState : long
 	{
 		Disconnected = 0,
@@ -24,7 +33,20 @@ namespace Google.Cast
 	public enum ConnectionSuspendReason : long
 	{
 		AppBackgrounded = 1,
-		NetworkError = 2
+		NetworkError = 2,
+		NetworkNotReachable = 3
+	}
+
+	[Native]
+	public enum DeviceCapability : long
+	{
+		VideoOut = 1 << 0,
+		VideoIn = 1 << 1,
+		AudioOut = 1 << 2,
+		AudioIn = 1 << 3,
+		MultizoneGroup = 1 << 5,
+		MasterOrFixedVolume = 1 << 11,
+		AttenuationOrFixedVolume = 1 << 12
 	}
 
 	[Native]
@@ -36,13 +58,20 @@ namespace Google.Cast
 	}
 
 	[Native]
-	public enum DeviceCapability : long
+	public enum DeviceType : long
 	{
-		VideoOut = 1 << 0,
-		VideoIn = 1 << 1,
-		AudioOut = 1 << 2,
-		AudioIn = 1 << 3,
-		MultizoneGroup = 1 << 5
+		Generic = 0,
+		Tv,
+		Speaker,
+		SpeakerGroup,
+		NearbyUnpaired
+	}
+
+	[Native]
+	public enum DiscoveryState : long
+	{
+		Stopped = 0,
+		Running = 1
 	}
 
 	[Native]
@@ -60,6 +89,12 @@ namespace Google.Cast
 		InvalidState = 9,
 		SendBufferFull = 10,
 		MessageTooBig = 11,
+		ChannelNotConnected = 12,
+		DeviceAuthorizationFailure = 13,
+		DeviceNotConnected = 14,
+		ProtocolVersionMismatch = 15,
+		MaxUsersConnected = 16,
+		NetworkNotReachable = 17,
 		ApplicationNotFound = 20,
 		ApplicationNotRunning = 21,
 		InvalidApplicationSessionId = 22,
@@ -72,20 +107,42 @@ namespace Google.Cast
 	}
 
 	[Native]
-	public enum MediaControlChannelResumeState : long
+	public enum GameplayState : long
 	{
-		Unchanged = 0,
-		Play = 1,
-		Pause = 2
+		Unknown = 0,
+		Loading = 1,
+		Running = 2,
+		Paused = 3,
+		ShowingInfoScreen = 4
 	}
 
 	[Native]
-	public enum MediaStreamType : long
+	public enum LobbyState : long
+	{
+		Unknown = 0,
+		Open = 1,
+		Closed = 2
+	}
+
+	[Native]
+	public enum LoggerLevel : long
 	{
 		None = 0,
-		Buffered = 1,
-		Live = 2,
-		Unknown = 99
+		Verbose = 1,
+		Debug = 2,
+		Info = 3,
+		Warning = 4,
+		Error = 5,
+		Assert = 6
+	}
+
+	[Native]
+	public enum MediaMetadataImageType : long
+	{
+		Custom = 0,
+		CastDialog = 1,
+		MiniController = 2,
+		Background = 3
 	}
 
 	[Native]
@@ -106,7 +163,8 @@ namespace Google.Cast
 		Idle = 1,
 		Playing = 2,
 		Paused = 3,
-		Buffering = 4
+		Buffering = 4,
+		Loading = 5
 	}
 
 	[Native]
@@ -117,6 +175,50 @@ namespace Google.Cast
 		Cancelled = 2,
 		Interrupted = 3,
 		Error = 4
+	}
+
+	[Native]
+	public enum MediaRepeatMode : long
+	{
+		Unchanged = 0,
+		Off = 1,
+		Single = 2,
+		All = 3,
+		AllAndShuffle = 4
+	}
+
+	//////////////////
+	/// Same enum in Objective-C
+	////////////////// 
+
+	[Native]
+	public enum MediaControlChannelResumeState : long
+	{
+		Unchanged = 0,
+		Play = 1,
+		Pause = 2
+	}
+
+	// typedef GCKMediaControlChannelResumeState GCKMediaResumeState;
+	[Native]
+	public enum MediaResumeState : long
+	{
+		Unchanged = 0,
+		Play = 1,
+		Pause = 2
+	}
+
+	//////////////////
+	//////////////////
+	//////////////////
+
+	[Native]
+	public enum MediaStreamType : long
+	{
+		None = 0,
+		Buffered = 1,
+		Live = 2,
+		Unknown = 99
 	}
 
 	[Native]
@@ -153,6 +255,7 @@ namespace Google.Cast
 		SmallCapitals = 7,
 	}
 
+	[Native]
 	public enum MediaTextTrackStyleFontStyle : long
 	{
 		Unknown = -1,
@@ -183,6 +286,25 @@ namespace Google.Cast
 	}
 
 	[Native]
+	public enum PlayerState : long
+	{
+		Unknown = 0,
+		Dropped = 1,
+		Quit = 2,
+		Available = 3,
+		Ready = 4,
+		Idle = 5,
+		Playing = 6
+	}
+
+	[Native]
+	public enum RequestAbortReason : long
+	{
+		Replaced = 1,
+		Cancelled = 2
+	}
+
+	[Native]
 	public enum SenderApplicationInfoPlatform : long
 	{
 		Android = 1,
@@ -200,12 +322,26 @@ namespace Google.Cast
 	}
 
 	[Native]
-	public enum MediaRepeatMode : long
+	public enum UIMediaButtonType : long
 	{
-		Unchanged = 0,
-		Off = 1,
-		Single = 2,
-		All = 3,
-		AllAndShuffle = 4
+		None,
+		PlayPauseToggle,
+		SkipNext,
+		SkipPrevious,
+		Rewind30Seconds,
+		Forward30Seconds,
+		MuteToggle,
+		ClosedCaptions,
+		Stop,
+		Custom
+	}
+
+	[Native]
+	public enum VideoInfoHdrType : long
+	{
+		Unknown = -1,
+		Sdr = 0,
+		Dv = 1,
+		Hdr = 2
 	}
 }
