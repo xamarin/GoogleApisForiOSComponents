@@ -14,8 +14,3 @@ using ObjCRuntime;
 	LinkerFlags = "-lz",
 	ForceLoad = true,
 	SmartLink = true)]
-
-[assembly: LinkWith ("GoogleSymbolUtilities",
-	LinkTarget.ArmV7 | LinkTarget.Simulator | LinkTarget.Simulator64 | LinkTarget.Arm64,
-	ForceLoad = true,
-	SmartLink = true)]
