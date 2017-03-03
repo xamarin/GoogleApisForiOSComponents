@@ -66,10 +66,9 @@ In order to view human-readable crash reports, you will need to upload symbol fi
 
 Follow these steps to upload your app symbols with Xamarin Studio:
 
-* In Xamarin Studio, select **Debug** configuration (Target can be device or simulator) and build the app (cmd + k) (don't run it).
-* Open **Project Options** of your app and go to **Build** > **Custom Commands**.
+* In Xamarin Studio, open **Project Options** of your app and go to **Build** > **Custom Commands**.
 * Double check that **Debug** configuration is selected.
-* In Combobox select **Before Build** option.
+* In Combobox select **After Build** option.
 * Paste the following command in **Command** text field:
 
 ```
@@ -77,17 +76,30 @@ sh ${ProjectDir}/scripts/FirebaseCrashReporting/batch-upload -p ${ProjectDir}/Go
 ```
 
 * Save options changed.
-* Now, build your app with **Debug** configuration again. Depending of your internet connection, the build can take some minutes because the script is uploading your symbols to Firebase.
+* Now, build your app with **Debug** configuration.
+
+Depending of your internet connection, the build can take some minutes because the script is uploading your symbols to Firebase.
+
+> ***Note:*** *If you don't want to keep uploading your symbols after each build, just remove the **After Build** command.*
 
 ### Upload symbol files with Terminal
 
 Follow these steps to upload your app symbols with Terminal:
 
 * In Xamarin Studio, select **Debug** configuration (Target can be device or simulator) and build the app (cmd + k) (don't run it).
-* In Terminal, go to project folder and run the following command:
+* In Terminal, go to your project folder and run the following command:
+  * If you built your project with iPhoneSimulator Target:
 
 ```
-sh scripts/FirebaseCrashReporting/batch-upload -p GoogleService-Info.plist -i Info.plist service-account.json bin/Debug/[iPhone|iPhoneSimulator]/[YourAppName].app/[YourAppName]
+# Don't forget to replace [YourAppName] value
+sh scripts/FirebaseCrashReporting/batch-upload -p GoogleService-Info.plist -i Info.plist service-account.json bin/iPhoneSimulator/Debug/[YourAppName].app/[YourAppName]
+```
+
+  * If you built your project with iPhone Target:
+
+```
+# Don't forget to replace [SDKVersion] and [YourAppName] values
+sh scripts/FirebaseCrashReporting/batch-upload -p GoogleService-Info.plist -i Info.plist service-account.json bin/iPhone/Debug/device-builds/iphone[SDKVersion]/[YourAppName].app/[YourAppName]
 ```
 
 * Depending of your internet connection, the script can take some minutes because it's uploading your symbols to Firebase.
@@ -96,8 +108,8 @@ sh scripts/FirebaseCrashReporting/batch-upload -p GoogleService-Info.plist -i In
 
 After you uploaded your symbol files to Firebase, do the following steps to view your crash in Firebase Console:
 
-1. In Xamarin Studio, select **Debug** configuration and run your app.
-2. Wait until your app crashes, when it crashes, stop the debugging.
+1. Launch the app from Xamarin Studio.
+2. Wait until your app crashes, then, stop the debugging.
 3. Launch the app directly from the home screen on the device or simulator.
 4. Wait until your app crashes.
 5. Remove the crashing line so your app can start successfully.
@@ -124,6 +136,7 @@ crash.PerformSelector (new Selector ("doesNotRecognizeSelector"), crash, 0);
 
 * App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][3])
 * The Firebase SDK does not currently support using the `NSException` class in the Xcode simulator. If you use this class, it will result in malformed stack traces in the Firebase console. As a workaround, either use a physical device or test with a different type of exception.
+* Crash Reporting uses a unique ID to identify each user. Due to a known bug in Xcode 8.1, creating this ID fails on iOS 10 simulators, preventing the upload of error reports. To work around this in Xcode 8.1, you can run tests on a device, or turn on **Keychain Sharing** in your **Entitlements.plist** file. This bug has been addressed in the beta release of Xcode 8.2.
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/crash/ios) to see original Firebase documentation._</sub>
 

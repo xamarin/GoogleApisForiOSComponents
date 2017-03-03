@@ -31,6 +31,14 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
+    <CustomCommands>
+      <CustomCommands>
+        <Command>
+          <type>AfterBuild</type>
+          <command>sh ${ProjectDir}/scripts/FirebaseCrashReporting/batch-upload -p ${ProjectDir}/GoogleService-Info.plist -i ${ProjectDir}/Info.plist ${ProjectDir}/service-account.json ${TargetDir}/${ProjectName}.app/${ProjectName}</command>
+        </Command>
+      </CustomCommands>
+    </CustomCommands>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>pdbonly</DebugType>
