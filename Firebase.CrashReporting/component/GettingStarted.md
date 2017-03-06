@@ -67,7 +67,7 @@ In order to view human-readable crash reports, you will need to upload symbol fi
 Follow these steps to upload your app symbols with Xamarin Studio:
 
 * In Xamarin Studio, open **Project Options** of your app and go to **Build** > **Custom Commands**.
-* Double check that **Debug** configuration is selected.
+* Double check that **Debug** configuration is selected (Platform can be device or simulator).
 * In Combobox select **After Build** option.
 * Paste the following command in **Command** text field:
 
@@ -86,7 +86,7 @@ Depending of your internet connection, the build can take some minutes because t
 
 Follow these steps to upload your app symbols with Terminal:
 
-* In Xamarin Studio, select **Debug** configuration (Target can be device or simulator) and build the app (cmd + k) (don't run it).
+* In Xamarin Studio, select **Debug** configuration (Platform can be device or simulator) and build the app (cmd + k) (don't run it).
 * In Terminal, go to your project folder and run the following command:
   * If you built your project with iPhoneSimulator Target:
 
