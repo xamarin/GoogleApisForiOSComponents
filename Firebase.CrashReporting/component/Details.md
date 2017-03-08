@@ -1,3 +1,9 @@
+### **Important note:** *This component is only compatible with Xamarin Studio and Visual Studio for Mac.*
+
+Firebase Crash Reporting uses shell scripts to upload symbols to Firebase Console, but scripts use commands that are only available in Mac. Therefore, this component is only compatible with Xamarin Studio and Visual Studio for Mac.
+
+# Firebase Crash Reporting on iOS
+
 Comprehensive and actionable information to help diagnose and fix problems in your app.
 
 Crash Reporting creates detailed reports of the errors in your app. Errors are grouped into clusters of similar stack traces and triaged by the severity of impact on your users. In addition to automatic reports, you can log custom events to help capture the steps leading up to a crash.

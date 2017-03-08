@@ -25,10 +25,6 @@
     <file src="source/Firebase.CrashReporting/Firebase.CrashReporting.targets" target="build/Xamarin.Firebase.iOS.CrashReporting.targets" />
     
     <!-- Add necessary files for upload symbols to Firebase Console-->
-    <file src="source/Firebase.CrashReporting/xamarin_upload_symbols.sh" target="content/scripts/xamarin_upload_symbols.sh" />
-    <file src="externals/Pods/FirebaseCrash/batch-upload" target="content/scripts/batch-upload" />
-    <file src="externals/Pods/FirebaseCrash/dump_syms" target="content/scripts/dump_syms" />
-    <file src="externals/Pods/FirebaseCrash/extract-keys" target="content/scripts/extract-keys" />
-    <file src="externals/Pods/FirebaseCrash/upload-sym-util.bash" target="content/scripts/upload-sym-util.bash" />
+    <file src="source/Firebase.CrashReporting/xamarin_upload_symbols.sh" target="content/xamarin_upload_symbols.sh" />
   </files>
 </package>

@@ -13,7 +13,8 @@
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildCopyResources 
-				Include="$(XamarinBuildDownloadDir)$(_FirebaseCrashReportingItemsFolder)/*"
+				Include="$(XamarinBuildDownloadDir)$(_FirebaseCrashReportingItemsFolder)/*;
+					$(MSBuildThisFileDirectory)../**/xamarin_upload_symbols.sh;"
 				Exclude="$(XamarinBuildDownloadDir)$(_FirebaseCrashReportingItemsFolder)/README.md;
 					$(XamarinBuildDownloadDir)$(_FirebaseCrashReportingItemsFolder)/upload-sym;
 					$(XamarinBuildDownloadDir)$(_FirebaseCrashReportingItemsFolder)/upload-sym.sh;"/>

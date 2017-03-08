@@ -31,6 +31,8 @@ namespace CrashReportingSample
 				CrashReporting.Log (TxtLog.Text);
 
 			// Create a Crash
+			// Please, go to https://components.xamarin.com/gettingstarted/firebaseioscrashreporting
+			// and follow instructions.
 			var crash = new NSObject ();
 			crash.PerformSelector (new Selector ("doesNotRecognizeSelector"), crash, 0);
 		}

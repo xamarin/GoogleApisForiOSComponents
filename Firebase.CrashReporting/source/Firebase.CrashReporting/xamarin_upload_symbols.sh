@@ -65,8 +65,6 @@ if [ "$GOOGLE_PLIST" == "" ]; then
     argumentMissing
 fi
 
-chmod +x $SCRIPTS
-
 MATCH_O="$(find $BIN_PATH -type d -name $APP_NAME.app)"
 
 if [ "$MATCH_O" != "" ]; then
