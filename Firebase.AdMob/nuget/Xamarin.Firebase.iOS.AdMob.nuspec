@@ -15,7 +15,7 @@
     <dependencies>
       <dependency id="Xamarin.Build.Download" version="0.2.2"/>
       <dependency id="Xamarin.Google.iOS.MobileAds" version="7.16.0.0"/>
-      <dependency id="Xamarin.Firebase.iOS.Analytics" version="3.6.0.0"/>
+      <dependency id="Xamarin.Firebase.iOS.Analytics" version="3.6.0.2"/>
     </dependencies>
   </metadata>
 </package>
