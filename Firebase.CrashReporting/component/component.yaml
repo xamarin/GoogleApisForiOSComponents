@@ -12,9 +12,6 @@ docs-url: https://firebase.google.com/docs/crash/
 libraries:
   ios-unified: 
     - ../output/Firebase.CrashReporting.dll
-    - ../../Firebase.Analytics/output/Firebase.Analytics.dll
-    - ../../Firebase.Core/output/Firebase.Core.dll
-    - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
 is_shell: true
 packages:
   ios-unified:
@@ -34,6 +31,12 @@ samples:
           - Xamarin.Firebase.iOS.Analytics
           - Xamarin.Firebase.iOS.Core
           - Xamarin.Firebase.iOS.InstanceID
+    removeFiles:
+      - CrashReportingSample/scripts/FirebaseCrashReporting/batch-upload
+      - CrashReportingSample/scripts/FirebaseCrashReporting/dump_syms
+      - CrashReportingSample/scripts/FirebaseCrashReporting/extract-keys
+      - CrashReportingSample/scripts/FirebaseCrashReporting/upload-sym-util.bash
+      - CrashReportingSample/scripts/FirebaseCrashReporting/xamarin_upload_symbols.sh
     removeNodes:
       - "//xNS:Import[contains (@Project, 'Firebase.CrashReporting.targets')]"
       - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"
