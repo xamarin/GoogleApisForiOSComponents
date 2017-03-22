@@ -18,6 +18,10 @@
   BuildScript: ./Firebase.Core/build.cake
   TriggerPaths: [ Firebase.Core ]
   MacBuildTargets: [ samples, component ]
+- Name: Firebase.iOS.CrashReporting
+  BuildScript: ./Firebase.CrashReporting/build.cake
+  TriggerPaths: [ Firebase.CrashReporting ]
+  MacBuildTargets: [ samples, component ]
 - Name: Firebase.iOS.Database
   BuildScript: ./Firebase.Database/build.cake
   TriggerPaths: [ Firebase.Database ]

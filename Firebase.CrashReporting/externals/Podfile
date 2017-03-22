@@ -1,0 +1,38 @@
+=begin
+Last run FirebaseCrash installed:
+- FirebaseAnalytics (3.6.0)
+- FirebaseCore (3.4.5)
+- FirebaseCrash (1.1.4)
+- FirebaseInstanceID (1.0.8)
+- GoogleInterchangeUtilities (1.2.2)
+- GoogleSymbolUtilities (1.1.2)
+- GoogleToolboxForMac (2.1.0)
+
+Check if main version or subversion number has changed. 
+If yes, please, update *.targets files located in binding 
+projects, also, update Podfile files if needed.
+
+In .targets file, located in Firebase.CrashReporting binding, you can find:
+- FirebaseCrash (1.1.4)
+
+In .targets file, located in Firebase.Analytics binding, you can find:
+- FirebaseAnalytics (3.6.0)
+- GoogleSymbolUtilities (1.1.2)
+
+In .targets file, located in Firebase.Core binding, you can find:
+- FirebaseCore (3.4.5)
+- GoogleToolboxForMac (2.1.0)
+- GoogleInterchangeUtilities (1.2.2)
+
+In .targets file, located in Firebase.InstanceID binding, you can find:
+- FirebaseInstanceID (1.0.8)
+=end
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '7.0'
+install! 'cocoapods', :integrate_targets => false
+
+target 'FirebaseCrash' do
+	pod 'Firebase/Crash', '3.10.0'
+end
