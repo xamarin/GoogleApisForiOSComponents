@@ -1,15 +1,15 @@
 =begin
 Last run GoogleSignIn installed:
-- FirebaseAnalytics (3.5.1)
-- FirebaseCore (3.4.4)
+- FirebaseAnalytics (3.6.0)
+- FirebaseCore (3.4.6)
 - FirebaseInstanceID (1.0.8)
 - GTMOAuth2 (1.1.4)
-- GTMSessionFetcher (1.1.7)
+- GTMSessionFetcher (1.1.8)
 - GoogleAppUtilities (1.1.2)
 - GoogleInterchangeUtilities (1.2.2)
 - GoogleSignIn (4.0.1)
 - GoogleSymbolUtilities (1.1.2)
-- GoogleToolboxForMac (2.1.0)
+- GoogleToolboxForMac (2.1.1)
 
 Check if main version or subversion number has changed. 
 If yes, please, update *.targets files located in binding 
@@ -21,14 +21,14 @@ In .targets file, located in Google.SignIn binding, you can find:
 - GoogleAppUtilities (1.1.2)
 
 In .targets file, located in Firebase.Analytics binding, you can find:
-- FirebaseAnalytics (3.5.1)
+- FirebaseAnalytics (3.6.0)
 - GoogleInterchangeUtilities (1.2.2)
 - GoogleSymbolUtilities (1.1.2)
 
 In .targets file, located in Firebase.Core binding, you can find:
-- FirebaseCore (3.4.4)
-- GoogleToolboxForMac (2.1.0)
-- GTMSessionFetcher (1.1.7)
+- FirebaseCore (3.4.6)
+- GoogleToolboxForMac (2.1.1)
+- GTMSessionFetcher (1.1.8)
 
 In .targets file, located in Firebase.InstanceID binding, you can find:
 - FirebaseInstanceID (1.0.8)
@@ -42,5 +42,5 @@ install! 'cocoapods', :integrate_targets => false
 target 'GoogleSignIn' do
 	pod 'GoogleSignIn',  '4.0.1'
 	pod 'Google/SignIn', '3.0.3'
-	pod 'Firebase/Core', '3.8.0'
+	pod 'Firebase/Core', '3.11.0'
 end
