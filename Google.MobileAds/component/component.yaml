@@ -15,7 +15,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Google.iOS.MobileAds, Version=7.15.0.0
+    - Xamarin.Google.iOS.MobileAds, Version=7.16.0.0
 samples:
   - name: "Google Mobile Ads AdMob Sample"
     path:  ../samples/MobileAdsExample/MobileAdsExample.sln

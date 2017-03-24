@@ -13,8 +13,8 @@
     <licenseUrl>https://components.xamarin.com/license/firebaseiosanalytics</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseiosanalytics_128x128.png</iconUrl>
     <dependencies>
-      <dependency id="Xamarin.Build.Download" version="0.2.2"/>
-      <dependency id="Xamarin.Firebase.iOS.InstanceID" version="1.0.8.0"/>
+      <dependency id="Xamarin.Build.Download" version="0.4.3"/>
+      <dependency id="Xamarin.Firebase.iOS.InstanceID" version="1.0.8.1"/>
       <dependency id="Xamarin.Firebase.iOS.Core" version="3.4.6.0"/>
     </dependencies>
   </metadata>
