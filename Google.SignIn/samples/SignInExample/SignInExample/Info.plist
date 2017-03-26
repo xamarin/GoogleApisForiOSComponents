@@ -51,5 +51,7 @@
 	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>CFBundleName</key>
+	<string>SignInExample</string>
 </dict>
 </plist>
