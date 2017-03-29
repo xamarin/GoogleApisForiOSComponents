@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.Firebase.iOS.Storage</id>
     <title>Firebase APIs Storage iOS Library</title>
-    <version>1.0.5.0</version>
+    <version>1.0.5.2</version>
     <authors>Xamarin Inc.</authors>
     <owners>Xamarin Inc.</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -13,8 +13,8 @@
     <licenseUrl>https://components.xamarin.com/license/firebaseiosstorage</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseiosstorage_128x128.png</iconUrl>
     <dependencies>
-      <dependency id="Xamarin.Build.Download" version="0.2.2"/>
-      <dependency id="Xamarin.Firebase.iOS.Analytics" version="3.6.0.0"/>
+      <dependency id="Xamarin.Build.Download" version="0.4.3"/>
+      <dependency id="Xamarin.Firebase.iOS.Analytics" version="3.6.0.2"/>
     </dependencies>
   </metadata>
   <files>

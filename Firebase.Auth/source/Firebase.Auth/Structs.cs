@@ -4,6 +4,21 @@ using ObjCRuntime;
 namespace Firebase.Auth
 {
 	[Native]
+	public enum ActionDataKey : long
+	{
+		EmailKey = 0,
+		FromEmailKey = 1
+	}
+
+	[Native]
+	public enum ActionCodeOperation : long
+	{
+		Unknown = 0,
+		PasswordReset = 1,
+		VerifyEmail = 2
+	}
+
+	[Native]
 	public enum AuthErrorCode : long
 	{
 		InvalidCustomToken = 17000,
@@ -28,6 +43,8 @@ namespace Firebase.Auth
 		CredentialAlreadyInUse = 17025,
 		WeakPassword = 17026,
 		AppNotAuthorized = 17028,
+		ExpiredActionCode = 17029,
+		InvalidActionCode = 17030,
 		KeychainError = 17995,
 		InternalError = 17999
 	}

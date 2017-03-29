@@ -13,10 +13,6 @@ namespace SignInExample
 	{
 		// class-level declarations
 
-		// ClientID can be found in the GoogleService-Info.plist file
-		// You can get the GoogleService-Info.plist file at https://developers.google.com/mobile/add
-		const string clientId = "1028405910307-am33jrsno99vde2ff7aa8bm29eqt08nb.apps.googleusercontent.com";
-
 		public override UIWindow Window {
 			get;
 			set;
@@ -24,17 +20,21 @@ namespace SignInExample
 
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
-			NSError configureError;
-			Context.SharedInstance.Configure (out configureError);
-			if (configureError != null) {
-				// If something went wrong, assign the clientID manually
-				Console.WriteLine ("Error configuring the Google context: {0}", configureError);
-				SignIn.SharedInstance.ClientID = clientId;
-			}
+			// You can get the GoogleService-Info.plist file at https://developers.google.com/mobile/add
+			var googleServiceDictionary = NSDictionary.FromFile ("GoogleService-Info.plist");
+			SignIn.SharedInstance.ClientID = googleServiceDictionary ["CLIENT_ID"].ToString ();
 
 			return true;
 		}
 
+		// For iOS 9 or newer
+		public override bool OpenUrl (UIApplication app, NSUrl url, NSDictionary options)
+		{
+			var openUrlOptions = new UIApplicationOpenUrlOptions (options);
+			return SignIn.SharedInstance.HandleUrl (url, openUrlOptions.SourceApplication, openUrlOptions.Annotation);
+		}
+
+		// For iOS 8 and older
 		public override bool OpenUrl (UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
 		{
 			return SignIn.SharedInstance.HandleUrl (url, sourceApplication, annotation);

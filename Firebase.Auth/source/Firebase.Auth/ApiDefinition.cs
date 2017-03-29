@@ -19,6 +19,32 @@ namespace Firebase.Auth
 	// typedef void (^FIRSendPasswordResetCallback)(NSError * _Nullable);
 	delegate void SendPasswordResetHandler ([NullAllowed] NSError error);
 
+	// typedef void (^FIRConfirmPasswordResetCallback)(NSError * _Nullable);
+	delegate void ConfirmPasswordResetHandler ([NullAllowed] NSError erorr);
+
+	// typedef void (^FIRVerifyPasswordResetCodeCallback)(NSString * _Nullable, NSError * _Nullable);
+	delegate void VerifyPasswordResetCodeHandler ([NullAllowed] string email, [NullAllowed] NSError error);
+
+	// typedef void (^FIRApplyActionCodeCallback)(NSError * _Nullable);
+	delegate void ApplyActionCodeHandler ([NullAllowed] NSError error);
+
+	// @interface FIRActionCodeInfo : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FIRActionCodeInfo")]
+	interface ActionCodeInfo
+	{
+		// @property (readonly, nonatomic) FIRActionCodeOperation operation;
+		[Export ("operation")]
+		ActionCodeOperation Operation { get; }
+
+		// -(NSString * _Nonnull)dataForKey:(FIRActionDataKey)key;
+		[Export ("dataForKey:")]
+		string DataForKey (ActionDataKey key);
+	}
+
+	// typedef void (^FIRCheckActionCodeCallBack)(FIRActionCodeInfo * _Nullable, NSError * _Nullable);
+	delegate void CheckActionCodeHandler ([NullAllowed] ActionCodeInfo info, [NullAllowed] NSError error);
+
 	// @interface FIRAuth : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRAuth")]
@@ -87,6 +113,22 @@ namespace Firebase.Auth
 		// -(void)createUserWithEmail:(NSString * _Nonnull)email password:(NSString * _Nonnull)password completion:(FIRAuthResultCallback _Nullable)completion;
 		[Export ("createUserWithEmail:password:completion:")]
 		void CreateUser (string email, string password, [NullAllowed] AuthResultHandler completion);
+
+		// -(void)confirmPasswordResetWithCode:(NSString * _Nonnull)code newPassword:(NSString * _Nonnull)newPassword completion:(FIRConfirmPasswordResetCallback _Nonnull)completion;
+		[Export ("confirmPasswordResetWithCode:newPassword:completion:")]
+		void ConfirmPasswordReset (string code, string newPassword, ConfirmPasswordResetHandler completion);
+
+		// -(void)checkActionCode:(NSString * _Nonnull)code completion:(FIRCheckActionCodeCallBack _Nonnull)completion;
+		[Export ("checkActionCode:completion:")]
+		void CheckActionCode (string code, CheckActionCodeHandler completion);
+
+		// -(void)verifyPasswordResetCode:(NSString * _Nonnull)code completion:(FIRVerifyPasswordResetCodeCallback _Nonnull)completion;
+		[Export ("verifyPasswordResetCode:completion:")]
+		void VerifyPasswordResetCode (string code, VerifyPasswordResetCodeHandler completion);
+
+		// -(void)applyActionCode:(NSString * _Nonnull)code completion:(FIRApplyActionCodeCallback _Nonnull)completion;
+		[Export ("applyActionCode:completion:")]
+		void ApplyActionCode (string code, ApplyActionCodeHandler completion);
 
 		// -(void)sendPasswordResetWithEmail:(NSString * _Nonnull)email completion:(FIRSendPasswordResetCallback _Nullable)completion;
 		[Export ("sendPasswordResetWithEmail:completion:")]
