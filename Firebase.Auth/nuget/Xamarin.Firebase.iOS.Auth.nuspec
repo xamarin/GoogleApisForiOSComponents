@@ -13,8 +13,10 @@
     <licenseUrl>https://components.xamarin.com/license/firebaseiosauth</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseiosauth_128x128.png</iconUrl>
     <dependencies>
-      <dependency id="Xamarin.Build.Download" version="0.4.3"/>
-      <dependency id="Xamarin.Firebase.iOS.Analytics" version="3.6.0.2"/>
+      <group targetFramework="Xamarin.iOS10">
+        <dependency id="Xamarin.Build.Download" version="0.4.3"/>
+        <dependency id="Xamarin.Firebase.iOS.Analytics" version="3.6.0.2"/>
+      </group>
     </dependencies>
   </metadata>
   <files>

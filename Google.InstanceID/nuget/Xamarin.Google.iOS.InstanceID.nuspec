@@ -13,8 +13,10 @@
     <licenseUrl>https://components.xamarin.com/license/googleiosinstanceid</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/googleiosinstanceid_128x128.png</iconUrl>
     <dependencies>
-      <dependency id="Xamarin.Build.Download" version="0.4.3"/>
-      <dependency id="Xamarin.Google.iOS.Core" version="3.0.3.3"/>
+      <group targetFramework="Xamarin.iOS10">
+        <dependency id="Xamarin.Build.Download" version="0.4.3"/>
+        <dependency id="Xamarin.Google.iOS.Core" version="3.0.3.3"/>
+      </group>
     </dependencies>
   </metadata>
   <files>

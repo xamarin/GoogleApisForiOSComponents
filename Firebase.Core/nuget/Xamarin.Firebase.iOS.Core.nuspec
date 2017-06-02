@@ -13,7 +13,9 @@
     <licenseUrl>https://github.com/xamarin/GoogleApisForiOSComponents/blob/master/Firebase.Core/License.md/</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseioscore_128x128.png</iconUrl>
     <dependencies>
-      <dependency id="Xamarin.Build.Download" version="0.4.3"/>
+      <group targetFramework="Xamarin.iOS10">
+        <dependency id="Xamarin.Build.Download" version="0.4.3"/>
+      </group>
     </dependencies>
   </metadata>
   <files>
