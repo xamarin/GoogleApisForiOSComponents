@@ -1,4 +1,4 @@
-version: 1.0.5.2
+version: 1.0.5.3
 name: Firebase Storage for iOS
 id: firebaseiosstorage
 publisher: Xamarin Inc.
@@ -6,45 +6,44 @@ publisher-url: http://xamarin.com
 src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Firebase.Storage
 summary: Firebase Storage provides robust, secure file uploads and downloads from Firebase SDKs, powered by Google Cloud Storage.
 icons:
-  - ../../icons/firebaseiosstorage_128x128.png
-  - ../../icons/firebaseiosstorage_512x512.png
+- ../../icons/firebaseiosstorage_128x128.png
+- ../../icons/firebaseiosstorage_512x512.png
 docs-url: https://firebase.google.com/docs/storage/
 libraries:
-  ios-unified: 
-    - ../output/Firebase.Storage.dll
-    - ../../Firebase.Analytics/output/Firebase.Analytics.dll
-    - ../../Firebase.Core/output/Firebase.Core.dll
-    - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
+  ios-unified:
+  - ../output/Firebase.Storage.dll
+  - ../../Firebase.Analytics/output/Firebase.Analytics.dll
+  - ../../Firebase.Core/output/Firebase.Core.dll
+  - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Firebase.iOS.Storage, Version=1.0.5.2
+  - Xamarin.Firebase.iOS.Storage, Version=1.0.5.3
 samples:
-  - name: "Storage Sample"
-    path: ../samples/StorageSample/StorageSample.sln
-    removeProjects: 
-      - Firebase.Storage
-      - Firebase.Database
-      - Firebase.Auth
-      - Firebase.Analytics
-      - Firebase.Core
-      - Firebase.InstanceID
-    installNuGets:
-      - project: StorageSample
-        packages:
-          - Xamarin.Firebase.iOS.Storage
-          - Xamarin.Firebase.iOS.Auth
-          - Xamarin.Firebase.iOS.Database
-          - Xamarin.Firebase.iOS.Analytics
-          - Xamarin.Firebase.iOS.Core
-          - Xamarin.Firebase.iOS.InstanceID
-
-    removeNodes:
-      - "//xNS:Import[contains (@Project, 'Firebase.Storage.targets')]"
-      - "//xNS:Import[contains (@Project, 'Firebase.Database.targets')]"
-      - "//xNS:Import[contains (@Project, 'Firebase.Auth.targets')]"
-      - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"
-      - "//xNS:Import[contains (@Project, 'Firebase.Core.targets')]"
-      - "//xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]"
+- name: Storage Sample
+  path: ../samples/StorageSample/StorageSample.sln
+  removeProjects:
+  - Firebase.Storage
+  - Firebase.Database
+  - Firebase.Auth
+  - Firebase.Analytics
+  - Firebase.Core
+  - Firebase.InstanceID
+  installNuGets:
+  - project: StorageSample
+    packages:
+    - Xamarin.Firebase.iOS.Storage
+    - Xamarin.Firebase.iOS.Auth
+    - Xamarin.Firebase.iOS.Database
+    - Xamarin.Firebase.iOS.Analytics
+    - Xamarin.Firebase.iOS.Core
+    - Xamarin.Firebase.iOS.InstanceID
+  removeNodes:
+  - //xNS:Import[contains (@Project, 'Firebase.Storage.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.Database.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.Auth.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.Core.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]
 local-nuget-repo: ../../tmp-nugets
 no_build: true

@@ -1,4 +1,4 @@
-version: 1.2.3.2
+version: 1.2.3.3
 name: Firebase Invites for iOS
 id: firebaseiosinvites
 publisher: Xamarin Inc.
@@ -6,55 +6,53 @@ publisher-url: http://xamarin.com
 src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Firebase.Invites
 summary: Enable your users to share your app with people they know
 icons:
-  - ../../icons/firebaseiosinvites_128x128.png
-  - ../../icons/firebaseiosinvites_512x512.png
+- ../../icons/firebaseiosinvites_128x128.png
+- ../../icons/firebaseiosinvites_512x512.png
 docs-url: https://firebase.google.com/docs/invites/
 libraries:
-  ios-unified: 
-    - ../output/Firebase.Invites.dll
-    - ../../Google.SignIn/output/Google.SignIn.dll
-    - ../../Google.Core/output/Google.Core.dll
-    - ../../Firebase.DynamicLinks/output/Firebase.DynamicLinks.dll
-    - ../../Firebase.Analytics/output/Firebase.Analytics.dll
-    - ../../Firebase.Core/output/Firebase.Core.dll
-    - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
+  ios-unified:
+  - ../output/Firebase.Invites.dll
+  - ../../Google.SignIn/output/Google.SignIn.dll
+  - ../../Google.Core/output/Google.Core.dll
+  - ../../Firebase.DynamicLinks/output/Firebase.DynamicLinks.dll
+  - ../../Firebase.Analytics/output/Firebase.Analytics.dll
+  - ../../Firebase.Core/output/Firebase.Core.dll
+  - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Firebase.iOS.Invites, Version=1.2.3.2
+  - Xamarin.Firebase.iOS.Invites, Version=1.2.3.3
 samples:
-  - name: "Invites Sample"
-    path: ../samples/InvitesSample/InvitesSample.sln
-    removeProjects: 
-      - Firebase.Invites
-      - Google.SignIn
-      - Google.Core
-      - Firebase.DynamicLinks
-      - Firebase.Analytics
-      - Firebase.Core
-      - Firebase.InstanceID
-    installNuGets:
-      - project: InvitesSample
-        packages:
-          - Xamarin.Firebase.iOS.Invites
-          - Xamarin.Google.iOS.SignIn
-          - Xamarin.Google.iOS.Core
-          - Xamarin.Firebase.iOS.DynamicLinks
-          - Xamarin.Firebase.iOS.Analytics
-          - Xamarin.Firebase.iOS.Core
-          - Xamarin.Firebase.iOS.InstanceID
-    removeNodes:
-      - "//xNS:Import[contains (@Project, 'Firebase.Invites.targets')]"
-      - "//xNS:Import[contains (@Project, 'Google.SignIn.targets')]"
-      - "//xNS:Import[contains (@Project, 'Google.Core.targets')]"
-      - "//xNS:Import[contains (@Project, 'Firebase.DynamicLinks.targets')]"
-      - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"
-      - "//xNS:Import[contains (@Project, 'Firebase.Core.targets')]"
-      - "//xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]"
+- name: Invites Sample
+  path: ../samples/InvitesSample/InvitesSample.sln
+  removeProjects:
+  - Firebase.Invites
+  - Google.SignIn
+  - Google.Core
+  - Firebase.DynamicLinks
+  - Firebase.Analytics
+  - Firebase.Core
+  - Firebase.InstanceID
+  installNuGets:
+  - project: InvitesSample
+    packages:
+    - Xamarin.Firebase.iOS.Invites
+    - Xamarin.Google.iOS.SignIn
+    - Xamarin.Google.iOS.Core
+    - Xamarin.Firebase.iOS.DynamicLinks
+    - Xamarin.Firebase.iOS.Analytics
+    - Xamarin.Firebase.iOS.Core
+    - Xamarin.Firebase.iOS.InstanceID
+  removeNodes:
+  - //xNS:Import[contains (@Project, 'Firebase.Invites.targets')]
+  - //xNS:Import[contains (@Project, 'Google.SignIn.targets')]
+  - //xNS:Import[contains (@Project, 'Google.Core.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.DynamicLinks.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.Core.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]
 local-nuget-repo: ../../tmp-nugets
-
-additional-files:
-  - source: "../External-Dependency-Info"
-    destination: "THIRD-PARTY-NOTICES"
-
 no_build: true
+additional-files:
+- source: ../External-Dependency-Info
+  destination: THIRD-PARTY-NOTICES

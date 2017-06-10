@@ -1,4 +1,4 @@
-version: 1.1.4.0
+version: 1.1.4.1
 name: Firebase Crash Reporting for iOS
 id: firebaseioscrashreporting
 publisher: Xamarin Inc.
@@ -6,41 +6,41 @@ publisher-url: http://xamarin.com
 src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Firebase.CrashReporting
 summary: Firebase Crash Reporting provides analytics about the stability and number of bugs affecting your app, as well as diagnostic information for quickly fixing them
 icons:
-  - ../../icons/firebaseioscrashreporting_128x128.png
-  - ../../icons/firebaseioscrashreporting_512x512.png
+- ../../icons/firebaseioscrashreporting_128x128.png
+- ../../icons/firebaseioscrashreporting_512x512.png
 docs-url: https://firebase.google.com/docs/crash/
 libraries:
-  ios-unified: 
-    - ../output/Firebase.CrashReporting.dll
+  ios-unified:
+  - ../output/Firebase.CrashReporting.dll
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Firebase.iOS.CrashReporting, Version=1.1.4.0
+  - Xamarin.Firebase.iOS.CrashReporting, Version=1.1.4.1
 samples:
-  - name: "Crash Reporting Sample"
-    path: ../samples/CrashReportingSample/CrashReportingSample.sln
-    removeProjects: 
-      - Firebase.CrashReporting
-      - Firebase.Analytics
-      - Firebase.Core
-      - Firebase.InstanceID
-    installNuGets:
-      - project: CrashReportingSample
-        packages:
-          - Xamarin.Firebase.iOS.CrashReporting
-          - Xamarin.Firebase.iOS.Analytics
-          - Xamarin.Firebase.iOS.Core
-          - Xamarin.Firebase.iOS.InstanceID
-    removeFiles:
-      - CrashReportingSample/scripts/FirebaseCrashReporting/batch-upload
-      - CrashReportingSample/scripts/FirebaseCrashReporting/dump_syms
-      - CrashReportingSample/scripts/FirebaseCrashReporting/extract-keys
-      - CrashReportingSample/scripts/FirebaseCrashReporting/upload-sym-util.bash
-      - CrashReportingSample/scripts/FirebaseCrashReporting/xamarin_upload_symbols.sh
-    removeNodes:
-      - "//xNS:Import[contains (@Project, 'Firebase.CrashReporting.targets')]"
-      - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"
-      - "//xNS:Import[contains (@Project, 'Firebase.Core.targets')]"
-      - "//xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]"
+- name: Crash Reporting Sample
+  path: ../samples/CrashReportingSample/CrashReportingSample.sln
+  removeProjects:
+  - Firebase.CrashReporting
+  - Firebase.Analytics
+  - Firebase.Core
+  - Firebase.InstanceID
+  installNuGets:
+  - project: CrashReportingSample
+    packages:
+    - Xamarin.Firebase.iOS.CrashReporting
+    - Xamarin.Firebase.iOS.Analytics
+    - Xamarin.Firebase.iOS.Core
+    - Xamarin.Firebase.iOS.InstanceID
+  removeFiles:
+  - CrashReportingSample/scripts/FirebaseCrashReporting/batch-upload
+  - CrashReportingSample/scripts/FirebaseCrashReporting/dump_syms
+  - CrashReportingSample/scripts/FirebaseCrashReporting/extract-keys
+  - CrashReportingSample/scripts/FirebaseCrashReporting/upload-sym-util.bash
+  - CrashReportingSample/scripts/FirebaseCrashReporting/xamarin_upload_symbols.sh
+  removeNodes:
+  - //xNS:Import[contains (@Project, 'Firebase.CrashReporting.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.Core.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]
 local-nuget-repo: ../../tmp-nugets
 no_build: true

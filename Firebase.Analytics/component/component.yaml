@@ -1,39 +1,39 @@
-version: 3.6.0.2
+version: 3.6.0.3
 name: Firebase Analytics for iOS
 id: firebaseiosanalytics
 publisher: Xamarin Inc.
 publisher-url: https://xamarin.com
 src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Firebase.Analytics
-summary: "Firebase Analytics is a free app measurement solution that provides insight on app usage and user engagement."
+summary: Firebase Analytics is a free app measurement solution that provides insight on app usage and user engagement.
 icons:
-  - ../../icons/firebaseiosanalytics_128x128.png
-  - ../../icons/firebaseiosanalytics_512x512.png
+- ../../icons/firebaseiosanalytics_128x128.png
+- ../../icons/firebaseiosanalytics_512x512.png
 docs-url: https://firebase.google.com/docs/analytics/
 libraries:
-  ios-unified: 
-    - ../output/Firebase.Analytics.dll
-    - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
-    - ../../Firebase.Core/output/Firebase.Core.dll
+  ios-unified:
+  - ../output/Firebase.Analytics.dll
+  - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
+  - ../../Firebase.Core/output/Firebase.Core.dll
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Firebase.iOS.Analytics, Version=3.6.0.2
+  - Xamarin.Firebase.iOS.Analytics, Version=3.6.0.3
 samples:
-  - name: "Analytics Sample"
-    path:  ../samples/AnalyticsSample/AnalyticsSample.sln
-    removeProjects: 
-      - Firebase.Analytics
-      - Firebase.InstanceID
-      - Firebase.Core
-    installNuGets:
-      - project: AnalyticsSample
-        packages:
-          - Xamarin.Firebase.iOS.Analytics
-          - Xamarin.Firebase.iOS.InstanceID
-          - Xamarin.Firebase.iOS.Core
-    removeNodes:
-      - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"
-      - "//xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]"
-      - "//xNS:Import[contains (@Project, 'Firebase.Core.targets')]"
+- name: Analytics Sample
+  path: ../samples/AnalyticsSample/AnalyticsSample.sln
+  removeProjects:
+  - Firebase.Analytics
+  - Firebase.InstanceID
+  - Firebase.Core
+  installNuGets:
+  - project: AnalyticsSample
+    packages:
+    - Xamarin.Firebase.iOS.Analytics
+    - Xamarin.Firebase.iOS.InstanceID
+    - Xamarin.Firebase.iOS.Core
+  removeNodes:
+  - //xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.Core.targets')]
 local-nuget-repo: ../../tmp-nugets
 no_build: true

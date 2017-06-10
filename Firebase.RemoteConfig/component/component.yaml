@@ -1,4 +1,4 @@
-version: 1.3.1.3
+version: 1.3.1.4
 name: Firebase Remote Config for iOS
 id: firebaseiosremoteconfig
 publisher: Xamarin Inc.
@@ -6,38 +6,38 @@ publisher-url: http://xamarin.com
 src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Firebase.RemoteConfig
 summary: Firebase Remote Config is a cloud service that lets you change the appearance and behavior of your app without requiring users to download an app update.
 icons:
-  - ../../icons/firebaseiosremoteconfig_128x128.png
-  - ../../icons/firebaseiosremoteconfig_512x512.png
+- ../../icons/firebaseiosremoteconfig_128x128.png
+- ../../icons/firebaseiosremoteconfig_512x512.png
 docs-url: https://firebase.google.com/docs/remote-config/
 libraries:
-  ios-unified: 
-    - ../output/Firebase.RemoteConfig.dll
-    - ../../Firebase.Analytics/output/Firebase.Analytics.dll
-    - ../../Firebase.Core/output/Firebase.Core.dll
-    - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
+  ios-unified:
+  - ../output/Firebase.RemoteConfig.dll
+  - ../../Firebase.Analytics/output/Firebase.Analytics.dll
+  - ../../Firebase.Core/output/Firebase.Core.dll
+  - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Firebase.iOS.RemoteConfig, Version=1.3.1.3
+  - Xamarin.Firebase.iOS.RemoteConfig, Version=1.3.1.4
 samples:
-  - name: "Remote Config Sample"
-    path: ../samples/RemoteConfigSample/RemoteConfigSample.sln
-    removeProjects: 
-      - Firebase.RemoteConfig
-      - Firebase.Analytics
-      - Firebase.Core
-      - Firebase.InstanceID
-    installNuGets:
-      - project: RemoteConfigSample
-        packages:
-          - Xamarin.Firebase.iOS.RemoteConfig
-          - Xamarin.Firebase.iOS.Analytics
-          - Xamarin.Firebase.iOS.Core
-          - Xamarin.Firebase.iOS.InstanceID
-    removeNodes:
-      - "//xNS:Import[contains (@Project, 'Firebase.RemoteConfig.targets')]"
-      - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"
-      - "//xNS:Import[contains (@Project, 'Firebase.Core.targets')]"
-      - "//xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]"
+- name: Remote Config Sample
+  path: ../samples/RemoteConfigSample/RemoteConfigSample.sln
+  removeProjects:
+  - Firebase.RemoteConfig
+  - Firebase.Analytics
+  - Firebase.Core
+  - Firebase.InstanceID
+  installNuGets:
+  - project: RemoteConfigSample
+    packages:
+    - Xamarin.Firebase.iOS.RemoteConfig
+    - Xamarin.Firebase.iOS.Analytics
+    - Xamarin.Firebase.iOS.Core
+    - Xamarin.Firebase.iOS.InstanceID
+  removeNodes:
+  - //xNS:Import[contains (@Project, 'Firebase.RemoteConfig.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.Core.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]
 local-nuget-repo: ../../tmp-nugets
 no_build: true

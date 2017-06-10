@@ -1,4 +1,4 @@
-version: 1.2.1.5
+version: 1.2.1.6
 name: Google Instance ID for iOS
 id: googleiosinstanceid
 publisher: Xamarin Inc.
@@ -6,44 +6,44 @@ publisher-url: http://xamarin.com
 src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Google.InstanceID
 summary: Instance ID provides a unique ID per instance of your Android and iOS apps.
 icons:
-  - ../../icons/googleiosinstanceid_128x128.png
-  - ../../icons/googleiosinstanceid_512x512.png
+- ../../icons/googleiosinstanceid_128x128.png
+- ../../icons/googleiosinstanceid_512x512.png
 docs-url: https://developers.google.com/instance-id/
 libraries:
-  ios-unified: 
-    - ../output/Google.InstanceID.dll    
-    - ../../Google.Core/output/Google.Core.dll
-    - ../../Firebase.Analytics/output/Firebase.Analytics.dll
-    - ../../Firebase.Core/output/Firebase.Core.dll
-    - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
+  ios-unified:
+  - ../output/Google.InstanceID.dll
+  - ../../Google.Core/output/Google.Core.dll
+  - ../../Firebase.Analytics/output/Firebase.Analytics.dll
+  - ../../Firebase.Core/output/Firebase.Core.dll
+  - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Google.iOS.InstanceID, Version=1.2.1.5
+  - Xamarin.Google.iOS.InstanceID, Version=1.2.1.6
 samples:
-  - name: "InstanceID Sample"
-    path:  ../samples/InstanceIDSample/InstanceIDSample.sln
-    removeProjects: 
-      - Google.InstanceID
-      - Google.Core
-      - Firebase.Analytics
-      - Firebase.Core
-      - Firebase.InstanceID
-    removeFiles:
-      - InstanceIDSample/Makefile
-    installNuGets:
-      - project: InstanceIDSample
-        packages:
-          - Xamarin.Google.iOS.InstanceID
-          - Xamarin.Google.iOS.Core
-          - Xamarin.Firebase.iOS.Analytics
-          - Xamarin.Firebase.iOS.Core
-          - Xamarin.Firebase.iOS.InstanceID
-    removeNodes:
-      - "//xNS:Import[contains (@Project, 'Google.InstanceID.targets')]"
-      - "//xNS:Import[contains (@Project, 'Google.Core.targets')]"
-      - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"
-      - "//xNS:Import[contains (@Project, 'Firebase.Core.targets')]"
-      - "//xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]"
+- name: InstanceID Sample
+  path: ../samples/InstanceIDSample/InstanceIDSample.sln
+  removeProjects:
+  - Google.InstanceID
+  - Google.Core
+  - Firebase.Analytics
+  - Firebase.Core
+  - Firebase.InstanceID
+  installNuGets:
+  - project: InstanceIDSample
+    packages:
+    - Xamarin.Google.iOS.InstanceID
+    - Xamarin.Google.iOS.Core
+    - Xamarin.Firebase.iOS.Analytics
+    - Xamarin.Firebase.iOS.Core
+    - Xamarin.Firebase.iOS.InstanceID
+  removeFiles:
+  - InstanceIDSample/Makefile
+  removeNodes:
+  - //xNS:Import[contains (@Project, 'Google.InstanceID.targets')]
+  - //xNS:Import[contains (@Project, 'Google.Core.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.Core.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]
 local-nuget-repo: ../../tmp-nugets
 no_build: true
