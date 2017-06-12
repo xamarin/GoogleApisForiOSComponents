@@ -15,7 +15,7 @@ using Newtonsoft.Json;
 var TARGET = Argument ("target", Argument ("t", Argument ("Target", "build")));
 var COMPONENT_NAME = Argument ("component-name", Argument ("cn", Argument ("Component-name", "")));
 var COMPONENT_VERSION = Argument ("component-version", Argument ("cv", Argument ("Component-version", "")));
-var BUMP_DEPENDENCIES = Argument ("bump-dependencies", Argument ("bd", true));
+var BUMP_DEPENDENTS = Argument ("bump-dependents", Argument ("bd", true));
 
 public Dictionary<string, GoogleBase> CreateComponents ()
 {
@@ -45,7 +45,7 @@ public Dictionary<string, GoogleBase> CreateComponents ()
 	googleComponents ["Google.SignIn"] = GetComponent<Google.SignIn> ();
 	googleComponents ["Google.TagManager"] = GetComponent<Google.TagManager> ();
 
-	googleComponents ["Xamarin.Build.Download"] = GetComponent<XamarinBuildDownload> ();
+	googleComponents ["Xamarin.Build.Download"] = GetComponent<Xamarin.Build.Download> ();
 
 	return googleComponents;
 }
@@ -56,20 +56,90 @@ public T GetComponent<T> () where T : GoogleBase, new ()
 
 	FilePath nuspecPath = null;
 
-	if (component is XamarinBuildDownload) {
+	if (component is Xamarin.Build.Download) {
 		nuspecPath = GetFiles ($"./Firebase.Core/nuget/*.nuspec").ToList () [0];
 		component.CurrentVersion = XmlPeek (nuspecPath, "/package/metadata/dependencies/group[@targetFramework='Xamarin.iOS10']/dependency[@id='Xamarin.Build.Download']/@version");
 	} else {
 		nuspecPath = GetFiles ($"./{component.Name}/nuget/*.nuspec").ToList () [0];
 		component.CurrentVersion = XmlPeek (nuspecPath, "/package/metadata/version/text()");
 	}
-
-	component.NewVersion = component.CurrentVersion;
 	
+	var versionParts = component.CurrentVersion.Split ('.');
+	var lastIndex = versionParts.Length - 1;
+	versionParts [lastIndex] = (int.Parse (versionParts [lastIndex]) + 1).ToString ();
+	component.NewVersion = string.Join (".", versionParts);
+
 	return component;
 }
 
-public void UpdateComponentVersion (Dictionary<string, GoogleBase> components, string componentName, bool bumpDependencies)
+public void UpdateYamlVersion (GoogleBase component)
+{
+	var yamlPath = new FilePath ($"./{component.Name}/component/component.yaml");
+
+	if (!FileExists (yamlPath))
+		return;
+	
+	Information ($"Updating version in component.yaml file of {component.Name} component.");
+
+	// var componentData = DeserializeYamlFromFile<Component> (yamlPath);
+
+	// Temporary Workaround. Seems that YamlDotNet cannot deserialize an object within an object in version 3.8.0
+	// This doesn't happen in version 4.x
+	var jsonString = ConvertYamlToJsonFromFile (yamlPath);
+	var componentData = DeserializeJson<Component> (jsonString);
+
+	componentData.Version = component.NewVersion;
+	
+	var parts = componentData.Packages.iOSUnifiedPaths [0].Split ('=');
+	parts [1] = component.NewVersion;
+	componentData.Packages.iOSUnifiedPaths [0] = string.Join ("=", parts);
+
+	SerializeYamlToFile (yamlPath, componentData);
+}
+
+public void UpdateNuspecMainVersion (GoogleBase component)
+{
+	var nuspecPaths = GetFiles ($"./{component.Name}/nuget/*.nuspec");
+	var nuspecPath = new FilePath ($"./{component.Name}/nuget/NotFound.nuspec");
+
+	foreach (var path in nuspecPaths)
+		nuspecPath = path;
+
+	if (!FileExists (nuspecPath))
+		return;
+	
+	Information ($"Updating version in .nuspec file of {component.Name} component.\n");
+	XmlPoke (nuspecPath, "/package/metadata/version", component.NewVersion);
+}
+
+public void UpdateNuspecDependencyVersion (GoogleBase component)
+{
+	foreach	(var name in component.BaseOf) {
+		var nuspecPath = GetFiles ($"./{name}/nuget/*.nuspec").ToList () [0];
+
+		Information ($"Updating {component.Name} dependency version in .nuspec file of {name} component.");
+
+		if (FileExists (nuspecPath)) {
+			var result = XmlPeek (nuspecPath, $"/package/metadata/dependencies/group[@targetFramework='Xamarin.iOS10']/dependency[@id='{component.NuGetId}']/@version");
+			if (!string.IsNullOrWhiteSpace (result))
+				XmlPoke (nuspecPath, $"/package/metadata/dependencies/group[@targetFramework='Xamarin.iOS10']/dependency[@id='{component.NuGetId}']/@version", component.NewVersion);
+		}
+	}
+}
+
+public void UpdateSamplesPackagesConfigVersion (GoogleBase component)
+{
+	foreach	(var name in component.BaseOf) {
+		var packagesPaths = GetFiles ($"./{name}/samples/**/packages.config");
+
+		foreach (var packagePath in packagesPaths) {
+			Information ($"Updating {component.Name} version in packages.config file of {name} sample component.");
+			XmlPoke (packagePath, $"/packages/package[@id='{component.Name}']/@version", component.NewVersion);
+		}
+	}
+}
+
+public void UpdateComponentVersion (Dictionary<string, GoogleBase> components, string componentName, bool bumpDependents)
 {
 	var message = $"Working on {componentName} component";
 	Information ($"{new string ('/', message.Length + 6)}");
@@ -78,64 +148,21 @@ public void UpdateComponentVersion (Dictionary<string, GoogleBase> components, s
 
 	var component = components [componentName];
 
-	var yamlPath = new FilePath ($"./{component.Name}/component/component.yaml");
-	var nuspecPaths = GetFiles ($"./{component.Name}/nuget/*.nuspec");
-	FilePath nuspecPath = new FilePath ($"./{component.Name}/nuget/NotFound.nuspec");;
+	UpdateYamlVersion (component);
+	UpdateNuspecMainVersion (component);
+	UpdateNuspecDependencyVersion (component);
 
-	foreach (var path in nuspecPaths)
-		nuspecPath = path;
+	if (component is Xamarin.Build.Download)
+		UpdateSamplesPackagesConfigVersion (component);
 
-	if (FileExists (yamlPath)) {
-		Information ($"Updating version in component.yaml file of {component.Name} component");
-
-		// var componentData = DeserializeYamlFromFile<Component> (yamlPath);
-
-		// Temporary Workaround. Seems that YamlDotNet cannot deserialize an object within an object in version 3.8.0
-		// This doesn't happen in version 4.x
-		var jsonString = ConvertYamlToJsonFromFile (yamlPath);
-		var componentData = DeserializeJson<Component> (jsonString);
-
-		componentData.Version = component.NewVersion;
-		
-		var parts = componentData.Packages.iOSUnifiedPaths [0].Split ('=');
-		parts [1] = component.NewVersion;
-		componentData.Packages.iOSUnifiedPaths [0] = string.Join ("=", parts);
-
-		SerializeYamlToFile (yamlPath, componentData);
-	}
-
-	if (FileExists (nuspecPath)) {
-		Information ($"Updating version in .nuspec file of {component.Name} component\n");
-		XmlPoke (nuspecPath, "/package/metadata/version", component.NewVersion);
-	}
-
-	foreach	(var name in component.BaseOf) {
-		nuspecPath = GetFiles ($"./{name}/nuget/*.nuspec").ToList () [0];
-
-		Information ($"Updating {component.Name} dependency version in .nuspec file of {name} component");
-
-		if (FileExists (nuspecPath)) {
-			var result = XmlPeek (nuspecPath, $"/package/metadata/dependencies/group[@targetFramework='Xamarin.iOS10']/dependency[@id='{component.NuGetId}']/@version");
-			if (!string.IsNullOrWhiteSpace (result))
-				XmlPoke (nuspecPath, $"/package/metadata/dependencies/group[@targetFramework='Xamarin.iOS10']/dependency[@id='{component.NuGetId}']/@version", component.NewVersion);
-		}
-	}
-
-	if (!bumpDependencies)
+	if (!bumpDependents)
 		return;
 	
-	Information ($"\nBUMP_DEPENDENCIES was set to true! Starting bumping {component.Name} dependent components due {component.Name} version update...");
+	Information ($"\nBUMP_DEPENDENTS was set to true! Starting bumping {component.Name} dependent components due {component.Name} version update...");
 
 	foreach	(var name in component.BaseOf) {
 		var dependentComponent = components [name];
-		
-		var versionParts = dependentComponent.CurrentVersion.Split ('.');
-		var lastIndex = versionParts.Length - 1;
-		versionParts [lastIndex] = (int.Parse (versionParts [lastIndex]) + 1).ToString ();
-		
-		dependentComponent.NewVersion = string.Join (".", versionParts);
-		components [name] = dependentComponent;
-
+		dependentComponent.Bumped = true;
 		Information ($"\nBumping {dependentComponent.Name} component from version {dependentComponent.CurrentVersion} to {dependentComponent.NewVersion}...\n");
 		UpdateComponentVersion (components, name, false);
 	}
@@ -217,7 +244,7 @@ Task ("build").Does (() =>
 
 	Information ($"Component to updated: {updatedComponent.Name}   {updatedComponent.CurrentVersion}   =>   {updatedComponent.NewVersion}\n");
 
-	UpdateComponentVersion (components, COMPONENT_NAME, BUMP_DEPENDENCIES);
+	UpdateComponentVersion (components, COMPONENT_NAME, BUMP_DEPENDENTS);
 
 	components.Remove (updatedComponent.Name);
 
@@ -225,8 +252,10 @@ Task ("build").Does (() =>
 
 	Information ("List of bumped components due update:");
 	foreach (var pair in components)
-		if (pair.Value.CurrentVersion != pair.Value.NewVersion)
+		if (pair.Value.Bumped)
 			Information ($"{pair.Key,-26}{pair.Value.CurrentVersion,-11}=>{"",-3}{pair.Value.NewVersion}");
 });
+
+Task ("Default").IsDependentOn ("build");
 
 RunTarget (TARGET);

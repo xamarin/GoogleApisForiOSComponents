@@ -8,6 +8,7 @@ public abstract class GoogleBase
 	public virtual string NuGetId { get; }
 	public string CurrentVersion { get; set; }
 	public string NewVersion { get; set; }
+	public bool Bumped { get; set; }
 	public virtual string [] BaseOf { 
 		get { return new string[] { }; }
 	}
@@ -278,23 +279,29 @@ public abstract class Google
 	}
 }
 
-public class XamarinBuildDownload : GoogleBase
+public abstract class Xamarin
 {
-	public override string Name  { 
-		get { return "Xamarin.Build.Download"; }
-	}
-	public override string NuGetId { 
-		get { return "Xamarin.Build.Download"; }
-	}
-	public override string [] BaseOf  { 
-			get { return new [] { new Firebase.AdMob ().Name, new Firebase.Analytics ().Name, new Firebase.Auth ().Name, 
-					new Firebase.CloudMessaging ().Name, new Firebase.Core ().Name, new Firebase.CrashReporting ().Name,
-					new Firebase.Database ().Name, new Firebase.DynamicLinks ().Name, new Firebase.InstanceID ().Name,
-					new Firebase.Invites ().Name, new Firebase.RemoteConfig ().Name, new Firebase.Storage ().Name,
-					new Google.Analytics ().Name, new Google.AppIndexing ().Name, new Google.Cast ().Name,
-					new Google.Core ().Name, new Google.InstanceID ().Name, new Google.Maps ().Name,
-					new Google.MobileAds ().Name, new Google.PlayGames ().Name, new Google.SignIn ().Name,
-					new Google.TagManager ().Name };
+	public abstract class Build
+	{
+		public class Download : GoogleBase
+		{
+			public override string Name  { 
+				get { return "Xamarin.Build.Download"; }
+			}
+			public override string NuGetId { 
+				get { return "Xamarin.Build.Download"; }
+			}
+			public override string [] BaseOf  { 
+					get { return new [] { new Firebase.AdMob ().Name, new Firebase.Analytics ().Name, new Firebase.Auth ().Name, 
+							new Firebase.CloudMessaging ().Name, new Firebase.Core ().Name, new Firebase.CrashReporting ().Name,
+							new Firebase.Database ().Name, new Firebase.DynamicLinks ().Name, new Firebase.InstanceID ().Name,
+							new Firebase.Invites ().Name, new Firebase.RemoteConfig ().Name, new Firebase.Storage ().Name,
+							new Google.Analytics ().Name, new Google.AppIndexing ().Name, new Google.Cast ().Name,
+							new Google.Core ().Name, new Google.InstanceID ().Name, new Google.Maps ().Name,
+							new Google.MobileAds ().Name, new Google.PlayGames ().Name, new Google.SignIn ().Name,
+							new Google.TagManager ().Name };
+				}
+			}
 		}
 	}
 }
