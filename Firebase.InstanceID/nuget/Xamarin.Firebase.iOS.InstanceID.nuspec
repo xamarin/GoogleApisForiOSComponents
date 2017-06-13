@@ -1,5 +1,5 @@
-<?xml version="1.0"?>
-<package >
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
   <metadata>
     <id>Xamarin.Firebase.iOS.InstanceID</id>
     <title>Firebase APIs Instance ID iOS Library</title>
@@ -14,7 +14,7 @@
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseiosinstanceid_128x128.png</iconUrl>
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
-        <dependency id="Xamarin.Build.Download" version="0.4.3"/>
+        <dependency id="Xamarin.Build.Download" version="0.4.5" />
       </group>
     </dependencies>
   </metadata>
@@ -22,6 +22,6 @@
     <file src="output/Firebase.InstanceID.dll" target="lib/Xamarin.iOS10" />
 
     <!-- Add targets file for external native reference download -->
-    <file src="source/Firebase.InstanceID/Firebase.InstanceID.targets" target="build/Xamarin.Firebase.iOS.InstanceID.targets"  />
+    <file src="source/Firebase.InstanceID/Firebase.InstanceID.targets" target="build/Xamarin.Firebase.iOS.InstanceID.targets" />
   </files>
 </package>
