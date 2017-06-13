@@ -20,7 +20,7 @@ In .targets file, located in Firebase.Analytics binding, you can find:
 - GoogleSymbolUtilities (1.1.2)
 
 In .targets file, located in Firebase.Core binding, you can find:
-- FirebaseCore (3.4.6)
+- FirebaseCore (3.4.7)
 - GoogleToolboxForMac (2.1.1)
 - GoogleInterchangeUtilities (1.2.2)
 
@@ -34,5 +34,5 @@ platform :ios, '7.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'FirebaseAdMob' do
-	pod 'Firebase/AdMob', '3.11.0'
+	pod 'Firebase/AdMob', '3.12.0'
 end

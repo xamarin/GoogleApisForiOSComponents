@@ -1,4 +1,4 @@
-version: 7.16.0.0
+version: 7.17.0.0
 name: Google Mobile Ads for iOS
 id: googleiosmobileads
 publisher: Xamarin Inc
@@ -6,26 +6,26 @@ publisher-url: https://xamarin.com
 src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Google.MobileAds
 summary: Connect with advertisers and show relevant ads in your app. Users click on ads, you make money.
 icons:
-  - ../../icons/googlemobileads_128x128.png
-  - ../../icons/googlemobileads_512x512.png
+- ../../icons/googlemobileads_128x128.png
+- ../../icons/googlemobileads_512x512.png
 docs-url: https://developers.google.com/admob/
 libraries:
   ios-unified:
-    - ../output/Google.MobileAds.dll
+  - ../output/Google.MobileAds.dll
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Google.iOS.MobileAds, Version=7.16.0.0
+  - Xamarin.Google.iOS.MobileAds, Version=7.17.0.0
 samples:
-  - name: "Google Mobile Ads AdMob Sample"
-    path:  ../samples/MobileAdsExample/MobileAdsExample.sln
-    removeProjects: 
-      - Google.MobileAds
-    installNuGets:
-      - project: MobileAdsExample
-        packages:
-          - Xamarin.Google.iOS.MobileAds
-    removeNodes:
-      - "//xNS:Import[contains (@Project, 'Google.MobileAds.targets')]"
+- name: Google Mobile Ads AdMob Sample
+  path: ../samples/MobileAdsExample/MobileAdsExample.sln
+  removeProjects:
+  - Google.MobileAds
+  installNuGets:
+  - project: MobileAdsExample
+    packages:
+    - Xamarin.Google.iOS.MobileAds
+  removeNodes:
+  - //xNS:Import[contains (@Project, 'Google.MobileAds.targets')]
 local-nuget-repo: ../../tmp-nugets
 no_build: true

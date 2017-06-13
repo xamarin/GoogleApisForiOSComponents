@@ -812,6 +812,19 @@ namespace Google.MobileAds
 	[BaseType (typeof (NSObject), Name = "GADNativeAdDelegate")]
 	interface NativeAdDelegate
 	{
+
+		// @optional -(void)nativeAdDidRecordImpression:(GADNativeAd *)nativeAd;
+		[EventArgs ("NativeAd")]
+		[EventName ("ImpressionRecorded")]
+		[Export ("nativeAdDidRecordImpression:")]
+		void DidRecordImpression (NativeAd nativeAd);
+
+		// @optional -(void)nativeAdDidRecordClick:(GADNativeAd *)nativeAd;
+		[EventArgs ("NativeAd")]
+		[EventName ("ClickRecorded")]
+		[Export ("nativeAdDidRecordClick:")]
+		void DidRecordClick (NativeAd nativeAd);
+
 		// @optional -(void)nativeAdWillPresentScreen:(GADNativeAd *)nativeAd;
 		[EventArgs ("NativeAd")]
 		[Export ("nativeAdWillPresentScreen:")]
