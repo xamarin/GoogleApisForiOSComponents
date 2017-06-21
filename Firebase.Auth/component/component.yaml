@@ -1,4 +1,4 @@
-version: 3.1.0.1
+version: 3.1.0.2
 name: Firebase Auth for iOS
 id: firebaseiosauth
 publisher: Xamarin Inc.
@@ -18,7 +18,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Firebase.iOS.Auth, Version=3.1.0.1
+  - Xamarin.Firebase.iOS.Auth, Version=3.1.0.2
 samples:
 - name: Auth Sample
   path: ../samples/AuthSample/AuthSample.sln
