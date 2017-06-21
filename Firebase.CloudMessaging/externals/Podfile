@@ -34,5 +34,5 @@ platform :ios, '7.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'FirebaseMessaging' do
-	pod 'Firebase/Messaging', '3.11.0'
+	pod 'Firebase/Messaging', '3.12.0'
 end

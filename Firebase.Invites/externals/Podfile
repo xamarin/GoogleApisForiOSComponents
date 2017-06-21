@@ -53,5 +53,5 @@ platform :ios, '7.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'FirebaseInvites' do
-	pod 'Firebase/Invites', '3.11.0'
+	pod 'Firebase/Invites', '3.12.0'
 end

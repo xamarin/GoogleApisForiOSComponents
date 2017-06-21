@@ -36,5 +36,5 @@ platform :ios, '7.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'FirebaseStorage' do
-	pod 'Firebase/Storage', '3.11.0'
+	pod 'Firebase/Storage', '3.12.0'
 end
