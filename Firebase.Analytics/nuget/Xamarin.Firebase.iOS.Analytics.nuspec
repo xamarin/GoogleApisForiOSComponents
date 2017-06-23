@@ -16,7 +16,7 @@
       <group targetFramework="Xamarin.iOS10">
         <dependency id="Xamarin.Build.Download" version="0.4.5" />
         <dependency id="Xamarin.Firebase.iOS.InstanceID" version="1.0.9.0" />
-        <dependency id="Xamarin.Firebase.iOS.Core" version="3.4.7.0" />
+        <dependency id="Xamarin.Firebase.iOS.Core" version="3.5.2.0" />
       </group>
     </dependencies>
   </metadata>
