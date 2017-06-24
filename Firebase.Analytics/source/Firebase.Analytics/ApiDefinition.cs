@@ -45,7 +45,11 @@ namespace Firebase.Analytics
 		// + (void)setScreenName:(nullable NSString *)screenName screenClass:(nullable NSString *)screenClassOverride;
 		[Static]
 		[Export ("setScreenName:screenClass:")]
-		void setScreenNameAndClass ([NullAllowed] string screenName, [NullAllowed] string screenClassOverride);
+		void SetScreenNameAndClass ([NullAllowed] string screenName, [NullAllowed] string screenClassOverride);
+
+		// + (NSString *)appInstanceID;
+		[Export ("appInstanceID")]
+		string AppInstanceId { get; }
 	}
 
 
