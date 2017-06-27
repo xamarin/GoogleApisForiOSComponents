@@ -69,9 +69,9 @@ namespace Google.MobileAds
 	[Native]
 	public enum NativeAdImageAdLoaderOptionsOrientation : long
 	{
-		Any,
-		Portrait,
-		Landscape
+		Any = 1,
+		Portrait = 2,
+		Landscape = 3
 	}
 
 	[Native]
