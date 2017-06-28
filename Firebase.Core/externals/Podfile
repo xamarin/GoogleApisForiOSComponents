@@ -6,7 +6,7 @@ project, also, update Podfile file if needed.
 
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '7.0'
+platform :ios, '7.1'
 install! 'cocoapods', :integrate_targets => false
 
 target 'FirebaseCore' do
@@ -17,4 +17,5 @@ target 'FirebaseCore' do
 	pod 'GoogleToolboxForMac/StringEncoding', '2.1.1'
 	pod 'GoogleToolboxForMac/URLBuilder', '2.1.1'
 	pod 'GTMSessionFetcher/Full', '1.1.9'
+	pod 'Protobuf', '3.1.0'
 end

@@ -54,6 +54,9 @@
     <ObjcBindingNativeLibrary Include="..\..\externals\GTMSessionFetcher">
       <Link>GTMSessionFetcher</Link>
     </ObjcBindingNativeLibrary>
+    <ObjcBindingNativeLibrary Include="..\..\externals\Protobuf">
+      <Link>Protobuf</Link>
+    </ObjcBindingNativeLibrary>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>

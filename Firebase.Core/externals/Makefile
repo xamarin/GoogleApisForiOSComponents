@@ -3,7 +3,7 @@ XCODEBUILD=/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild
 
 PROJECT_ROOT=./Pods
 PROJECT=$(PROJECT_ROOT)/Pods.xcodeproj
-TARGETS=GTMSessionFetcher GoogleToolboxForMac
+TARGETS=GTMSessionFetcher GoogleToolboxForMac Protobuf
 
 all: Podfile.lock $(TARGETS)
 
