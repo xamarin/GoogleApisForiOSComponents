@@ -32,6 +32,16 @@ namespace Firebase.Storage
 		[Export ("storageForApp:")]
 		Storage From (Firebase.Analytics.App app);
 
+		// + (instancetype)storageWithURL:(NSString *)url NS_SWIFT_NAME(storage(url:));
+		[Static]
+		[Export ("storageWithURL:")]
+		Storage From (string url);
+
+		// + (instancetype)storageForApp:(FIRApp *)app URL:(NSString*) url NS_SWIFT_NAME (storage(app:url:));
+		[Static]
+		[Export ("storageForApp:URL:")]
+		Storage From (Firebase.Analytics.App app, string url);
+
 		// @property (readonly, nonatomic, strong) FIRApp * _Nonnull app;
 		[Export ("app", ArgumentSemantic.Strong)]
 		Firebase.Analytics.App App { get; }
