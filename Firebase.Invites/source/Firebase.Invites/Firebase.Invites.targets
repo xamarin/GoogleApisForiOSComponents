@@ -1,924 +1,924 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<PropertyGroup>
-		<_FirebaseInvitesAssemblyName>Firebase.Invites, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseInvitesAssemblyName>
-		<_FirebaseInvitesItemsFolder>FInvts-1.2.3</_FirebaseInvitesItemsFolder>
-	</PropertyGroup>
-	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
-		<XamarinBuildDownload Include="$(_FirebaseInvitesItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/8acd76462fcbc31d/FirebaseInvites-1.2.3.tar.gz</Url>
-			<Kind>Tgz</Kind>
-		</XamarinBuildDownload>
-		<XamarinBuildRestoreResources Include="_FirebaseInvitesItems" />
-	</ItemGroup>
-	<Target Name="_FirebaseInvitesItems">
+    <PropertyGroup>
+        <_FirebaseInvitesAssemblyName>Firebase.Invites, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseInvitesAssemblyName>
+        <_FirebaseInvitesItemsFolder>FInvts-1.2.5</_FirebaseInvitesItemsFolder>
+    </PropertyGroup>
+    <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+        <XamarinBuildDownload Include="$(_FirebaseInvitesItemsFolder)">
+            <Url>https://dl.google.com/dl/cpdc/87ef8db0202ede6b/FirebaseInvites-1.2.5.tar.gz</Url>
+            <Kind>Tgz</Kind>
+        </XamarinBuildDownload>
+        <XamarinBuildRestoreResources Include="_FirebaseInvitesItems" />
+    </ItemGroup>
+    <Target Name="_FirebaseInvitesItems">
 
-		<PropertyGroup>
-			<_FirebaseInvitesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseInvitesItemsFolder)\Frameworks\frameworks\</_FirebaseInvitesSDKBaseFolder>
-		</PropertyGroup>
+        <PropertyGroup>
+            <_FirebaseInvitesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseInvitesItemsFolder)\</_FirebaseInvitesSDKBaseFolder>
+        </PropertyGroup>
 
-		<ItemGroup>
-			<RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\FirebaseInvites">
-				<LogicalName>FirebaseInvites</LogicalName>
-				<AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\GINInviteACLCollectionTableViewCell.nib">
+        <ItemGroup>
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Frameworks\FirebaseInvites.framework\FirebaseInvites">
+                <LogicalName>FirebaseInvites</LogicalName>
+                <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteACLCollectionTableViewCell.nib">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fGINInviteACLCollectionTableViewCell.nib</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\GINInviteACLCollectionViewCell.nib">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteACLCollectionViewCell.nib">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fGINInviteACLCollectionViewCell.nib</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\GINInviteACLTableViewCell.nib">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteACLTableViewCell.nib">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fGINInviteACLTableViewCell.nib</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\GINInviteACLTableViewHeaderCell.nib">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteACLTableViewHeaderCell.nib">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fGINInviteACLTableViewHeaderCell.nib</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\GINInviteMessageView.nib">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteMessageView.nib">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fGINInviteMessageView.nib</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\GINInviteToastView.nib">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteToastView.nib">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fGINInviteToastView.nib</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\Info.plist">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\Info.plist">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fInfo.plist</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_arrow_back_white_24.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_arrow_back_white_24.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__arrow__back__white__24.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_arrow_back_white_24%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_arrow_back_white_24%402x.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__arrow__back__white__24%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_arrow_back_white_24%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_arrow_back_white_24%403x.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__arrow__back__white__24%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_check_white_24.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_check_white_24.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__check__white__24.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_check_white_24%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_check_white_24%402x.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__check__white__24%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_check_white_24%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_check_white_24%403x.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__check__white__24%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_close_24.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_close_24.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__close__24.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_close_24%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_close_24%402x.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__close__24%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_close_24%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_close_24%403x.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__close__24%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_email_24.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_24.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__email__24.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_email_24%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_24%402x.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__email__24%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_email_24%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_24%403x.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__email__24%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_email_white_24.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_white_24.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__email__white__24.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_email_white_24%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_white_24%402x.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__email__white__24%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_email_white_24%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_white_24%403x.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__email__white__24%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_hide_keyboard_24.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_hide_keyboard_24.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__hide__keyboard__24.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_hide_keyboard_24%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_hide_keyboard_24%402x.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__hide__keyboard__24%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_hide_keyboard_24%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_hide_keyboard_24%403x.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__hide__keyboard__24%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_notifications_24.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_24.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__notifications__24.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_notifications_24%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_24%402x.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__notifications__24%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_notifications_24%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_24%403x.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__notifications__24%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_notifications_white_24.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_white_24.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__notifications__white__24.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_notifications_white_24%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_white_24%402x.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__notifications__white__24%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_notifications_white_24%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_white_24%403x.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__notifications__white__24%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_remove_white_20.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_remove_white_20.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__remove__white__20.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_remove_white_20%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_remove_white_20%402x.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__remove__white__20%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_remove_white_20%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_remove_white_20%403x.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__remove__white__20%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_send_24.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_send_24.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__send__24.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_send_24%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_send_24%402x.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__send__24%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_send_24%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_send_24%403x.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__send__24%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_sms_24.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_24.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__sms__24.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_sms_24%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_24%402x.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__sms__24%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_sms_24%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_24%403x.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__sms__24%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_sms_white_24.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_white_24.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__sms__white__24.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_sms_white_24%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_white_24%402x.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__sms__white__24%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ic_sms_white_24%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_white_24%403x.png">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fic__sms__white__24%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\Info.plist">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\Info.plist">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fGINInviteBuilderImpl.storyboardc_fInfo.plist</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\UCw-SV-umc-view-U1F-Z1-bjT.nib">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\UCw-SV-umc-view-U1F-Z1-bjT.nib">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fGINInviteBuilderImpl.storyboardc_fUCw-SV-umc-view-U1F-Z1-bjT.nib</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\UIViewController-UCw-SV-umc.nib">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\UIViewController-UCw-SV-umc.nib">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fGINInviteBuilderImpl.storyboardc_fUIViewController-UCw-SV-umc.nib</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\Info.plist">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\Info.plist">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fGINInviteBuilderImplPad.storyboardc_fInfo.plist</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\UCw-SV-umc-view-U1F-Z1-bjT.nib">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\UCw-SV-umc-view-U1F-Z1-bjT.nib">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fGINInviteBuilderImplPad.storyboardc_fUCw-SV-umc-view-U1F-Z1-bjT.nib</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\UIViewController-UCw-SV-umc.nib">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\UIViewController-UCw-SV-umc.nib">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fGINInviteBuilderImplPad.storyboardc_fUIViewController-UCw-SV-umc.nib</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\af.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\af.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_faf.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\am.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\am.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fam.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ar.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ar.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_far.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\bg.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\bg.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fbg.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\bn.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\bn.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fbn.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ca.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ca.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fca.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\cs.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\cs.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fcs.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\da.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\da.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fda.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\de.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\de.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fde.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\el.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\el.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fel.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\en-AU.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\en-AU.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fen-AU.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\en-GB.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\en-GB.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fen-GB.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\en.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\en.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fen.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\en_US.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\en_US.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fen__US.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\es-419.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\es-419.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fes-419.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\es-MX.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\es-MX.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fes-MX.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\es.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\es.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fes.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\es_MX.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\es_MX.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fes__MX.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\et.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\et.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fet.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\eu.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\eu.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_feu.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\fa.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\fa.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_ffa.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\fi.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\fi.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_ffi.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\fil.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\fil.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_ffil.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\fr-CA.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\fr-CA.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_ffr-CA.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\fr.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\fr.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_ffr.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\gl.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\gl.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fgl.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\gu.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\gu.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fgu.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\he.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\he.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fhe.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\hi.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\hi.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fhi.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\hr.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\hr.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fhr.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\hu.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\hu.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fhu.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\id.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\id.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fid.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\in.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\in.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fin.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\is.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\is.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fis.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\it.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\it.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fit.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\iw.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\iw.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fiw.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ja.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ja.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fja.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\kn.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\kn.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fkn.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ko.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ko.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fko.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\lt.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\lt.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_flt.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\lv.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\lv.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_flv.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ml.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ml.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fml.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\mr.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\mr.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fmr.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ms.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ms.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fms.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\nb.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\nb.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fnb.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\nl.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\nl.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fnl.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\no.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\no.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fno.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\pl.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\pl.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fpl.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\pt-BR.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\pt-BR.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fpt-BR.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\pt-PT.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\pt-PT.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fpt-PT.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\pt.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\pt.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fpt.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ro.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ro.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fro.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ru.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ru.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fru.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\sk.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\sk.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fsk.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\sl.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\sl.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fsl.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\sr.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\sr.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fsr.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\sv.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\sv.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fsv.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\sw.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\sw.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fsw.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ta.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ta.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fta.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\te.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\te.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fte.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\th.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\th.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fth.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\tr.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\tr.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_ftr.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\uk.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\uk.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fuk.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\ur.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ur.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fur.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\vi.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\vi.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fvi.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\zh-CN.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zh-CN.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fzh-CN.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\zh-HK.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zh-HK.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fzh-HK.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\zh-Hans.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zh-Hans.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fzh-Hans.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\zh-Hant.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zh-Hant.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fzh-Hant.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\zh-TW.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zh-TW.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fzh-TW.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GINInviteResources.bundle\zu.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zu.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GINInviteResources.bundle_fzu.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\GPPACLCollectionTableViewCell.nib">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLCollectionTableViewCell.nib">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fGPPACLCollectionTableViewCell.nib</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\GPPACLDetailTableViewCell.nib">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLDetailTableViewCell.nib">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fGPPACLDetailTableViewCell.nib</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\GPPACLSearchView.nib">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLSearchView.nib">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fGPPACLSearchView.nib</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\GPPACLTableViewCell.nib">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLTableViewCell.nib">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fGPPACLTableViewCell.nib</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\GPPDomainRestrictedTableViewCell.nib">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPDomainRestrictedTableViewCell.nib">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fGPPDomainRestrictedTableViewCell.nib</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\Info.plist">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\Info.plist">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fInfo.plist</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\Roboto-Bold.ttf">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\Roboto-Bold.ttf">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fRoboto-Bold.ttf</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\Roboto-Medium.ttf">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\Roboto-Medium.ttf">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fRoboto-Medium.ttf</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\Roboto-Regular.ttf">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\Roboto-Regular.ttf">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fRoboto-Regular.ttf</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\circles.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\circles.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fcircles.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\circles%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\circles%402x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fcircles%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\circles%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\circles%403x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fcircles%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\domain.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\domain.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fdomain.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\domain%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\domain%402x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fdomain%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\domain%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\domain%403x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fdomain%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\extended.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\extended.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fextended.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\extended%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\extended%402x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fextended%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\extended%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\extended%403x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fextended%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_checkmark_black_24.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_black_24.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__checkmark__black__24.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_checkmark_black_24%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_black_24%402x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__checkmark__black__24%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_checkmark_black_24%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_black_24%403x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__checkmark__black__24%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_checkmark_green_24.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_green_24.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__checkmark__green__24.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_checkmark_green_24%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_green_24%402x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__checkmark__green__24%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_checkmark_green_24%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_green_24%403x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__checkmark__green__24%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_circles_black_16.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_circles_black_16.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__circles__black__16.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_circles_black_16%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_circles_black_16%402x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__circles__black__16%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_circles_black_16%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_circles_black_16%403x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__circles__black__16%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_domain_16.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_domain_16.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__domain__16.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_domain_16%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_domain_16%402x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__domain__16%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_domain_16%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_domain_16%403x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__domain__16%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_email_black_16.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_email_black_16.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__email__black__16.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_email_black_16%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_email_black_16%402x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__email__black__16%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_email_black_16%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_email_black_16%403x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__email__black__16%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_extended_circles_black_16.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_extended_circles_black_16.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__extended__circles__black__16.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_extended_circles_black_16%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_extended_circles_black_16%402x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__extended__circles__black__16%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_extended_circles_black_16%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_extended_circles_black_16%403x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__extended__circles__black__16%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_lock_closed_black_16.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_lock_closed_black_16.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__lock__closed__black__16.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_lock_closed_black_16%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_lock_closed_black_16%402x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__lock__closed__black__16%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_lock_closed_black_16%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_lock_closed_black_16%403x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__lock__closed__black__16%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_person_black_16.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_person_black_16.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__person__black__16.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_person_black_16%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_person_black_16%402x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__person__black__16%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_person_black_16%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_person_black_16%403x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__person__black__16%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_public_16.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_public_16.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__public__16.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_public_16%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_public_16%402x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__public__16%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_public_16%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_public_16%403x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__public__16%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_remove_black_16.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_remove_black_16.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__remove__black__16.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_remove_black_16%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_remove_black_16%402x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__remove__black__16%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ic_remove_black_16%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_remove_black_16%403x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fic__remove__black__16%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\multiselect.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fmultiselect.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\multiselect%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect%402x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fmultiselect%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\multiselect%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect%403x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fmultiselect%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\multiselect_green.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect_green.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fmultiselect__green.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\multiselect_green%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect_green%402x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fmultiselect__green%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\multiselect_green%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect_green%403x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fmultiselect__green%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\name_gradient.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\name_gradient.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fname__gradient.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\name_gradient%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\name_gradient%402x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fname__gradient%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\name_gradient%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\name_gradient%403x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fname__gradient%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\person.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\person.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fperson.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\person%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\person%402x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fperson%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\person%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\person%403x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fperson%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\public.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\public.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fpublic.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\public%402x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\public%402x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fpublic%402x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\public%403x.png">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\public%403x.png">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fpublic%403x.png</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\GPPACLCollectionViewCell.nib\objects-8.0+.nib">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLCollectionViewCell.nib\objects-8.0+.nib">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fGPPACLCollectionViewCell.nib_fobjects-8.0+.nib</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\GPPACLCollectionViewCell.nib\runtime.nib">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLCollectionViewCell.nib\runtime.nib">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fGPPACLCollectionViewCell.nib_fruntime.nib</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ar.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ar.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_far.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ca.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ca.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fca.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\cs.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\cs.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fcs.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\da.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\da.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fda.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\de.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\de.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fde.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\el.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\el.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fel.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\en.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\en.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fen.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\en_GB.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\en_GB.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fen__GB.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\en_US.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\en_US.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fen__US.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\es.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\es.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fes.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\es_MX.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\es_MX.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fes__MX.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\fi.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\fi.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_ffi.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\fr.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\fr.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_ffr.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\he.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\he.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fhe.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\hr.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\hr.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fhr.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\hu.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\hu.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fhu.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\id.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\id.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fid.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\in.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\in.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fin.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\it.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\it.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fit.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\iw.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\iw.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fiw.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ja.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ja.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fja.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ko.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ko.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fko.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ms.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ms.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fms.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\nb.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\nb.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fnb.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\nl.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\nl.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fnl.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\no.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\no.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fno.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\pl.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\pl.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fpl.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\pt.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\pt.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fpt.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\pt_PT.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\pt_PT.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fpt__PT.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ro.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ro.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fro.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\ru.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ru.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fru.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\sk.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\sk.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fsk.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\sv.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\sv.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fsv.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\th.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\th.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fth.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\tr.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\tr.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_ftr.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\uk.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\uk.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fuk.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\vi.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\vi.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fvi.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\zh_CN.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\zh_CN.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fzh__CN.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)FirebaseInvites.framework\Resources\GPPACLPickerResources.bundle\zh_TW.lproj\GooglePlus.strings">
+            <RestoreAssemblyResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\zh_TW.lproj\GooglePlus.strings">
                 <LogicalName>__monotouch_content_GPPACLPickerResources.bundle_fzh__TW.lproj_fGooglePlus.strings</LogicalName>
                 <AssemblyName>$(_FirebaseInvitesAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-		</ItemGroup>
+        </ItemGroup>
 
-	</Target>
+    </Target>
 </Project>
