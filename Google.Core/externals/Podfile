@@ -29,7 +29,7 @@ In .targets file, located in Firebase.InstanceID binding, you can find:
 
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '7.0'
+platform :ios, '7.1'
 install! 'cocoapods', :integrate_targets => false
 
 target 'GoogleCore' do
