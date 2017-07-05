@@ -10,7 +10,7 @@ platform :ios, '7.1'
 install! 'cocoapods', :integrate_targets => false
 
 target 'FirebaseCore' do
-	pod 'Firebase/Core', '3.15.0'
+	pod 'Firebase/Core', '4.0.2'
 	pod 'GoogleToolboxForMac/NSData+zlib', '2.1.1'
 	pod 'GoogleToolboxForMac/NSDictionary+URLArguments', '2.1.1'
 	pod 'GoogleToolboxForMac/Logger', '2.1.1'

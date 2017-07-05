@@ -3,14 +3,14 @@ using Foundation;
 
 namespace Firebase.Analytics
 {
-	public partial class App
-	{
-		[Obsolete ("Use From method instead.")]
-		public App Get (string name)
-		{
-			return From (name);
-		}
-	}
+	//public partial class App
+	//{
+	//	[Obsolete ("Use From method instead.")]
+	//	public static App Get (string name)
+	//	{
+	//		return From (name);
+	//	}
+	//}
 
 	public partial class Analytics
 	{
@@ -21,7 +21,6 @@ namespace Firebase.Analytics
 
 			LogEvent (name.ToString (), parameters);
 		}
-
 
 		public static void SetUserProperty (NSString value, NSString name)
 		{
