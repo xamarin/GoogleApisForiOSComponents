@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.Google.iOS.InstanceID</id>
     <title>Google APIs Instance ID iOS Library</title>
-    <version>1.2.1.7</version>
+    <version>1.2.1.8</version>
     <authors>Xamarin Inc.</authors>
     <owners>Xamarin Inc.</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -15,9 +15,9 @@
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
         <dependency id="Xamarin.Build.Download" version="0.4.5" />
-        <dependency id="Xamarin.Google.iOS.Core" version="3.0.3.5" />
-        <dependency id="Xamarin.Firebase.iOS.Analytics" version="3.7.0.0" />
-        <dependency id="Xamarin.Firebase.iOS.InstanceID" version="1.0.9.0" />
+        <dependency id="Xamarin.Google.iOS.Core" version="3.0.3.6" />
+        <dependency id="Xamarin.Firebase.iOS.Analytics" version="3.7.0.1" />
+        <dependency id="Xamarin.Firebase.iOS.InstanceID" version="2.0.0.0" />
         <dependency id="Xamarin.Firebase.iOS.Core" version="3.5.2.0" />
       </group>
     </dependencies>
