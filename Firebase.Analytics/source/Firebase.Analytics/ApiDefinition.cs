@@ -28,7 +28,7 @@ namespace Firebase.Analytics
 		// +(void)handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)(void))completionHandler;
 		[Static]
 		[Export ("handleEventsForBackgroundURLSession:completionHandler:")]
-		void HandleEventsForBackgroundUrlSession (string identifier, Action completionHandler);
+		void HandleEventsForBackgroundUrlSession (string identifier, [NullAllowed] Action completionHandler);
 
 		// This method comes from a category (FIRAnalytics+AppDelegate.h)
 		// +(void)handleOpenURL:(NSURL *)url;

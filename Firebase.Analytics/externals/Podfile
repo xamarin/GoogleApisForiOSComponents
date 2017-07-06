@@ -1,27 +1,27 @@
 =begin
 Last run FirebaseAnalytics installed:
-- FirebaseAnalytics (3.7.0)
-- FirebaseCore (3.5.2)
-- FirebaseInstanceID (1.0.9)
+- FirebaseAnalytics (4.0.1)
+- FirebaseCore (4.0.2)
+- FirebaseInstanceID (2.0.0)
 - GoogleInterchangeUtilities (1.2.2)
 - GoogleSymbolUtilities (1.1.2)
-- GoogleToolboxForMac (2.1.0)
+- GoogleToolboxForMac (2.1.1)
 
 Check if main version or subversion number has changed. 
 If yes, please, update *.targets files located in binding 
 projects, also, update Podfile files if needed.
 
 In .targets file, located in Firebase.Analytics binding, you can find:
-- FirebaseAnalytics (3.6.0)
-- GoogleSymbolUtilities (1.1.2)
+- FirebaseAnalytics (4.0.1)
 
 In .targets file, located in Firebase.Core binding, you can find:
-- FirebaseCore (3.4.6)
-- GoogleToolboxForMac (2.1.0)
+- FirebaseCore (4.0.2)
+- GoogleToolboxForMac (2.1.1)
 - GoogleInterchangeUtilities (1.2.2)
+- GoogleSymbolUtilities (1.1.2)
 
 In .targets file, located in Firebase.InstanceID binding, you can find:
-- FirebaseInstanceID (1.0.8)
+- FirebaseInstanceID (2.0.0)
 =end
 
 source 'https://github.com/CocoaPods/Specs.git'
@@ -30,5 +30,5 @@ platform :ios, '7.1'
 install! 'cocoapods', :integrate_targets => false
 
 target 'FirebaseAnalytics' do
-	pod 'Firebase/Analytics', '3.15.0'
+	pod 'Firebase/Analytics', '4.0.2'
 end
