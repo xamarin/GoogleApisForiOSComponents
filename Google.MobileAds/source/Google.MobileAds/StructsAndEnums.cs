@@ -57,6 +57,7 @@ namespace Google.MobileAds
 		Dark
 	}
 
+	[Obsolete]
 	[Native]
 	public enum InAppPurchaseStatus : long
 	{

@@ -265,6 +265,7 @@ namespace Google.MobileAds
 		[Export ("delegate", ArgumentSemantic.Weak)]
 		IBannerViewDelegate Delegate { get; set; }
 
+		[Obsolete]
 		[NullAllowed]
 		[Export ("inAppPurchaseDelegate", ArgumentSemantic.Weak)]
 		IInAppPurchaseDelegate InAppPurchaseDelegate { get; set; }
@@ -379,6 +380,7 @@ namespace Google.MobileAds
 		[Export ("delegate", ArgumentSemantic.Weak)]
 		IInterstitialDelegate Delegate { get; set; }
 
+		[Obsolete]
 		[NullAllowed]
 		[Export ("inAppPurchaseDelegate", ArgumentSemantic.Weak)]
 		IInAppPurchaseDelegate InAppPurchaseDelegate { get; set; }
@@ -661,10 +663,10 @@ namespace Google.MobileAds
 	}
 
 	// @interface GADAudioVideoManager : NSObject
-	[BaseType (typeof (NSObject), 
-	           Name = "GADAudioVideoManager",
-	           Delegates = new string[] { "Delegate" },
-	           Events = new Type[] { typeof (AudioVideoManagerDelegate) })]
+	[BaseType (typeof (NSObject),
+		   Name = "GADAudioVideoManager",
+		   Delegates = new string [] { "Delegate" },
+		   Events = new Type [] { typeof (AudioVideoManagerDelegate) })]
 	interface AudioVideoManager
 	{
 		// @property(nonatomic, weak, nullable) id<GADAudioVideoManagerDelegate> delegate;
@@ -798,7 +800,7 @@ namespace Google.MobileAds
 	[BaseType (typeof (NSObject),
 		   Name = "GADVideoController",
 		   Delegates = new string [] { "Delegate" },
-	           Events = new Type[] { typeof(VideoControllerDelegate) })]
+		   Events = new Type [] { typeof (VideoControllerDelegate) })]
 	interface VideoController
 	{
 		// @property (nonatomic, weak, GAD_NULLABLE) id<GADVideoControllerDelegate> delegate;
@@ -952,6 +954,10 @@ namespace Google.MobileAds
 		// extern NSString *const kGADAdLoaderAdTypeNativeCustomTemplate;
 		[Field ("kGADAdLoaderAdTypeNativeCustomTemplate", "__Internal")]
 		NSString NativeCustomTemplate { get; }
+
+		// extern NSString *const kGADAdLoaderAdTypeDFPBanner;
+		[Field ("kGADAdLoaderAdTypeDFPBanner", "__Internal")]
+		NSString DfpBanner { get; }
 	}
 
 	// @interface GADAdLoaderOptions : NSObject
@@ -1999,6 +2005,7 @@ namespace Google.MobileAds
 		void SetAdvancedOptionValue (NSObject value, string key);
 	}
 
+	[Obsolete]
 	[BaseType (typeof (NSObject), Name = "GADDefaultInAppPurchase")]
 	interface DefaultInAppPurchase
 	{
@@ -2023,6 +2030,7 @@ namespace Google.MobileAds
 		void FinishTransaction ();
 	}
 
+	[Obsolete]
 	[BaseType (typeof (NSObject), Name = "GADInAppPurchase")]
 	interface InAppPurchase
 	{
@@ -2041,6 +2049,7 @@ namespace Google.MobileAds
 
 	}
 
+	[Obsolete]
 	[BaseType (typeof (NSObject), Name = "GADDefaultInAppPurchaseDelegate")]
 	[Model]
 	[Protocol]
@@ -2059,6 +2068,7 @@ namespace Google.MobileAds
 
 	}
 
+	[Obsolete]
 	[BaseType (typeof (NSObject), Name = "GADInAppPurchaseDelegate")]
 	[Model]
 	[Protocol]
@@ -2288,6 +2298,27 @@ namespace Google.MobileAds.DoubleClick
 {
 	#region DoubleClick
 
+	interface IBannerAdLoaderDelegate
+	{
+	}
+
+	// @protocol DFPBannerAdLoaderDelegate<GADAdLoaderDelegate>
+	[Model]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "DFPBannerAdLoaderDelegate")]
+	interface BannerAdLoaderDelegate : Google.MobileAds.AdLoaderDelegate
+	{
+		// - (NSArray<NSValue *> *)validBannerSizesForAdLoader:(GADAdLoader *)adLoader;
+		[Abstract]
+		[Export ("validBannerSizesForAdLoader:")]
+		NSValue [] ValidBannerSizes (Google.MobileAds.AdLoader adLoader);
+
+		// - (void)adLoader:(GADAdLoader *)adLoader didReceiveDFPBannerView:(DFPBannerView *)bannerView;
+		[Abstract]
+		[Export ("adLoader:didReceiveDFPBannerView:")]
+		NSValue [] DidReceiveBannerView (Google.MobileAds.AdLoader adLoader, BannerView bannerView);
+	}
+
 	[BaseType (typeof (Google.MobileAds.BannerView),
 		Name = "DFPBannerView",
 		Delegates = new string [] { "AdSizeDelegate" },
@@ -2351,6 +2382,25 @@ namespace Google.MobileAds.DoubleClick
 		[Internal]
 		[Export ("setValidAdSizesWithSizes:", IsVariadic = true)]
 		void SetValidAdSizes (AdSize firstSize, IntPtr sizesPtr);
+	}
+
+	// @interface DFPBannerViewOptions : GADAdLoaderOptions
+	[BaseType (typeof (AdLoaderOptions), Name = "DFPBannerViewOptions")]
+	interface BannerViewOptions
+	{
+		// @property(nonatomic, weak, GAD_NULLABLE) id<GADAppEventDelegate> appEventDelegate;
+		[NullAllowed]
+		[Export ("appEventDelegate", ArgumentSemantic.Weak)]
+		Google.MobileAds.IAppEventDelegate AppEventDelegate { get; set; }
+
+		// @property(nonatomic, weak, GAD_NULLABLE) id<GADAdSizeDelegate> adSizeDelegate;
+		[NullAllowed]
+		[Export ("adSizeDelegate", ArgumentSemantic.Weak)]
+		Google.MobileAds.IAdSizeDelegate AdSizeDelegate { get; set; }
+
+		// @property(nonatomic, assign) BOOL enableManualImpressions;
+		[Export ("enableManualImpressions", ArgumentSemantic.Assign)]
+		bool EnableManualImpressions { get; set; }
 	}
 
 	[BaseType (typeof (NSObject), Name = "DFPCustomRenderedAd")]
