@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.Firebase.iOS.Analytics</id>
     <title>Firebase APIs Analytics iOS Library</title>
-    <version>4.0.1.1</version>
+    <version>4.0.2.0</version>
     <authors>Xamarin Inc.</authors>
     <owners>Xamarin Inc.</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
