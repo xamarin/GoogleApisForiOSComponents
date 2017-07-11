@@ -1,4 +1,4 @@
-version: 1.1.5.2
+version: 1.1.5.3
 name: Firebase Crash Reporting for iOS
 id: firebaseioscrashreporting
 publisher: Xamarin Inc.
@@ -15,7 +15,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Firebase.iOS.CrashReporting, Version=1.1.5.2
+  - Xamarin.Firebase.iOS.CrashReporting, Version=1.1.5.3
 samples:
 - name: Crash Reporting Sample
   path: ../samples/CrashReportingSample/CrashReportingSample.sln
