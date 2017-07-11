@@ -1,6 +1,6 @@
 ﻿using Foundation;
 using UIKit;
-using Firebase.Core;
+using Firebase.Analytics;
 using Google.MobileAds;
 
 namespace AdMobSample
