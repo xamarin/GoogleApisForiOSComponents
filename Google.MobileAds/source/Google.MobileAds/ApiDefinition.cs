@@ -982,6 +982,11 @@ namespace Google.MobileAds
 		[EventName ("ReceiveAdFailed")]
 		[Export ("adLoader:didFailToReceiveAdWithError:")]
 		void DidFailToReceiveAd (AdLoader adLoader, RequestError error);
+
+		[EventArgs ("AdLoaderLoadingFailed")]
+		[EventName ("LoadingFailed")]
+		[Export ("adLoaderDidFinishLoading:")]
+		void DidFinishLoading (AdLoader adLoader);
 	}
 
 	#region Loading.Formats
@@ -1352,6 +1357,11 @@ namespace Google.MobileAds
 	[BaseType (typeof (NativeAd), Name = "GADNativeCustomTemplateAd")]
 	interface NativeCustomTemplateAd
 	{
+		// extern NSString *const GADNativeCustomTemplateAdMediaViewKey;
+		[Internal]
+		[Field ("GADNativeCustomTemplateAdMediaViewKey", "__Internal")]
+		NSString _MediaViewKey { get; }
+
 		// @property (readonly, nonatomic) NSString * templateID;
 		[Export ("templateID")]
 		string TemplateID { get; }

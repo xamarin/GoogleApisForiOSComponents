@@ -18,7 +18,7 @@ namespace Google.MobileAds
 
 	public partial class NativeCustomTemplateAd
 	{
-		public static string MediaViewKey { get { return "_videoMediaView"; } }
+		public static string MediaViewKey { get; } = _MediaViewKey.ToString ();
 	}
 
 	public partial class Request
