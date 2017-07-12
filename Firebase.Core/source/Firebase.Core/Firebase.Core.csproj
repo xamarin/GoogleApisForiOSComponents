@@ -37,7 +37,6 @@
       <DependentUpon>FirebaseCore</DependentUpon>
     </Compile>
     <Compile Include="Loader.cs" />
-    <Compile Include="Extension.cs" />
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
