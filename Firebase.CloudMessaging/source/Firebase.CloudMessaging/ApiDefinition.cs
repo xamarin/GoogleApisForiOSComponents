@@ -6,6 +6,13 @@ using ObjCRuntime;
 
 namespace Firebase.CloudMessaging
 {
+	// typedef void(^FIRMessagingFCMTokenFetchCompletion)(NSString * _Nullable FCMToken, NSError* _Nullable error) FIR_SWIFT_NAME(MessagingFCMTokenFetchCompletion);
+	delegate void MessagingFcmTokenFetchCompletionHandler([NullAllowed] string fcmToken, [NullAllowed] NSError error);
+
+	// typedef void(^FIRMessagingDeleteFCMTokenCompletion)(NSError * _Nullable error) FIR_SWIFT_NAME(MessagingDeleteFCMTokenCompletion);
+	delegate void MessagingDeleteFcmTokenCompletionHandler([NullAllowed] NSError error);
+
+	[Obsolete ("Please listen for the Messaging.ConnectionStateChangedNotification NSNotification instead.")]
 	// typedef void(^FIRMessagingConnectCompletion)(NSError* __nullable error);
 	delegate void ConnectCompletionHandler ([NullAllowed] NSError error);
 
@@ -39,8 +46,18 @@ namespace Firebase.CloudMessaging
 	[BaseType (typeof (NSObject), Name = "FIRMessagingDelegate")]
 	interface MessagingDelegate
 	{
-		// - (void)applicationReceivedRemoteMessage:(nonnull FIRMessagingRemoteMessage *)remoteMessage;
+		// - (void)messaging:(nonnull FIRMessaging *)messaging didRefreshRegistrationToken:(nonnull NSString *)fcmToken FIR_SWIFT_NAME(messaging(_:didRefreshRegistrationToken:));
 		[Abstract]
+		[Export("messaging:didRefreshRegistrationToken:")]
+		void DidRefreshRegistrationToken(Messaging messaging, string fcmToken);
+
+		// - (void)messaging:(nonnull FIRMessaging *)messaging didReceiveMessage:(nonnull FIRMessagingRemoteMessage *)remoteMessage FIR_SWIFT_NAME(messaging(_:didReceive:) __IOS_AVAILABLE(10.0);
+		[Introduced (PlatformName.iOS, 10, 0, 0)]
+		[Export("messaging:didReceiveMessage:")]
+		void DidReceiveMessage(Messaging messaging, RemoteMessage remoteMessage);
+
+		// - (void)applicationReceivedRemoteMessage:(nonnull FIRMessagingRemoteMessage *)remoteMessage;
+		[Obsolete ("Use DidReceiveMessage method instead.")]
 		[Export ("applicationReceivedRemoteMessage:")]
 		void ApplicationReceivedRemoteMessage (RemoteMessage remoteMessage);
 	}
@@ -65,22 +82,70 @@ namespace Firebase.CloudMessaging
 		[Field ("FIRMessagingMessagesDeletedNotification", "__Internal")]
 		NSString MessagesDeletedNotification { get; }
 
+		// extern NSString *const _Nonnull FIRMessagingConnectionStateChangedNotification;
+		[Notification]
+		[Field("FIRMessagingConnectionStateChangedNotification", "__Internal")]
+		NSString ConnectionStateChangedNotification { get; }
+
+		// extern NSString *const _Nonnull FIRMessagingRegistrationTokenRefreshedNotification;
+		[Notification]
+		[Field("FIRMessagingRegistrationTokenRefreshedNotification", "__Internal")]
+		NSString RegistrationTokenRefreshedNotification { get; }
+
+		// @property(nonatomic, weak, nullable) id<FIRMessagingDelegate> delegate;
+		[NullAllowed]
+		[Export("delegate", ArgumentSemantic.Weak)]
+		IMessagingDelegate Delegate { get; set; }
+
 		// @property(nonatomic, weak, nullable) id<FIRMessagingDelegate> remoteMessageDelegate;
+		[Obsolete ("Use Delegate property instead.")]
 		[Introduced (PlatformName.iOS, 10, 0)]
 		[NullAllowed]
 		[Export ("remoteMessageDelegate", ArgumentSemantic.Weak)]
 		IMessagingDelegate RemoteMessageDelegate { get; set; }
+
+		// @property(nonatomic) BOOL shouldEstablishDirectChannel;
+		[Export("shouldEstablishDirectChannel")]
+		bool ShouldEstablishDirectChannel { get; set; }
+
+		// @property(nonatomic, readonly) BOOL isDirectChannelEstablished;
+		[Export("isDirectChannelEstablished")]
+		bool IsDirectChannelEstablished { get; }
 
 		// +(instancetype _Nonnull)messaging;
 		[Static]
 		[Export ("messaging")]
 		Messaging SharedInstance { get; }
 
+		// @property(nonatomic, copy, nullable) NSData *APNSToken FIR_SWIFT_NAME(apnsToken);
+		[NullAllowed]
+		[Export("APNSToken", ArgumentSemantic.Copy)]
+		NSData ApnsToken { get; set; }
+
+		// - (void)setAPNSToken:(nonnull NSData *)apnsToken type:(FIRMessagingAPNSTokenType)type;
+		[Export("setAPNSToken:type:")]
+		void SetApnsToken(NSData apnsToken, ApnsTokenType type);
+
+		// @property(nonatomic, readonly, nullable) NSString *FCMToken FIR_SWIFT_NAME(fcmToken);
+		[NullAllowed]
+		[Export("FCMToken")]
+		string FcmToken { get; }
+
+		// - (void)retrieveFCMTokenForSenderID:(nonnull NSString *)senderID completion:(nonnull FIRMessagingFCMTokenFetchCompletion) completion FIR_SWIFT_NAME(retrieveFCMToken(forSenderID:completion:));
+		[Export("retrieveFCMTokenForSenderID:completion:")]
+		void RetrieveFcmToken(string senderId, MessagingFcmTokenFetchCompletionHandler completion);
+
+		// - (void)deleteFCMTokenForSenderID:(nonnull NSString *)senderID completion:(nonnull FIRMessagingDeleteFCMTokenCompletion) completion FIR_SWIFT_NAME(deleteFCMToken(forSenderID:completion:));
+		[Export("deleteFCMTokenForSenderID:completion:")]
+		void DeleteFcmToken(string senderId, MessagingDeleteFcmTokenCompletionHandler completion);
+
 		// -(void)connectWithCompletion:(FIRMessagingConnectCompletion _Nonnull)handler;
+		[Obsolete ("Use the ShouldEstablishDirectChannel property instead.")]
 		[Export ("connectWithCompletion:")]
 		void Connect (ConnectCompletionHandler handler);
 
 		// -(void)disconnect;
+		[Obsolete("Use the ShouldEstablishDirectChannel property instead.")]
 		[Export ("disconnect")]
 		void Disconnect ();
 
