@@ -78,12 +78,12 @@ namespace Firebase.Auth
 		[Static]
 		[Export ("authWithApp:")]
 		[return: NullAllowed]
-		Auth From (Firebase.Analytics.App app);
+		Auth From (Firebase.Core.App app);
 
 		// @property (readonly, nonatomic, weak) FIRApp * _Nullable app;
 		[NullAllowed]
 		[Export ("app", ArgumentSemantic.Weak)]
-		Firebase.Analytics.App App { get; }
+		Firebase.Core.App App { get; }
 
 		// @property (readonly, nonatomic, strong) FIRUser * _Nullable currentUser;
 		[NullAllowed]

@@ -1,6 +1,6 @@
 ﻿using Foundation;
 using UIKit;
-using Firebase.Analytics;
+using Firebase.Core;
 using Firebase.Invites;
 using Google.SignIn;
 

@@ -1,7 +1,7 @@
 ﻿using Foundation;
 using UIKit;
 
-using Firebase.Analytics;
+using Firebase.Core;
 using Firebase.DynamicLinks;
 using System;
 

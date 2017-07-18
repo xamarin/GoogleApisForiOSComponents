@@ -3,7 +3,7 @@
 using Foundation;
 using UIKit;
 
-using Firebase.Analytics;
+using Firebase.Core;
 using Firebase.RemoteConfig;
 
 namespace RemoteConfigSample

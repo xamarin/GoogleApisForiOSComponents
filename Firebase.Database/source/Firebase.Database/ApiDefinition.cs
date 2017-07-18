@@ -20,11 +20,11 @@ namespace Firebase.Database
 		// +(FIRDatabase * _Nonnull)databaseForApp:(FIRApp * _Nonnull)app;
 		[Static]
 		[Export ("databaseForApp:")]
-		Database From (Firebase.Analytics.App app);
+		Database From (Firebase.Core.App app);
 
 		// @property (readonly, nonatomic, weak) FIRApp * _Nullable app;
 		[NullAllowed, Export ("app", ArgumentSemantic.Weak)]
-		Firebase.Analytics.App App { get; }
+		Firebase.Core.App App { get; }
 
 		// -(FIRDatabaseReference * _Nonnull)reference;
 		[Export ("reference")]

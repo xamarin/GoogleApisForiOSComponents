@@ -3,7 +3,7 @@ using UIKit;
 using UserNotifications;
 
 using Firebase.InstanceID;
-using Firebase.Analytics;
+using Firebase.Core;
 using Firebase.CloudMessaging;
 using System;
 

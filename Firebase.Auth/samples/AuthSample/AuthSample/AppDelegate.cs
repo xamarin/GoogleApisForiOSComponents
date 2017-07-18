@@ -1,7 +1,7 @@
 ﻿using Foundation;
 using UIKit;
 using System;
-using Firebase.Analytics;
+using Firebase.Core;
 using Google.SignIn;
 using Facebook.CoreKit;
 
