@@ -6,7 +6,7 @@ project, also, update Podfile file if needed.
 
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '7.1'
+platform :ios, '7.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'FirebaseInstanceID' do

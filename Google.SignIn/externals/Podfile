@@ -36,7 +36,7 @@ In .targets file, located in Firebase.InstanceID binding, you can find:
 
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '7.1'
+platform :ios, '7.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'GoogleSignIn' do
