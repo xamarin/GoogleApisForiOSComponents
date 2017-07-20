@@ -3,7 +3,7 @@
 using UIKit;
 using Google.SignIn;
 using Foundation;
-using Firebase.Analytics;
+using Firebase.Core;
 using Firebase.Auth;
 
 namespace AuthSample

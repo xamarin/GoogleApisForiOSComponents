@@ -7,8 +7,38 @@ using CoreGraphics;
 
 namespace Firebase.Auth
 {
+	// @interface FIRAdditionalUserInfo : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FIRAdditionalUserInfo")]
+	interface AdditionalUserInfo
+	{
+		// @property (readonly, nonatomic) NSString * _Nonnull providerID;
+		[Export ("providerID")]
+		string ProviderId { get; }
+
+		// @property (readonly, nonatomic) NSDictionary<NSString *,NSObject *> * _Nullable profile;
+		[NullAllowed]
+		[Export ("profile")]
+		NSDictionary<NSString, NSObject> Profile { get; }
+
+		// @property (readonly, nonatomic) NSString * _Nullable username;
+		[NullAllowed]
+		[Export ("username")]
+		string Username { get; }
+
+		// @property (readonly, getter = isNewUser, nonatomic) BOOL newUser;
+		[Export ("isNewUser")]
+		bool IsNewUser { get; }
+	}
+
 	// typedef void (^FIRAuthStateDidChangeListenerBlock)(FIRAuth * _Nonnull, FIRUser * _Nullable);
 	delegate void AuthStateDidChangeListenerHandler (Auth auth, [NullAllowed] User user);
+
+	// typedef void (^FIRIDTokenDidChangeListenerBlock)(FIRAuth * _Nonnull, FIRUser * _Nullable);
+	delegate void IdTokenDidChangeListenerHandler (Auth auth, [NullAllowed] User user);
+
+	// typedef void (^FIRAuthDataResultCallback)(FIRAuthDataResult * _Nullable, NSError * _Nullable);
+	delegate void AuthDataResultHandler ([NullAllowed] AuthDataResult authResult, [NullAllowed] NSError error);
 
 	// typedef void (^FIRAuthResultCallback)(FIRUser * _Nullable, NSError * _Nullable);
 	delegate void AuthResultHandler ([NullAllowed] User user, [NullAllowed] NSError error);
@@ -50,6 +80,10 @@ namespace Firebase.Auth
 	[BaseType (typeof (NSObject), Name = "FIRAuth")]
 	interface Auth
 	{
+		// extern const double FirebaseAuthVersionNumber;
+		[Field ("FirebaseAuthVersionNumber", "__Internal")]
+		double CurrentVersionNumber { get; }
+
 		// extern const unsigned char *const FirebaseAuthVersionString;
 		[Internal]
 		[Field ("FirebaseAuthVersionString", "__Internal")]
@@ -59,9 +93,17 @@ namespace Firebase.Auth
 		[Field ("FIRAuthErrorDomain", "__Internal")]
 		NSString ErrorDomain { get; }
 
+		// extern NSString *const FIRAuthUpdatedCredentialKey;
+		[Field ("FIRAuthUpdatedCredentialKey", "__Internal")]
+		NSString UpdatedCredentialKey { get; }
+
 		// extern NSString *const FIRAuthErrorNameKey;
 		[Field ("FIRAuthErrorNameKey", "__Internal")]
 		NSString ErrorNameKey { get; }
+
+		// extern NSString *const FIRAuthErrorUserInfoEmailKey;
+		[Field ("FIRAuthErrorUserInfoEmailKey", "__Internal")]
+		NSString ErrorUserInfoEmailKey { get; }
 
 		// extern NSString *const _Nonnull FIRAuthStateDidChangeNotification;
 		[Notification]
@@ -90,6 +132,10 @@ namespace Firebase.Auth
 		[Export ("currentUser", ArgumentSemantic.Strong)]
 		User CurrentUser { get; }
 
+		[NullAllowed]
+		[Export ("APNSToken", ArgumentSemantic.Strong)]
+		NSData ApnsToken { get; set; }
+
 		// -(void)fetchProvidersForEmail:(NSString * _Nonnull)email completion:(FIRProviderQueryCallback _Nullable)completion;
 		[Export ("fetchProvidersForEmail:completion:")]
 		void FetchProviders (string email, [NullAllowed] ProviderQueryHandler completion);
@@ -101,6 +147,10 @@ namespace Firebase.Auth
 		// -(void)signInWithCredential:(FIRAuthCredential * _Nonnull)credential completion:(FIRAuthResultCallback _Nullable)completion;
 		[Export ("signInWithCredential:completion:")]
 		void SignIn (AuthCredential credential, [NullAllowed] AuthResultHandler completion);
+
+		// - (void)signInAndRetrieveDataWithCredential:(FIRAuthCredential *)credential completion:(nullable FIRAuthDataResultCallback) completion;
+		[Export ("signInAndRetrieveDataWithCredential:completion:")]
+		void SignInAndRetrieveData (AuthCredential credential, [NullAllowed] AuthDataResultHandler completion);
 
 		// -(void)signInAnonymouslyWithCompletion:(FIRAuthResultCallback _Nullable)completion;
 		[Export ("signInAnonymouslyWithCompletion:")]
@@ -145,6 +195,22 @@ namespace Firebase.Auth
 		// -(void)removeAuthStateDidChangeListener:(FIRAuthStateDidChangeListenerHandle _Nonnull)listenerHandle;
 		[Export ("removeAuthStateDidChangeListener:")]
 		void RemoveAuthStateDidChangeListener (NSObject listenerHandler);
+
+		// -(FIRIDTokenDidChangeListenerHandle _Nonnull)addIDTokenDidChangeListener:(FIRIDTokenDidChangeListenerBlock _Nonnull)listener;
+		[Export ("addIDTokenDidChangeListener:")]
+		NSObject AddIdTokenDidChangeListener (IdTokenDidChangeListenerHandler listener);
+
+		// -(void)removeIDTokenDidChangeListener:(FIRIDTokenDidChangeListenerHandle _Nonnull)listenerHandle;
+		[Export ("removeIDTokenDidChangeListener:")]
+		void RemoveIdTokenDidChangeListener (NSObject listenerHandler);
+
+		// -(void)setAPNSToken:(NSData * _Nonnull)token type:(FIRAuthAPNSTokenType)type;
+		[Export ("setAPNSToken:type:")]
+		void SetApnsToken (NSData token, AuthApnsTokenType type);
+
+		// -(BOOL)canHandleNotification:(NSDictionary * _Nonnull)userInfo;
+		[Export ("canHandleNotification:")]
+		bool CanHandleNotification (NSDictionary userInfo);
 	}
 
 	// @interface FIRAuthCredential : NSObject
@@ -157,13 +223,33 @@ namespace Firebase.Auth
 		string Provider { get; }
 	}
 
+	// @interface FIRAuthDataResult : NSObject
+	[BaseType (typeof (NSObject), Name = "FIRAuthDataResult")]
 	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FIREmailPasswordAuthProvider")]
-	interface EmailPasswordAuthProvider
+	interface AuthDataResult
 	{
-		// extern NSString *const _Nonnull FIREmailPasswordAuthProviderID;
-		[Field ("FIREmailPasswordAuthProviderID", "__Internal")]
+		// @property (readonly, nonatomic) FIRUser * _Nonnull user;
+		[Export ("user")]
+		User User { get; }
+
+		// @property (readonly, nonatomic) FIRAdditionalUserInfo * _Nullable additionalUserInfo;
+		[NullAllowed, Export ("additionalUserInfo")]
+		AdditionalUserInfo AdditionalUserInfo { get; }
+	}
+
+	// @interface FIREmailAuthProvider : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FIREmailAuthProvider")]
+	interface EmailAuthProvider
+	{
+		// extern NSString *const _Nonnull FIREmailAuthProviderID;
+		[Field ("FIREmailAuthProviderID", "__Internal")]
 		NSString Id { get; }
+
+		// extern NSString *const _Nonnull FIREmailPasswordAuthProviderID __attribute__((deprecated("")));
+		[Obsolete ("Use Id property instead.")]
+		[Field ("FIREmailPasswordAuthProviderID", "__Internal")]
+		NSString EmailPasswordAuthProviderId { get; }
 
 		// +(FIRAuthCredential * _Nonnull)credentialWithEmail:(NSString * _Nonnull)email password:(NSString * _Nonnull)password;
 		[Static]
@@ -171,6 +257,7 @@ namespace Firebase.Auth
 		AuthCredential GetCredential (string email, string password);
 	}
 
+	// @interface FIRFacebookAuthProvider : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRFacebookAuthProvider")]
 	interface FacebookAuthProvider
@@ -185,6 +272,7 @@ namespace Firebase.Auth
 		AuthCredential GetCredential (string accessToken);
 	}
 
+	// @interface FIRGitHubAuthProvider : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRGitHubAuthProvider")]
 	interface GitHubAuthProvider
@@ -212,6 +300,60 @@ namespace Firebase.Auth
 		[Static]
 		[Export ("credentialWithIDToken:accessToken:")]
 		AuthCredential GetCredential (string idToken, string accessToken);
+	}
+
+	// @interface FIROAuthProvider : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FIROAuthProvider")]
+	interface OAuthProvider
+	{
+		// +(FIRAuthCredential * _Nonnull)credentialWithProviderID:(NSString * _Nonnull)providerID IDToken:(NSString * _Nonnull)IDToken accessToken:(NSString * _Nullable)accessToken;
+		[Static]
+		[Export ("credentialWithProviderID:IDToken:accessToken:")]
+		AuthCredential GetCredential (string providerId, string IdToken, [NullAllowed] string accessToken);
+
+		// +(FIRAuthCredential * _Nonnull)credentialWithProviderID:(NSString * _Nonnull)providerID accessToken:(NSString * _Nonnull)accessToken;
+		[Static]
+		[Export ("credentialWithProviderID:accessToken:")]
+		AuthCredential GetCredential (string providerId, string accessToken);
+	}
+
+	// @interface FIRPhoneAuthCredential : FIRAuthCredential
+	[DisableDefaultCtor]
+	[BaseType (typeof (AuthCredential), Name = "FIRPhoneAuthCredential")]
+	interface PhoneAuthCredential
+	{
+	}
+
+	// typedef void (^FIRVerificationResultCallback)(NSString * _Nullable, NSError * _Nullable);
+	delegate void VerificationResultHandler ([NullAllowed] string verificationId, [NullAllowed] NSError error);
+
+	// @interface FIRPhoneAuthProvider : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FIRPhoneAuthProvider")]
+	interface PhoneAuthProvider
+	{
+		// extern NSString *const _Nonnull FIRPhoneAuthProviderID;
+		[Field ("FIRPhoneAuthProviderID", "__Internal")]
+		NSString Id { get; }
+
+		// +(instancetype _Nonnull)provider;
+		[Static]
+		[Export ("provider")]
+		PhoneAuthProvider GetProvider ();
+
+		// +(instancetype _Nonnull)providerWithAuth:(FIRAuth * _Nonnull)auth;
+		[Static]
+		[Export ("providerWithAuth:")]
+		PhoneAuthProvider GetProvider (Auth auth);
+
+		// -(void)verifyPhoneNumber:(NSString * _Nonnull)phoneNumber completion:(FIRVerificationResultCallback _Nullable)completion;
+		[Export ("verifyPhoneNumber:completion:")]
+		void VerifyPhoneNumber (string phoneNumber, [NullAllowed] VerificationResultHandler completion);
+
+		// -(FIRPhoneAuthCredential * _Nonnull)credentialWithVerificationID:(NSString * _Nonnull)verificationID verificationCode:(NSString * _Nonnull)verificationCode;
+		[Export ("credentialWithVerificationID:verificationCode:")]
+		PhoneAuthCredential GetCredential (string verificationId, string verificationCode);
 	}
 
 	// @interface FIRTwitterAuthProvider : NSObject
@@ -268,6 +410,10 @@ namespace Firebase.Auth
 		[Export ("updatePassword:completion:")]
 		void UpdatePassword (string password, [NullAllowed] UserProfileChangeHandler completion);
 
+		// -(void)updatePhoneNumberCredential:(FIRPhoneAuthCredential * _Nonnull)phoneNumberCredential completion:(FIRUserProfileChangeCallback _Nullable)completion;
+		[Export ("updatePhoneNumberCredential:completion:")]
+		void UpdatePhoneNumberCredential (PhoneAuthCredential phoneNumberCredential, [NullAllowed] UserProfileChangeHandler completion);
+
 		// -(FIRUserProfileChangeRequest * _Nonnull)profileChangeRequest;
 		[Export ("profileChangeRequest")]
 		UserProfileChangeRequest ProfileChangeRequest ();
@@ -280,17 +426,35 @@ namespace Firebase.Auth
 		[Export ("reauthenticateWithCredential:completion:")]
 		void Reauthenticate (AuthCredential credential, [NullAllowed] UserProfileChangeHandler completion);
 
+		// -(void)reauthenticateAndRetrieveDataWithCredential:(FIRAuthCredential * _Nonnull)credential completion:(FIRAuthDataResultCallback _Nullable)completion;
+		[Export ("reauthenticateAndRetrieveDataWithCredential:completion:")]
+		void ReauthenticateAndRetrieveData (AuthCredential credential, [NullAllowed] AuthDataResultHandler completion);
+
+		// -(void)getIDTokenWithCompletion:(FIRAuthTokenCallback _Nullable)completion;
+		[Export ("getIDTokenWithCompletion:")]
+		void GetIdToken ([NullAllowed] AuthTokenHandler completion);
+
 		// -(void)getTokenWithCompletion:(FIRAuthTokenCallback _Nullable)completion;
+		[Obsolete ("Use GetIdToken (AuthTokenHandler) method instead.")]
 		[Export ("getTokenWithCompletion:")]
 		void GetToken ([NullAllowed] AuthTokenHandler completion);
 
+		// -(void)getIDTokenForcingRefresh:(BOOL)forceRefresh completion:(FIRAuthTokenCallback _Nullable)completion;
+		[Export ("getIDTokenForcingRefresh:completion:")]
+		void GetIdToken (bool forceRefresh, [NullAllowed] AuthTokenHandler completion);
+
 		// -(void)getTokenForcingRefresh:(BOOL)forceRefresh completion:(FIRAuthTokenCallback _Nullable)completion;
+		[Obsolete ("Use GetIdToken (bool, AuthTokenHandler) method instead.")]
 		[Export ("getTokenForcingRefresh:completion:")]
 		void GetToken (bool forceRefresh, [NullAllowed] AuthTokenHandler completion);
 
 		// -(void)linkWithCredential:(FIRAuthCredential * _Nonnull)credential completion:(FIRAuthResultCallback _Nullable)completion;
 		[Export ("linkWithCredential:completion:")]
 		void Link (AuthCredential credential, [NullAllowed] AuthResultHandler completion);
+
+		// -(void)linkAndRetrieveDataWithCredential:(FIRAuthCredential * _Nonnull)credential completion:(FIRAuthDataResultCallback _Nullable)completion;
+		[Export ("linkAndRetrieveDataWithCredential:completion:")]
+		void LinkAndRetrieveData (AuthCredential credential, [NullAllowed] AuthDataResultHandler completion);
 
 		// -(void)unlinkFromProvider:(NSString * _Nonnull)provider completion:(FIRAuthResultCallback _Nullable)completion;
 		[Export ("unlinkFromProvider:completion:")]
@@ -358,7 +522,14 @@ namespace Firebase.Auth
 
 		// @required @property (readonly, copy, nonatomic) NSString * _Nullable email;
 		[Abstract]
-		[NullAllowed][Export ("email")]
+		[NullAllowed]
+		[Export ("email")]
 		string Email { get; }
+
+		// @required @property (readonly, nonatomic) NSString * _Nullable phoneNumber;
+		[Abstract]
+		[NullAllowed]
+		[Export ("phoneNumber")]
+		string PhoneNumber { get; }
 	}
 }

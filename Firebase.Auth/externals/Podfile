@@ -1,13 +1,11 @@
 =begin
 Last run FirebaseAuth installed:
-- FirebaseAnalytics (3.7.0)
-- FirebaseAuth (3.1.1)
-- FirebaseCore (3.5.2)
-- FirebaseInstanceID (1.0.9)
+- FirebaseAnalytics (4.0.2)
+- FirebaseAuth (4.0.0)
+- FirebaseCore (4.0.3)
+- FirebaseInstanceID (2.0.0)
 - GTMSessionFetcher (1.1.9)
-- GoogleInterchangeUtilities (1.2.2)
 - GoogleNetworkingUtilities (1.2.2)
-- GoogleSymbolUtilities (1.1.2)
 - GoogleToolboxForMac (2.1.1)
 
 Check if main version or subversion number has changed. 
@@ -15,19 +13,19 @@ If yes, please, update *.targets files located in binding
 projects, also, update Podfile files if needed.
 
 In .targets file, located in Firebase.Auth binding, you can find:
-- FirebaseAuth (3.1.1)
+- FirebaseAuth (4.0.0)
 - GoogleNetworkingUtilities (1.2.2)
 
 In .targets file, located in Firebase.Analytics binding, you can find:
-- FirebaseAnalytics (3.7.0)
+- FirebaseAnalytics (4.0.2)
 
 In .targets file, located in Firebase.Core binding, you can find:
-- FirebaseCore (3.5.2)
+- FirebaseCore (4.0.3)
 - GoogleToolboxForMac (2.1.1)
 - GTMSessionFetcher (1.1.9)
 
 In .targets file, located in Firebase.InstanceID binding, you can find:
-- FirebaseInstanceID (1.0.9)
+- FirebaseInstanceID (2.0.0)
 =end
 
 source 'https://github.com/CocoaPods/Specs.git'
@@ -36,5 +34,5 @@ platform :ios, '7.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'FirebaseAuth' do
-	pod 'Firebase/Auth', '3.15.0'
+	pod 'Firebase/Auth', '4.0.3'
 end
