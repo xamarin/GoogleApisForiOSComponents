@@ -4,7 +4,7 @@ Last run FirebaseStorage installed:
 - FirebaseCore (4.0.3)
 - FirebaseInstanceID (2.0.0)
 - FirebaseStorage (2.0.0)
-- GTMSessionFetcher (1.1.9))
+- GTMSessionFetcher (1.1.9)
 - GoogleToolboxForMac (2.1.1)
 
 Check if main version or subversion number has changed. 

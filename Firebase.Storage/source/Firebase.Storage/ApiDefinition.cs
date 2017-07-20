@@ -15,7 +15,7 @@ namespace Firebase.Storage
 	{
 		// extern const unsigned char *const FirebaseStorageVersionString;
 		[Internal]
-		[Field ("FirebaseStorageVersionString", "__Internal")]
+		[Field ("FIRStorageVersionString", "__Internal")]
 		IntPtr _CurrentVersion { get; }
 
 		// extern NSString *const _Nonnull FIRStorageErrorDomain;
