@@ -74,6 +74,7 @@ namespace Firebase.Invites
 		void SetOtherPlatformsTargetApplication (InvitesTargetApplication targetApplication);
 
 		// @required -(void)setDescription:(NSString * _Nonnull)description;
+		[Obsolete ("This method is no longer supported in Firebase App Invites.")]
 		[Abstract]
 		[Export ("setDescription:")]
 		void SetDescription (string description);

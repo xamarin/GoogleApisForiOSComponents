@@ -2,7 +2,7 @@
 
 using UIKit;
 using Google.SignIn;
-using Firebase.Analytics;
+using Firebase.Core;
 using Foundation;
 
 namespace InvitesSample

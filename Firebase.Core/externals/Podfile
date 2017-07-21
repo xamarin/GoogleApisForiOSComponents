@@ -16,6 +16,6 @@ target 'FirebaseCore' do
 	pod 'GoogleToolboxForMac/Logger', '2.1.1'
 	pod 'GoogleToolboxForMac/StringEncoding', '2.1.1'
 	pod 'GoogleToolboxForMac/URLBuilder', '2.1.1'
-	pod 'GTMSessionFetcher/Full', '1.1.9'
+	pod 'GTMSessionFetcher/Full', '1.1.11'
 	pod 'Protobuf', '3.3.0'
 end
