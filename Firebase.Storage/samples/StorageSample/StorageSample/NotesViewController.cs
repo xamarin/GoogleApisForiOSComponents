@@ -248,7 +248,7 @@ namespace StorageSample
 			// Clean folders list
 			notes.Clear ();
 
-			lblNotesCount.Text = $"{notesCount} note{notesCount != 1 ? "s" : ""}";
+			lblNotesCount.Text = $"{notesCount} note" + (notesCount != 1 ? "s" : "");
 
 			btnNewNote.Enabled = true;
 

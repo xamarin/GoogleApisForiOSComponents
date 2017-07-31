@@ -1,31 +1,31 @@
-version: 3.3.0.1
+version: 3.3.0.2
 name: Google Cast for iOS
 id: googleioscast
 publisher: Xamarin Inc.
 publisher-url: http://xamarin.com
 src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Google.Cast
-summary: "Extend your app to the big screen with Google Cast"
+summary: Extend your app to the big screen with Google Cast
 icons:
-  - ../../icons/googleioscast_128x128.png
-  - ../../icons/googleioscast_512x512.png
-docs-url: "https://developers.google.com/cast/"
+- ../../icons/googleioscast_128x128.png
+- ../../icons/googleioscast_512x512.png
+docs-url: https://developers.google.com/cast/
 libraries:
-  ios-unified: 
-    - ../output/Google.Cast.dll
+  ios-unified:
+  - ../output/Google.Cast.dll
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Google.iOS.Cast, Version=3.3.0.1
+  - Xamarin.Google.iOS.Cast, Version=3.3.0.2
 samples:
-  - name: "Cast Sample"
-    path:  ../samples/CastSample/CastSample.sln
-    removeProjects: 
-      - Google.Cast
-    installNuGets:
-      - project: CastSample
-        packages:
-          - Xamarin.Google.iOS.Cast
-    removeNodes:
-      - "//xNS:Import[contains (@Project, 'Google.Cast.targets')]"
+- name: Cast Sample
+  path: ../samples/CastSample/CastSample.sln
+  removeProjects:
+  - Google.Cast
+  installNuGets:
+  - project: CastSample
+    packages:
+    - Xamarin.Google.iOS.Cast
+  removeNodes:
+  - //xNS:Import[contains (@Project, 'Google.Cast.targets')]
 local-nuget-repo: ../../tmp-nugets
 no_build: true

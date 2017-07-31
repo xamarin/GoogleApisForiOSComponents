@@ -16,6 +16,11 @@ namespace Google.MobileAds
 		}
 	}
 
+	public partial class NativeCustomTemplateAd
+	{
+		public static string MediaViewKey { get { return "_videoMediaView"; } }
+	}
+
 	public partial class Request
 	{
 		public static readonly string GADGoogleAdMobNetworkName = "GoogleAdMobAds";

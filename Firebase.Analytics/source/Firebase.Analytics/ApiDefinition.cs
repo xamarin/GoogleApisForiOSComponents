@@ -45,7 +45,11 @@ namespace Firebase.Analytics
 		// + (void)setScreenName:(nullable NSString *)screenName screenClass:(nullable NSString *)screenClassOverride;
 		[Static]
 		[Export ("setScreenName:screenClass:")]
-		void setScreenNameAndClass ([NullAllowed] string screenName, [NullAllowed] string screenClassOverride);
+		void SetScreenNameAndClass ([NullAllowed] string screenName, [NullAllowed] string screenClassOverride);
+
+		// + (NSString *)appInstanceID;
+		[Export ("appInstanceID")]
+		string AppInstanceId { get; }
 	}
 
 
@@ -147,8 +151,13 @@ namespace Firebase.Analytics
 		AnalyticsConfiguration AnalyticsConfiguration { get; set; }
 
 		// @property (assign, readwrite, nonatomic) FIRLogLevel logLevel;
+		[Obsolete ("Use -FIRDebugEnabled and -FIRDebugDisabled flags or use SetLoggerLevel method.")]
 		[Export ("logLevel", ArgumentSemantic.Assign)]
 		LogLevel LogLevel { get; set; }
+
+		// - (void)setLoggerLevel:(FIRLoggerLevel)loggerLevel;
+		[Export ("setLoggerLevel:")]
+		void SetLoggerLevel (LoggerLevel loggerLevel);
 	}
 
 	// @interface FIROptions : NSObject <NSCopying>
@@ -176,6 +185,10 @@ namespace Firebase.Analytics
 		// @property (readonly, copy, nonatomic) NSString * GCMSenderID;
 		[Export ("GCMSenderID")]
 		string GcmSenderId { get; }
+
+		// @property(nonatomic, readonly, copy) NSString *projectID;
+		[Export ("projectID")]
+		string ProjectId { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * androidClientID;
 		[Export ("androidClientID")]

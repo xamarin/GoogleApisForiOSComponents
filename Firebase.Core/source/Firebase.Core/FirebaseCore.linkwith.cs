@@ -20,3 +20,8 @@ using ObjCRuntime;
 		     Frameworks = "Security",
 		     SmartLink = true,
 		     ForceLoad = true)]
+
+[assembly: LinkWith ("Protobuf",
+		     LinkTarget.ArmV7 | LinkTarget.Arm64 | LinkTarget.Simulator | LinkTarget.Simulator64,
+		     SmartLink = true,
+		     ForceLoad = true)]

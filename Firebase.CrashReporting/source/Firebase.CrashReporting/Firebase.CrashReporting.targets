@@ -2,14 +2,14 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_FirebaseCrashReportingAssemblyName>Firebase.CrashReporting, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseCrashReportingAssemblyName>
-		<_FirebaseCrashReportingItemsFolder>FCrshR-1.1.4</_FirebaseCrashReportingItemsFolder>
+		<_FirebaseCrashReportingItemsFolder>FCrshR-1.1.6</_FirebaseCrashReportingItemsFolder>
 		<_FirebaseCrashReportingScriptsMasterAfterTargets>_XamarinBuildDownloadMasterTarget</_FirebaseCrashReportingScriptsMasterAfterTargets>
 		<_FirebaseCrashReportingScriptsMasterDependsOnTargets>_FirebaseCrashReportingCreateScriptsDirectory;_FirebaseCrashReportingCopyScripts</_FirebaseCrashReportingScriptsMasterDependsOnTargets>
 		<_FirebaseCrashReportingScriptsFolder>scripts/FirebaseCrashReporting/</_FirebaseCrashReportingScriptsFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_FirebaseCrashReportingItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/3802e848f39facac/FirebaseCrash-1.1.4.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/d5de9da698bb9583/FirebaseCrash-1.1.6.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildCopyResources 
@@ -23,7 +23,7 @@
 	<Target Name="_FirebaseCrashReportingItems">
 
 		<PropertyGroup>
-			<_FirebaseCrashReportingSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseCrashReportingItemsFolder)\Frameworks\frameworks\</_FirebaseCrashReportingSDKBaseFolder>
+			<_FirebaseCrashReportingSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseCrashReportingItemsFolder)\Frameworks\</_FirebaseCrashReportingSDKBaseFolder>
 		</PropertyGroup>
 
 		<ItemGroup>

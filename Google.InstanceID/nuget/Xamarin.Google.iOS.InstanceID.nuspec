@@ -1,9 +1,9 @@
-<?xml version="1.0"?>
-<package >
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
   <metadata>
     <id>Xamarin.Google.iOS.InstanceID</id>
     <title>Google APIs Instance ID iOS Library</title>
-    <version>1.2.1.5</version>
+    <version>1.2.1.7</version>
     <authors>Xamarin Inc.</authors>
     <owners>Xamarin Inc.</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -13,14 +13,19 @@
     <licenseUrl>https://components.xamarin.com/license/googleiosinstanceid</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/googleiosinstanceid_128x128.png</iconUrl>
     <dependencies>
-      <dependency id="Xamarin.Build.Download" version="0.4.3"/>
-      <dependency id="Xamarin.Google.iOS.Core" version="3.0.3.3"/>
+      <group targetFramework="Xamarin.iOS10">
+        <dependency id="Xamarin.Build.Download" version="0.4.6" />
+        <dependency id="Xamarin.Google.iOS.Core" version="3.0.3.5" />
+        <dependency id="Xamarin.Firebase.iOS.Analytics" version="3.7.0.0" />
+        <dependency id="Xamarin.Firebase.iOS.InstanceID" version="1.0.9.0" />
+        <dependency id="Xamarin.Firebase.iOS.Core" version="3.5.2.0" />
+      </group>
     </dependencies>
   </metadata>
   <files>
     <file src="output/Google.InstanceID.dll" target="lib/Xamarin.iOS10" />
 
     <!-- Add targets file for external native reference download -->
-    <file src="source/Google.InstanceID/Google.InstanceID.targets" target="build/Xamarin.Google.iOS.InstanceID.targets"  />
+    <file src="source/Google.InstanceID/Google.InstanceID.targets" target="build/Xamarin.Google.iOS.InstanceID.targets" />
   </files>
 </package>

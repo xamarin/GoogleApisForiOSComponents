@@ -45,6 +45,9 @@ namespace Firebase.Auth
 		AppNotAuthorized = 17028,
 		ExpiredActionCode = 17029,
 		InvalidActionCode = 17030,
+		MessagePayload = 17031,
+		Sender = 17032,
+		RecipientEmail = 17033,
 		KeychainError = 17995,
 		InternalError = 17999
 	}

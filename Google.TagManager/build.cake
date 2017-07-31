@@ -19,7 +19,7 @@ buildSpec = new BuildSpec () {
 	},
 
 	Samples = new ISolutionBuilder [] {
-		new IOSSolutionBuilder { SolutionPath = "./samples/TagManagerSample/TagManagerSample.sln", Configuration = "Release|iPhone", BuildsOn = BuildPlatforms.Mac }, 
+		new IOSSolutionBuilder { SolutionPath = "./samples/TagManagerSample/TagManagerSample.sln", Configuration = "Release", BuildsOn = BuildPlatforms.Mac }, 
 	},
 
 	NuGets = new [] {

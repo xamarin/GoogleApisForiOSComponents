@@ -56,6 +56,110 @@ namespace Google.MobileAds
 	}
 	#endregion
 
+	[Static]
+	interface NativeAppInstallConstants
+	{
+		// GAD_EXTERN NSString *const GADNativeAppInstallHeadlineAsset;
+		[Field ("GADNativeAppInstallHeadlineAsset", "__Internal")]
+		NSString HeadlineAsset { get; }
+
+		// GAD_EXTERN NSString *const GADNativeAppInstallCallToActionAsset;
+		[Field ("GADNativeAppInstallCallToActionAsset", "__Internal")]
+		NSString CallToActionAsset { get; }
+
+		// GAD_EXTERN NSString *const GADNativeAppInstallIconAsset;
+		[Field ("GADNativeAppInstallIconAsset", "__Internal")]
+		NSString IconAsset { get; }
+
+		// GAD_EXTERN NSString *const GADNativeAppInstallBodyAsset;
+		[Field ("GADNativeAppInstallBodyAsset", "__Internal")]
+		NSString BodyAsset { get; }
+
+		// GAD_EXTERN NSString *const GADNativeAppInstallStoreAsset;
+		[Field ("GADNativeAppInstallStoreAsset", "__Internal")]
+		NSString StoreAsset { get; }
+
+		// GAD_EXTERN NSString *const GADNativeAppInstallPriceAsset;
+		[Field ("GADNativeAppInstallPriceAsset", "__Internal")]
+		NSString PriceAsset { get; }
+
+		// GAD_EXTERN NSString *const GADNativeAppInstallImageAsset;
+		[Field ("GADNativeAppInstallImageAsset", "__Internal")]
+		NSString ImageAsset { get; }
+
+		// GAD_EXTERN NSString *const GADNativeAppInstallStarRatingAsset;
+		[Field ("GADNativeAppInstallStarRatingAsset", "__Internal")]
+		NSString StarRatingAsset { get; }
+
+		// GAD_EXTERN NSString *const GADNativeAppInstallAttributionIconAsset;
+		[Field ("GADNativeAppInstallAttributionIconAsset", "__Internal")]
+		NSString AttributionIconAsset { get; }
+
+		// GAD_EXTERN NSString *const GADNativeAppInstallAttributionTextAsset;
+		[Field ("GADNativeAppInstallAttributionTextAsset", "__Internal")]
+		NSString AttributionTextAsset { get; }
+
+		// GAD_EXTERN NSString *const GADNativeAppInstallMediaViewAsset;
+		[Field ("GADNativeAppInstallMediaViewAsset", "__Internal")]
+		NSString MediaViewAsset { get; }
+
+		// GAD_EXTERN NSString *const GADNativeAppInstallAdChoicesViewAsset;
+		[Field ("GADNativeAppInstallAdChoicesViewAsset", "__Internal")]
+		NSString AdChoicesViewAsset { get; }
+
+		// GAD_EXTERN NSString *const GADNativeAppInstallBackgroundAsset;
+		[Field ("GADNativeAppInstallBackgroundAsset", "__Internal")]
+		NSString BackgroundAsset { get; }
+	}
+
+	[Static]
+	interface NativeContentConstants
+	{
+		// GAD_EXTERN NSString *const GADNativeContentHeadlineAsset;
+		[Field ("GADNativeContentHeadlineAsset", "__Internal")]
+		NSString HeadlineAsset { get; }
+
+		// GAD_EXTERN NSString *const GADNativeContentBodyAsset;
+		[Field ("GADNativeContentBodyAsset", "__Internal")]
+		NSString BodyAsset { get; }
+
+		// GAD_EXTERN NSString *const GADNativeContentCallToActionAsset;
+		[Field ("GADNativeContentCallToActionAsset", "__Internal")]
+		NSString CallToActionAsset { get; }
+
+		// GAD_EXTERN NSString *const GADNativeContentAdvertiserAsset;
+		[Field ("GADNativeContentAdvertiserAsset", "__Internal")]
+		NSString AdvertiserAsset { get; }
+
+		// GAD_EXTERN NSString *const GADNativeContentImageAsset;
+		[Field ("GADNativeContentImageAsset", "__Internal")]
+		NSString ImageAsset { get; }
+
+		// GAD_EXTERN NSString *const GADNativeContentLogoAsset;
+		[Field ("GADNativeContentLogoAsset", "__Internal")]
+		NSString LogoAsset { get; }
+
+		// GAD_EXTERN NSString *const GADNativeContentAttributionIconAsset;
+		[Field ("GADNativeContentAttributionIconAsset", "__Internal")]
+		NSString AttributionIconAsset { get; }
+
+		// GAD_EXTERN NSString *const GADNativeContentAttributionTextAsset;
+		[Field ("GADNativeContentAttributionTextAsset", "__Internal")]
+		NSString AttributionTextAsset { get; }
+
+		// GAD_EXTERN NSString *const GADNativeContentMediaViewAsset;
+		[Field ("GADNativeContentMediaViewAsset", "__Internal")]
+		NSString MediaViewAsset { get; }
+
+		// GAD_EXTERN NSString *const GADNativeContentAdChoicesViewAsset;
+		[Field ("GADNativeContentAdChoicesViewAsset", "__Internal")]
+		NSString AdChoicesViewAsset { get; }
+
+		// GAD_EXTERN NSString *const GADNativeContentBackgroundAsset;
+		[Field ("GADNativeContentBackgroundAsset", "__Internal")]
+		NSString BackgroundAsset { get; }
+	}
+
 	// @interface GADMobileAds : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GADMobileAds")]
@@ -88,6 +192,10 @@ namespace Google.MobileAds
 		// @property(nonatomic, assign) BOOL applicationMuted;
 		[Export ("applicationMuted", ArgumentSemantic.Assign)]
 		bool ApplicationMuted { get; set; }
+
+		// @property(nonatomic, readonly, strong) GADAudioVideoManager *audioVideoManager;
+		[Export ("audioVideoManager", ArgumentSemantic.Strong)]
+		AudioVideoManager AudioVideoManager { get; }
 
 		// - (BOOL)isSDKVersionAtLeastMajor:(NSInteger)major minor:(NSInteger)minor patch:(NSInteger)patch;
 		[Export ("isSDKVersionAtLeastMajor:minor:patch:")]
@@ -552,6 +660,55 @@ namespace Google.MobileAds
 		void DidDeactivateAd (BannerView banner);
 	}
 
+	// @interface GADAudioVideoManager : NSObject
+	[BaseType (typeof (NSObject), 
+	           Name = "GADAudioVideoManager",
+	           Delegates = new string[] { "Delegate" },
+	           Events = new Type[] { typeof (AudioVideoManagerDelegate) })]
+	interface AudioVideoManager
+	{
+		// @property(nonatomic, weak, nullable) id<GADAudioVideoManagerDelegate> delegate;
+		[NullAllowed]
+		[Export ("delegate", ArgumentSemantic.Weak)]
+		IAudioVideoManagerDelegate Delegate { get; set; }
+
+		// @property(nonatomic, assign) BOOL audioSessionIsApplicationManaged;
+		[Export ("audioSessionIsApplicationManaged")]
+		bool AudioSessionIsApplicationManaged { get; set; }
+	}
+
+	interface IAudioVideoManagerDelegate
+	{
+	}
+
+	[Model]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "GADAudioVideoManagerDelegate")]
+	interface AudioVideoManagerDelegate
+	{
+		// - (void)audioVideoManagerWillPlayVideo:(GADAudioVideoManager *)audioVideoManager;
+		[EventArgs ("AudioVideoManagerWillPlayVideo")]
+		[Export ("audioVideoManagerWillPlayVideo:")]
+		void WillPlayVideo (AudioVideoManager audioVideoManager);
+
+		// - (void)audioVideoManagerDidPauseAllVideo:(GADAudioVideoManager *)audioVideoManager;
+		[EventArgs ("AudioVideoManagerAllVideoPaused")]
+		[EventName ("AllVideoPaused")]
+		[Export ("audioVideoManagerDidPauseAllVideo:")]
+		void DidPauseAllVideo (AudioVideoManager audioVideoManager);
+
+		// - (void)audioVideoManagerWillPlayAudio:(GADAudioVideoManager *)audioVideoManager;
+		[EventArgs ("AudioVideoManagerWillPlayAudio")]
+		[Export ("audioVideoManagerWillPlayAudio:")]
+		void WillPlayAudio (AudioVideoManager audioVideoManager);
+
+		// - (void)audioVideoManagerDidStopPlayingAudio:(GADAudioVideoManager *)audioVideoManager;
+		[EventArgs ("AudioVideoManagerPlayingAudioStopped")]
+		[EventName ("PlayingAudioStopped")]
+		[Export ("audioVideoManagerDidStopPlayingAudio:")]
+		void DidStopPlayingAudio (AudioVideoManager audioVideoManager);
+	}
+
 	#region Search
 
 	[BaseType (typeof (Request), Name = "GADSearchRequest")]
@@ -638,13 +795,28 @@ namespace Google.MobileAds
 	}
 
 	// @interface GADVideoController : NSObject
-	[BaseType (typeof (NSObject), Name = "GADVideoController")]
+	[BaseType (typeof (NSObject),
+		   Name = "GADVideoController",
+		   Delegates = new string [] { "Delegate" },
+	           Events = new Type[] { typeof(VideoControllerDelegate) })]
 	interface VideoController
 	{
 		// @property (nonatomic, weak, GAD_NULLABLE) id<GADVideoControllerDelegate> delegate;
 		[NullAllowed]
 		[Export ("delegate", ArgumentSemantic.Weak)]
 		IVideoControllerDelegate Delegate { get; set; }
+
+		// - (void)setMute:(BOOL)mute;
+		[Export ("setMute:")]
+		void SetMute (bool mute);
+
+		// - (void)play;
+		[Export ("play")]
+		void Play ();
+
+		// - (void)pause;
+		[Export ("pause")]
+		void Pause ();
 
 		// - (BOOL)hasVideoContent;
 		[Export ("hasVideoContent")]
@@ -653,6 +825,10 @@ namespace Google.MobileAds
 		// - (double)aspectRatio;
 		[Export ("aspectRatio")]
 		double AspectRatio { get; }
+
+		// - (BOOL)customControlsEnabled;
+		[Export ("customControlsEnabled")]
+		bool IsCustomControlsEnabled { get; }
 	}
 
 	interface IVideoControllerDelegate
@@ -665,11 +841,35 @@ namespace Google.MobileAds
 	[BaseType (typeof (NSObject), Name = "GADVideoControllerDelegate")]
 	interface VideoControllerDelegate
 	{
+		// - (void)videoControllerDidPlayVideo:(GADVideoController *)videoController;
+		[EventArgs ("VideoControllerVideoPlayed")]
+		[EventName ("VideoPlayed")]
+		[Export ("videoControllerDidPlayVideo:")]
+		void DidPlayVideo (VideoController videoController);
+
+		// - (void)videoControllerDidPauseVideo:(GADVideoController *)videoController;
+		[EventArgs ("VideoControllerVideoPaused")]
+		[EventName ("VideoPaused")]
+		[Export ("videoControllerDidPauseVideo:")]
+		void DidPauseVideo (VideoController videoController);
+
 		// - (void)videoControllerDidEndVideoPlayback:(GADVideoController*)videoController;
 		[EventArgs ("VideoControllerVideoPlaybackEnded")]
 		[EventName ("VideoPlaybackEnded")]
 		[Export ("videoControllerDidEndVideoPlayback:")]
 		void DidEndVideoPlayback (VideoController videoController);
+
+		// - (void)videoControllerDidMuteVideo:(GADVideoController *)videoController;
+		[EventArgs ("VideoControllerVideoMuted")]
+		[EventName ("VideoMuted")]
+		[Export ("videoControllerDidMuteVideo:")]
+		void DidMuteVideo (VideoController videoController);
+
+		// - (void)videoControllerDidUnmuteVideo:(GADVideoController *)videoController;
+		[EventArgs ("VideoControllerVideoUnuted")]
+		[EventName ("VideoUnuted")]
+		[Export ("videoControllerDidUnmuteVideo:")]
+		void DidUnmuteVideo (VideoController videoController);
 	}
 
 	// @interface GADVideoOptions : GADAdLoaderOptions
@@ -679,6 +879,10 @@ namespace Google.MobileAds
 		// @property(nonatomic, assign) BOOL startMuted;
 		[Export ("startMuted", ArgumentSemantic.Assign)]
 		bool StartMuted { get; set; }
+
+		// @property(nonatomic, assign) BOOL customControlsRequested;
+		[Export ("customControlsRequested", ArgumentSemantic.Assign)]
+		bool CustomControlsRequested { get; set; }
 	}
 
 	#endregion
@@ -689,7 +893,9 @@ namespace Google.MobileAds
 	[BaseType (typeof (UIView), Name = "GADAdChoicesView")]
 	interface AdChoicesView
 	{
-
+		// @property(nonatomic, weak) GADNativeAd *nativeAd;
+		[Export ("nativeAd", ArgumentSemantic.Weak)]
+		NativeAd NativeAd { get; set; }
 	}
 
 	interface IAdDelegate
@@ -812,6 +1018,19 @@ namespace Google.MobileAds
 	[BaseType (typeof (NSObject), Name = "GADNativeAdDelegate")]
 	interface NativeAdDelegate
 	{
+
+		// @optional -(void)nativeAdDidRecordImpression:(GADNativeAd *)nativeAd;
+		[EventArgs ("NativeAd")]
+		[EventName ("ImpressionRecorded")]
+		[Export ("nativeAdDidRecordImpression:")]
+		void DidRecordImpression (NativeAd nativeAd);
+
+		// @optional -(void)nativeAdDidRecordClick:(GADNativeAd *)nativeAd;
+		[EventArgs ("NativeAd")]
+		[EventName ("ClickRecorded")]
+		[Export ("nativeAdDidRecordClick:")]
+		void DidRecordClick (NativeAd nativeAd);
+
 		// @optional -(void)nativeAdWillPresentScreen:(GADNativeAd *)nativeAd;
 		[EventArgs ("NativeAd")]
 		[Export ("nativeAdWillPresentScreen:")]
@@ -916,6 +1135,14 @@ namespace Google.MobileAds
 		// @property(nonatomic, strong, readonly) GADVideoController *videoController;
 		[Export ("videoController", ArgumentSemantic.Strong)]
 		VideoController VideoController { get; }
+
+		// - (void)registerAdView:(UIView *)adView assetViews:(NSDictionary<NSString *, UIView *> *)assetViews;
+		[Export ("registerAdView:assetViews:")]
+		void RegisterAdView (UIView adView, NSDictionary<NSString, UIView> assetViews);
+
+		// - (void)unregisterAdView;
+		[Export ("unregisterAdView")]
+		void UnregisterAdView ();
 	}
 
 	interface INativeAppInstallAdLoaderDelegate
@@ -1034,6 +1261,14 @@ namespace Google.MobileAds
 		// @property(nonatomic, strong, readonly) GADVideoController *videoController;
 		[Export ("videoController", ArgumentSemantic.Strong)]
 		VideoController VideoController { get; }
+
+		// - (void)registerAdView:(UIView *)adView assetViews:(NSDictionary<NSString *, UIView *> *)assetViews;
+		[Export ("registerAdView:assetViews:")]
+		void RegisterAdView (UIView adView, NSDictionary<NSString, UIView> assetViews);
+
+		// - (void)unregisterAdView;
+		[Export ("unregisterAdView")]
+		void UnregisterAdView ();
 	}
 
 	interface INativeContentAdLoaderDelegate
@@ -1104,6 +1339,9 @@ namespace Google.MobileAds
 		AdChoicesView AdChoicesView { get; set; }
 	}
 
+	// typedef void (^GADNativeAdCustomClickHandler)(NSString* assetID);
+	delegate void NativeAdCustomClickHandle (string assetId);
+
 	// @interface GADNativeCustomTemplateAd : GADNativeAd
 	[BaseType (typeof (NativeAd), Name = "GADNativeCustomTemplateAd")]
 	interface NativeCustomTemplateAd
@@ -1125,6 +1363,10 @@ namespace Google.MobileAds
 		[Export ("mediaView", ArgumentSemantic.Strong)]
 		MediaView MediaView { get; }
 
+		// @property(atomic, copy) GADNativeAdCustomClickHandler customClickHandler;
+		[Export ("customClickHandler", ArgumentSemantic.Copy)]
+		NativeAdCustomClickHandle CustomClickHandler { get; }
+
 		// -(GADNativeAdImage *)imageForKey:(NSString *)key;
 		[return: NullAllowed]
 		[Export ("imageForKey:")]
@@ -1135,13 +1377,18 @@ namespace Google.MobileAds
 		[Export ("stringForKey:")]
 		string StringForKey (string key);
 
-		// -(void)performClickOnAssetWithKey:(NSString *)assetKey customClickHandler:(dispatch_block_t)customClickHandler;
-		[Export ("performClickOnAssetWithKey:customClickHandler:")]
-		void PerformClickOnAssetWithKey (string assetKey, [NullAllowed] Action customClickHandler);
+		// - (void)performClickOnAssetWithKey:(NSString *)assetKey;
+		[Export ("performClickOnAssetWithKey:")]
+		void PerformClickOnAssetWithKey (string assetKey);
 
-		// -(void)recordImpression;
+		// - (void)recordImpression;
 		[Export ("recordImpression")]
 		void RecordImpression ();
+
+		// -(void)performClickOnAssetWithKey:(NSString *)assetKey customClickHandler:(dispatch_block_t)customClickHandler;
+		[Obsolete ("Use PerformClickOnAssetWithKey (string) method instead.")]
+		[Export ("performClickOnAssetWithKey:customClickHandler:")]
+		void PerformClickOnAssetWithKey (string assetKey, [NullAllowed] Action customClickHandler);
 	}
 
 	// @interface GADNativeExpressAdView : UIView
@@ -2029,6 +2276,9 @@ namespace Google.MobileAds
 	[BaseType (typeof (NSObject), Name = "GADMediaView")]
 	interface MediaView
 	{
+		// @property(nonatomic, weak) GADNativeAd *nativeAd;
+		[Export ("nativeAd", ArgumentSemantic.Weak)]
+		NativeAd NativeAd { get; set; }
 	}
 
 	#endregion

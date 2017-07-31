@@ -1,4 +1,4 @@
-version: 7.16.0.0
+version: 7.19.0.0
 name: Firebase AdMob for iOS
 id: firebaseiosadmob
 publisher: Xamarin Inc
@@ -6,34 +6,34 @@ publisher-url: https://xamarin.com
 src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Firebae.AdMob
 summary: Connect with advertisers and show relevant ads in your app. Users click on ads, you make money.
 icons:
-  - ../../icons/firebaseiosadmob_128x128.png
-  - ../../icons/firebaseiosadmob_512x512.png
+- ../../icons/firebaseiosadmob_128x128.png
+- ../../icons/firebaseiosadmob_512x512.png
 docs-url: https://firebase.google.com/docs/admob/
 libraries:
   ios-unified:
-    - ../../Google.MobileAds/output/Google.MobileAds.dll
-    - ../../Firebase.Analytics/output/Firebase.Analytics.dll
-    - ../../Firebase.Core/output/Firebase.Core.dll
-    - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
+  - ../../Google.MobileAds/output/Google.MobileAds.dll
+  - ../../Firebase.Analytics/output/Firebase.Analytics.dll
+  - ../../Firebase.Core/output/Firebase.Core.dll
+  - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
 is_shell: true
 packages:
   ios-unified:
-    - Xamarin.Firebase.iOS.AdMob, Version=7.16.0.0
+  - Xamarin.Firebase.iOS.AdMob, Version=7.19.0.0
 samples:
-  - name: "AdMob Sample"
-    path: ../samples/AdMobSample/AdMobSample.sln
-    installNuGets:
-      - project: AdMobSample
-        packages:
-          - Xamarin.Firebase.iOS.AdMob
-          - Xamarin.Google.iOS.MobileAds
-          - Xamarin.Firebase.iOS.Analytics
-          - Xamarin.Firebase.iOS.Core
-          - Xamarin.Firebase.iOS.InstanceID
-    removeNodes:
-      - "//xNS:Import[contains (@Project, 'Google.MobileAds.targets')]"
-      - "//xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]"
-      - "//xNS:Import[contains (@Project, 'Firebase.Core.targets')]"
-      - "//xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]"
+- name: AdMob Sample
+  path: ../samples/AdMobSample/AdMobSample.sln
+  installNuGets:
+  - project: AdMobSample
+    packages:
+    - Xamarin.Firebase.iOS.AdMob
+    - Xamarin.Google.iOS.MobileAds
+    - Xamarin.Firebase.iOS.Analytics
+    - Xamarin.Firebase.iOS.Core
+    - Xamarin.Firebase.iOS.InstanceID
+  removeNodes:
+  - //xNS:Import[contains (@Project, 'Google.MobileAds.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.Core.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]
 local-nuget-repo: ../../tmp-nugets
 no_build: true

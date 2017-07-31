@@ -79,7 +79,7 @@ namespace DatabaseSample
 			lblNotesCount = new UILabel (new CGRect (0, 0, 50, 15)) {
 				Font = UIFont.SystemFontOfSize (12)
 			};
-			lblNotesCount.Text = $"{count} note{count != 1 ? "s" : ""}";
+			lblNotesCount.Text = $"{count} note" + (count != 1 ? "s" : "");
 			var btnNotesCount = new UIBarButtonItem (lblNotesCount);
 
 			btnNewNote = new UIBarButtonItem (UIBarButtonSystemItem.Compose, btnNewNote_Clicked) {

@@ -1,9 +1,9 @@
-<?xml version="1.0"?>
-<package >
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
   <metadata>
     <id>Xamarin.Google.iOS.Analytics</id>
     <title>Google APIs Analytics iOS Library</title>
-    <version>3.17.0.1</version>
+    <version>3.17.0.2</version>
     <authors>Xamarin Inc.</authors>
     <owners>Xamarin Inc.</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -13,13 +13,15 @@
     <licenseUrl>https://components.xamarin.com/license/googleiosanalytics</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/googleiosanalytics_128x128.png</iconUrl>
     <dependencies>
-      <dependency id="Xamarin.Build.Download" version="0.4.3"/>
+      <group targetFramework="Xamarin.iOS10">
+        <dependency id="Xamarin.Build.Download" version="0.4.6" />
+      </group>
     </dependencies>
   </metadata>
   <files>
     <file src="output/Google.Analytics.dll" target="lib/Xamarin.iOS10" />
 
     <!-- Add targets file for external native reference download -->
-    <file src="source/Google.Analytics/Google.Analytics.targets" target="build/Xamarin.Google.iOS.Analytics.targets"  />
+    <file src="source/Google.Analytics/Google.Analytics.targets" target="build/Xamarin.Google.iOS.Analytics.targets" />
   </files>
 </package>

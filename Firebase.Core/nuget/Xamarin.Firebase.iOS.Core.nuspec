@@ -1,9 +1,9 @@
-<?xml version="1.0"?>
-<package >
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
   <metadata>
     <id>Xamarin.Firebase.iOS.Core</id>
     <title>Firebase APIs Core iOS Library</title>
-    <version>3.4.6.0</version>
+    <version>3.5.2.0</version>
     <authors>Xamarin Inc.</authors>
     <owners>Xamarin Inc.</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -13,14 +13,16 @@
     <licenseUrl>https://github.com/xamarin/GoogleApisForiOSComponents/blob/master/Firebase.Core/License.md/</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseioscore_128x128.png</iconUrl>
     <dependencies>
-      <dependency id="Xamarin.Build.Download" version="0.4.3"/>
+      <group targetFramework="Xamarin.iOS10">
+        <dependency id="Xamarin.Build.Download" version="0.4.6" />
+      </group>
     </dependencies>
   </metadata>
   <files>
     <file src="output/Firebase.Core.dll" target="lib/Xamarin.iOS10" />
 
     <!-- Add targets file for external native reference download -->
-    <file src="source/Firebase.Core/Firebase.Core.targets" target="build/Xamarin.Firebase.iOS.Core.targets"  />
+    <file src="source/Firebase.Core/Firebase.Core.targets" target="build/Xamarin.Firebase.iOS.Core.targets" />
     <file src="External-Dependency-Info" target="THIRD-PARTY-NOTICES" />
   </files>
 </package>

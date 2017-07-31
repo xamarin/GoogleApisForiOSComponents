@@ -5,6 +5,7 @@
 		<_GoogleTagManagerAssemblyName>Google.TagManager, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleTagManagerAssemblyName>
 		<_GoogleTagManagerItemsFolder>GTagM-5.0.8</_GoogleTagManagerItemsFolder>
 		<_GoogleUtilitiesItemsFolder>GUtlts-1.3.2</_GoogleUtilitiesItemsFolder>
+		<_GoogleSymbolUtilitiesItemsFolder>GSymblU-1.1.2</_GoogleSymbolUtilitiesItemsFolder>
 	</PropertyGroup>
 
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
@@ -16,6 +17,10 @@
 			<Url>https://dl.google.com/dl/cpdc/978f81964b50a7c0/GoogleUtilities-1.3.2.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
+		<XamarinBuildDownload Include="$(_GoogleSymbolUtilitiesItemsFolder)">
+            <Url>https://dl.google.com/dl/cpdc/7ecdffda6fbef4af/GoogleSymbolUtilities-1.1.2.tar.gz</Url>
+            <Kind>Tgz</Kind>
+        </XamarinBuildDownload>
 		<XamarinBuildRestoreResources Include="_GoogleTagManagerItems"/>
 	</ItemGroup>
 
@@ -24,6 +29,7 @@
 		<PropertyGroup>
 			<_GoogleTagManagerSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleTagManagerItemsFolder)\Frameworks\</_GoogleTagManagerSDKBaseFolder>
 			<_GoogleUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleUtilitiesItemsFolder)\Frameworks\frameworks\</_GoogleUtilitiesSDKBaseFolder>
+			<_GoogleSymbolUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleSymbolUtilitiesItemsFolder)\Frameworks\frameworks\</_GoogleSymbolUtilitiesSDKBaseFolder>
 		</PropertyGroup>
 
 		<ItemGroup>
@@ -39,6 +45,10 @@
 				<LogicalName>GoogleUtilities</LogicalName>
 				<AssemblyName>$(_GoogleTagManagerAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_GoogleSymbolUtilitiesSDKBaseFolder)GoogleSymbolUtilities.framework\GoogleSymbolUtilities">
+                <LogicalName>GoogleSymbolUtilities</LogicalName>
+                <AssemblyName>$(_GoogleTagManagerAssemblyName)</AssemblyName>
+            </RestoreAssemblyResource>
 		</ItemGroup>
 		
 	</Target>

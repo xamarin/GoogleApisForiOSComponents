@@ -18,7 +18,7 @@ buildSpec = new BuildSpec () {
 	},
 
 	Samples = new ISolutionBuilder [] {
-		new IOSSolutionBuilder { SolutionPath = "./samples/CrashReportingSample/CrashReportingSample.sln", BuildsOn = BuildPlatforms.Mac }, 
+		new IOSSolutionBuilder { SolutionPath = "./samples/CrashReportingSample/CrashReportingSample.sln", Configuration = "Release", BuildsOn = BuildPlatforms.Mac }, 
 	},
 
 	NuGets = new [] {
