@@ -4,10 +4,12 @@ AdMob by Google is a mobile advertising platform that you can use to generate re
 
 ## Key capabilities
 
-* **Earn more from AdMob's in-app ads:** Show ads from millions of Google advertisers in real time, or use AdMob Mediation to earn from over 40 premium networks through the AdMob platform to simplify your ad operations, improve competition, and earn more, for free. AdMob mediation has [ad network optimization](https://support.google.com/admob/answer/3379794) built in, which automatically adjusts the positions of your other ad networks in your mediation stack to ensure you maximize your revenue.
-* **Improve user experience:** Native and video ads create a positive user experience as you monetize by matching the look and feel of your app. Choose from different ad templates, customize them, and experiment with different layouts on the fly without republishing your app.
-* **Scale fast:** When your app's a global or domestic hit, you can monetize users quickly with AdMob, by showing ads to users in more than 200 markets. More than one app? AdMob house ads is a free tool that enables you to cross-promote your apps to your userbase, across your family of apps.
-* **Access monetization reports:** AdMob is the premier monetization platform for mobile. While generating ad revenue, AdMob also produces its own monetization reports that you can use to make smarter decisions about product strategy.
+| | |
+|:-:|-|
+| **Earn more from AdMob's in-app ads** | Show ads from millions of Google advertisers in real time, or use AdMob Mediation to earn from over 40 premium networks through the AdMob platform to simplify your ad operations, improve competition, and earn more, for free. AdMob mediation has [ad network optimization](https://support.google.com/admob/answer/3379794) built in, which automatically adjusts the positions of your other ad networks in your mediation stack to ensure you maximize your revenue. |
+| **Improve user experience** | Native and video ads create a positive user experience as you monetize by matching the look and feel of your app. Choose from different ad templates, customize them, and experiment with different layouts on the fly without republishing your app. |
+| **Scale fast** | When your app's a global or domestic hit, you can monetize users quickly with AdMob, by showing ads to users in more than 200 markets. More than one app? AdMob house ads is a free tool that enables you to cross-promote your apps to your userbase, across your family of apps. |
+| **Access monetization reports** | AdMob is the premier monetization platform for mobile. While generating ad revenue, AdMob also produces its own monetization reports that you can use to make smarter decisions about product strategy. |
 
 ## How does it work?
 

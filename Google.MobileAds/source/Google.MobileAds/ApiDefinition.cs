@@ -537,7 +537,7 @@ namespace Google.MobileAds
 
 		// @property (readonly, getter = isReady, assign, nonatomic) BOOL ready;
 		[Export ("ready")]
-		bool Ready { [Bind ("isReady")] get; }
+		bool IsReady { [Bind ("isReady")] get; }
 
 		// @property(nonatomic, readonly, copy, GAD_NULLABLE) NSString *adNetworkClassName;
 		[NullAllowed]
@@ -916,10 +916,7 @@ namespace Google.MobileAds
 	}
 
 	// @interface GADAdLoader : NSObject
-	[BaseType (typeof (NSObject),
-		Name = "GADAdLoader",
-		Delegates = new [] { "Delegate" },
-		Events = new [] { typeof (AdLoaderDelegate) })]
+	[BaseType (typeof (NSObject), Name = "GADAdLoader")]
 	interface AdLoader
 	{
 		// @property (nonatomic, weak) id<GADAdLoaderDelegate> __nullable delegate;
@@ -978,13 +975,9 @@ namespace Google.MobileAds
 	{
 		// @required -(void)adLoader:(GADAdLoader *)adLoader didFailToReceiveAdWithError:(GADRequestError *)error;
 		[Abstract]
-		[EventArgs ("AdLoaderReceiveAdFailed")]
-		[EventName ("ReceiveAdFailed")]
 		[Export ("adLoader:didFailToReceiveAdWithError:")]
 		void DidFailToReceiveAd (AdLoader adLoader, RequestError error);
 
-		[EventArgs ("AdLoaderLoadingFailed")]
-		[EventName ("LoadingFailed")]
 		[Export ("adLoaderDidFinishLoading:")]
 		void DidFinishLoading (AdLoader adLoader);
 	}

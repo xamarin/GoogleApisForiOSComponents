@@ -16,14 +16,9 @@ namespace AdMobSample
 		BannerView adViewWindow;
 		Interstitial adInterstitial;
 
-		bool adOnTable = false;
-		bool adOnWindow = false;
-		bool interstitialRequested = false;
-
-		// Get you own AdmobId from: http://www.google.com/ads/admob/
-		// These IDs are provided by Google and come in your GoogleService-Info.plist
-		const string bannerId = "ca-app-pub-3940256099942544/2934735716";
-		const string intersitialId = "ca-app-pub-3940256099942544/4411468910";
+		bool adOnTable;
+		bool adOnWindow;
+		bool interstitialRequested;
 
 		public AdsViewController () : base (UITableViewStyle.Grouped, null, true)
 		{
@@ -52,7 +47,7 @@ namespace AdMobSample
 			if (adViewTableView == null) {
 				// Setup your BannerView, review AdSizeCons class for more Ad sizes. 
 				adViewTableView = new BannerView (size: AdSizeCons.SmartBannerPortrait) {
-					AdUnitID = bannerId,
+					AdUnitID = AdMobConstants.BannerId,
 					RootViewController = NavigationController
 				};
 
@@ -91,7 +86,7 @@ namespace AdMobSample
 				// Setup your GADBannerView, review AdSizeCons class for more Ad sizes. 
 				adViewWindow = new BannerView (size: AdSizeCons.SmartBannerPortrait,
 				                               origin: new CGPoint (0, UIScreen.MainScreen.Bounds.Size.Height - AdSizeCons.Banner.Size.Height)) {
-					AdUnitID = bannerId,
+					AdUnitID = AdMobConstants.BannerId,
 					RootViewController = NavigationController
 				};
 
@@ -133,7 +128,7 @@ namespace AdMobSample
 
 		void CreateAndRequestInterstitial ()
 		{
-			adInterstitial = new Interstitial (intersitialId);
+			adInterstitial = new Interstitial (AdMobConstants.IntersitialId);
 			adInterstitial.ScreenDismissed += (sender, e) => {
 				// Interstitial is a one time use object. That means once an interstitial is shown, HasBeenUsed 
 				// returns true and the interstitial can't be used to load another ad. 

@@ -271,6 +271,12 @@ namespace Google.MobileAds
 		}
 	}
 
+	public partial class RewardBasedVideoAd
+	{
+		[Obsolete ("Use IsReady property instead, this will be removed in future versions")]
+		public bool Ready { get { return IsReady; } }
+	}
+
 }
 
 namespace Google.MobileAds.DoubleClick
