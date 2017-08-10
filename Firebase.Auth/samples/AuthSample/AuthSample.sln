@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.Core", "..\..\..\Goo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.SignIn", "..\..\..\Google.SignIn\source\Google.SignIn\Google.SignIn.csproj", "{3C142652-0DF6-4919-9F58-0FD8FA3A9F6D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firebase.CloudMessaging", "..\..\..\Firebase.CloudMessaging\source\Firebase.CloudMessaging\Firebase.CloudMessaging.csproj", "{21448321-F58E-4F74-B9B2-9704651FF5E9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
@@ -79,5 +81,13 @@ Global
 		{3C142652-0DF6-4919-9F58-0FD8FA3A9F6D}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{3C142652-0DF6-4919-9F58-0FD8FA3A9F6D}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{3C142652-0DF6-4919-9F58-0FD8FA3A9F6D}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{21448321-F58E-4F74-B9B2-9704651FF5E9}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{21448321-F58E-4F74-B9B2-9704651FF5E9}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{21448321-F58E-4F74-B9B2-9704651FF5E9}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{21448321-F58E-4F74-B9B2-9704651FF5E9}.Release|iPhone.Build.0 = Release|Any CPU
+		{21448321-F58E-4F74-B9B2-9704651FF5E9}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{21448321-F58E-4F74-B9B2-9704651FF5E9}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{21448321-F58E-4F74-B9B2-9704651FF5E9}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{21448321-F58E-4F74-B9B2-9704651FF5E9}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal

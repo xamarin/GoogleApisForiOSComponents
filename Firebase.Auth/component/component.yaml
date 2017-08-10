@@ -27,6 +27,7 @@ samples:
   - Google.SignIn
   - Google.Core
   - Firebase.Analytics
+  - Firebase.CloudMessaging
   - Firebase.Core
   - Firebase.InstanceID
   installNuGets:
@@ -35,6 +36,7 @@ samples:
     - Xamarin.Firebase.iOS.Auth
     - Xamarin.Google.iOS.SignIn
     - Xamarin.Google.iOS.Core
+    - Xamarin.Firebase.iOS.CloudMessaging
     - Xamarin.Firebase.iOS.Analytics
     - Xamarin.Firebase.iOS.Core
     - Xamarin.Firebase.iOS.InstanceID
@@ -42,6 +44,7 @@ samples:
   - //xNS:Import[contains (@Project, 'Firebase.Auth.targets')]
   - //xNS:Import[contains (@Project, 'Google.SignIn.targets')]
   - //xNS:Import[contains (@Project, 'Google.Core.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.CloudMessaging.targets')]
   - //xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]
   - //xNS:Import[contains (@Project, 'Firebase.Core.targets')]
   - //xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]

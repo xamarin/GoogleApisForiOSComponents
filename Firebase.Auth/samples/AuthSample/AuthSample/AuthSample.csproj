@@ -87,6 +87,12 @@
     <Reference Include="Facebook">
       <HintPath>..\packages\Xamarin.Facebook.iOS.4.24.0\lib\Xamarin.iOS10\Facebook.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
@@ -94,10 +100,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="Contexts\" />
     <Folder Include="PasswordAuth\" />
     <Folder Include="GoogleAuth\" />
     <Folder Include="FacebookAuth\" />
+    <Folder Include="PhoneNumberAuth\" />
+    <Folder Include="Models\" />
+    <Folder Include="Models\Contexts\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -112,8 +120,6 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="MenuViewController.cs" />
-    <Compile Include="Contexts\PasswordContext.cs" />
-    <Compile Include="Contexts\NewAccountContext.cs" />
     <Compile Include="UserViewController.cs" />
     <Compile Include="PasswordAuth\PasswordLoginViewController.cs" />
     <Compile Include="PasswordAuth\NewAccountViewController.cs" />
@@ -125,6 +131,12 @@
     <Compile Include="FacebookAuth\FacebookLoginViewController.designer.cs">
       <DependentUpon>FacebookLoginViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="PhoneNumberAuth\PhoneNumberViewController.cs" />
+    <Compile Include="PhoneNumberAuth\CountriesViewController.cs" />
+    <Compile Include="Models\Contexts\NewAccountContext.cs" />
+    <Compile Include="Models\Contexts\PasswordContext.cs" />
+    <Compile Include="Models\CountriesManager.cs" />
+    <Compile Include="PhoneNumberAuth\VerificationCodeViewController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\source\Firebase.Auth\Firebase.Auth.csproj">
@@ -151,14 +163,22 @@
       <Project>{3C142652-0DF6-4919-9F58-0FD8FA3A9F6D}</Project>
       <Name>Google.SignIn</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Firebase.CloudMessaging\source\Firebase.CloudMessaging\Firebase.CloudMessaging.csproj">
+      <Project>{21448321-F58E-4F74-B9B2-9704651FF5E9}</Project>
+      <Name>Firebase.CloudMessaging</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\user.png" />
     <BundleResource Include="GoogleService-Info.plist" />
+    <BundleResource Include="Resources\PhoneCodes.json" />
+    <BundleResource Include="Resources\CountryNames.json" />
+    <BundleResource Include="Resources\CountryFlags.json" />
   </ItemGroup>
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\Firebase.InstanceID.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.Analytics\source\Firebase.Analytics\Firebase.Analytics.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.CloudMessaging\source\Firebase.CloudMessaging\Firebase.CloudMessaging.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Google.SignIn\source\Google.SignIn\Google.SignIn.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Google.Core\source\Google.Core\Google.Core.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\source\Firebase.Auth\Firebase.Auth.targets" />

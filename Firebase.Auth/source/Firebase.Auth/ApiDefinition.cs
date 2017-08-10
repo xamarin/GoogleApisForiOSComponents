@@ -340,12 +340,12 @@ namespace Firebase.Auth
 		// +(instancetype _Nonnull)provider;
 		[Static]
 		[Export ("provider")]
-		PhoneAuthProvider GetProvider ();
+		PhoneAuthProvider DefaultInstance { get; }
 
 		// +(instancetype _Nonnull)providerWithAuth:(FIRAuth * _Nonnull)auth;
 		[Static]
 		[Export ("providerWithAuth:")]
-		PhoneAuthProvider GetProvider (Auth auth);
+		PhoneAuthProvider From (Auth auth);
 
 		// -(void)verifyPhoneNumber:(NSString * _Nonnull)phoneNumber completion:(FIRVerificationResultCallback _Nullable)completion;
 		[Export ("verifyPhoneNumber:completion:")]

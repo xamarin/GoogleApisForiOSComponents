@@ -1,5 +1,44 @@
 # Firebase Auth on iOS
 
+You can use Firebase Authentication to allow users to sign in to your app using one or more sign-in methods, including email address and password sign-in, and federated identity providers such as Google Sign-in and Facebook Login. This tutorial gets you started with Firebase Authentication by showing you how to add email address and password sign-in to your app.
+
+## Table of content
+
+- [Add Firebase to your app](#add-firebase-to-your-app)
+- [Configure Auth in your app](#configure-auth-in-your-app)
+- [Authenticate with Firebase using Password-Based Accounts](#authenticate-with-firebase-using-password-based-accounts)
+	- [Create an account](#create-an-account)
+	- [Sign in a user with an email address and password](#sign-in-a-user-with-an-email-address-and-password)
+- [Authenticate with Firebase on iOS using a Phone Number](#authenticate-with-firebase-on-ios-using-a-phone-number)
+	- [Security concerns](#security-concerns)
+	- [Enable Phone Number sign-in for your Firebase project](#enable-phone-number-sign-in-for-your-firebase-project)
+	- [Start receiving APNs notifications](#start-receiving-apns-notifications)
+	- [Send a verification code to the user's phone](#send-a-verification-code-to-the-user-s-phone)
+	- [Sign in the user with the verification code](#sign-in-the-user-with-the-verification-code)
+- [Authenticate Using Google Sign-In](#authenticate-using-google-sign-in)
+- [Authenticate Using Facebook Login](#authenticate-using-facebook-login)
+- [Authenticate with Firebase Anonymously](#authenticate-with-firebase-anonymously)
+	- [Convert an anonymous account to a permanent account](#convert-an-anonymous-account-to-a-permanent-account)
+- [Authenticate with Firebase Using a Custom Authentication System](#authenticate-with-firebase-using-a-custom-authentication-system)
+- [Authenticate Using Twitter Login](#authenticate-using-twitter-login)
+- [Authenticate Using GitHub](#authenticate-using-github)
+- [Manage Users in Firebase](#manage-users-in-firebase)
+	- [Sign out a user](#sign-out-a-user)
+	- [Get the currently signed-in user](#get-the-currently-signed-in-user)
+	- [Get a user's profile](#get-a-user-s-profile)
+	- [Get a user's provider-specific profile information](#get-a-user-s-provider-specific-profile-information)
+	- [Update a user's profile](#update-a-user-s-profile)
+	- [Set a user's email address](#set-a-user-s-email-address)
+	- [Send a user a verification email](#send-a-user-a-verification-email)
+	- [Set a user's password](#set-a-user-s-password)
+	- [Send a password reset email](#send-a-password-reset-email)
+	- [Delete a user](#delete-a-user)
+	- [Re-authenticate a user](#re-authenticate-a-user)
+- [Link Multiple Auth Providers to an Account](#link-multiple-auth-providers-to-an-account)
+	- [Link auth provider credentials to a user account](#link-auth-provider-credentials-to-a-user-account)
+	- [Unlink an auth provider from a user account](#unlink-an-auth-provider-from-a-user-account)
+- [Known issues](#known-issues)
+
 ## Add Firebase to your app
 
 1. Create a Firebase project in the [Firebase console][1], if you don't already have one. If you already have an existing Google project associated with your mobile app, click **Import Google Project**. Otherwise, click **Create New Project**.
@@ -54,6 +93,8 @@ Auth.DefaultInstance.CreateUser (email, password, (user, error) => {
 
 If the new account was successfully created, the user is signed in, and you can get the user's account data from the user object that's passed to the callback method.
 
+_**Note:**_ _To protect your project from abuse, Firebase limits the number of new email/password and anonymous sign-ups that your application can have from the same IP address in a short period of time. You can request and schedule temporary changes to this quota from the Firebase console._
+
 ### Sign in a user with an email address and password
 
 When a user signs in to your app, pass the user's email address and password to `Auth.SignIn` instance method (don't forget to import `Firebase.Auth` namespace):
@@ -85,6 +126,148 @@ Auth.DefaultInstance.SignIn (email, password, (user, error) => {
 ```
 
 If the user successfully signs in, you can get the user's account data from the user object that's passed to the callback method.
+
+## Authenticate with Firebase on iOS using a Phone Number
+
+You can use Firebase Authentication to sign in a user by sending an SMS message to the user's phone. The user signs in using a one-time code contained in the SMS message.
+
+Phone number sign-in requires a physical device and won't work on a simulator.
+
+This document describes how to implement a phone number sign-in flow using the Firebase SDK.
+
+> _**Note:**_ _Phone numbers that end users provide for authentication will be sent and stored by Google to improve our spam and abuse prevention across Google services, including but not limited to Firebase. Developers should ensure they have appropriate end-user consent prior to using the Firebase Authentication phone number sign-in service._
+
+### Security concerns
+
+Authentication using only a phone number, while convenient, is less secure than the other available methods, because possession of a phone number can be easily transferred between users. Also, on devices with multiple user profiles, any user that can receive SMS messages can sign in to an account using the device's phone number.
+
+If you use phone number based sign-in in your app, you should offer it alongside more secure sign-in methods, and inform users of the security tradeoffs of using phone number sign-in.
+
+### Enable Phone Number sign-in for your Firebase project
+
+To sign in users by SMS, you must first enable the Phone Number sign-in method for your Firebase project:
+
+1. In the [Firebase console][1], open the **Authentication** section.
+2. On the **Sign-in Method** page, enable the **Phone Number** sign-in method.
+
+Firebase's phone number sign-in request quota is high enough that most apps won't be affected. However, if you need to sign in a very high volume of users with phone authentication, you might need to upgrade your pricing plan. See the [pricing][14] page.
+
+### Start receiving APNs notifications
+
+To use phone number authentication, your app must be able to receive APNs notifications from Firebase. When you sign in a user with their phone number for the first time on a device, Firebase Authentication sends a silent push notification to the device to verify that the phone number sign-in request comes from your app. (For this reason, phone number sign-in cannot be used on a simulator.)
+
+To enable APNs notifications for use with Firebase Authentication:
+
+1. In Visual Studio, enable push notifications for your project by opening **Entitlements.plist** and enabling **Push Notifications**.
+2. Upload your APNs authentication key to Firebase. If you don't already have an APNs authentication key, see [Configuring APNs with FCM][15].
+	1. Inside your project in the Firebase console, select the gear icon, select **Project Settings**, and then select the **Cloud Messaging** tab.
+	2. In **APNs authentication key** under **iOS app configuration**, click the **Upload** button.
+	3. Browse to the location where you saved your key, select it, and click **Open**. Add the key ID for the key (available in **Certificates**, **Identifiers** & **Profiles** in the [Apple Developer Member Center][16]) and click **Upload**.
+
+If you already have an APNs certificate, you can upload the certificate instead.
+
+#### Receive notifications without swizzling
+
+Firebase Authentication uses method swizzling to automatically obtain your app's APNs token and to handle the silent push notifications that Firebase sends to your app during verification.
+
+If you prefer not to use swizzling, you can disable it by adding the flag **FirebaseAppDelegateProxyEnabled** to your app's Info.plist file and setting it to **No**. Note that setting this flag to **No** also disables swizzling for other Firebase products, including Firebase Cloud Messaging.
+
+If you disable swizzling, you must explicitly pass the APNs device token and push notifications to Firebase Authentication.
+
+To obtain the APNs device token, implement the `AppDelegate`'s `RegisteredForRemoteNotifications` method, and in it, pass the device token to `Auth`'s `SetApnsToken` method:
+
+```csharp
+public override void RegisteredForRemoteNotifications (UIApplication application, NSData deviceToken)
+{
+	// Pass device token to auth
+	Auth.DefaultInstance.SetApnsToken (deviceToken, AuthApnsTokenType.Production); // Production if you are ready to release your app, otherwise, use Sandbox.
+
+	// Further handling of the device token if needed by the app
+	// ...
+}
+```
+
+To handle push notifications, in the `AppDelegate`'s `DidReceiveRemoteNotification` method, check for Firebase auth related notifications by calling `Auth`'s `CanHandleNotification` method:
+
+```csharp
+public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
+{
+	// Pass notification to auth and check if they can handle it.
+	if (Auth.DefaultInstance.CanHandleNotification (userInfo)) {
+		completionHandler (UIBackgroundFetchResult.NoData);
+		return;
+	}
+
+	// This notification is not auth related, developer should handle it.
+}
+```
+
+### Send a verification code to the user's phone
+
+To initiate phone number sign-in, present the user an interface that prompts them to provide their phone number, and then call `VerifyPhoneNumber` to request that Firebase send an authentication code to the user's phone by SMS:
+
+1. Get the user's phone number.
+
+    Legal requirements vary, but as a best practice and to set expectations for your users, you should inform them that if they use phone sign-in, they might receive an SMS message for verification and standard rates apply.
+
+2. Call `VerifyPhoneNumber`, passing to it the user's phone number:
+
+	```csharp
+	PhoneAuthProvider.DefaultInstance.VerifyPhoneNumber (phoneNumber, (verificationId, error) => {
+		if (error != null) {
+			Console.WriteLine (error.LocalizedDescription);
+			return;
+		}
+
+		// Sign in using the verificationID and the code sent to the user
+		// ...
+	});
+	```
+	
+	When you call `VerifyPhoneNumber`, Firebase sends a silent push notification to your app. After your app receives the notification, Firebase sends an SMS message containing an authentication code to the specified phone number and passes a verification ID to your completion function. You will need both the verification code and the verification ID to sign in the user.
+
+3. Save the verification ID and restore it when your app loads. By doing so, you can ensure that you still have a valid verification ID if your app is terminated before the user completes the sign-in flow (for example, while switching to the SMS app).
+
+	You can persist the verification ID any way you want. A simple way is to save the verification ID with the NSUserDefaults object:
+
+	```csharp
+	NSUserDefaults.StandardUserDefaults.SetString (verificationId, "authVerificationID");	
+	```
+
+	Then, you can restore the saved value:
+
+	```csharp
+	var verificationId = NSUserDefaults.StandardUserDefaults.StringForKey ("AuthVerificationID");
+	```
+
+If the call to `VerifyPhoneNumber` succeeds, you can prompt the user to type the verification code when they receive it in the SMS message.
+
+> _**Note:**_ _To prevent abuse, Firebase enforces a limit on the number of SMS messages that can be sent to a single phone number within a period of time. If you exceed this limit, phone number verification requests might be throttled. If you encounter this issue during development, use a different phone number for testing, or try the request again later._
+
+### Sign in the user with the verification code
+
+After the user provides your app with the verification code from the SMS message, sign the user in by creating a `PhoneAuthCredential` object from the verification code and verification ID and passing that object to `SignIn (AuthCredential, AuthResultHandler)` method.
+
+1. Get the verification code from the user.
+2. Create a `PhoneAuthCredential` object from the verification code and verification ID:
+
+	```csharp
+	var credential = PhoneAuthProvider.DefaultInstance.GetCredential (verificationId, verificationCode);
+	```
+
+3. Sign in the user with the PhoneAuthCredential object:
+
+	```csharp
+	Auth.DefaultInstance.SignIn (credential, (user, error) => {
+		if (error != null) {
+			Console.WriteLine (error.LocalizedDescription);
+			return;
+		}
+
+		// User is signed in
+		// ...
+	});
+	```
 
 ## Authenticate Using Google Sign-In
 
@@ -688,7 +871,7 @@ user.Delete ((error) => {
 
 You can also delete users from the Authentication section of the [Firebase console][1], on the Users page.
 
-***Important***: To set a user's password, the user must have signed in recently. See **Re-authenticate a user** section.
+***Important***: To set a user's password, the user must have signed in recently. See [Re-authenticate a user](#Re-authenticate-a-user) section.
 
 ### Re-authenticate a user
 
@@ -817,7 +1000,7 @@ user.Unlink (providerId, (user, error) => {
 });
 ```
 
-### Known issues
+## Known issues
 
 * App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][13])
 
@@ -836,3 +1019,6 @@ user.Unlink (providerId, (user, error) => {
 [11]: https://github.com/settings/developers
 [12]: https://support.google.com/firebase/answer/7000714
 [13]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689
+[14]: https://firebase.google.com/pricing/
+[15]: https://firebase.google.com/docs/cloud-messaging/ios/certs
+[16]: https://developer.apple.com/membercenter/index.action
