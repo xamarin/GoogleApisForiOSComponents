@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <metadata>
     <id>Xamarin.Google.iOS.Maps</id>
     <title>Google APIs Maps iOS Library</title>
-    <version>2.1.0.2</version>
+    <version>2.4.0.0</version>
     <authors>Xamarin Inc.</authors>
     <owners>Xamarin Inc.</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
