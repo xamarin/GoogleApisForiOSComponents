@@ -1,4 +1,4 @@
-### **Important note:** *This component is only compatible with Xamarin Studio and Visual Studio for Mac.*
+## **Important note:** *This component is only compatible with Xamarin Studio and Visual Studio for Mac.*
 
 Firebase Crash Reporting uses shell scripts to upload symbols to Firebase Console, but scripts use commands that are only available in Mac. Therefore, this component is only compatible with Xamarin Studio and Visual Studio for Mac.
 
@@ -10,11 +10,13 @@ Crash Reporting creates detailed reports of the errors in your app. Errors are g
 
 ## Key capabilities
 
-* **Monitor fatal errors:** Monitor fatal errors in iOS. Reports are triaged by the severity of impact on users.
-* **Collect the data you need to diagnose problems:** Each report contains a full stack trace as well as device characteristics, performance data, and user circumstances when the error took place. Similar reports are automatically clustered to make it easier to identify related bugs.
-* **Email alerts:** Enable email alerts to receive frequent updates when new crashes are uncovered or regressions are detected.
-* **Integrate with Analytics:** Errors captured are set as **app_exception** events in Firebase Analytics, allowing you to filter audiences based on who sees errors. In addition to stack traces, Crash Reporting also integrates with Analytics to provide you with the list of events that preceded a crash. This information helps to simplify your debugging process.
-* **Free and easy:** Crash Reporting is free to use. Once you've added Firebase to your app, it's just a few lines of code to enable comprehensive error reporting.
+|  |  |
+|-:|--|
+| **Monitor fatal errors** | Monitor fatal errors in iOS. Reports are triaged by the severity of impact on users. |
+| **Collect the data you need to diagnose problems** | Each report contains a full stack trace as well as device characteristics, performance data, and user circumstances when the error took place. Similar reports are automatically clustered to make it easier to identify related bugs. |
+| **Email alerts** | Enable email alerts to receive frequent updates when new crashes are uncovered or regressions are detected. |
+| **Integrate with Analytics** | Errors captured are set as **app_exception** events in Firebase Analytics, allowing you to filter audiences based on who sees errors. In addition to stack traces, Crash Reporting also integrates with Analytics to provide you with the list of events that preceded a crash. This information helps to simplify your debugging process. |
+| **Free and easy** | Crash Reporting is free to use. Once you've added Firebase to your app, it's just a few lines of code to enable comprehensive error reporting. |
 
 ## User privacy
 
