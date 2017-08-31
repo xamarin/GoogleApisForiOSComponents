@@ -1,4 +1,14 @@
-# Setting Up a Firebase Cloud Messaging Client App on iOS
+# Firebase Cloud Messaging on iOS
+
+## About Firebase Cloud Messaging
+
+Firebase Cloud Messaging offers a broad range of messaging options and capabilities. I invite you to read the following [documentation][10] to have a better understanding about notification messages and data messages and what you can do with them using FCM's options.
+
+## Table of content
+
+
+
+## Setting Up a Firebase Cloud Messaging Client App on iOS
 
 You can implement Firebase Cloud Messaging in two complementary ways:
 
@@ -23,7 +33,7 @@ Once you have your `GoogleService-Info.plist` file downloaded in your computer, 
 1. Add `GoogleService-Info.plist` file to your app project.
 2. Set `GoogleService-Info.plist` **build action** behaviour to `Bundle Resource` by Right clicking/Build Action.
 3. Open `GoogleService-Info.plist` file and change `IS_GCM_ENABLED` value to `Yes`. 
-4. Add the following line of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Analytics` namespace):
+4. Add the following line of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Core` namespace):
 
 ```csharp
 App.Configure ();
@@ -290,3 +300,4 @@ Messaging.SharedInstance.SendMessage (message, groupKey, yourOwnMessageId, timeO
 [7]: https://firebase.google.com/docs/cloud-messaging/ios/topic-messaging#build_send_requests
 [8]: https://firebase.google.com/docs/cloud-messaging/ios/device-group
 [9]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689
+[10]: https://firebase.google.com/docs/cloud-messaging/concept-options
