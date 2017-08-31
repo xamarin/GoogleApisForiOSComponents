@@ -59,8 +59,6 @@ However, once you register an app in the AdMob UI and create your own ad unit ID
 
 ## Banner Ads
 
-[![Banner Ads Video](http://img.youtube.com/vi/h-FMndW2kHo/0.jpg)](https://youtu.be/h-FMndW2kHo "AdMob Banner Ads - Mobile Ads Garage #2")
-
 Banner ads are rectangular image or text ads that occupy a spot within an app's layout. They stay on screen while users are interacting with the app, and can refresh automatically after a certain period of time. If you're new to mobile advertising, they're a great place to start.
 
 This guide shows you how to integrate banner ads from AdMob into an iOS app. In addition to code snippets and instructions, it includes information about sizing banners properly and links to additional resources.
@@ -356,8 +354,6 @@ BannerView bannerView = new BannerView (AdSizeCons.SmartBannerPortrait);
 
 ## Interstitial Ads
 
-[![Interstitial Ads Video](http://img.youtube.com/vi/9gER3z_xWkQ/0.jpg)](https://youtu.be/9gER3z_xWkQ "AdMob Interstitial Ads - Mobile Ads Garage #4")
-
 Interstitial ads are full-screen ads that are overlaid on top of an app. They are generally displayed at natural app transition points such as in between game levels. When an app shows an interstitial ad, the user has the choice to either tap on the ad and continue to its destination or close it and return to the app.
 
 This guide shows you how to integrate interstitials from AdMob into an iOS app.
@@ -631,8 +627,6 @@ Just as it's important to make sure you display interstitial ads at an appropria
 While increasing the frequency of interstitial ads in your app might seem like a great way to increase revenue, it can also degrade the user experience and lower clickthrough rates. Make sure that users aren't so frequently interrupted that they're no longer able to enjoy the use of your app.
 
 ## Native Ads Express
-
-[![Native Ads Express Video](http://img.youtube.com/vi/ZY4EJ34Jb7o/0.jpg)](https://youtu.be/ZY4EJ34Jb7o "AdMob Native Ads Express - Mobile Ads Garage #7")
 
 Native Express ads are similar to banners in that they're rectangular ads that you can drop into a storyboard and size how you like. The key difference is that you, the publisher, can control the ad's presentation details (things like image sizes, fonts, colors, and so on) by uploading a CSS template for your ad unit. AdMob combines that template with advertiser assets like icons, images, and text, and displays the resulting HTML in a `NativeExpressAdView`. This approach minimizes the amount of mobile code needed for a Native Express ad, while helping publishers display ads that look natural in their app.
 
@@ -982,8 +976,6 @@ public class YourViewController : UIViewController
 ```
 
 ## Rewarded Video Ads
-
-[![Rewarded Video Ads Video](http://img.youtube.com/vi/TIiY1VIIQwg/0.jpg)](https://www.youtube.com/watch?time_continue=400&v=TIiY1VIIQwg "AdMob Rewarded Video Mediation - Mobile Ads Garage #8")
 
 Rewarded video ads are full-screen video ads that users have the option of watching in full in exchange for in-app rewards.
 

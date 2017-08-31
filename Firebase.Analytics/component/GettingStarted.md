@@ -1,7 +1,5 @@
 # Get Started with Firebase Analytics for iOS
 
-[![Get Started Video](http://img.youtube.com/vi/5pYdTgSkW5E/0.jpg)](https://youtu.be/5pYdTgSkW5E "Getting Started with Firebase Analytics on iOS: Events - Firecasts")
-
 Firebase Analytics collects usage and behavior data for your app. The SDK logs two primary types of information:
 
 * **Events:** What is happening in your app, such as user actions, system events, or errors.
@@ -74,8 +72,6 @@ You can access this data in the Firebase console as follows:
 The **Events** tab shows the [event reports][10] that are automatically created for each distinct type of Analytics event logged by your app. Read more about the [Analytics reporting dashboard][11] in the Firebase Help Center.
 
 ## Set User Properties
-
-[![Set User Properties Video](http://img.youtube.com/vi/V9VwqFqIu_k/0.jpg)](https://youtu.be/V9VwqFqIu_k "Getting Started with Firebase Analytics on iOS: User Properties - Firecasts")
 
 User properties are attributes you define to describe segments of your userbase, such as language preference or geographic location.
 
