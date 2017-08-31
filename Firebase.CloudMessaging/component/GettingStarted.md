@@ -6,7 +6,29 @@ Firebase Cloud Messaging offers a broad range of messaging options and capabilit
 
 ## Table of content
 
-
+- [Setting Up a Firebase Cloud Messaging Client App on iOS](#setting-up-a-firebase-cloud-messaging-client-app-on-ios)
+- [Prerequisites](#prerequisites)
+- [Add Firebase to your app](#add-firebase-to-your-app)
+- [Configure Cloud Messaging in your app](#configure-cloud-messaging-in-your-app)
+- [Register for remote notifications](#register-for-remote-notifications)
+- [Method swizzling in Firebase Cloud Messaging](#method-swizzling-in-firebase-cloud-messaging)
+- [Receive messages](#receive-messages)
+	- [Receive messages through FCM](#receive-messages-through-fcm)
+	- [Handling messages](#handling-messages)
+	- [Handling messages with method swizzling disabled](#handling-messages-with-method-swizzling-disabled)
+	- [Receive and handle messages with notification in the payload](#receive-and-handle-messages-with-notification-in-the-payload)
+	- [Known issue - iOS 10 does not call DidReceiveRemoteNotification](#known-issue---ios-10-does-not-call-didreceiveremotenotification)
+- [Send a message to a single device](#send-a-message-to-a-single-device)
+	- [Access the registration token](#access-the-registration-token)
+	- [Monitor token generation](#monitor-token-generation)
+	- [Send a message](#send-a-message)
+	- [Receive and handle a messages](#receive-and-handle-a-messages)
+- [Send messages to Topics](#send-messages-to-topics)
+	- [Subscribe the client app to a topic](#subscribe-the-client-app-to-a-topic)
+	- [Receive and handle topic messages](#receive-and-handle-topic-messages)
+	- [Send a message](#send-a-message)
+- [Send messages to Device Groups](#send-messages-to-device-groups)
+- [Known issues](#known-issues)
 
 ## Setting Up a Firebase Cloud Messaging Client App on iOS
 
@@ -285,7 +307,7 @@ var message = NSDictionary.FromObjectAndKey (new NSString ("This is my message b
 Messaging.SharedInstance.SendMessage (message, groupKey, yourOwnMessageId, timeOfLive);
 ```
 
-### Known issues
+## Known issues
 
 * App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][9])
 

@@ -6,6 +6,19 @@ Firebase Crash Reporting uses shell scripts to upload symbols to Firebase Consol
 
 Firebase Crash Reporting creates detailed reports of the errors in your app. Errors are grouped into clusters of similar stack traces, and triaged by the severity of impact on your users. In addition to automatic reports, you can log custom events to help capture the steps leading up to a crash.
 
+## Table of Content
+
+- [User privacy](#user-privacy)
+- [Add Firebase to your app](#add-firebase-to-your-app)
+- [Configure Crash Reporting in your app](#configure-crash-reporting-in-your-app)
+- [Create your first error](#create-your-first-error)
+- [Upload symbol files](#upload-symbol-files)
+	- [Upload symbol files with Visual Studio](#upload-symbol-files-with-visual-studio)
+	- [Upload symbol files with Terminal](#upload-symbol-files-with-terminal)
+- [Upload your first error to Firebase](#upload-your-first-error-to-firebase)
+- [Create custom logs](#create-custom-logs)
+	- [Known issues](#known-issues)
+
 ## User privacy
 
 Firebase Crash Reporting does not itself collect any personally identifiable information (such as names, email addresses, or phone numbers). Developers can collect additional data using Crash Reporting with log and exception messages. Such data collected through Crash Reporting should not contain information that personally identifies an individual to Google.
