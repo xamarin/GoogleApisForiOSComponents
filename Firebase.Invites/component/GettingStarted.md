@@ -1,5 +1,17 @@
 # Send and Receive Firebase Invites from Your iOS App
 
+## Table of content
+
+- [Prerequisites](#prerequisites)
+- [Add Firebase to your app](#add-firebase-to-your-app)
+- [Configure Invites in your app](#configure-invites-in-your-app)
+- [Google Sign-In](#google-sign-in)
+- [iOS 10 and Privacy Enhancements](#ios-10-and-privacy-enhancements)
+	- [Give your app access to your Contacts](#give-your-app-access-to-your-contacts)
+- [Handle incoming app invites](#handle-incoming-app-invites)
+- [Enable your users to send app invites](#enable-your-users-to-send-app-invites)
+- [Known issues](#known-issues)
+
 ## Prerequisites
 
 Firebase Invites requires iOS 8 or newer. You can target iOS 7 in your app, but all Firebase Invites SDK calls will be no-ops if the app isn't running on iOS 8 or newer.
@@ -31,7 +43,7 @@ Once you have your `GoogleService-Info.plist` file downloaded in your computer, 
 1. Add `GoogleService-Info.plist` file to your app project.
 2. Set `GoogleService-Info.plist` **build action** behaviour to `Bundle Resource` by Right clicking/Build Action.
 3. Open `GoogleService-Info.plist` file and change `IS_SIGNIN_ENABLED` and `IS_APPINVITE_ENABLED` values to `Yes`.
-4. Add the following line of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Analytics` namespace):
+4. Add the following line of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Core` namespace):
 
 ```csharp
 App.Configure ();
@@ -50,11 +62,11 @@ Apps running on iOS 10 (or later) must statically declare their intent to access
 
 ### Give your app access to your Contacts
 
-Invites, before sending your invitation, access to your Contacts to show you a list with them so you can invite everyone to try your awesome app! To allow Invites to achieve this, you need to do the following steps in Xamarin Studio:
+Invites, before sending your invitation, access to your Contacts to show you a list with them so you can invite everyone to try your awesome app! To allow Invites to achieve this, you need to do the following steps in Xamarin Studio/Visual Studio:
 
 1. Open your `Info.plist` and go to **Source** tab.
 2. Add a new entry and search for **Privacy - Contacts Usage Description**.
-3. Add your message that will be displayed when Invites tries to access to your contacts as value.
+3. Add your message that will be displayed when Invites tries to access to your contacts as value. For example: "MyRecipeApp uses your contacts to make it easy to share recipes with your friends."
 
 ## Handle incoming app invites
 
@@ -62,7 +74,7 @@ After you have configured your app, you must next enable your app to handle inco
 
 When a user selects an incoming app invite on their iOS device, if the user has not yet installed your app, they can choose to install your app from its iTunes App Store page. When the user opens your app for the first time, it's important for your app to provide a personalized onboarding experience to increase the likelihood they will become an engaged, long-term user of your app. To help you do this, the Invites SDK provides the deeplink and invitation ID associated with the app invite received by the user.
 
-**_Note: If the Invites SDK indicates a weak match for a deeplink, it means that the match between the deeplink and the receiving device may not be perfect. In this case your app should reveal no personal information from the deeplink._**
+> **_Note:_** _If the Invites SDK indicates a weak match for a deeplink, it means that the match between the deeplink and the receiving device may not be perfect. In this case your app should reveal no personal information from the deeplink._
 
 ```csharp
 // Support for iOS 9 or later
@@ -95,7 +107,7 @@ public override bool OpenUrl (UIApplication application, NSUrl url, string sourc
 
 Before a user can send Invites, the user must be signed in with their Google Account.
 
-To send invitations, first declare a class that implements the IInviteDelegate interface:
+To send invitations, first declare a class that implements the `IInviteDelegate` interface:
 
 ```csharp
 public class InviteViewController : DialogViewController, IInviteDelegate
@@ -157,7 +169,7 @@ public void InviteFinished (string [] invitationIds, NSError error)
 }
 ```
 
-### Known issues
+## Known issues
 
 * App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][7])
 
