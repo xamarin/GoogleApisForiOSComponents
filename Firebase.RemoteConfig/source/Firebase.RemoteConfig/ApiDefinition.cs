@@ -39,6 +39,7 @@ namespace Firebase.RemoteConfig
 	}
 
 	// @interface FIRRemoteConfigSettings : NSObject
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRRemoteConfigSettings")]
 	interface RemoteConfigSettings
 	{
