@@ -1,6 +1,37 @@
 # Get Started
 
-Firebase Storage lets you upload and share user generated content, such as images and video, which allows you to build rich media content into your apps. Firebase Storage stores this data in a [Google Cloud Storage][1] bucket, a petabyte scale object storage solution with high availability and global redundancy. Firebase Storage lets you securely upload these files directly from mobile devices and web browsers, handling spotty networks with ease.
+Firebase Storage lets you upload and share user generated content, such as images and video, which allows you to build rich media content into your apps. Firebase Storage stores this data in a [Google Cloud Storage][1] bucket, an exabyte scale object storage solution with high availability and global redundancy. Firebase Storage lets you securely upload these files directly from mobile devices and web browsers, handling spotty networks with ease.
+
+## Table of content
+
+- [Add Firebase to your app](#add-firebase-to-your-app)
+- [Configure Storage in your app](#configure-storage-in-your-app)
+- [Recommended documentation to get a better understanding of the Security & Rules of Firebase Storage](#recommended-documentation-to-get-a-better-understanding-of-the-security-rules-of-firebase-storage)
+- [Create a Storage Reference](#create-a-storage-reference)
+	- [Create a Reference](#create-a-reference)
+	- [Navigate with References](#navigate-with-references)
+	- [Reference Properties](#reference-properties)
+	- [Limitations on References](#limitations-on-references)
+- [Upload Files](#upload-files)
+	- [Upload from data in memory](#upload-from-data-in-memory)
+	- [Upload from a local file](#upload-from-a-local-file)
+- [Add File Metadata](#add-file-metadata)
+- [Download Files](#download-files)
+	- [Download in memory](#download-in-memory)
+	- [Download to a local file](#download-to-a-local-file)
+	- [Generate a download Url](#generate-a-download-url)
+- [Manage Uploads and Downloads](#manage-uploads-and-downloads)
+	- [Monitor Upload and Download Progress](#monitor-upload-and-download-progress)
+- [Use File Metadata on iOS](#use-file-metadata-on-ios)
+	- [Get File Metadata](#get-file-metadata)
+	- [Update File Metadata](#update-file-metadata)
+	- [Custom Metadata](#custom-metadata)
+	- [File Metadata Properties](#file-metadata-properties)
+- [Delete Files](#delete-files)
+	- [Delete a File](#delete-a-file)
+- [Handle Errors](#handle-errors)
+	- [Handle Error Messages](#handle-error-messages)
+- [Known issues](#known-issues)
 
 ## Add Firebase to your app
 
@@ -15,7 +46,7 @@ Once you have your `GoogleService-Info.plist` file downloaded in your computer, 
 
 1. Add `GoogleService-Info.plist` file to your app project.
 2. Set `GoogleService-Info.plist` **build action** behaviour to `Bundle Resource` by Right clicking/Build Action. 
-3. Add the following line of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Analytics` namespace):
+3. Add the following line of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Core` namespace):
 
 ```csharp
 App.Configure ();
@@ -499,7 +530,7 @@ To properly diagnose the issue and handle the error, here is a full list of all 
 | **StorageErrorCode.Cancelled**            | User cancelled the operation.
 | **StorageErrorCode.DownloadSizeExceeded** | Size of the downloaded file exceeds the amount of memory allocated for the download. Increase memory cap and try downloading again. |
 
-### Known issues
+## Known issues
 
 * App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][13])
 
