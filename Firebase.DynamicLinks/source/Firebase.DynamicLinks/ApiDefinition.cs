@@ -42,12 +42,12 @@ namespace Firebase.DynamicLinks
 		// +(instancetype _Nonnull)parametersWithSource:(NSString * _Nonnull)source medium:(NSString * _Nonnull)medium campaign:(NSString * _Nonnull)campaign;
 		[Static]
 		[Export ("parametersWithSource:medium:campaign:")]
-		DynamicLinkGoogleAnalyticsParameters From (string source, string medium, string campaign);
+		DynamicLinkGoogleAnalyticsParameters FromSource (string source, string medium, string campaign);
 
 		// +(instancetype _Nonnull)parameters;
 		[Static]
 		[Export ("parameters")]
-		DynamicLinkGoogleAnalyticsParameters GetParameters ();
+		DynamicLinkGoogleAnalyticsParameters Create ();
 
 		// -(instancetype _Nonnull)initWithSource:(NSString * _Nonnull)source medium:(NSString * _Nonnull)medium campaign:(NSString * _Nonnull)campaign;
 		[Export ("initWithSource:medium:campaign:")]
@@ -96,7 +96,7 @@ namespace Firebase.DynamicLinks
 		// +(instancetype _Nonnull)parametersWithBundleID:(NSString * _Nonnull)bundleID;
 		[Static]
 		[Export ("parametersWithBundleID:")]
-		DynamicLinkiOSParameters From (string bundleId);
+		DynamicLinkiOSParameters FromBundleId (string bundleId);
 
 		// -(instancetype _Nonnull)initWithBundleID:(NSString * _Nonnull)bundleID;
 		[Export ("initWithBundleID:")]
@@ -124,7 +124,7 @@ namespace Firebase.DynamicLinks
 		// +(instancetype _Nonnull)parameters;
 		[Static]
 		[Export ("parameters")]
-		DynamicLinkiTunesConnectAnalyticsParameters GetParameters ();
+		DynamicLinkiTunesConnectAnalyticsParameters Create ();
 	}
 
 	// @interface FIRDynamicLinkAndroidParameters : NSObject
@@ -148,7 +148,7 @@ namespace Firebase.DynamicLinks
 		// +(instancetype _Nonnull)parametersWithPackageName:(NSString * _Nonnull)packageName;
 		[Static]
 		[Export ("parametersWithPackageName:")]
-		DynamicLinkAndroidParameters GetParameters (string packageName);
+		DynamicLinkAndroidParameters FromPackageName (string packageName);
 
 		// -(instancetype _Nonnull)initWithPackageName:(NSString * _Nonnull)packageName;
 		[Export ("initWithPackageName:")]
@@ -174,7 +174,7 @@ namespace Firebase.DynamicLinks
 		// +(instancetype _Nonnull)parameters;
 		[Static]
 		[Export ("parameters")]
-		DynamicLinkSocialMetaTagParameters GetParameters ();
+		DynamicLinkSocialMetaTagParameters Create ();
 	}
 
 	// @interface FIRDynamicLinkNavigationInfoParameters : NSObject
@@ -188,7 +188,7 @@ namespace Firebase.DynamicLinks
 		// +(instancetype _Nonnull)parameters;
 		[Static]
 		[Export ("parameters")]
-		DynamicLinkNavigationInfoParameters GetParameters ();
+		DynamicLinkNavigationInfoParameters Create ();
 	}
 
 	// @interface FIRDynamicLinkComponentsOptions : NSObject
@@ -202,7 +202,7 @@ namespace Firebase.DynamicLinks
 		// +(instancetype _Nonnull)options;
 		[Static]
 		[Export ("options")]
-		DynamicLinkComponentsOptions GetOptions ();
+		DynamicLinkComponentsOptions Create ();
 	}
 
 	// @interface FIRDynamicLinkComponents : NSObject
@@ -261,7 +261,7 @@ namespace Firebase.DynamicLinks
 		// +(instancetype _Nonnull)componentsWithLink:(NSURL * _Nonnull)link domain:(NSString * _Nonnull)domain;
 		[Static]
 		[Export ("componentsWithLink:domain:")]
-		DynamicLinkComponents GetComponents (NSUrl link, string domain);
+		DynamicLinkComponents FromLink (NSUrl link, string domain);
 
 		// -(instancetype _Nonnull)initWithLink:(NSURL * _Nonnull)link domain:(NSString * _Nonnull)domain;
 		[Export ("initWithLink:domain:")]
