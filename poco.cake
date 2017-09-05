@@ -208,7 +208,7 @@ public abstract class Google
 			get { return "Xamarin.Google.iOS.Core"; }
 		}
 		public override string [] BaseOf  { 
-			get { return new [] { new Google.InstanceID ().Name, new Google.PlayGames ().Name, new Google.SignIn ().Name }; }
+			get { return new [] { new Firebase.Invites ().Name, new Google.InstanceID ().Name, new Google.PlayGames ().Name, new Google.SignIn ().Name }; }
 		}
 	}
 
