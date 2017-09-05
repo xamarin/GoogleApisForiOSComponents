@@ -85,7 +85,7 @@
 - Name: Google.iOS.Maps
   BuildScript: ./Google.Maps/build.cake
   TriggerPaths: [ Google.Maps ]
-  MacBuildTargets: [ samples, component ]
+  MacBuildTargets: [ libs, component ]
 # - Name: Google.iOS.PlayGames
 #   BuildScript: ./Google.PlayGames/build.cake
 #   TriggerPaths: [ Google.PlayGames ]

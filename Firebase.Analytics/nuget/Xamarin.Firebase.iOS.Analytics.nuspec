@@ -14,7 +14,7 @@
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseiosanalytics_128x128.png</iconUrl>
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
-        <dependency id="Xamarin.Build.Download" version="0.4.5" />
+        <dependency id="Xamarin.Build.Download" version="0.4.6" />
         <dependency id="Xamarin.Firebase.iOS.InstanceID" version="2.0.0.0" />
         <dependency id="Xamarin.Firebase.iOS.Core" version="4.0.3.0" />
       </group>
