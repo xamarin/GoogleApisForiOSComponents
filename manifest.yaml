@@ -38,10 +38,10 @@
   BuildScript: ./Firebase.Invites/build.cake
   TriggerPaths: [ Firebase.Invites ]
   MacBuildTargets: [ samples, component ]
-# - Name: Firebase.iOS.RemoteConfig
-#   BuildScript: ./Firebase.RemoteConfig/build.cake
-#   TriggerPaths: [ Firebase.RemoteConfig ]
-#   MacBuildTargets: [ samples, component ]
+- Name: Firebase.iOS.RemoteConfig
+  BuildScript: ./Firebase.RemoteConfig/build.cake
+  TriggerPaths: [ Firebase.RemoteConfig ]
+  MacBuildTargets: [ samples, component ]
 - Name: Firebase.iOS.Storage
   BuildScript: ./Firebase.Storage/build.cake
   TriggerPaths: [ Firebase.Storage ]
