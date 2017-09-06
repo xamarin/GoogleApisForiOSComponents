@@ -18,6 +18,16 @@ namespace Google.Cast
 
 			return items;
 		}
+
+        public static NSArray GetNSArray(nuint [] nuInts)
+        {
+            object [] objs = new object [nuInts.Length];
+
+            for (nuint i = 0; (int)i < nuInts.Length; i++)
+                objs [i] = nuInts [i];
+            
+            return NSArray.FromObjects(objs.Length, objs);
+        }
 	}
 
 	public partial class Common
@@ -124,7 +134,7 @@ namespace Google.Cast
 			NSArray activeTrackIDsArray = null;
 
 			if (activeTrackIDs != null)
-				activeTrackIDsArray = NSArray.FromObjects (activeTrackIDs.Length, activeTrackIDs);
+                activeTrackIDsArray = Helper.GetNSArray(activeTrackIDs);
 
 			return _LoadMedia (mediaInfo, autoplay, playPosition, activeTrackIDsArray);
 		}
@@ -134,7 +144,7 @@ namespace Google.Cast
 			NSArray activeTrackIDsArray = null;
 
 			if (activeTrackIDs != null)
-				activeTrackIDsArray = NSArray.FromObjects (activeTrackIDs.Length, activeTrackIDs);
+                activeTrackIDsArray = Helper.GetNSArray(activeTrackIDs);
 
 			return _LoadMedia (mediaInfo, autoplay, playPosition, activeTrackIDsArray, customData);
 		}
@@ -144,7 +154,7 @@ namespace Google.Cast
 			NSArray activeTrackIDsArray = null;
 
 			for (int i = 0; i < activeTrackIDs.Length; i++)
-				activeTrackIDsArray = NSArray.FromObjects (activeTrackIDs.Length, activeTrackIDs);
+                activeTrackIDsArray = Helper.GetNSArray(activeTrackIDs);
 
 			return _SetActiveTrackIDs (activeTrackIDsArray);
 		}
@@ -154,7 +164,7 @@ namespace Google.Cast
 			if (itemIDs == null)
 				throw new ArgumentNullException (nameof (itemIDs));
 
-			var arr = NSArray.FromObjects (itemIDs.Length, itemIDs);
+			var arr = Helper.GetNSArray(itemIDs);
 			return _QueueRemoveItems (arr);
 		}
 
@@ -163,7 +173,7 @@ namespace Google.Cast
 			if (itemIDs == null)
 				throw new ArgumentNullException (nameof (itemIDs));
 
-			var arr = NSArray.FromObjects (itemIDs.Length, itemIDs);
+			var arr = Helper.GetNSArray(itemIDs);
 			return _QueueRemoveItems (arr, customData);
 		}
 
@@ -172,7 +182,7 @@ namespace Google.Cast
 			if (queueItemIDs == null)
 				throw new ArgumentNullException (nameof (queueItemIDs));
 
-			var queueItemIDsArray = NSArray.FromObjects (queueItemIDs.Length, queueItemIDs);
+			var queueItemIDsArray = Helper.GetNSArray(queueItemIDs);
 			return _QueueReorderItems (queueItemIDsArray, beforeItemID);
 		}
 
@@ -181,7 +191,7 @@ namespace Google.Cast
 			if (queueItemIDs == null)
 				throw new ArgumentNullException (nameof (queueItemIDs));
 
-			var queueItemIDsArray = NSArray.FromObjects (queueItemIDs.Length, queueItemIDs);
+			var queueItemIDsArray = Helper.GetNSArray(queueItemIDs);
 			return _QueueReorderItems (queueItemIDsArray, beforeItemID, customData);
 		}
 	}
@@ -206,7 +216,7 @@ namespace Google.Cast
 			if (mediaInformation == null)
 				throw new ArgumentNullException (nameof (mediaInformation));
 
-			var activeTracksIdsObjC = NSArray.FromObjects (activeTrackIDs);
+			var activeTracksIdsObjC = Helper.GetNSArray(activeTrackIDs);
 			Handle = _InitWithMediaInformation (mediaInformation, autoplay, startTime, preloadTime, activeTracksIdsObjC, customData);
 		}
 
@@ -216,7 +226,7 @@ namespace Google.Cast
 			if (mediaInformation == null)
 				throw new ArgumentNullException (nameof (mediaInformation));
 
-			var activeTracksIdsObjC = NSArray.FromObjects (activeTrackIDs);
+			var activeTracksIdsObjC = Helper.GetNSArray(activeTrackIDs);
 			Handle = _InitWithMediaInformation (mediaInformation, autoplay, startTime, playbackDuration, preloadTime, activeTracksIdsObjC, customData);
 		}
 	}
@@ -235,7 +245,7 @@ namespace Google.Cast
 				return activeTracksIDs;
 			}
 			set {
-				_ActiveTrackIDs = value != null ? NSArray.FromObjects (value.Length, value) : null;
+				_ActiveTrackIDs = value != null ? Helper.GetNSArray(value) : null;
 			}
 		}
 	}
@@ -266,7 +276,7 @@ namespace Google.Cast
 			NSArray activeTrackIDsArray = null;
 
 			if (activeTrackIDs != null)
-				activeTrackIDsArray = NSArray.FromObjects (activeTrackIDs.Length, activeTrackIDs);
+				activeTrackIDsArray = Helper.GetNSArray(activeTrackIDs);
 
 			return _LoadMedia (mediaInfo, autoplay, playPosition, activeTrackIDsArray);
 		}
@@ -279,7 +289,7 @@ namespace Google.Cast
 			NSArray activeTrackIdsArray = null;
 
 			if (activeTrackIDs != null)
-				activeTrackIdsArray = NSArray.FromObjects (activeTrackIDs.Length, activeTrackIDs);
+				activeTrackIdsArray = Helper.GetNSArray(activeTrackIDs);
 
 			return _LoadMedia (mediaInfo, autoplay, playPosition, activeTrackIdsArray, customData);
 		}
@@ -289,7 +299,7 @@ namespace Google.Cast
 			NSArray activeTrackIDsArray = null;
 
 			if (activeTrackIDs != null)
-				activeTrackIDsArray = NSArray.FromObjects (activeTrackIDs.Length, activeTrackIDs);
+				activeTrackIDsArray = Helper.GetNSArray(activeTrackIDs);
 
 			return _SetActiveTrackIDs (activeTrackIDsArray);
 		}
@@ -299,7 +309,7 @@ namespace Google.Cast
 			if (itemIds == null)
 				throw new ArgumentNullException (nameof (itemIds));
 
-			NSArray itemIdsArray = NSArray.FromObjects (itemIds.Length, itemIds);
+			NSArray itemIdsArray = Helper.GetNSArray(itemIds);
 
 			return _QueueRemoveItems (itemIdsArray);
 		}
@@ -309,7 +319,7 @@ namespace Google.Cast
 			if (itemIds == null)
 				throw new ArgumentNullException (nameof (itemIds));
 
-			NSArray itemIdsArray = NSArray.FromObjects (itemIds.Length, itemIds);
+			NSArray itemIdsArray = Helper.GetNSArray(itemIds);
 
 			return _QueueRemoveItems (itemIdsArray, customData);
 		}
@@ -319,7 +329,7 @@ namespace Google.Cast
 			if (queueItemIds == null)
 				throw new ArgumentNullException (nameof (queueItemIds));
 
-			NSArray queueItemIdsArray = NSArray.FromObjects (queueItemIds.Length, queueItemIds);
+			NSArray queueItemIdsArray = Helper.GetNSArray(queueItemIds);
 
 			return _QueueReorderItems (queueItemIdsArray, beforeItemId);
 		}
@@ -329,7 +339,7 @@ namespace Google.Cast
 			if (queueItemIds == null)
 				throw new ArgumentNullException (nameof (queueItemIds));
 
-			NSArray queueItemIdsArray = NSArray.FromObjects (queueItemIds.Length, queueItemIds);
+			NSArray queueItemIdsArray = Helper.GetNSArray(queueItemIds);
 
 			return _QueueReorderItems (queueItemIdsArray, beforeItemId, customData);
 		}
@@ -467,7 +477,7 @@ namespace Google.Cast
 				return selectedTrackIds;
 			}
 			set {
-				_SelectedTrackIds = value != null ? NSArray.FromObjects (value.Length, value) : null;
+				_SelectedTrackIds = value != null ? Helper.GetNSArray(value) : null;
 			}
 		}
 	}
