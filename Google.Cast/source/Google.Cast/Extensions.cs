@@ -18,16 +18,16 @@ namespace Google.Cast
 
 			return items;
 		}
-
-        public static NSArray GetNSArray(nuint [] nuInts)
-        {
-            object [] objs = new object [nuInts.Length];
-
-            for (nuint i = 0; (int)i < nuInts.Length; i++)
-                objs [i] = nuInts [i];
-            
-            return NSArray.FromObjects(objs.Length, objs);
-        }
+		
+		public static NSArray GetNSArray(nuint [] nuInts)
+		{
+			object [] objs = new object [nuInts.Length];
+			
+			for (nuint i = 0; (int)i < nuInts.Length; i++)
+				objs [i] = nuInts [i];
+			
+			return NSArray.FromObjects(objs.Length, objs);
+		}
 	}
 
 	public partial class Common
@@ -134,7 +134,7 @@ namespace Google.Cast
 			NSArray activeTrackIDsArray = null;
 
 			if (activeTrackIDs != null)
-                activeTrackIDsArray = Helper.GetNSArray(activeTrackIDs);
+				activeTrackIDsArray = Helper.GetNSArray(activeTrackIDs);
 
 			return _LoadMedia (mediaInfo, autoplay, playPosition, activeTrackIDsArray);
 		}
@@ -144,7 +144,7 @@ namespace Google.Cast
 			NSArray activeTrackIDsArray = null;
 
 			if (activeTrackIDs != null)
-                activeTrackIDsArray = Helper.GetNSArray(activeTrackIDs);
+				activeTrackIDsArray = Helper.GetNSArray(activeTrackIDs);
 
 			return _LoadMedia (mediaInfo, autoplay, playPosition, activeTrackIDsArray, customData);
 		}
@@ -154,7 +154,7 @@ namespace Google.Cast
 			NSArray activeTrackIDsArray = null;
 
 			for (int i = 0; i < activeTrackIDs.Length; i++)
-                activeTrackIDsArray = Helper.GetNSArray(activeTrackIDs);
+				activeTrackIDsArray = Helper.GetNSArray(activeTrackIDs);
 
 			return _SetActiveTrackIDs (activeTrackIDsArray);
 		}
