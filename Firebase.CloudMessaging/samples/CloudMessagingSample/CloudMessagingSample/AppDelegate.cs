@@ -114,6 +114,11 @@ namespace CloudMessagingSample
 			Console.WriteLine (remoteMessage.AppData);
 		}
 
+		public void DidRefreshRegistrationToken (Messaging messaging, string fcmToken)
+		{
+			
+		}
+
 		//////////////////
 		////////////////// WORKAROUND
 		//////////////////
