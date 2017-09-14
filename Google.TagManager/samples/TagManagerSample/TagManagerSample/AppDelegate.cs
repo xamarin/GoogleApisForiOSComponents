@@ -1,6 +1,6 @@
 ﻿using Foundation;
 using UIKit;
-using Firebase.Analytics;
+using Firebase.Core;
 using Google.TagManager;
 using System;
 
@@ -45,14 +45,6 @@ namespace TagManagerSample
 			} else {
 				new UIAlertView (title, message, null, "Ok", null).Show ();
 			}
-		}
-
-
-		public override bool OpenUrl (UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
-		{
-			// Functionality to test preview containers of Google Tag Manager
-			Analytics.HandleOpenUrl (url);
-			return true;
 		}
 
 		public override void OnResignActivation (UIApplication application)
