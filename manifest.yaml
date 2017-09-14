@@ -81,7 +81,7 @@
 - Name: Google.iOS.MobileAds
   BuildScript: ./Google.MobileAds/build.cake
   TriggerPaths: [ Google.MobileAds ]
-  MacBuildTargets: [ samples, nuget ]
+  MacBuildTargets: [ nuget ]
 - Name: Google.iOS.Maps
   BuildScript: ./Google.Maps/build.cake
   TriggerPaths: [ Google.Maps ]
