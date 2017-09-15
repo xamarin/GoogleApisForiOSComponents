@@ -4,7 +4,7 @@ using Foundation;
 
 namespace Firebase.CrashReporting
 {
-	public static class CrashReporting
+	public partial class CrashReporting
 	{
 		// void FIRCrashLog (NSString * _Nonnull format, ...) __attribute__((format(NSString, 1, 2)));
 		[DllImport ("__Internal", EntryPoint = "FIRCrashLogv")]

@@ -19,7 +19,7 @@ Once you have your `GoogleService-Info.plist` file downloaded in your computer, 
 1. Add `GoogleService-Info.plist` file to your app project.
 2. Set `GoogleService-Info.plist` **build action** behaviour to `Bundle Resource` by Right clicking/Build Action.
 3. Open `GoogleService-Info.plist` file and change `IS_ANALYTICS_ENABLED` value to `Yes`. 
-4. Add the following line of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Analytics` namespace):
+4. Add the following line of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Core` namespace):
 
 ```csharp
 App.Configure ();
@@ -60,7 +60,7 @@ Also, `ParameterNamesConstants.Value` is a general purpose parameter that is use
 
 **_Note: Data logged to Analytics can take hours to be refreshed on reports._**
 
-## View events in the dashboard
+### View events in the dashboard
 
 You can view aggregrated statistics about your Analytics events in the Firebase console dashboards. These dashboards update periodically throughout the day.
 
@@ -98,7 +98,91 @@ You can access this data in the Firebase console as follows:
 
 The **User Properties** tab shows a list of user properties that you have defined for your app. You can use these properties as a filter on many of the reports available in Firebase Analytics. Read more about the [Analytics reporting dashboard][11] in the Firebase Help Center.
 
-### Known issues
+## Use Analytics in a WebView on iOS
+
+Calls to log events or set user properties fired from within a WebView must be forwarded to native code before they can be sent to Firebase Analytics.
+
+### Implement Javascript handler
+
+The first step in using Google Analytics for Firebase in a WebView is to create JavaScript functions to forward events and user properties to native code. The following example shows how to do this in a way that is compatible with both Android and iOS native code:
+
+```javascript
+function logEvent(name, params) {
+  if (!name) {
+    return;
+  }
+
+  if (window.AnalyticsWebInterface) {
+    // Call Android interface
+    window.AnalyticsWebInterface.logEvent(name, JSON.stringify(params));
+  } else if (window.webkit
+      && window.webkit.messageHandlers
+      && window.webkit.messageHandlers.firebase) {
+    // Call iOS interface
+    var message = {
+      command: 'logEvent',
+      name: name,
+      parameters: params
+    };
+    window.webkit.messageHandlers.firebase.postMessage(message);
+  } else {
+    // No Android or iOS interface found
+    console.log("No native APIs found.");
+  }
+}
+
+function setUserProperty(name, value) {
+  if (!name || !value) {
+    return;
+  }
+
+  if (window.AnalyticsWebInterface) {
+    // Call Android interface
+    window.AnalyticsWebInterface.setUserProperty(name, value);
+  } else if (window.webkit
+      && window.webkit.messageHandlers
+      && window.webkit.messageHandlers.firebase) {
+    // Call iOS interface
+    var message = {
+      command: 'setUserProperty',
+      name: name,
+      value: value
+   };
+    window.webkit.messageHandlers.firebase.postMessage(message);
+  } else {
+    // No Android or iOS interface found
+    console.log("No native APIs found.");
+  }
+}
+```
+
+### Implement native interface
+
+To invoke native iOS code from JavaScript, create a message handler class conforming to the `IWKScriptMessageHandler` interface. You can make Firebase Analytics calls inside of the `DidReceiveScriptMessage` callback:
+
+```csharp
+public void DidReceiveScriptMessage (WKUserContentController userContentController, WKScriptMessage message)
+{
+	var messageBody = message.Body as NSDictionary;
+
+	switch (messageBody ["command"].ToString ()) {
+	case "setUserProperty":
+		Analytics.SetUserProperty (messageBody ["value"].ToString (), messageBody ["name"].ToString ());
+		break;
+	case "logEvent":
+		Analytics.LogEvent (messageBody ["name"].ToString (), messageBody ["parameters"] as NSDictionary<NSString, NSObject>);
+		break;
+	}
+}
+```
+
+Finally, add the message handler to the webview's user content controller:
+
+```csharp
+webView.Configuration.UserContentController.AddScriptMessageHandler (this, "firebase");
+```
+
+##  Known issues
 
 * App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][8])
 * Passing `-FIRAnalyticsDebugEnabled` to Run arguments doesn't enable debug console. (Bug [#43899][9])

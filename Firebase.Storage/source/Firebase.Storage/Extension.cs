@@ -11,7 +11,7 @@ namespace Firebase.Storage
 			get {
 				if (currentVersion == null) {
 					IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
-					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "FirebaseStorageVersionString");
+					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "FIRStorageVersionString");
 					currentVersion = Marshal.PtrToStringAnsi (ptr);
 					Dlfcn.dlclose (RTLD_MAIN_ONLY);
 				}

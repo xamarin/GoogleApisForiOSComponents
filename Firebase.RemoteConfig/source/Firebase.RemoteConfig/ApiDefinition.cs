@@ -39,6 +39,7 @@ namespace Firebase.RemoteConfig
 	}
 
 	// @interface FIRRemoteConfigSettings : NSObject
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRRemoteConfigSettings")]
 	interface RemoteConfigSettings
 	{
@@ -129,7 +130,7 @@ namespace Firebase.RemoteConfig
 
 		// -(void)setDefaults:(NSDictionary<NSString *,NSObject *> * _Nullable)defaultConfig namespace:(NSString * _Nullable)aNamespace;
 		[Export ("setDefaults:namespace:")]
-		void SetDefaults ([NullAllowed] NSDictionary defaultConfig, [NullAllowed] string aNamespace);
+		void SetDefaults ([NullAllowed] NSDictionary defaults, [NullAllowed] string aNamespace);
 
 		// -(void)setDefaultsFromPlistFileName:(NSString * _Nullable)fileName;
 		[Export ("setDefaultsFromPlistFileName:")]

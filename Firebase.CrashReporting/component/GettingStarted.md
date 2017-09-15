@@ -1,10 +1,23 @@
-### **Important note:** *This component is only compatible with Xamarin Studio and Visual Studio for Mac.*
+## **Important note:** *This component is only compatible with Xamarin Studio and Visual Studio for Mac.*
 
 Firebase Crash Reporting uses shell scripts to upload symbols to Firebase Console, but scripts use commands that are only available in Mac. Therefore, this component is only compatible with Xamarin Studio and Visual Studio for Mac.
 
 # Use Firebase Crash Reporting on iOS
 
 Firebase Crash Reporting creates detailed reports of the errors in your app. Errors are grouped into clusters of similar stack traces, and triaged by the severity of impact on your users. In addition to automatic reports, you can log custom events to help capture the steps leading up to a crash.
+
+## Table of Content
+
+- [User privacy](#user-privacy)
+- [Add Firebase to your app](#add-firebase-to-your-app)
+- [Configure Crash Reporting in your app](#configure-crash-reporting-in-your-app)
+- [Create your first error](#create-your-first-error)
+- [Upload symbol files](#upload-symbol-files)
+	- [Upload symbol files with Visual Studio](#upload-symbol-files-with-visual-studio)
+	- [Upload symbol files with Terminal](#upload-symbol-files-with-terminal)
+- [Upload your first error to Firebase](#upload-your-first-error-to-firebase)
+- [Create custom logs](#create-custom-logs)
+	- [Known issues](#known-issues)
 
 ## User privacy
 
@@ -37,7 +50,7 @@ Once you have your `GoogleService-Info.plist` file downloaded in your computer, 
 
 1. Add `GoogleService-Info.plist` file to your app project.
 2. Set `GoogleService-Info.plist` **build action** behaviour to `Bundle Resource` by Right clicking/Build Action.
-3. Add the following line of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Analytics` namespace):
+3. Add the following line of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Core` namespace):
 
 ```csharp
 App.Configure ();
@@ -66,11 +79,11 @@ In order to view human-readable crash reports, you will need to upload symbol fi
 3. Select **Crash Reporting** and click on **Generate New Private Key** button.
 4. Name the file as **service-account.json** and save it in the root of your project folder.
 
-### Upload symbol files with Xamarin Studio
+### Upload symbol files with Visual Studio
 
 Follow these steps to upload your app symbols with Xamarin Studio:
 
-* In Xamarin Studio, open **Project Options** of your app and go to **Build** > **Custom Commands**.
+* In Visual Studio, open **Project Options** of your app and go to **Build** > **Custom Commands**.
 * Double check that **Debug** configuration and **iPhone** platform is selected.
 * In Combobox select **After Build** option.
 * Paste the following command in **Command** text field:
@@ -94,7 +107,7 @@ Follow these steps to upload your app symbols with Terminal:
 * In Terminal, go to your project folder and run the following command:
 
 ```
-# Don't forget to replace [YourAppName] value and choose between iPhone
+# Don't forget to replace [YourAppName] value
 sh scripts/FirebaseCrashReporting/xamarin_upload_symbols.sh -n [YourAppName] -b bin/iPhone/Debug -i Info.plist -p GoogleService-Info.plist -s service-account.json
 ```
 

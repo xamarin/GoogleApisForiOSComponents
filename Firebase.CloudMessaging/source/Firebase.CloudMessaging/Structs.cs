@@ -21,4 +21,12 @@ namespace Firebase.CloudMessaging
 		Unknown,
 		New
 	}
+
+	[Native]
+	public enum ApnsTokenType : long
+	{
+		Unknown,
+		Sandbox,
+		Production
+	}
 }

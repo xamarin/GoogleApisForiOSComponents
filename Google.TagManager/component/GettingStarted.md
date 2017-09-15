@@ -17,7 +17,7 @@ Once you have your `GoogleService-Info.plist` file downloaded in your computer, 
 1. Add `GoogleService-Info.plist` file to your app project.
 2. Set `GoogleService-Info.plist` **build action** behaviour to `Bundle Resource` by Right clicking/Build Action.
 3. Open `GoogleService-Info.plist` file and change `IS_ANALYTICS_ENABLED` value to `Yes`. 
-4. Add the following lines of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Analytics` and `Google.TagManager` namespaces):
+4. Add the following lines of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Core` and `Google.TagManager` namespaces):
 
 ```csharp
 TagManager.Configure ();

@@ -4,6 +4,14 @@ using ObjCRuntime;
 namespace Firebase.Auth
 {
 	[Native]
+	public enum AuthApnsTokenType : long
+	{
+		Unknown,
+		Sandbox,
+		Production
+	}
+
+	[Native]
 	public enum ActionDataKey : long
 	{
 		EmailKey = 0,
@@ -45,9 +53,28 @@ namespace Firebase.Auth
 		AppNotAuthorized = 17028,
 		ExpiredActionCode = 17029,
 		InvalidActionCode = 17030,
-		MessagePayload = 17031,
-		Sender = 17032,
-		RecipientEmail = 17033,
+		InvalidMessagePayload = 17031,
+		[Obsolete ("Use InvalidMessagePayload instead, this will be removed in future versions.")]
+		MessagePayload = InvalidMessagePayload,
+		InvalidSender = 17032,
+		[Obsolete ("Use InvalidSender instead, this will be removed in future versions.")]
+		Sender = InvalidSender,
+		InvalidRecipientEmail = 17033,
+		[Obsolete ("Use InvalidRecipientEmail instead, this will be removed in future versions.")]
+		RecipientEmail = InvalidRecipientEmail,
+		MissingPhoneNumber = 17041,
+		InvalidPhoneNumber = 17042,
+		MissingVerificationCode = 17043,
+		InvalidVerificationCode = 17044,
+		MissingVerificationID = 17045,
+		InvalidVerificationID = 17046,
+		MissingAppCredential = 17047,
+		InvalidAppCredential = 17048,
+		SessionExpired = 17051,
+		QuotaExceeded = 17052,
+		MissingAppToken = 17053,
+		NotificationNotForwarded = 17054,
+		AppNotVerified = 17055,
 		KeychainError = 17995,
 		InternalError = 17999
 	}

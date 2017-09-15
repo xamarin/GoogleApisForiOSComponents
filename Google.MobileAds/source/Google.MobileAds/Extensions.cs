@@ -18,7 +18,7 @@ namespace Google.MobileAds
 
 	public partial class NativeCustomTemplateAd
 	{
-		public static string MediaViewKey { get { return "_videoMediaView"; } }
+		public static string MediaViewKey { get; } = _MediaViewKey.ToString ();
 	}
 
 	public partial class Request
@@ -269,6 +269,12 @@ namespace Google.MobileAds
 				return invalid.Value;
 			}
 		}
+	}
+
+	public partial class RewardBasedVideoAd
+	{
+		[Obsolete ("Use IsReady property instead, this will be removed in future versions")]
+		public bool Ready { get { return IsReady; } }
 	}
 
 }

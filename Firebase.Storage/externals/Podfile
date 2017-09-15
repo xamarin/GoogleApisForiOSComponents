@@ -1,12 +1,10 @@
 =begin
 Last run FirebaseStorage installed:
-- FirebaseAnalytics (3.7.0)
-- FirebaseCore (3.5.2)
-- FirebaseInstanceID (1.0.9)
-- FirebaseStorage (1.1.0)
+- FirebaseAnalytics (4.0.2)
+- FirebaseCore (4.0.3)
+- FirebaseInstanceID (2.0.0)
+- FirebaseStorage (2.0.0)
 - GTMSessionFetcher (1.1.9)
-- GoogleInterchangeUtilities (1.2.2)
-- GoogleSymbolUtilities (1.1.2)
 - GoogleToolboxForMac (2.1.1)
 
 Check if main version or subversion number has changed. 
@@ -14,27 +12,25 @@ If yes, please, update *.targets files located in binding
 projects, also, update Podfile files if needed.
 
 In .targets file, located in Firebase.Storage binding, you can find:
-- FirebaseStorage (1.1.0)
+- FirebaseStorage (2.0.0)
 
 In .targets file, located in Firebase.Analytics binding, you can find:
-- FirebaseAnalytics (3.7.0)
+- FirebaseAnalytics (4.0.2)
 
 In .targets file, located in Firebase.Core binding, you can find:
-- FirebaseCore (3.5.2)
+- FirebaseCore (4.0.3)
 - GoogleToolboxForMac (2.1.1)
 - GTMSessionFetcher (1.1.9)
 
 In .targets file, located in Firebase.InstanceID binding, you can find:
-- FirebaseInstanceID (1.0.9)
-- GoogleSymbolUtilities (1.1.2)
-- GoogleInterchangeUtilities (1.2.2)
+- FirebaseInstanceID (2.0.0)
 =end
 
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '7.1'
+platform :ios, '7.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'FirebaseStorage' do
-	pod 'Firebase/Storage', '3.15.0'
+	pod 'Firebase/Storage', '4.0.3'
 end

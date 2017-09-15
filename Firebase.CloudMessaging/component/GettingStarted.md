@@ -1,4 +1,36 @@
-# Setting Up a Firebase Cloud Messaging Client App on iOS
+# Firebase Cloud Messaging on iOS
+
+## About Firebase Cloud Messaging
+
+Firebase Cloud Messaging offers a broad range of messaging options and capabilities. I invite you to read the following [documentation][10] to have a better understanding about notification messages and data messages and what you can do with them using FCM's options.
+
+## Table of content
+
+- [Setting Up a Firebase Cloud Messaging Client App on iOS](#setting-up-a-firebase-cloud-messaging-client-app-on-ios)
+- [Prerequisites](#prerequisites)
+- [Add Firebase to your app](#add-firebase-to-your-app)
+- [Configure Cloud Messaging in your app](#configure-cloud-messaging-in-your-app)
+- [Register for remote notifications](#register-for-remote-notifications)
+- [Method swizzling in Firebase Cloud Messaging](#method-swizzling-in-firebase-cloud-messaging)
+- [Receive messages](#receive-messages)
+	- [Receive messages through FCM](#receive-messages-through-fcm)
+	- [Handling messages](#handling-messages)
+	- [Handling messages with method swizzling disabled](#handling-messages-with-method-swizzling-disabled)
+	- [Receive and handle messages with notification in the payload](#receive-and-handle-messages-with-notification-in-the-payload)
+	- [Known issue - iOS 10 does not call DidReceiveRemoteNotification](#known-issue---ios-10-does-not-call-didreceiveremotenotification)
+- [Send a message to a single device](#send-a-message-to-a-single-device)
+	- [Access the registration token](#access-the-registration-token)
+	- [Monitor token generation](#monitor-token-generation)
+	- [Send a message](#send-a-message)
+	- [Receive and handle a messages](#receive-and-handle-a-messages)
+- [Send messages to Topics](#send-messages-to-topics)
+	- [Subscribe the client app to a topic](#subscribe-the-client-app-to-a-topic)
+	- [Receive and handle topic messages](#receive-and-handle-topic-messages)
+	- [Send a message](#send-a-message)
+- [Send messages to Device Groups](#send-messages-to-device-groups)
+- [Known issues](#known-issues)
+
+## Setting Up a Firebase Cloud Messaging Client App on iOS
 
 You can implement Firebase Cloud Messaging in two complementary ways:
 
@@ -23,7 +55,7 @@ Once you have your `GoogleService-Info.plist` file downloaded in your computer, 
 1. Add `GoogleService-Info.plist` file to your app project.
 2. Set `GoogleService-Info.plist` **build action** behaviour to `Bundle Resource` by Right clicking/Build Action.
 3. Open `GoogleService-Info.plist` file and change `IS_GCM_ENABLED` value to `Yes`. 
-4. Add the following line of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Analytics` namespace):
+4. Add the following line of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Core` namespace):
 
 ```csharp
 App.Configure ();
@@ -275,7 +307,7 @@ var message = NSDictionary.FromObjectAndKey (new NSString ("This is my message b
 Messaging.SharedInstance.SendMessage (message, groupKey, yourOwnMessageId, timeOfLive);
 ```
 
-### Known issues
+## Known issues
 
 * App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][9])
 
@@ -290,3 +322,4 @@ Messaging.SharedInstance.SendMessage (message, groupKey, yourOwnMessageId, timeO
 [7]: https://firebase.google.com/docs/cloud-messaging/ios/topic-messaging#build_send_requests
 [8]: https://firebase.google.com/docs/cloud-messaging/ios/device-group
 [9]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689
+[10]: https://firebase.google.com/docs/cloud-messaging/concept-options

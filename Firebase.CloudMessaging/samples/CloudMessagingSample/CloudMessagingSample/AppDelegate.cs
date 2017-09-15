@@ -3,7 +3,7 @@ using UIKit;
 using UserNotifications;
 
 using Firebase.InstanceID;
-using Firebase.Analytics;
+using Firebase.Core;
 using Firebase.CloudMessaging;
 using System;
 
@@ -112,6 +112,11 @@ namespace CloudMessagingSample
 		public void ApplicationReceivedRemoteMessage (RemoteMessage remoteMessage)
 		{
 			Console.WriteLine (remoteMessage.AppData);
+		}
+
+		public void DidRefreshRegistrationToken (Messaging messaging, string fcmToken)
+		{
+			
 		}
 
 		//////////////////

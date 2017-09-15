@@ -55,8 +55,7 @@
     <MtouchExtraArgs>-debug:all</MtouchExtraArgs>
     <MtouchI18n>
     </MtouchI18n>
-    <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
-    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
     <MtouchProfiling>true</MtouchProfiling>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
@@ -69,8 +68,7 @@
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchI18n>
     </MtouchI18n>
-    <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
-    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
     <MtouchLink>Full</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">

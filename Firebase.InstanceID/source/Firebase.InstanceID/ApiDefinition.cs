@@ -39,6 +39,7 @@ namespace Firebase.InstanceID
 		InstanceId SharedInstance { get; }
 
 		// -(void)setAPNSToken:(NSData * _Nonnull)token type:(FIRInstanceIDAPNSTokenType)type;
+		[Obsolete ("Use FIRMessaging's APNSToken property instead.")]
 		[Export ("setAPNSToken:type:")]
 		void SetApnsToken (NSData token, ApnsTokenType type);
 

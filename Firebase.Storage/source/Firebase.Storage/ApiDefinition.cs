@@ -15,7 +15,7 @@ namespace Firebase.Storage
 	{
 		// extern const unsigned char *const FirebaseStorageVersionString;
 		[Internal]
-		[Field ("FirebaseStorageVersionString", "__Internal")]
+		[Field ("FIRStorageVersionString", "__Internal")]
 		IntPtr _CurrentVersion { get; }
 
 		// extern NSString *const _Nonnull FIRStorageErrorDomain;
@@ -30,7 +30,7 @@ namespace Firebase.Storage
 		// +(instancetype _Nonnull)storageForApp:(FIRApp * _Nonnull)app;
 		[Static]
 		[Export ("storageForApp:")]
-		Storage From (Firebase.Analytics.App app);
+		Storage From (Firebase.Core.App app);
 
 		// + (instancetype)storageWithURL:(NSString *)url NS_SWIFT_NAME(storage(url:));
 		[Static]
@@ -40,11 +40,11 @@ namespace Firebase.Storage
 		// + (instancetype)storageForApp:(FIRApp *)app URL:(NSString*) url NS_SWIFT_NAME (storage(app:url:));
 		[Static]
 		[Export ("storageForApp:URL:")]
-		Storage From (Firebase.Analytics.App app, string url);
+		Storage From (Firebase.Core.App app, string url);
 
 		// @property (readonly, nonatomic, strong) FIRApp * _Nonnull app;
 		[Export ("app", ArgumentSemantic.Strong)]
-		Firebase.Analytics.App App { get; }
+		Firebase.Core.App App { get; }
 
 		// @property NSTimeInterval maxUploadRetryTime;
 		[Export ("maxUploadRetryTime")]

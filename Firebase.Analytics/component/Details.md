@@ -2,8 +2,10 @@ Firebase Analytics is a free app measurement solution that provides insight on a
 
 ## Key capabilities
 
-* **Unlimited Reporting:**	Firebase Analytics provides unlimited reporting on up to 500 distinct events.
-* **Audience Segmentation:** Custom audiences can be defined in the Firebase console based on device data, custom events, or user properties. These audiences can be used with other Firebase features when targeting new features or notifications.
+|  | |
+|-:|-|
+| **Unlimited Reporting:**   | Firebase Analytics provides unlimited reporting on up to 500 distinct events. |
+| **Audience Segmentation:** | Custom audiences can be defined in the Firebase console based on device data, custom events, or user properties. These audiences can be used with other Firebase features when targeting new features or notifications. |
 
 ## How does it work?
 

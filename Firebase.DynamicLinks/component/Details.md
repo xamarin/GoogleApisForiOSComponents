@@ -1,14 +1,10 @@
-Firebase Dynamic Links are smart URLs that dynamically change behavior to provide the best experience across different platforms.
+Firebase Dynamic Links are links that work the way you want, on multiple platforms, and whether or not your app is already installed.
 
-## Key capabilities
+With Dynamic Links, your users get the best available experience for the platform they open your link on. If a user opens a Dynamic Link on iOS or Android, they can be taken directly to the linked content in your native app. If a user opens the same Dynamic Link in a desktop browser, they can be taken to the equivalent content on your website.
 
-* **Dynamic Links are durable and survive app installs:** Delight users by personalizing the first-open experience. Avoid losing conversions when potential users don't already have your app installed.
-* **Dynamically control the user experience:** Dynamic Links work seamlessly across iOS, Android, and desktop and mobile web. Dynamic Links can be configured to provide the best possible user experience, whether that's a personalized app launch, a fast interstitial, or opening your mobile website.
-* **Know which content and campaigns are working:** Use Dynamic Links in marketing campaigns and for content sharing to know exactly which campaigns and content drive growth.
+In addition, Dynamic Links work across app installs: if a user opens a Dynamic Link on iOS or Android and doesn't have your app installed, the user can be prompted to install it; then, after installation, your app starts and can access the link.
 
 ## How does it work?
-
-![FirebaseDynamicLinks_HowItWorks](https://firebase.google.com/docs/dynamic-links/images/web-to-app.png)
 
 You create a Dynamic Link either by using the Firebase console or by forming a URL by adding Dynamic Link parameters to a domain specific to your app. These parameters specify the links you want to open, depending on the user's platform and whether your app is installed.
 

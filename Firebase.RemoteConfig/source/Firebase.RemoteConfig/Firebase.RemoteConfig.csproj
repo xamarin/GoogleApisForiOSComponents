@@ -37,6 +37,7 @@
       <DependentUpon>FirebaseRemoteConfig</DependentUpon>
     </Compile>
     <Compile Include="Extension.cs" />
+    <Compile Include="Loader.cs" />
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />

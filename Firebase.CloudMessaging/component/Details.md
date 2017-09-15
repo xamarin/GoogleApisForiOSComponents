@@ -2,9 +2,11 @@ Using Firebase Cloud Messaging, you can notify a client app that new email or ot
 
 ## Key capabilities
 
-* **Send notification messages or data messages:** Send notification messages that are displayed to your user. Or send data messages and determine completely what happens in your application code. See Message types.
-* **Versatile message targeting:** Distribute messages to your client app in any of three ways — to single devices, to groups of devices, or to devices subscribed to topics.
-* **Send messages from client apps:** Send acknowledgments, chats, and other messages from devices back to your server over FCM’s reliable and battery-efficient connection channel.
+|  |  |
+|-:|--|
+| **Send notification messages or data messages** | Send notification messages that are displayed to your user. Or send data messages and determine completely what happens in your application code. See Message types. |
+| **Versatile message targeting** | Distribute messages to your client app in any of three ways — to single devices, to groups of devices, or to devices subscribed to topics. |
+| **Send messages from client apps** | Send acknowledgments, chats, and other messages from devices back to your server over FCM’s reliable and battery-efficient connection channel. |
 
 ## How does it work?
 

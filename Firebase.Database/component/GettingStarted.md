@@ -2,6 +2,51 @@
 
 The Firebase Database is a cloud-hosted database. Data is stored as JSON and synchronized in realtime to every connected client. When you build cross-platform apps with our Android, iOS, and JavaScript SDKs, all of your clients share one Realtime Database instance and automatically receive updates with the newest data.
 
+## Table of content
+
+- [Add Firebase to your app](#add-firebase-to-your-app)
+- [Configure Database in your app](#configure-database-in-your-app)
+- [Structure Your Database](#structure-your-database)
+- [Recommended documentation to get a better understanding of the Security & Rules of Firebase Database](#recommended-documentation-to-get-a-better-understanding-of-the-security-rules-of-firebase-database)
+- [Configure Firebase Database Rules](#configure-firebase-database-rules)
+- [Read and Write Data on iOS](#read-and-write-data-on-ios)
+	- [Basic write operations](#basic-write-operations)
+	- [Listen for value events](#listen-for-value-events)
+	- [Read data once](#read-data-once)
+	- [Update specific fields](#update-specific-fields)
+	- [Delete data](#delete-data)
+- [Detach listeners](#detach-listeners)
+- [Save data as transactions](#save-data-as-transactions)
+- [Write data offline](#write-data-offline)
+- [Work with Lists of Data on iOS](#work-with-lists-of-data-on-ios)
+	- [Append to a list of data](#append-to-a-list-of-data)
+	- [Listen for child events](#listen-for-child-events)
+	- [Listen for value events](#listen-for-value-events)
+- [Sorting and filtering data](#sorting-and-filtering-data)
+	- [Sort data](#sort-data)
+	- [Filtering data](#filtering-data)
+	- [Limit the number of results](#limit-the-number-of-results)
+	- [Filter by key or value](#filter-by-key-or-value)
+- [How query data is ordered](#how-query-data-is-ordered)
+	- [GetQueryOrderedByKey method](#getqueryorderedbykey-method)
+	- [GetQueryOrderedByValue method](#getqueryorderedbyvalue-method)
+	- [GetQueryOrderedByChild method](#getqueryorderedbychild-method)
+- [Offline Capabilities on iOS](#offline-capabilities-on-ios)
+	- [Disk Persistence](#disk-persistence)
+	- [Persistence Behavior](#persistence-behavior)
+	- [Keeping Data Fresh](#keeping-data-fresh)
+	- [Querying Data Offline](#querying-data-offline)
+	- [Handling Transactions Offline](#handling-transactions-offline)
+- [Managing Presence](#managing-presence)
+	- [How OnDisconnect methods works](#how-ondisconnect-methods-works)
+- [Detecting Connection State](#detecting-connection-state)
+- [Handling Latency](#handling-latency)
+	- [Server Timestamps](#server-timestamps)
+	- [Clock Skew](#clock-skew)
+- [Automated Backups](#automated-backups)
+- [Best practices](#best-practices)
+- [Known issues](#known-issues)
+
 ## Add Firebase to your app
 
 1. Create a Firebase project in the [Firebase console][1], if you don't already have one. If you already have an existing Google project associated with your mobile app, click **Import Google Project**. Otherwise, click **Create New Project**.
@@ -15,7 +60,7 @@ Once you have your `GoogleService-Info.plist` file downloaded in your computer, 
 
 1. Add `GoogleService-Info.plist` file to your app project.
 2. Set `GoogleService-Info.plist` **build action** behaviour to `Bundle Resource` by Right clicking/Build Action.
-3. Add the following line of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Analytics` namespace):
+3. Add the following line of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Core` namespace):
 
 ```csharp
 App.Configure ();
@@ -103,7 +148,7 @@ To read data at a path and listen for changes, use the `ObserveEvent` or `Observ
 
 You can use the `DataEventType.Value` event to read the data at a given path, as it exists at the time of the event. This method is triggered once when the listener is attached and again every time the data, including any children, changes. The event callback is passed a `snapshot` containing all data at that location, including child data. If there is no data, the `value` of the `snapshot` returned is `null`.
 
-***Important:*** *The `DataEventType.Value` event is fired every time data is changed at the specified database reference, including changes to children. To limit the size of your snapshots, attach only at the highest level needed for watching changes. For example, attaching a listener to the root of your database is not recommended.*
+> ***Important:*** *The `DataEventType.Value` event is fired every time data is changed at the specified database reference, including changes to children. To limit the size of your snapshots, attach only at the highest level needed for watching changes. For example, attaching a listener to the root of your database is not recommended.*
 
 The following example demonstrates a notes application retrieving the user's folders from the database:
 
@@ -640,11 +685,15 @@ offsetNode.ObserveSingleEvent (DataEventType.Value, (snapshot) => {
 });
 ```
 
+## Automated Backups
+
+Please, read this [Firebase documentation][19] to learn more about Automated Backups.
+
 ## Best practices
 
 To learn about Firebase Database best practices, please visit this [Firebase post][11].
 
-### Known issues
+## Known issues
 
 * App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][12])
 
@@ -668,3 +717,4 @@ To learn about Firebase Database best practices, please visit this [Firebase pos
 [16]: https://firebase.google.com/docs/database/security/user-security
 [17]: https://firebase.google.com/docs/database/security/indexing-data
 [18]: https://firebase.google.com/docs/database/rest/app-management
+[19]: https://firebase.google.com/docs/database/ios/backups
