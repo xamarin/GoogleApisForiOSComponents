@@ -1,5 +1,5 @@
 POD=pod
-XCODEBUILD=/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild
+XCODEBUILD=$(shell xcrun --sdk iphoneos --find xcodebuild)
 
 PROJECT_ROOT=./Pods
 PROJECT=$(PROJECT_ROOT)/Pods.xcodeproj
