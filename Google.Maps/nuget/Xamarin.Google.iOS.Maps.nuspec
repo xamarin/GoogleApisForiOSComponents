@@ -12,16 +12,8 @@
     <projectUrl>https://components.xamarin.com/view/googleiosmaps</projectUrl>
     <licenseUrl>https://components.xamarin.com/license/googleiosmaps</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/googleiosmaps_128x128.png</iconUrl>
-    <dependencies>
-      <group targetFramework="Xamarin.iOS10">
-        <dependency id="Xamarin.Build.Download" version="0.4.6" />
-      </group>
-    </dependencies>
   </metadata>
   <files>
     <file src="output/Google.Maps.dll" target="lib/Xamarin.iOS10" />
-
-    <!-- Add targets file for external native reference download -->
-    <file src="source/Google.Maps/Google.Maps.targets" target="build/Xamarin.Google.iOS.Maps.targets" />
   </files>
 </package>
