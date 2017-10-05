@@ -6,7 +6,8 @@ using ObjCRuntime;
 
 namespace Google.Maps
 {
-	public enum MapViewType
+	[Native]
+	public enum MapViewType : ulong
 	{
 		/** Basic maps.  The default. */
 		Normal = 1,
@@ -24,14 +25,16 @@ namespace Google.Maps
 		None
 	}
 
-	public enum FrameRate
+	[Native]
+	public enum FrameRate : ulong
 	{
 		PowerSave,
 		Conservative,
 		Maximum,
 	}
 
-	public enum MarkerAnimation
+	[Native]
+	public enum MarkerAnimation : ulong
 	{
 		None = 0,
 		Pop
@@ -44,7 +47,8 @@ namespace Google.Maps
 		ErrorInternal
 	}
 
-	public enum LengthKind
+	[Native]
+	public enum LengthKind : ulong
 	{
 		Geodesic,
 		Rhumb,

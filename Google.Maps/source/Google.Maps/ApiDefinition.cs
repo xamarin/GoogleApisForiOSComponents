@@ -89,36 +89,42 @@ namespace Google.Maps
 	[BaseType (typeof (NSObject), Name = "GMSAddress")]
 	interface Address : INSCopying
 	{
-
 		[Export ("coordinate")]
 		CLLocationCoordinate2D Coordinate { get; }
 
+		[NullAllowed]
 		[Export ("thoroughfare", ArgumentSemantic.Copy)]
 		string Thoroughfare { get; }
 
+		[NullAllowed]
 		[Export ("locality", ArgumentSemantic.Copy)]
 		string Locality { get; }
 
+		[NullAllowed]
 		[Export ("subLocality", ArgumentSemantic.Copy)]
 		string SubLocality { get; }
 
+		[NullAllowed]
 		[Export ("administrativeArea", ArgumentSemantic.Copy)]
 		string AdministrativeArea { get; }
 
+		[NullAllowed]
 		[Export ("postalCode", ArgumentSemantic.Copy)]
 		string PostalCode { get; }
 
+		[NullAllowed]
 		[Export ("country", ArgumentSemantic.Copy)]
 		string Country { get; }
 
+		[NullAllowed]
 		[Export ("lines", ArgumentSemantic.Copy)]
 		string [] Lines { get; }
 
-		[Obsolete ("Use Lines property instead")]
+		[Obsolete ("This method is obsolete and will be removed in a future release. Use the Lines property instead.")]
 		[Export ("addressLine1")]
 		string AddressLine1 { get; }
 
-		[Obsolete ("Use Lines property instead")]
+		[Obsolete ("This method is obsolete and will be removed in a future release. Use the Lines property instead.")]
 		[Export ("addressLine2")]
 		string AddressLine2 { get; }
 	}
@@ -291,7 +297,7 @@ namespace Google.Maps
 		bool IntersectsBounds (CoordinateBounds bounds);
 	}
 
-	delegate void ReverseGeocodeCallback (ReverseGeocodeResponse response, NSError error);
+	delegate void ReverseGeocodeCallback ([NullAllowed] ReverseGeocodeResponse response, [NullAllowed] NSError error);
 
 	[BaseType (typeof (NSObject), Name = "GMSGeocoder")]
 	interface Geocoder
@@ -307,10 +313,11 @@ namespace Google.Maps
 	[BaseType (typeof (NSObject), Name = "GMSReverseGeocodeResponse")]
 	interface ReverseGeocodeResponse : INSCopying
 	{
-
+		[NullAllowed]
 		[Export ("firstResult")]
 		Address FirstResult { get; }
 
+		[NullAllowed]
 		[Export ("results")]
 		Address [] Results { get; }
 	}
@@ -375,10 +382,10 @@ namespace Google.Maps
 	interface IndoorDisplayDelegate
 	{
 		[Export ("didChangeActiveBuilding:")]
-		void DidChangeActiveBuilding (IndoorBuilding building);
+		void DidChangeActiveBuilding ([NullAllowed] IndoorBuilding building);
 
 		[Export ("didChangeActiveLevel:")]
-		void DidChangeActiveLevel (IndoorLevel level);
+		void DidChangeActiveLevel ([NullAllowed] IndoorLevel level);
 	}
 
 	[BaseType (typeof (NSObject), Name = "GMSIndoorDisplay")]
@@ -388,9 +395,11 @@ namespace Google.Maps
 		[Export ("delegate", ArgumentSemantic.Assign)]
 		IIndoorDisplayDelegate Delegate { get; set; }
 
+		[NullAllowed]
 		[Export ("activeBuilding", ArgumentSemantic.Retain)]
 		IndoorBuilding ActiveBuilding { get; }
 
+		[NullAllowed]
 		[Export ("activeLevel", ArgumentSemantic.Retain)]
 		IndoorLevel ActiveLevel { get; }
 	}
@@ -399,9 +408,11 @@ namespace Google.Maps
 	[BaseType (typeof (NSObject), Name = "GMSIndoorLevel")]
 	interface IndoorLevel
 	{
+		[NullAllowed]
 		[Export ("name", ArgumentSemantic.Copy)]
 		string Name { get; }
 
+		[NullAllowed]
 		[Export ("shortName", ArgumentSemantic.Copy)]
 		string ShortName { get; }
 	}
@@ -524,16 +535,15 @@ namespace Google.Maps
 
 	[BaseType (typeof (UIView), Name = "GMSMapView",
 		Delegates = new string [] { "Delegate" },
-		Events = new Type [] { typeof (MapViewDelegate) }
-	)]
+		Events = new Type [] { typeof (MapViewDelegate) } )]
 	interface MapView
 	{
 
 		[Export ("initWithFrame:")]
 		IntPtr Constructor (CGRect frame);
 
-		[Export ("delegate", ArgumentSemantic.Assign)]
 		[NullAllowed]
+		[Export ("delegate", ArgumentSemantic.Assign)]
 		IMapViewDelegate Delegate { get; set; }
 
 		[Export ("camera", ArgumentSemantic.Copy)]
@@ -545,11 +555,13 @@ namespace Google.Maps
 		[Export ("myLocationEnabled", ArgumentSemantic.Assign)]
 		bool MyLocationEnabled { [Bind ("isMyLocationEnabled")] get; set; }
 
+		[NullAllowed]
 		[Export ("myLocation")]
 		CLLocation MyLocation { get; }
 
+		[NullAllowed]
 		[Export ("selectedMarker")]
-		Marker SelectedMarker { get; [NullAllowed] set; }
+		Marker SelectedMarker { get; set; }
 
 		[Export ("trafficEnabled", ArgumentSemantic.Assign)]
 		bool TrafficEnabled { [Bind ("isTrafficEnabled")] get; set; }
@@ -595,16 +607,21 @@ namespace Google.Maps
 		[Export ("preferredFrameRate", ArgumentSemantic.Assign)]
 		FrameRate PreferredFrameRate { get; set; }
 
+		// @property(nonatomic, nullable) GMSCoordinateBounds *cameraTargetBounds;
+		[NullAllowed]
+		[Export ("cameraTargetBounds")]
+		CoordinateBounds CameraTargetBounds { get; set; }
+
 		[Static]
 		[Export ("mapWithFrame:camera:")]
 		MapView FromCamera (CGRect frame, CameraPosition camera);
 
+		[Obsolete ("This method is obsolete and will be removed in a future release.")]
 		[Export ("startRendering")]
-		[Obsolete ("Available but deprecated")]
 		void StartRendering ();
 
+		[Obsolete ("This method is obsolete and will be removed in a future release.")]
 		[Export ("stopRendering")]
-		[Obsolete ("Available but deprecated")]
 		void StopRendering ();
 
 		[Export ("clear")]
@@ -613,6 +630,7 @@ namespace Google.Maps
 		[Export ("setMinZoom:maxZoom:")]
 		void SetMinMaxZoom (float minZoom, float maxZoom);
 
+		[return: NullAllowed]
 		[Export ("cameraForBounds:insets:")]
 		CameraPosition CameraForBounds (CoordinateBounds bounds, UIEdgeInsets insets);
 
@@ -731,8 +749,8 @@ namespace Google.Maps
 		[Export ("rotation", ArgumentSemantic.Assign)]
 		double Rotation { get; set; }
 
-		[Export ("opacity", ArgumentSemantic.Assign)]
 		[New]
+		[Export ("opacity", ArgumentSemantic.Assign)]
 		float Opacity { get; set; }
 	}
 
@@ -779,6 +797,11 @@ namespace Google.Maps
 
 		[Export ("zIndex", ArgumentSemantic.Assign)]
 		int ZIndex { get; set; }
+
+		// @property(nonatomic, strong, nullable) id userData;
+		[NullAllowed]
+		[Export ("userData", ArgumentSemantic.Strong)]
+		NSObject UserData { get; set; }
 	}
 
 	[DisableDefaultCtor]
@@ -880,7 +903,7 @@ namespace Google.Maps
 		string PanoramaID { get; set; }
 	}
 
-	delegate void PanoramaCallback (Panorama panorama, NSError error);
+	delegate void PanoramaCallback ([NullAllowed] Panorama panorama, [NullAllowed] NSError error);
 
 	[BaseType (typeof (NSObject), Name = "GMSPanoramaService")]
 	interface PanoramaService
@@ -910,7 +933,7 @@ namespace Google.Maps
 		void WillMoveToPanoramaId (PanoramaView view, string panoramaID);
 
 		[Export ("panoramaView:didMoveToPanorama:"), EventArgs ("GMSPanoramaDidMoveToPanorama")]
-		void DidMoveToPanorama (PanoramaView view, Panorama panorama);
+		void DidMoveToPanorama (PanoramaView view, [NullAllowed] Panorama panorama);
 
 		[Export ("panoramaView:didMoveToPanorama:nearCoordinate:"), EventArgs ("GMSPanoramaDidMoveToPanoramaNearCoordinate")]
 		void DidMoveToPanoramaNearCoordinate (PanoramaView view, Panorama panorama, CLLocationCoordinate2D coordinate);
@@ -941,8 +964,7 @@ namespace Google.Maps
 
 	[BaseType (typeof (UIView), Name = "GMSPanoramaView",
 		Delegates = new string [] { "Delegate" },
-		Events = new Type [] { typeof (PanoramaViewDelegate) }
-	)]
+		Events = new Type [] { typeof (PanoramaViewDelegate) })]
 	interface PanoramaView
 	{
 
@@ -1028,7 +1050,9 @@ namespace Google.Maps
 		[Export ("coordinateAtIndex:")]
 		CLLocationCoordinate2D CoordinateAtIndex (nuint index);
 
-		[Static, Export ("pathFromEncodedPath:")]
+		[Static]
+		[return: NullAllowed]
+		[Export ("pathFromEncodedPath:")]
 		Path FromEncodedPath (string encodedPath);
 
 		[Export ("encodedPath")]
@@ -1188,7 +1212,7 @@ namespace Google.Maps
 	[BaseType (typeof (TileLayer), Name = "GMSSyncTileLayer")]
 	interface SyncTileLayer
 	{
-
+		[return: NullAllowed]
 		[Export ("tileForX:y:zoom:")]
 		UIImage Tile (nuint x, nuint y, nuint zoom);
 	}
