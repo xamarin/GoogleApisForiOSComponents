@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>Xamarin.Google.iOS.Places</id>
+    <title>Google APIs Places iOS Library</title>
+    <version>2.4.0.0</version>
+    <authors>Xamarin Inc.</authors>
+    <owners>Xamarin Inc.</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>C# bindings for Google APIs Places iOS Library</description>
+    <copyright>Copyright 2015-2017 Microsoft</copyright>
+    <projectUrl>https://components.xamarin.com/view/googleiosplaces</projectUrl>
+    <licenseUrl>https://components.xamarin.com/license/googleiosplaces</licenseUrl>
+    <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/googleiosplaces_128x128.png</iconUrl>
+  </metadata>
+  <files>
+    <file src="output/Google.Places.dll" target="lib/Xamarin.iOS10" />
+  </files>
+</package>
