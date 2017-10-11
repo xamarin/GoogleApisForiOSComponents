@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ECA3E3DD-B609-44F5-990F-CCF22752E382}</ProjectGuid>
+    <ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Google.Places</RootNamespace>
+    <AssemblyName>Google.Places</AssemblyName>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Loader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="Structs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
+    <NativeReference Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\Info.plist">
+      <Link>Resources\GooglePlaces.bundle\Info.plist</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\oss_licenses_places.txt.gz">
+      <Link>Resources\GooglePlaces.bundle\oss_licenses_places.txt.gz</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\powered-by-google-dark.png">
+      <Link>Resources\GooglePlaces.bundle\powered-by-google-dark.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\powered-by-google-dark%402x.png">
+      <Link>Resources\GooglePlaces.bundle\powered-by-google-dark%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\powered-by-google-dark%403x.png">
+      <Link>Resources\GooglePlaces.bundle\powered-by-google-dark%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\powered-by-google-light.png">
+      <Link>Resources\GooglePlaces.bundle\powered-by-google-light.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\powered-by-google-light%402x.png">
+      <Link>Resources\GooglePlaces.bundle\powered-by-google-light%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\powered-by-google-light%403x.png">
+      <Link>Resources\GooglePlaces.bundle\powered-by-google-light%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud.png">
+      <Link>Resources\GooglePlaces.bundle\sad_cloud.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud%402x.png">
+      <Link>Resources\GooglePlaces.bundle\sad_cloud%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud%403x.png">
+      <Link>Resources\GooglePlaces.bundle\sad_cloud%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud_dark.png">
+      <Link>Resources\GooglePlaces.bundle\sad_cloud_dark.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud_dark%402x.png">
+      <Link>Resources\GooglePlaces.bundle\sad_cloud_dark%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud_dark%403x.png">
+      <Link>Resources\GooglePlaces.bundle\sad_cloud_dark%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\ar.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\ar.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\ca.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\ca.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\cs.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\cs.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\da.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\da.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\de.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\de.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\el.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\el.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\en.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\en.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\en_AU.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\en_AU.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\en_GB.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\en_GB.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\en_IN.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\en_IN.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\es.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\es.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\es_419.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\es_419.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\es_MX.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\es_MX.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\fi.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\fi.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\fr.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\fr.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\fr_CA.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\fr_CA.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\he.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\he.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\hi.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\hi.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\hr.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\hr.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\hu.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\hu.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\id.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\id.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\it.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\it.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\iw.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\iw.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\ja.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\ja.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\ko.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\ko.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\lt.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\lt.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\lv.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\lv.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\ms.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\ms.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\nb.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\nb.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\nl.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\nl.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\no.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\no.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\pl.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\pl.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\pt.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\pt.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\pt_BR.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\pt_BR.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\pt_PT.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\pt_PT.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\ro.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\ro.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\ru.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\ru.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\sk.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\sk.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\sv.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\sv.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\th.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\th.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\tr.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\tr.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\uk.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\uk.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\vi.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\vi.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\zh_CN.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\zh_CN.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\zh_HK.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\zh_HK.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlaces\Frameworks\GooglePlaces.framework\Resources\GooglePlaces.bundle\zh_TW.lproj\GooglePlaces.strings">
+      <Link>Resources\GooglePlaces.bundle\zh_TW.lproj\GooglePlaces.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\Info.plist">
+      <Link>Resources\GooglePlacePicker.bundle\Info.plist</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\red_icons.png">
+      <Link>Resources\GooglePlacePicker.bundle\red_icons.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\red_icons%402x.png">
+      <Link>Resources\GooglePlacePicker.bundle\red_icons%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\red_icons%403x.png">
+      <Link>Resources\GooglePlacePicker.bundle\red_icons%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\white_icons.png">
+      <Link>Resources\GooglePlacePicker.bundle\white_icons.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\white_icons%402x.png">
+      <Link>Resources\GooglePlacePicker.bundle\white_icons%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\white_icons%403x.png">
+      <Link>Resources\GooglePlacePicker.bundle\white_icons%403x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\ar.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\ar.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\ca.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\ca.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\cs.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\cs.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\da.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\da.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\de.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\de.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\el.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\el.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\en.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\en.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\en_AU.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\en_AU.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\en_GB.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\en_GB.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\en_IN.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\en_IN.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\es.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\es.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\es_419.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\es_419.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\es_MX.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\es_MX.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\fi.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\fi.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\fr.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\fr.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\fr_CA.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\fr_CA.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\he.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\he.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\hi.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\hi.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\hr.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\hr.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\hu.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\hu.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\id.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\id.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\it.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\it.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\iw.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\iw.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\ja.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\ja.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\ko.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\ko.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\lt.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\lt.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\lv.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\lv.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\ms.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\ms.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\nb.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\nb.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\nl.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\nl.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\no.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\no.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\pl.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\pl.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\pt.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\pt.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\pt_BR.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\pt_BR.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\pt_PT.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\pt_PT.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\ro.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\ro.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\ru.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\ru.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\sk.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\sk.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\sv.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\sv.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\th.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\th.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\tr.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\tr.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\uk.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\uk.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\vi.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\vi.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\zh_CN.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\zh_CN.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\zh_HK.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\zh_HK.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\Pods\GooglePlacePicker\Frameworks\GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\zh_TW.lproj\GooglePlacePicker.strings">
+      <Link>Resources\GooglePlacePicker.bundle\zh_TW.lproj\GooglePlacePicker.strings</Link>
+    </BundleResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Google.Maps\source\Google.Maps\Google.Maps.csproj">
+      <Project>{EB77B0C1-AC2F-483C-8587-6F0FE5ECBE5B}</Project>
+      <Name>Google.Maps</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
+</Project>
