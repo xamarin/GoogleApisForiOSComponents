@@ -25,6 +25,8 @@ samples:
   - project: GoogleMapsSample
     packages:
     - Xamarin.Google.iOS.Maps
+  removeNodes:
+  - //xNS:Import[contains (@Project, 'Google.Maps.targets')]
 - name: Google Maps Advance Sample
   path: ../samples/GoogleMapsAdvSample/GoogleMapsAdvSample.sln
   removeProjects:
@@ -33,5 +35,7 @@ samples:
   - project: GoogleMapsAdvSample
     packages:
     - Xamarin.Google.iOS.Maps
+  removeNodes:
+  - //xNS:Import[contains (@Project, 'Google.Maps.targets')]
 local-nuget-repo: ../../tmp-nugets
 no_build: true
