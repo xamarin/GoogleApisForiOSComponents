@@ -17,5 +17,7 @@
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>com.xamarin.google.mapsadvsample</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We just want to let you know where you are! :)</string>
 </dict>
 </plist>
