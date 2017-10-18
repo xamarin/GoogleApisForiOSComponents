@@ -4,11 +4,10 @@ using UIKit;
 
 namespace GooglePlacesSample
 {
-	public partial class ViewController : UIViewController
+	public partial class PhotosViewController : UIViewController
 	{
-		protected ViewController (IntPtr handle) : base (handle)
+		public PhotosViewController (IntPtr handle) : base (handle)
 		{
-			// Note: this .ctor should not contain any initialization logic.
 		}
 
 		public override void ViewDidLoad ()
@@ -22,5 +21,11 @@ namespace GooglePlacesSample
 			base.DidReceiveMemoryWarning ();
 			// Release any cached data, images, etc that aren't in use.
 		}
+
+		partial void BtnSelect_Tapped (UIBarButtonItem sender)
+		{
+			
+		}
 	}
 }
+

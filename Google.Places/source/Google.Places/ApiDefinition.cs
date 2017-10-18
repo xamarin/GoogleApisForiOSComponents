@@ -363,7 +363,9 @@ namespace Google.Places
 
 	// @interface GMSAutocompleteViewController : UIViewController
 	[BaseType (typeof (UIViewController),
-		Name = "GMSAutocompleteViewController")]
+	           Name = "GMSAutocompleteViewController",
+		   Delegates = new string [] { "Delegate" },
+	           Events = new Type [] { typeof (AutocompleteViewControllerDelegate) })]
 	interface AutocompleteViewController
 	{
 		// @property(nonatomic, weak) IBOutlet id<GMSAutocompleteViewControllerDelegate> delegate;
