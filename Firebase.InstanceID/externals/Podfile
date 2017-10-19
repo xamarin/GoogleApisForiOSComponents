@@ -10,5 +10,5 @@ platform :ios, '7.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'FirebaseInstanceID' do
-	pod 'FirebaseInstanceID', '2.0.0'
+	pod 'FirebaseInstanceID', '2.0.4'
 end
