@@ -18,7 +18,7 @@
         <dependency id="Xamarin.Google.iOS.MobileAds" version="7.21.0.0" />
         <dependency id="Xamarin.Firebase.iOS.Analytics" version="4.0.2.1" />
         <dependency id="Xamarin.Firebase.iOS.InstanceID" version="2.0.4.0" />
-        <dependency id="Xamarin.Firebase.iOS.Core" version="4.0.3.0" />
+        <dependency id="Xamarin.Firebase.iOS.Core" version="4.0.8.0" />
       </group>
     </dependencies>
   </metadata>
