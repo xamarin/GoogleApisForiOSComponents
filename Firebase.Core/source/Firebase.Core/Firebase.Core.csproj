@@ -57,11 +57,9 @@
     <ObjcBindingNativeLibrary Include="..\..\externals\Protobuf">
       <Link>Protobuf</Link>
     </ObjcBindingNativeLibrary>
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="..\..\externals\nanopb">
+    <ObjcBindingNativeLibrary Include="..\..\externals\nanopb">
       <Link>nanopb</Link>
-    </BundleResource>
+    </ObjcBindingNativeLibrary>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>
