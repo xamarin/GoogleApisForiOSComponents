@@ -202,6 +202,15 @@ namespace Google.MobileAds
 		void IsSDKVersionAtLeast (nint major, nint minor, nint patch);
 	}
 
+	// @interface GADMultipleAdsAdLoaderOptions : GADAdLoaderOptions
+	[BaseType(typeof(AdLoaderOptions), Name = "GADMultipleAdsAdLoaderOptions")]
+	interface MultipleAdsAdLoaderOptions
+	{
+		// @property(nonatomic) NSInteger numberOfAds;
+		[Export("numberOfAds")]
+		nint NumberOfAds { get; set; }
+	}
+
 	interface IAdNetworkExtras
 	{
 
@@ -303,7 +312,7 @@ namespace Google.MobileAds
 	[Model]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "GADBannerViewDelegate")]
-	interface BannerViewDelegate : AdDelegate
+	interface BannerViewDelegate
 	{
 
 		[EventArgs ("BannerViewE")]
@@ -409,7 +418,7 @@ namespace Google.MobileAds
 	[Model]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "GADInterstitialDelegate")]
-	interface InterstitialDelegate : AdDelegate
+	interface InterstitialDelegate
 	{
 
 		[EventArgs ("InterstitialE")]
@@ -831,6 +840,10 @@ namespace Google.MobileAds
 		// - (BOOL)customControlsEnabled;
 		[Export ("customControlsEnabled")]
 		bool IsCustomControlsEnabled { get; }
+
+		// - (BOOL)clickToExpandEnabled;
+		[Export("clickToExpandEnabled")]
+		bool IsClickToExpandEnabled { get; }
 	}
 
 	interface IVideoControllerDelegate
@@ -885,6 +898,10 @@ namespace Google.MobileAds
 		// @property(nonatomic, assign) BOOL customControlsRequested;
 		[Export ("customControlsRequested", ArgumentSemantic.Assign)]
 		bool CustomControlsRequested { get; set; }
+
+		//@property(nonatomic, assign) BOOL clickToExpandRequested;
+		[Export("clickToExpandRequested", ArgumentSemantic.Assign)]
+		bool ClickToExpandRequested { get; set; }
 	}
 
 	#endregion
@@ -900,19 +917,10 @@ namespace Google.MobileAds
 		NativeAd NativeAd { get; set; }
 	}
 
-	interface IAdDelegate
+	// @interface GADAdLoaderOptions : NSObject
+	[BaseType(typeof(NSObject), Name = "GADAdLoaderOptions")]
+	interface AdLoaderOptions
 	{
-	}
-
-	// @protocol GADAdDelegate<NSObject>
-	[Model]
-	[Protocol]
-	[BaseType (typeof (NSObject), Name = "GADAdDelegate")]
-	interface AdDelegate
-	{
-		// @optional - (BOOL)ad:(id)ad shouldChangeAudioSessionToCategory:(NSString *)audioSessionCategory;
-		[Export ("ad:shouldChangeAudioSessionToCategory:")]
-		bool ShouldChangeAudioSessionToCategory (NSObject ad, string audioSessionCategory);
 	}
 
 	// @interface GADAdLoader : NSObject
@@ -928,9 +936,13 @@ namespace Google.MobileAds
 		[Export ("adUnitID")]
 		string AdUnitID { get; }
 
+		// @property(nonatomic, getter=isLoading, readonly) BOOL loading;
+		[Export("isLoading")]
+		bool IsLoading { get; }
+
 		// -(instancetype)initWithAdUnitID:(NSString *)adUnitID rootViewController:(UIViewController *)rootViewController adTypes:(NSArray *)adTypes options:(NSArray *)options;
 		[Export ("initWithAdUnitID:rootViewController:adTypes:options:")]
-		IntPtr Constructor (string adUnitID, [NullAllowed] UIViewController rootViewController, [NullAllowed] NSObject [] adTypes, [NullAllowed] AdLoaderOptions [] options);
+		IntPtr Constructor (string adUnitID, [NullAllowed] UIViewController rootViewController, NSString [] adTypes, [NullAllowed] AdLoaderOptions [] options);
 
 		// -(void)loadRequest:(GADRequest *)request;
 		[Export ("loadRequest:")]
@@ -955,12 +967,6 @@ namespace Google.MobileAds
 		// extern NSString *const kGADAdLoaderAdTypeDFPBanner;
 		[Field ("kGADAdLoaderAdTypeDFPBanner", "__Internal")]
 		NSString DfpBanner { get; }
-	}
-
-	// @interface GADAdLoaderOptions : NSObject
-	[BaseType (typeof (NSObject), Name = "GADAdLoaderOptions")]
-	interface AdLoaderOptions
-	{
 	}
 
 	interface IAdLoaderDelegate
@@ -1373,6 +1379,7 @@ namespace Google.MobileAds
 		MediaView MediaView { get; }
 
 		// @property(atomic, copy) GADNativeAdCustomClickHandler customClickHandler;
+		[NullAllowed]
 		[Export ("customClickHandler", ArgumentSemantic.Copy)]
 		NativeAdCustomClickHandle CustomClickHandler { get; }
 
