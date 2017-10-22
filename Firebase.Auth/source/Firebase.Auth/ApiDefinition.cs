@@ -7,6 +7,43 @@ using CoreGraphics;
 
 namespace Firebase.Auth
 {
+	// @interface FIRActionCodeSettings : NSObject
+	[BaseType (typeof (NSObject), Name = "FIRActionCodeSettings")]
+	interface ActionCodeSettings
+	{
+		// @property (copy, nonatomic) NSURL * _Nullable URL;
+		[NullAllowed, Export ("URL", ArgumentSemantic.Copy)]
+		NSUrl Url { get; set; }
+
+		// @property (assign, nonatomic) BOOL handleCodeInApp;
+		[Export ("handleCodeInApp")]
+		bool HandleCodeInApp { get; set; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nullable iOSBundleID;
+		[NullAllowed, Export ("iOSBundleID")]
+		string IOSBundleId { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nullable androidPackageName;
+		[NullAllowed, Export ("androidPackageName")]
+		string AndroidPackageName { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nullable androidMinimumVersion;
+		[NullAllowed, Export ("androidMinimumVersion")]
+		string AndroidMinimumVersion { get; }
+
+		// @property (readonly, assign, nonatomic) BOOL androidInstallIfNotAvailable;
+		[Export ("androidInstallIfNotAvailable")]
+		bool AndroidInstallIfNotAvailable { get; }
+
+		// -(void)setIOSBundleID:(NSString * _Nonnull)iOSBundleID;
+		[Export ("setIOSBundleID:")]
+		void SetiOSBundleId (string iOSBundleId);
+
+		// -(void)setAndroidPackageName:(NSString * _Nonnull)androidPackageName installIfNotAvailable:(BOOL)installIfNotAvailable minimumVersion:(NSString * _Nullable)minimumVersion;
+		[Export ("setAndroidPackageName:installIfNotAvailable:minimumVersion:")]
+		void SetAndroidPackageName (string androidPackageName, bool installIfNotAvailable, [NullAllowed] string minimumVersion);
+	}
+
 	// @interface FIRAdditionalUserInfo : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRAdditionalUserInfo")]
@@ -132,6 +169,11 @@ namespace Firebase.Auth
 		[Export ("currentUser", ArgumentSemantic.Strong)]
 		User CurrentUser { get; }
 
+		// @property (nonatomic, copy, nullable) NSString *languageCode;
+		[NullAllowed]
+		[Export ("languageCode")]
+		string LanguageCode { get; set; }
+
 		[NullAllowed]
 		[Export ("APNSToken", ArgumentSemantic.Strong)]
 		NSData ApnsToken { get; set; }
@@ -184,6 +226,10 @@ namespace Firebase.Auth
 		[Export ("sendPasswordResetWithEmail:completion:")]
 		void SendPasswordReset (string email, [NullAllowed] SendPasswordResetHandler completion);
 
+		// - (void)sendPasswordResetWithEmail:(NSString *)email actionCodeSettings:(FIRActionCodeSettings*) actionCodeSettings completion:(nullable FIRSendPasswordResetCallback) completion;
+		[Export ("sendPasswordResetWithEmail:actionCodeSettings:completion:")]
+		void SendPasswordReset (string email, ActionCodeSettings actionCodeSettings, [NullAllowed] SendPasswordResetHandler completion);
+
 		// -(BOOL)signOut:(NSError * _Nullable * _Nullable)error;
 		[Export ("signOut:")]
 		bool SignOut ([NullAllowed] out NSError error);
@@ -203,6 +249,14 @@ namespace Firebase.Auth
 		// -(void)removeIDTokenDidChangeListener:(FIRIDTokenDidChangeListenerHandle _Nonnull)listenerHandle;
 		[Export ("removeIDTokenDidChangeListener:")]
 		void RemoveIdTokenDidChangeListener (NSObject listenerHandler);
+
+		// - (void) useAppLanguage;
+		[Export ("useAppLanguage")]
+		void UseAppLanguage ();
+
+		// - (BOOL)canHandleURL:(nonnull NSURL *)URL;
+		[Export ("canHandleURL:")]
+		void CanHandleUrl (NSUrl url);
 
 		// -(void)setAPNSToken:(NSData * _Nonnull)token type:(FIRAuthAPNSTokenType)type;
 		[Export ("setAPNSToken:type:")]
@@ -235,6 +289,27 @@ namespace Firebase.Auth
 		// @property (readonly, nonatomic) FIRAdditionalUserInfo * _Nullable additionalUserInfo;
 		[NullAllowed, Export ("additionalUserInfo")]
 		AdditionalUserInfo AdditionalUserInfo { get; }
+	}
+
+	interface IAuthUIDelegate
+	{
+	}
+
+	// @protocol FIRAuthUIDelegate <NSObject>
+	[Model]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "FIRAuthUIDelegate")]
+	interface AuthUIDelegate
+	{
+		// @required -(void)presentViewController:(UIViewController * _Nonnull)viewControllerToPresent animated:(BOOL)flag completion:(void (^ _Nullable)(void))completion;
+		[Abstract]
+		[Export ("presentViewController:animated:completion:")]
+		void PresentViewController (UIViewController viewControllerToPresent, bool flag, [NullAllowed] Action completion);
+
+		// @required -(void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^ _Nullable)(void))completion;
+		[Abstract]
+		[Export ("dismissViewControllerAnimated:completion:")]
+		void DismissViewControllerAnimated (bool flag, [NullAllowed] Action completion);
 	}
 
 	// @interface FIREmailAuthProvider : NSObject
@@ -348,8 +423,13 @@ namespace Firebase.Auth
 		PhoneAuthProvider From (Auth auth);
 
 		// -(void)verifyPhoneNumber:(NSString * _Nonnull)phoneNumber completion:(FIRVerificationResultCallback _Nullable)completion;
+		[Obsolete]
 		[Export ("verifyPhoneNumber:completion:")]
 		void VerifyPhoneNumber (string phoneNumber, [NullAllowed] VerificationResultHandler completion);
+
+		// - (void)verifyPhoneNumber:(NSString *)phoneNumber UIDelegate:(nullable id<FIRAuthUIDelegate>)UIDelegate completion:(nullable FIRVerificationResultCallback) completion;
+		[Export ("verifyPhoneNumber:UIDelegate:completion:")]
+		void VerifyPhoneNumber (string phoneNumber, [NullAllowed] IAuthUIDelegate uiDelegate , [NullAllowed] VerificationResultHandler completion);
 
 		// -(FIRPhoneAuthCredential * _Nonnull)credentialWithVerificationID:(NSString * _Nonnull)verificationID verificationCode:(NSString * _Nonnull)verificationCode;
 		[Export ("credentialWithVerificationID:verificationCode:")]
@@ -463,6 +543,10 @@ namespace Firebase.Auth
 		// -(void)sendEmailVerificationWithCompletion:(FIRSendEmailVerificationCallback _Nullable)completion;
 		[Export ("sendEmailVerificationWithCompletion:")]
 		void SendEmailVerification ([NullAllowed] SendEmailVerificationHandler completion);
+
+		// - (void)sendEmailVerificationWithActionCodeSettings:(FIRActionCodeSettings *)actionCodeSettings completion:(nullable FIRSendEmailVerificationCallback)completion;
+		[Export ("sendEmailVerificationWithActionCodeSettings:completion:")]
+		void SendEmailVerification (ActionCodeSettings actionCodeSettings, [NullAllowed] SendEmailVerificationHandler completion);
 
 		// -(void)deleteWithCompletion:(FIRUserProfileChangeCallback _Nullable)completion;
 		[Export ("deleteWithCompletion:")]
