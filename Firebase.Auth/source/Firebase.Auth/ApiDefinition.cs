@@ -20,8 +20,9 @@ namespace Firebase.Auth
 		bool HandleCodeInApp { get; set; }
 
 		// @property (readonly, copy, nonatomic) NSString * _Nullable iOSBundleID;
+		// -(void)setIOSBundleID:(NSString * _Nonnull)iOSBundleID;
 		[NullAllowed, Export ("iOSBundleID")]
-		string IOSBundleId { get; }
+		string IOSBundleId { get; set; }
 
 		// @property (readonly, copy, nonatomic) NSString * _Nullable androidPackageName;
 		[NullAllowed, Export ("androidPackageName")]
@@ -34,10 +35,6 @@ namespace Firebase.Auth
 		// @property (readonly, assign, nonatomic) BOOL androidInstallIfNotAvailable;
 		[Export ("androidInstallIfNotAvailable")]
 		bool AndroidInstallIfNotAvailable { get; }
-
-		// -(void)setIOSBundleID:(NSString * _Nonnull)iOSBundleID;
-		[Export ("setIOSBundleID:")]
-		void SetiOSBundleId (string iOSBundleId);
 
 		// -(void)setAndroidPackageName:(NSString * _Nonnull)androidPackageName installIfNotAvailable:(BOOL)installIfNotAvailable minimumVersion:(NSString * _Nullable)minimumVersion;
 		[Export ("setAndroidPackageName:installIfNotAvailable:minimumVersion:")]
@@ -309,7 +306,7 @@ namespace Firebase.Auth
 		// @required -(void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^ _Nullable)(void))completion;
 		[Abstract]
 		[Export ("dismissViewControllerAnimated:completion:")]
-		void DismissViewControllerAnimated (bool flag, [NullAllowed] Action completion);
+		void DismissViewController (bool animated, [NullAllowed] Action completion);
 	}
 
 	// @interface FIREmailAuthProvider : NSObject
