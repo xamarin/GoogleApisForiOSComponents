@@ -3,6 +3,7 @@ using UIKit;
 using Firebase.Core;
 using Firebase.Invites;
 using Google.SignIn;
+using Firebase.DynamicLinks;
 
 namespace InvitesSample
 {
@@ -49,7 +50,7 @@ namespace InvitesSample
 			}
 
 			// Handle Sign In
-			return SignIn.SharedInstance.HandleUrl (url, sourceApplication, annotation);
+			return SignIn.SharedInstance.HandleUrl (url, sourceApplication ?? "", annotation);
 		}
 
 		public static void ShowMessage (string title, string message, UIViewController fromViewController)

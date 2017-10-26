@@ -1,31 +1,29 @@
 =begin
 Last run FirebaseDatabase installed:
-- FirebaseAnalytics (4.0.2)
-- FirebaseCore (4.0.3)
-- FirebaseDatabase (4.0.0)
-- FirebaseInstanceID (2.0.0)
-- GoogleInterchangeUtilities (1.2.2)
-- GoogleSymbolUtilities (1.1.2)
-- GoogleToolboxForMac (2.1.1)
+- FirebaseAnalytics (4.0.4)
+- FirebaseCore (4.0.8)
+- FirebaseDatabase (4.1.0)
+- FirebaseInstanceID (2.0.4)
+- GoogleToolboxForMac (2.1.3)
+- leveldb-library (1.18.3)
 
 Check if main version or subversion number has changed. 
 If yes, please, update *.targets files located in binding 
 projects, also, update Podfile files if needed.
 
 In .targets file, located in Firebase.Database binding, you can find:
-- FirebaseDatabase (4.0.0)
+- FirebaseDatabase (4.1.0)
+- leveldb-library (1.18.3)
 
 In .targets file, located in Firebase.Analytics binding, you can find:
-- FirebaseAnalytics (4.0.2)
+- FirebaseAnalytics (4.0.4)
 
 In .targets file, located in Firebase.Core binding, you can find:
-- FirebaseCore (4.0.3)
-- GoogleToolboxForMac (2.1.1)
-- GoogleInterchangeUtilities (1.2.2)
-- GoogleSymbolUtilities (1.1.2)
+- FirebaseCore (4.0.8)
+- GoogleToolboxForMac (2.1.3)
 
 In .targets file, located in Firebase.InstanceID binding, you can find:
-- FirebaseInstanceID (2.0.0)
+- FirebaseInstanceID (2.0.4)
 =end
 
 source 'https://github.com/CocoaPods/Specs.git'
@@ -34,5 +32,6 @@ platform :ios, '7.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'FirebaseDatabase' do
-	pod 'Firebase/Database', '4.0.3'
+	pod 'Firebase/Database', '4.3.0'
+	pod 'leveldb-library', '1.18.3'
 end

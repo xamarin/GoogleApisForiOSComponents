@@ -303,6 +303,9 @@ namespace Firebase.DynamicLinks
 	// typedef void (^FIRDynamicLinkUniversalLinkHandler)(FIRDynamicLink * _Nullable dynamicLink, NSError* _Nullable error);
 	delegate void DynamicLinkUniversalLinkHandler ([NullAllowed] DynamicLink dynamicLink, [NullAllowed] NSError error);
 
+	// void (^_Nullable)(NSString *diagnosticOutput, BOOL hasErrors)
+	delegate void DynamicLinkDiagnosticOutputHandler (string diagnosticOutput, bool hasErrors);
+
 	// @interface FIRDynamicLinks : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRDynamicLinks")]
@@ -339,6 +342,11 @@ namespace Firebase.DynamicLinks
 		// -(BOOL)matchesShortLinkFormat:(NSURL * _Nonnull)url;
 		[Export ("matchesShortLinkFormat:")]
 		bool MatchesShortLinkFormat (NSUrl url);
+
+		// + (void)performDiagnosticsWithCompletion:(void (^_Nullable)(NSString *diagnosticOutput, BOOL hasErrors))completionHandler;
+		[Static]
+		[Export ("performDiagnosticsWithCompletion:")]
+		void PerformDiagnostics ([NullAllowed] DynamicLinkDiagnosticOutputHandler completion);
 	}
 }
 

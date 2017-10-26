@@ -9,6 +9,7 @@ using CoreFoundation;
 namespace Firebase.Database
 {
 	// @interface FIRDatabase : NSObject
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRDatabase")]
 	interface Database
 	{
@@ -16,6 +17,16 @@ namespace Firebase.Database
 		[Static]
 		[Export ("database")]
 		Database DefaultInstance { get; }
+
+		// + (FIRDatabase *)databaseWithURL:(NSString *)url NS_SWIFT_NAME(database(url:));
+		[Static]
+		[Export ("databaseWithURL:")]
+		Database From (string url);
+
+		// + (FIRDatabase *)databaseForApp:(FIRApp *)app URL:(NSString*) url NS_SWIFT_NAME (database(app:url:));
+		[Static]
+		[Export ("databaseForApp:URL:")]
+		Database From (Firebase.Core.App app, string url);
 
 		// +(FIRDatabase * _Nonnull)databaseForApp:(FIRApp * _Nonnull)app;
 		[Static]

@@ -2,11 +2,11 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_GoogleCoreAssemblyName>Google.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleCoreAssemblyName>
-		<_GoogleCoreItemsFolder>GCr-3.0.3</_GoogleCoreItemsFolder>
+		<_GoogleCoreItemsFolder>GCr-3.1.0</_GoogleCoreItemsFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GoogleCoreItemsFolder)">
-			<Url>https://www.gstatic.com/cpdc/8f4d85570fdd4ab9-Google-3.0.3.tar.gz</Url>
+			<Url>https://www.gstatic.com/cpdc/4f036175e1463726-Google-3.1.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildRestoreResources Include="_GoogleCoreItems" />

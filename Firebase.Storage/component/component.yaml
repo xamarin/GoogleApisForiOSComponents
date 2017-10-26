@@ -1,4 +1,4 @@
-version: 2.0.0.0
+version: 2.0.2.0
 name: Firebase Storage for iOS
 id: firebaseiosstorage
 publisher: Xamarin Inc.
@@ -18,7 +18,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Firebase.iOS.Storage, Version=2.0.0.0
+  - Xamarin.Firebase.iOS.Storage, Version=2.0.2.0
 samples:
 - name: Storage Sample
   path: ../samples/StorageSample/StorageSample.sln

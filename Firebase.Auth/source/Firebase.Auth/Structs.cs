@@ -23,7 +23,8 @@ namespace Firebase.Auth
 	{
 		Unknown = 0,
 		PasswordReset = 1,
-		VerifyEmail = 2
+		VerifyEmail = 2,
+		RecoverEmail = 3
 	}
 
 	[Native]
@@ -62,6 +63,12 @@ namespace Firebase.Auth
 		InvalidRecipientEmail = 17033,
 		[Obsolete ("Use InvalidRecipientEmail instead, this will be removed in future versions.")]
 		RecipientEmail = InvalidRecipientEmail,
+		MissingEmail = 17034,
+		MissingIosBundleID = 17036,
+		MissingAndroidPackageName = 17037,
+		UnauthorizedDomain = 17038,
+		InvalidContinueUri = 17039,
+		MissingContinueURI = 17040,
 		MissingPhoneNumber = 17041,
 		InvalidPhoneNumber = 17042,
 		MissingVerificationCode = 17043,
@@ -75,6 +82,11 @@ namespace Firebase.Auth
 		MissingAppToken = 17053,
 		NotificationNotForwarded = 17054,
 		AppNotVerified = 17055,
+		CaptchaCheckFailed = 17056,
+		WebContextAlreadyPresented = 17057,
+		WebContextCancelled = 17058,
+		AppVerificationUserInteractionFailure = 17059,
+		InvalidClientId = 17060,
 		KeychainError = 17995,
 		InternalError = 17999
 	}
