@@ -21,6 +21,9 @@ namespace PerformanceMonitoringSample
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
 
+			var navigationController = Window.RootViewController as UINavigationController;
+			navigationController.NavigationBar.LargeTitleTextAttributes = new UIStringAttributes { ForegroundColor = UIColor.White };
+
 			App.Configure ();
 
 			return true;

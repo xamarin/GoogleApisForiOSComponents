@@ -50,7 +50,7 @@
             </objects>
             <point key="canvasLocation" x="343.19999999999999" y="262.21890000000002"/>
         </scene>
-        <!--Image View Controller-->
+        <!--Title-->
         <scene sceneID="PXN-IS-w9h">
             <objects>
                 <viewController id="Kkr-uW-BxF" customClass="ImageViewController" sceneMemberID="viewController">
@@ -65,23 +65,30 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FjX-nk-uoP">
                                 <rect key="frame" x="0.0" y="116" width="375" height="551"/>
                             </imageView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="31L-1H-VAm">
-                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="31L-1H-VAm">
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="color" red="0.141149044" green="0.65026277300000002" blue="0.91229975220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="31L-1H-VAm" firstAttribute="centerY" secondItem="s4B-Sw-SPb" secondAttribute="centerY" id="JFC-AJ-yJv"/>
+                            <constraint firstItem="31L-1H-VAm" firstAttribute="top" secondItem="sZB-Nq-hiH" secondAttribute="bottom" id="7bn-X3-6pw"/>
+                            <constraint firstAttribute="trailing" secondItem="31L-1H-VAm" secondAttribute="trailing" id="95I-ij-HJs"/>
                             <constraint firstAttribute="trailing" secondItem="FjX-nk-uoP" secondAttribute="trailing" id="VZj-cm-i3V"/>
+                            <constraint firstItem="kzc-0H-9nn" firstAttribute="top" secondItem="31L-1H-VAm" secondAttribute="bottom" id="WTa-WP-ukl"/>
+                            <constraint firstItem="31L-1H-VAm" firstAttribute="leading" secondItem="s4B-Sw-SPb" secondAttribute="leading" id="eFn-H1-i9j"/>
                             <constraint firstItem="FjX-nk-uoP" firstAttribute="leading" secondItem="s4B-Sw-SPb" secondAttribute="leading" id="nUg-B1-zvr"/>
                             <constraint firstItem="FjX-nk-uoP" firstAttribute="top" secondItem="sZB-Nq-hiH" secondAttribute="bottom" id="pDZ-Ca-3Qt"/>
                             <constraint firstItem="kzc-0H-9nn" firstAttribute="top" secondItem="FjX-nk-uoP" secondAttribute="bottom" id="pur-R0-L9h"/>
-                            <constraint firstItem="31L-1H-VAm" firstAttribute="centerX" secondItem="s4B-Sw-SPb" secondAttribute="centerX" id="x3W-Gs-9wM"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="fDs-OF-1R0">
+                        <barButtonItem key="rightBarButtonItem" title="Retry" id="3cW-V3-9VE"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="ActIndicator" destination="31L-1H-VAm" id="name-outlet-31L-1H-VAm"/>
+                        <outlet property="BtnRetry" destination="3cW-V3-9VE" id="name-outlet-3cW-V3-9VE"/>
                         <outlet property="ImgPicture" destination="FjX-nk-uoP" id="name-outlet-FjX-nk-uoP"/>
                     </connections>
                 </viewController>

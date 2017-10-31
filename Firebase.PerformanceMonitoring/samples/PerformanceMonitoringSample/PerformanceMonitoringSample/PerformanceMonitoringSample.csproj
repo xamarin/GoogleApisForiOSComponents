@@ -43,7 +43,7 @@
     <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
-    <MtouchExtraArgs>--linkskip=Firebase.PerformanceMonitoring</MtouchExtraArgs>
+    <MtouchExtraArgs></MtouchExtraArgs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>pdbonly</DebugType>
@@ -70,7 +70,7 @@
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
     <MtouchDebug>true</MtouchDebug>
     <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
-    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchFastDev>false</MtouchFastDev>
     <MtouchProfiling>true</MtouchProfiling>
     <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
@@ -79,7 +79,7 @@
     <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
-    <MtouchExtraArgs>--linkskip=Firebase.PerformanceMonitoring</MtouchExtraArgs>
+    <MtouchExtraArgs></MtouchExtraArgs>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -138,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="GoogleService-Info.plist" />
+    <BundleResource Include="Resources\error.png" />
   </ItemGroup>
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\Firebase.InstanceID.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.targets" />

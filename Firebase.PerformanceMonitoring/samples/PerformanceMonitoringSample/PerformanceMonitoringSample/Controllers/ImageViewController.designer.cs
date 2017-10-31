@@ -20,6 +20,10 @@ namespace PerformanceMonitoringSample
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIBarButtonItem BtnRetry { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIImageView ImgPicture { get; set; }
 
         void ReleaseDesignerOutlets ()
@@ -27,6 +31,11 @@ namespace PerformanceMonitoringSample
             if (ActIndicator != null) {
                 ActIndicator.Dispose ();
                 ActIndicator = null;
+            }
+
+            if (BtnRetry != null) {
+                BtnRetry.Dispose ();
+                BtnRetry = null;
             }
 
             if (ImgPicture != null) {

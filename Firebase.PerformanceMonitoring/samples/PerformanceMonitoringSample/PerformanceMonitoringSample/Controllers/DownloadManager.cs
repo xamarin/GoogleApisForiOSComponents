@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using Foundation;
 using UIKit;
+using System.Net;
 
 namespace PerformanceMonitoringSample
 {

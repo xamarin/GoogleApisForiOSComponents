@@ -4,6 +4,7 @@ using UIKit;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using Firebase.PerformanceMonitoring;
 
 namespace PerformanceMonitoringSample
 {
@@ -11,8 +12,11 @@ namespace PerformanceMonitoringSample
 	{
 		#region Fields
 
+		static object padlock = new object ();
 		CancellationTokenSource cancellationTokenSource;
 		CancellationToken cancellationToken;
+		Trace trace;
+		bool isDownloadFinished;
 
 		#endregion
 
@@ -38,6 +42,10 @@ namespace PerformanceMonitoringSample
 			base.ViewDidLoad ();
 			// Perform any additional setup after loading the view, typically from a nib.
 
+			ActIndicator.BackgroundColor = UIColor.FromWhiteAlpha (0.5f, 0.3f);
+			BtnRetry.Clicked += BtnRetry_Clicked;
+
+			trace = Performance.StartTrace ("image_download");
 			cancellationTokenSource = new CancellationTokenSource ();
 			cancellationToken = cancellationTokenSource.Token;
 		}
@@ -46,21 +54,73 @@ namespace PerformanceMonitoringSample
 		{
 			base.ViewDidAppear (animated);
 
-			ActIndicator.StartAnimating ();
-
-			Task.Factory.StartNew (async () => {
-				var image = await DownloadManager.DownloadImage (ImageUrl, cancellationToken);
-				InvokeOnMainThread (() => {
-					ImgPicture.Image = image;
-					ActIndicator.StopAnimating ();
-				});
-			});
+			DownloadImage ();
 		}
 
 		public override void ViewWillDisappear (bool animated)
 		{
-			cancellationTokenSource.Cancel ();
+			if (!isDownloadFinished) {
+				cancellationTokenSource.Cancel ();
+				trace.IncrementCounter ("cancelled");
+			}
+
+			trace.Stop ();
 			base.ViewWillDisappear (animated);
+		}
+
+		#endregion
+
+		#region User Interaction
+
+		void BtnRetry_Clicked (object sender, EventArgs e)
+		{
+			trace.IncrementCounter ("retry");
+			DownloadImage ();
+		}
+
+		#endregion
+
+		#region Internal Functionality
+
+		void ShowMessage (string title, string message)
+		{
+			var alertController = UIAlertController.Create (title, message, UIAlertControllerStyle.Alert);
+			alertController.AddAction (UIAlertAction.Create ("Ok", UIAlertActionStyle.Cancel, null));
+			NavigationController?.PresentViewController (alertController, true, null);
+		}
+
+		void DownloadImage ()
+		{
+			BtnRetry.Enabled = false;
+			ActIndicator.StartAnimating ();
+
+			Task.Factory.StartNew (async () => {
+				UIImage image = null;
+				try {
+					image = await DownloadManager.DownloadImage (ImageUrl, cancellationToken);
+				} catch (Exception ex) when (ex is TaskCanceledException || ex is HttpRequestException) {
+					InvokeOnMainThread (() => ShowMessage ("Image couldn't be downloaded...", ex.Message));
+				}
+
+				if (cancellationTokenSource.IsCancellationRequested)
+					return;
+
+				lock (padlock)
+					isDownloadFinished = true;
+
+				if (image == null) {
+					image = UIImage.FromFile ("error.png");
+					trace.IncrementCounter ("failed");
+				} else {
+					trace.IncrementCounter ("completed");
+				}
+
+				InvokeOnMainThread (() => {
+					ImgPicture.Image = image;
+					ActIndicator.StopAnimating ();
+					BtnRetry.Enabled = true;
+				});
+			});
 		}
 
 		#endregion
