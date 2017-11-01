@@ -13,6 +13,7 @@ namespace Firebase.CrashReporting
 	interface CrashReporting
 	{
 		// + (FIRCrash *)sharedInstance NS_SWIFT_NAME(sharedInstance());
+		[Static]
 		[Export ("sharedInstance")]
 		CrashReporting SharedInstance { get; }
 
