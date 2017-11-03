@@ -2638,6 +2638,26 @@ namespace Google.Cast
 		// -(void)cancel;
 		[Export ("cancel")]
 		void Cancel ();
+
+		// -(void)complete
+		[Export ("complete")]
+		void Complete ();
+
+		// -(void)failWithError:
+		[Export ("failWithError")]
+		void Fail (Error error);
+
+		// -(void)abortWithReason
+		[Export ("abortWithReason")]
+		void Abort (RequestAbortReason reason);
+
+		// +(GCKRequest *) applicationRequest
+		[Export ("applicationRequest")]
+		Request ApplicationRequest ();
+
+		// -(BOOL)external
+		[Export ("external")]
+		bool External { get; }
 	}
 
 	interface IRequestDelegate
