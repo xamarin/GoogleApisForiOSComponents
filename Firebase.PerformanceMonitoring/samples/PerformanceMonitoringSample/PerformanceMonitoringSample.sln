@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firebase.Core", "..\..\..\F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firebase.Analytics", "..\..\..\Firebase.Analytics\source\Firebase.Analytics\Firebase.Analytics.csproj", "{87BB564C-85A8-4EC1-AD16-EC0A1ACCEE56}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firebase.RemoteConfig", "..\..\..\Firebase.RemoteConfig\source\Firebase.RemoteConfig\Firebase.RemoteConfig.csproj", "{C5B2256A-D3E4-4419-9486-1020885EE738}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
@@ -59,5 +61,13 @@ Global
 		{87BB564C-85A8-4EC1-AD16-EC0A1ACCEE56}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{87BB564C-85A8-4EC1-AD16-EC0A1ACCEE56}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{87BB564C-85A8-4EC1-AD16-EC0A1ACCEE56}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{C5B2256A-D3E4-4419-9486-1020885EE738}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{C5B2256A-D3E4-4419-9486-1020885EE738}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{C5B2256A-D3E4-4419-9486-1020885EE738}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{C5B2256A-D3E4-4419-9486-1020885EE738}.Release|iPhone.Build.0 = Release|Any CPU
+		{C5B2256A-D3E4-4419-9486-1020885EE738}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{C5B2256A-D3E4-4419-9486-1020885EE738}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{C5B2256A-D3E4-4419-9486-1020885EE738}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{C5B2256A-D3E4-4419-9486-1020885EE738}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal

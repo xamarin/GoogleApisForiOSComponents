@@ -1,6 +1,11 @@
-﻿using Foundation;
+﻿using System;
+
+using Foundation;
 using UIKit;
+
 using Firebase.Core;
+using Firebase.RemoteConfig;
+using Firebase.PerformanceMonitoring;
 
 namespace PerformanceMonitoringSample
 {
@@ -22,11 +27,61 @@ namespace PerformanceMonitoringSample
 			// If not required for your application you can safely delete this method
 
 			var navigationController = Window.RootViewController as UINavigationController;
-			navigationController.NavigationBar.LargeTitleTextAttributes = new UIStringAttributes { ForegroundColor = UIColor.White };
 
+			if (UIDevice.CurrentDevice.CheckSystemVersion (11, 0))
+				UINavigationBar.Appearance.LargeTitleTextAttributes = new UIStringAttributes { ForegroundColor = UIColor.White };
+
+			var remoteConfig = RemoteConfig.SharedInstance;
+
+			// You can change the "false" below to "true" to permit more fetches when validating
+			// your app, but you should change it back to "false" or remove this statement before
+			// distributing your app in production.
+			remoteConfig.ConfigSettings = new RemoteConfigSettings (true);
+
+			// You can set default parameter values using an NSDictionary object or a plist file.
+			var defaultPlist = NSBundle.MainBundle.PathForResource ("RemoteConfigDefaults", "plist");
+
+			if (defaultPlist != null) {
+				// Load in-app defaults from a plist file that sets perf_enable_auto and 
+				// perf_enable_manual to true until you update values in the Firebase Console.
+				remoteConfig.SetDefaults ("RemoteConfigDefaults");
+			} else {
+				// If the plist file doesn't exist, load the values by code.
+				object [] values = { true, true };
+				object [] keys = { "perf_enable_auto", "perf_enable_manual" };
+				var defaultValues = NSDictionary.FromObjectsAndKeys (values, keys, keys.Length);
+				remoteConfig.SetDefaults (defaultValues);
+			}
+
+			// Important! This needs to be applied before App.Configure()
+			var isPerformanceMonitoringInstrumentationEnabled = remoteConfig ["perf_enable_auto"].BoolValue;
+			var isPerformanceMonitoringDataCollectionEnabled = remoteConfig ["perf_enable_manual"].BoolValue;
+
+			// The following line enables/disables automatic traces and HTTP/S network monitoring
+			Performance.SharedInstance.InstrumentationEnabled = isPerformanceMonitoringInstrumentationEnabled;
+
+			// The following line enables/disables custom traces
+			Performance.SharedInstance.DataCollectionEnabled = isPerformanceMonitoringDataCollectionEnabled;
+
+			// Use Firebase library to configure APIs
 			App.Configure ();
 
 			return true;
+		}
+
+		public static void ShowMessage (string title, string message, UIViewController fromViewController, Action actionForOk = null)
+		{
+			if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
+				var alert = UIAlertController.Create (title, message, UIAlertControllerStyle.Alert);
+				alert.AddAction (UIAlertAction.Create ("Ok", UIAlertActionStyle.Default, (obj) => {
+					actionForOk?.Invoke ();
+				}));
+				fromViewController.PresentViewController (alert, true, null);
+			} else {
+				var alert = new UIAlertView (title, message, null, "Ok", null);
+				alert.Dismissed += (sender, e) => actionForOk?.Invoke ();
+				alert.Show ();
+			}
 		}
 	}
 }

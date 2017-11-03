@@ -82,13 +82,6 @@ namespace PerformanceMonitoringSample
 
 		#region Internal Functionality
 
-		void ShowMessage (string title, string message)
-		{
-			var alertController = UIAlertController.Create (title, message, UIAlertControllerStyle.Alert);
-			alertController.AddAction (UIAlertAction.Create ("Ok", UIAlertActionStyle.Cancel, null));
-			NavigationController?.PresentViewController (alertController, true, null);
-		}
-
 		void DownloadImage ()
 		{
 			BtnRetry.Enabled = false;
@@ -99,7 +92,7 @@ namespace PerformanceMonitoringSample
 				try {
 					image = await DownloadManager.DownloadImage (ImageUrl, cancellationToken);
 				} catch (Exception ex) when (ex is TaskCanceledException || ex is HttpRequestException) {
-					InvokeOnMainThread (() => ShowMessage ("Image couldn't be downloaded...", ex.Message));
+					InvokeOnMainThread (() => AppDelegate.ShowMessage ("Image couldn't be downloaded...", ex.Message, NavigationController));
 				}
 
 				if (cancellationTokenSource.IsCancellationRequested)
