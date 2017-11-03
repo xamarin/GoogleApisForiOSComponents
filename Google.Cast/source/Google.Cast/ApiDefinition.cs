@@ -918,6 +918,9 @@ namespace Google.Cast
 		[Export ("passiveScan")]
 		bool PassiveScan { get; set; }
 
+		[Export ("discoveryActive")]
+		bool DiscoveryActive { get; }
+
 		// @property (readonly, assign, nonatomic) NSUInteger deviceCount;
 		[Export ("deviceCount")]
 		nuint DeviceCount { get; }
