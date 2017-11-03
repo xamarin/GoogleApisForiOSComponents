@@ -295,6 +295,12 @@ namespace Google.Cast
 		[Export ("physicalVolumeButtonsWillControlDeviceVolume")]
 		bool PhysicalVolumeButtonsWillControlDeviceVolume { get; set; }
 
+		[Export ("disableDiscoveryAutostart")]
+		bool DisableDiscoveryAutostart { get; set; }
+
+		[Export ("suspendSessionsWhenBackgrounded")]
+		bool SuspendSessionsWhenBackgrounded { get; set; }
+
 		// @property (readwrite, copy, nonatomic) GCKLaunchOptions * _Nullable launchOptions;
 		[NullAllowed]
 		[Export ("launchOptions", ArgumentSemantic.Copy)]
