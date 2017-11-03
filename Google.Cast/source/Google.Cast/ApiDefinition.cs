@@ -215,9 +215,15 @@ namespace Google.Cast
 		[Export ("setSharedInstanceWithOptions:")]
 		void SetSharedInstance (CastOptions options);
 
+		// + (instancetype) sharedInstance
 		[Static]
 		[Export ("sharedInstance")]
 		CastContext SharedInstance { get; }
+
+		// +(BOOL) isSharedInstanceInitialized	
+		[Static]
+		[Export ("isSharedInstanceInitialized")]
+		bool IsSharedInstanceInitialized { get; }
 
 		// -(void)registerDeviceProvider:(GCKDeviceProvider * _Nonnull)deviceProvider;
 		[Export ("registerDeviceProvider:")]
