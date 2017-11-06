@@ -2644,11 +2644,11 @@ namespace Google.Cast
 		void Complete ();
 
 		// -(void)failWithError:
-		[Export ("failWithError")]
+		[Export ("failWithError:")]
 		void Fail (Error error);
 
 		// -(void)abortWithReason
-		[Export ("abortWithReason")]
+		[Export ("abortWithReason:")]
 		void Abort (RequestAbortReason reason);
 
 		// +(GCKRequest *) applicationRequest
