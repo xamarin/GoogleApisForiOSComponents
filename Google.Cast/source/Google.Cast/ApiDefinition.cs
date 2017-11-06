@@ -3287,6 +3287,11 @@ namespace Google.Cast
 		[Export ("playPauseToggleButton", ArgumentSemantic.Weak)]
 		GCKUIButton PlayPauseToggleButton { get; set; }
 
+		// @property (readwrite, nonatomic, strong) GCKUIPlayPauseToggleController* playPauseToggleController;
+		[NullAllowed]
+		[Export ("playPauseToggleController")]
+		UIPlayPauseToggleController PlayPauseToggleController { get; set; }
+
 		// @property (readwrite, nonatomic, weak) UIButton * _Nullable stopButton;
 		[NullAllowed]
 		[Export ("stopButton", ArgumentSemantic.Weak)]
@@ -3454,6 +3459,18 @@ namespace Google.Cast
 		[NullAllowed]
 		[Export ("selectedTrackIDs", ArgumentSemantic.Copy)]
 		NSArray _SelectedTrackIds { get; set; }
+	}
+
+	[BaseType (typeof(UIViewController), Name = "GCKUIPlayPauseToggleController")]
+	interface UIPlayPauseToggleController
+	{
+		// @property(nonatomic, assign, readwrite) BOOL inputEnabled;
+		[Export ("inputEnabled")]
+		bool InputEnabled { get; set; }
+
+		// @property(nonatomic, assign, readwrite) GCKUIPlayPauseState playPauseState;
+		[Export ("playPauseState")]
+		PlayPauseState PlayPauseState { get; set; }
 	}
 
 	interface IUIMediaTrackSelectionViewControllerDelegate
