@@ -3352,6 +3352,11 @@ namespace Google.Cast
 		[Export ("streamTimeRemainingLabel", ArgumentSemantic.Weak)]
 		UILabel StreamTimeRemainingLabel { get; set; }
 
+		// @property(nonatomic, strong, readwrite, GCK_NULLABLE) GCKUIStreamPositionController* streamPositionController;
+		[NullAllowed]
+		[Export ("streamPositionController")]
+		UIStreamPositionController StreamPositionController { get; set; }
+
 		// @property (assign, readwrite, nonatomic) BOOL displayTimeRemainingAsNegativeValue;
 		[Export ("displayTimeRemainingAsNegativeValue")]
 		bool DisplayTimeRemainingAsNegativeValue { get; set; }
@@ -3471,6 +3476,22 @@ namespace Google.Cast
 		// @property(nonatomic, assign, readwrite) GCKUIPlayPauseState playPauseState;
 		[Export ("playPauseState")]
 		PlayPauseState PlayPauseState { get; set; }
+	}
+
+	[BaseType(typeof(UIViewController), Name = "GCKUIStreamPositionController")]
+	interface UIStreamPositionController
+	{
+		// @property (nonatomic, assign, readwrite) NSTimeInterval streamPosition;
+		[Export ("streamPosition")]
+		double StreamPosition { get; set; }
+
+		// @property (nonatomic, assign, readwrite) NSTimeInterval streamDuration;
+		[Export ("streamDuration")]
+		double StreamDuration { get; set; }
+
+		// @property (nonatomic, assign, readwrite) BOOL inputEnabled;
+		[Export ("inputEnabled")]
+		bool InputEnabled { get; set; }
 	}
 
 	interface IUIMediaTrackSelectionViewControllerDelegate
