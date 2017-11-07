@@ -36,7 +36,14 @@ namespace GooglePlacesSample
 			// app as it uses Maps.
 			MapServices.ProvideAPIKey (GoogleApiKey.Key);
 
-			(Window.RootViewController as UISplitViewController).Delegate = this;
+			var splitViewController = UIStoryboard.FromName ("Main", null).InstantiateViewController (nameof (UISplitViewController)) as UISplitViewController;
+			splitViewController.Delegate = this;
+			splitViewController.PreferredDisplayMode = UISplitViewControllerDisplayMode.PrimaryOverlay;
+
+			Window = new UIWindow (UIScreen.MainScreen.Bounds) {
+				RootViewController = splitViewController
+			};
+			Window.MakeKeyAndVisible ();
 
 			return true;
 		}

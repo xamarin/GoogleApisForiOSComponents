@@ -20,11 +20,7 @@ namespace GooglePlacesSample
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIImageView ImgSelected { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel LblInformation { get; set; }
+        UIKit.UICollectionView PhotosCollectionView { get; set; }
 
         [Action ("BtnSelect_Tapped:")]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -37,14 +33,9 @@ namespace GooglePlacesSample
                 BtnSelect = null;
             }
 
-            if (ImgSelected != null) {
-                ImgSelected.Dispose ();
-                ImgSelected = null;
-            }
-
-            if (LblInformation != null) {
-                LblInformation.Dispose ();
-                LblInformation = null;
+            if (PhotosCollectionView != null) {
+                PhotosCollectionView.Dispose ();
+                PhotosCollectionView = null;
             }
         }
     }

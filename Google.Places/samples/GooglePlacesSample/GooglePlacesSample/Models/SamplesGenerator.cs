@@ -22,8 +22,8 @@ namespace GooglePlacesSample
 					PushAutocomplete = true
 				},
 				new SampleInformation {
-					StoryboardId = nameof (UISearchDisplayAutocompleteViewController),
-					Title = "UISearchDisplayController",
+					StoryboardId = nameof (UISearchAutocompleteViewController),
+					Title = "UISearchController",
 					ColorTheme = ColorTheme.Default
 				}
 			},
@@ -33,7 +33,7 @@ namespace GooglePlacesSample
 					Title = "Photos"
 				},
 				new SampleInformation {
-					StoryboardId = nameof (PlacePickerViewController),
+					StoryboardId = nameof (MyPlacePickerViewController),
 					Title = "Place Picker Sample"
 				}
 			},

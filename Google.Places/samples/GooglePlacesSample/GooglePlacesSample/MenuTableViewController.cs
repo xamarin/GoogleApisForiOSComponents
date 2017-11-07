@@ -37,9 +37,7 @@ namespace GooglePlacesSample
 		#region UITableViewController Data Source
 
 		public override nint NumberOfSections (UITableView tableView) => samples.Length;
-
 		public override nint RowsInSection (UITableView tableView, nint section) => samples [section].Length;
-
 		public override string TitleForHeader (UITableView tableView, nint section) => titles [section];
 
 		public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
@@ -61,6 +59,8 @@ namespace GooglePlacesSample
 
 			var viewController = Storyboard.InstantiateViewController (sampleInformation.StoryboardId);
 			viewController.Title = sampleInformation.Title;
+			viewController.NavigationItem.LeftBarButtonItem = SplitViewController.DisplayModeButtonItem;
+			viewController.NavigationItem.LeftItemsSupplementBackButton = true;
 
 			switch (indexPath.Section) {
 			case 0 when (viewController is AutocompleteBaseViewController autocompleteViewController):

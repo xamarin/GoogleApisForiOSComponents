@@ -11,8 +11,8 @@ using UIKit;
 
 namespace GooglePlacesSample
 {
-    [Register ("PlacePickerViewController")]
-    partial class PlacePickerViewController
+	[Register ("MyPlacePickerViewController")]
+    partial class MyPlacePickerViewController
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
