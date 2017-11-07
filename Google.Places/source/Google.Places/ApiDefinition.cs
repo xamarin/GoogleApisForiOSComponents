@@ -420,7 +420,7 @@ namespace Google.Places
 
 		// @property (readonly, copy, nonatomic) NSString * placeID;
 		[Export ("placeID", ArgumentSemantic.Copy)]
-		string PlaceID { get; }
+		string Id { get; }
 
 		// @property (readonly, nonatomic) CLLocationCoordinate2D coordinate;
 		[Export ("coordinate", ArgumentSemantic.Assign)]
@@ -545,6 +545,7 @@ namespace Google.Places
 	delegate void PlacePhotoImageResultHandler ([NullAllowed] UIImage photo, [NullAllowed] NSError error);
 
 	// @interface GMSPlacesClient : NSObject
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GMSPlacesClient")]
 	interface PlacesClient
 	{
@@ -555,7 +556,7 @@ namespace Google.Places
 		// +(instancetype)sharedClient;
 		[Static]
 		[Export ("sharedClient")]
-		PlacesClient SharedClient ();
+		PlacesClient SharedInstance { get; }
 
 		// + (BOOL)provideAPIKey:(NSString *)key;
 		[Static]
@@ -574,15 +575,15 @@ namespace Google.Places
 
 		// -(void)reportDeviceAtPlaceWithID:(NSString *)placeID;
 		[Export ("reportDeviceAtPlaceWithID:")]
-		void ReportDeviceAtPlace (string placeID);
+		void ReportDeviceAtPlace (string placeId);
 
 		// -(void)lookUpPlaceID:(NSString *)placeID callback:(GMSPlaceResultCallback)callback;
 		[Export ("lookUpPlaceID:callback:")]
-		void LookUpPlaceID (string placeID, PlaceResultHandler callback);
+		void LookUpPlaceId (string placeId, PlaceResultHandler callback);
 
 		// - (void)lookUpPhotosForPlaceID:(NSString *)placeID callback:(GMSPlacePhotoMetadataResultCallback)callback;
 		[Export ("lookUpPhotosForPlaceID:callback:")]
-		void LookUpPhotos (string placeID, PlacePhotoMetadataResultHandler callback);
+		void LookUpPhotos (string placeId, PlacePhotoMetadataResultHandler callback);
 
 		// - (void)loadPlacePhoto:(GMSPlacePhotoMetadata *)photo callback:(GMSPlacePhotoImageResultCallback)callback;
 		[Export ("loadPlacePhoto:callback:")]
@@ -1164,7 +1165,7 @@ namespace Google.Places.Picker
 
 		// -(void)pickPlaceWithCallback:(GMSPlaceResultCallback)callback;
 		[Export ("pickPlaceWithCallback:")]
-		void PickPlaceWithCallback (Google.Places.PlaceResultHandler callback);
+		void PickPlace (Google.Places.PlaceResultHandler callback);
 	}
 
 	// @interface GMSPlacePickerConfig : NSObject
