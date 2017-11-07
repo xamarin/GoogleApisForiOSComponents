@@ -26,5 +26,9 @@ samples:
   - project: GooglePlacesSample
     packages:
     - Xamarin.Google.iOS.Places
+    - Xamarin.Google.iOS.Maps
+  removeNodes:
+  - //xNS:Import[contains (@Project, 'Google.Maps.targets')]
+  - //xNS:Import[contains (@Project, 'Google.Places.targets')]
 local-nuget-repo: ../../tmp-nugets
 no_build: true

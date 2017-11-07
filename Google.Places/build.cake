@@ -31,6 +31,8 @@ buildSpec = new BuildSpec () {
 	},
 };
 
+MyDependencies = new [] {"Google.Maps"};
+
 Task ("clean").IsDependentOn ("clean-base").Does (() =>
 {
 	RunMake ("./externals/", "clean");
