@@ -1,62 +1,12 @@
-With the Google Maps SDK for iOS, you can add maps based on Google maps data to your application.  The SDK automatically handles access to the Google Maps servers, map display, and response to user gestures such as clicks and drags. You can also add markers, polylines, ground overlays and info windows to your map.  These objects provide additional information for map locations, and allow user interaction with the map.
+Get data from the same database used by Google Maps. Places features over 100 million businesses and points of interest that are updated frequently through owner-verified listings and user-moderated contributions.
 
-Showing a Map
-=============
-
-### AppDelegate
-
-```csharp
-using Google.Maps;
-...
-
-const string MapsApiKey = "<Get your ID at https://code.google.com/apis/console/>";
-
-public override bool FinishedLaunching (UIApplication app, NSDictionary options)
-{
-	MapServices.ProvideAPIKey (MapsApiKey);
-	...
-}
-```
-
-### Your View Controller
-
-```csharp
-using Google.Maps;
-...
-
-MapView mapView;
-
-public override void LoadView ()
-{
-	base.LoadView ();
-	
-	CameraPosition camera = CameraPosition.FromCamera (latitude: 37.797865, 
-			                                           longitude: -122.402526, 
-			                                           zoom: 6);
-	mapView = MapView.FromCamera (CGRect.Empty, camera);
-	mapView.MyLocationEnabled = true;
-
-	View = mapView;
-}
-
-public override void ViewWillAppear (bool animated)
-{
-	base.ViewWillAppear (animated);
-	mapView.StartRendering ();
-}
-
-public override void ViewWillDisappear (bool animated)
-{	
-	mapView.StopRendering ();
-	base.ViewWillDisappear (animated);
-}
-```
+* **Place picker**: Add the built-in place picker UI widget to your app, so users can choose from a set of nearby places displayed on a map.
+* **Place autocomplete**: Assist users by automatically completing the name and address of a place as they type.
+* **Place details**: Retrieve rich details about a place, including name, address, phone number, website link and more.
 
 Attribution Requirements
 ========================
 
-If you use the Google Maps SDK for iOS in your application, you must include the attribution text as part of a legal notices section in your application. Including legal notices as an independent menu item, or as part of an "About" menu item, is recommended.
+If you use the Google Places SDK for iOS in your application, you must include the attribution text as part of a legal notices section in your application. Including legal notices as an independent menu item, or as part of an "About" menu item, is recommended.
 
-You can get the attribution text by making a call to `Google.Maps.MapServices.OpenSourceLicenseInfo`
- 
-*Screenshots assembled with [PlaceIt](http://placeit.breezi.com/).*
+You can get the attribution text by making a call to `Google.Places.PlacesClient.OpenSourceLicenseInfo`
