@@ -42,6 +42,7 @@ public Dictionary<string, GoogleBase> CreateComponents ()
 	googleComponents ["Google.InstanceID"] = GetComponent<Google.InstanceID> ();
 	googleComponents ["Google.Maps"] = GetComponent<Google.Maps> ();
 	googleComponents ["Google.MobileAds"] = GetComponent<Google.MobileAds> ();
+	googleComponents ["Google.Places"] = GetComponent<Google.Places> ();
 	googleComponents ["Google.PlayGames"] = GetComponent<Google.PlayGames> ();
 	googleComponents ["Google.SignIn"] = GetComponent<Google.SignIn> ();
 	googleComponents ["Google.TagManager"] = GetComponent<Google.TagManager> ();

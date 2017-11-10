@@ -245,6 +245,16 @@ public abstract class Google
 		}
 	}
 
+	public class Places : GoogleBase
+	{
+		public override string Name  { 
+			get { return "Google.Places"; }
+		}
+		public override string NuGetId { 
+			get { return "Xamarin.Google.iOS.Places"; }
+		}
+	}
+
 	public class PlayGames : GoogleBase
 	{
 		public override string Name  { 
