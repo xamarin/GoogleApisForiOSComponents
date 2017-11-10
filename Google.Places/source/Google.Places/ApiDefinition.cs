@@ -599,7 +599,7 @@ namespace Google.Places
 
 		// -(void)autocompleteQuery:(NSString *)query bounds:(GMSCoordinateBounds *)bounds filter:(GMSAutocompleteFilter *)filter callback:(GMSAutocompletePredictionsCallback)callback;
 		[Export ("autocompleteQuery:bounds:filter:callback:")]
-		void AutocompleteQuery (string query, [NullAllowed] Google.Maps.CoordinateBounds bounds, [NullAllowed] AutocompleteFilter filter, AutocompletePredictionsHandler callback);
+		void Autocomplete (string query, [NullAllowed] Google.Maps.CoordinateBounds bounds, [NullAllowed] AutocompleteFilter filter, AutocompletePredictionsHandler callback);
 
 		// -(void)addPlace:(GMSUserAddedPlace *)place callback:(GMSPlaceResultCallback)callback;
 		[Obsolete ("The Add Place feature is deprecated as of June 30, 2017. This feature will be turned down on June 30, 2018, and will no longer be available after that date.")]
