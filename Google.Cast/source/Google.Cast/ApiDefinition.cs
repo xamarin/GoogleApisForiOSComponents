@@ -215,9 +215,15 @@ namespace Google.Cast
 		[Export ("setSharedInstanceWithOptions:")]
 		void SetSharedInstance (CastOptions options);
 
+		// + (instancetype) sharedInstance
 		[Static]
 		[Export ("sharedInstance")]
 		CastContext SharedInstance { get; }
+
+		// +(BOOL) isSharedInstanceInitialized	
+		[Static]
+		[Export ("isSharedInstanceInitialized")]
+		bool IsSharedInstanceInitialized { get; }
 
 		// -(void)registerDeviceProvider:(GCKDeviceProvider * _Nonnull)deviceProvider;
 		[Export ("registerDeviceProvider:")]
@@ -294,6 +300,12 @@ namespace Google.Cast
 		// @property (assign, readwrite, nonatomic) BOOL physicalVolumeButtonsWillControlDeviceVolume;
 		[Export ("physicalVolumeButtonsWillControlDeviceVolume")]
 		bool PhysicalVolumeButtonsWillControlDeviceVolume { get; set; }
+
+		[Export ("disableDiscoveryAutostart")]
+		bool DisableDiscoveryAutostart { get; set; }
+
+		[Export ("suspendSessionsWhenBackgrounded")]
+		bool SuspendSessionsWhenBackgrounded { get; set; }
 
 		// @property (readwrite, copy, nonatomic) GCKLaunchOptions * _Nullable launchOptions;
 		[NullAllowed]
@@ -911,6 +923,9 @@ namespace Google.Cast
 		// @property (assign, readwrite, nonatomic) BOOL passiveScan;
 		[Export ("passiveScan")]
 		bool PassiveScan { get; set; }
+
+		[Export ("discoveryActive")]
+		bool DiscoveryActive { get; }
 
 		// @property (readonly, assign, nonatomic) NSUInteger deviceCount;
 		[Export ("deviceCount")]
@@ -2623,6 +2638,26 @@ namespace Google.Cast
 		// -(void)cancel;
 		[Export ("cancel")]
 		void Cancel ();
+
+		// -(void)complete
+		[Export ("complete")]
+		void Complete ();
+
+		// -(void)failWithError:
+		[Export ("failWithError:")]
+		void Fail (Error error);
+
+		// -(void)abortWithReason
+		[Export ("abortWithReason:")]
+		void Abort (RequestAbortReason reason);
+
+		// +(GCKRequest *) applicationRequest
+		[Export ("applicationRequest")]
+		Request ApplicationRequest ();
+
+		// -(BOOL)external
+		[Export ("external")]
+		bool External { get; }
 	}
 
 	interface IRequestDelegate
@@ -3252,6 +3287,11 @@ namespace Google.Cast
 		[Export ("playPauseToggleButton", ArgumentSemantic.Weak)]
 		GCKUIButton PlayPauseToggleButton { get; set; }
 
+		// @property (readwrite, nonatomic, strong) GCKUIPlayPauseToggleController* playPauseToggleController;
+		[NullAllowed]
+		[Export ("playPauseToggleController")]
+		UIPlayPauseToggleController PlayPauseToggleController { get; set; }
+
 		// @property (readwrite, nonatomic, weak) UIButton * _Nullable stopButton;
 		[NullAllowed]
 		[Export ("stopButton", ArgumentSemantic.Weak)]
@@ -3311,6 +3351,11 @@ namespace Google.Cast
 		[NullAllowed]
 		[Export ("streamTimeRemainingLabel", ArgumentSemantic.Weak)]
 		UILabel StreamTimeRemainingLabel { get; set; }
+
+		// @property(nonatomic, strong, readwrite, GCK_NULLABLE) GCKUIStreamPositionController* streamPositionController;
+		[NullAllowed]
+		[Export ("streamPositionController")]
+		UIStreamPositionController StreamPositionController { get; set; }
 
 		// @property (assign, readwrite, nonatomic) BOOL displayTimeRemainingAsNegativeValue;
 		[Export ("displayTimeRemainingAsNegativeValue")]
@@ -3419,6 +3464,34 @@ namespace Google.Cast
 		[NullAllowed]
 		[Export ("selectedTrackIDs", ArgumentSemantic.Copy)]
 		NSArray _SelectedTrackIds { get; set; }
+	}
+
+	[BaseType (typeof(UIViewController), Name = "GCKUIPlayPauseToggleController")]
+	interface UIPlayPauseToggleController
+	{
+		// @property(nonatomic, assign, readwrite) BOOL inputEnabled;
+		[Export ("inputEnabled")]
+		bool InputEnabled { get; set; }
+
+		// @property(nonatomic, assign, readwrite) GCKUIPlayPauseState playPauseState;
+		[Export ("playPauseState")]
+		PlayPauseState PlayPauseState { get; set; }
+	}
+
+	[BaseType(typeof(UIViewController), Name = "GCKUIStreamPositionController")]
+	interface UIStreamPositionController
+	{
+		// @property (nonatomic, assign, readwrite) NSTimeInterval streamPosition;
+		[Export ("streamPosition")]
+		double StreamPosition { get; set; }
+
+		// @property (nonatomic, assign, readwrite) NSTimeInterval streamDuration;
+		[Export ("streamDuration")]
+		double StreamDuration { get; set; }
+
+		// @property (nonatomic, assign, readwrite) BOOL inputEnabled;
+		[Export ("inputEnabled")]
+		bool InputEnabled { get; set; }
 	}
 
 	interface IUIMediaTrackSelectionViewControllerDelegate

@@ -344,4 +344,12 @@ namespace Google.Cast
 		Dv = 1,
 		Hdr = 2
 	}
+
+	[Native]
+	public enum PlayPauseState : long 
+	{
+		None = 0,
+		Play = 1,
+		Pause = 2
+	}
 }
