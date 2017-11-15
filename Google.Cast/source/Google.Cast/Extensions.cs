@@ -338,6 +338,15 @@ namespace Google.Cast
 		}
 	}
 
+	public partial class Session
+	{
+		[Obsolete ("Use CurrentDeviceVolume property instead. To assign a value to DeviceVolume or CurrentDeviceVolume properties, please, use SetDeviceVolume method. DeviceVolume will be removed in future releases.")]
+		public float DeviceVolume => CurrentDeviceVolume;
+
+		[Obsolete ("Use CurrentDeviceMuted property instead. To assign a value to DeviceMuted or CurrentDeviceMuted properties, please, use SetDeviceMuted method. DeviceMuted will be removed in future releases.")]
+		public bool DeviceMuted => CurrentDeviceMuted;
+	}
+
 	public partial class UIDeviceVolumeController
 	{
 		static UIControlState? muteOff;
