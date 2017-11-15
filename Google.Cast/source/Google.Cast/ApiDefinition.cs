@@ -215,9 +215,15 @@ namespace Google.Cast
 		[Export ("setSharedInstanceWithOptions:")]
 		void SetSharedInstance (CastOptions options);
 
+		// + (instancetype) sharedInstance
 		[Static]
 		[Export ("sharedInstance")]
 		CastContext SharedInstance { get; }
+
+		// +(BOOL) isSharedInstanceInitialized	
+		[Static]
+		[Export ("isSharedInstanceInitialized")]
+		bool IsSharedInstanceInitialized { get; }
 
 		// -(void)registerDeviceProvider:(GCKDeviceProvider * _Nonnull)deviceProvider;
 		[Export ("registerDeviceProvider:")]
@@ -230,6 +236,21 @@ namespace Google.Cast
 		////////////////////////////////////
 		/// From Category CastContext_UI ///
 		////////////////////////////////////
+
+		// GCK_EXTERN NSString *const kGCKExpandedMediaControlsTriggeredNotification;
+		[Notification]
+		[Field ("kGCKExpandedMediaControlsTriggeredNotification", "__Internal")]
+		NSString ExpandedMediaControlsTriggeredNotification { get; }
+
+		// GCK_EXTERN NSString *const kGCKUICastDialogWillShowNotification;
+		[Notification]
+		[Field ("kGCKUICastDialogWillShowNotification", "__Internal")]
+		NSString UICastDialogWillShowNotification { get; }
+
+		// GCK_EXTERN NSString *const kGCKUICastDialogDidHideNotification;
+		[Notification]
+		[Field ("kGCKUICastDialogDidHideNotification", "__Internal")]
+		NSString UICastDialogDidHideNotification { get; }
 
 		// @property (nonatomic, strong, readwrite, GCK_NULLABLE) id<GCKUIImageCache> imageCache;
 		[NullAllowed]
@@ -295,6 +316,10 @@ namespace Google.Cast
 		[Export ("physicalVolumeButtonsWillControlDeviceVolume")]
 		bool PhysicalVolumeButtonsWillControlDeviceVolume { get; set; }
 
+		// @property (nonatomic, assign, readwrite) BOOL disableDiscoveryAutostart;
+		[Export ("disableDiscoveryAutostart")]
+		bool DisableDiscoveryAutostart { get; set; }
+
 		// @property (readwrite, copy, nonatomic) GCKLaunchOptions * _Nullable launchOptions;
 		[NullAllowed]
 		[Export ("launchOptions", ArgumentSemantic.Copy)]
@@ -304,6 +329,10 @@ namespace Google.Cast
 		[NullAllowed]
 		[Export ("sharedContainerIdentifier")]
 		string SharedContainerIdentifier { get; set; }
+
+		// @property(nonatomic, assign, readwrite) BOOL suspendSessionsWhenBackgrounded;
+		[Export ("suspendSessionsWhenBackgrounded")]
+		bool SuspendSessionsWhenBackgrounded { get; set; }
 	}
 
 	// @interface GCKCastSession : GCKSession
@@ -893,6 +922,7 @@ namespace Google.Cast
 	}
 
 	// @interface GCKDiscoveryManager : NSObject
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKDiscoveryManager")]
 	interface DiscoveryManager
 	{
@@ -911,6 +941,10 @@ namespace Google.Cast
 		// @property (assign, readwrite, nonatomic) BOOL passiveScan;
 		[Export ("passiveScan")]
 		bool PassiveScan { get; set; }
+
+		// @property(nonatomic, assign, readonly) BOOL discoveryActive;
+		[Export ("discoveryActive")]
+		bool DiscoveryActive { get; }
 
 		// @property (readonly, assign, nonatomic) NSUInteger deviceCount;
 		[Export ("deviceCount")]
@@ -1031,6 +1065,8 @@ namespace Google.Cast
 	}
 
 	// @interface GCKGameManagerChannel : GCKCastChannel
+	[Obsolete ("The Game Manager API is no longer supported and will be removed in a future release.")]
+	[DisableDefaultCtor]
 	[BaseType (typeof (CastChannel),
 		   Name = "GCKGameManagerChannel",
 		   Delegates = new string [] { "Delegate" },
@@ -1123,6 +1159,7 @@ namespace Google.Cast
 	}
 
 	// @protocol GCKGameManagerChannelDelegate <NSObject>
+	[Obsolete ("The Game Manager API is no longer supported and will be removed in a future release.")]
 	[Model]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "GCKGameManagerChannelDelegate")]
@@ -1172,6 +1209,8 @@ namespace Google.Cast
 	}
 
 	// @interface GCKGameManagerResult : NSObject
+	[Obsolete ("The Game Manager API is no longer supported and will be removed in a future release.")]
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKGameManagerResult")]
 	interface GameManagerResult
 	{
@@ -1189,6 +1228,7 @@ namespace Google.Cast
 	}
 
 	// @interface GCKGameManagerState : NSObject
+	[Obsolete ("The Game Manager API is no longer supported and will be removed in a future release.")]
 	[BaseType (typeof (NSObject), Name = "GCKGameManagerState")]
 	interface GameManagerState
 	{
@@ -1320,6 +1360,7 @@ namespace Google.Cast
 		void DidDisconnect (GenericChannel channel);
 	}
 
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKImage")]
 	interface Image : INSCopying, INSCoding
 	{
@@ -1404,9 +1445,9 @@ namespace Google.Cast
 		[Export ("fileLoggingEnabled")]
 		bool FileLoggingEnabled { get; set; }
 
-		// @property (assign, readwrite, nonatomic) unsigned long long maxLogFileSize;
+		// @property (nonatomic, assign, readwrite) NSUInteger maxLogFileSize;
 		[Export ("maxLogFileSize")]
-		ulong MaxLogFileSize { get; set; }
+		nuint MaxLogFileSize { get; set; }
 
 		// @property (assign, readwrite, nonatomic) NSUInteger maxLogFileCount;
 		[Export ("maxLogFileCount")]
@@ -2226,7 +2267,7 @@ namespace Google.Cast
 	// @interface GCKMultizoneDevice : NSObject <NSCopying>
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKMultizoneDevice")]
-	interface MultizoneDevice : INSCopying
+	interface MultizoneDevice : INSCopying, INSSecureCoding
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull deviceID;
 		[Export ("deviceID")]
@@ -2259,7 +2300,7 @@ namespace Google.Cast
 
 	// @interface GCKMultizoneStatus : NSObject <NSCopying>
 	[BaseType (typeof (NSObject), Name = "GCKMultizoneStatus")]
-	interface MultizoneStatus : INSCopying
+	interface MultizoneStatus : INSCopying, INSSecureCoding
 	{
 		// @property (readwrite, copy, nonatomic) NSArray<GCKMultizoneDevice *> * _Nonnull devices;
 		[Export ("devices", ArgumentSemantic.Copy)]
@@ -2275,6 +2316,8 @@ namespace Google.Cast
 	}
 
 	// @interface GCKPlayerInfo : NSObject
+	[Obsolete ("The Game Manager API is no longer supported and will be removed in a future release.")]
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKPlayerInfo")]
 	interface PlayerInfo
 	{
@@ -2534,11 +2577,11 @@ namespace Google.Cast
 
 		// @optional -(void)remoteMediaClient:(GCKRemoteMediaClient * _Nonnull)client didUpdateMediaStatus:(GCKMediaStatus * _Nonnull)mediaStatus;
 		[Export ("remoteMediaClient:didUpdateMediaStatus:")]
-		void DidUpdateMediaStatus (RemoteMediaClient client, MediaStatus mediaStatus);
+		void DidUpdateMediaStatus (RemoteMediaClient client, [NullAllowed] MediaStatus mediaStatus);
 
 		// @optional -(void)remoteMediaClient:(GCKRemoteMediaClient * _Nonnull)client didUpdateMediaMetadata:(GCKMediaMetadata * _Nonnull)mediaMetadata;
 		[Export ("remoteMediaClient:didUpdateMediaMetadata:")]
-		void DidUpdateMediaMetadata (RemoteMediaClient client, MediaMetadata mediaMetadata);
+		void DidUpdateMediaMetadata (RemoteMediaClient client, [NullAllowed] MediaMetadata mediaMetadata);
 
 		// @optional -(void)remoteMediaClientDidUpdateQueue:(GCKRemoteMediaClient * _Nonnull)client;
 		[Export ("remoteMediaClientDidUpdateQueue:")]
@@ -2620,9 +2663,30 @@ namespace Google.Cast
 		[Export ("inProgress")]
 		bool InProgress { get; }
 
+		// @property(nonatomic, assign, readonly) BOOL external;
+		[Export ("external")]
+		bool External { get; }
+
 		// -(void)cancel;
 		[Export ("cancel")]
 		void Cancel ();
+
+		// +(GCKRequest *) applicationRequest
+		[Static]
+		[Export ("applicationRequest")]
+		Request GetApplicationRequest ();
+
+		// - (void)complete;
+		[Export ("complete")]
+		void Complete ();
+
+		// - (void)failWithError:(GCKError *)error;
+		[Export ("failWithError:")]
+		void Fail (Error error);
+
+		// - (void)abortWithReason:(GCKRequestAbortReason)reason;
+		[Export ("abortWithReason:")]
+		void Abort (RequestAbortReason reason);
 	}
 
 	interface IRequestDelegate
@@ -2702,14 +2766,13 @@ namespace Google.Cast
 		SessionTraits Traits { get; }
 
 		// @property (readonly, assign, nonatomic) float currentDeviceVolume;
-		// -(void)setDeviceVolume:(float)volume;
 		[Export ("currentDeviceVolume")]
-		float DeviceVolume { get; [Bind ("setDeviceVolume:")] set; }
+		float CurrentDeviceVolume { get; }
 
 		// @property (readonly, assign, nonatomic) BOOL currentDeviceMuted;
 		// -(void)setDeviceMuted:(BOOL)muted;
 		[Export ("currentDeviceMuted")]
-		bool DeviceMuted { get; [Bind ("setDeviceMuted:")] set; }
+		bool CurrentDeviceMuted { get; }
 
 		// @property (readonly, nonatomic, strong) GCKRemoteMediaClient * _Nullable remoteMediaClient;
 		[NullAllowed]
@@ -2724,6 +2787,14 @@ namespace Google.Cast
 		// -(instancetype _Nonnull)initWithDevice:(GCKDevice * _Nonnull)device traits:(GCKSessionTraits * _Nonnull)traits sessionID:(NSString * _Nullable)sessionID;
 		[Export ("initWithDevice:traits:sessionID:")]
 		IntPtr Constructor (Device device, SessionTraits traits, [NullAllowed] string sessionId);
+
+		// - (GCKRequest*) setDeviceVolume:(float) volume;
+		[Export ("setDeviceVolume:")]
+		Request SetDeviceVolume (float volume);
+
+		// - (GCKRequest *)setDeviceMuted:(BOOL)muted;
+		[Export ("setDeviceMuted:")]
+		Request SetDeviceMuted (bool muted);
 	}
 
 	// @interface Protected (GCKSession)
@@ -2777,9 +2848,14 @@ namespace Google.Cast
 	}
 
 	// @interface GCKSessionManager : NSObject
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKSessionManager")]
 	interface SessionManager
 	{
+		// GCK_EXTERN NSString *const kGCKKeyConnectionState;
+		[Field ("kGCKKeyConnectionState", "__Internal")]
+		NSString KeyConnectionState { get; }
+
 		// @property (readonly, nonatomic, strong) GCKSession * _Nullable currentSession;
 		[NullAllowed]
 		[Export ("currentSession", ArgumentSemantic.Strong)]
@@ -2979,6 +3055,10 @@ namespace Google.Cast
 		// -(void)setInactiveIcon:(UIImage * _Nonnull)inactiveIcon activeIcon:(UIImage * _Nonnull)activeIcon animationIcons:(NSArray<UIImage *> * _Nonnull)animationIcons;
 		[Export ("setInactiveIcon:activeIcon:animationIcons:")]
 		void SetInactiveIcon (UIImage inactiveIcon, UIImage activeIcon, UIImage [] animationIcons);
+
+		// - (void)setAccessibilityLabel:(NSString *)label forCastState:(GCKCastState) state;
+		[Export ("setAccessibilityLabel:forCastState:")]
+		void SetAccessibilityLabel (string label, CastState state);
 	}
 
 	// @interface GCKUICastContainerViewController : UIViewController
@@ -3252,6 +3332,11 @@ namespace Google.Cast
 		[Export ("playPauseToggleButton", ArgumentSemantic.Weak)]
 		GCKUIButton PlayPauseToggleButton { get; set; }
 
+		// @property (readwrite, nonatomic, strong) GCKUIPlayPauseToggleController* playPauseToggleController;
+		[NullAllowed]
+		[Export ("playPauseToggleController")]
+		UIPlayPauseToggleController PlayPauseToggleController { get; set; }
+
 		// @property (readwrite, nonatomic, weak) UIButton * _Nullable stopButton;
 		[NullAllowed]
 		[Export ("stopButton", ArgumentSemantic.Weak)]
@@ -3311,6 +3396,11 @@ namespace Google.Cast
 		[NullAllowed]
 		[Export ("streamTimeRemainingLabel", ArgumentSemantic.Weak)]
 		UILabel StreamTimeRemainingLabel { get; set; }
+
+		// @property(nonatomic, strong, readwrite, GCK_NULLABLE) GCKUIStreamPositionController* streamPositionController;
+		[NullAllowed]
+		[Export ("streamPositionController")]
+		UIStreamPositionController StreamPositionController { get; set; }
 
 		// @property (assign, readwrite, nonatomic) BOOL displayTimeRemainingAsNegativeValue;
 		[Export ("displayTimeRemainingAsNegativeValue")]
@@ -3419,6 +3509,44 @@ namespace Google.Cast
 		[NullAllowed]
 		[Export ("selectedTrackIDs", ArgumentSemantic.Copy)]
 		NSArray _SelectedTrackIds { get; set; }
+	}
+
+	[DisableDefaultCtor]
+	[BaseType (typeof(NSObject), Name = "GCKUIPlayPauseToggleController")]
+	interface UIPlayPauseToggleController
+	{
+		[DesignatedInitializer]
+		[Export ("init")]
+		IntPtr Constructor ();
+
+		// @property(nonatomic, assign, readwrite) GCKUIPlayPauseState playPauseState;
+		[Export ("playPauseState")]
+		UIPlayPauseState PlayPauseState { get; set; }
+
+		// @property(nonatomic, assign, readwrite) BOOL inputEnabled;
+		[Export ("inputEnabled")]
+		bool InputEnabled { get; set; }
+	}
+
+	[DisableDefaultCtor]
+	[BaseType(typeof(NSObject), Name = "GCKUIStreamPositionController")]
+	interface UIStreamPositionController
+	{
+		[DesignatedInitializer]
+		[Export ("init")]
+		IntPtr Constructor ();
+
+		// @property (nonatomic, assign, readwrite) NSTimeInterval streamPosition;
+		[Export ("streamPosition")]
+		double StreamPosition { get; set; }
+
+		// @property (nonatomic, assign, readwrite) NSTimeInterval streamDuration;
+		[Export ("streamDuration")]
+		double StreamDuration { get; set; }
+
+		// @property (nonatomic, assign, readwrite) BOOL inputEnabled;
+		[Export ("inputEnabled")]
+		bool InputEnabled { get; set; }
 	}
 
 	interface IUIMediaTrackSelectionViewControllerDelegate
@@ -3557,6 +3685,22 @@ namespace Google.Cast
 		[Export ("stopImage", ArgumentSemantic.Strong)]
 		UIImage StopImage { get; set; }
 
+		// @property(nonatomic, strong, readwrite) UIFont *buttonTextFont;
+		[Export ("buttonTextFont", ArgumentSemantic.Strong)]
+		UIFont ButtonTextFont { get; set; }
+
+		// @property(nonatomic, strong, readwrite) UIColor *buttonTextColor;
+		[Export ("buttonTextColor", ArgumentSemantic.Strong)]
+		UIColor ButtonTextColor { get; set; }
+
+		// @property(nonatomic, strong, readwrite) UIColor *buttonTextShadowColor;
+		[Export ("buttonTextShadowColor", ArgumentSemantic.Strong)]
+		UIColor ButtonTextShadowColor { get; set; }
+
+		// @property(nonatomic, assign, readwrite) CGSize buttonTextShadowOffset;
+		[Export ("buttonTextShadowOffset", ArgumentSemantic.Assign)]
+		CGSize ButtonTextShadowOffset { get; set; }
+
 		// @property (readwrite, nonatomic, strong) UIFont * _Nonnull bodyTextFont;
 		[Export ("bodyTextFont", ArgumentSemantic.Strong)]
 		UIFont BodyTextFont { get; set; }
@@ -3612,6 +3756,99 @@ namespace Google.Cast
 		// @property (assign, readwrite, nonatomic) CGSize headingTextShadowOffset;
 		[Export ("headingTextShadowOffset", ArgumentSemantic.Assign)]
 		CGSize HeadingTextShadowOffset { get; set; }
+	}
+
+	// @interface GCKUIStyleAttributesInstructions : GCKUIStyleAttributes
+	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesInstructions")]
+	interface UIStyleAttributesInstructions
+	{
+	}
+
+	// @interface GCKUIStyleAttributesGuestModePairingDialog : GCKUIStyleAttributes
+	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesGuestModePairingDialog")]
+	interface UIStyleAttributesGuestModePairingDialog
+	{
+	}
+
+	// @interface GCKUIStyleAttributesTrackSelector : GCKUIStyleAttributes
+	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesTrackSelector")]
+	interface UIStyleAttributesTrackSelector
+	{
+	}
+
+	// @interface GCKUIStyleAttributesMiniController : GCKUIStyleAttributes
+	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesMiniController")]
+	interface UIStyleAttributesMiniController
+	{
+	}
+
+	// @interface GCKUIStyleAttributesExpandedController : GCKUIStyleAttributes
+	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesExpandedController")]
+	interface UIStyleAttributesExpandedController
+	{
+	}
+
+	// @interface GCKUIStyleAttributesDeviceChooser : GCKUIStyleAttributes
+	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesDeviceChooser")]
+	interface UIStyleAttributesDeviceChooser
+	{
+	}
+
+	// @interface GCKUIStyleAttributesConnectionController : GCKUIStyleAttributes
+	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesConnectionController")]
+	interface UIStyleAttributesConnectionController
+	{
+	}
+
+	// @interface GCKUIStyleAttributesMediaControl : GCKUIStyleAttributes
+	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesMediaControl")]
+	interface UIStyleAttributesMediaControl
+	{
+		//@property (readonly, nonatomic, strong) GCKUIStyleAttributesExpandedController* expandedController;
+		[Export ("expandedController", ArgumentSemantic.Strong)]
+		UIStyleAttributesExpandedController ExpandedController { get; }
+
+		//@property (readonly, nonatomic, strong) GCKUIStyleAttributesMiniController* miniController;
+		[Export ("miniController", ArgumentSemantic.Strong)]
+		UIStyleAttributesMiniController MiniController { get; }
+
+		//@property (readonly, nonatomic, strong) GCKUIStyleAttributesTrackSelector* trackSelector;
+		[Export ("trackSelector", ArgumentSemantic.Strong)]
+		UIStyleAttributesTrackSelector TrackSelector { get; }
+	}
+
+	// @interface GCKUIStyleAttributesDeviceControl : GCKUIStyleAttributes
+	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesDeviceControl")]
+	interface UIStyleAttributesDeviceControl
+	{
+		// @property (readonly, nonatomic, strong) GCKUIStyleAttributesDeviceChooser* deviceChooser;
+		[Export ("deviceChooser", ArgumentSemantic.Strong)]
+		UIStyleAttributesDeviceChooser DeviceChooser { get; }
+
+		// @property (readonly, nonatomic, strong) GCKUIStyleAttributesConnectionController* connectionController;
+		[Export ("connectionController", ArgumentSemantic.Strong)]
+		UIStyleAttributesConnectionController ConnectionController { get; }
+
+		// @property (readonly, nonatomic, strong) GCKUIStyleAttributesGuestModePairingDialog* guestModePairingDialog;
+		[Export ("guestModePairingDialog", ArgumentSemantic.Strong)]
+		UIStyleAttributesGuestModePairingDialog GuestModePairingDialog { get; }
+	}
+
+	// @interface GCKUIStyleAttributesCastViews : GCKUIStyleAttributes
+	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesCastViews")]
+	interface UIStyleAttributesCastViews
+	{
+		// @property (readonly, nonatomic, strong) GCKUIStyleAttributesDeviceControl* deviceControl;
+		[Export ("deviceControl", ArgumentSemantic.Strong)]
+		UIStyleAttributesDeviceControl DeviceControl { get; }
+
+		// @property(readonly, nonatomic, strong) GCKUIStyleAttributesMediaControl *mediaControl;
+		[Export ("mediaControl", ArgumentSemantic.Strong)]
+		UIStyleAttributesMediaControl MediaControl { get; }
+
+		// @property(readonly, nonatomic, strong) GCKUIStyleAttributesInstructions *instructions;
+		[Export ("instructions", ArgumentSemantic.Strong)]
+		UIStyleAttributesInstructions Instructions { get; }
 	}
 
 	// @interface GCKUIUtils : NSObject

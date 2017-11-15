@@ -95,17 +95,29 @@ namespace Google.Cast
 		ProtocolVersionMismatch = 15,
 		MaxUsersConnected = 16,
 		NetworkNotReachable = 17,
+		ProtocolError = 18,
 		ApplicationNotFound = 20,
 		ApplicationNotRunning = 21,
 		InvalidApplicationSessionId = 22,
 		MediaLoadFailed = 30,
 		InvalidMediaPlayerState = 31,
 		NoMediaSession = 32,
+		AuthenticationErrorReceived = 40,
+		MalformedClientCertificate = 41,
+		NotX509Certificate = 42,
+		DeviceCertificateNotTrusted = 43,
+		SslCertificateNotTrusted = 44,
+		MalformedAuthenticationResponse = 45,
+		DeviceCapabilityNotSupported = 46,
+		CrlInvalid = 47,
+		CrlCheckFailed = 48,
 		AppDidEnterBackground = 91,
 		Disconnected = 92,
+		UnsupportedFeature = 93,
 		Unknown = 99,
 	}
 
+	[Obsolete ("The Game Manager API is no longer supported and will be removed in a future release.")]
 	[Native]
 	public enum GameplayState : long
 	{
@@ -285,6 +297,7 @@ namespace Google.Cast
 		Metadata = 6,
 	}
 
+	[Obsolete ("The Game Manager API is no longer supported and will be removed in a future release.")]
 	[Native]
 	public enum PlayerState : long
 	{
@@ -334,6 +347,14 @@ namespace Google.Cast
 		ClosedCaptions,
 		Stop,
 		Custom
+	}
+
+	[Native]
+	public enum UIPlayPauseState : long 
+	{
+		None = 0,
+		Play = 1,
+		Pause = 2
 	}
 
 	[Native]
