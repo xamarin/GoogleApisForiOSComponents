@@ -25,7 +25,7 @@ using Google.Analytics;
 //...
 
 // Shared GA tracker
-public IGAITracker Tracker;
+public ITracker Tracker;
 
 // Learn how to get your own Tracking Id from:
 // https://support.google.com/analytics/answer/2614741?hl=en
