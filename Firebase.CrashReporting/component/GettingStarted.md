@@ -142,6 +142,8 @@ var crash = new NSObject ();
 crash.PerformSelector (new Selector ("doesNotRecognizeSelector"), crash, 0);
 ```
 
+> _**Note:**_ _The string given to this method must be an escaped string due it will be passed to a C function and it expects an escaped string. For example, if you want to print a %, you must type %%. Passing an unescaped string may cause the termination of your app._
+
 ### Known issues
 
 * App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][3])
