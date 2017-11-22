@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+
 using Foundation;
 
 namespace Firebase.CrashReporting
@@ -18,6 +19,11 @@ namespace Firebase.CrashReporting
 			var pMessage = NSString.CreateNative (message);
 			_FIRCrashLogv (pMessage, IntPtr.Zero);
 			NSString.ReleaseNative (pMessage);
+		}
+
+		public static void Configure ()
+		{
+			Loader.ForceLoad ();
 		}
 	}
 }
