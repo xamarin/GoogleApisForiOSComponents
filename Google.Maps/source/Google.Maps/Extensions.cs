@@ -77,138 +77,82 @@ namespace Google.Maps
 		// FOUNDATION_EXPORT GMSMapPoint GMSProject(CLLocationCoordinate2D coordinate);
 		[DllImport ("__Internal", EntryPoint = "GMSProject")]
 		extern internal static MapPoint _Project (CLLocationCoordinate2D coordinate);
-
-		public static MapPoint Project (CLLocationCoordinate2D coordinate)
-		{
-			return _Project (coordinate);
-		}
+		public static MapPoint Project (CLLocationCoordinate2D coordinate) => _Project (coordinate);
 
 		// FOUNDATION_EXPORT CLLocationCoordinate2D GMSUnproject(GMSMapPoint point);
 		[DllImport ("__Internal", EntryPoint = "GMSUnproject")]
 		extern internal static CLLocationCoordinate2D _Unproject (MapPoint point);
-
-		public static CLLocationCoordinate2D Unproject (MapPoint point)
-		{
-			return _Unproject (point);
-		}
+		public static CLLocationCoordinate2D Unproject (MapPoint point) => _Unproject (point);
 
 		// FOUNDATION_EXPORT GMSMapPoint GMSMapPointInterpolate(GMSMapPoint a, GMSMapPoint b, double t);
 		[DllImport ("__Internal", EntryPoint = "GMSMapPointInterpolate")]
 		extern internal static CLLocationCoordinate2D _MapPointInterpolate (MapPoint a, MapPoint b, double t);
-
-		public static CLLocationCoordinate2D MapPointInterpolate (MapPoint a, MapPoint b, double t)
-		{
-			return _MapPointInterpolate (a, b, t);
-		}
+		public static CLLocationCoordinate2D MapPointInterpolate (MapPoint a, MapPoint b, double t) => _MapPointInterpolate (a, b, t);
 
 		// FOUNDATION_EXPORT double GMSMapPointDistance(GMSMapPoint a, GMSMapPoint b);
 		[DllImport ("__Internal", EntryPoint = "GMSMapPointDistance")]
 		extern internal static double _MapPointDistance (MapPoint a, MapPoint b);
-
-		public static double MapPointDistance (MapPoint a, MapPoint b)
-		{
-			return _MapPointDistance (a, b);
-		}
+		public static double MapPointDistance (MapPoint a, MapPoint b) => _MapPointDistance (a, b);
 
 		// FOUNDATION_EXPORT BOOL GMSGeometryContainsLocation(CLLocationCoordinate2D point, GMSPath *path, BOOL geodesic);
 		[DllImport ("__Internal", EntryPoint = "GMSGeometryContainsLocation")]
-		extern internal static bool _ContainsLocation (CLLocationCoordinate2D point, Path path, bool geodesic);
-
-		public static bool ContainsLocation (CLLocationCoordinate2D point, Path path, bool geodesic)
-		{
-			return _ContainsLocation (point, path, geodesic);
-		}
+		extern internal static bool _ContainsLocation (CLLocationCoordinate2D point, IntPtr path, bool geodesic);
+		public static bool ContainsLocation (CLLocationCoordinate2D point, Path path, bool geodesic) => _ContainsLocation (point, path.Handle, geodesic);
 
 		// FOUNDATION_EXPORT BOOL GMSGeometryIsLocationOnPathTolerance(CLLocationCoordinate2D point, GMSPath *path, BOOL geodesic, CLLocationDistance tolerance);
 		[DllImport ("__Internal", EntryPoint = "GMSGeometryIsLocationOnPathTolerance")]
-		extern internal static bool _IsLocationOnPath (CLLocationCoordinate2D point, Path path, bool geodesic, double tolerance);
-
-		public static bool IsLocationOnPath (CLLocationCoordinate2D point, Path path, bool geodesic, double tolerance)
-		{
-			return _IsLocationOnPath (point, path, geodesic, tolerance);
-		}
+		extern internal static bool _IsLocationOnPath (CLLocationCoordinate2D point, IntPtr path, bool geodesic, double tolerance);
+		public static bool IsLocationOnPath (CLLocationCoordinate2D point, Path path, bool geodesic, double tolerance) => _IsLocationOnPath (point, path.Handle, geodesic, tolerance);
 
 		// FOUNDATION_EXPORT BOOL GMSGeometryIsLocationOnPath(CLLocationCoordinate2D point, GMSPath *path, BOOL geodesic);
 		[DllImport ("__Internal", EntryPoint = "GMSGeometryIsLocationOnPath")]
-		extern internal static bool _IsLocationOnPath (CLLocationCoordinate2D point, Path path, bool geodesic);
-
-		public static bool IsLocationOnPath (CLLocationCoordinate2D point, Path path, bool geodesic)
-		{
-			return _IsLocationOnPath (point, path, geodesic);
-		}
+		extern internal static bool _IsLocationOnPath (CLLocationCoordinate2D point, IntPtr path, bool geodesic);
+		public static bool IsLocationOnPath (CLLocationCoordinate2D point, Path path, bool geodesic) => _IsLocationOnPath (point, path.Handle, geodesic);
 
 		// FOUNDATION_EXPORT CLLocationDistance GMSGeometryDistance(CLLocationCoordinate2D from, CLLocationCoordinate2D to);
 		[DllImport ("__Internal", EntryPoint = "GMSGeometryDistance")]
 		extern internal static double _Distance (CLLocationCoordinate2D fromCoord, CLLocationCoordinate2D toCoord);
-
-		public static double Distance (CLLocationCoordinate2D fromCoord, CLLocationCoordinate2D toCoord)
-		{
-			return _Distance (fromCoord, toCoord);
-		}
+		public static double Distance (CLLocationCoordinate2D fromCoord, CLLocationCoordinate2D toCoord) => _Distance (fromCoord, toCoord);
 
 		// FOUNDATION_EXPORT CLLocationDistance GMSGeometryLength(GMSPath *path);
 		[DllImport ("__Internal", EntryPoint = "GMSGeometryLength")]
-		extern internal static double _Length (Path path);
-
-		public static double Length (Google.Maps.Path path)
-		{
-			return _Length (path);
-		}
+		extern internal static double _Length (IntPtr path);
+		public static double Length (Path path) => _Length (path.Handle);
 
 		// FOUNDATION_EXPORT double GMSGeometryArea(GMSPath *path);
 		[DllImport ("__Internal", EntryPoint = "GMSGeometryArea")]
-		extern internal static double _Area (Path path);
-
-		public static double Area (Path path)
-		{
-			return _Area (path);
-		}
+		extern internal static double _Area (IntPtr path);
+		public static double Area (Path path) => _Area (path.Handle);
 
 		// FOUNDATION_EXPORT double GMSGeometrySignedArea(GMSPath *path);
 		[DllImport ("__Internal", EntryPoint = "GMSGeometrySignedArea")]
-		extern internal static double _SignedArea (Path path);
-
-		public static double SignedArea (Path path)
-		{
-			return _SignedArea (path);
-		}
+		extern internal static double _SignedArea (IntPtr path);
+		public static double SignedArea (Path path) => _SignedArea (path.Handle);
 
 		// FOUNDATION_EXPORT CLLocationDirection GMSGeometryHeading(CLLocationCoordinate2D from, CLLocationCoordinate2D to);
 		[DllImport ("__Internal", EntryPoint = "GMSGeometryHeading")]
 		extern internal static double _Heading (CLLocationCoordinate2D fromCoord, CLLocationCoordinate2D toCoord);
-
-		public static double Heading (CLLocationCoordinate2D fromCoord, CLLocationCoordinate2D toCoord)
-		{
-			return _Heading (fromCoord, toCoord);
-		}
+		public static double Heading (CLLocationCoordinate2D fromCoord, CLLocationCoordinate2D toCoord) => _Heading (fromCoord, toCoord);
 
 		// FOUNDATION_EXPORT CLLocationCoordinate2D GMSGeometryOffset(CLLocationCoordinate2D from, CLLocationDistance distance, CLLocationDirection heading);
 		[DllImport ("__Internal", EntryPoint = "GMSGeometryOffset")]
 		extern internal static CLLocationCoordinate2D _Offset (CLLocationCoordinate2D fromCoord, double distance, double heading);
-
-		public static CLLocationCoordinate2D Offset (CLLocationCoordinate2D fromCoord, double distance, double heading)
-		{
-			return _Offset (fromCoord, distance, heading);
-		}
+		public static CLLocationCoordinate2D Offset (CLLocationCoordinate2D fromCoord, double distance, double heading) => _Offset (fromCoord, distance, heading);
 
 		// FOUNDATION_EXPORT CLLocationCoordinate2D GMSGeometryInterpolate(CLLocationCoordinate2D from, CLLocationCoordinate2D to, double fraction);
 		[DllImport ("__Internal", EntryPoint = "GMSGeometryInterpolate")]
 		extern internal static CLLocationCoordinate2D _Interpolate (CLLocationCoordinate2D fromCoord, CLLocationCoordinate2D toCoord, double fraction);
-
-		public static CLLocationCoordinate2D Interpolate (CLLocationCoordinate2D fromCoord, CLLocationCoordinate2D toCoord, double fraction)
-		{
-			return _Interpolate (fromCoord, toCoord, fraction);
-		}
+		public static CLLocationCoordinate2D Interpolate (CLLocationCoordinate2D fromCoord, CLLocationCoordinate2D toCoord, double fraction) => _Interpolate (fromCoord, toCoord, fraction);
 
 		// FOUNDATION_EXPORT GMS_NSArrayOf(GMSStyleSpan *) *GMSStyleSpans(GMSPath *path, GMS_NSArrayOf(GMSStrokeStyle *) *styles, GMS_NSArrayOf(NSNumber *) *lengths, GMSLengthKind lengthKind);
 		[DllImport ("__Internal", EntryPoint = "GMSStyleSpans")]
-		extern internal static IntPtr _StyleSpans (Path path, IntPtr styles, IntPtr lengths, LengthKind lengthKind);
+		extern internal static IntPtr _StyleSpans (IntPtr path, IntPtr styles, IntPtr lengths, LengthKind lengthKind);
 
 		public static StyleSpan [] StyleSpans (Path path, StrokeStyle [] styles, NSNumber [] lengths, LengthKind lengthKind)
 		{
 			var stylesArray = NSArray.FromNSObjects (styles);
 			var lengthsArray = NSArray.FromNSObjects (lengths);
-			var result = _StyleSpans (path, stylesArray.Handle, lengthsArray.Handle, lengthKind);
+			var result = _StyleSpans (path.Handle, stylesArray.Handle, lengthsArray.Handle, lengthKind);
 			var nsObjects = NSArray.ArrayFromHandle<NSObject> (result);
 			var resultArray = new StyleSpan [nsObjects.Length];
 
@@ -220,13 +164,13 @@ namespace Google.Maps
 
 		// FOUNDATION_EXPORT GMS_NSArrayOf(GMSStyleSpan *) *GMSStyleSpansOffset(GMSPath *path, GMS_NSArrayOf(GMSStrokeStyle *) *styles, GMS_NSArrayOf(NSNumber *) *lengths, GMSLengthKind lengthKind, double lengthOffset);
 		[DllImport ("__Internal", EntryPoint = "GMSStyleSpansOffset")]
-		extern internal static IntPtr _StyleSpans (Path path, IntPtr styles, IntPtr lengths, LengthKind lengthKind, double lengthOffset);
+		extern internal static IntPtr _StyleSpans (IntPtr path, IntPtr styles, IntPtr lengths, LengthKind lengthKind, double lengthOffset);
 
 		public static StyleSpan [] StyleSpans (Path path, StrokeStyle [] styles, NSNumber [] lengths, LengthKind lengthKind, double lengthOffset)
 		{
 			var stylesArray = NSArray.FromNSObjects (styles);
 			var lengthsArray = NSArray.FromNSObjects (lengths);
-			var result = _StyleSpans (path, stylesArray.Handle, lengthsArray.Handle, lengthKind, lengthOffset);
+			var result = _StyleSpans (path.Handle, stylesArray.Handle, lengthsArray.Handle, lengthKind, lengthOffset);
 			var nsObjects = NSArray.ArrayFromHandle<NSObject> (result);
 			var resultArray = new StyleSpan [nsObjects.Length];
 
