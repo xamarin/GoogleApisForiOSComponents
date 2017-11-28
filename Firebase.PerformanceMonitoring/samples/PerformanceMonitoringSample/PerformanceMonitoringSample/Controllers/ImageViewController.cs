@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Firebase.PerformanceMonitoring;
+using Foundation;
 
 namespace PerformanceMonitoringSample
 {
@@ -17,6 +18,8 @@ namespace PerformanceMonitoringSample
 		CancellationToken cancellationToken;
 		Trace trace;
 		bool isDownloadFinished;
+
+		NSUrlSessionDataTask task;
 
 		#endregion
 
@@ -54,13 +57,15 @@ namespace PerformanceMonitoringSample
 		{
 			base.ViewDidAppear (animated);
 
-			DownloadImage ();
+			//DownloadImage ();
+			DownloadImageUsingNSUrlSession ();
 		}
 
 		public override void ViewWillDisappear (bool animated)
 		{
 			if (!isDownloadFinished) {
-				cancellationTokenSource.Cancel ();
+				task?.Cancel ();
+				//cancellationTokenSource.Cancel ();
 				trace.IncrementCounter ("cancelled");
 			}
 
@@ -74,8 +79,10 @@ namespace PerformanceMonitoringSample
 
 		void BtnRetry_Clicked (object sender, EventArgs e)
 		{
+			isDownloadFinished = false;
 			trace.IncrementCounter ("retry");
-			DownloadImage ();
+			//DownloadImage ();
+			DownloadImageUsingNSUrlSession ();
 		}
 
 		#endregion
@@ -114,6 +121,43 @@ namespace PerformanceMonitoringSample
 					BtnRetry.Enabled = true;
 				});
 			});
+		}
+
+		void DownloadImageUsingNSUrlSession ()
+		{
+			BtnRetry.Enabled = false;
+			ActIndicator.StartAnimating ();
+
+			var request = new NSMutableUrlRequest (new NSUrl (ImageUrl)) { HttpMethod = "GET" };
+			task = NSUrlSession.SharedSession.CreateDataTask (request, HandleNSUrlSessionResponse);
+			task.Resume ();
+
+			void HandleNSUrlSessionResponse (NSData data, NSUrlResponse response, NSError error)
+			{
+				if (error?.Code == (int)NSUrlError.Cancelled)
+					return;
+
+				lock (padlock)
+					isDownloadFinished = true;
+
+				if (error != null) {
+					trace.IncrementCounter ("failed");
+					InvokeOnMainThread (() => {
+						ImgPicture.Image = UIImage.FromFile ("error.png");
+						AppDelegate.ShowMessage ("Image couldn't be downloaded...", error.LocalizedDescription, NavigationController);
+					});
+					return;
+				}
+
+				trace.IncrementCounter ("completed");
+				var image = UIImage.LoadFromData (data);
+
+				InvokeOnMainThread (() => {
+					ImgPicture.Image = image;
+					ActIndicator.StopAnimating ();
+					BtnRetry.Enabled = true;
+				});
+			}
 		}
 
 		#endregion
