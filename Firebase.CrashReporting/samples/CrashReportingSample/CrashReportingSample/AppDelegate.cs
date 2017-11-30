@@ -1,6 +1,8 @@
 ﻿using Foundation;
 using UIKit;
+
 using Firebase.Core;
+using Firebase.CrashReporting;
 
 namespace CrashReportingSample
 {
@@ -20,6 +22,7 @@ namespace CrashReportingSample
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
+			CrashReporting.Configure ();
 			App.Configure ();
 
 			return true;

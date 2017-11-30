@@ -50,9 +50,10 @@ Once you have your `GoogleService-Info.plist` file downloaded in your computer, 
 
 1. Add `GoogleService-Info.plist` file to your app project.
 2. Set `GoogleService-Info.plist` **build action** behaviour to `Bundle Resource` by Right clicking/Build Action.
-3. Add the following line of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Core` namespace):
+3. Add the following line of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Core` and `Firebase.CrashReporting` namespaces):
 
 ```csharp
+CrashReporting.Configure ();
 App.Configure ();
 ```
 
@@ -140,6 +141,8 @@ CrashReporting.Log ("Cause Crash button clicked");
 var crash = new NSObject ();
 crash.PerformSelector (new Selector ("doesNotRecognizeSelector"), crash, 0);
 ```
+
+> _**Note:**_ _The string given to this method must be an escaped string due it will be passed to a C function and it expects an escaped string. For example, if you want to print a %, you must type %%. Passing an unescaped string may cause the termination of your app._
 
 ### Known issues
 
