@@ -3,25 +3,10 @@ using Google.Maps;
 using System.Threading;
 using System.Security.Cryptography;
 
-#if __UNIFIED__
 using UIKit;
 using CoreGraphics;
 using Foundation;
 using CoreLocation;
-#else
-using MonoTouch.UIKit;
-using MonoTouch.Foundation;
-using MonoTouch.CoreLocation;
-using System.Drawing;
-
-using CGRect = global::System.Drawing.RectangleF;
-using CGSize = global::System.Drawing.SizeF;
-using CGPoint = global::System.Drawing.PointF;
-
-using nfloat = global::System.Single;
-using nint = global::System.Int32;
-using nuint = global::System.UInt32;
-#endif
 
 namespace GoogleMapsAdvSample
 {

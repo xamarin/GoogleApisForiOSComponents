@@ -1,24 +1,9 @@
 using System;
 
-#if __UNIFIED__
 using Foundation;
 using UIKit;
 using CoreLocation;
 using CoreGraphics;
-#else
-using MonoTouch.UIKit;
-using MonoTouch.Foundation;
-using MonoTouch.CoreLocation;
-using System.Drawing;
-
-using CGRect = global::System.Drawing.RectangleF;
-using CGSize = global::System.Drawing.SizeF;
-using CGPoint = global::System.Drawing.PointF;
-
-using nfloat = global::System.Single;
-using nint = global::System.Int32;
-using nuint = global::System.UInt32;
-#endif
 
 using Google.Maps;
 
@@ -51,12 +36,7 @@ namespace GoogleMapsAdvSample
 		public override void ViewDidAppear (bool animated)
 		{
 			base.ViewDidAppear (animated);
-
-			#if __UNIFIED__
 			timer = NSTimer.CreateScheduledTimer (1/30, this, new ObjCRuntime.Selector ("MoveCamera"), null, true);
-			#else
-			timer = NSTimer.CreateScheduledTimer (1/30, this, new MonoTouch.ObjCRuntime.Selector ("MoveCamera"), null, true);
-			#endif
 		}
 
 		public override void ViewDidDisappear (bool animated)

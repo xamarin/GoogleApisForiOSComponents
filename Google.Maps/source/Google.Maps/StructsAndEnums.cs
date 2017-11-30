@@ -6,7 +6,8 @@ using ObjCRuntime;
 
 namespace Google.Maps
 {
-	public enum MapViewType
+	[Native]
+	public enum MapViewType : ulong
 	{
 		/** Basic maps.  The default. */
 		Normal = 1,
@@ -24,7 +25,8 @@ namespace Google.Maps
 		None
 	}
 
-	public enum FrameRate
+	[Native]
+	public enum FrameRate : ulong
 	{
 		PowerSave,
 		Conservative,
@@ -32,17 +34,7 @@ namespace Google.Maps
 	}
 
 	[Native]
-	public enum PlacesAutocompleteTypeFilter : long
-	{
-		NoFilter,
-		Geocode,
-		Address,
-		Establishment,
-		Region,
-		City
-	}
-
-	public enum MarkerAnimation
+	public enum MarkerAnimation : ulong
 	{
 		None = 0,
 		Pop
@@ -55,55 +47,12 @@ namespace Google.Maps
 		ErrorInternal
 	}
 
-	public enum LengthKind
+	[Native]
+	public enum LengthKind : ulong
 	{
 		Geodesic,
 		Rhumb,
 		Projected
-	}
-
-	[Native]
-	public enum PlacesOpenNowStatus : long
-	{
-		Yes,
-		No,
-		Unknown
-	}
-
-	[Native]
-	public enum PlacesPriceLevel : long
-	{
-		Unknown = -1,
-		Free = 0,
-		Cheap = 1,
-		Medium = 2,
-		High = 3,
-		Expensive = 4
-	}
-
-	[Native]
-	public enum PlacePickerErrorCode : long
-	{
-		UnknownError = -1,
-		InternalError = -2,
-		InvalidConfig = -3,
-		OverlappingCalls = -4
-	}
-
-	[Native]
-	public enum PlacesErrorCode : long
-	{
-		NetworkError = -1,
-		ServerError = -2,
-		InternalError = -3,
-		KeyInvalid = -4,
-		KeyExpired = -5,
-		UsageLimitExceeded = -6,
-		RateLimitExceeded = -7,
-		DeviceRateLimitExceeded = -8,
-		AccessNotConfigured = -9,
-		IncorrectBundleIdentifier = -10,
-		LocationError = -11
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
