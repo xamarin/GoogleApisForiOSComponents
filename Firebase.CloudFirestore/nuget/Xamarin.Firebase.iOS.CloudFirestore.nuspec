@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>Xamarin.Firebase.iOS.CloudFirestore</id>
+    <title>Firebase APIs Cloud Firestore iOS Library</title>
+    <version>0.8.0.0</version>
+    <authors>Xamarin Inc.</authors>
+    <owners>Xamarin Inc.</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>C# bindings for Firebase APIs Cloud Firestore iOS Library</description>
+    <copyright>Copyright 2017 Microsoft</copyright>
+    <projectUrl>https://components.xamarin.com/view/firebaseioscloudfirestore</projectUrl>
+    <licenseUrl>https://components.xamarin.com/license/firebaseioscloudfirestore</licenseUrl>
+    <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseioscloudfirestore_128x128.png</iconUrl>
+    <dependencies>
+      <group targetFramework="Xamarin.iOS10">
+        <dependency id="Xamarin.Build.Download" version="0.4.6" />
+        <dependency id="Xamarin.Firebase.iOS.Auth" version="4.2.1.1" />
+        <dependency id="Xamarin.Firebase.iOS.Analytics" version="4.0.4.1" />
+        <dependency id="Xamarin.Firebase.iOS.InstanceID" version="2.0.4.0" />
+        <dependency id="Xamarin.Firebase.iOS.Core" version="4.0.8.1" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="output/Firebase.CloudFirestore.dll" target="lib/Xamarin.iOS10" />
+
+    <!-- Add targets file for external native reference download -->
+    <file src="source/Firebase.RemoteConfig/Firebase.CloudFirestore.targets" target="build/Xamarin.Firebase.iOS.CloudFirestore.targets" />
+    <file src="External-Dependency-Info" target="THIRD-PARTY-NOTICES" />
+  </files>
+</package>
