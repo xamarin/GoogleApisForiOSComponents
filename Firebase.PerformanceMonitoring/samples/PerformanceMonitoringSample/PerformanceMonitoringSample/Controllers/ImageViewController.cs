@@ -20,6 +20,7 @@ namespace PerformanceMonitoringSample
 		bool isDownloadFinished;
 
 		NSUrlSessionDataTask task;
+		NSUrlSessionDataTaskRequest taskRequest;
 
 		#endregion
 
@@ -58,14 +59,15 @@ namespace PerformanceMonitoringSample
 			base.ViewDidAppear (animated);
 
 			//DownloadImage ();
-			DownloadImageUsingNSUrlSession ();
+			//DownloadImageUsingNSUrlSession ();
+			DownloadImageUsingNSUrlSessionAsync ();
 		}
 
 		public override void ViewWillDisappear (bool animated)
 		{
 			if (!isDownloadFinished) {
-				task?.Cancel ();
-				//cancellationTokenSource.Cancel ();
+				//task?.Cancel ();
+				cancellationTokenSource.Cancel ();
 				trace.IncrementCounter ("cancelled");
 			}
 
@@ -80,9 +82,14 @@ namespace PerformanceMonitoringSample
 		void BtnRetry_Clicked (object sender, EventArgs e)
 		{
 			isDownloadFinished = false;
+			cancellationTokenSource = new CancellationTokenSource ();
+			cancellationToken = cancellationTokenSource.Token;
+
 			trace.IncrementCounter ("retry");
+
 			//DownloadImage ();
-			DownloadImageUsingNSUrlSession ();
+			//DownloadImageUsingNSUrlSession ();
+			DownloadImageUsingNSUrlSessionAsync ();
 		}
 
 		#endregion
@@ -120,7 +127,7 @@ namespace PerformanceMonitoringSample
 					ActIndicator.StopAnimating ();
 					BtnRetry.Enabled = true;
 				});
-			});
+			}, cancellationToken);
 		}
 
 		void DownloadImageUsingNSUrlSession ()
@@ -158,6 +165,40 @@ namespace PerformanceMonitoringSample
 					BtnRetry.Enabled = true;
 				});
 			}
+		}
+
+		void DownloadImageUsingNSUrlSessionAsync ()
+		{
+			BtnRetry.Enabled = false;
+			ActIndicator.StartAnimating ();
+
+			Task.Factory.StartNew (async () => {
+				UIImage image = null;
+				try {
+					image = await DownloadManager.DownloadImageUsingNSUrlSession (ImageUrl, cancellationToken);
+				} catch (Exception ex) when (ex is TaskCanceledException || ex is NSErrorException) {
+					InvokeOnMainThread (() => AppDelegate.ShowMessage ("Image couldn't be downloaded...", ex.Message, NavigationController));
+				}
+
+				if (cancellationTokenSource.IsCancellationRequested)
+					return;
+
+				lock (padlock)
+					isDownloadFinished = true;
+
+				if (image == null) {
+					image = UIImage.FromFile ("error.png");
+					trace.IncrementCounter ("failed");
+				} else {
+					trace.IncrementCounter ("completed");
+				}
+
+				InvokeOnMainThread (() => {
+					ImgPicture.Image = image;
+					ActIndicator.StopAnimating ();
+					BtnRetry.Enabled = true;
+				});
+			}, cancellationToken);
 		}
 
 		#endregion

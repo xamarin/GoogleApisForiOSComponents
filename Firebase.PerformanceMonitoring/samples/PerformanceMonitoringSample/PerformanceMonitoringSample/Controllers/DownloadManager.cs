@@ -15,6 +15,8 @@ namespace PerformanceMonitoringSample
 
 		static HttpClient httpClient;
 
+		static NSUrlSessionDataTaskRequest taskRequest;
+
 		#endregion
 
 		#region Constructors
@@ -32,6 +34,29 @@ namespace PerformanceMonitoringSample
 
 			var bytes = await httpClient.GetByteArrayAsync (imageUrl);
 			var image = UIImage.LoadFromData (NSData.FromArray (bytes));
+
+			ct.ThrowIfCancellationRequested ();
+
+			return image;
+		}
+
+		public static async Task<UIImage> DownloadImageUsingNSUrlSession (string imageUrl, CancellationToken ct)
+		{
+			ct.ThrowIfCancellationRequested ();
+
+			var request = new NSMutableUrlRequest (new NSUrl (imageUrl)) { HttpMethod = "GET" };
+			taskRequest = await NSUrlSession.SharedSession.CreateDataTaskAsync (request);
+
+			ct.ThrowIfCancellationRequested ();
+
+			var urlResponse = taskRequest.Response as NSHttpUrlResponse;
+
+			if (urlResponse?.StatusCode != 200) {
+				ct.ThrowIfCancellationRequested ();
+				return null;
+			}
+
+			var image = UIImage.LoadFromData (taskRequest.Data);
 
 			ct.ThrowIfCancellationRequested ();
 
