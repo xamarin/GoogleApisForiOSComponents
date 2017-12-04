@@ -34,6 +34,14 @@ namespace Google.Maps
 	}
 
 	[Native]
+	public enum MapViewPaddingAdjustmentBehavior : ulong
+	{
+		Always,
+		Automatic,
+		Never
+	}
+
+	[Native]
 	public enum MarkerAnimation : ulong
 	{
 		None = 0,

@@ -1,4 +1,4 @@
-version: 2.4.0.0
+version: 2.5.0.0
 name: Google Places for iOS
 id: googleiosplaces
 publisher: Xamarin Inc.
@@ -15,7 +15,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Google.iOS.Places, Version=2.4.0.0
+  - Xamarin.Google.iOS.Places, Version=2.5.0.0
 samples:
 - name: Google Places Sample
   path: ../samples/GooglePlacesSample/GooglePlacesSample.sln
