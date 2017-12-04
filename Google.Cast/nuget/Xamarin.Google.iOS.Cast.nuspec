@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.Google.iOS.Cast</id>
     <title>Google APIs Cast iOS Library</title>
-    <version>3.5.6.0</version>
+    <version>4.0.1.0</version>
     <authors>Xamarin Inc.</authors>
     <owners>Xamarin Inc.</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
