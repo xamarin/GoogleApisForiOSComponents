@@ -595,6 +595,9 @@ namespace Google.Maps
 		[Export ("padding", ArgumentSemantic.Assign)]
 		UIEdgeInsets Padding { get; set; }
 
+		[Export("paddingAdjustmentBehavior", ArgumentSemantic.Assign)]
+		MapViewPaddingAdjustmentBehavior PaddingAdjustmentBehavior { get; set; }
+
 		[Export ("accessibilityElementsHidden", ArgumentSemantic.Assign)]
 		[New]
 		bool AccessibilityElementsHidden { get; set; }
