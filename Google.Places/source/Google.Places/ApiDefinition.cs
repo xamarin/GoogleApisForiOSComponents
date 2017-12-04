@@ -5,6 +5,7 @@ using Foundation;
 using ObjCRuntime;
 using CoreGraphics;
 using CoreLocation;
+using Google.Maps;
 
 namespace Google.Places
 {
@@ -59,6 +60,10 @@ namespace Google.Places
 		[NullAllowed]
 		[Export ("autocompleteBounds", ArgumentSemantic.Strong)]
 		Google.Maps.CoordinateBounds AutocompleteBounds { get; set; }
+
+		// @property (assign, nonatomic) GMSAutocompleteBoundsMode autocompleteBoundsMode;
+		[Export("autocompleteBoundsMode", ArgumentSemantic.Assign)]
+		AutocompleteBoundsMode AutocompleteBoundsMode { get; set; }
 
 		// @property(nonatomic, strong) GMSAutocompleteFilter *autocompleteFilter;
 		[NullAllowed]
@@ -188,6 +193,10 @@ namespace Google.Places
 		[Export ("autocompleteBounds", ArgumentSemantic.Strong)]
 		Google.Maps.CoordinateBounds AutocompleteBounds { get; set; }
 
+		// @property (assign, nonatomic) GMSAutocompleteBoundsMode autocompleteBoundsMode;
+		[Export("autocompleteBoundsMode", ArgumentSemantic.Assign)]
+		AutocompleteBoundsMode AutocompleteBoundsMode { get; set; }
+
 		// @property(nonatomic, strong) GMSAutocompleteFilter *autocompleteFilter;
 		[NullAllowed]
 		[Export ("autocompleteFilter", ArgumentSemantic.Strong)]
@@ -277,6 +286,10 @@ namespace Google.Places
 		[NullAllowed]
 		[Export ("autocompleteBounds", ArgumentSemantic.Strong)]
 		Google.Maps.CoordinateBounds AutocompleteBounds { get; set; }
+
+		// @property (assign, nonatomic) GMSAutocompleteBoundsMode autocompleteBoundsMode;
+		[Export("autocompleteBoundsMode", ArgumentSemantic.Assign)]
+		AutocompleteBoundsMode AutocompleteBoundsMode { get; set; }
 
 		// @property(nonatomic, strong) GMSAutocompleteFilter *autocompleteFilter;
 		[NullAllowed]
@@ -377,6 +390,10 @@ namespace Google.Places
 		[NullAllowed]
 		[Export ("autocompleteBounds", ArgumentSemantic.Strong)]
 		Google.Maps.CoordinateBounds AutocompleteBounds { get; set; }
+
+		// @property (assign, nonatomic) GMSAutocompleteBoundsMode autocompleteBoundsMode;
+		[Export("autocompleteBoundsMode", ArgumentSemantic.Assign)]
+		AutocompleteBoundsMode AutocompleteBoundsMode { get; set; }
 
 		// @property(nonatomic, strong) GMSAutocompleteFilter *autocompleteFilter;
 		[NullAllowed]
@@ -600,6 +617,10 @@ namespace Google.Places
 		// -(void)autocompleteQuery:(NSString *)query bounds:(GMSCoordinateBounds *)bounds filter:(GMSAutocompleteFilter *)filter callback:(GMSAutocompletePredictionsCallback)callback;
 		[Export ("autocompleteQuery:bounds:filter:callback:")]
 		void Autocomplete (string query, [NullAllowed] Google.Maps.CoordinateBounds bounds, [NullAllowed] AutocompleteFilter filter, AutocompletePredictionsHandler callback);
+
+		// -(void)autocompleteQuery:(NSString * _Nonnull)query bounds:(GMSCoordinateBounds * _Nullable)bounds boundsMode:(GMSAutocompleteBoundsMode)boundsMode filter:(GMSAutocompleteFilter * _Nullable)filter callback:(GMSAutocompletePredictionsCallback _Nonnull)callback;
+		[Export("autocompleteQuery:bounds:boundsMode:filter:callback:")]
+		void Autocomplete(string query, [NullAllowed] CoordinateBounds bounds, AutocompleteBoundsMode boundsMode, [NullAllowed] AutocompleteFilter filter, AutocompletePredictionsHandler callback);
 
 		// -(void)addPlace:(GMSUserAddedPlace *)place callback:(GMSPlaceResultCallback)callback;
 		[Obsolete ("The Add Place feature is deprecated as of June 30, 2017. This feature will be turned down on June 30, 2018, and will no longer be available after that date.")]
