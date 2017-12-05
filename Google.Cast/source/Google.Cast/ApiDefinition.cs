@@ -749,25 +749,6 @@ namespace Google.Cast
 		string EnumDescriptionForCode (ErrorCode code);
 	}
 
-	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "GCKFilterCriteria")]
-	interface FilterCriteria : INSCopying, INSCoding
-	{
-
-		[Static]
-		[Export ("criteriaForAvailableApplicationWithID:")]
-		FilterCriteria FromAvailableApplication ([NullAllowed] string applicationId);
-
-		[Obsolete ("Use FromRunningApplication (string []) method")]
-		[Static]
-		[Export ("criteriaForRunningApplicationWithID:supportedNamespaces:")]
-		FilterCriteria FromRunningApplication ([NullAllowed] string applicationId, [NullAllowed] string [] supportedNamespaces);
-
-		[Static]
-		[Export ("criteriaForRunningApplicationWithSupportedNamespaces:")]
-		FilterCriteria FromRunningApplication ([NullAllowed] string [] supportedNamespaces);
-	}
-
 	[BaseType (typeof (CastChannel),
 		Name = "GCKGenericChannel",
 		Delegates = new string [] { "Delegate" },
