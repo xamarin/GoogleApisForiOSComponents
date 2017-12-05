@@ -16,6 +16,9 @@ namespace Google.Cast
 		// extern NSString *const kGCKThreadException __attribute__((visibility("default")));
 		[Field ("kGCKThreadException", "__Internal")]
 		NSString ThreadException { get; }
+
+		[Field ("kGCKInvalidRequestID", "__Internal")]
+		nint InvalidRequestID { get; }
 	}
 
 	// @interface GCKAdBreakClipInfo : NSObject <NSCopying>
