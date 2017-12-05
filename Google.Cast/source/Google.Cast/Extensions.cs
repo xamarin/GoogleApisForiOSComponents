@@ -20,21 +20,6 @@ namespace Google.Cast
 		}
 	}
 
-	public partial class Common
-	{
-		[DllImport ("__Internal", EntryPoint = "GCKAssertMainThread")]
-		static extern void _AssertMainThread (IntPtr function);
-
-		public static void AssertMainThread (string function)
-		{
-			IntPtr pFunction;
-			pFunction = Marshal.StringToHGlobalAnsi (function);
-			_AssertMainThread (pFunction);
-
-			Marshal.FreeHGlobal (pFunction);
-		}
-	}
-
 	public partial class LaunchOptions
 	{
 		[Obsolete ("This property will be removed in next versions. Use RelaunchIfRunning property instead.")]
