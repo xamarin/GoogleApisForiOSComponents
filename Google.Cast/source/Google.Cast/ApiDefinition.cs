@@ -490,23 +490,6 @@ namespace Google.Cast
 	[BaseType (typeof (NSObject), Name = "GCKDevice")]
 	interface Device : INSCopying, INSCoding
 	{
-
-		[Obsolete ("Use GCKDeviceCapability.VideoOut instead.")]
-		[Field ("kGCKDeviceCapabilityVideoOut", "__Internal")]
-		nint CapabilityVideoOut { get; }
-
-		[Obsolete ("Use GCKDeviceCapability.VideoIn instead.")]
-		[Field ("kGCKDeviceCapabilityVideoIn", "__Internal")]
-		nint CapabilityVideoIn { get; }
-
-		[Obsolete ("Use GCKDeviceCapability.AudioOut instead.")]
-		[Field ("kGCKDeviceCapabilityAudioOut", "__Internal")]
-		nint CapabilityAudioOut { get; }
-
-		[Obsolete ("Use GCKDeviceCapability.AudioIn instead.")]
-		[Field ("kGCKDeviceCapabilityAudioIn", "__Internal")]
-		nint CapabilityAudioIn { get; }
-
 		[Export ("ipAddress", ArgumentSemantic.Copy)]
 		string IpAddress { get; }
 
