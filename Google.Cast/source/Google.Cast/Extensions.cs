@@ -20,21 +20,6 @@ namespace Google.Cast
 		}
 	}
 
-	public partial class Common
-	{
-		[DllImport ("__Internal", EntryPoint = "GCKAssertMainThread")]
-		static extern void _AssertMainThread (IntPtr function);
-
-		public static void AssertMainThread (string function)
-		{
-			IntPtr pFunction;
-			pFunction = Marshal.StringToHGlobalAnsi (function);
-			_AssertMainThread (pFunction);
-
-			Marshal.FreeHGlobal (pFunction);
-		}
-	}
-
 	public partial class LaunchOptions
 	{
 		[Obsolete ("This property will be removed in next versions. Use RelaunchIfRunning property instead.")]
@@ -113,79 +98,6 @@ namespace Google.Cast
 	{
 		public static double InvalidTimeInterval {
 			get { return double.NaN; }
-		}
-	}
-
-	public partial class MediaControlChannel
-	{
-		// C# 7 YOLO, I <3 One liners
-		//public nint LoadMedia (MediaInformation mediaInfo, bool autoplay, double playPosition, nuint [] activeTrackIDs)
-		//=> _LoadMedia (mediaInfo, autoplay, playPosition, activeTrackIDs is null ? null : NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), activeTrackIDs);
-
-		public nint LoadMedia (MediaInformation mediaInfo, bool autoplay, double playPosition, nuint [] activeTrackIDs)
-		{
-			NSArray activeTrackIDsArray = null;
-
-			if (activeTrackIDs != null)
-				activeTrackIDsArray = NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), activeTrackIDs);
-
-			return _LoadMedia (mediaInfo, autoplay, playPosition, activeTrackIDsArray);
-		}
-
-		public nint LoadMedia (MediaInformation mediaInfo, bool autoplay, double playPosition, nuint [] activeTrackIDs, NSObject customData)
-		{
-			NSArray activeTrackIDsArray = null;
-
-			if (activeTrackIDs != null)
-				activeTrackIDsArray = NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), activeTrackIDs);
-
-			return _LoadMedia (mediaInfo, autoplay, playPosition, activeTrackIDsArray, customData);
-		}
-
-		public nint SetActiveTrackIDs (nuint [] activeTrackIDs)
-		{
-			NSArray activeTrackIDsArray = null;
-
-			for (int i = 0; i < activeTrackIDs.Length; i++)
-				activeTrackIDsArray = NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), activeTrackIDs);
-
-			return _SetActiveTrackIDs (activeTrackIDsArray);
-		}
-
-		public nint QueueRemoveItems (nuint [] itemIDs)
-		{
-			if (itemIDs == null)
-				throw new ArgumentNullException (nameof (itemIDs));
-
-			var arr = NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), itemIDs);
-			return _QueueRemoveItems (arr);
-		}
-
-		public nint QueueRemoveItems (nuint [] itemIDs, NSObject customData)
-		{
-			if (itemIDs == null)
-				throw new ArgumentNullException (nameof (itemIDs));
-
-			var arr = NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), itemIDs);
-			return _QueueRemoveItems (arr, customData);
-		}
-
-		public nint QueueReorderItems (nuint [] queueItemIDs, nuint beforeItemID)
-		{
-			if (queueItemIDs == null)
-				throw new ArgumentNullException (nameof (queueItemIDs));
-
-			var queueItemIDsArray = NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), queueItemIDs);
-			return _QueueReorderItems (queueItemIDsArray, beforeItemID);
-		}
-
-		public nint QueueReorderItems (nuint [] queueItemIDs, nuint beforeItemID, NSObject customData)
-		{
-			if (queueItemIDs == null)
-				throw new ArgumentNullException (nameof (queueItemIDs));
-
-			var queueItemIDsArray = NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), queueItemIDs);
-			return _QueueReorderItems (queueItemIDsArray, beforeItemID, customData);
 		}
 	}
 
