@@ -2,14 +2,14 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_GoogleCastAssemblyName>Google.Cast, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleCastAssemblyName>
-		<_GoogleCastItemsFolder>GCst-4.0.1</_GoogleCastItemsFolder>
+		<_GoogleCastItemsFolder>GCst-4.0.2</_GoogleCastItemsFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GoogleCastItemsFolder)">
-			<Url>https://developers.google.com/cast/downloads/GoogleCastSDK-ios-4.0.1.zip</Url>
+			<Url>https://developers.google.com/cast/downloads/GoogleCastSDK-ios-4.0.2.zip</Url>
 			<Kind>Zip</Kind>
 		</XamarinBuildDownload>
-		<NativeReference Include="$(XamarinBuildDownloadDir)$(_GoogleCastItemsFolder)\GoogleCastSDK-ios-4.0.1\GoogleCast.framework">
+		<NativeReference Include="$(XamarinBuildDownloadDir)$(_GoogleCastItemsFolder)\GoogleCastSDK-ios-4.0.2\GoogleCast.framework">
       		<IsCxx>False</IsCxx>
 			<LinkerFlags>-lc++</LinkerFlags>
 			<Frameworks>Accelerate AudioToolbox AVFoundation CFNetwork CoreBluetooth CoreGraphics CoreMedia CoreText Foundation MediaAccessibility MediaPlayer QuartzCore Security SystemConfiguration UIKit</Frameworks>
