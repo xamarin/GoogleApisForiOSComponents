@@ -20,53 +20,20 @@ namespace Google.Cast
 		}
 	}
 
-	public partial class LaunchOptions
+	public partial class DiscoveryCriteria : NSObject
 	{
-		[Obsolete ("This property will be removed in next versions. Use RelaunchIfRunning property instead.")]
-		public bool relaunchIfRunning {
-			get { return RelaunchIfRunning; }
-			set { RelaunchIfRunning = value; }
-		}
-	}
-
-	public partial class Logger
-	{
-		private static bool? analyticsLoggingEnabled = null;
-
-		public static bool AnalyticsLoggingEnabled {
-			get {
-				if (analyticsLoggingEnabled != null)
-					return analyticsLoggingEnabled.Value;
-
-				IntPtr mainLibPtr = Dlfcn.dlopen (null, 0);
-				IntPtr ptr = Dlfcn.dlsym (mainLibPtr, "GCKAnalyticsLoggingEnabled");
-
-				analyticsLoggingEnabled = Convert.ToBoolean (Marshal.ReadByte (ptr));
-				Dlfcn.dlclose (mainLibPtr);
-
-				return analyticsLoggingEnabled.Value;
-			}
-			set {
-				analyticsLoggingEnabled = value;
-
-				IntPtr mainLibPtr = Dlfcn.dlopen (null, 0);
-				IntPtr ptr = Dlfcn.dlsym (mainLibPtr, "GCKAnalyticsLoggingEnabled");
-
-				Marshal.WriteByte (ptr, Convert.ToByte (analyticsLoggingEnabled));
-				Dlfcn.dlclose (mainLibPtr);
-			}
-		}
-
-		public void Log (string function, string message)
+		public DiscoveryCriteria (string [] namespaces) : base (NSObjectFlag.Empty)
 		{
-			_Log (function, message);
+			NSString [] nsNamespaces = new NSString [namespaces.Length];
+
+			for (int i = 0; i < namespaces.Length; i++)
+				nsNamespaces [i] = new NSString (namespaces [i]);
+
+			var nsSet = new NSSet<NSString> (nsNamespaces);
+			Handle = _InitWithNamespaces (nsSet);
 		}
 
-		public void Log (string function, string format, params object [] args)
-		{
-			var message = string.Format (format, args);
-			_Log (function, message);
-		}
+		public DiscoveryCriteria (NSSet<NSString> namespaces) : base (NSObjectFlag.Empty) => Handle = _InitWithNamespaces (namespaces);
 	}
 
 	[Obsolete ("Implement ILoggerDelegate interface and override LogMessage method instead.")]
@@ -94,119 +61,163 @@ namespace Google.Cast
 		}
 	}
 
-	public class MediaCommon
+	public partial class MediaCommon
 	{
-		public static double InvalidTimeInterval {
-			get { return double.NaN; }
+		// GCK_EXTERN BOOL GCKIsValidTimeInterval(NSTimeInterval timeInterval);
+		[DllImport ("__Internal", EntryPoint = "GCKIsValidTimeInterval")]
+		extern internal static bool _IsValidTimeInterval (double timeInterval);
+		public static bool IsValidTimeInterval (double timeInterval) => _IsValidTimeInterval (timeInterval);
+	}
+
+	public enum MediaInformationBuilderParameterType
+	{
+		IsContentId,
+		IsEntity
+	}
+
+	public partial class MediaInformationBuilder : NSObject
+	{
+		[Advice ("Pass a contenId or entity value as the first param and specify the information kind with the second param.")]
+		public MediaInformationBuilder (string contentIdOrEntity, MediaInformationBuilderParameterType parameterType) : base (NSObjectFlag.Empty)
+		{
+			if (contentIdOrEntity == null)
+				throw new ArgumentNullException (nameof (contentIdOrEntity));
+
+			if (parameterType == MediaInformationBuilderParameterType.IsContentId) {
+				Handle = _InitWithContentId (contentIdOrEntity);
+			} else {
+				Handle = _InitWithEntity (contentIdOrEntity);
+			}
 		}
 	}
 
-	public partial class MediaQueueItem
+	public partial class MediaLoadOptions
 	{
-		public nuint [] ActiveTrackIDs {
+		public nuint [] ActiveTrackIds {
 			get {
-				NSArray activeTracksIDsArray = _ActiveTrackIDs;
+				NSArray activeTracksIdsArray = _ActiveTrackIds;
 
-				nuint [] activeTracksIDs = null;
+				nuint [] activeTracksIds = null;
 
-				if (activeTracksIDsArray != null)
-					activeTracksIDs = Helper.GetNUint (activeTracksIDsArray);
+				if (activeTracksIdsArray != null)
+					activeTracksIds = Helper.GetNUint (activeTracksIdsArray);
 
-				return activeTracksIDs;
+				return activeTracksIds;
+			}
+			set {
+				_ActiveTrackIds = value != null ? NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), value) : null;
+			}
+		}
+	}
+
+	public partial class MediaQueueItem : NSObject
+	{
+		public nuint [] ActiveTrackIds {
+			get {
+				NSArray activeTracksIdsArray = _ActiveTrackIds;
+
+				nuint [] activeTracksIds = null;
+
+				if (activeTracksIdsArray != null)
+					activeTracksIds = Helper.GetNUint (activeTracksIdsArray);
+
+				return activeTracksIds;
 			}
 		}
 
-		public MediaQueueItem (MediaInformation mediaInformation, bool autoplay, double startTime, double preloadTime, nuint [] activeTrackIDs, NSObject customData)
+		public MediaQueueItem (MediaInformation mediaInformation, bool autoplay, double startTime, double preloadTime, nuint [] activeTrackIds, NSObject customData) : base (NSObjectFlag.Empty)
 		{
 			if (mediaInformation == null)
 				throw new ArgumentNullException (nameof (mediaInformation));
 
-			var activeTracksIdsObjC = NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), activeTrackIDs);
+			var activeTracksIdsObjC = NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), activeTrackIds);
 			Handle = _InitWithMediaInformation (mediaInformation, autoplay, startTime, preloadTime, activeTracksIdsObjC, customData);
 		}
 
 		[DesignatedInitializer]
-		public MediaQueueItem (MediaInformation mediaInformation, bool autoplay, double startTime, double playbackDuration, double preloadTime, nuint [] activeTrackIDs, NSObject customData)
+		public MediaQueueItem (MediaInformation mediaInformation, bool autoplay, double startTime, double playbackDuration, double preloadTime, nuint [] activeTrackIds, NSObject customData) : base (NSObjectFlag.Empty)
 		{
 			if (mediaInformation == null)
 				throw new ArgumentNullException (nameof (mediaInformation));
 
-			var activeTracksIdsObjC = NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), activeTrackIDs);
+			var activeTracksIdsObjC = NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), activeTrackIds);
 			Handle = _InitWithMediaInformation (mediaInformation, autoplay, startTime, playbackDuration, preloadTime, activeTracksIdsObjC, customData);
 		}
 	}
 
 	public partial class MediaQueueItemBuilder
 	{
-		public nuint [] ActiveTrackIDs {
+		public nuint [] ActiveTrackIds {
 			get {
-				NSArray activeTracksIDsArray = _ActiveTrackIDs;
+				NSArray activeTracksIdsArray = _ActiveTrackIds;
 
-				nuint [] activeTracksIDs = null;
+				nuint [] activeTracksIds = null;
 
-				if (activeTracksIDsArray != null)
-					activeTracksIDs = Helper.GetNUint (activeTracksIDsArray);
+				if (activeTracksIdsArray != null)
+					activeTracksIds = Helper.GetNUint (activeTracksIdsArray);
 
-				return activeTracksIDs;
+				return activeTracksIds;
 			}
 			set {
-				_ActiveTrackIDs = value != null ? NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), value) : null;
+				_ActiveTrackIds = value != null ? NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), value) : null;
 			}
 		}
 	}
 
 	public partial class MediaStatus
 	{
-		nuint [] ActiveTrackIDs {
+		nuint [] ActiveTrackIds {
 			get {
-				NSArray activeTracksIDsArray = _ActiveTrackIDs;
+				NSArray activeTracksIdsArray = _ActiveTrackIds;
 
-				nuint [] activeTracksIDs = null;
+				nuint [] activeTracksIds = null;
 
-				if (activeTracksIDsArray != null)
-					activeTracksIDs = Helper.GetNUint (activeTracksIDsArray);
+				if (activeTracksIdsArray != null)
+					activeTracksIds = Helper.GetNUint (activeTracksIdsArray);
 
-				return activeTracksIDs;
+				return activeTracksIds;
 			}
 		}
 	}
 
 	public partial class RemoteMediaClient
 	{
-		public Request LoadMedia (MediaInformation mediaInfo, bool autoplay, double playPosition, nuint [] activeTrackIDs)
-		{
-			if (mediaInfo == null)
-				throw new ArgumentNullException (nameof (mediaInfo));
-
-			NSArray activeTrackIDsArray = null;
-
-			if (activeTrackIDs != null)
-				activeTrackIDsArray = NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), activeTrackIDs);
-
-			return _LoadMedia (mediaInfo, autoplay, playPosition, activeTrackIDsArray);
-		}
-
-		public Request LoadMedia (MediaInformation mediaInfo, bool autoplay, double playPosition, nuint [] activeTrackIDs, NSObject customData)
+		[Obsolete ("Use LoadMedia (MediaInformation, MediaLoadOptions) overloaded method instead.")]
+		public Request LoadMedia (MediaInformation mediaInfo, bool autoplay, double playPosition, nuint [] activeTrackIds)
 		{
 			if (mediaInfo == null)
 				throw new ArgumentNullException (nameof (mediaInfo));
 
 			NSArray activeTrackIdsArray = null;
 
-			if (activeTrackIDs != null)
-				activeTrackIdsArray = NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), activeTrackIDs);
+			if (activeTrackIds != null)
+				activeTrackIdsArray = NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), activeTrackIds);
+
+			return _LoadMedia (mediaInfo, autoplay, playPosition, activeTrackIdsArray);
+		}
+
+		[Obsolete ("Use LoadMedia (MediaInformation, MediaLoadOptions) overloaded method instead.")]
+		public Request LoadMedia (MediaInformation mediaInfo, bool autoplay, double playPosition, nuint [] activeTrackIds, NSObject customData)
+		{
+			if (mediaInfo == null)
+				throw new ArgumentNullException (nameof (mediaInfo));
+
+			NSArray activeTrackIdsArray = null;
+
+			if (activeTrackIds != null)
+				activeTrackIdsArray = NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), activeTrackIds);
 
 			return _LoadMedia (mediaInfo, autoplay, playPosition, activeTrackIdsArray, customData);
 		}
 
-		public Request SetActiveTrackIDs (nuint [] activeTrackIDs)
+		public Request SetActiveTrackIds (nuint [] activeTrackIds)
 		{
-			NSArray activeTrackIDsArray = null;
+			NSArray activeTrackIdsArray = null;
 
-			if (activeTrackIDs != null)
-				activeTrackIDsArray = NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), activeTrackIDs);
+			if (activeTrackIds != null)
+				activeTrackIdsArray = NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), activeTrackIds);
 
-			return _SetActiveTrackIDs (activeTrackIDsArray);
+			return _SetActiveTrackIds (activeTrackIdsArray);
 		}
 
 		public Request QueueRemoveItems (nuint [] itemIds)
@@ -229,7 +240,7 @@ namespace Google.Cast
 			return _QueueRemoveItems (itemIdsArray, customData);
 		}
 
-		public Request QueueReorderItems (nuint [] 	queueItemIds, nuint beforeItemId)
+		public Request QueueReorderItems (nuint [] queueItemIds, nuint beforeItemId)
 		{
 			if (queueItemIds == null)
 				throw new ArgumentNullException (nameof (queueItemIds));
@@ -250,18 +261,11 @@ namespace Google.Cast
 		}
 	}
 
-	public partial class Session
-	{
-		[Obsolete ("Use CurrentDeviceVolume property instead. To assign a value to DeviceVolume or CurrentDeviceVolume properties, please, use SetDeviceVolume method. DeviceVolume will be removed in future releases.")]
-		public float DeviceVolume => CurrentDeviceVolume;
-
-		[Obsolete ("Use CurrentDeviceMuted property instead. To assign a value to DeviceMuted or CurrentDeviceMuted properties, please, use SetDeviceMuted method. DeviceMuted will be removed in future releases.")]
-		public bool DeviceMuted => CurrentDeviceMuted;
-	}
-
 	public partial class UIDeviceVolumeController
 	{
 		static UIControlState? muteOff;
+
+		[Obsolete ("Use MuteOffState property with UIMultistateButton class.")]
 		public static UIControlState MuteOff {
 			get {
 				if (muteOff == null) {
@@ -276,6 +280,8 @@ namespace Google.Cast
 		}
 
 		static UIControlState? muteOn;
+
+		[Obsolete ("Use MuteOnState property with UIMultistateButton class.")]
 		public static UIControlState MuteOn {
 			get {
 				if (muteOn == null) {
@@ -293,6 +299,8 @@ namespace Google.Cast
 	public partial class UIMediaController
 	{
 		static UIControlState? repeatOff;
+
+		[Obsolete ("Use RepeatOffState property with UIMultistateButton class.")]
 		public static UIControlState RepeatOff {
 			get {
 				if (repeatOff == null) {
@@ -307,6 +315,8 @@ namespace Google.Cast
 		}
 
 		static UIControlState? repeatAll;
+
+		[Obsolete ("Use RepeatAllState property with UIMultistateButton class.")]
 		public static UIControlState RepeatAll {
 			get {
 				if (repeatAll == null) {
@@ -321,6 +331,8 @@ namespace Google.Cast
 		}
 
 		static UIControlState? repeatSingle;
+
+		[Obsolete ("Use RepeatSingleState property with UIMultistateButton class.")]
 		public static UIControlState RepeatSingle {
 			get {
 				if (repeatSingle == null) {
@@ -335,6 +347,8 @@ namespace Google.Cast
 		}
 
 		static UIControlState? play;
+
+		[Obsolete ("Use PlayState property with UIMultistateButton class.")]
 		public static UIControlState Play {
 			get {
 				if (play == null) {
@@ -349,6 +363,8 @@ namespace Google.Cast
 		}
 
 		static UIControlState? pause;
+
+		[Obsolete ("Use PauseState property with UIMultistateButton class.")]
 		public static UIControlState Pause {
 			get {
 				if (pause == null) {
@@ -363,6 +379,8 @@ namespace Google.Cast
 		}
 
 		static UIControlState? shuffle;
+
+		[Obsolete ("Use ShuffleState property with UIMultistateButton class.")]
 		public static UIControlState Shuffle {
 			get {
 				if (shuffle == null) {
