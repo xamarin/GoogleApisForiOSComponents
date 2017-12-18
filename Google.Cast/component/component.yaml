@@ -1,4 +1,4 @@
-version: 3.5.6.0
+version: 4.0.2.0
 name: Google Cast for iOS
 id: googleioscast
 publisher: Xamarin Inc.
@@ -15,7 +15,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Google.iOS.Cast, Version=3.5.6.0
+  - Xamarin.Google.iOS.Cast, Version=4.0.2.0
 samples:
 - name: Cast Sample
   path: ../samples/CastSample/CastSample.sln
