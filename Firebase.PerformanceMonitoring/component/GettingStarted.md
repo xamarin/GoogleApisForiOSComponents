@@ -217,11 +217,11 @@ To enable either of these aspects of Performance Monitoring in your app, set the
 
 * App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][9])
 * Performance Monitoring has known compatibility issues with GTMSQLite. We recommend not using Performance Monitoring with apps that use GTMSQLite.
-* Performance Monitoring does not support network requests made using the `NSURLConnection` class.
-* If your app uses delegate methods of the `NSURLSession` class and does not implement all of the possible delegate methods, those sessions might not be correctly captured by HTTP/S network request monitoring.
+* Performance Monitoring does not support network requests made using either the `NSUrlConnection`, `WebClient` or `HttpClient` class.
+* If your app uses delegate methods of the `NSUrlSession` class and does not implement all of the possible interface methods, those sessions might not be correctly captured by HTTP/S network request monitoring.
 * Method swizzling after calling `App.Configure ()` might interfere with the Performance Monitoring SDK.
 * Known issues with the iOS 8.0-8.2 Simulator prevent Performance Monitoring from capturing performance events. These issues are fixed in the iOS 8.3 Simulator and later versions.
-* Connections established using `NSURLSession`'s backgroundSessionConfiguration will exhibit longer than expected connection times. These connections are executed out-of-process and the timings reflect in-process callback events.
+* Connections established using `NSUrlSession`'s BackgroundSessionConfiguration will exhibit longer than expected connection times. These connections are executed out-of-process and the timings reflect in-process callback events.
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/dynamic-links/ios) to see original Firebase documentation._</sub>
 
