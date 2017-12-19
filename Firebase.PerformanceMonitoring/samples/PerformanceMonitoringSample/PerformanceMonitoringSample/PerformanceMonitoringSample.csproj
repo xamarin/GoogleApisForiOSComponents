@@ -145,13 +145,13 @@
       <Project>{D6AA184C-DA45-4BBB-988A-451B20C7B804}</Project>
       <Name>Firebase.InstanceID</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\source\Firebase.PerformanceMonitoring\Firebase.PerformanceMonitoring.csproj">
-      <Project>{7B83F848-4947-4510-81BE-8DDF360A354F}</Project>
-      <Name>Firebase.PerformanceMonitoring</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\..\Firebase.RemoteConfig\source\Firebase.RemoteConfig\Firebase.RemoteConfig.csproj">
       <Project>{C5B2256A-D3E4-4419-9486-1020885EE738}</Project>
       <Name>Firebase.RemoteConfig</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\source\Firebase.PerformanceMonitoring\Firebase.PerformanceMonitoring.csproj">
+      <Project>{7B83F848-4947-4510-81BE-8DDF360A354F}</Project>
+      <Name>Firebase.PerformanceMonitoring</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

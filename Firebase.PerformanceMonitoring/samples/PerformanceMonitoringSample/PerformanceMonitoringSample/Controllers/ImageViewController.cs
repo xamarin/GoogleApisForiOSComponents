@@ -18,9 +18,7 @@ namespace PerformanceMonitoringSample
 		CancellationToken cancellationToken;
 		Trace trace;
 		bool isDownloadFinished;
-
-		NSUrlSessionDataTask task;
-		NSUrlSessionDataTaskRequest taskRequest;
+		bool downloadFailed;
 
 		#endregion
 
@@ -47,26 +45,17 @@ namespace PerformanceMonitoringSample
 			// Perform any additional setup after loading the view, typically from a nib.
 
 			ActIndicator.BackgroundColor = UIColor.FromWhiteAlpha (0.5f, 0.3f);
-			BtnRetry.Clicked += BtnRetry_Clicked;
+			BtnDownloadRetry.Clicked += BtnDownloadRetry_Clicked;
+			SgmDownloadTool.ValueChanged += SgmDownloadTool_ValueChanged;
 
 			trace = Performance.StartTrace ("image_download");
 			cancellationTokenSource = new CancellationTokenSource ();
 			cancellationToken = cancellationTokenSource.Token;
 		}
 
-		public override void ViewDidAppear (bool animated)
-		{
-			base.ViewDidAppear (animated);
-
-			//DownloadImage ();
-			//DownloadImageUsingNSUrlSession ();
-			DownloadImageUsingNSUrlSessionAsync ();
-		}
-
 		public override void ViewWillDisappear (bool animated)
 		{
 			if (!isDownloadFinished) {
-				//task?.Cancel ();
 				cancellationTokenSource.Cancel ();
 				trace.IncrementCounter ("cancelled");
 			}
@@ -79,126 +68,85 @@ namespace PerformanceMonitoringSample
 
 		#region User Interaction
 
-		void BtnRetry_Clicked (object sender, EventArgs e)
+		void BtnDownloadRetry_Clicked (object sender, EventArgs e)
 		{
+			BtnDownloadRetry.Enabled = false;
+			ActIndicator.StartAnimating ();
+
 			isDownloadFinished = false;
 			cancellationTokenSource = new CancellationTokenSource ();
 			cancellationToken = cancellationTokenSource.Token;
 
-			trace.IncrementCounter ("retry");
+			if (downloadFailed) {
+				downloadFailed = false;
+				trace.IncrementCounter ("retry");
+			}
 
-			//DownloadImage ();
-			//DownloadImageUsingNSUrlSession ();
-			DownloadImageUsingNSUrlSessionAsync ();
+			if (SgmDownloadTool.SelectedSegment == 0)
+				DownloadImageUsingNSUrlSession ();
+			else
+				DownloadImageUsingHttpClient ();
+		}
+
+		void SgmDownloadTool_ValueChanged (object sender, EventArgs e)
+		{
+			if (SgmDownloadTool.SelectedSegment == 1) {
+				var title = "Using HttpClient with Performance Monitoring";
+				var message = "Performance Monitoring cannot collect network requests using HttpClient.\n" +
+					"If you want to see network requests in your Firebase dashboard, please, download the image using NSUrlSession.";
+				AppDelegate.ShowMessage (title, message, NavigationController);
+			}
 		}
 
 		#endregion
 
 		#region Internal Functionality
 
-		void DownloadImage ()
-		{
-			BtnRetry.Enabled = false;
-			ActIndicator.StartAnimating ();
-
-			Task.Factory.StartNew (async () => {
-				UIImage image = null;
-				try {
-					image = await DownloadManager.DownloadImage (ImageUrl, cancellationToken);
-				} catch (Exception ex) when (ex is TaskCanceledException || ex is HttpRequestException) {
-					InvokeOnMainThread (() => AppDelegate.ShowMessage ("Image couldn't be downloaded...", ex.Message, NavigationController));
-				}
-
-				if (cancellationTokenSource.IsCancellationRequested)
-					return;
-
-				lock (padlock)
-					isDownloadFinished = true;
-
-				if (image == null) {
-					image = UIImage.FromFile ("error.png");
-					trace.IncrementCounter ("failed");
-				} else {
-					trace.IncrementCounter ("completed");
-				}
-
-				InvokeOnMainThread (() => {
-					ImgPicture.Image = image;
-					ActIndicator.StopAnimating ();
-					BtnRetry.Enabled = true;
-				});
-			}, cancellationToken);
-		}
-
-		void DownloadImageUsingNSUrlSession ()
-		{
-			BtnRetry.Enabled = false;
-			ActIndicator.StartAnimating ();
-
-			var request = new NSMutableUrlRequest (new NSUrl (ImageUrl)) { HttpMethod = "GET" };
-			task = NSUrlSession.SharedSession.CreateDataTask (request, HandleNSUrlSessionResponse);
-			task.Resume ();
-
-			void HandleNSUrlSessionResponse (NSData data, NSUrlResponse response, NSError error)
-			{
-				if (error?.Code == (int)NSUrlError.Cancelled)
-					return;
-
-				lock (padlock)
-					isDownloadFinished = true;
-
-				if (error != null) {
-					trace.IncrementCounter ("failed");
-					InvokeOnMainThread (() => {
-						ImgPicture.Image = UIImage.FromFile ("error.png");
-						AppDelegate.ShowMessage ("Image couldn't be downloaded...", error.LocalizedDescription, NavigationController);
-					});
-					return;
-				}
-
-				trace.IncrementCounter ("completed");
-				var image = UIImage.LoadFromData (data);
-
-				InvokeOnMainThread (() => {
-					ImgPicture.Image = image;
-					ActIndicator.StopAnimating ();
-					BtnRetry.Enabled = true;
-				});
+		void DownloadImageUsingHttpClient () => Task.Factory.StartNew (async () => {
+			UIImage image = null;
+			try {
+				image = await DownloadManager.DownloadImageUsingHttpClient (ImageUrl, cancellationToken);
+			} catch (Exception ex) when (ex is TaskCanceledException || ex is HttpRequestException) {
+				downloadFailed = true;
+				InvokeOnMainThread (() => AppDelegate.ShowMessage ("Image couldn't be downloaded...", ex.Message, NavigationController));
 			}
-		}
 
-		void DownloadImageUsingNSUrlSessionAsync ()
+			TryImageAssignment (image);
+		}, cancellationToken);
+
+		void DownloadImageUsingNSUrlSession () => Task.Factory.StartNew (async () => {
+			UIImage image = null;
+			try {
+				image = await DownloadManager.DownloadImageUsingNSUrlSession (ImageUrl, cancellationToken);
+			} catch (Exception ex) when (ex is TaskCanceledException || ex is NSErrorException) {
+				downloadFailed = true;
+				InvokeOnMainThread (() => AppDelegate.ShowMessage ("Image couldn't be downloaded...", ex.Message, NavigationController));
+			}
+
+			TryImageAssignment (image);
+		}, cancellationToken);
+
+		void TryImageAssignment (UIImage image)
 		{
-			BtnRetry.Enabled = false;
-			ActIndicator.StartAnimating ();
+			if (cancellationTokenSource.IsCancellationRequested)
+				return;
 
-			Task.Factory.StartNew (async () => {
-				UIImage image = null;
-				try {
-					image = await DownloadManager.DownloadImageUsingNSUrlSession (ImageUrl, cancellationToken);
-				} catch (Exception ex) when (ex is TaskCanceledException || ex is NSErrorException) {
-					InvokeOnMainThread (() => AppDelegate.ShowMessage ("Image couldn't be downloaded...", ex.Message, NavigationController));
-				}
+			lock (padlock)
+				isDownloadFinished = true;
 
-				if (cancellationTokenSource.IsCancellationRequested)
-					return;
+			if (downloadFailed) {
+				image = UIImage.FromFile ("error.png");
+				trace.IncrementCounter ("failed");
+			} else {
+				trace.IncrementCounter ("completed");
+			}
 
-				lock (padlock)
-					isDownloadFinished = true;
-
-				if (image == null) {
-					image = UIImage.FromFile ("error.png");
-					trace.IncrementCounter ("failed");
-				} else {
-					trace.IncrementCounter ("completed");
-				}
-
-				InvokeOnMainThread (() => {
-					ImgPicture.Image = image;
-					ActIndicator.StopAnimating ();
-					BtnRetry.Enabled = true;
-				});
-			}, cancellationToken);
+			InvokeOnMainThread (() => {
+				ImgPicture.Image = image;
+				ActIndicator.StopAnimating ();
+				BtnDownloadRetry.Title = downloadFailed ? "Retry" : "Download";
+				BtnDownloadRetry.Enabled = true;
+			});
 		}
 
 		#endregion

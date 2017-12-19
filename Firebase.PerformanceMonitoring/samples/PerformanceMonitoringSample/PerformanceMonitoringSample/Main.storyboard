@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UMl-F0-XEJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UMl-F0-XEJ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,7 +27,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hLU-VN-l5t">
-                                            <rect key="frame" x="16" y="0.0" width="344" height="43.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -77,7 +77,7 @@
                                             <rect key="frame" x="318" y="7" width="51" height="31"/>
                                         </switch>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewx-C0-P5s">
-                                            <rect key="frame" x="8" y="12" width="302" height="20.5"/>
+                                            <rect key="frame" x="16" y="12" width="294" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -132,8 +132,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FjX-nk-uoP">
-                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
+                                <rect key="frame" x="0.0" y="189" width="375" height="478"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download image using:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXq-TO-Fin">
+                                <rect key="frame" x="98" y="124" width="178" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Rts-EZ-UKX">
+                                <rect key="frame" x="90" y="153" width="195" height="29"/>
+                                <segments>
+                                    <segment title="NSUrlSession"/>
+                                    <segment title="HttpClient"/>
+                                </segments>
+                            </segmentedControl>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="31L-1H-VAm">
                                 <rect key="frame" x="0.0" y="116" width="375" height="551"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -142,28 +155,33 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Rts-EZ-UKX" firstAttribute="centerX" secondItem="s4B-Sw-SPb" secondAttribute="centerX" id="6PO-ig-j6n"/>
                             <constraint firstItem="31L-1H-VAm" firstAttribute="top" secondItem="sZB-Nq-hiH" secondAttribute="bottom" id="7bn-X3-6pw"/>
                             <constraint firstAttribute="trailing" secondItem="31L-1H-VAm" secondAttribute="trailing" id="95I-ij-HJs"/>
+                            <constraint firstItem="uXq-TO-Fin" firstAttribute="centerX" secondItem="s4B-Sw-SPb" secondAttribute="centerX" id="VFq-Ws-jpL"/>
                             <constraint firstAttribute="trailing" secondItem="FjX-nk-uoP" secondAttribute="trailing" id="VZj-cm-i3V"/>
                             <constraint firstItem="kzc-0H-9nn" firstAttribute="top" secondItem="31L-1H-VAm" secondAttribute="bottom" id="WTa-WP-ukl"/>
                             <constraint firstItem="31L-1H-VAm" firstAttribute="leading" secondItem="s4B-Sw-SPb" secondAttribute="leading" id="eFn-H1-i9j"/>
+                            <constraint firstItem="FjX-nk-uoP" firstAttribute="top" secondItem="Rts-EZ-UKX" secondAttribute="bottom" constant="8" id="eZS-XS-zAg"/>
+                            <constraint firstItem="Rts-EZ-UKX" firstAttribute="top" secondItem="uXq-TO-Fin" secondAttribute="bottom" constant="8" id="hfG-Fa-zIc"/>
                             <constraint firstItem="FjX-nk-uoP" firstAttribute="leading" secondItem="s4B-Sw-SPb" secondAttribute="leading" id="nUg-B1-zvr"/>
-                            <constraint firstItem="FjX-nk-uoP" firstAttribute="top" secondItem="sZB-Nq-hiH" secondAttribute="bottom" id="pDZ-Ca-3Qt"/>
                             <constraint firstItem="kzc-0H-9nn" firstAttribute="top" secondItem="FjX-nk-uoP" secondAttribute="bottom" id="pur-R0-L9h"/>
+                            <constraint firstItem="uXq-TO-Fin" firstAttribute="top" secondItem="sZB-Nq-hiH" secondAttribute="bottom" constant="8" id="zUW-tB-I4T"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="fDs-OF-1R0">
-                        <barButtonItem key="rightBarButtonItem" title="Retry" id="3cW-V3-9VE"/>
+                        <barButtonItem key="rightBarButtonItem" title="Download" id="3cW-V3-9VE"/>
                     </navigationItem>
                     <connections>
                         <outlet property="ActIndicator" destination="31L-1H-VAm" id="name-outlet-31L-1H-VAm"/>
-                        <outlet property="BtnRetry" destination="3cW-V3-9VE" id="name-outlet-3cW-V3-9VE"/>
+                        <outlet property="BtnDownloadRetry" destination="3cW-V3-9VE" id="SzG-hZ-4DL"/>
                         <outlet property="ImgPicture" destination="FjX-nk-uoP" id="name-outlet-FjX-nk-uoP"/>
+                        <outlet property="SgmDownloadTool" destination="Rts-EZ-UKX" id="E1S-sg-y8u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6CN-sI-fiB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1063" y="261"/>
+            <point key="canvasLocation" x="1061.5999999999999" y="260.41979010494754"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5QZ-2h-Awj">

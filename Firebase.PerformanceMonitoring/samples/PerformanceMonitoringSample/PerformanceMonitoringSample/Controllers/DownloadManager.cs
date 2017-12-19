@@ -14,7 +14,6 @@ namespace PerformanceMonitoringSample
 		#region Fields
 
 		static HttpClient httpClient;
-
 		static NSUrlSessionDataTaskRequest taskRequest;
 
 		#endregion
@@ -28,7 +27,7 @@ namespace PerformanceMonitoringSample
 
 		#endregion
 
-		public static async Task<UIImage> DownloadImage (string imageUrl, CancellationToken ct)
+		public static async Task<UIImage> DownloadImageUsingHttpClient (string imageUrl, CancellationToken ct)
 		{
 			ct.ThrowIfCancellationRequested ();
 
