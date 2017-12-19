@@ -2,7 +2,18 @@
 
 ## Table of content
 
-
+- [Prerequisites](#prerequisites)
+- [Add Firebase to your app](#add-firebase-to-your-app)
+- [Configure Performance Monitoring in your app](#configure-performance-monitoring-in-your-app)
+	- [(Optional) Define a custom trace and one or more counters in your app](#optional-define-a-custom-trace-and-one-or-more-counters-in-your-app)
+	- [Check the Firebase console for Performance Monitoring results](#check-the-firebase-console-for-performance-monitoring-results)
+	- [Deploy your app and review results in the Firebase console](#deploy-your-app-and-review-results-in-the-firebase-console)
+- [Automatic Traces](#automatic-traces)
+	- [Automatic trace definitions](#automatic-trace-definitions)
+- [Disable the Firebase Performance Monitoring SDK](#disable-the-firebase-performance-monitoring-sdk)
+	- [Disable Performance Monitoring during your app build process](#disable-performance-monitoring-during-your-app-build-process)
+	- [Disable your app at runtime using Remote Config](#disable-your-app-at-runtime-using-remote-config)
+- [Known issues](#known-issues)
 
 ## Prerequisites
 
