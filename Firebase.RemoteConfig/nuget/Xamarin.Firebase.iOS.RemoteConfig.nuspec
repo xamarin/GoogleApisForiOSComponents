@@ -4,13 +4,13 @@
     <id>Xamarin.Firebase.iOS.RemoteConfig</id>
     <title>Firebase APIs Remote Config iOS Library</title>
     <version>2.0.3.0</version>
-    <authors>Xamarin Inc.</authors>
-    <owners>Xamarin Inc.</owners>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>C# bindings for Firebase APIs Remote Config iOS Library</description>
-    <copyright>Copyright 2016 Microsoft</copyright>
-    <projectUrl>https://components.xamarin.com/view/firebaseiosremoteconfig</projectUrl>
-    <licenseUrl>https://components.xamarin.com/license/firebaseiosremoteconfig</licenseUrl>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <projectUrl>https://go.microsoft.com/fwlink/?linkid=865532</projectUrl>
+    <licenseUrl>https://go.microsoft.com/fwlink/?linkid=865536</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseiosremoteconfig_128x128.png</iconUrl>
     <dependencies>
       <group targetFramework="Xamarin.iOS10">

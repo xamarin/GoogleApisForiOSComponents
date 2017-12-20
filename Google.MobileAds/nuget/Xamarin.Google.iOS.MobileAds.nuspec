@@ -4,13 +4,13 @@
     <id>Xamarin.Google.iOS.MobileAds</id>
     <title>Google APIs Mobile Ads iOS Library</title>
     <version>7.24.1.0</version>
-    <authors>Xamarin Inc.</authors>
-    <owners>Xamarin Inc.</owners>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>C# bindings for Google APIs Mobile Ads iOS Library</description>
-    <copyright>Copyright 2015-2016 Microsoft</copyright>
-    <projectUrl>https://components.xamarin.com/view/googleiosmobileads</projectUrl>
-    <licenseUrl>https://components.xamarin.com/license/googleiosmobileads</licenseUrl>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <projectUrl>https://go.microsoft.com/fwlink/?linkid=865562</projectUrl>
+    <licenseUrl>https://go.microsoft.com/fwlink/?linkid=865566</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/googleiosmobileads_128x128.png</iconUrl>
     <dependencies>
       <group targetFramework="Xamarin.iOS10">

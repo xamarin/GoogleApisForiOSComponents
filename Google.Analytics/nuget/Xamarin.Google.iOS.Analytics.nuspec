@@ -4,13 +4,13 @@
     <id>Xamarin.Google.iOS.Analytics</id>
     <title>Google APIs Analytics iOS Library</title>
     <version>3.17.0.2</version>
-    <authors>Xamarin Inc.</authors>
-    <owners>Xamarin Inc.</owners>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>C# bindings for Google APIs Analytics iOS Library</description>
-    <copyright>Copyright 2015-2016 Microsoft</copyright>
-    <projectUrl>https://components.xamarin.com/view/googleiosanalytics</projectUrl>
-    <licenseUrl>https://components.xamarin.com/license/googleiosanalytics</licenseUrl>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <projectUrl>https://go.microsoft.com/fwlink/?linkid=865535</projectUrl>
+    <licenseUrl>https://go.microsoft.com/fwlink/?linkid=865538</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/googleiosanalytics_128x128.png</iconUrl>
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
