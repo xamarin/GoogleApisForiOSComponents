@@ -4,13 +4,13 @@
     <id>Xamarin.Firebase.iOS.CrashReporting</id>
     <title>Firebase APIs Crash Reporting iOS Library</title>
     <version>2.0.0.3</version>
-    <authors>Xamarin Inc.</authors>
-    <owners>Xamarin Inc.</owners>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>C# bindings for Firebase APIs Crash Reporting iOS Library</description>
-    <copyright>Copyright 2016 Microsoft</copyright>
-    <projectUrl>https://components.xamarin.com/view/firebaseioscrashreporting</projectUrl>
-    <licenseUrl>https://components.xamarin.com/license/firebaseioscrashreporting</licenseUrl>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <projectUrl>https://go.microsoft.com/fwlink/?linkid=865578</projectUrl>
+    <licenseUrl>https://go.microsoft.com/fwlink/?linkid=865531</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseioscrashreporting_128x128.png</iconUrl>
     <dependencies>
       <group targetFramework="Xamarin.iOS10">

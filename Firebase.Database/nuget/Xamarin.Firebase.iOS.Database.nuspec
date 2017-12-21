@@ -4,13 +4,13 @@
     <id>Xamarin.Firebase.iOS.Database</id>
     <title>Firebase APIs Database iOS Library</title>
     <version>4.1.0.0</version>
-    <authors>Xamarin Inc.</authors>
-    <owners>Xamarin Inc.</owners>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>C# bindings for Firebase APIs Database iOS Library</description>
-    <copyright>Copyright 2016 Microsoft</copyright>
-    <projectUrl>https://components.xamarin.com/view/firebaseiosdatabase</projectUrl>
-    <licenseUrl>https://components.xamarin.com/license/firebaseiosdatabase</licenseUrl>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <projectUrl>https://go.microsoft.com/fwlink/?linkid=865568</projectUrl>
+    <licenseUrl>https://go.microsoft.com/fwlink/?linkid=865571</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseiosdatabase_128x128.png</iconUrl>
     <dependencies>
       <group targetFramework="Xamarin.iOS10">

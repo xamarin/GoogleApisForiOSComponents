@@ -4,13 +4,13 @@
     <id>Xamarin.Firebase.iOS.InstanceID</id>
     <title>Firebase APIs Instance ID iOS Library</title>
     <version>2.0.4.0</version>
-    <authors>Xamarin Inc.</authors>
-    <owners>Xamarin Inc.</owners>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>C# bindings for Firebase APIs Instance ID iOS Library</description>
-    <copyright>Copyright 2016 Microsoft</copyright>
-    <projectUrl>https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Firebase.InstanceID</projectUrl>
-    <licenseUrl>https://github.com/xamarin/GoogleApisForiOSComponents/blob/master/Firebase.InstanceID/License.md/</licenseUrl>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <projectUrl>https://go.microsoft.com/fwlink/?linkid=865551</projectUrl>
+    <licenseUrl>https://go.microsoft.com/fwlink/?linkid=865555</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseiosinstanceid_128x128.png</iconUrl>
     <dependencies>
       <group targetFramework="Xamarin.iOS10">

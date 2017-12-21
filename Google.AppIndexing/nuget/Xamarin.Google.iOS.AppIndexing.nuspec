@@ -4,13 +4,13 @@
     <id>Xamarin.Google.iOS.AppIndexing</id>
     <title>Google APIs App Indexing iOS Library</title>
     <version>2.0.3.4</version>
-    <authors>Xamarin Inc.</authors>
-    <owners>Xamarin Inc.</owners>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>C# bindings for Google APIs App Indexing iOS Library</description>
-    <copyright>Copyright 2015-2016 Microsoft</copyright>
-    <projectUrl>https://components.xamarin.com/view/googleiosappindexing/</projectUrl>
-    <licenseUrl>https://components.xamarin.com/license/googleiosappindexing</licenseUrl>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <projectUrl>https://go.microsoft.com/fwlink/?linkid=865556</projectUrl>
+    <licenseUrl>https://go.microsoft.com/fwlink/?linkid=865560</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/googleiosappindexing_128x128.png</iconUrl>
     <dependencies>
       <group targetFramework="Xamarin.iOS10">

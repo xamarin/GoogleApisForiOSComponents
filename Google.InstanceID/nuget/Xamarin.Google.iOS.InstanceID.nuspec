@@ -4,13 +4,13 @@
     <id>Xamarin.Google.iOS.InstanceID</id>
     <title>Google APIs Instance ID iOS Library</title>
     <version>1.2.1.10</version>
-    <authors>Xamarin Inc.</authors>
-    <owners>Xamarin Inc.</owners>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>C# bindings for Google APIs Instance ID iOS Library</description>
-    <copyright>Copyright 2015-2016 Microsoft</copyright>
-    <projectUrl>https://components.xamarin.com/view/googleiosinstanceid</projectUrl>
-    <licenseUrl>https://components.xamarin.com/license/googleiosinstanceid</licenseUrl>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <projectUrl>https://go.microsoft.com/fwlink/?linkid=865553</projectUrl>
+    <licenseUrl>https://go.microsoft.com/fwlink/?linkid=865557</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/googleiosinstanceid_128x128.png</iconUrl>
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
