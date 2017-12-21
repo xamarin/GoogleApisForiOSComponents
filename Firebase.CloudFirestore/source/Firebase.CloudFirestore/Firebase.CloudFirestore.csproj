@@ -64,5 +64,30 @@
   <ItemGroup>
     <None Include="Firebase.CloudFirestore.targets" />
   </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingNativeLibrary Include="..\..\externals\BoringSSL">
+      <Link>BoringSSL</Link>
+    </ObjcBindingNativeLibrary>
+    <ObjcBindingNativeLibrary Include="..\..\externals\gRPC">
+      <Link>gRPC</Link>
+    </ObjcBindingNativeLibrary>
+    <ObjcBindingNativeLibrary Include="..\..\externals\gRPC-Core">
+      <Link>gRPC-Core</Link>
+    </ObjcBindingNativeLibrary>
+    <ObjcBindingNativeLibrary Include="..\..\externals\gRPC-ProtoRPC">
+      <Link>gRPC-ProtoRPC</Link>
+    </ObjcBindingNativeLibrary>
+    <ObjcBindingNativeLibrary Include="..\..\externals\gRPC-RxLibrary">
+      <Link>gRPC-RxLibrary</Link>
+    </ObjcBindingNativeLibrary>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="..\..\externals\Pods\gRPC\etc\roots.pem">
+      <Link>Resources\roots.pem</Link>
+    </BundleResource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>

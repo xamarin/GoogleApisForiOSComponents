@@ -9,9 +9,9 @@
             <Url>https://dl.google.com/dl/cpdc/60065cc9fa4f0be0/FirebaseFirestore-0.8.0.tar.gz</Url>
             <Kind>Tgz</Kind>
         </XamarinBuildDownload>
-        <XamarinBuildRestoreResources Include="_FirebaseCloudFirestoreItemsFolder" />
+        <XamarinBuildRestoreResources Include="_FirebaseCloudFirestoreItems" />
     </ItemGroup>
-    <Target Name="_FirebaseCloudFirestoreItemsFolder">
+    <Target Name="_FirebaseCloudFirestoreItems">
 
         <PropertyGroup>
             <_FirebaseCloudFirestoreSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseCloudFirestoreItemsFolder)\Frameworks\</_FirebaseCloudFirestoreSDKBaseFolder>
@@ -19,7 +19,7 @@
 
         <ItemGroup>
             <RestoreAssemblyResource Include="$(_FirebaseCloudFirestoreSDKBaseFolder)FirebaseFirestore.framework\FirebaseFirestore">
-                <LogicalName>FirebaseCloudFirestore</LogicalName>
+                <LogicalName>FirebaseFirestore</LogicalName>
                 <AssemblyName>$(_FirebaseCloudFirestoreAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
         </ItemGroup>
