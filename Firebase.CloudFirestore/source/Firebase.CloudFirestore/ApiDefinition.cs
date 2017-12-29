@@ -1,9 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 
-using UIKit;
 using Foundation;
 using ObjCRuntime;
-using CoreGraphics;
 using CoreFoundation;
 
 namespace Firebase.CloudFirestore
@@ -18,7 +17,7 @@ namespace Firebase.CloudFirestore
 	{
 		// @property (readonly, nonatomic, strong) NSString * _Nonnull collectionID;
 		[Export ("collectionID", ArgumentSemantic.Strong)]
-		string CollectionId { get; }
+		string Id { get; }
 
 		// @property (readonly, nonatomic, strong) FIRDocumentReference * _Nullable parent;
 		[NullAllowed]
@@ -41,9 +40,15 @@ namespace Firebase.CloudFirestore
 		[Export ("addDocumentWithData:")]
 		DocumentReference AddDocument (NSDictionary<NSString, NSObject> data);
 
+		[Wrap ("AddDocument (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count))", true)]
+		DocumentReference AddDocument (Dictionary<object, object> data);
+
 		// -(FIRDocumentReference * _Nonnull)addDocumentWithData:(NSDictionary<NSString *,id> * _Nonnull)data completion:(void (^ _Nullable)(NSError * _Nullable))completion;
 		[Export ("addDocumentWithData:completion:")]
 		DocumentReference AddDocument (NSDictionary<NSString, NSObject> data, AddDocumentCompletionHandler completion);
+
+		[Wrap ("AddDocument (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count), completion)", true)]
+		DocumentReference AddDocument (Dictionary<object, object> data, AddDocumentCompletionHandler completion);
 	}
 
 	// @interface FIRDocumentChange : NSObject
@@ -99,7 +104,7 @@ namespace Firebase.CloudFirestore
 	{
 		// @property (readonly, nonatomic, strong) NSString * _Nonnull documentID;
 		[Export ("documentID", ArgumentSemantic.Strong)]
-		string DocumentId { get; }
+		string Id { get; }
 
 		// @property (readonly, nonatomic, strong) FIRCollectionReference * _Nonnull parent;
 		[Export ("parent", ArgumentSemantic.Strong)]
@@ -121,28 +126,49 @@ namespace Firebase.CloudFirestore
 		[Export ("setData:")]
 		void SetData (NSDictionary<NSString, NSObject> documentData);
 
+		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count))", true)]
+		void SetData (Dictionary<object, object> documentData);
+
 		// -(void)setData:(NSDictionary<NSString *,id> * _Nonnull)documentData options:(FIRSetOptions * _Nonnull)options;
 		[Export ("setData:options:")]
 		void SetData (NSDictionary<NSString, NSObject> documentData, SetOptions options);
+
+		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), options)", true)]
+		void SetData (Dictionary<object, object> documentData, SetOptions options);
 
 		// -(void)setData:(NSDictionary<NSString *,id> * _Nonnull)documentData completion:(void (^ _Nullable)(NSError * _Nullable))completion;
 		[Async]
 		[Export ("setData:completion:")]
 		void SetData (NSDictionary<NSString, NSObject> documentData, [NullAllowed] DocumentActionCompletionHandler completion);
 
+		[Async]
+		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), completion)", true)]
+		void SetData (Dictionary<object, object> documentData, [NullAllowed] DocumentActionCompletionHandler completion);
+
 		// -(void)setData:(NSDictionary<NSString *,id> * _Nonnull)documentData options:(FIRSetOptions * _Nonnull)options completion:(void (^ _Nullable)(NSError * _Nullable))completion;
 		[Async]
 		[Export ("setData:options:completion:")]
 		void SetData (NSDictionary<NSString, NSObject> documentData, SetOptions options, [NullAllowed] DocumentActionCompletionHandler completion);
 
+		[Async]
+		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), options, completion)")]
+		void SetData (Dictionary<object, object> documentData, SetOptions options, [NullAllowed] DocumentActionCompletionHandler completion);
+
 		// -(void)updateData:(NSDictionary<id,id> * _Nonnull)fields;
 		[Export ("updateData:")]
 		void UpdateData (NSDictionary<NSObject, NSObject> fields);
+
+		[Wrap ("UpdateData (fields == null ? null : NSDictionary<NSObject, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (fields.Values), System.Linq.Enumerable.ToArray (fields.Keys), fields.Keys.Count))", true)]
+		void UpdateData (Dictionary<object, object> fields);
 
 		// -(void)updateData:(NSDictionary<id,id> * _Nonnull)fields completion:(void (^ _Nullable)(NSError * _Nullable))completion;
 		[Async]
 		[Export ("updateData:completion:")]
 		void UpdateData (NSDictionary<NSObject, NSObject> fields, [NullAllowed] DocumentActionCompletionHandler completion);
+
+		[Async]
+		[Wrap ("UpdateData (fields == null ? null : NSDictionary<NSObject, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (fields.Values), System.Linq.Enumerable.ToArray (fields.Keys), fields.Keys.Count), completion)", true)]
+		void UpdateData (Dictionary<object, object> fields, [NullAllowed] DocumentActionCompletionHandler completion);
 
 		// -(void)deleteDocument;
 		[Export ("deleteDocument")]
@@ -182,7 +208,7 @@ namespace Firebase.CloudFirestore
 
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull documentID;
 		[Export ("documentID")]
-		string DocumentId { get; }
+		string Id { get; }
 
 		// @property (readonly, nonatomic, strong) FIRSnapshotMetadata * _Nonnull metadata;
 		[Export ("metadata", ArgumentSemantic.Strong)]
@@ -221,16 +247,19 @@ namespace Firebase.CloudFirestore
 		// +(instancetype _Nonnull)fieldValueForDelete;
 		[Static]
 		[Export ("fieldValueForDelete")]
-		FieldValue CreateDelete ();
+		FieldValue Delete { get; }
 
 		// +(instancetype _Nonnull)fieldValueForServerTimestamp;
 		[Static]
 		[Export ("fieldValueForServerTimestamp")]
-		FieldValue CreateServerTimestamp ();
+		FieldValue ServerTimestamp { get; }
 	}
 
 	// id _Nullable (^)(FIRTransaction *, NSError **)
 	//delegate NSObject UpdateHandler (Transaction transaction, out NSError error);
+
+	// id  _Nullable (^ _Nonnull)(FIRTransaction * _Nonnull, NSError * _Nullable * _Nullable)
+	delegate NSObject TransactionUpdateHandler (Transaction transaction, IntPtr error);
 
 	// void (^)(id _Nullable result, NSError *_Nullable error)
 	delegate void TransactionCompletionHandler ([NullAllowed] NSObject result, [NullAllowed] NSError error);
@@ -248,7 +277,7 @@ namespace Firebase.CloudFirestore
 		[Static]
 		[Export ("firestore")]
 		Firestore SharedInstance { get; }
-
+		 
 		// +(instancetype _Nonnull)firestoreForApp:(FIRApp * _Nonnull)app;
 		[Static]
 		[Export ("firestoreForApp:")]
@@ -273,7 +302,7 @@ namespace Firebase.CloudFirestore
 		// -(void)runTransactionWithBlock:(id  _Nullable (^ _Nonnull)(FIRTransaction * _Nonnull, NSError * _Nullable * _Nullable))updateBlock completion:(void (^ _Nonnull)(id _Nullable, NSError * _Nullable))completion;
 		[Internal]
 		[Export ("runTransactionWithBlock:completion:")]
-		void _RunTransaction (Func<Transaction, IntPtr, NSObject> updateHandler, TransactionCompletionHandler completion);
+		void _RunTransaction (TransactionUpdateHandler updateHandler, TransactionCompletionHandler completion);
 
 		// -(FIRWriteBatch * _Nonnull)batch;
 		[Export ("batch")]
@@ -391,43 +420,73 @@ namespace Firebase.CloudFirestore
 
 		// -(FIRQuery * _Nonnull)queryWhereField:(NSString * _Nonnull)field isEqualTo:(id _Nonnull)value;
 		[Export ("queryWhereField:isEqualTo:")]
-		Query WhereEquals (string field, NSObject toValue);
+		Query WhereEqualsTo (string field, NSObject value);
+
+		[Wrap ("WhereEqualsTo (field, FromObject (value))", true)]
+		Query WhereEqualsTo (string field, object value);
 
 		// -(FIRQuery * _Nonnull)queryWhereFieldPath:(FIRFieldPath * _Nonnull)path isEqualTo:(id _Nonnull)value;
 		[Export ("queryWhereFieldPath:isEqualTo:")]
-		Query WhereEquals (FieldPath path, NSObject toValue);
+		Query WhereEqualsTo (FieldPath path, NSObject value);
+
+		[Wrap ("WhereEqualsTo (path, FromObject (value))", true)]
+		Query WhereEqualsTo (FieldPath path, object value);
 
 		// -(FIRQuery * _Nonnull)queryWhereField:(NSString * _Nonnull)field isLessThan:(id _Nonnull)value;
 		[Export ("queryWhereField:isLessThan:")]
-		Query WhereLess (string field, NSObject thanValue);
+		Query WhereLessThan (string field, NSObject value);
+
+		[Wrap ("WhereLessThan (field, FromObject (value))", true)]
+		Query WhereLessThan (string field, object value);
 
 		// -(FIRQuery * _Nonnull)queryWhereFieldPath:(FIRFieldPath * _Nonnull)path isLessThan:(id _Nonnull)value;
 		[Export ("queryWhereFieldPath:isLessThan:")]
-		Query WhereLess (FieldPath path, NSObject thanValue);
+		Query WhereLessThan (FieldPath path, NSObject value);
+
+		[Wrap ("WhereLessThan (path, FromObject (value))", true)]
+		Query WhereLessThan (FieldPath path, object value);
 
 		// -(FIRQuery * _Nonnull)queryWhereField:(NSString * _Nonnull)field isLessThanOrEqualTo:(id _Nonnull)value;
 		[Export ("queryWhereField:isLessThanOrEqualTo:")]
-		Query WhereLessOrEquals (string field, NSObject toValue);
+		Query WhereLessThanOrEqualsTo (string field, NSObject value);
+
+		[Wrap ("WhereLessThanOrEqualsTo (field, FromObject (value))", true)]
+		Query WhereLessThanOrEqualsTo (string field, object value);
 
 		// -(FIRQuery * _Nonnull)queryWhereFieldPath:(FIRFieldPath * _Nonnull)path isLessThanOrEqualTo:(id _Nonnull)value;
 		[Export ("queryWhereFieldPath:isLessThanOrEqualTo:")]
-		Query WhereLessOrEquals (FieldPath path, NSObject toValue);
+		Query WhereLessThanOrEqualsTo (FieldPath path, NSObject value);
+
+		[Wrap ("WhereLessThanOrEqualsTo (path, FromObject (value))", true)]
+		Query WhereLessThanOrEqualsTo (FieldPath path, object value);
 
 		// -(FIRQuery * _Nonnull)queryWhereField:(NSString * _Nonnull)field isGreaterThan:(id _Nonnull)value;
 		[Export ("queryWhereField:isGreaterThan:")]
-		Query WhereGreater (string field, NSObject thanValue);
+		Query WhereGreaterThan (string field, NSObject value);
+
+		[Wrap ("WhereGreaterThan (field, FromObject (value))", true)]
+		Query WhereGreaterThan (string field, object value);
 
 		// -(FIRQuery * _Nonnull)queryWhereFieldPath:(FIRFieldPath * _Nonnull)path isGreaterThan:(id _Nonnull)value;
 		[Export ("queryWhereFieldPath:isGreaterThan:")]
-		Query WhereGreater (FieldPath path, NSObject thanValue);
+		Query WhereGreaterThan (FieldPath path, NSObject value);
+
+		[Wrap ("WhereGreaterThan (path, FromObject (value))", true)]
+		Query WhereGreaterThan (FieldPath path, object value);
 
 		// -(FIRQuery * _Nonnull)queryWhereField:(NSString * _Nonnull)field isGreaterThanOrEqualTo:(id _Nonnull)value;
 		[Export ("queryWhereField:isGreaterThanOrEqualTo:")]
-		Query WhereGreaterOrEquals (string field, NSObject toValue);
+		Query WhereGreaterThanOrEqualsTo (string field, NSObject value);
+
+		[Wrap ("WhereGreaterThanOrEqualsTo (field, FromObject (value))", true)]
+		Query WhereGreaterThanOrEqualsTo (string field, object value);
 
 		// -(FIRQuery * _Nonnull)queryWhereFieldPath:(FIRFieldPath * _Nonnull)path isGreaterThanOrEqualTo:(id _Nonnull)value;
 		[Export ("queryWhereFieldPath:isGreaterThanOrEqualTo:")]
-		Query WhereGreaterOrEquals (FieldPath path, NSObject toValue);
+		Query WhereGreaterThanOrEqualsTo (FieldPath path, NSObject value);
+
+		[Wrap ("WhereGreaterThanOrEqualsTo (path, FromObject (value))", true)]
+		Query WhereGreaterThanOrEqualsTo (FieldPath path, object value);
 
 		// -(FIRQuery * _Nonnull)queryOrderedByField:(NSString * _Nonnull)field;
 		[Export ("queryOrderedByField:")]
@@ -457,6 +516,9 @@ namespace Firebase.CloudFirestore
 		[Export ("queryStartingAtValues:")]
 		Query StartingAt (NSObject [] fieldValues);
 
+		[Wrap ("StartingAt (CloudFirestoreHelper.GetNSObjects (fieldValues))")]
+		Query StartingAt (object [] fieldValues);
+
 		// -(FIRQuery * _Nonnull)queryStartingAfterDocument:(FIRDocumentSnapshot * _Nonnull)document;
 		[Export ("queryStartingAfterDocument:")]
 		Query StartingAfter (DocumentSnapshot document);
@@ -464,6 +526,9 @@ namespace Firebase.CloudFirestore
 		// -(FIRQuery * _Nonnull)queryStartingAfterValues:(NSArray * _Nonnull)fieldValues;
 		[Export ("queryStartingAfterValues:")]
 		Query StartingAfter (NSObject [] fieldValues);
+
+		[Wrap ("StartingAfter (CloudFirestoreHelper.GetNSObjects (fieldValues))")]
+		Query StartingAfter (object [] fieldValues);
 
 		// -(FIRQuery * _Nonnull)queryEndingBeforeDocument:(FIRDocumentSnapshot * _Nonnull)document;
 		[Export ("queryEndingBeforeDocument:")]
@@ -473,6 +538,9 @@ namespace Firebase.CloudFirestore
 		[Export ("queryEndingBeforeValues:")]
 		Query EndingBefore (NSObject [] fieldValues);
 
+		[Wrap ("EndingBefore (CloudFirestoreHelper.GetNSObjects (fieldValues))")]
+		Query EndingBefore (object [] fieldValues);
+
 		// -(FIRQuery * _Nonnull)queryEndingAtDocument:(FIRDocumentSnapshot * _Nonnull)document;
 		[Export ("queryEndingAtDocument:")]
 		Query EndingAt (DocumentSnapshot document);
@@ -480,6 +548,9 @@ namespace Firebase.CloudFirestore
 		// -(FIRQuery * _Nonnull)queryEndingAtValues:(NSArray * _Nonnull)fieldValues;
 		[Export ("queryEndingAtValues:")]
 		Query EndingAt (NSObject [] fieldValues);
+
+		[Wrap ("EndingAt (CloudFirestoreHelper.GetNSObjects (fieldValues))")]
+		Query EndingAt (object [] fieldValues);
 	}
 
 	// @interface FIRQuerySnapshot : NSObject
@@ -520,7 +591,7 @@ namespace Firebase.CloudFirestore
 		// +(instancetype _Nonnull)merge;
 		[Static]
 		[Export ("merge")]
-		SetOptions CreateMerge ();
+		SetOptions Merge { get; }
 
 		// @property (readonly, getter = isMerge, nonatomic) BOOL merge;
 		[Export ("isMerge")]
@@ -550,13 +621,22 @@ namespace Firebase.CloudFirestore
 		[Export ("setData:forDocument:")]
 		Transaction SetData (NSDictionary<NSString, NSObject> data, DocumentReference document);
 
+		[Wrap ("SetData (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count), document)", true)]
+		Transaction SetData (Dictionary<object, object> data, DocumentReference document);
+
 		// -(FIRTransaction * _Nonnull)setData:(NSDictionary<NSString *,id> * _Nonnull)data forDocument:(FIRDocumentReference * _Nonnull)document options:(FIRSetOptions * _Nonnull)options;
 		[Export ("setData:forDocument:options:")]
 		Transaction SetData (NSDictionary<NSString, NSObject> data, DocumentReference document, SetOptions options);
 
+		[Wrap ("SetData (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count), document, options)", true)]
+		Transaction SetData (Dictionary<object, object> data, DocumentReference document, SetOptions options);
+
 		// -(FIRTransaction * _Nonnull)updateData:(NSDictionary<id,id> * _Nonnull)fields forDocument:(FIRDocumentReference * _Nonnull)document;
 		[Export ("updateData:forDocument:")]
 		Transaction UpdateData (NSDictionary<NSObject, NSObject> fields, DocumentReference document);
+
+		[Wrap ("UpdateData (fields == null ? null : NSDictionary<NSObject, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (fields.Values), System.Linq.Enumerable.ToArray (fields.Keys), fields.Keys.Count), document)", true)]
+		Transaction UpdateData (Dictionary<object, object> fields, DocumentReference document);
 
 		// -(FIRTransaction * _Nonnull)deleteDocument:(FIRDocumentReference * _Nonnull)document;
 		[Export ("deleteDocument:")]
@@ -580,13 +660,22 @@ namespace Firebase.CloudFirestore
 		[Export ("setData:forDocument:")]
 		WriteBatch SetData (NSDictionary<NSString, NSObject> data, DocumentReference document);
 
+		[Wrap ("SetData (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count), document)", true)]
+		WriteBatch SetData (Dictionary<object, object> data, DocumentReference document);
+
 		// -(FIRWriteBatch * _Nonnull)setData:(NSDictionary<NSString *,id> * _Nonnull)data forDocument:(FIRDocumentReference * _Nonnull)document options:(FIRSetOptions * _Nonnull)options;
 		[Export ("setData:forDocument:options:")]
 		WriteBatch SetData (NSDictionary<NSString, NSObject> data, DocumentReference document, SetOptions options);
 
+		[Wrap ("SetData (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count), document, options)", true)]
+		WriteBatch SetData (Dictionary<object, object> data, DocumentReference document, SetOptions options);
+
 		// -(FIRWriteBatch * _Nonnull)updateData:(NSDictionary<id,id> * _Nonnull)fields forDocument:(FIRDocumentReference * _Nonnull)document;
 		[Export ("updateData:forDocument:")]
 		WriteBatch UpdateData (NSDictionary<NSObject, NSObject> fields, DocumentReference document);
+
+		[Wrap ("UpdateData (fields == null ? null : NSDictionary<NSObject, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (fields.Values), System.Linq.Enumerable.ToArray (fields.Keys), fields.Keys.Count), document)", true)]
+		WriteBatch UpdateData (Dictionary<object, object> fields, DocumentReference document);
 
 		// -(FIRWriteBatch * _Nonnull)deleteDocument:(FIRDocumentReference * _Nonnull)document;
 		[Export ("deleteDocument:")]
