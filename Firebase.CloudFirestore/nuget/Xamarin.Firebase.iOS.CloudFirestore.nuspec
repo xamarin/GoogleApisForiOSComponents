@@ -4,11 +4,11 @@
     <id>Xamarin.Firebase.iOS.CloudFirestore</id>
     <title>Firebase APIs Cloud Firestore iOS Library</title>
     <version>0.8.0.0</version>
-    <authors>Xamarin Inc.</authors>
-    <owners>Xamarin Inc.</owners>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>C# bindings for Firebase APIs Cloud Firestore iOS Library</description>
-    <copyright>Copyright 2017 Microsoft</copyright>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
     <projectUrl>https://components.xamarin.com/view/firebaseioscloudfirestore</projectUrl>
     <licenseUrl>https://components.xamarin.com/license/firebaseioscloudfirestore</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseioscloudfirestore_128x128.png</iconUrl>
