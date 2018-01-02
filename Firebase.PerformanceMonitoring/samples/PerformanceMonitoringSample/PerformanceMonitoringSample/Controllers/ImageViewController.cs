@@ -106,7 +106,7 @@ namespace PerformanceMonitoringSample
 			UIImage image = null;
 			try {
 				image = await DownloadManager.DownloadImageUsingHttpClient (ImageUrl, cancellationToken);
-			} catch (Exception ex) when (ex is TaskCanceledException || ex is HttpRequestException) {
+			} catch (Exception ex) {
 				downloadFailed = true;
 				InvokeOnMainThread (() => AppDelegate.ShowMessage ("Image couldn't be downloaded...", ex.Message, NavigationController));
 			}
@@ -118,7 +118,7 @@ namespace PerformanceMonitoringSample
 			UIImage image = null;
 			try {
 				image = await DownloadManager.DownloadImageUsingNSUrlSession (ImageUrl, cancellationToken);
-			} catch (Exception ex) when (ex is TaskCanceledException || ex is NSErrorException) {
+			} catch (Exception ex) {
 				downloadFailed = true;
 				InvokeOnMainThread (() => AppDelegate.ShowMessage ("Image couldn't be downloaded...", ex.Message, NavigationController));
 			}
