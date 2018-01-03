@@ -25,13 +25,13 @@
 				<LogicalName>FirebaseAnalytics</LogicalName>
 				<AssemblyName>$(_FirebaseAnalyticsAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseCoreSDKBaseFolder)FirebaseCoreDiagnostics.framework\FirebaseCoreDiagnostics">
+            <RestoreAssemblyResource Include="$(_FirebaseAnalyticsSDKBaseFolder)FirebaseCoreDiagnostics.framework\FirebaseCoreDiagnostics">
                 <LogicalName>FirebaseCoreDiagnostics</LogicalName>
-                <AssemblyName>$(_FirebaseCoreAssemblyName)</AssemblyName>
+                <AssemblyName>$(_FirebaseAnalyticsAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FirebaseCoreSDKBaseFolder)FirebaseNanoPB.framework\FirebaseNanoPB">
+            <RestoreAssemblyResource Include="$(_FirebaseAnalyticsSDKBaseFolder)FirebaseNanoPB.framework\FirebaseNanoPB">
                 <LogicalName>FirebaseNanoPB</LogicalName>
-                <AssemblyName>$(_FirebaseCoreAssemblyName)</AssemblyName>
+                <AssemblyName>$(_FirebaseAnalyticsAssemblyName)</AssemblyName>
             </RestoreAssemblyResource>
 		</ItemGroup>
 		
