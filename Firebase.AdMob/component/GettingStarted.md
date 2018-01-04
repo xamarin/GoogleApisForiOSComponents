@@ -2,7 +2,7 @@
 
 AdMob uses the Google Mobile Ads SDK. The Google Mobile Ads SDK helps app developers gain insights about their users, drives more in-app purchases, and maximizes ad revenue. To do so, the default integration of the Mobile Ads SDK collects information such as device information, publisher-provided location information, and general in-app purchase information (such as item purchase price and currency).
 
-**_Note: The Mobile Ads SDK does not collect payment card information._**
+> ![note_icon] **_Note: The Mobile Ads SDK does not collect payment card information._**
 
 ## Use Google Mobile Ads SDK without Firebase
 
@@ -52,7 +52,7 @@ However, once you register an app in the AdMob UI and create your own ad unit ID
 
 - [Banner Ads](#banner-ads)
 - [Interstitial Ads](#interstitial-ads)
-- [Native Ads Express](#native-ads-express)
+- [Native Ads Express](#native-ads-express) ![deprecated_icon]
 - [Native Ads Advanced](#native-ads-advanced)
 - [Rewarded Video Ads](#rewarded-video-ads)
 - [Known issues](#known-issues)
@@ -120,7 +120,7 @@ public override void ViewDidLoad ()
 }
 ```
 
-> Note: Ad unit IDs are created in the AdMob UI, and represent a place in your app where ads appear. If you show banner ads in two view controllers, for example, you can create an ad unit for each one.
+> ![note_icon] Note: Ad unit IDs are created in the AdMob UI, and represent a place in your app where ads appear. If you show banner ads in two view controllers, for example, you can create an ad unit for each one.
 
 ### Call LoadRequest method
 
@@ -628,6 +628,8 @@ While increasing the frequency of interstitial ads in your app might seem like a
 
 ## Native Ads Express
 
+> ![warning_icon] **The native express ad format is being discontinued. Starting October 23, 2017, you'll no longer be able to create new native express ad units. Existing native express ad units will stop serving ads on March 1, 2018.**
+
 Native Express ads are similar to banners in that they're rectangular ads that you can drop into a storyboard and size how you like. The key difference is that you, the publisher, can control the ad's presentation details (things like image sizes, fonts, colors, and so on) by uploading a CSS template for your ad unit. AdMob combines that template with advertiser assets like icons, images, and text, and displays the resulting HTML in a `NativeExpressAdView`. This approach minimizes the amount of mobile code needed for a Native Express ad, while helping publishers display ads that look natural in their app.
 
 This guide shows you how to integrate Native Ads Express from AdMob into an iOS app. In addition to code snippets and instructions, it includes information about how to choose the correct size category for your ad units.
@@ -751,7 +753,7 @@ public class YourViewController : UIViewController
 ```
 ## Native Ads Advanced
 
-> **_Note:_** _Native Ads Advanced is currently in a limited beta release. If you are interested in participating, reach out to your account manager to discuss the possibility. This feature will be made available to all publishers at the conclusion of the beta._
+> ![note_icon] **_Note:_** _Native Ads Advanced is currently in a limited beta release. If you are interested in participating, reach out to your account manager to discuss the possibility. This feature will be made available to all publishers at the conclusion of the beta._
 
 Native Ads Advanced is a format in which ad assets are presented to users via UI components that are native to the platform. They're shown using the same classes you already use in your storyboards, and can be formatted to match your app's visual design. When an ad loads, your app receives an ad object that contains its assets, and the app (rather than the SDK) is then responsible for displaying them.
 
@@ -763,7 +765,7 @@ This guide shows you how to integrate Native Ads Advanced from AdMob into an iOS
 
 Native Advanced ads are loaded via `AdLoader` objects, which send messages to their delegates according to the `IAdLoaderDelegate` interface.
 
-#### Initialize a GADAdLoader
+#### Initialize a AdLoader
 
 The following code demonstrates how to initialize a `AdLoader` for an app install ad:
 
@@ -790,7 +792,7 @@ adLoader.LoadRequest (Request.GetDefaultRequest ());
 
 The `LoadRequest` method in `AdLoader` accepts the same `Request` objects as banners and interstitials. You can use request objects to add targeting information just as you would with other ad types.
 
-**_Note:_** _A single `AdLoader` can make multiple requests, but only if they're done one at a time. When reusing a `AdLoader`, make sure you wait for each request to finish before calling `LoadRequest` method again to begin the next. If you need to request multiple ads in parallel, you can always use multiple `AdLoader` objects._
+> ![note_icon] **_Note:_** _A single `AdLoader` can make multiple requests, but only if they're done one at a time. When reusing a `AdLoader`, make sure you wait for each request to finish before calling `LoadRequest` method again to begin the next. If you need to request multiple ads in parallel, you can always use multiple `AdLoader` objects._
 
 #### IAdLoaderDelegate interfaces
 
@@ -851,7 +853,7 @@ Some creatives have multiple available images to match different device orientat
 * `NativeAdImageAdLoaderOptionsOrientation.Landscape`
 * `NativeAdImageAdLoaderOptionsOrientation.Portrait`
 
-> **_Note:_** _If you use `PreferredImageOrientation` to specify a preference for landscape or portrait image orientation, the SDK places images matching that orientation first in image asset arrays and place non-matching images after them. Since some ads only have one orientation available, publishers should make sure that their apps can handle both landscape and portrait images._
+> ![note_icon] **_Note:_** _If you use `PreferredImageOrientation` to specify a preference for landscape or portrait image orientation, the SDK places images matching that orientation first in image asset arrays and place non-matching images after them. Since some ads only have one orientation available, publishers should make sure that their apps can handle both landscape and portrait images._
 
 If this method is not called, the default value of `NativeAdImageAdLoaderOptionsOrientation.Any` is used.
 
@@ -882,7 +884,7 @@ This boolean indicates whether video assets should begin playback in a muted sta
 
 Applications displaying Native Advanced ads are free to request them in advance of when they'll actually be displayed. In many cases, this is the recommended practice. An app displaying a list of items with ads mixed in, for example, can load ads for the whole list, knowing that some are shown only after the user scrolls the view and some may not be displayed at all.
 
-> **_Note:_** _While prefetching ads is a great technique, it's important that publishers not keep old ads around forever without displaying them. Any native ad objects that have been held without display for longer than an hour should be discarded and replaced with new ads from a new request._
+> ![note_icon] **_Note:_** _While prefetching ads is a great technique, it's important that publishers not keep old ads around forever without displaying them. Any native ad objects that have been held without display for longer than an hour should be discarded and replaced with new ads from a new request._
 
 ### Display an ad
 
@@ -1113,3 +1115,6 @@ if (RewardBasedVideoAd.SharedInstance.IsReady) {
 [4]: https://support.google.com/admob/answer/6240809
 [5]: https://support.google.com/dfp_premium/answer/6075370
 [6]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689
+[note_icon]: https://cdn3.iconfinder.com/data/icons/UltimateGnome/22x22/apps/gnome-app-install-star.png
+[warning_icon]: https://cdn2.iconfinder.com/data/icons/freecns-cumulus/32/519791-101_Warning-20.png
+[deprecated_icon]: https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519643-144_Forbidden-20.png "Deprecated"
