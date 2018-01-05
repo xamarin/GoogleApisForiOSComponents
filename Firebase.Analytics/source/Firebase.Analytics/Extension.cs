@@ -20,12 +20,6 @@ namespace Firebase.Analytics
 
 			SetUserProperty (value.ToString (), name.ToString ());
 		}
-
-		[Obsolete ("This will be removed in future versions, please use SetScreenNameAndClass method instead.")]
-		public static void setScreenNameAndClass (string screenName, string screenClassOverride)
-		{
-			SetScreenNameAndClass (screenName, screenClassOverride);
-		}
 	}
 
 	public static class EventNamesConstants
