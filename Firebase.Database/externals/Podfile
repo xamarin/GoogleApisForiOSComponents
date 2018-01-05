@@ -32,6 +32,6 @@ platform :ios, '7.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'FirebaseDatabase' do
-	pod 'Firebase/Database', '4.3.0'
+	pod 'Firebase/Database', '4.8.0'
 	pod 'leveldb-library', '1.18.3'
 end

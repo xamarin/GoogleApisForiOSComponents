@@ -108,7 +108,7 @@ For basic write operations, you can use `SetValue<T> (T value)`, `SetValues<T> (
 * NSDictionary
 * NSArray
 
-***Note:*** *If you pass an object different from these 4 types, an exception will be thrown. Types inherited from these 4 types will be accepted.*
+> ![warning_icon] ***Note:*** *If you pass an object different from these 4 types, an exception will be thrown. Types inherited from these 4 types will be accepted.*
 
 For instance, you can add a user with `SetValue<T> (T value)`. First create a reference that points to the user reference:
 
@@ -148,7 +148,7 @@ To read data at a path and listen for changes, use the `ObserveEvent` or `Observ
 
 You can use the `DataEventType.Value` event to read the data at a given path, as it exists at the time of the event. This method is triggered once when the listener is attached and again every time the data, including any children, changes. The event callback is passed a `snapshot` containing all data at that location, including child data. If there is no data, the `value` of the `snapshot` returned is `null`.
 
-> ***Important:*** *The `DataEventType.Value` event is fired every time data is changed at the specified database reference, including changes to children. To limit the size of your snapshots, attach only at the highest level needed for watching changes. For example, attaching a listener to the root of your database is not recommended.*
+> ![note_icon] ***Important:*** *The `DataEventType.Value` event is fired every time data is changed at the specified database reference, including changes to children. To limit the size of your snapshots, attach only at the highest level needed for watching changes. For example, attaching a listener to the root of your database is not recommended.*
 
 The following example demonstrates a notes application retrieving the user's folders from the database:
 
@@ -271,7 +271,7 @@ noteNode.RunTransaction ((currentData) => {
 
 Using a transaction prevents note content from being incorrect if multiple users edit the same note at the same time or the client had stale data. The value contained in the `MutableData` class is initially the client's last known value for the path, or `null` if there is none. The server compares the initial value against it's current value and accepts the transaction if the values match, or rejects it. If the transaction is rejected, the server returns the current value to the client, which runs the transaction again with the updated value. This repeats until the transaction is accepted or too many attempts have been made.
 
-***Note:*** *Because `RunTransaction` method is called multiple times, it must be able to handle `null` data. Even if there is existing data in your remote database, it may not be locally cached when the transaction function is run, resulting in `null` for the initial value.*
+> ![note_icon] ***Note:*** *Because `RunTransaction` method is called multiple times, it must be able to handle `null` data. Even if there is existing data in your remote database, it may not be locally cached when the transaction function is run, resulting in `null` for the initial value.*
 
 ## Write data offline
 
@@ -376,7 +376,7 @@ This pattern can be useful when you want to fetch all children of a list in a si
 
 You can use the Realtime Database `DatabaseQuery` class to retrieve data sorted by key, by value, or by the value of a child. You can also filter the sorted result to a specific number of results or a range of keys or values.
 
-***Note:*** *Filtering and sorting can be expensive, especially when done on the client. If your app uses queries, define the .indexOn rule to index those keys on the server and improve query performance as described in [Indexing Your Data][7].*
+> ![note_icon] ***Note:*** *Filtering and sorting can be expensive, especially when done on the client. If your app uses queries, define the .indexOn rule to index those keys on the server and improve query performance as described in [Indexing Your Data][7].*
 
 ### Sort data
 
@@ -693,6 +693,18 @@ Please, read this [Firebase documentation][19] to learn more about Automated Bac
 
 To learn about Firebase Database best practices, please visit this [Firebase post][11].
 
+## Automated Backups
+
+[Blaze][20] plan users can set up their Firebase Realtime Database for automatic backups, a self-service feature that enables daily backups of your Database application data and [rules][13] in JSON format to a [Google Cloud Storage][21] bucket.
+
+To learn more about this, please, read the following [documentation][22].
+
+## Extend Realtime Database with Cloud Functions
+
+With Cloud Functions, you can handle events in the Firebase Realtime Database with no need to update client code. Cloud Functions lets you run database operations with full administrative privileges, and ensures that each change to the database is processed individually. You can make Firebase Database changes via the [DeltaSnapshot][23] or via the [Admin SDK][24].
+
+To learn more about this, please, read the following [documentation][25].
+
 ## Known issues
 
 * App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][12])
@@ -718,3 +730,11 @@ To learn about Firebase Database best practices, please visit this [Firebase pos
 [17]: https://firebase.google.com/docs/database/security/indexing-data
 [18]: https://firebase.google.com/docs/database/rest/app-management
 [19]: https://firebase.google.com/docs/database/ios/backups
+[20]: https://firebase.google.com/pricing/
+[21]: https://cloud.google.com/storage/docs/
+[22]: https://firebase.google.com/docs/database/backups
+[23]: https://firebase.google.com/docs/reference/functions/functions.database.DeltaSnapshot
+[24]: https://firebase.google.com/docs/database/admin/start
+[25]: https://firebase.google.com/docs/database/extend-with-functions
+[note_icon]: https://cdn3.iconfinder.com/data/icons/UltimateGnome/22x22/apps/gnome-app-install-star.png
+[warning_icon]: https://cdn2.iconfinder.com/data/icons/freecns-cumulus/32/519791-101_Warning-20.png
