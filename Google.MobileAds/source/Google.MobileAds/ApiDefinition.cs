@@ -926,6 +926,7 @@ namespace Google.MobileAds
 	}
 
 	// @interface GADAdLoader : NSObject
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GADAdLoader")]
 	interface AdLoader
 	{
