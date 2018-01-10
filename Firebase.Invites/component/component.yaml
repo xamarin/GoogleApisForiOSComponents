@@ -1,4 +1,4 @@
-version: 2.0.1.0
+version: 2.0.1.1
 name: Firebase Invites for iOS
 id: firebaseiosinvites
 publisher: Xamarin Inc.
@@ -21,7 +21,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Firebase.iOS.Invites, Version=2.0.1.0
+  - Xamarin.Firebase.iOS.Invites, Version=2.0.1.1
 samples:
 - name: Invites Sample
   path: ../samples/InvitesSample/InvitesSample.sln

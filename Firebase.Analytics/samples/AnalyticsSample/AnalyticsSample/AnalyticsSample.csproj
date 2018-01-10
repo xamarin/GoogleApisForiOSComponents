@@ -84,11 +84,6 @@
     <MtouchExtraArgs>--linkskip=Firebase.Analytics</MtouchExtraArgs>
     <Commandlineparameters></Commandlineparameters>
     <ExternalConsole>false</ExternalConsole>
-    <EnvironmentVariables>
-      <EnvironmentVariables>
-        <Variable name="ENABLE_ANALYTICS_DEBUG" value="-FIRAnalyticsDebugEnabled" />
-      </EnvironmentVariables>
-    </EnvironmentVariables>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
