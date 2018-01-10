@@ -24,6 +24,9 @@ namespace DynamicLinksSample
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
 
+			UINavigationBar.Appearance.TintColor = UIColor.White;
+			UIApplication.SharedApplication.StatusBarStyle = UIStatusBarStyle.LightContent;
+
 			// Set DeepLinkUrlScheme to the custom URL scheme you defined in your
 			// Info.plist.
 			Options.DefaultInstance.DeepLinkUrlScheme = "com.xamarin.firebase.ios.dynamiclinkssample";

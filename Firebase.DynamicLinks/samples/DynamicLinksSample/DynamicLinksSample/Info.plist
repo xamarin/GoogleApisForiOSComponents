@@ -47,5 +47,7 @@
 			<string>Editor</string>
 		</dict>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>
