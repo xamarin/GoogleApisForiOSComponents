@@ -553,6 +553,11 @@ namespace Google.MobileAds
 		[Export ("adNetworkClassName")]
 		string AdNetworkClassName { get; }
 
+		// @property(nonatomic, copy, GAD_NULLABLE) NSString *userIdentifier;
+		[NullAllowed]
+		[Export ("userIdentifier")]
+		string UserIdentifier { get; }
+
 		// +(GADRewardBasedVideoAd *)sharedInstance;
 		[Static]
 		[Export ("sharedInstance")]
@@ -912,9 +917,6 @@ namespace Google.MobileAds
 	[BaseType (typeof (UIView), Name = "GADAdChoicesView")]
 	interface AdChoicesView
 	{
-		// @property(nonatomic, weak) GADNativeAd *nativeAd;
-		[Export ("nativeAd", ArgumentSemantic.Weak)]
-		NativeAd NativeAd { get; set; }
 	}
 
 	// @interface GADAdLoaderOptions : NSObject
@@ -924,6 +926,7 @@ namespace Google.MobileAds
 	}
 
 	// @interface GADAdLoader : NSObject
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GADAdLoader")]
 	interface AdLoader
 	{
@@ -1147,8 +1150,13 @@ namespace Google.MobileAds
 		VideoController VideoController { get; }
 
 		// - (void)registerAdView:(UIView *)adView assetViews:(NSDictionary<NSString *, UIView *> *)assetViews;
+		[Obsolete ("Use RegisterAdView overloaded method instead.")]
 		[Export ("registerAdView:assetViews:")]
 		void RegisterAdView (UIView adView, NSDictionary<NSString, UIView> assetViews);
+
+		// - (void)registerAdView:(UIView *)adView clickableAssetViews:(NSDictionary<GADNativeAppInstallAssetID, UIView*>*)clickableAssetViews nonclickableAssetViews:(NSDictionary<GADNativeAppInstallAssetID, UIView*>*)nonclickableAssetViews;
+		[Export ("registerAdView:clickableAssetViews:nonclickableAssetViews:")]
+		void RegisterAdView (UIView adView, NSDictionary<NSString, UIView> clickableAssetViews, NSDictionary<NSString, UIView> nonclickableAssetViews);
 
 		// - (void)unregisterAdView;
 		[Export ("unregisterAdView")]
@@ -1273,8 +1281,13 @@ namespace Google.MobileAds
 		VideoController VideoController { get; }
 
 		// - (void)registerAdView:(UIView *)adView assetViews:(NSDictionary<NSString *, UIView *> *)assetViews;
+		[Obsolete ("Use RegisterAdView overloaded method instead.")]
 		[Export ("registerAdView:assetViews:")]
 		void RegisterAdView (UIView adView, NSDictionary<NSString, UIView> assetViews);
+
+		// - (void)registerAdView:(UIView *)adView clickableAssetViews:(NSDictionary<GADNativeAppInstallAssetID, UIView*>*)clickableAssetViews nonclickableAssetViews:(NSDictionary<GADNativeAppInstallAssetID, UIView*>*)nonclickableAssetViews;
+		[Export ("registerAdView:clickableAssetViews:nonclickableAssetViews:")]
+		void RegisterAdView (UIView adView, NSDictionary<NSString, UIView> clickableAssetViews, NSDictionary<NSString, UIView> nonclickableAssetViews);
 
 		// - (void)unregisterAdView;
 		[Export ("unregisterAdView")]
@@ -2136,7 +2149,7 @@ namespace Google.MobileAds
 
 		// - (void)mediatedNativeAd:(id<GADMediatedNativeAd>)mediatedNativeAd didUntrackView:(UIView*)view;
 		[Export ("mediatedNativeAd:didUntrackView:")]
-		void DidUntrackView (IMediatedNativeAd mediatedNativeAd, UIView view);
+		void DidUntrackView (IMediatedNativeAd mediatedNativeAd, [NullAllowed] UIView view);
 	}
 
 	// @interface GADMediatedNativeAdNotificationSource : NSObject
@@ -2174,6 +2187,21 @@ namespace Google.MobileAds
 		[Static]
 		[Export ("mediatedNativeAdWillLeaveApplication:")]
 		void WillLeaveApplication (IMediatedNativeAd mediatedNativeAd);
+
+		// +(void)mediatedNativeAdDidPlayVideo:(id<GADMediatedNativeAd> _Nonnull)mediatedNativeAd;
+		[Static]
+		[Export ("mediatedNativeAdDidPlayVideo:")]
+		void DidPlayVideo (IMediatedNativeAd mediatedNativeAd);
+
+		// +(void)mediatedNativeAdDidPauseVideo:(id<GADMediatedNativeAd> _Nonnull)mediatedNativeAd;
+		[Static]
+		[Export ("mediatedNativeAdDidPauseVideo:")]
+		void DidPauseVideo (IMediatedNativeAd mediatedNativeAd);
+
+		// +(void)mediatedNativeAdDidEndVideoPlayback:(id<GADMediatedNativeAd> _Nonnull)mediatedNativeAd;
+		[Static]
+		[Export ("mediatedNativeAdDidEndVideoPlayback:")]
+		void DidEndVideoPlayback (IMediatedNativeAd mediatedNativeAd);
 	}
 
 	interface IMediatedNativeAppInstallAd
@@ -2238,6 +2266,15 @@ namespace Google.MobileAds
 		[return: NullAllowed]
 		[Export ("adChoicesView")]
 		UIView GetAdChoicesView ();
+
+		// @optional -(UIView * _Nullable)mediaView;
+		[return: NullAllowed]
+		[Export ("mediaView")]
+		UIView GetMediaView ();
+
+		// @optional -(BOOL)hasVideoContent;
+		[Export ("hasVideoContent")]
+		bool HasVideoContent ();
 	}
 
 	interface IMediatedNativeContentAd
@@ -2290,15 +2327,21 @@ namespace Google.MobileAds
 		[return: NullAllowed]
 		[Export ("adChoicesView")]
 		UIView GetAdChoicesView ();
+
+		// @optional -(UIView * _Nullable)mediaView;
+		[return: NullAllowed]
+		[Export ("mediaView")]
+		UIView GetMediaView ();
+
+		// @optional -(BOOL)hasVideoContent;
+		[Export ("hasVideoContent")]
+		bool HasVideoContent ();
 	}
 
 	// @interface GADMediaView : UIView
 	[BaseType (typeof (NSObject), Name = "GADMediaView")]
 	interface MediaView
 	{
-		// @property(nonatomic, weak) GADNativeAd *nativeAd;
-		[Export ("nativeAd", ArgumentSemantic.Weak)]
-		NativeAd NativeAd { get; set; }
 	}
 
 	#endregion

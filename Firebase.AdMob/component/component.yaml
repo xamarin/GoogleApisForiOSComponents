@@ -1,4 +1,4 @@
-version: 7.24.1.0
+version: 7.27.0.0
 name: Firebase AdMob for iOS
 id: firebaseiosadmob
 publisher: Xamarin Inc
@@ -18,7 +18,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Firebase.iOS.AdMob, Version=7.24.1.0
+  - Xamarin.Firebase.iOS.AdMob, Version=7.27.0.0
 samples:
 - name: AdMob Sample
   path: ../samples/AdMobSample/AdMobSample.sln
