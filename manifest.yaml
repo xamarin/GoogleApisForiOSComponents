@@ -94,3 +94,7 @@
   BuildScript: ./Google.TagManager/build.cake
   TriggerPaths: [ Google.TagManager ]
   MacBuildTargets: [ samples, component ]
+- Name: Firebase.PerformanceMonitoring
+  BuildScript: ./Firebase.PerformanceMonitoring/build.cake
+  TriggerPaths: [ Firebase.PerformanceMonitoring ]
+  MacBuildTargets: [ samples, component ]

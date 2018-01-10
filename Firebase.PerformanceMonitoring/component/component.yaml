@@ -9,6 +9,7 @@ icons:
 - ../../icons/firebaseiosperformancemonitoring_128x128.png
 - ../../icons/firebaseiosperformancemonitoring_512x512.png
 docs-url: https://firebase.google.com/docs/perf-mon/
+license: ../License.md
 libraries:
   ios-unified:
   - ../output/Firebase.PerformanceMonitoring.dll
