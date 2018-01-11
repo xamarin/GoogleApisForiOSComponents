@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<_FirebasePerformanceMonitoringAssemblyName>Firebase.PerformanceMonitoring, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebasePerformanceMonitoringAssemblyName>
 		<_FirebasePerformanceMonitoringItemsFolder>FPrfrmncM-1.1.0</_FirebasePerformanceMonitoringItemsFolder>
-		<_FirebaseSwizzlingUtilitiesItemsFolder>FSWU-1.0.0</_FirebaseSwizzlingUtilitiesItemsFolder>
+		<_FirebaseSwizzlingUtilitiesItemsFolder>FSwzzlngU-1.0.0</_FirebaseSwizzlingUtilitiesItemsFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_FirebasePerformanceMonitoringItemsFolder)">

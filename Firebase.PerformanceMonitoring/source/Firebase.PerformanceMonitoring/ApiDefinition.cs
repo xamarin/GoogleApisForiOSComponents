@@ -36,8 +36,6 @@ namespace Firebase.PerformanceMonitoring
 		void RemoveAttribute (string attribute);
 	}
 
-	interface IHttpMetric {}
-
 	// @interface FIRHTTPMetric : NSObject <FIRPerformanceAttributable>
 	[BaseType (typeof (NSObject), Name = "FIRHTTPMetric")]
 	[DisableDefaultCtor]
