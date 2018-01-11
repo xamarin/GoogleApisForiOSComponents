@@ -45,7 +45,7 @@ namespace Firebase.PerformanceMonitoring
 	{
 		// -(instancetype _Nullable)initWithURL:(NSURL * _Nonnull)URL HTTPMethod:(FIRHTTPMethod)httpMethod;
 		[Export ("initWithURL:HTTPMethod:")]
-		IntPtr Constructor (NSUrl URL,HttpMethod httpMethod);
+		IntPtr Constructor (NSUrl url, HttpMethod httpMethod);
 
 		// @property (assign, nonatomic) NSInteger responseCode;
 		[Export ("responseCode")]
