@@ -2,11 +2,16 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_FirebasePerformanceMonitoringAssemblyName>Firebase.PerformanceMonitoring, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebasePerformanceMonitoringAssemblyName>
-		<_FirebasePerformanceMonitoringItemsFolder>FPrfrmncM-1.0.6</_FirebasePerformanceMonitoringItemsFolder>
+		<_FirebasePerformanceMonitoringItemsFolder>FPrfrmncM-1.1.0</_FirebasePerformanceMonitoringItemsFolder>
+		<_FirebaseSwizzlingUtilitiesItemsFolder>FSwzzlngU-1.0.0</_FirebaseSwizzlingUtilitiesItemsFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_FirebasePerformanceMonitoringItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/84505d89a45997bb/FirebasePerformance-1.0.6.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/0f1736d821189eb0/FirebasePerformance-1.1.0.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildDownload Include="$(_FirebaseSwizzlingUtilitiesItemsFolder)">
+			<Url>https://dl.google.com/dl/cpdc/df57c2c6ac10229c/FirebaseSwizzlingUtilities-1.0.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildRestoreResources Include="_FirebasePerformanceMonitoringItems" />
@@ -15,11 +20,19 @@
 
 		<PropertyGroup>
 			<_FirebasePerformanceMonitoringSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebasePerformanceMonitoringItemsFolder)\Frameworks\</_FirebasePerformanceMonitoringSDKBaseFolder>
+			<_FirebaseSwizzlingUtilitiesBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseSwizzlingUtilitiesItemsFolder)\Frameworks\</_FirebaseSwizzlingUtilitiesBaseFolder>
 		</PropertyGroup>
 
 		<ItemGroup>
 			<RestoreAssemblyResource Include="$(_FirebasePerformanceMonitoringSDKBaseFolder)FirebasePerformance.framework\FirebasePerformance">
 				<LogicalName>FirebasePerformance</LogicalName>
+				<AssemblyName>$(_FirebasePerformanceMonitoringAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+		</ItemGroup>
+
+		<ItemGroup>
+			<RestoreAssemblyResource Include="$(_FirebaseSwizzlingUtilitiesBaseFolder)FirebaseSwizzlingUtilities.framework\FirebaseSwizzlingUtilities">
+				<LogicalName>FirebaseSwizzlingUtilities</LogicalName>
 				<AssemblyName>$(_FirebasePerformanceMonitoringAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 		</ItemGroup>

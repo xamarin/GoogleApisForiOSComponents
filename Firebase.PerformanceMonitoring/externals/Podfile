@@ -1,27 +1,28 @@
 =begin
 Last run FirebasePerformance installed:
-- FirebaseAnalytics (4.0.4)
-- FirebaseCore (4.0.8)
-- FirebasePerformance (1.0.6)
-- FirebaseInstanceID (2.0.4)
+- FirebaseAnalytics (4.0.5)
+- FirebaseCore (4.0.13)
+- FirebasePerformance (1.1.0)
+- FirebaseInstanceID (2.0.8)
 - GoogleToolboxForMac (2.1.3)
+- FirebaseSwizzlingUtilities (1.0.0)
 
 Check if main version or subversion number has changed. 
 If yes, please, update *.targets files located in binding 
 projects, also, update Podfile files if needed.
 
-In .targets file, located in Firebase.DynamicLinks binding, you can find:
-- FirebasePerformance (1.0.6)
+In .targets file, located in Firebase.PerformanceMonitoring binding, you can find:
+- FirebasePerformance (1.1.0)
 
 In .targets file, located in Firebase.Analytics binding, you can find:
-- FirebaseAnalytics (4.0.4)
+- FirebaseAnalytics (4.0.5)
 
 In .targets file, located in Firebase.Core binding, you can find:
-- FirebaseCore (4.0.8)
+- FirebaseCore (4.0.13)
 - GoogleToolboxForMac (2.1.3)
 
 In .targets file, located in Firebase.InstanceID binding, you can find:
-- FirebaseInstanceID (2.0.4)
+- FirebaseInstanceID (2.0.8)
 =end
 
 source 'https://github.com/CocoaPods/Specs.git'
@@ -30,5 +31,5 @@ platform :ios, '7.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'FirebaseDynamicLinks' do
-	pod 'Firebase/Performance', '4.3.0'
+	pod 'Firebase/Performance', '4.8.0'
 end

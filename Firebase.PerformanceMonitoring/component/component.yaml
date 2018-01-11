@@ -1,4 +1,4 @@
-version: 1.0.6.0
+version: 1.1.0.0
 name: Firebase Performance Monitoring for iOS
 id: firebaseiosperformancemonitoring
 publisher: Xamarin Inc.
@@ -19,7 +19,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Firebase.iOS.PerformanceMonitoring, Version=1.0.6.0
+  - Xamarin.Firebase.iOS.PerformanceMonitoring, Version=1.1.0.0
 samples:
 - name: Performance Monitoring Sample
   path: ../samples/PerformanceMonitoringSample/PerformanceMonitoringSample.sln

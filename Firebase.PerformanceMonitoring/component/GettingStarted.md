@@ -77,6 +77,52 @@ A custom trace is a report of performance data associated with some of the code 
 
 After you have validated Performance Monitoring using simulators and one or more test devices, you can deploy the updated version of your app to your users and use the Firebase console to monitor performance data.
 
+### (Optional) Add monitoring for specific network requests
+
+Performance Monitoring collects network requests automatically. Although this includes most network requests for your app, some might not be reported. To include specific network requests in Performance Monitoring, add the following code to your app:
+
+```csharp
+var metric = new HttpMetric ("https://www.google.com", HttpMethod.Get);
+metric.Start ();
+
+var url = new NSUrl ("https://www.google.com");
+var request = new NSUrlRequest (url);
+var session = NSUrlSession.FromConfiguration (NSUrlSessionConfiguration.DefaultSessionConfiguration);
+
+var dataTask = session.CreateDataTask (request, HandleNSUrlSessionResponse);
+dataTask.Resume ();
+
+void HandleNSUrlSessionResponse (NSData data, NSUrlResponse response, NSError error)
+{
+	if (response is NSHttpUrlResponse httpResponse)
+		metric.ResponseCode = httpResponse.StatusCode;
+
+	metric.Stop ();
+}
+
+// async/await way:
+
+var metric = new HttpMetric ("https://www.google.com", HttpMethod.Get);
+metric.Start ();
+
+var url = new NSUrl ("https://www.google.com");
+var request = new NSUrlRequest (url);
+var session = NSUrlSession.FromConfiguration (NSUrlSessionConfiguration.DefaultSessionConfiguration);
+
+try {
+	var dataTaskResult = await session.CreateDataTaskAsync (request);
+
+	if (dataTaskResult.Response is NSHttpUrlResponse httpResponse)
+		metric.ResponseCode = httpResponse.StatusCode;
+
+	metric.Stop ();
+} catch (NSErrorException ex) {
+	// Handle error
+}
+```
+
+The HTTP/s network requests you specifically capture this way appear in the Firebase console along with the network requests Performance Monitoring captures automatically.
+
 ## Automatic Traces
 
 A trace is a report of performance data captured between two points in time in your app. When installed, the Performance Monitoring SDK automatically provides the following types of traces:
@@ -94,6 +140,37 @@ Performance Monitoring uses method calls and notifications in your app to determ
 | App start | Starts when the application loads the first **Object** to memory and stops after the first successful run loop that occurs after the application receives the **UIApplicationDidBecomeActiveNotification** notification. |
 | App in background | Starts when the application receives the **UIApplicationWillResignActiveNotification** notification and stops when it receives the **UIApplicationDidBecomeActiveNotification** notification. |
 | App in foreground | Starts when the application receives the **UIApplicationDidBecomeActiveNotification** notification and stops when it receives the **UIApplicationWillResignActiveNotification** notification. |
+
+## Monitor Custom Attributes
+
+In Firebase Performance Monitoring, you can use attributes to segment performance data and focus on your app's performance in different real-world scenarios. A variety of attributes are available out-of-the-box, including operating system information, country, carrier, device, and app version. In addition, you can also create custom attributes, to segment data by categories specific to your app. For example, in a game, you can segment data by game level.
+
+### Create custom attributes
+
+You can use custom attributes on specific traces. You're limited to 5 custom attributes per trace.
+
+To use custom attributes, add code to your app defining the attribute and applying it to a specific trace, like the following examples:
+
+```csharp
+var trace = Firebase.PerformanceMonitoring.Performance.SharedInstance.GetTrace ("myTrace");
+trace.SetValue ("A", "experiment");
+
+// Update scenario.
+trace.SetValue ("B", "experiment");
+
+// Reading scenario.
+var experimentValue = trace.GetValue ("experiment");
+
+// Delete scenario.
+trace.RemoveAttribute ("experiment");
+
+// Read attributes.
+var attributes = trace.Attributes;
+```
+
+### Monitor custom attributes
+
+In the Firebase console, go to the *Traces* tab in the [Performance section][6]. Each of your custom attributes has a card showing performance data for that segment. You can also filter by custom attributes.
 
 ## Disable the Firebase Performance Monitoring SDK
 
@@ -224,12 +301,15 @@ Then, do the following in the Firebase console:
 
 To enable either of these aspects of Performance Monitoring in your app, set the value of the corresponding parameter to `true` in the Firebase console.
 
+## View Data in the Firebase Console
+
+To learn how to read your data in Firebase Console, please, read the following [documentation][7].
+
 ## Known issues
 
-* App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][9])
+* App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][5])
 * Performance Monitoring has known compatibility issues with GTMSQLite. We recommend not using Performance Monitoring with apps that use GTMSQLite.
-* Performance Monitoring does not support network requests made using either the `NSUrlConnection`, `WebClient` or `HttpClient` class.
-* If your app uses delegate methods of the `NSUrlSession` class and does not implement all of the possible interface methods, those sessions might not be correctly captured by HTTP/S network request monitoring.
+* Performance Monitoring does not support network requests made using either `WebClient` or `HttpClient` class.
 * Method swizzling after calling `App.Configure ()` might interfere with the Performance Monitoring SDK.
 * Known issues with the iOS 8.0-8.2 Simulator prevent Performance Monitoring from capturing performance events. These issues are fixed in the iOS 8.3 Simulator and later versions.
 * Connections established using `NSUrlSession`'s BackgroundSessionConfiguration will exhibit longer than expected connection times. These connections are executed out-of-process and the timings reflect in-process callback events.
@@ -240,4 +320,6 @@ To enable either of these aspects of Performance Monitoring in your app, set the
 [2]: http://support.google.com/firebase/answer/7015592
 [3]: https://components.xamarin.com/view/firebaseiosremoteconfig
 [4]: https://components.xamarin.com/gettingstarted/firebaseiosremoteconfig
-[9]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689
+[5]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689
+[6]: https://console.firebase.google.com/project/_/performance/
+[7]: https://firebase.google.com/docs/perf-mon/help
