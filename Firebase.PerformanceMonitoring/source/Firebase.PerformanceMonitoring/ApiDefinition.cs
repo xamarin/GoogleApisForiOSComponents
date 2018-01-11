@@ -7,10 +7,75 @@ using CoreGraphics;
 
 namespace Firebase.PerformanceMonitoring
 {
+	interface IPerformanceAttributable {}
+
+	// @protocol FIRPerformanceAttributable <NSObject>
+	[Protocol, Model]
+	[BaseType (typeof (NSObject), Name = "FIRPerformanceAttributable")]
+	interface PerformanceAttributable
+	{
+		// @required @property (readonly, nonatomic) NSDictionary<NSString *,NSString *> * _Nonnull attributes;
+		[Abstract]
+		[Export ("attributes")]
+		NSDictionary<NSString,NSString> Attributes { get; }
+
+		// @required -(void)setValue:(NSString * _Nonnull)value forAttribute:(NSString * _Nonnull)attribute;
+		[Abstract]
+		[Export ("setValue:forAttribute:")]
+		void SetValue (string value,string attribute);
+
+		// @required -(NSString * _Nullable)valueForAttribute:(NSString * _Nonnull)attribute;
+		[Abstract]
+		[Export ("valueForAttribute:")]
+		[return: NullAllowed]
+		string GetValue (string attribute);
+
+		// @required -(void)removeAttribute:(NSString * _Nonnull)attribute;
+		[Abstract]
+		[Export ("removeAttribute:")]
+		void RemoveAttribute (string attribute);
+	}
+
+	interface IHttpMetric {}
+
+	// @interface FIRHTTPMetric : NSObject <FIRPerformanceAttributable>
+	[BaseType (typeof (NSObject), Name = "FIRHTTPMetric")]
+	[DisableDefaultCtor]
+	interface HttpMetric : PerformanceAttributable
+	{
+		// -(instancetype _Nullable)initWithURL:(NSURL * _Nonnull)URL HTTPMethod:(FIRHTTPMethod)httpMethod;
+		[Export ("initWithURL:HTTPMethod:")]
+		IntPtr Constructor (NSUrl URL,HttpMethod httpMethod);
+
+		// @property (assign, nonatomic) NSInteger responseCode;
+		[Export ("responseCode")]
+		nint ResponseCode { get; set; }
+
+		// @property (assign, nonatomic) long requestPayloadSize;
+		[Export ("requestPayloadSize")]
+		nint RequestPayloadSize { get; set; }
+
+		// @property (assign, nonatomic) long responsePayloadSize;
+		[Export ("responsePayloadSize")]
+		nint ResponsePayloadSize { get; set; }
+
+		// @property (copy, nonatomic) NSString * _Nullable responseContentType;
+		[NullAllowed, Export ("responseContentType")]
+		string ResponseContentType { get; set; }
+
+		// -(void)start;
+		[Export ("start")]
+		void Start ();
+
+		// -(void)stop;
+		[Export ("stop")]
+		void Stop ();
+	}
+
 	// @interface FIRTrace : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRTrace")]
-	interface Trace
+	interface Trace : PerformanceAttributable
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull name;
 		[Export ("name")]

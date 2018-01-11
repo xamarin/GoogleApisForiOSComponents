@@ -2,8 +2,14 @@
 using ObjCRuntime;
 
 [assembly: LinkWith ("FirebasePerformance",
-		     LinkTarget.ArmV7 | LinkTarget.Arm64 | LinkTarget.Simulator | LinkTarget.Simulator64,
-                     Frameworks = "CoreTelephony SystemConfiguration",
-                     LinkerFlags = "-lc++",
-		     ForceLoad = true,
-		     SmartLink = true)]
+			 LinkTarget.ArmV7 | LinkTarget.Arm64 | LinkTarget.Simulator | LinkTarget.Simulator64,
+					 Frameworks = "CoreTelephony SystemConfiguration",
+					 LinkerFlags = "-lc++",
+			 ForceLoad = true,
+			 SmartLink = true)]
+
+[assembly: LinkWith ("FirebaseSwizzlingUtilities",
+			 LinkTarget.ArmV7 | LinkTarget.Arm64 | LinkTarget.Simulator | LinkTarget.Simulator64,
+					 LinkerFlags = "-lc++",
+			 ForceLoad = true,
+			 SmartLink = true)]
