@@ -18,7 +18,7 @@ buildSpec = new BuildSpec () {
 	},
 
 	NuGets = new [] {
-		new NuGetInfo { NuSpec = "./nuget/Xamarin.Firebase.iOS.InstanceID.nuspec", BuildsOn = BuildPlatforms.Mac},
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Firebase.iOS.InstanceID.nuspec", BuildsOn = BuildPlatforms.Mac, RequireLicenseAcceptance = true},
 	},
 };
 
