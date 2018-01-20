@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.Firebase.iOS.CloudMessaging</id>
     <title>Firebase APIs Cloud Messaging iOS Library</title>
-    <version>2.0.4.1</version>
+    <version>2.0.8.0</version>
     <authors>Microsoft</authors>
     <owners>Microsoft</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
