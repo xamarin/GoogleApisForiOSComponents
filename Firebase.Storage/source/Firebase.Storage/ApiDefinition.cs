@@ -114,6 +114,11 @@ namespace Firebase.Storage
 		[Export ("contentType")]
 		string ContentType { get; set; }
 
+		// @property(copy, nonatomic, nullable, readonly) NSString *md5Hash;
+		[NullAllowed]
+		[Export ("md5Hash")]
+		string Md5Hash { get; set; }
+
 		// @property (readonly) int64_t generation;
 		[Export ("generation")]
 		long Generation { get; }
