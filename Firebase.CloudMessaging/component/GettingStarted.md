@@ -65,7 +65,7 @@ You can implement Firebase Cloud Messaging in two complementary ways:
 
 * A physical iOS device
 * A project targeting iOS 8 or above
-* If you want to enable Notifications specifically, you'll need to create an [APNs SSL Certificate][2], then [upload it to Firebase][3] and finally enable the app for remote notifications.
+* If you want to enable Notifications specifically, you'll need to create an [Apple Push Notification Authentication Key][2], an **App Id** and a **Provisioning Profile**, then [upload the key to Firebase][3] and finally enable the app for remote notifications.
 	* Open Entitlements.plist and check **Enable Push Notifications**
 
 > ![note_icon] _**Support for iOS 7 deprecated:**_ _As of v4.5.0 of the Firebase SDK for iOS, support for iOS 7 is deprecated. Upgrade your apps to target iOS 8 or above. To see the breakdown of worldwide iOS versions, go to [Apple’s App Store support page][4]._
@@ -235,7 +235,7 @@ Sending messages to a Firebase Cloud Messaging topic is very similar to sending 
 
 Once your client app is installed on a device, it can receive messages through the FCM APNs interface. You can immediately start sending notifications to user segments with the Notifications composer, or your application server can send messages with a notification payload through the APNs interface.
 
-Handling messages received through the FCM APNs interface is likely to cover most typical use cases. You can also [send upstream messages][#sending-upstream-messages], or [receive data messages in foregrounded apps](#handle-data-messages-in-foregrounded-apps).
+Handling messages received through the FCM APNs interface is likely to cover most typical use cases. You can also [send upstream messages](#sending-upstream-messages), or [receive data messages in foregrounded apps](#handle-data-messages-in-foregrounded-apps).
 
 ## Handle messages received through the FCM APNs interface
 
@@ -274,6 +274,8 @@ public override void DidReceiveRemoteNotification (UIApplication application, NS
 ```
 
 If you want to open your app and perform a specific action, set `click_action` in the [notification payload][10]. Use the value that you would use for the `category` key in the APNs payload.
+
+When overriding `DidReceiveRemoteNotification` method, you need to add "**remote-notification**" to the list of your **Required background modes** in your Info.plist
 
 ### Interpreting notification message payload
 

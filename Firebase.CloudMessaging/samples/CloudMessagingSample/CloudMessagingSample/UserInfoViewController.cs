@@ -11,37 +11,53 @@ namespace CloudMessagingSample
 		public UserInfoViewController (AppDelegate appDelegate) : base (UITableViewStyle.Grouped, null, true)
 		{
 			Root = new RootElement ("Notification Content");
-			appDelegate.NotificationReceived += AppDelegate_NotificationReceived;
+			appDelegate.MessageReceived += AppDelegate_MessageReceived;
 		}
 
 		public override void ViewDidAppear (bool animated)
 		{
 			base.ViewDidAppear (animated);
 
-			AppDelegate.ShowMessage ("Hey!", "To see this sample in action, send a notification from Firebase Console", this, () => {
-				AppDelegate.ConnectToFCM (this);
-			});
+			AppDelegate.ShowMessage ("Hey!", "To see this sample in action, send a notification from Firebase Console", this);
 		}
 
-		void AppDelegate_NotificationReceived (object sender, UserInfoEventArgs e)
+		void AppDelegate_MessageReceived (object sender, UserInfoEventArgs e)
+		{
+			if (e.MessageType == MessageType.Data)
+				HandleDataMessage (e.UserInfo);
+			else
+				HandleNotificationMessage (e.UserInfo);
+		}
+
+		void HandleDataMessage (NSDictionary data)
+		{
+			var notificationSection = new Section ("Data Message");
+
+			foreach (var key in data.Keys)
+				if (data [key] is NSDictionary || data [key] is NSArray)
+					notificationSection.Add (new StringElement (key.ToString (), "Multiple values"));
+				else
+					notificationSection.Add (new StringElement (key.ToString (), data [key].ToString ()));
+
+			Root.Add (notificationSection);
+		}
+
+		void HandleNotificationMessage (NSDictionary notification)
 		{
 			var notificationSection = new Section ();
-			var apsDictionary = e.UserInfo ["aps"] as NSDictionary;
+			var apsDictionary = notification ["aps"] as NSDictionary;
 
 			string body;
-			if (apsDictionary ["alert"] is NSDictionary) {
-				var alertDictionary = apsDictionary ["alert"] as NSDictionary;
-
-				if (alertDictionary.ContainsKey (new NSString ("title")))
-					notificationSection.Caption = alertDictionary ["title"].ToString ();
-
+			if (apsDictionary ["alert"] is NSDictionary alertDictionary) {
+				notificationSection.Caption = alertDictionary ["title"].ToString ();
 				body = alertDictionary ["body"].ToString ();
 			} else {
+				notificationSection.Caption = "«No Notification Title»";
 				body = apsDictionary ["alert"].ToString ();
 			}
 
 			notificationSection.Add (new StringElement ("Body", body));
-			AddCustomData (e.UserInfo, notificationSection);
+			AddCustomData (notification, notificationSection);
 			Root.Add (notificationSection);
 		}
 
@@ -60,6 +76,19 @@ namespace CloudMessagingSample
 
 	public class UserInfoEventArgs : EventArgs
 	{
-		public NSDictionary UserInfo { get; set; }
+		public NSDictionary UserInfo { get; private set; }
+		public MessageType MessageType { get; private set; }
+
+		public UserInfoEventArgs (NSDictionary userInfo, MessageType messageType)
+		{
+			UserInfo = userInfo;
+			MessageType = messageType;
+		}
+	}
+
+	public enum MessageType
+	{
+		Notification,
+		Data
 	}
 }
