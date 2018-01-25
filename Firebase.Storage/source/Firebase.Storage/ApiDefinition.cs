@@ -280,6 +280,7 @@ namespace Firebase.Storage
 		StorageDownloadTask GetData (long maxSize, StorageGetDataCompletionHandler completion);
 
 		// -(void)downloadURLWithCompletion:(void (^ _Nonnull)(NSURL * _Nullable, NSError * _Nullable))completion;
+		[Async]
 		[Export ("downloadURLWithCompletion:")]
 		void GetDownloadUrl (StorageDownloadUrlCompletionHandler completion);
 
@@ -292,14 +293,17 @@ namespace Firebase.Storage
 		StorageDownloadTask WriteToFile (NSUrl fileURL, [NullAllowed] StorageWriteToFileCompletionHandler completion);
 
 		// -(void)metadataWithCompletion:(void (^ _Nonnull)(FIRStorageMetadata * _Nullable, NSError * _Nullable))completion;
+		[Async]
 		[Export ("metadataWithCompletion:")]
 		void GetMetadata (StorageGetPutUpdateCompletionHandler completion);
 
 		// -(void)updateMetadata:(FIRStorageMetadata * _Nonnull)metadata completion:(void (^ _Nullable)(FIRStorageMetadata * _Nullable, NSError * _Nullable))completion;
+		[Async]
 		[Export ("updateMetadata:completion:")]
 		void UpdateMetadata (StorageMetadata metadata, [NullAllowed] StorageGetPutUpdateCompletionHandler completion);
 
 		// -(void)deleteWithCompletion:(void (^ _Nullable)(NSError * _Nullable))completion;
+		[Async]
 		[Export ("deleteWithCompletion:")]
 		void Delete ([NullAllowed] StorageDeleteCompletionHandler completion);
 	}

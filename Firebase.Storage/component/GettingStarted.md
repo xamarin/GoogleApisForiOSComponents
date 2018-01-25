@@ -419,6 +419,21 @@ void HandleStorageDownloadUrlCompletion (NSUrl url, NSError error)
 }
 ```
 
+An `async`/`await` version of this:
+
+```csharp
+// Create a reference to the file you want to download
+StorageReference starsRef = rootRef.GetChild ("images/stars.jpg");
+
+try {
+	NSUrl url = await starsRef.GetDownloadUrlAsync ();
+
+	// Get the download URL for 'images/stars.jpg'
+} catch (NSErrorException ex) {
+	// Handle any errors
+}
+```
+
 ---
 
 # Manage Uploads and Downloads
@@ -534,6 +549,21 @@ void HandleStorageGetPutUpdateCompletion (StorageMetadata metadata, NSError erro
 }
 ```
 
+An `async`/`await` version of this:
+
+```csharp
+// Create reference to the file whose metadata we want to retrieve
+StorageReference forestRef = rootRef.GetChild ("images/forest.jpg");
+
+try {
+	StorageMetadata metadata = await starsRef.GetMetadataAsync ();
+
+	// Metadata now contains the metadata for 'images/forest.jpg'
+} catch (NSErrorException ex) {
+	// Uh-oh, an error occurred!
+}
+```
+
 ## Update File Metadata
 
 You can update file metadata at any time after the file upload completes by using the `UpdateMetadata` method. Refer to the [full list](#ile-metadata-properties) for more information on what properties can be updated. Only the properties specified in the metadata are updated, all others are left unmodified.
@@ -559,6 +589,27 @@ void HandleStorageGetPutUpdateCompletion (StorageMetadata metadata, NSError erro
 	}
 
 	// Updated metadata for 'images/forest.jpg' is returned
+}
+```
+
+An `async`/`await` version of this:
+
+```csharp
+// Create reference to the file whose metadata we want to change
+StorageReference forestRef = rootRef.GetChild ("images/forest.jpg");
+
+// Create file metadata to update
+var newMetadata = new StorageMetadata {
+	CacheControl = "public,max-age=300",
+	ContentType = "image/jpeg"
+};
+
+try {
+	StorageMetadata metadata = await forestRef.UpdateMetadataAsync (newMetadata);
+
+	// Updated metadata for 'images/forest.jpg' is returned
+} catch (NSErrorException ex) {
+	// Uh-oh, an error occurred!
 }
 ```
 
@@ -651,6 +702,24 @@ void HandleStorageDeleteCompletion (NSError error)
 	} 
 
 	// File deleted successfully
+}
+```
+
+An `async`/`await` version of this:
+
+```csharp
+// Create a reference to the file to delete
+StorageReference desertRef = rootRef.GetChild ("images/desert.jpg");
+
+// Delete the file
+desertRef.Delete (HandleStorageDeleteCompletion);
+
+try {
+	await desertRef.DeleteAsync ();
+
+	// File deleted successfully
+} catch (NSErrorException ex) {
+	// Uh-oh, an error occurred!
 }
 ```
 

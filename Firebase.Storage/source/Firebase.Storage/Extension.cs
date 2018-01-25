@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
+
 using ObjCRuntime;
+using Foundation;
+using System.Linq;
 
 namespace Firebase.Storage
 {
@@ -18,6 +22,13 @@ namespace Firebase.Storage
 
 				return currentVersion;
 			}
+		}
+	}
+
+	public partial class StorageMetadata
+	{
+		public StorageMetadata (Dictionary<object, object> dictionary) : this (NSDictionary.FromObjectsAndKeys (dictionary.Values.ToArray (), dictionary.Keys.ToArray (), dictionary.Keys.Count))
+		{
 		}
 	}
 
