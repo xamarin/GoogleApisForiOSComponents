@@ -1,14 +1,14 @@
 Firebase Storage is built for app developers who need to store and serve user-generated content, such as photos or videos.
 
-Firebase Storage adds Google security to file uploads and downloads for your Firebase apps, regardless of network quality. You can use it to store images, audio, video, or other user-generated content. Firebase Storage is backed by Google Cloud Storage, a powerful, simple, and cost-effective object storage service.
+Firebase Storage is a powerful, simple, and cost-effective object storage service built for Google scale. Firebase Storage adds Google security to file uploads and downloads for your Firebase apps, regardless of network quality. You can use it to store images, audio, video, or other user-generated content. Firebase Storage is backed by Google Cloud Storage, a powerful, simple, and cost-effective object storage service.
 
 ## Key capabilities
 
 |  |  |
 |-:|--|
-**Robust operations** | Firebase Storage performs uploads and downloads regardless of network quality. Uploads and downloads are robust, meaning they restart where they stopped, saving your users time and bandwidth.
-**Strong security** | Firebase Storage integrates with Firebase Authentication to provide simple and intuitive authentication for developers. You can use our declarative security model to allow access based on filename, size, content type, and other metadata.
-**High scalability** | Firebase Storage is built for exabyte scale when your app goes viral. Effortlessly grow from prototype to production using the same infrastructure that powers Spotify and Google Photos.
+| **Robust operations** | Firebase Storage performs uploads and downloads regardless of network quality. Uploads and downloads are robust, meaning they restart where they stopped, saving your users time and bandwidth. |
+| **Strong security** | Firebase Storage integrates with Firebase Authentication to provide simple and intuitive authentication for developers. You can use our declarative security model to allow access based on filename, size, content type, and other metadata. |
+| **High scalability** | Firebase Storage is built for exabyte scale when your app goes viral. Effortlessly grow from prototype to production using the same infrastructure that powers Spotify and Google Photos. |
 
 ## How does it work?
 

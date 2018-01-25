@@ -54,18 +54,73 @@ App.Configure ();
 
 ## Recommended documentation to get a better understanding of the Security & Rules of Firebase Storage
 
-Before you continue, I invite you to read these following docs to make your coding easier:
+Before you continue, I invite you to read the following docs to make your coding easier:
 
 * [Understand Security][4]
 * [Get Started][5]
 * [Secure Files][6]
 * [User Based Security][7]
 
-## Create a Storage Reference
+## Set up public access
 
-Your files are stored in a Firebase Storage bucket. The files in this bucket are presented in a hierarchical structure, just like the file system on your local hard disk, or the data in the Firebase Realtime Database. By creating a reference to a file, your app gains access to it. These references can then be used to upload or download data, get or update metadata or delete the file. A reference can either point to a specific file or to a higher level in the hierarchy.
+Cloud Storage for Firebase provides a declarative rules language that allows you to define how your data should be structured, how it should be indexed, and when your data can be read from and written to. By default, read and write access to Storage is restricted so only authenticated users can read or write data. To get started without setting up [Authentication][8], you can [configure your rules for public access][9].
 
-### Create a Reference
+This does make Storage open to anyone, even people not using your app, so be sure to restrict your Storage again when you set up authentication.
+
+## Advanced setup
+
+There are a few use cases that require additional setup:
+
+Using storage buckets in [multiple geographic regions][10]
+Using storage buckets in [different storage classes][11]
+Using storage buckets with multiple authenticated users in the same app
+
+The first use case is perfect if you have users across the world, and want to store their data near them. For instance, you can create buckets in the US, Europe, and Asia to store data for users in those regions to reduce latency.
+
+The second use case is helpful if you have data with different access patterns. For instance: you can set up a multi-regional or regional bucket that stores pictures or other frequently accessed content, and a nearline or coldline bucket that stores user backups or other infrequently accessed content.
+
+In either of these use cases, you'll want to [use multiple storage buckets](#use-multiple-storage-buckets).
+
+The third use case is useful if you're building an app, like Google Drive, which lets users have multiple logged in accounts (for instance, a personal account and a work account). You can [use a custom Firebase App](#use-a-custom-firebase-app) instance to authenticate each additional account.
+
+### Use multiple storage buckets
+
+If you want to use a storage bucket other than the default provided above, or use multiple storage buckets in a single app, you can create an instance of `Storage` that references your custom bucket:
+
+```csharp
+// Get a non-default Storage bucket
+var storage = Storage.From ("gs://my-custom-bucket");
+```
+
+### Working with imported buckets
+
+When importing an existing Cloud Storage bucket into Firebase, you'll have to grant Firebase the ability to access these files using the `gsutil` tool, included in the [Google Cloud SDK][12]:
+
+```
+gsutil -m acl ch -r -u firebase-storage@system.gserviceaccount.com:O gs://<your-cloud-storage-bucket>
+```
+
+This does not affect newly created buckets, as those have the default access control set to allow Firebase. This is a temporary measure, and will be performed automatically in the future.
+
+### Use a custom Firebase App
+
+If you're building a more complicated app using a custom `FirebaseApp`, you can create an instance of Storage initialized with that app:
+
+```csharp
+// Get the default bucket from a custom FirebaseApp
+storage = Storage.From (customApp);
+
+// Get a non-default bucket from a custom FirebaseApp
+storage = Storage.From (customApp, "gs://my-custom-bucket");
+```
+
+---
+
+# Create a Storage Reference
+
+Your files are stored in a [Google Cloud Storage][1] bucket. The files in this bucket are presented in a hierarchical structure, just like the file system on your local hard disk, or the data in the Firebase Database. By creating a reference to a file, your app gains access to it. These references can then be used to upload or download data, get or update metadata or delete the file. A reference can either point to a specific file or to a higher level in the hierarchy.
+
+## Create a Reference
 
 Create a reference to upload, download, or delete a file, or to get or update its metadata. A reference can be thought of as a pointer to a file in the cloud. References are lightweight, so you can create as many as you need. They are also reusable for multiple operations.
 
@@ -76,85 +131,110 @@ References are created from the storage service on your Firebase app by calling 
 var storage = Storage.DefaultInstance;
 
 // Create a storage reference from our storage service
-StorageReference rootNode = storage.GetReferenceFromUrl ("gs://<your-firebase-storage-bucket>")
+StorageReference rootRef = storage.GetReferenceFromUrl ("gs://<your-firebase-storage-bucket>")
 
 // This is the same result as above
-StorageReference rootNode = storage.GetRootReference ();
+StorageReference rootRef = storage.GetRootReference ();
 ```
 
 You can create a reference to a location lower in the tree, say **images/space.jpg**, by using the `GetChild` method on an existing reference:
 
 ```csharp
 // Create a child reference
-// imagesNode now points to "images" ("gs://<your-firebase-storage-bucket>/images")
-StorageReference imagesNode = rootNode.GetChild ("images");
+// imagesRef now points to "images" ("gs://<your-firebase-storage-bucket>/images")
+StorageReference imagesRef = rootRef.GetChild ("images");
 
 // Child references can also take paths delimited by '/'
-// spaceNode now points to "images/space.jpg" ("gs://<your-firebase-storage-bucket>/images/space.jpg")
-// imagesNode still points to "images"
-StorageReference spaceNode = rootNode.GetChild ("images/space.jpg");
+// spaceRef now points to "images/space.jpg" ("gs://<your-firebase-storage-bucket>/images/space.jpg")
+// imagesRef still points to "images"
+StorageReference spaceRef = rootRef.GetChild ("images/space.jpg");
 
 // This is equivalent to creating the full reference
-StorageReference spaceNode = storage.GetReferenceFromUrl ("gs://<your-firebase-storage-bucket>/images/space.jpg");
+StorageReference spaceRef = storage.GetReferenceFromUrl ("gs://<your-firebase-storage-bucket>/images/space.jpg");
 ```
 
-### Navigate with References
+## Navigate with References
 
 You can also use the `Parent` and `Root` properties to navigate up in our file hierarchy. `Parent` navigates up one level, while `Root` navigates all the way to the top.
 
 ```csharp
 // Parent allows us to move to the parent of a reference
-// imagesNode now points to 'images'
-StorageReference imagesNode = spaceNode.Parent;
+// imagesRef now points to 'images'
+StorageReference imagesRef = spaceRef.Parent;
 
 // Root allows us to move all the way back to the top of our bucket
-// rootNode now points to the root
-StorageReference *rootNode = spaceNode.Parent;
+// rootRef now points to the root
+StorageReference *rootRef = spaceRef.Parent;
 ```
 
-`GetChild` method, `Parent` and `Root` properties can be chained together multiple times, as each returns a reference. The exception is the `Parent` of `rootNode`, which is `null`:
+`GetChild` method, `Parent` and `Root` properties can be chained together multiple times, as each returns a reference. The exception is the `Parent` of `rootRef`, which is `null`:
 
 ```csharp
 // References can be chained together multiple times
-// earthNode points to "images/earth.jpg"
-StorageReference earthNode = spaceNode.Parent.GetChild ("earth");
+// earthRef points to "images/earth.jpg"
+StorageReference earthRef = spaceRef.Parent.GetChild ("earth");
 
-// nullNode is null, since the Parent of Root is null
-StorageReference nullNode = spaceNode.Root.Parent;
+// nullRef is null, since the Parent of Root is null
+StorageReference nullRef = spaceRef.Root.Parent;
 ```
 
-### Reference Properties
+## Reference Properties
 
 You can inspect references to better understand the files they point to using the `FullPath`, `Name`, and `Bucket` properties. These properties get the file's full path, name, and bucket:
 
 ```csharp
 // Reference's path is: "images/space.jpg"
 // This is analogous to a file path on disk
-spaceNode.FullPath;
+spaceRef.FullPath;
 
 // Reference's name is the last segment of the full path: "space.jpg"
 // This is analogous to the file name
-spaceNode.Name;
+spaceRef.Name;
 
 // Reference's bucket is the name of the storage bucket where files are stored
-spaceNode.Bucket;
+spaceRef.Bucket;
 ```
 
-### Limitations on References
+## Limitations on References
 
 Reference paths and names can contain any sequence of valid Unicode characters, but certain restrictions are imposed including:
 
 1. Total length of reference.FullPath must be between 1 and 1024 bytes when UTF-8 encoded.
 2. No Carriage Return or Line Feed characters.
-3. Avoid using **#**, **[**, **]**, **\***, or **?**, as these do not work well with other tools such as the Firebase Realtime Database or [gsutil][8].
+3. Avoid using **#**, **[**, **]**, **\***, or **?**, as these do not work well with other tools such as the Firebase Database or [gsutil][13].
 
-## Upload Files
+---
+
+# Upload Files on iOS
 
 Firebase Storage allows developers to quickly and easily upload files to a [Google Cloud Storage][1] bucket provided and managed by Firebase.
 
-***Note***: *By default, Firebase Storage buckets require Firebase Authentication to upload files. You can change your [Firebase Storage Security Rules][9] to allow unauthenticated access. Since the default Google App Engine app and Firebase share this bucket, configuring public access may make newly uploaded App Engine files publicly accessible as well. Be sure to restrict access to your Storage bucket again when you set up authentication.*
+> ![note_icon] **_Note_**: _By default, Firebase Storage buckets require Firebase Authentication to upload files. You can [change your Firebase Storage Security Rules][9] to allow unauthenticated access. Since the default Google App Engine app and Firebase share this bucket, configuring public access may make newly uploaded App Engine files publicly accessible as well. Be sure to restrict access to your Storage bucket again when you set up authentication._
 
-To upload a file, first create a Firebase Storage reference to the location in Firebase Storage you want to upload the file to. You **cannot upload data** with a reference to the root of your Google Cloud Storage bucket. Your reference must point to a child URL.
+## Create a Reference
+
+To upload a file, first create a Firebase Storage reference to the location in Firebase Storage you want to upload the file to.
+
+You can create a reference by appending child paths to the storage root:
+
+```csharp
+// Create a root reference
+StorageReference rootRef = storage.GetRootReference ();
+
+// Create a reference to "mountains.jpg"
+StorageReference mountainsRef = root.GetChild ("mountains.jpg");
+
+// Create a reference to 'images/mountains.jpg'
+StorageReference mountainImagesRef = root.GetChild ("images/mountains.jpg");
+
+// While the file names are the same, the references point to different files
+mountainsRef.Name == mountainImagesRef.Name; // true
+mountainsRef.FullPath == mountainImagesRef.FullPath; // false
+```
+
+You **cannot upload data** with a reference to the root of your Google Cloud Storage bucket. Your reference must point to a child URL.
+
+## Upload Files
 
 Once you have a reference, you can upload files to Firebase Storage in two ways:
 
@@ -170,17 +250,21 @@ The `PutData` method is the simplest way to upload a file to Firebase Storage. `
 NSData data = ...
 
 // Create a reference to the file you want to upload
-StorageReference riversNode = rootNode.GetChild ("images/rivers.jpg");
+StorageReference riversRef = rootRef.GetChild ("images/rivers.jpg");
 
 // Upload the file to the path "images/rivers.jpg"
-StorageUploadTask uploadTask = riversNode.PutData (data, null, (metadata, error) => {
+StorageUploadTask uploadTask = riversRef.PutData (data, null, HandleStorageGetPutUpdateCompletion);
+
+void HandleStorageGetPutUpdateCompletion (StorageMetadata metadata, NSError error)
+{
 	if (error != null) {
 		// Uh-oh, an error occurred!
-	} else {
-		// Metadata contains file metadata such as size, content-type, and download URL.
-		NSUrl downloadUrl = metadata.DownloadUrl;
+		return;
 	}
-});
+
+	// Metadata contains file metadata such as size, content-type, and download URL.
+	var downloadUrl = metadata.DownloadUrl;
+}
 ```
 
 ### Upload from a local file
@@ -192,48 +276,70 @@ You can upload local files on the devices, such as photos and videos from the ca
 NSUrl localFile = ...
 
 // Create a reference to the file you want to upload
-StorageReference riversNode = rootNode.GetChild ("images/rivers.jpg");
+StorageReference riversRef = rootRef.GetChild ("images/rivers.jpg");
 
 // Upload the file to the path "images/rivers.jpg"
-StorageUploadTask uploadTask = riversNode.PutFile (localFile, null, (metadata, error) => {
+StorageUploadTask uploadTask = riversRef.PutFile (localFile, null, HandleStorageGetPutUpdateCompletion);
+
+void HandleStorageGetPutUpdateCompletion (StorageMetadata metadata, NSError error)
+{
 	if (error != null) {
 		// Uh-oh, an error occurred!
-	} else {
-		// Metadata contains file metadata such as size, content-type, and download URL.
-		NSUrl downloadUrl = metadata.DownloadUrl;
+		return;
 	}
-});
+
+	// Metadata contains file metadata such as size, content-type, and download URL.
+	var downloadUrl = metadata.DownloadUrl;
+}
 ```
 
-If you want to actively manage your upload, you can use the `PutData` or `PutFile` methods and observe the upload task, rather than using the completion handler. See **Manage Uploads and Downloads** section below for more information.
+If you want to actively manage your upload, you can use the `PutData` or `PutFile` methods and observe the upload task, rather than using the completion handler. See [Manage Uploads and Downloads](#manage-uploads-and-downloads) section below for more information.
 
 ## Add File Metadata
 
-You can also include metadata when you upload files. This metadata contains typical file metadata properties such as `Name`, `Size`, and `ContentType` (commonly referred to as MIME type). The `PutFile` method automatically infers the content type from the `NSUrl` filename extension, but you can override the auto-detected type by specifying `ContentType` in the metadata. If you do not provide a `ContentType` and Firebase Storage cannot infer a default from the file extension, Firebase Storage uses **application/octet-stream**. See the **Use File Metadata** section below for more information about file metadata.
+You can also include metadata when you upload files. This metadata contains typical file metadata properties such as `Name`, `Size`, and `ContentType` (commonly referred to as MIME type). The `PutFile` method automatically infers the content type from the `NSUrl` filename extension, but you can override the auto-detected type by specifying `ContentType` in the metadata. If you do not provide a `ContentType` and Cloud Storage cannot infer a default from the file extension, Firebase Storage uses **application/octet-stream**. See the [Use File Metadata](#use-file-metadata) section below for more information about file metadata.
 
 ```csharp
 // Create storage reference
-StorageReference mountainsNode = rootNode.GetChild ("images/mountains.jpg");
+StorageReference mountainsRef = rootRef.GetChild ("images/mountains.jpg");
 
 // Create file metadata including the content type
-var imageMetadata = new StorageMetadata {
-	ContentType = "image/jpeg"
-};
+var imageMetadata = new StorageMetadata { ContentType = "image/jpeg" };
 
 // Upload data and metadata
-StorageUploadTask uploadTask = mountainsNode.PutData (data, metadata);
+StorageUploadTask uploadTask = mountainsRef.PutData (data, metadata);
 
 // Upload file and metadata
-StorageUploadTask uploadTask = mountainsNode.PutFile (localFile, metadata);
+StorageUploadTask uploadTask = mountainsRef.PutFile (localFile, metadata);
 ```
 
-## Download Files
+---
+
+# Download Files on iOS
 
 Firebase Storage allows developers to quickly and easily download files from a [Google Cloud Storage][1] bucket provided and managed by Firebase.
 
-***Note***: *By default, Firebase Storage buckets require Firebase Authentication to upload files. You can change your [Firebase Storage Security Rules][9] to allow unauthenticated access. Since the default Google App Engine app and Firebase share this bucket, configuring public access may make newly uploaded App Engine files publicly accessible as well. Be sure to restrict access to your Storage bucket again when you set up authentication.*
+> ![note_icon] **_Note_**: _By default, Cloud Storage buckets require Firebase Authentication to download files. You can change your [Firebase Storage Security Rules][9] to allow unauthenticated access. Since the default Google App Engine app and Firebase share this bucket, configuring public access may make newly uploaded App Engine files publicly accessible as well. Be sure to restrict access to your Storage bucket again when you set up authentication._
+
+## Create a Reference
 
 To download a file, first create a Firebase Storage reference to the file you want to download.
+
+You can create a reference by appending child paths to the storage root, or you can create a reference from an existing **gs://** or **https://** URL referencing an object in Cloud Storage:
+
+```csharp
+// Create a reference with an initial file path and name
+var pathRef = storage.GetReferenceFromPath ("images/stars.jpg");
+
+// Create a reference from a Google Cloud Storage URI
+var gsRef = storage.GetReferenceFromUrl ("gs://<your-firebase-storage-bucket>/images/stars.jpg");
+
+// Create a reference from an HTTPS URL
+// Note that in the URL, characters are URL escaped!
+var httpRef = storage.GetReferenceFromUrl ("https://firebasestorage.googleapis.com/b/bucket/o/images%20stars.jpg");
+```
+
+## Download Files
 
 Once you have a reference, you can download files from Firebase Storage in three ways:
 
@@ -247,17 +353,21 @@ Download the file to an `NSData` object in memory using the `GetData` method. Th
 
 ```csharp
 // Create a reference to the file you want to download
-StorageReference islandNode = rootNode.GetChild ("images/island.jpg");
+StorageReference islandRef = rootRef.GetChild ("images/island.jpg");
 
 // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-islandNode.GetData (1 * 1024 * 1024, (data, error) => {
+islandRef.GetData (1 * 1024 * 1024, HandleStorageGetDataCompletion);
+
+void HandleStorageGetDataCompletion (NSData data, NSError error)
+{
 	if (error != nil) {
 		// Uh-oh, an error occurred!
-	} else {
-		// Data for "images/island.jpg" is returned
-		var islandImage = UIImage.LoadFromData (data);
-	}
-});
+		return;
+	} 
+
+	// Data for "images/island.jpg" is returned
+	var islandImage = UIImage.LoadFromData (data);
+}
 ```
 
 ### Download to a local file
@@ -266,22 +376,26 @@ The `WriteToFile` method downloads a file directly to a local device. Use this i
 
 ```csharp
 // Create a reference to the file you want to download
-StorageReference islandNode = rootNode.GetChild ("images/island.jpg");
+StorageReference islandRef = rootRef.GetChild ("images/island.jpg");
 
 // Create local filesystem Url
-var localUrl = NSUrl.FromString ("file:///local/images/island.jpg");
+var localUrl = NSUrl.FromString ("path/to/images/island.jpg");
 
 // Download to the local filesystem
-StorageDownloadTask downloadTask = islandNode.WriteToFile (localUrl, (url, error) => {
-	if (error != nil) {
+StorageDownloadTask downloadTask = islandRef.WriteToFile (localUrl, HandleStorageWriteToFileCompletion);
+
+void HandleStorageWriteToFileCompletion (NSUrl url, NSError error)
+{
+	if (error != null) {
 		// Uh-oh, an error occurred!
-	} else {
-		// Local file Url for "images/island.jpg" is returned
+		return;
 	}
-});
+
+	// Local file Url for "images/island.jpg" is returned
+}
 ```
 
-If you want to actively manage your download, you can use the `WriteToFile` method and observe the download task, rather than use the completion handler. See **Manage Uploads and Downloads** section below for more information.
+If you want to actively manage your download, you can use the `WriteToFile` method and observe the download task, rather than use the completion handler. See [Manage Uploads and Downloads](#manage-uploads-and-downloads) section below for more information.
 
 ### Generate a download Url
 
@@ -289,26 +403,32 @@ If you already have download infrastructure based around Urls, or just want a Ur
 
 ```csharp
 // Create a reference to the file you want to download
-StorageReference starsNode = rootNode.GetChild ("images/stars.jpg");
+StorageReference starsRef = rootRef.GetChild ("images/stars.jpg");
 
 // Fetch the download Url
-starsNode.GetDownloadUrl ((url, error) => {
-	if (error != nil) {
+starsRef.GetDownloadUrl (HandleStorageDownloadUrlCompletion);
+
+void HandleStorageDownloadUrlCompletion (NSUrl url, NSError error)
+{
+	if (error != null) {
 		// Handle any errors
-	} else {
-		// Get the download URL for 'images/stars.jpg'
+		return;
 	}
-});
+
+	// Get the download URL for 'images/stars.jpg'
+}
 ```
 
-## Manage Uploads and Downloads
+---
+
+# Manage Uploads and Downloads
 
 In addition to starting uploads and downloads, you can pause, resume, and cancel uploads and downloads, using the `Pause`, `Resume`, and `Cancel` methods. These methods raise pause, resume, and cancel events that you can observe. Canceling an upload causes the upload to fail with an error indicating that the upload was canceled:
 
 ```csharp
 // Start uploading/downloading a file
-StorageUploadTask uploadTask = mountainsNode.PutFile (localFile, metadata);
-StorageDownloadTask downloadTask = islandNode.WriteToFile (localUrl);
+StorageUploadTask uploadTask = mountainsRef.PutFile (localFile, metadata);
+StorageDownloadTask downloadTask = islandRef.WriteToFile (localUrl);
 
 // Pause the upload/download
 uploadTask.Pause ();
@@ -323,7 +443,7 @@ uploadTask.Cancel ();
 downloadTask.Cancel ();
 ```
 
-### Monitor Upload and Download Progress
+## Monitor Upload and Download Progress
 
 You can attach observers to `StorageUploadTask` in order to monitor the progress of the upload. Adding an observer returns a `string` that can be used to remove the observer:
 
@@ -380,35 +500,47 @@ downloadTask.RemoveAllObservers ();
 
 To prevent memory leaks, all observers are removed after an `StorageTaskStatus.Success` or `StorageTaskStatus.Failure` occurs.
 
-## Use File Metadata on iOS
+## Error Handling
+
+There are a number of reasons why errors may occur on upload, including the local file not existing, or the user not having permission to upload the desired file. You can find more information about errors in the [Handle Errors](#handle-errors) section below of the docs.
+
+---
+
+# Use File Metadata on iOS
 
 After uploading a file to Firebase Storage reference, you can also get and update the file metadata, for example to update the content type. Files can also store custom key/value pairs with additional file metadata.
 
-### Get File Metadata
+> ![note_icon] **_Note_**: _By default, Cloud Storage buckets require Firebase Authentication to get and update metadata. You can change your [Firebase Storage Security Rules][9] to allow unauthenticated access. Since the default Google App Engine app and Firebase share this bucket, configuring public access may make newly uploaded App Engine files publicly accessible as well. Be sure to restrict access to your Storage bucket again when you set up authentication._
+
+## Get File Metadata
 
 File metadata contains common properties such as `Name`, `Size`, and `ContentType` (often referred to as MIME type) in addition to some less common ones like `ContentDisposition` and `TimeCreated`. This metadata can be retrieved from a Firebase Storage reference using the `GetMetadata` method:
 
 ```csharp
 // Create reference to the file whose metadata we want to retrieve
-StorageReference forestNode = rootNode.GetChild ("images/forest.jpg");
+StorageReference forestRef = rootRef.GetChild ("images/forest.jpg");
 
 // Get metadata properties
-forestNode.GetMetadata ((metadata, error) => {
-	if (error != nil) {
+forestRef.GetMetadata (HandleStorageGetPutUpdateCompletion);
+
+void HandleStorageGetPutUpdateCompletion (StorageMetadata metadata, NSError error)
+{
+	if (error != null) {
 		// Uh-oh, an error occurred!
-	} else {
-		// Metadata now contains the metadata for 'images/forest.jpg'
+		return;
 	}
-});
+
+	// Metadata now contains the metadata for 'images/forest.jpg'
+}
 ```
 
-### Update File Metadata
+## Update File Metadata
 
-You can update file metadata at any time after the file upload completes by using the `UpdateMetadata` method. Refer to **File Metadata Properties** section below to see full list and for more information on what properties can be updated. Only the properties specified in the metadata are updated, all others are left unmodified.
+You can update file metadata at any time after the file upload completes by using the `UpdateMetadata` method. Refer to the [full list](#ile-metadata-properties) for more information on what properties can be updated. Only the properties specified in the metadata are updated, all others are left unmodified.
 
 ```csharp
 // Create reference to the file whose metadata we want to change
-StorageReference forestNode = rootNode.GetChild ("images/forest.jpg");
+StorageReference forestRef = rootRef.GetChild ("images/forest.jpg");
 
 // Create file metadata to update
 var newMetadata = new StorageMetadata {
@@ -417,34 +549,45 @@ var newMetadata = new StorageMetadata {
 };
 
 // Update metadata properties
-forestNode.UpdateMetadata (newMetadata, (metadata, error) => {
-	if (error != nil) {
+forestRef.UpdateMetadata (newMetadata, HandleStorageGetPutUpdateCompletion);
+
+void HandleStorageGetPutUpdateCompletion (StorageMetadata metadata, NSError error)
+{
+	if (error != null) {
 		// Uh-oh, an error occurred!
-	} else {
-		// Updated metadata for 'images/forest.jpg' is returned
+		return;
 	}
-});
+
+	// Updated metadata for 'images/forest.jpg' is returned
+}
 ```
 
 You can delete writable metadata properties by passing the empty string:
 
 ```csharp
-// Create file metadata with property to delete
 var newMetadata = new StorageMetadata {
-	ContentType = "image/jpeg"
+	ContentType = ""
 };
 
 // Delete the metadata property
-forestNode.UpdateMetadata (newMetadata, (metadata, error) => {
-	if (error != nil) {
+forestRef.UpdateMetadata (newMetadata, HandleStorageGetPutUpdateCompletion);
+
+void HandleStorageGetPutUpdateCompletion (StorageMetadata metadata, NSError error)
+{
+	if (error != null) {
 		// Uh-oh, an error occurred!
-	} else {
-		// metadata.ContentType should be null
+		return;
 	}
-});
+
+	// Updated metadata for 'images/forest.jpg' is returned
+}
 ```
 
-### Custom Metadata
+## Error Handling
+
+There are a number of reasons why errors may occur on getting or updating metadata, including the local file not existing, or the user not having permission to upload the desired file. You can find more information about errors in the [Handle Errors](#handle-errors) section below of the docs.
+
+## Custom Metadata
 
 You can specify custom metadata as an `NSDictionary` containing `NSString` properties:
 
@@ -456,14 +599,14 @@ var customMetadata = NSDictionary.FromObjectsAndKeys (values, keys, keys.Length)
 var metadata = NSDictionary.FromObjectAndKey (customMetadata, new NSString ("customMetadata"));
 ```
 
-You can store app-specific data for each file in custom metadata, but Firebase highly recommend using a database (such as the [Firebase Database][10]) to store and synchronize this type of data.
+You can store app-specific data for each file in custom metadata, but Firebase highly recommend using a database (such as the [Firebase Database][14]) to store and synchronize this type of data.
 
 ### File Metadata Properties
 
 A full list of metadata properties on a file is available below:
 
 | Property               | Type                             | Writable |
-|:----------------------:|:--------------------------------:|:-------:|
+|:----------------------:|:--------------------------------:|:--------:|
 | **Bucket**             | string                           | NO       |
 | **Generation**         | long                             | NO       |
 | **Metageneration**     | long                             | NO       |
@@ -472,6 +615,7 @@ A full list of metadata properties on a file is available below:
 | **Size**               | long                             | NO       |
 | **TimeCreated**        | NSDate                           | NO       |
 | **Updated**            | NSDate                           | NO       |
+| **Md5Hash**            | string                           | YES      |
 | **CacheControl**       | string                           | YES      |
 | **ContentDisposition** | string                           | YES      |
 | **ContentEncoding**    | string                           | YES      |
@@ -480,35 +624,49 @@ A full list of metadata properties on a file is available below:
 | **DownloadUrls**       | NSUrl []                         | NO       |
 | **CustomMetadata**     | NSDictionary<NSString, NSString> | YES      |
 
-## Delete Files
+> ![note_icon] _**Note:**_ _at present, setting the md5Hash property on upload doesn't affect the upload, as hash verification is not yet implemented._
 
-### Delete a File
+---
+
+# Delete Files on iOS
+
+> ![note_icon] **_Note_**: _By default, Cloud Storage buckets require Firebase Authentication to delete files. You can change your [Firebase Storage Security Rules][9] to allow unauthenticated access. Since the default Google App Engine app and Firebase share this bucket, configuring public access may make newly uploaded App Engine files publicly accessible as well. Be sure to restrict access to your Storage bucket again when you set up authentication._
+
+## Delete a File
 
 To delete a file, first create a reference to that file. Then call the `Delete` method on that reference:
 
 ```csharp
 // Create a reference to the file to delete
-StorageReference desertNode = rootNode.GetChild ("images/desert.jpg");
+StorageReference desertRef = rootRef.GetChild ("images/desert.jpg");
 
 // Delete the file
-desertNode.Delete ((error) => {
-	if (error != nil) {
+desertRef.Delete (HandleStorageDeleteCompletion);
+
+void HandleStorageDeleteCompletion (NSError error)
+{
+	if (error != null) {
 		// Uh-oh, an error occurred!
-	} else {
-		// File deleted successfully
-	}
-});
+		return;
+	} 
+
+	// File deleted successfully
+}
 ```
 
-***Note:*** *Deleting a file is a permenant action! If you care about restoring deleted files, make sure to back up your files, or [enable object versioning][11] on your Google Cloud Storage bucket.*
+> ![note_icon] **_Note:_** _Deleting a file is a permenant action! If you care about restoring deleted files, make sure to back up your files, or [enable object versioning][15] on your Google Cloud Storage bucket._
 
-## Handle Errors 
+---
+
+# Handle Errors 
 
 Sometimes when you're building an app, things don't go as planned and an error occurs.
 
 When in doubt, check the error returned, and see what the error message says.
 
-If you've checked the error message and have Storage Security Rules that allow your action, but are still struggling to fix the error, visit [Firebase Support page][12] and let them know how they can help.
+> ![note_icon] **_Note_**: _By default, Cloud Storage buckets require Firebase Authentication to perform any action. You can change your [Firebase Storage Security Rules][9] to allow unauthenticated access. Since the default Google App Engine app and Firebase share this bucket, configuring public access may make newly uploaded App Engine files publicly accessible as well. Be sure to restrict access to your Storage bucket again when you set up authentication._
+
+If you've checked the error message and have Storage Security Rules that allow your action, but are still struggling to fix the error, visit [Firebase Support page][16] and let them know how they can help.
 
 ### Handle Error Messages
 
@@ -530,9 +688,25 @@ To properly diagnose the issue and handle the error, here is a full list of all 
 | **StorageErrorCode.Cancelled**            | User cancelled the operation.
 | **StorageErrorCode.DownloadSizeExceeded** | Size of the downloaded file exceeds the amount of memory allocated for the download. Increase memory cap and try downloading again. |
 
-## Known issues
+---
 
-* App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][13])
+# Extend Cloud Storage with Cloud Functions
+
+You can trigger a function in response to the uploading, updating, or deleting of files and folders in Cloud Storage. For more information, read the following [documentation][17].
+
+---
+
+# Integrate with Google Cloud Platform
+
+Firebase Storage is tightly integrated with [Google Cloud Platform][1]. The Firebase SDKs for Storage store files directly in [Google Cloud Storage buckets][18], and as your app grows, you can easily integrate other Cloud services, such as managed compute like App Engine or Cloud Functions, or machine learning APIs like Cloud Vision or Google Translate.
+
+For more information, visit the following [documentation][19].
+
+---
+
+# Known issues
+
+* App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][20])
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/storage/ios/start) to see original Firebase documentation._</sub>
 
@@ -543,9 +717,18 @@ To properly diagnose the issue and handle the error, here is a full list of all 
 [5]: https://firebase.google.com/docs/storage/security/start
 [6]: https://firebase.google.com/docs/storage/security/secure-files
 [7]: https://firebase.google.com/docs/storage/security/user-security
-[8]: https://cloud.google.com/storage/docs/gsutil
+[8]: https://components.xamarin.com/view/firebaseiosauth
 [9]: https://firebase.google.com/docs/storage/security/start#sample-rules
-[10]: https://components.xamarin.com/view/firebaseiosdatabase
-[11]: https://cloud.google.com/storage/docs/object-versioning#_Enabling
-[12]: https://firebase.google.com/support
-[13]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689
+[10]: https://cloud.google.com/storage/docs/bucket-locations
+[11]: https://cloud.google.com/storage/docs/storage-classes
+[12]: https://cloud.google.com/sdk/docs/
+[13]: https://cloud.google.com/storage/docs/gsutil
+[14]: https://components.xamarin.com/view/firebaseiosdatabase
+[15]: https://cloud.google.com/storage/docs/object-versioning#_Enabling
+[16]: https://firebase.google.com/support
+[17]: https://firebase.google.com/docs/storage/extend-with-functions
+[18]: https://cloud.google.com/storage/docs/key-terms#buckets
+[19]: https://firebase.google.com/docs/storage/gcp-integration
+[20]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689
+[note_icon]: https://cdn3.iconfinder.com/data/icons/UltimateGnome/22x22/apps/gnome-app-install-star.png
+[warning_icon]: https://cdn2.iconfinder.com/data/icons/freecns-cumulus/32/519791-101_Warning-20.png
