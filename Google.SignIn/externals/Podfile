@@ -34,7 +34,6 @@ platform :ios, '7.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'GoogleSignIn' do
-	pod 'GoogleSignIn',  '4.1.0'
-	pod 'Google/SignIn', '3.1.0'
+	pod 'GoogleSignIn',  '4.1.1'
 	pod 'GTMOAuth2', '1.1.5'
 end

@@ -1,7 +1,6 @@
 ﻿using System;
 using Foundation;
 using UIKit;
-using Google.Core;
 using Google.SignIn;
 
 namespace SignInExample
