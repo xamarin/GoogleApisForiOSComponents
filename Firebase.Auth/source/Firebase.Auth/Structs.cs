@@ -87,6 +87,8 @@ namespace Firebase.Auth
 		WebContextCancelled = 17058,
 		AppVerificationUserInteractionFailure = 17059,
 		InvalidClientId = 17060,
+		WebNetworkRequestFailed = 17061,
+		WebInternalError = 17062,
 		KeychainError = 17995,
 		InternalError = 17999
 	}
