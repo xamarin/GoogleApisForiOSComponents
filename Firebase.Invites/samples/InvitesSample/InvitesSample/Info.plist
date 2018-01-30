@@ -45,5 +45,7 @@
 	</array>
 	<key>NSContactsUsageDescription</key>
 	<string>Allow the app to access to your contacts.</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

@@ -148,7 +148,6 @@
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.Analytics\source\Firebase.Analytics\Firebase.Analytics.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.DynamicLinks\source\Firebase.DynamicLinks\Firebase.DynamicLinks.targets" />
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Google.Core\source\Google.Core\Google.Core.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Google.SignIn\source\Google.SignIn\Google.SignIn.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\source\Firebase.Invites\Firebase.Invites.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
