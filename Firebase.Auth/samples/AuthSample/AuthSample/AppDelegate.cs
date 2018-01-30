@@ -40,37 +40,16 @@ namespace AuthSample
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
 
+			UIApplication.SharedApplication.StatusBarStyle = UIStatusBarStyle.LightContent;
 			(Window.RootViewController as UINavigationController).PushViewController (new MenuViewController (), true);
 
 			App.Configure ();
-
-			if (UIDevice.CurrentDevice.CheckSystemVersion (10, 0)) {
-				UNUserNotificationCenter.Current.Delegate = this;
-				Messaging.SharedInstance.Delegate = this;
-				Messaging.SharedInstance.ShouldEstablishDirectChannel = true;
-			}
 
 			Settings.AppID = appId;
 			Settings.DisplayName = appName;
 
 			// This method verifies if you have been logged to Facebook into the app before, and keep you logged in after you reopen or kill your app.
 			return ApplicationDelegate.SharedInstance.FinishedLaunching (application, launchOptions);
-		}
-
-		[Export ("messaging:didReceiveMessage:")]
-		public void DidReceiveMessage (Messaging messaging, RemoteMessage remoteMessage)
-		{
-			
-		}
-
-		public void DidRefreshRegistrationToken (Messaging messaging, string fcmToken)
-		{
-			
-		}
-
-		public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
-		{
-			
 		}
 
 		// Support for iOS 9 or later

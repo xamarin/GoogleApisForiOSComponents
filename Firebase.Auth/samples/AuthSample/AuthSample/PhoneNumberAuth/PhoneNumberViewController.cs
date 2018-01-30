@@ -28,6 +28,7 @@ namespace AuthSample
 			base.ViewDidLoad ();
 
 			InitializeComponents ();
+			ShowInformationMessage ();
 		}
 
 		void InitializeComponents ()
@@ -75,64 +76,13 @@ namespace AuthSample
 			};
 			View.Add (indicatorView);
 			ApplyContraintsToIndicator ();
-
-			ShowInformationMessage ();
 		}
 
 		void ShowInformationMessage ()
 		{
 			AppDelegate.ShowMessage ("Warning!",
 						 "If you use phone sign-in, you might receive an SMS message for verification and standard rates apply.",
-						 NavigationController,
-			                         CheckForPushNotificationsStatus);
-		}
-
-		void CheckForPushNotificationsStatus ()
-		{
-			if (UIDevice.CurrentDevice.CheckSystemVersion (10, 0)) {
-				UNUserNotificationCenter.Current.GetNotificationSettings(settings => {
-					switch (settings.AuthorizationStatus) {
-					case UNAuthorizationStatus.NotDetermined:
-						AskForPushNotificationsPermissions ();
-						break;
-					case UNAuthorizationStatus.Denied:
-						ShowDeniedMessage ();
-						break;
-					}
-				});
-			} else {
-				AskForPushNotificationsPermissions ();
-			}
-		}
-
-		void AskForPushNotificationsPermissions ()
-		{
-			// Register your app for remote notifications.
-			if (UIDevice.CurrentDevice.CheckSystemVersion (10, 0)) {
-				// iOS 10 or later
-				var authOptions = UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound;
-				UNUserNotificationCenter.Current.RequestAuthorization (authOptions, (granted, error) => {
-					Console.WriteLine (granted);
-				});
-			} else {
-				// iOS 9 or before
-				var allNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound;
-				var settings = UIUserNotificationSettings.GetSettingsForTypes (allNotificationTypes, null);
-				UIApplication.SharedApplication.RegisterUserNotificationSettings (settings);
-			}
-
-			UIApplication.SharedApplication.RegisterForRemoteNotifications ();
-		}
-
-		void ShowDeniedMessage ()
-		{
-			AppDelegate.ShowMessage ("Push Notifications was denied.",
-									 "Please, go to app settings and grant permissions for Push Notifications.",
-									 NavigationController,
-									 "Got it!",
-									 null,
-									 "Go to settings",
-									 OpenSettings);
+						 NavigationController);
 		}
 
 		void SendVerificationCode ()
@@ -151,7 +101,7 @@ namespace AuthSample
 
 			indicatorView.StartAnimating ();
 
-			PhoneAuthProvider.DefaultInstance.VerifyPhoneNumber ($"{phoneCode}{phoneNumber}", VerifyPhoneNumberOnCompletion);
+			PhoneAuthProvider.DefaultInstance.VerifyPhoneNumber ($"{phoneCode}{phoneNumber}", null, VerifyPhoneNumberOnCompletion);
 		}
 
 		void VerifyPhoneNumberOnCompletion (string verificationId, NSError error)
@@ -170,13 +120,6 @@ namespace AuthSample
 		void OpenViewController (UIViewController viewController)
 		{
 			NavigationController.PushViewController (viewController, true);
-		}
-
-		void OpenSettings ()
-		{
-			var settingsUrl = new NSUrl (UIApplication.OpenSettingsUrlString);
-			if (UIApplication.SharedApplication.CanOpenUrl (settingsUrl))
-				UIApplication.SharedApplication.OpenUrl (settingsUrl);
 		}
 
 		void CountriesViewController_CountrySelected (object sender, CountrySelectedEventArgs e)
