@@ -8,7 +8,6 @@ namespace Firebase.Invites
 			Firebase.InstanceID.Loader.ForceLoad ();
 			Firebase.Core.Loader.ForceLoad ();
 			Firebase.Analytics.Loader.ForceLoad ();
-			Google.Core.Loader.ForceLoad ();
 			Google.SignIn.Loader.ForceLoad ();
 			Firebase.DynamicLinks.Loader.ForceLoad ();
 		}

@@ -2,14 +2,14 @@
 
 ## Table of content
 
-- [Prerequisites](#prerequisites)
-- [Add Firebase to your app](#add-firebase-to-your-app)
-- [Configure Invites in your app](#configure-invites-in-your-app)
-- [Google Sign-In](#google-sign-in)
-- [iOS 10 and Privacy Enhancements](#ios-10-and-privacy-enhancements)
+- [Send and Receive Firebase Invites from Your iOS App](#send-and-receive-firebase-invites-from-your-ios-app)
+	- [Table of content](#table-of-content)
+	- [Prerequisites](#prerequisites)
+	- [Add Firebase to your app](#add-firebase-to-your-app)
+	- [Configure Invites in your app](#configure-invites-in-your-app)
 	- [Give your app access to your Contacts](#give-your-app-access-to-your-contacts)
-- [Handle incoming app invites](#handle-incoming-app-invites)
-- [Enable your users to send app invites](#enable-your-users-to-send-app-invites)
+	- [Handle incoming app invites](#handle-incoming-app-invites)
+	- [Enable your users to send app invites](#enable-your-users-to-send-app-invites)
 - [Known issues](#known-issues)
 
 ## Prerequisites
@@ -49,20 +49,9 @@ Once you have your `GoogleService-Info.plist` file downloaded in your computer, 
 App.Configure ();
 ```
 
-## Google Sign-In
+## Give your app access to your Contacts
 
-Users must be signed in with their Google Accounts to send invitations. Follow [Google Sign-In getting started][4] to integrate Sign-In into your 
-app.
-
-## iOS 10 and Privacy Enhancements
-
-Apple has made several enhancements to both security and privacy in iOS 10 that will help the developer improve the security of their apps and ensure the end user's privacy. 
-
-Apps running on iOS 10 (or later) must statically declare their intent to access specific features or user information by entering one or more **Privacy Keys** in your `Info.plist` files that explain to the user why the app wishes to gain access. If your app fails to provide the required keys will be silently terminated by the system when they attempt to access one of the restricted features or user information, **without any error!**
-
-### Give your app access to your Contacts
-
-Invites, before sending your invitation, access to your Contacts to show you a list with them so you can invite everyone to try your awesome app! To allow Invites to achieve this, you need to do the following steps in Xamarin Studio/Visual Studio:
+Invites, before sending your invitation, access to your Contacts to show you a list with them so you can invite everyone to try your awesome app! To allow Invites to achieve this, you need to do the following steps in Visual Studio:
 
 1. Open your `Info.plist` and go to **Source** tab.
 2. Add a new entry and search for **Privacy - Contacts Usage Description**.
@@ -87,30 +76,30 @@ public override bool OpenUrl (UIApplication app, NSUrl url, NSDictionary options
 // Support for iOS 8 or before
 public override bool OpenUrl (UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
 {
-	// Handle App Invite requests
-	var invite = Invites.HandleUrl (url, sourceApplication, annotation);
-
-	if (invite != null) {
-		var matchType = invite.MatchType == ReceivedInviteMatchType.Weak ? "Weak" : "Strong";
-		var message = $"Deep link from {sourceApplication}\nInvite ID: {invite.InviteId}\nApp Url: {invite.DeepLink}\nMatch Type: {matchType}";
-		System.Console.WriteLine ($"Depp-Link Data: {message}");
-
-		return true;
-	}
-
 	// Handle Sign In
-	return SignIn.SharedInstance.HandleUrl (url, sourceApplication, annotation);
+	if (SignIn.SharedInstance.HandleUrl (url, sourceApplication ?? "", annotation))
+		return true;
+
+	// Handle App Invite requests
+	return Invites.HandleUniversalLink (url, HandleInvitesUniversalLink);
+
+	void HandleInvitesUniversalLink (ReceivedInvite receivedInvite, NSError error)
+	{
+		// ...
+	}
 }
 ```
-
 ## Enable your users to send app invites
 
-Before a user can send Invites, the user must be signed in with their Google Account.
+Now that your app is ready to handle incoming invites correctly, it is time to enable your app to send invitations to the user's contacts.
+
+Before a user can send Invites, the user must be signed in with their Google Account. Follow [Google Sign-In getting started][4] to integrate Sign-In into your 
+app.
 
 To send invitations, first declare a class that implements the `IInviteDelegate` interface:
 
 ```csharp
-public class InviteViewController : DialogViewController, IInviteDelegate
+public class ViewController : UIViewController, IInviteDelegate
 ```
 
 Then, add a **Send Invitation** button to your app. You can add this button as an option in your main menu, or add this button alongside your deep-linkable content, so that users can send specific content along with the invitation. See the [Firebase Invites best practices][5].
@@ -142,9 +131,7 @@ public void SendInvite ()
 	
 	// If you have an Android version of your app and you want to send
 	// an invitation that can be opened on Android in addition to iOS
-	var targetApp = new InvitesTargetApplication {
-			AndroidClientId = "Android ID"
-	};
+	var targetApp = new InvitesTargetApplication { AndroidClientId = "Android ID" };
 	inviteDialog.SetOtherPlatformsTargetApplication (targetApp);
 
 	inviteDialog.Open ();
@@ -153,7 +140,7 @@ public void SendInvite ()
 
 If you want to learn more about Invitation parts, see the following [documentation][6].
 
-After the user sends the invitation, your app calls `InviteFinished` method of `IInviteDelegate` interface:
+The `SendInvite` method above then opens the contact chooser dialog where the user selects the contacts to invite. Invitations are sent by email or SMS. After the user sends the invitation, your app receives a callback to the `InviteFinished` method of `IInviteDelegate` interface:
 
 ```csharp
 [Export ("inviteFinishedWithInvitations:error:")]
@@ -165,11 +152,12 @@ public void InviteFinished (string [] invitationIds, NSError error)
 	} else {
 		System.Console.WriteLine (error.LocalizedDescription);
 	}
-
 }
 ```
 
-## Known issues
+---
+
+# Known issues
 
 * App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][7])
 
@@ -182,3 +170,5 @@ public void InviteFinished (string [] invitationIds, NSError error)
 [5]: https://firebase.google.com/docs/invites/best-practices
 [6]: https://firebase.google.com/docs/invites/ios#customize-the-invitation
 [7]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689
+[note_icon]: https://cdn3.iconfinder.com/data/icons/UltimateGnome/22x22/apps/gnome-app-install-star.png
+[warning_icon]: https://cdn2.iconfinder.com/data/icons/freecns-cumulus/32/519791-101_Warning-20.png
