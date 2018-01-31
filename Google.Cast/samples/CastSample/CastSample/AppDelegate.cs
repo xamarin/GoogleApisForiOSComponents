@@ -29,6 +29,7 @@ namespace CastSample
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
+			UIApplication.SharedApplication.StatusBarStyle = UIStatusBarStyle.LightContent;
 
 			// Contains options that affect the behavior of the framework.
 			var options = new CastOptions (ReceiverApplicationId);
