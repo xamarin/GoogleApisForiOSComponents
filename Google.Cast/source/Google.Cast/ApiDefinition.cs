@@ -3199,10 +3199,9 @@ namespace Google.Cast
 		[Export ("applyStyle")]
 		void ApplyStyle ();
 
-		// The GCKUIStyleAttributesCastViews class is non-external
-		//// @property (readonly, nonatomic, strong) GCKUIStyleAttributesCastViews * _Nonnull castViews;
-		//[Export ("castViews", ArgumentSemantic.Strong)]
-		//UIStyleAttributesCastViews CastViews { get; }
+		// @property (readonly, nonatomic, strong) GCKUIStyleAttributesCastViews * _Nonnull castViews;
+		[Export ("castViews", ArgumentSemantic.Strong)]
+		UIStyleAttributesCastViews CastViews { get; }
 	}
 
 	// @interface GCKUIStyleAttributes : NSObject
