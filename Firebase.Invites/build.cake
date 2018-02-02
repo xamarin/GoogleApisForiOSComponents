@@ -31,8 +31,7 @@ buildSpec = new BuildSpec () {
 	},
 };
 
-// "Google.Core" implied from Google.SignIn
-// "Firebase.Analytics" implied from Google.Core
+// "Firebase.Analytics" implied from Google.SignIn
 // "Firebase.InstanceID" implied from Firebase.Analytics
 MyDependencies = new [] {"Firebase.DynamicLinks", "Google.SignIn"}; 
 
