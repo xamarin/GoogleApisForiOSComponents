@@ -23,17 +23,10 @@ namespace AuthSample
 			set;
 		}
 
-		// ClientID can be found in the GoogleService-Info.plist file
-		// You can get the GoogleService-Info.plist file at https://developers.google.com/mobile/add
-		//const string clientId = "<Your ClientID>";
-		const string clientId = "542613023302-hpssce1aq4tbarcpj8qoagcsss9riffd.apps.googleusercontent.com";
-
 		// Replace here you own Facebook App Id and App Name, if you don't have one go to
 		// https://developers.facebook.com/apps
-		//string appId = "Your_Id_Here";
-		//string appName = "Your_App_Display_Name";
-		string appId = "765057006871425";
-		string appName = "XamTest";
+		string appId = "Your_Id_Here";
+		string appName = "Your_App_Display_Name";
 
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
