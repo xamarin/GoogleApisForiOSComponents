@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.Firebase.iOS.CloudFirestore</id>
     <title>Firebase APIs Cloud Firestore iOS Library</title>
-    <version>0.8.0.0</version>
+    <version>0.9.4.0</version>
     <authors>Microsoft</authors>
     <owners>Microsoft</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>

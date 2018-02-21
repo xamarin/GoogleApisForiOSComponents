@@ -54,9 +54,9 @@ install! 'cocoapods', :integrate_targets => false
 
 target 'FirebaseCloudFirestore' do
 	pod 'Firebase/Firestore', '4.3.0'
-	pod 'gRPC-ProtoRPC', '1.6.5'
-	pod 'gRPC', '1.6.5'
-	pod 'gRPC-Core', '1.6.5'
-	pod 'gRPC-RxLibrary', '1.6.5'
+	pod 'gRPC-ProtoRPC', '1.8.0'
+	pod 'gRPC', '1.8.0'
+	pod 'gRPC-Core', '1.8.0'
+	pod 'gRPC-RxLibrary', '1.8.0'
 	pod 'BoringSSL', '9.0'
 end

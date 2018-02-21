@@ -2,11 +2,11 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <_FirebaseCloudFirestoreAssemblyName>Firebase.CloudFirestore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseCloudFirestoreAssemblyName>
-        <_FirebaseCloudFirestoreItemsFolder>FCldF-0.8.0</_FirebaseCloudFirestoreItemsFolder>
+        <_FirebaseCloudFirestoreItemsFolder>FCldF-0.9.4</_FirebaseCloudFirestoreItemsFolder>
     </PropertyGroup>
     <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
         <XamarinBuildDownload Include="$(_FirebaseCloudFirestoreItemsFolder)">
-            <Url>https://dl.google.com/dl/cpdc/60065cc9fa4f0be0/FirebaseFirestore-0.8.0.tar.gz</Url>
+            <Url>https://dl.google.com/dl/cpdc/7e89c0d9d57caee7/FirebaseFirestore-0.9.4.tar.gz</Url>
             <Kind>Tgz</Kind>
         </XamarinBuildDownload>
         <XamarinBuildRestoreResources Include="_FirebaseCloudFirestoreItems" />

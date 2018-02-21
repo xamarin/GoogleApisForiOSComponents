@@ -18,6 +18,7 @@
 
 [assembly: LinkWith ("gRPC-Core",
 		     LinkTarget.ArmV7 | LinkTarget.Arm64 | LinkTarget.Simulator | LinkTarget.Simulator64,
+                     LinkerFlags = "-lc++ -lz",
 		     SmartLink = true,
 		     ForceLoad = true)]
 
