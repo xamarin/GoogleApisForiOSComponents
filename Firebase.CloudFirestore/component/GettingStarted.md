@@ -56,6 +56,7 @@
 		- [Paginate a query](#paginate-a-query)
 		- [Set multiple cursor conditions](#set-multiple-cursor-conditions)
 				- [Cities](#cities)
+	- [Manage Indexes in Cloud Firestore](#manage-indexes-in-cloud-firestore)
 - [Secure Data](#secure-data)
 	- [Secure Data in Cloud Firestore](#secure-data-in-cloud-firestore)
 - [Enable Offline Data](#enable-offline-data)
@@ -1457,7 +1458,7 @@ db.GetCollection ("cities")
   .StartingAt (new object [] { "Springfield", "Missouri" });
 ```
 
-##Manage Indexes in Cloud Firestore
+## Manage Indexes in Cloud Firestore
 
 Cloud Firestore requires an index for every query, to ensure the best performance. All document fields are automatically indexed, so queries that only use equality clauses don't need additional indexes. If you attempt a compound query with a range clause that doesn't map to an existing index, you receive an error. The error message includes a direct link to create the missing index in the Firebase console.
 
