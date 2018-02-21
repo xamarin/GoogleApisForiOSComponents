@@ -4,11 +4,10 @@ using UIKit;
 
 namespace CloudFirestoreSample
 {
-	public partial class ViewController : UIViewController
+	public partial class NotesTableViewController : UITableViewController
 	{
-		protected ViewController (IntPtr handle) : base (handle)
+		public NotesTableViewController () : base ("NotesViewController", null)
 		{
-			// Note: this .ctor should not contain any initialization logic.
 		}
 
 		public override void ViewDidLoad ()
@@ -24,3 +23,4 @@ namespace CloudFirestoreSample
 		}
 	}
 }
+
