@@ -17,7 +17,6 @@ namespace InvitesSample
 		UITextView txtMessage;
 		EntryElement txtDeepLink;
 		StyledStringElement lblDescription;
-		UITextView txtDescription;
 		EntryElement txtCustomImage;
 		EntryElement txtCallToAction;
 		EntryElement txtAndroidId;
@@ -33,7 +32,7 @@ namespace InvitesSample
 			base.ViewDidLoad ();
 
 			txtMessage.Changed += Changed;
-			txtDescription.Changed += Changed;
+			TableView.KeyboardDismissMode = UIScrollViewKeyboardDismissMode.Interactive;
 		}
 
 		// NOTE: You must have the App Store ID set in your developer console project
@@ -42,12 +41,7 @@ namespace InvitesSample
 		{
 			if (string.IsNullOrWhiteSpace (txtTitle.Value) ||
 			    string.IsNullOrWhiteSpace (txtMessage.Text)) {
-				AppDelegate.ShowMessage ("You are missing some information…", "Please, fill all fields marked with *.", ParentViewController);
-				return;
-			}
-
-			if (txtMessage.Text.Length > 100 || txtDescription.Text.Length > 1000) {
-				AppDelegate.ShowMessage ("Length exceeded!", "Too much characters to be sent through Invtes.", ParentViewController);
+				AppDelegate.ShowMessage ("Some information is missing…", "Please, fill all fields marked with *.", ParentViewController);
 				return;
 			}
 
@@ -63,9 +57,6 @@ namespace InvitesSample
 			if (!string.IsNullOrWhiteSpace (txtDeepLink.Value))
 				inviteDialog.SetDeepLink (txtDeepLink.Value);
 
-			if (!string.IsNullOrWhiteSpace (txtDescription.Text))
-				inviteDialog.SetDescription (txtDescription.Text);
-
 			if (!string.IsNullOrWhiteSpace (txtCustomImage.Value))
 				inviteDialog.SetCustomImage (txtCustomImage.Value);
 
@@ -76,9 +67,7 @@ namespace InvitesSample
 			// If you have an Android version of your app and you want to send
 			// an invitation that can be opened on Android in addition to iOS
 			if (!string.IsNullOrWhiteSpace (txtAndroidId.Value)) {
-				var targetApp = new InvitesTargetApplication {
-					AndroidClientId = txtAndroidId.Value
-				};
+				var targetApp = new InvitesTargetApplication { AndroidClientId = txtAndroidId.Value };
 				inviteDialog.SetOtherPlatformsTargetApplication (targetApp);
 			}
 
@@ -92,25 +81,19 @@ namespace InvitesSample
 		{
 			if (error == null) {
 				AppDelegate.ShowMessage ("Invitations sent!", string.Empty, ParentViewController);
-				foreach (var id in invitationIds)
-					Console.WriteLine (id);
+				var ids = string.Join (", ", invitationIds);
+				Console.WriteLine ($"Invitations sent to ids: {ids}");
 			} else {
 				AppDelegate.ShowMessage ("Something wrong happened…", error.LocalizedDescription, ParentViewController);
 			}
-
 		}
 
 		void Changed (object sender, EventArgs e)
 		{
 			var textView = sender as UITextView;
 
-			if (textView == txtMessage) {
-				lblMessage.Value = textView.Text.Length <= 0 ? "Up to 100 characters" : textView.Text.Length.ToString ();
-				Root.Reload (lblMessage, UITableViewRowAnimation.None);
-			} else {
-				lblDescription.Value = textView.Text.Length <= 0 ? "Up to 1000 characters" : textView.Text.Length.ToString ();
-				Root.Reload (lblDescription, UITableViewRowAnimation.None);
-			}
+			lblMessage.Value = textView.Text.Length <= 0 ? "Up to 100 characters" : textView.Text.Length.ToString ();
+			Root.Reload (lblMessage, UITableViewRowAnimation.None);
 		}
 
 		RootElement CreateUI ()
@@ -126,10 +109,6 @@ namespace InvitesSample
 			txtDeepLink = new EntryElement ("Deep Link", "Your deep link", string.Empty);
 			lblDescription = new StyledStringElement ("Description", "Up to 1000 characters") {
 				BackgroundColor = UIColor.White
-			};
-			txtDescription = new UITextView (new CGRect (0, 0, UIScreen.MainScreen.Bounds.Width, 80)) {
-				TextAlignment = UITextAlignment.Justified,
-				Font = UIFont.FromName ("System", 10)
 			};
 			txtCustomImage = new EntryElement ("Custom Image", "An url image", string.Empty);
 			txtCallToAction = new EntryElement ("Call To Action", "Invitation button title", string.Empty); ;
@@ -149,9 +128,6 @@ namespace InvitesSample
 					},
 					txtDeepLink,
 					lblDescription,
-					new UIViewElement (string.Empty, txtDescription, false) {
-						Flags = UIViewElement.CellFlags.DisableSelection
-					},
 					txtCustomImage,
 					txtCallToAction,
 					txtAndroidId

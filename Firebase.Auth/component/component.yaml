@@ -1,4 +1,4 @@
-version: 4.2.1.1
+version: 4.4.1.0
 name: Firebase Auth for iOS
 id: firebaseiosauth
 publisher: Xamarin Inc.
@@ -18,14 +18,13 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Firebase.iOS.Auth, Version=4.2.1.1
+  - Xamarin.Firebase.iOS.Auth, Version=4.4.1.0
 samples:
 - name: Auth Sample
   path: ../samples/AuthSample/AuthSample.sln
   removeProjects:
   - Firebase.Auth
   - Google.SignIn
-  - Google.Core
   - Firebase.Analytics
   - Firebase.CloudMessaging
   - Firebase.Core
@@ -35,7 +34,6 @@ samples:
     packages:
     - Xamarin.Firebase.iOS.Auth
     - Xamarin.Google.iOS.SignIn
-    - Xamarin.Google.iOS.Core
     - Xamarin.Firebase.iOS.CloudMessaging
     - Xamarin.Firebase.iOS.Analytics
     - Xamarin.Firebase.iOS.Core
@@ -43,7 +41,6 @@ samples:
   removeNodes:
   - //xNS:Import[contains (@Project, 'Firebase.Auth.targets')]
   - //xNS:Import[contains (@Project, 'Google.SignIn.targets')]
-  - //xNS:Import[contains (@Project, 'Google.Core.targets')]
   - //xNS:Import[contains (@Project, 'Firebase.CloudMessaging.targets')]
   - //xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]
   - //xNS:Import[contains (@Project, 'Firebase.Core.targets')]

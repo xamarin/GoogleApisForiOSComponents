@@ -46,10 +46,10 @@
   BuildScript: ./Firebase.Storage/build.cake
   TriggerPaths: [ Firebase.Storage ]
   MacBuildTargets: [ samples, component ]
-- Name: Google.iOS.Core
-  BuildScript: ./Google.Core/build.cake
-  TriggerPaths: [ Google.Core ]
-  MacBuildTargets: [ samples, component ]
+# - Name: Google.iOS.Core
+#   BuildScript: ./Google.Core/build.cake
+#   TriggerPaths: [ Google.Core ]
+#   MacBuildTargets: [ samples, component ]
 - Name: Google.iOS.SignIn
   BuildScript: ./Google.SignIn/build.cake
   TriggerPaths: [ Google.SignIn ]

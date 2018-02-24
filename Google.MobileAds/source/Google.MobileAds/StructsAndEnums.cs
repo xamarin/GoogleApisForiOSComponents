@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 
 using ObjCRuntime;
 using CoreGraphics;
@@ -43,6 +44,7 @@ namespace Google.MobileAds
 		Solid
 	}
 
+	[StructLayout (LayoutKind.Sequential)]
 	public struct AdSize
 	{
 		public CGSize Size;

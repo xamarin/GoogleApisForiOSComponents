@@ -1,4 +1,4 @@
-version: 2.0.1.1
+version: 2.0.2.0
 name: Firebase Invites for iOS
 id: firebaseiosinvites
 publisher: Xamarin Inc.
@@ -13,7 +13,6 @@ libraries:
   ios-unified:
   - ../output/Firebase.Invites.dll
   - ../../Google.SignIn/output/Google.SignIn.dll
-  - ../../Google.Core/output/Google.Core.dll
   - ../../Firebase.DynamicLinks/output/Firebase.DynamicLinks.dll
   - ../../Firebase.Analytics/output/Firebase.Analytics.dll
   - ../../Firebase.Core/output/Firebase.Core.dll
@@ -21,14 +20,13 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Firebase.iOS.Invites, Version=2.0.1.1
+  - Xamarin.Firebase.iOS.Invites, Version=2.0.2.0
 samples:
 - name: Invites Sample
   path: ../samples/InvitesSample/InvitesSample.sln
   removeProjects:
   - Firebase.Invites
   - Google.SignIn
-  - Google.Core
   - Firebase.DynamicLinks
   - Firebase.Analytics
   - Firebase.Core
@@ -38,7 +36,6 @@ samples:
     packages:
     - Xamarin.Firebase.iOS.Invites
     - Xamarin.Google.iOS.SignIn
-    - Xamarin.Google.iOS.Core
     - Xamarin.Firebase.iOS.DynamicLinks
     - Xamarin.Firebase.iOS.Analytics
     - Xamarin.Firebase.iOS.Core
@@ -46,7 +43,6 @@ samples:
   removeNodes:
   - //xNS:Import[contains (@Project, 'Firebase.Invites.targets')]
   - //xNS:Import[contains (@Project, 'Google.SignIn.targets')]
-  - //xNS:Import[contains (@Project, 'Google.Core.targets')]
   - //xNS:Import[contains (@Project, 'Firebase.DynamicLinks.targets')]
   - //xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]
   - //xNS:Import[contains (@Project, 'Firebase.Core.targets')]

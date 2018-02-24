@@ -30,5 +30,5 @@ platform :ios, '7.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'FirebaseDynamicLinks' do
-	pod 'Firebase/DynamicLinks', '4.3.0'
+	pod 'Firebase/DynamicLinks', '4.8.0'
 end

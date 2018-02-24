@@ -23,54 +23,26 @@ namespace AuthSample
 			set;
 		}
 
-		// ClientID can be found in the GoogleService-Info.plist file
-		// You can get the GoogleService-Info.plist file at https://developers.google.com/mobile/add
-		//const string clientId = "<Your ClientID>";
-		const string clientId = "542613023302-hpssce1aq4tbarcpj8qoagcsss9riffd.apps.googleusercontent.com";
-
 		// Replace here you own Facebook App Id and App Name, if you don't have one go to
 		// https://developers.facebook.com/apps
-		//string appId = "Your_Id_Here";
-		//string appName = "Your_App_Display_Name";
-		string appId = "765057006871425";
-		string appName = "XamTest";
+		string appId = "Your_Id_Here";
+		string appName = "Your_App_Display_Name";
 
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
 
+			UIApplication.SharedApplication.StatusBarStyle = UIStatusBarStyle.LightContent;
 			(Window.RootViewController as UINavigationController).PushViewController (new MenuViewController (), true);
 
 			App.Configure ();
-
-			if (UIDevice.CurrentDevice.CheckSystemVersion (10, 0)) {
-				UNUserNotificationCenter.Current.Delegate = this;
-				Messaging.SharedInstance.Delegate = this;
-				Messaging.SharedInstance.ShouldEstablishDirectChannel = true;
-			}
 
 			Settings.AppID = appId;
 			Settings.DisplayName = appName;
 
 			// This method verifies if you have been logged to Facebook into the app before, and keep you logged in after you reopen or kill your app.
 			return ApplicationDelegate.SharedInstance.FinishedLaunching (application, launchOptions);
-		}
-
-		[Export ("messaging:didReceiveMessage:")]
-		public void DidReceiveMessage (Messaging messaging, RemoteMessage remoteMessage)
-		{
-			
-		}
-
-		public void DidRefreshRegistrationToken (Messaging messaging, string fcmToken)
-		{
-			
-		}
-
-		public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
-		{
-			
 		}
 
 		// Support for iOS 9 or later

@@ -9,7 +9,6 @@ namespace Google.SignIn
 			Firebase.InstanceID.Loader.ForceLoad ();
 			Firebase.Core.Loader.ForceLoad ();
 			Firebase.Analytics.Loader.ForceLoad ();
-			Google.Core.Loader.ForceLoad ();
 		}
 
 		public static void ForceLoad () {}

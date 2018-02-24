@@ -4,39 +4,39 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 
 **Active Libraries**
 
-| Package Id                                       | NuGet          |
-|--------------------------------------------------|----------------|
-| [Xamarin.Firebase.iOS.Core][1]                   | [4.0.13.0][51] |
-| [Xamarin.Firebase.iOS.DynamicLinks ][2]          | [2.1.0.1][52]  |
-| [Xamarin.Firebase.iOS.Storage][3]                | [2.0.2.1][53]  |
-| [Xamarin.Google.iOS.InstanceID][4]               | [1.2.1.11][54] |
-| [Xamarin.Google.iOS.Cast][6]                     | [4.0.2.0][56]  |
-| [Xamarin.Firebase.iOS.CloudMessaging][7]         | [2.0.4.1][57]  |
-| [Xamarin.Firebase.iOS.RemoteConfig][8]           | [2.0.3.1][58]  |
-| [Xamarin.Google.iOS.Core][9]                     | [3.1.0.1][59]  |
-| [Xamarin.Firebase.iOS.AdMob][10]                 | [7.27.0.0][60] |
-| [Xamarin.Google.iOS.SignIn][11]                  | [4.1.0.1][61]  |
-| [Xamarin.Google.iOS.MobileAds][12]               | [7.27.0.0][62] |
-| [Xamarin.Firebase.iOS.Auth][14]                  | [4.2.1.1][64]  |
-| [Xamarin.Google.iOS.TagManager][15]              | [6.0.0.2][65]  |
-| [Xamarin.Google.iOS.Maps][16]                    | [2.5.0.0][66]  |
-| [Xamarin.Google.iOS.AppIndexing][17]             | [2.0.3.4][67]  |
-| [Xamarin.Firebase.iOS.Invites][18]               | [2.0.1.1][68]  |
-| [Xamarin.Google.iOS.PlayGames][19]               | [5.1.1.10][69] |
-| [Xamarin.Firebase.iOS.CrashReporting][20]        | [2.0.0.4][70]  |
-| [Xamarin.Google.iOS.Analytics][21]               | [3.17.0.2][71] |
-| [Xamarin.Google.iOS.Places][22]                  | [2.5.0.0][72]  |
-| [Xamarin.Firebase.iOS.InstanceID][23]            | [2.0.8.0][73]  |
-| [Xamarin.Firebase.iOS.PerformanceMonitoring][24] | [1.1.0.0][74]  |
-| [Xamarin.Firebase.iOS.Analytics][25]             | [4.0.5.0][75]  |
-| [Xamarin.Firebase.iOS.Database][26]              | [4.1.0.1][76]  |
+| Package Id                                                                 | NuGet                                      |
+|----------------------------------------------------------------------------|--------------------------------------------|
+| [Xamarin.Firebase.iOS.AdMob][F.AdMob.Name]                                 | [7.27.0.1][F.AdMob.Package]                |
+| [Xamarin.Firebase.iOS.Analytics][F.Analytics.Name]                         | [4.0.5.0][F.Analytics.Package]             |
+| [Xamarin.Firebase.iOS.Auth][F.Auth.Name]                                   | [4.4.1.0][F.Auth.Package]                  |
+| [Xamarin.Firebase.iOS.CloudMessaging][F.CloudMessaging.Name]               | [2.0.8.0][F.CloudMessaging.Package]        |
+| [Xamarin.Firebase.iOS.Core][F.Core.Name]                                   | [4.0.13.0][F.Core.Package]                 |
+| [Xamarin.Firebase.iOS.CrashReporting][F.CrashReporting.Name]               | [2.0.0.4][F.CrashReporting.Package]        |
+| [Xamarin.Firebase.iOS.Database][F.Database.Name]                           | [4.1.3.0][F.Database.Package]              |
+| [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                   | [2.3.1.0][F.DynamicLinks.Package]          |
+| [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                       | [2.0.8.0][F.InstanceID.Package]            |
+| [Xamarin.Firebase.iOS.Invites][F.Invites.Name]                             | [2.0.2.0][F.Invites.Package]               |
+| [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name] | [1.1.0.0][F.PerformanceMonitoring.Package] |
+| [Xamarin.Firebase.iOS.RemoteConfig][F.RemoteConfig.Name]                   | [2.0.3.1][F.RemoteConfig.Package]          |
+| [Xamarin.Firebase.iOS.Storage][F.Storage.Name]                             | [2.1.1.0][F.Storage.Package]               |
+| [Xamarin.Google.iOS.Analytics][G.Analytics.Name]                           | [3.17.0.2][G.Analytics.Package]            |
+| [Xamarin.Google.iOS.AppIndexing][G.AppIndexing.Name]                       | [2.0.3.4][G.AppIndexing.Package]           |
+| [Xamarin.Google.iOS.Cast][G.Cast.Name]                                     | [4.0.2.0][G.Cast.Package]                  |
+| [Xamarin.Google.iOS.InstanceID][G.InstanceID.Name]                         | [1.2.1.11][G.InstanceID.Package]           |
+| [Xamarin.Google.iOS.Maps][G.Maps.Name]                                     | [2.5.0.0][G.Maps.Package]                  |
+| [Xamarin.Google.iOS.MobileAds][G.MobileAds.Name]                           | [7.27.0.1][G.MobileAds.Package]            |
+| [Xamarin.Google.iOS.Places][G.Places.Name]                                 | [2.5.0.0][G.Places.Package]                |
+| [Xamarin.Google.iOS.PlayGames][G.PlayGames.Name]                           | [5.1.1.10][G.PlayGames.Package]            |
+| [Xamarin.Google.iOS.SignIn][G.SignIn.Name]                                 | [4.1.1.0][G.SignIn.Package]                |
+| [Xamarin.Google.iOS.TagManager][G.TagManager.Name]                         | [6.0.0.2][G.TagManager.Package]            |
 
 **Deprecated Libraries**
 
-| Package Id                                       | NuGet          |
-|--------------------------------------------------|----------------|
-| [Xamarin.Google.iOS.GoogleCloudMessaging][5]     | [1.2.0.1][55]  |
-| [Xamarin.Google.iOS.AppInvite][13]               | [1.0.2.4][63]  |
+| Package Id                                                                 | NuGet                                      |
+|----------------------------------------------------------------------------|--------------------------------------------|
+| [Xamarin.Google.iOS.AppInvite][G.AppInvite.Name]                           | [1.0.2.4][G.AppInvite.Package]             |
+| [Xamarin.Google.iOS.Core][G.Core.Name]                                     | [3.1.0.1][G.Core.Package]                  |
+| [Xamarin.Google.iOS.GoogleCloudMessaging][G.GoogleCloudMessaging.Name]     | [1.2.0.1][G.GoogleCloudMessaging.Package]  |
 
 ## Building
 
@@ -47,7 +47,7 @@ The build script for this project uses [Cake][102].  To run the build, you can u
 **Mac**:
 
 ```
-cd Google.Core
+cd Firebase.Core
 sh ../build.sh --target libs
 ```
 
@@ -80,63 +80,69 @@ You will need to complete a Contribution License Agreement before your pull requ
 ## .NET Foundation
 This project is part of the [.NET Foundation][104]
 
-[1]: Firebase.Core
-[2]: Firebase.DynamicLinks
-[3]: Firebase.Storage
-[4]: Google.InstanceID
-[5]: Google.GoogleCloudMessaging
-[6]: Google.Cast
-[7]: Firebase.CloudMessaging
-[8]: Firebase.RemoteConfig
-[9]: Google.Core
-[10]: Firebase.AdMob
-[11]: Google.SignIn
-[12]: Google.MobileAds
-[13]: Google.AppInvite
-[14]: Firebase.Auth
-[15]: Google.TagManager
-[16]: Google.Maps
-[17]: Google.AppIndexing
-[18]: Firebase.Invites
-[19]: Google.PlayGames
-[20]: Firebase.CrashReporting
-[21]: Google.Analytics
-[22]: Google.Places
-[23]: Firebase.InstanceID
-[24]: Firebase.PerformanceMonitoring
-[25]: Firebase.Analytics
-[26]: Firebase.Database
+[F.AdMob.Name]: Firebase.AdMob
+[F.Analytics.Name]: Firebase.Analytics
+[F.Auth.Name]: Firebase.Auth
+[F.CloudMessaging.Name]: Firebase.CloudMessaging
+[F.Core.Name]: Firebase.Core
+[F.CrashReporting.Name]: Firebase.CrashReporting
+[F.Database.Name]: Firebase.Database
+[F.DynamicLinks.Name]: Firebase.DynamicLinks
+[F.InstanceID.Name]: Firebase.InstanceID
+[F.Invites.Name]: Firebase.Invites
+[F.PerformanceMonitoring.Name]: Firebase.PerformanceMonitoring
+[F.RemoteConfig.Name]: Firebase.RemoteConfig
+[F.Storage.Name]: Firebase.Storage
+
+[F.AdMob.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.AdMob/
+[F.Analytics.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Analytics/
+[F.Auth.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Auth/
+[F.CloudMessaging.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.CloudMessaging/
+[F.Core.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Core/
+[F.CrashReporting.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.CrashReporting/
+[F.Database.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Database/
+[F.DynamicLinks.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.DynamicLinks/
+[F.InstanceID.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.InstanceID/
+[F.Invites.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Invites/
+[F.PerformanceMonitoring.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.PerformanceMonitoring/
+[F.RemoteConfig.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.RemoteConfig/
+[F.Storage.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Storage/
 
 
-[51]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Core/
-[52]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.DynamicLinks/
-[53]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Storage/
-[54]: https://www.nuget.org/packages/Xamarin.Google.iOS.InstanceID/
-[55]: https://www.nuget.org/packages/Xamarin.Google.iOS.GoogleCloudMessaging/
-[56]: https://www.nuget.org/packages/Xamarin.Google.iOS.Cast/
-[57]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.CloudMessaging/
-[58]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.RemoteConfig/
-[59]: https://www.nuget.org/packages/Xamarin.Google.iOS.Core/
-[60]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.AdMob/
-[61]: https://www.nuget.org/packages/Xamarin.Google.iOS.SignIn/
-[62]: https://www.nuget.org/packages/Xamarin.Google.iOS.MobileAds/
-[63]: https://www.nuget.org/packages/Xamarin.Google.iOS.AppInvite/
-[64]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Auth/
-[65]: https://www.nuget.org/packages/Xamarin.Google.iOS.TagManager/
-[66]: https://www.nuget.org/packages/Xamarin.Google.iOS.Maps/
-[67]: https://www.nuget.org/packages/Xamarin.Google.iOS.AppIndexing/
-[68]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Invites/
-[69]: https://www.nuget.org/packages/Xamarin.Google.iOS.PlayGames/
-[70]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.CrashReporting/
-[71]: https://www.nuget.org/packages/Xamarin.Google.iOS.Analytics/
-[72]: https://www.nuget.org/packages/Xamarin.Google.iOS.Places/
-[73]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.InstanceID/
-[74]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.PerformanceMonitoring/
-[75]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Analytics/
-[76]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Database/
+[G.Analytics.Name]: Google.Analytics
+[G.AppIndexing.Name]: Google.AppIndexing
+[G.Cast.Name]: Google.Cast
+[G.InstanceID.Name]: Google.InstanceID
+[G.Maps.Name]: Google.Maps
+[G.MobileAds.Name]: Google.MobileAds
+[G.Places.Name]: Google.Places
+[G.PlayGames.Name]: Google.PlayGames
+[G.SignIn.Name]: Google.SignIn
+[G.TagManager.Name]: Google.TagManager
+
+[G.Analytics.Package]: https://www.nuget.org/packages/Xamarin.Google.iOS.Analytics/
+[G.AppIndexing.Package]: https://www.nuget.org/packages/Xamarin.Google.iOS.AppIndexing/
+[G.Cast.Package]: https://www.nuget.org/packages/Xamarin.Google.iOS.Cast/
+[G.InstanceID.Package]: https://www.nuget.org/packages/Xamarin.Google.iOS.InstanceID/
+[G.Maps.Package]: https://www.nuget.org/packages/Xamarin.Google.iOS.Maps/
+[G.MobileAds.Package]: https://www.nuget.org/packages/Xamarin.Google.iOS.MobileAds/
+[G.Places.Package]: https://www.nuget.org/packages/Xamarin.Google.iOS.Places/
+[G.PlayGames.Package]: https://www.nuget.org/packages/Xamarin.Google.iOS.PlayGames/
+[G.SignIn.Package]: https://www.nuget.org/packages/Xamarin.Google.iOS.SignIn/
+[G.TagManager.Package]: https://www.nuget.org/packages/Xamarin.Google.iOS.TagManager/
+
+
+[G.AppInvite.Name]: Google.AppInvite
+[G.Core.Name]: Google.Core
+[G.GoogleCloudMessaging.Name]: Google.GoogleCloudMessaging
+
+[G.AppInvite.Package]: https://www.nuget.org/packages/Xamarin.Google.iOS.AppInvite/
+[G.Core.Package]: https://www.nuget.org/packages/Xamarin.Google.iOS.Core/
+[G.GoogleCloudMessaging.Package]: https://www.nuget.org/packages/Xamarin.Google.iOS.GoogleCloudMessaging/
+
 
 [101]: https://cocoapods.org/
 [102]: http://cakebuild.net
 [103]: https://cla2.dotnetfoundation.org/
-[104]:http://www.dotnetfoundation.org/projects
+[104]: http://www.dotnetfoundation.org/projects
 

@@ -18,7 +18,6 @@ namespace AdMobSample
 
 		bool adOnTable;
 		bool adOnWindow;
-		bool interstitialRequested;
 
 		public AdsViewController () : base (UITableViewStyle.Grouped, null, true)
 		{

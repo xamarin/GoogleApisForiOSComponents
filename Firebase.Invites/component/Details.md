@@ -1,6 +1,6 @@
 Firebase Invites are an out-of-the-box solution for app referrals and sharing via email or SMS.
 
-Word of mouth is one of the most effective ways of getting users to install your app. In a recent study of thousands of smartphone users, researchers found that the #1 reason people discovered an app is because they heard about it from a friend or colleague. Firebase Invites makes it easy to turn your app's users into your app's strongest advocates.
+Word of mouth is one of the most effective ways of getting users to install your app. In a [recent study](https://think.storage.googleapis.com/docs/mobile-app-marketing-insights.pdf) of thousands of smartphone users, researchers found that the #1 reason people discovered an app is because they heard about it from a friend or colleague. Firebase Invites makes it easy to turn your app's users into your app's strongest advocates.
 
 Firebase Invites builds on Firebase Dynamic Links. which ensures that recipients of links have the best possible experience for their platform and the apps they have installed.
 
@@ -20,12 +20,13 @@ Firebase Invites builds on Firebase Dynamic Links. which ensures that recipients
 | **Merged contacts selector** | The share screen's contact list is populated from the user's Google Contacts and the contacts stored locally on the device. |
 | **Recipient recommendations** | The share screen recommends recipients based on the contacts the user communicates with frequently. |
 | **Customizable invitation message** | You can set the default message to be sent with invitations. This message can be edited by the user when sending invitations. |
-| **Customizable rich-text email invitations** | You can customize email invitations in either of two ways: <br /> Provide custom images that will be used along with additional text and graphics from the app's entry in the App Store or Play Store. <br /> Provide HTML for a fully customized email invitation. |
+| **Customizable rich-text email invitations** | You can customize email invitations in either of two ways: <br /> <ul><li>Provide custom images that will be used along with additional text and graphics from the app's entry in the App Store or Play Store.</li> <br /> <li>Provide HTML for a fully customized email invitation.</li></ul> |
 
 | Receiving invitations |  |
 |----------------------:|--|
 | **Installation flow initiation** | Firebase Invites smartly directs the recipient to the appropriate store when they open the link and need to install the app. iOS users are sent to the App Store, Android users are sent to the Play Store, and web users are sent to the store for the sender's platform. |
 | **Installation flow survival** | Invitations use Dynamic Links, which ensure that the link information contained in the invitation doesn't get lost, even if the user has to install the app first. |
+| **Low friction for users** | iOS and Android users can receive invitations without signing in to their Google Accounts. |
 
 ## How does it work?
 

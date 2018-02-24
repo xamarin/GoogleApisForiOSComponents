@@ -100,6 +100,9 @@ namespace Firebase.Invites
 		void Open ();
 	}
 
+	// typedef void (^FIRInvitesUniversalLinkHandler)(FIRReceivedInvite * _Nullable, NSError * _Nullable);
+	delegate void InvitesUniversalLinkHandler ([NullAllowed] ReceivedInvite receivedInvite, [NullAllowed] NSError error);
+
 	// @interface FIRInvites : NSObject
 	[BaseType (typeof (NSObject), Name = "FIRInvites")]
 	interface Invites
@@ -123,11 +126,17 @@ namespace Firebase.Invites
 		[Export ("applicationDidFinishLaunching")]
 		void ApplicationDidFinishLaunching ();
 
-		// +(id _Nullable)handleURL:(NSURL * _Nonnull)url sourceApplication:(NSString * _Nullable)sourceApplication annotation:(id _Nullable)annotation;
+		// +(id _Nullable)handleURL:(NSURL * _Nonnull)url sourceApplication:(NSString * _Nullable)sourceApplication annotation:(id _Nullable)annotation __attribute__((deprecated("Use |handleUniversalLink:completion:| instead.")));
+		[Obsolete ("Call HandleUniversalLink method instead.")]
 		[Static]
 		[return: NullAllowed]
 		[Export ("handleURL:sourceApplication:annotation:")]
 		ReceivedInvite HandleUrl (NSUrl url, [NullAllowed] string sourceApplication, [NullAllowed] NSObject annotation);
+
+		[Async]
+		[Static]
+		[Export ("handleUniversalLink:completion:")]
+		bool HandleUniversalLink (NSUrl Url, InvitesUniversalLinkHandler completion);
 
 		// +(void)completeInvitation __attribute__((deprecated("No longer need to call.")));
 		[Obsolete ("No longer need to call.")]

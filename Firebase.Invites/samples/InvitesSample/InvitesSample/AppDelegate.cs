@@ -12,6 +12,7 @@ namespace InvitesSample
 	[Register ("AppDelegate")]
 	public class AppDelegate : UIApplicationDelegate
 	{
+		
 		// class-level declarations
 
 		public override UIWindow Window {
@@ -23,6 +24,8 @@ namespace InvitesSample
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
+			UIApplication.SharedApplication.StatusBarStyle = UIStatusBarStyle.LightContent;
+
 			App.Configure ();
 
 			return true;
@@ -38,26 +41,31 @@ namespace InvitesSample
 		// Support for iOS 8 or before
 		public override bool OpenUrl (UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
 		{
-			// Handle App Invite requests
-			var invite = Invites.HandleUrl (url, sourceApplication, annotation);
-
-			if (invite != null) {
-				var matchType = invite.MatchType == ReceivedInviteMatchType.Weak ? "Weak" : "Strong";
-				var message = $"Deep link from {sourceApplication}\nInvite ID: {invite.InviteId}\nApp Url: {invite.DeepLink}\nMatch Type: {matchType}";
-				ShowMessage ("Depp-Link Data", message, Window.RootViewController);
-
-				return true;
-			}
-
 			// Handle Sign In
-			return SignIn.SharedInstance.HandleUrl (url, sourceApplication ?? "", annotation);
+			if (SignIn.SharedInstance.HandleUrl (url, sourceApplication ?? "", annotation))
+				return true;
+
+			// Handle App Invite requests
+			return Invites.HandleUniversalLink (url, HandleInvitesUniversalLink);
+
+			void HandleInvitesUniversalLink (ReceivedInvite receivedInvite, NSError error)
+			{
+				if (error != null) {
+					ShowMessage ("Depp-Link Data", error.LocalizedDescription, Window.RootViewController);
+					return;
+				}
+
+				var message = $"Deep link from {sourceApplication}\nInvite ID: {receivedInvite.InviteId}\nApp Url: {receivedInvite.DeepLink}\nMatch Type: {receivedInvite.MatchType}";
+
+				ShowMessage ("Depp-Link Data", message, Window.RootViewController);
+			}
 		}
 
 		public static void ShowMessage (string title, string message, UIViewController fromViewController)
 		{
 			if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
 				var alert = UIAlertController.Create (title, message, UIAlertControllerStyle.Alert);
-				alert.AddAction (UIAlertAction.Create ("Ok", UIAlertActionStyle.Default, (obj) => { }));
+				alert.AddAction (UIAlertAction.Create ("Ok", UIAlertActionStyle.Default, null));
 				fromViewController.PresentViewController (alert, true, null);
 			} else {
 				new UIAlertView (title, message, null, "Ok", null).Show ();

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using UIKit;
 using Foundation;
@@ -46,15 +47,19 @@ namespace Firebase.CloudMessaging
 	[BaseType (typeof (NSObject), Name = "FIRMessagingDelegate")]
 	interface MessagingDelegate
 	{
-		// - (void)messaging:(nonnull FIRMessaging *)messaging didRefreshRegistrationToken:(nonnull NSString *)fcmToken FIR_SWIFT_NAME(messaging(_:didRefreshRegistrationToken:));
-		[Abstract]
+		// @optional -(void)messaging:(FIRMessaging * _Nonnull)messaging didReceiveRegistrationToken:(NSString * _Nonnull)fcmToken;
+		[Export ("messaging:didReceiveRegistrationToken:")]
+		void DidReceiveRegistrationToken (Messaging messaging, string fcmToken);
+
+		// @optional -(void)messaging:(FIRMessaging * _Nonnull)messaging didRefreshRegistrationToken:(NSString * _Nonnull)fcmToken __attribute__((deprecated("Please use messaging:didReceiveRegistrationToken:, which is called for both current and refreshed tokens.")));
+		[Obsolete ("Use DidReceiveRegistrationToken method instead, which is called for both current and refreshed tokens.")]
 		[Export("messaging:didRefreshRegistrationToken:")]
-		void DidRefreshRegistrationToken(Messaging messaging, string fcmToken);
+		void DidRefreshRegistrationToken (Messaging messaging, string fcmToken);
 
 		// - (void)messaging:(nonnull FIRMessaging *)messaging didReceiveMessage:(nonnull FIRMessagingRemoteMessage *)remoteMessage FIR_SWIFT_NAME(messaging(_:didReceive:) __IOS_AVAILABLE(10.0);
 		[Introduced (PlatformName.iOS, 10, 0, 0)]
 		[Export("messaging:didReceiveMessage:")]
-		void DidReceiveMessage(Messaging messaging, RemoteMessage remoteMessage);
+		void DidReceiveMessage (Messaging messaging, RemoteMessage remoteMessage);
 
 		// - (void)applicationReceivedRemoteMessage:(nonnull FIRMessagingRemoteMessage *)remoteMessage;
 		[Obsolete ("Use DidReceiveMessage method instead.")]
@@ -132,10 +137,12 @@ namespace Firebase.CloudMessaging
 		string FcmToken { get; }
 
 		// - (void)retrieveFCMTokenForSenderID:(nonnull NSString *)senderID completion:(nonnull FIRMessagingFCMTokenFetchCompletion) completion FIR_SWIFT_NAME(retrieveFCMToken(forSenderID:completion:));
+		[Async]
 		[Export("retrieveFCMTokenForSenderID:completion:")]
 		void RetrieveFcmToken(string senderId, MessagingFcmTokenFetchCompletionHandler completion);
 
 		// - (void)deleteFCMTokenForSenderID:(nonnull NSString *)senderID completion:(nonnull FIRMessagingDeleteFCMTokenCompletion) completion FIR_SWIFT_NAME(deleteFCMToken(forSenderID:completion:));
+		[Async]
 		[Export("deleteFCMTokenForSenderID:completion:")]
 		void DeleteFcmToken(string senderId, MessagingDeleteFcmTokenCompletionHandler completion);
 
@@ -160,6 +167,9 @@ namespace Firebase.CloudMessaging
 		// -(void)sendMessage:(NSDictionary * _Nonnull)message to:(NSString * _Nonnull)receiver withMessageID:(NSString * _Nonnull)messageID timeToLive:(int64_t)ttl;
 		[Export ("sendMessage:to:withMessageID:timeToLive:")]
 		void SendMessage (NSDictionary message, string receiver, string messageId, long ttl);
+
+		[Wrap ("SendMessage (message == null ? null : NSDictionary.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (message.Values), System.Linq.Enumerable.ToArray (message.Keys), message.Keys.Count), receiver, messageId, ttl)")]
+		void SendMessage (Dictionary<object, object> message, string receiver, string messageId, long ttl);
 
 		// -(FIRMessagingMessageInfo * _Nonnull)appDidReceiveMessage:(NSDictionary * _Nonnull)message;
 		[Export ("appDidReceiveMessage:")]

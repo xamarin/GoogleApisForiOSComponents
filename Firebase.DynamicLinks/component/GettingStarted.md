@@ -172,6 +172,15 @@ components.GetShortenUrl ((shortUrl, warnings, error) => {
 
 	Console.WriteLine (shortUrl.AbsoluteString);
 });
+
+// async/await way:
+
+try {
+	var result = await components.GetShortenUrlAsync ();
+	Console.WriteLine (result.ShortUrl.AbsoluteString);
+} catch (NSErrorException ex) {
+	Console.WriteLine ($"Error generating short link: {ex.Error.LocalizedDescription}");
+}
 ```
 
 ## Manually constructing a Dynamic Link URL
@@ -222,6 +231,22 @@ public override bool ContinueUserActivity (UIApplication application, NSUserActi
 }
 ```
 
+## View Dynamic Links Analytics Data
+
+To help you gauge the effectiveness of your promotions and campaigns, Firebase Dynamic Links provides several ways to view analytics data and integrate with analytics tools.
+
+To learn more about this, please, read the following [documentation][10].
+
+## Debugging Dynamic Links
+
+To help you debug your Dynamic Links, you can preview your Dynamic Links' behavior on different platforms and configurations with an automatically-generated flowchart. Generate the flowchart by adding the d=1 parameter to any short or long Dynamic Link. For example, app_code.app.goo.gl/path?d=1 for a short Dynamic Link.
+
+To learn more about this, please, read the following [documentation][11].
+
+## Generate link previews with social metadata
+
+To learn about this, please, read the following [documentation][12].
+
 ## Known issues
 
 * App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][9])
@@ -237,3 +262,6 @@ public override bool ContinueUserActivity (UIApplication application, NSUserActi
 [7]: https://firebase.google.com/docs/dynamic-links/create-manually
 [8]: https://developer.apple.com/library/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html
 [9]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689
+[10]: https://firebase.google.com/docs/dynamic-links/analytics
+[11]: https://firebase.google.com/docs/dynamic-links/debug
+[12]: https://firebase.google.com/docs/dynamic-links/link-previews

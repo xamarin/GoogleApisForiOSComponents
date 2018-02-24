@@ -176,54 +176,87 @@ namespace Firebase.Auth
 		NSData ApnsToken { get; set; }
 
 		// -(void)fetchProvidersForEmail:(NSString * _Nonnull)email completion:(FIRProviderQueryCallback _Nullable)completion;
+		[Async]
 		[Export ("fetchProvidersForEmail:completion:")]
 		void FetchProviders (string email, [NullAllowed] ProviderQueryHandler completion);
 
 		// -(void)signInWithEmail:(NSString * _Nonnull)email password:(NSString * _Nonnull)password completion:(FIRAuthResultCallback _Nullable)completion;
+		[Async]
 		[Export ("signInWithEmail:password:completion:")]
 		void SignIn (string email, string password, [NullAllowed] AuthResultHandler completion);
 
+		// -(void)signInAndRetrieveDataWithEmail:(NSString * _Nonnull)email password:(NSString * _Nonnull)password completion:(FIRAuthDataResultCallback _Nullable)completion;
+		[Async]
+		[Export ("signInAndRetrieveDataWithEmail:password:completion:")]
+		void SignInAndRetrieveData (string email, string password, [NullAllowed] AuthDataResultHandler completion);
+
 		// -(void)signInWithCredential:(FIRAuthCredential * _Nonnull)credential completion:(FIRAuthResultCallback _Nullable)completion;
+		[Async]
 		[Export ("signInWithCredential:completion:")]
 		void SignIn (AuthCredential credential, [NullAllowed] AuthResultHandler completion);
 
 		// - (void)signInAndRetrieveDataWithCredential:(FIRAuthCredential *)credential completion:(nullable FIRAuthDataResultCallback) completion;
+		[Async]
 		[Export ("signInAndRetrieveDataWithCredential:completion:")]
 		void SignInAndRetrieveData (AuthCredential credential, [NullAllowed] AuthDataResultHandler completion);
 
 		// -(void)signInAnonymouslyWithCompletion:(FIRAuthResultCallback _Nullable)completion;
+		[Async]
 		[Export ("signInAnonymouslyWithCompletion:")]
 		void SignInAnonymously ([NullAllowed] AuthResultHandler completion);
 
+		// -(void)signInAnonymouslyAndRetrieveDataWithCompletion:(FIRAuthDataResultCallback _Nullable)completion;
+		[Async]
+		[Export ("signInAnonymouslyAndRetrieveDataWithCompletion:")]
+		void SignInAnonymouslyAndRetrieveData ([NullAllowed] AuthDataResultHandler completion);
+
 		// -(void)signInWithCustomToken:(NSString * _Nonnull)token completion:(FIRAuthResultCallback _Nullable)completion;
+		[Async]
 		[Export ("signInWithCustomToken:completion:")]
 		void SignIn (string token, [NullAllowed] AuthResultHandler completion);
 
+		// -(void)signInAndRetrieveDataWithCustomToken:(NSString * _Nonnull)token completion:(FIRAuthDataResultCallback _Nullable)completion;
+		[Async]
+		[Export ("signInAndRetrieveDataWithCustomToken:completion:")]
+		void SignInAndRetrieveData (string token, [NullAllowed] AuthDataResultHandler completion);
+
 		// -(void)createUserWithEmail:(NSString * _Nonnull)email password:(NSString * _Nonnull)password completion:(FIRAuthResultCallback _Nullable)completion;
+		[Async]
 		[Export ("createUserWithEmail:password:completion:")]
 		void CreateUser (string email, string password, [NullAllowed] AuthResultHandler completion);
 
+		// -(void)createUserAndRetrieveDataWithEmail:(NSString * _Nonnull)email password:(NSString * _Nonnull)password completion:(FIRAuthDataResultCallback _Nullable)completion;
+		[Async]
+		[Export ("createUserAndRetrieveDataWithEmail:password:completion:")]
+		void CreateUserAndRetrieveData (string email, string password, [NullAllowed] AuthDataResultHandler completion);
+
 		// -(void)confirmPasswordResetWithCode:(NSString * _Nonnull)code newPassword:(NSString * _Nonnull)newPassword completion:(FIRConfirmPasswordResetCallback _Nonnull)completion;
+		[Async]
 		[Export ("confirmPasswordResetWithCode:newPassword:completion:")]
 		void ConfirmPasswordReset (string code, string newPassword, ConfirmPasswordResetHandler completion);
 
 		// -(void)checkActionCode:(NSString * _Nonnull)code completion:(FIRCheckActionCodeCallBack _Nonnull)completion;
+		[Async]
 		[Export ("checkActionCode:completion:")]
 		void CheckActionCode (string code, CheckActionCodeHandler completion);
 
 		// -(void)verifyPasswordResetCode:(NSString * _Nonnull)code completion:(FIRVerifyPasswordResetCodeCallback _Nonnull)completion;
+		[Async]
 		[Export ("verifyPasswordResetCode:completion:")]
 		void VerifyPasswordResetCode (string code, VerifyPasswordResetCodeHandler completion);
 
 		// -(void)applyActionCode:(NSString * _Nonnull)code completion:(FIRApplyActionCodeCallback _Nonnull)completion;
+		[Async]
 		[Export ("applyActionCode:completion:")]
 		void ApplyActionCode (string code, ApplyActionCodeHandler completion);
 
 		// -(void)sendPasswordResetWithEmail:(NSString * _Nonnull)email completion:(FIRSendPasswordResetCallback _Nullable)completion;
+		[Async]
 		[Export ("sendPasswordResetWithEmail:completion:")]
 		void SendPasswordReset (string email, [NullAllowed] SendPasswordResetHandler completion);
 
 		// - (void)sendPasswordResetWithEmail:(NSString *)email actionCodeSettings:(FIRActionCodeSettings*) actionCodeSettings completion:(nullable FIRSendPasswordResetCallback) completion;
+		[Async]
 		[Export ("sendPasswordResetWithEmail:actionCodeSettings:completion:")]
 		void SendPasswordReset (string email, ActionCodeSettings actionCodeSettings, [NullAllowed] SendPasswordResetHandler completion);
 
@@ -253,7 +286,7 @@ namespace Firebase.Auth
 
 		// - (BOOL)canHandleURL:(nonnull NSURL *)URL;
 		[Export ("canHandleURL:")]
-		void CanHandleUrl (NSUrl url);
+		bool CanHandleUrl (NSUrl url);
 
 		// -(void)setAPNSToken:(NSData * _Nonnull)token type:(FIRAuthAPNSTokenType)type;
 		[Export ("setAPNSToken:type:")]
@@ -425,8 +458,9 @@ namespace Firebase.Auth
 		void VerifyPhoneNumber (string phoneNumber, [NullAllowed] VerificationResultHandler completion);
 
 		// - (void)verifyPhoneNumber:(NSString *)phoneNumber UIDelegate:(nullable id<FIRAuthUIDelegate>)UIDelegate completion:(nullable FIRVerificationResultCallback) completion;
+		[Async]
 		[Export ("verifyPhoneNumber:UIDelegate:completion:")]
-		void VerifyPhoneNumber (string phoneNumber, [NullAllowed] IAuthUIDelegate uiDelegate , [NullAllowed] VerificationResultHandler completion);
+		void VerifyPhoneNumber (string phoneNumber, [NullAllowed] IAuthUIDelegate uiDelegate, [NullAllowed] VerificationResultHandler completion);
 
 		// -(FIRPhoneAuthCredential * _Nonnull)credentialWithVerificationID:(NSString * _Nonnull)verificationID verificationCode:(NSString * _Nonnull)verificationCode;
 		[Export ("credentialWithVerificationID:verificationCode:")]
@@ -479,15 +513,22 @@ namespace Firebase.Auth
 		[Export ("providerData")]
 		IUserInfo [] ProviderData { get; }
 
+		// @property (readonly, nonatomic) FIRUserMetadata * _Nonnull metadata;
+		[Export ("metadata")]
+		UserMetadata Metadata { get; }
+
 		// -(void)updateEmail:(NSString * _Nonnull)email completion:(FIRUserProfileChangeCallback _Nullable)completion;
+		[Async]
 		[Export ("updateEmail:completion:")]
 		void UpdateEmail (string email, [NullAllowed] UserProfileChangeHandler completion);
 
 		// -(void)updatePassword:(NSString * _Nonnull)password completion:(FIRUserProfileChangeCallback _Nullable)completion;
+		[Async]
 		[Export ("updatePassword:completion:")]
 		void UpdatePassword (string password, [NullAllowed] UserProfileChangeHandler completion);
 
 		// -(void)updatePhoneNumberCredential:(FIRPhoneAuthCredential * _Nonnull)phoneNumberCredential completion:(FIRUserProfileChangeCallback _Nullable)completion;
+		[Async]
 		[Export ("updatePhoneNumberCredential:completion:")]
 		void UpdatePhoneNumberCredential (PhoneAuthCredential phoneNumberCredential, [NullAllowed] UserProfileChangeHandler completion);
 
@@ -496,18 +537,22 @@ namespace Firebase.Auth
 		UserProfileChangeRequest ProfileChangeRequest ();
 
 		// -(void)reloadWithCompletion:(FIRUserProfileChangeCallback _Nullable)completion;
+		[Async]
 		[Export ("reloadWithCompletion:")]
 		void Reload ([NullAllowed] UserProfileChangeHandler completion);
 
 		// -(void)reauthenticateWithCredential:(FIRAuthCredential * _Nonnull)credential completion:(FIRUserProfileChangeCallback _Nullable)completion;
+		[Async]
 		[Export ("reauthenticateWithCredential:completion:")]
 		void Reauthenticate (AuthCredential credential, [NullAllowed] UserProfileChangeHandler completion);
 
 		// -(void)reauthenticateAndRetrieveDataWithCredential:(FIRAuthCredential * _Nonnull)credential completion:(FIRAuthDataResultCallback _Nullable)completion;
+		[Async]
 		[Export ("reauthenticateAndRetrieveDataWithCredential:completion:")]
 		void ReauthenticateAndRetrieveData (AuthCredential credential, [NullAllowed] AuthDataResultHandler completion);
 
 		// -(void)getIDTokenWithCompletion:(FIRAuthTokenCallback _Nullable)completion;
+		[Async]
 		[Export ("getIDTokenWithCompletion:")]
 		void GetIdToken ([NullAllowed] AuthTokenHandler completion);
 
@@ -517,6 +562,7 @@ namespace Firebase.Auth
 		void GetToken ([NullAllowed] AuthTokenHandler completion);
 
 		// -(void)getIDTokenForcingRefresh:(BOOL)forceRefresh completion:(FIRAuthTokenCallback _Nullable)completion;
+		[Async]
 		[Export ("getIDTokenForcingRefresh:completion:")]
 		void GetIdToken (bool forceRefresh, [NullAllowed] AuthTokenHandler completion);
 
@@ -526,26 +572,32 @@ namespace Firebase.Auth
 		void GetToken (bool forceRefresh, [NullAllowed] AuthTokenHandler completion);
 
 		// -(void)linkWithCredential:(FIRAuthCredential * _Nonnull)credential completion:(FIRAuthResultCallback _Nullable)completion;
+		[Async]
 		[Export ("linkWithCredential:completion:")]
 		void Link (AuthCredential credential, [NullAllowed] AuthResultHandler completion);
 
 		// -(void)linkAndRetrieveDataWithCredential:(FIRAuthCredential * _Nonnull)credential completion:(FIRAuthDataResultCallback _Nullable)completion;
+		[Async]
 		[Export ("linkAndRetrieveDataWithCredential:completion:")]
 		void LinkAndRetrieveData (AuthCredential credential, [NullAllowed] AuthDataResultHandler completion);
 
 		// -(void)unlinkFromProvider:(NSString * _Nonnull)provider completion:(FIRAuthResultCallback _Nullable)completion;
+		[Async]
 		[Export ("unlinkFromProvider:completion:")]
 		void Unlink (string providerId, [NullAllowed] AuthResultHandler completion);
 
 		// -(void)sendEmailVerificationWithCompletion:(FIRSendEmailVerificationCallback _Nullable)completion;
+		[Async]
 		[Export ("sendEmailVerificationWithCompletion:")]
 		void SendEmailVerification ([NullAllowed] SendEmailVerificationHandler completion);
 
 		// - (void)sendEmailVerificationWithActionCodeSettings:(FIRActionCodeSettings *)actionCodeSettings completion:(nullable FIRSendEmailVerificationCallback)completion;
+		[Async]
 		[Export ("sendEmailVerificationWithActionCodeSettings:completion:")]
 		void SendEmailVerification (ActionCodeSettings actionCodeSettings, [NullAllowed] SendEmailVerificationHandler completion);
 
 		// -(void)deleteWithCompletion:(FIRUserProfileChangeCallback _Nullable)completion;
+		[Async]
 		[Export ("deleteWithCompletion:")]
 		void Delete ([NullAllowed] UserProfileChangeHandler completion);
 	}
@@ -566,6 +618,7 @@ namespace Firebase.Auth
 		NSUrl PhotoUrl { get; set; }
 
 		// -(void)commitChangesWithCompletion:(FIRUserProfileChangeCallback _Nullable)completion;
+		[Async]
 		[Export ("commitChangesWithCompletion:")]
 		void CommitChanges ([NullAllowed] UserProfileChangeHandler completion);
 	}
@@ -612,5 +665,18 @@ namespace Firebase.Auth
 		[NullAllowed]
 		[Export ("phoneNumber")]
 		string PhoneNumber { get; }
+	}
+
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FIRUserMetadata")]
+	interface UserMetadata
+	{
+		// @property (readonly, copy, nonatomic) NSDate * _Nullable lastSignInDate;
+		[NullAllowed, Export ("lastSignInDate", ArgumentSemantic.Copy)]
+		NSDate LastSignInDate { get; }
+
+		// @property (readonly, copy, nonatomic) NSDate * _Nullable creationDate;
+		[NullAllowed, Export ("creationDate", ArgumentSemantic.Copy)]
+		NSDate CreationDate { get; }
 	}
 }

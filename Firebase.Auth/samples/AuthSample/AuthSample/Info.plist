@@ -45,7 +45,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb765057006871425</string>
+				<string>fbYour_App_Id</string>
 			</array>
 			<key>CFBundleURLTypes</key>
 			<string>Editor</string>
@@ -85,5 +85,7 @@
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

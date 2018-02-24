@@ -191,6 +191,20 @@ namespace Firebase.DynamicLinks
 		DynamicLinkNavigationInfoParameters Create ();
 	}
 
+	// @interface FIRDynamicLinkOtherPlatformParameters : NSObject
+	[BaseType (typeof (NSObject), Name = "FIRDynamicLinkOtherPlatformParameters")]
+	interface DynamicLinkOtherPlatformParameters
+	{
+		// @property (nonatomic) NSURL * _Nullable fallbackUrl;
+		[NullAllowed, Export ("fallbackUrl", ArgumentSemantic.Assign)]
+		NSUrl FallbackUrl { get; set; }
+
+		// +(instancetype _Nonnull)parameters;
+		[Static]
+		[Export ("parameters")]
+		DynamicLinkOtherPlatformParameters Create ();
+	}
+
 	// @interface FIRDynamicLinkComponentsOptions : NSObject
 	[BaseType (typeof (NSObject), Name = "FIRDynamicLinkComponentsOptions")]
 	interface DynamicLinkComponentsOptions
@@ -239,6 +253,11 @@ namespace Firebase.DynamicLinks
 		[Export ("navigationInfoParameters", ArgumentSemantic.Assign)]
 		DynamicLinkNavigationInfoParameters NavigationInfoParameters { get; set; }
 
+		// @property(nonatomic, nullable) FIRDynamicLinkOtherPlatformParameters *otherPlatformParameters;
+		[NullAllowed]
+		[Export ("otherPlatformParameters", ArgumentSemantic.Assign)]
+		DynamicLinkOtherPlatformParameters OtherPlatformParameters { get; set; }
+
 		// @property (nonatomic) FIRDynamicLinkComponentsOptions * _Nullable options;
 		[NullAllowed]
 		[Export ("options", ArgumentSemantic.Assign)]
@@ -269,10 +288,12 @@ namespace Firebase.DynamicLinks
 
 		// +(void)shortenURL:(NSURL * _Nonnull)url options:(FIRDynamicLinkComponentsOptions * _Nullable)options completion:(FIRDynamicLinkShortenerCompletion _Nonnull)completion;
 		[Static]
+		[Async (ResultTypeName = "DynamicLinkShortenerResult")]
 		[Export ("shortenURL:options:completion:")]
 		void GetShortenUrl (NSUrl url, [NullAllowed] DynamicLinkComponentsOptions options, DynamicLinkShortenerCompletionHandle completion);
 
 		// -(void)shortenWithCompletion:(FIRDynamicLinkShortenerCompletion _Nonnull)completion;
+		[Async (ResultTypeName = "DynamicLinkShortenerResult")]
 		[Export ("shortenWithCompletion:")]
 		void GetShortenUrl (DynamicLinkShortenerCompletionHandle completion);
 	}
@@ -287,9 +308,14 @@ namespace Firebase.DynamicLinks
 		[Export ("url", ArgumentSemantic.Copy)]
 		NSUrl Url { get; }
 
-		// @property (readonly, assign, nonatomic) FIRDynamicLinkMatchConfidence matchConfidence;
+		// @property (readonly, assign, nonatomic) FIRDynamicLinkMatchConfidence matchConfidence __attribute__((deprecated("Use FIRDynamicLink.matchType instead.")));
+		[Obsolete ("Use MatchType property instead.")]
 		[Export ("matchConfidence", ArgumentSemantic.Assign)]
 		DynamicLinkMatchConfidence MatchConfidence { get; }
+
+		// @property (readonly, assign, nonatomic) FIRDLMatchType matchType;
+		[Export ("matchType", ArgumentSemantic.Assign)]
+		DynamicLinkMatchType MatchType { get; }
 
 		// @property(nonatomic, copy, readonly, nullable) NSString *minimumAppVersion;
 		[NullAllowed]
@@ -332,10 +358,12 @@ namespace Firebase.DynamicLinks
 		DynamicLink FromUniversalLinkUrl (NSUrl url);
 
 		// -(BOOL)handleUniversalLink:(NSURL * _Nonnull)url completion:(FIRDynamicLinkUniversalLinkHandler _Nonnull)completion;
+		[Async]
 		[Export ("handleUniversalLink:completion:")]
 		bool HandleUniversalLink (NSUrl url, DynamicLinkUniversalLinkHandler completion);
 
 		// -(void)resolveShortLink:(NSURL * _Nonnull)url completion:(FIRDynamicLinkResolverHandler _Nonnull)completion;
+		[Async]
 		[Export ("resolveShortLink:completion:")]
 		void ResolveShortLink (NSUrl url, DynamicLinkResolverHandler completion);
 
@@ -345,6 +373,7 @@ namespace Firebase.DynamicLinks
 
 		// + (void)performDiagnosticsWithCompletion:(void (^_Nullable)(NSString *diagnosticOutput, BOOL hasErrors))completionHandler;
 		[Static]
+		[Async (ResultTypeName = "DynamicLinkDiagnosticOutputResult")]
 		[Export ("performDiagnosticsWithCompletion:")]
 		void PerformDiagnostics ([NullAllowed] DynamicLinkDiagnosticOutputHandler completion);
 	}

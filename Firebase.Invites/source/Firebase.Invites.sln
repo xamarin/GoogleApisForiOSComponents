@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firebase.Analytics", "..\..
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firebase.DynamicLinks", "..\..\Firebase.DynamicLinks\source\Firebase.DynamicLinks\Firebase.DynamicLinks.csproj", "{44E2D44F-2072-4885-AA39-1C4DD5E65E5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.Core", "..\..\Google.Core\source\Google.Core\Google.Core.csproj", "{C2355333-621E-4439-9F53-EB717D681699}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.SignIn", "..\..\Google.SignIn\source\Google.SignIn\Google.SignIn.csproj", "{3C142652-0DF6-4919-9F58-0FD8FA3A9F6D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firebase.Core", "..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.csproj", "{0AD1ED63-C008-41B3-8ADB-04696B4880E3}"
@@ -37,10 +35,6 @@ Global
 		{44E2D44F-2072-4885-AA39-1C4DD5E65E5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44E2D44F-2072-4885-AA39-1C4DD5E65E5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44E2D44F-2072-4885-AA39-1C4DD5E65E5C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C2355333-621E-4439-9F53-EB717D681699}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C2355333-621E-4439-9F53-EB717D681699}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C2355333-621E-4439-9F53-EB717D681699}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C2355333-621E-4439-9F53-EB717D681699}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3C142652-0DF6-4919-9F58-0FD8FA3A9F6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3C142652-0DF6-4919-9F58-0FD8FA3A9F6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C142652-0DF6-4919-9F58-0FD8FA3A9F6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
