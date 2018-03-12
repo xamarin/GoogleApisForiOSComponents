@@ -848,6 +848,10 @@ namespace Google.Cast
 		// @optional -(void)didRemoveDeviceAtIndex:(NSUInteger)index;
 		[Export ("didRemoveDeviceAtIndex:")]
 		void DidRemoveDevice (nuint index);
+
+        // @optional - (void)didRemoveDevice:(GCKDevice *)device atIndex:(NSUInteger)index;
+        [Export ("didRemoveDevice:atIndex")]
+        void DidRemoveDevice(Device device, nuint index);
 	}
 
 	[DisableDefaultCtor]
