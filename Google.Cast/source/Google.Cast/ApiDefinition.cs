@@ -67,6 +67,24 @@ namespace Google.Cast
 		[Export ("mimeType", ArgumentSemantic.Strong)]
 		string MimeType { get; }
 
+		// @property(nonatomic, strong, readonly, GCK_NULLABLE) NSString *contentID;
+		[NullAllowed]
+		[Export ("contentID", ArgumentSemantic.Strong)]
+		string ContentId { get; }
+
+		// @property(nonatomic, strong, readonly, GCK_NULLABLE) NSURL *posterURL;
+		[NullAllowed]
+		[Export ("posterURL", ArgumentSemantic.Strong)]
+		NSUrl PosterUrl { get; }
+
+		// @property(nonatomic, assign, readonly) NSTimeInterval whenSkippableInMs;
+		[Export ("whenSkippableInMs")]
+		double WhenSkippableInMs { get; }
+
+		// @property(nonatomic, assign, readonly) GCKHLSSegmentFormat hlsSegmentFormat;
+		[Export ("hlsSegmentFormat")]
+		HlsSegmentFormat HlsSegmentFormat { get; }
+
 		// @property(nonatomic, strong, readonly, GCK_NULLABLE) GCKAdBreakClipVastAdsRequest *vastAdsRequest;
 		[NullAllowed]
 		[Export ("vastAdsRequest", ArgumentSemantic.Strong)]
@@ -97,6 +115,10 @@ namespace Google.Cast
 		// @property (readonly, nonatomic, strong) NSArray<NSString *> * _Nonnull adBreakClipIDs;
 		[Export ("adBreakClipIDs", ArgumentSemantic.Strong)]
 		string [] AdBreakClipIds { get; }
+
+		// @property(nonatomic, assign, readonly) BOOL embedded;
+		[Export ("embedded")]
+		bool Embedded { get; }
 
 		// -(instancetype _Nonnull)initWithPlaybackPosition:(NSTimeInterval)playbackPosition;
 		[Export ("initWithPlaybackPosition:")]
