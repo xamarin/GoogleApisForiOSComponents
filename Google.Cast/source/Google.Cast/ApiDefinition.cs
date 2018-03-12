@@ -22,6 +22,19 @@ namespace Google.Cast
 		nint InvalidRequestId { get; }
 	}
 
+	// @interface GCKAdBreakClipVastAdsRequest : NSObject <NSCopying, NSSecureCoding>
+	[BaseType (typeof (NSObject), Name = "GCKAdBreakClipVastAdsRequest")]
+	interface AdBreakClipVastAdsRequest : INSCopying, INSSecureCoding 
+	{
+		// @property(nonatomic, strong, readonly) NSURL *adTagUrl;
+		[Export ("adTagUrl", ArgumentSemantic.Strong)]
+		NSUrl AdTagUrl { get; }
+
+		// @property(nonatomic, strong, readonly) NSString *adsResponse;
+		[Export ("adsResponse", ArgumentSemantic.Strong)]
+		string AdsResponse { get; }
+	}
+
 	// @interface GCKAdBreakClipInfo : NSObject <NSCopying>
 	[BaseType (typeof (NSObject), Name = "GCKAdBreakClipInfo")]
 	interface AdBreakClipInfo : INSCopying, INSSecureCoding
@@ -53,6 +66,11 @@ namespace Google.Cast
 		[NullAllowed]
 		[Export ("mimeType", ArgumentSemantic.Strong)]
 		string MimeType { get; }
+
+		// @property(nonatomic, strong, readonly, GCK_NULLABLE) GCKAdBreakClipVastAdsRequest *vastAdsRequest;
+		[NullAllowed]
+		[Export ("vastAdsRequest", ArgumentSemantic.Strong)]
+		AdBreakClipVastAdsRequest VastAdsRequest { get; }
 
 		// @property (readonly, nonatomic, strong) id _Nullable customData;
 		[NullAllowed]
