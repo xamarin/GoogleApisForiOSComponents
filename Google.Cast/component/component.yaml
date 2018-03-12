@@ -15,7 +15,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Google.iOS.Cast, Version=4.0.2.1
+  - Xamarin.Google.iOS.Cast, Version=4.1.0.0
 samples:
 - name: Cast Sample
   path: ../samples/CastSample/CastSample.sln
