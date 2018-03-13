@@ -84,10 +84,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Resources\gRPCCertificates.bundle\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="..\..\externals\Pods\gRPC\etc\roots.pem">
-      <Link>Resources\roots.pem</Link>
+      <Link>Resources\gRPCCertificates.bundle\roots.pem</Link>
     </BundleResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
