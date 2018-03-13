@@ -13,13 +13,13 @@ namespace CloudFirestoreSample
 	partial class NoteViewController
 	{
 		[Outlet]
-		UIKit.UITextView TxtNote { get; set; }
+		UIKit.UITextView TxtContent { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (TxtNote != null) {
-				TxtNote.Dispose ();
-				TxtNote = null;
+			if (TxtContent != null) {
+				TxtContent.Dispose ();
+				TxtContent = null;
 			}
 		}
 	}

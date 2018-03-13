@@ -35,6 +35,9 @@ namespace CloudFirestoreSample
 
 		public static string GetFormattedDate (NSDate date)
 		{
+			if (date == null)
+				return null;
+
 			var dateFormatter = new NSDateFormatter {
 				Locale = new NSLocale ("en_US_POSIX"),
 				DateFormat = "MM/dd/yy"

@@ -1,20 +1,22 @@
 ﻿using System;
-using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
-using UIKit;
 using CoreGraphics;
+using Foundation;
+using UIKit;
 
 using Firebase.Auth;
-using Foundation;
-using System.Text;
 using Firebase.CloudFirestore;
-using System.Collections.Generic;
 
 namespace CloudFirestoreSample
 {
 	public partial class FoldersTableViewController : UITableViewController
 	{
+		#region Class Variables
+
 		UIBarButtonItem space;
 		UIBarButtonItem btnNewFolder;
 		UIRefreshControl refreshControl;
@@ -28,6 +30,8 @@ namespace CloudFirestoreSample
 
 		// Reference that points to user's folders
 		CollectionReference foldersCollection;
+
+		#endregion
 
 		#region Constructors
 
@@ -61,9 +65,8 @@ namespace CloudFirestoreSample
 		// If for some reason you cannot login anonymously, you can try again by pulling down the Table View
 		void RefreshControl_ValueChanged (object sender, EventArgs e)
 		{
-			indicatorView.StartAnimating ();
+			TableView.UserInteractionEnabled = false;
 			LoadFolders ();
-			refreshControl.EndRefreshing ();
 		}
 
 		// Gets the folder name and verifies that folder name is written correctly
@@ -80,8 +83,10 @@ namespace CloudFirestoreSample
 
 			void HandleUIAlertControllerTextFieldResult (bool alertCanceled, string [] textfieldInputs)
 			{
-				if (alertCanceled)
+				if (alertCanceled) {
+					indicatorView.StopAnimating ();
 					return;
+				}
 
 				var folderName = textfieldInputs [0].Trim ();
 
@@ -116,13 +121,32 @@ namespace CloudFirestoreSample
 
 		#endregion
 
+		#region Navigation
+
+		public override void PrepareForSegue (UIStoryboardSegue segue, NSObject sender)
+		{
+			base.PrepareForSegue (segue, sender);
+
+			if (segue.Identifier != "DefaultSegue")
+				return;
+
+			var notesTableViewController = segue.DestinationViewController as NotesTableViewController;
+			notesTableViewController.Folder = folders [TableView.IndexPathForSelectedRow.Row];
+			notesTableViewController.FoldersCollection = foldersCollection;
+		}
+
+		#endregion
+
 		#region UITableView Data Source
 
 		public override nint NumberOfSections (UITableView tableView) => 1;
-		public override nint RowsInSection (UITableView tableView, nint section) => folders.Count;
+		public override nint RowsInSection (UITableView tableView, nint section) => folders.Count == 0 ? 1 : folders.Count;
 
 		public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
 		{
+			if (folders.Count == 0)
+				return tableView.DequeueReusableCell ("DefaultTableViewCell", indexPath);
+
 			var folder = folders [indexPath.Row];
 			var cell = tableView.DequeueReusableCell (FolderTableViewCell.Key, indexPath);
 			cell.TextLabel.Text = folder.Name;
@@ -137,21 +161,42 @@ namespace CloudFirestoreSample
 		{
 			indicatorView.StartAnimating ();
 
-			if (editingStyle == UITableViewCellEditingStyle.Delete) {
-				Task.Factory.StartNew (async () => {
-					try {
-						var folder = folders [indexPath.Row];
-						await DeleteFolder (folder);
-						InvokeOnMainThread (() => tableView.DeleteRows (new [] { indexPath }, UITableViewRowAnimation.Automatic));
-					} catch (NSErrorException ex) {
-						InvokeOnMainThread (() => {
-							UIAlertHelper.ShowMessage ("Error while deleting the folder", ex.Error.LocalizedDescription, NavigationController, "Ok");
+			if (editingStyle != UITableViewCellEditingStyle.Delete)
+				return;
+
+			// Delete the folder from the TableView so user cannot get access to it while deleting
+			var folder = folders [indexPath.Row];
+			folders.Remove (folder);
+
+			if (folders.Count == 0)
+				tableView.ReloadRows (new [] { indexPath }, UITableViewRowAnimation.Automatic);
+			else
+				tableView.DeleteRows (new [] { indexPath }, UITableViewRowAnimation.Automatic);
+
+			Task.Factory.StartNew (async () => {
+				try {
+					// Remove the folder from the Cloud Firestore
+					await DeleteFolder (folder);
+				} catch (NSErrorException ex) {
+					// If something fails while deleting the folder, add it again to the TableView
+					folders.Insert (indexPath.Row, folder);
+					InvokeOnMainThread (() => {
+						UIAlertHelper.ShowMessage ("Error while deleting the folder", ex.Error.LocalizedDescription, NavigationController, "Ok", () => {
+							// Due subcollections (in this case, the folder's notes) must be manually deleted,
+							// some of them could have been deleted when we were trying to delete the folder
+							UIAlertHelper.ShowMessage ("Error while deleting the folder", "Some notes could have been deleted during the process.\nTry deleting the folder again to finish the process.", NavigationController, "Ok");
 						});
-					} finally {
-						InvokeOnMainThread (() => indicatorView.StopAnimating ());
-					}
-				});
-			}
+
+						if (folders.Count == 1)
+							tableView.ReloadRows (new [] { indexPath }, UITableViewRowAnimation.Automatic);
+						else
+							tableView.InsertRows (new [] { indexPath }, UITableViewRowAnimation.Automatic);
+					});
+				} finally {
+					folder = null;
+					InvokeOnMainThread (() => indicatorView.StopAnimating ());
+				}
+			});
 		}
 
 		#endregion
@@ -173,7 +218,6 @@ namespace CloudFirestoreSample
 
 			btnNewFolder = new UIBarButtonItem ("New Folder", UIBarButtonItemStyle.Plain, btnNewFolder_Clicked) {
 				TintColor = UIColor.White,
-				Enabled = false
 			};
 
 			SetToolbarItems (new [] { space, btnIndicator, space, btnNewFolder }, false);
@@ -181,12 +225,12 @@ namespace CloudFirestoreSample
 			refreshControl = new UIRefreshControl ();
 			refreshControl.AddTarget (RefreshControl_ValueChanged, UIControlEvent.ValueChanged);
 			TableView.RefreshControl = refreshControl;
-
-			indicatorView.StartAnimating ();
 		}
 
 		void LoadFolders ()
 		{
+			indicatorView.StartAnimating ();
+			btnNewFolder.Enabled = false;
 			Task.Factory.StartNew (LoadFoldersAsync);
 
 			async Task LoadFoldersAsync ()
@@ -203,88 +247,20 @@ namespace CloudFirestoreSample
 					await GetFolders ();
 				} catch (NSErrorException ex) {
 					InvokeOnMainThread (() => {
-						indicatorView.StopAnimating ();
 						UIAlertHelper.ShowMessage ("An error has ocurred...", ex.Error.LocalizedDescription, NavigationController, "Ok");
 					});
 				} catch (Exception ex) {
 					Console.WriteLine (ex.Message);
+				} finally {
+					InvokeOnMainThread (() => {
+						indicatorView.StopAnimating ();
+						refreshControl.EndRefreshing ();
+						btnNewFolder.Enabled = true;
+						TableView.UserInteractionEnabled = true;
+					});
 				}
 			}
 		}
-
-		//////////////////////
-		//////////////////////
-		//////////////////////
-		//////////////////////
-
-		void SignIn2 ()
-		{
-			auth.SignInAnonymously (HandleAuthResultHandler);
-
-			void HandleAuthResultHandler (User user, NSError error)
-			{
-				if (error != null) {
-					AuthErrorCode errorCode;
-					if (IntPtr.Size == 8) // 64 bits devices
-						errorCode = (AuthErrorCode)((long)error.Code);
-					else // 32 bits devices
-						errorCode = (AuthErrorCode)((int)error.Code);
-
-					var title = "Anonymous sign-in failed!";
-					var buttonTitle = "Ok";
-					var message = new StringBuilder ();
-
-					// Posible error codes that SignInAnonymously method could throw
-					// Visit https://firebase.google.com/docs/auth/ios/errors for more information
-					switch (errorCode) {
-					case AuthErrorCode.OperationNotAllowed:
-						message.AppendLine ("The app uses Anonymous sign-in to work correctly and seems to be disabled…");
-						message.AppendLine ("Please, go to Firebase console and enable Anonymous login.");
-						message.Append ("Open «Application Output» in Xamarin Studio for more information.");
-						buttonTitle = "Ok, let me enable it!";
-						Console.WriteLine ("Anonymous sign-in seems to be disabled. Please, visit the following link to know how " +
-								   "to enable it: https://firebase.google.com/docs/auth/ios/anonymous-auth#before-you-begin");
-						break;
-					case AuthErrorCode.NetworkError:
-						message.AppendLine ("Seems to be the first time that you run the sample and you don't have access to internet.");
-						message.Append ("The sample needs to run with internet at least once so you can create an Anonymous user.");
-						break;
-					default:
-						message.Append ("An unknown error has ocurred…");
-						break;
-					}
-
-					indicatorView.StopAnimating ();
-					UIAlertHelper.ShowMessage (title, message.ToString (), NavigationController, buttonTitle);
-
-					return;
-				}
-
-				AppDelegate.UserUid = user.Uid;
-				InitializeFirestoreReferences ();
-				AddUserToFirestoreIfNeeded2 ();
-			}
-		}
-
-		// Create user in Firebase Cloud Firestore if not exist
-		void AddUserToFirestoreIfNeeded2 ()
-		{
-			userDocument.GetDocument (HandleDocumentSnapshotHandler);
-
-			void HandleDocumentSnapshotHandler (DocumentSnapshot snapshot, NSError error)
-			{
-				if (snapshot != null) return;
-
-				var userData = new Dictionary<object, object> { { "created", FieldValue.ServerTimestamp } };
-				userDocument.SetData (userData);
-			}
-		}
-
-		//////////////////////
-		//////////////////////
-		//////////////////////
-		//////////////////////
-
 
 		async Task<bool> SignIn ()
 		{
@@ -343,13 +319,13 @@ namespace CloudFirestoreSample
 		async Task AddUserToFirestoreIfNeeded ()
 		{
 			var user = await userDocument.GetDocumentAsync ();
-			if (user != null) return;
+			if (user.Exists) return;
 
 			var userData = new Dictionary<object, object> { { "created", FieldValue.ServerTimestamp } };
 			await userDocument.SetDataAsync (userData);
 		}
 
-		// Get folder's data to be shown in TableView
+		// Get folders data to be shown in TableView
 		async Task GetFolders ()
 		{
 			folders.Clear ();
@@ -374,11 +350,7 @@ namespace CloudFirestoreSample
 			}
 
 			// If we finished reading folders, refresh the Table View
-			InvokeOnMainThread (() => {
-				btnNewFolder.Enabled = true;
-				indicatorView.StopAnimating ();
-				TableView.ReloadData ();
-			});
+			InvokeOnMainThread (() => TableView.ReloadData ());
 		}
 
 		// Creates the folder in Firebase Firestore
@@ -405,8 +377,42 @@ namespace CloudFirestoreSample
 		// Erase all data from a folder document
 		async Task DeleteFolder (Folder folder)
 		{
-			await foldersCollection.GetDocument (folder.Id).DeleteDocumentAsync ();
-			folders.Remove (folder);
+			var folderDocument = foldersCollection.GetDocument (folder.Id);
+
+			// Note: Deleting a document does not delete its subcollections!
+			// If you want to delete documents in subcollections when 
+			// deleting a document, you must do so manually.
+			var notesCollection = folderDocument.GetCollection ("notes");
+			await DeleteNotes (folder, folderDocument, notesCollection, 10);
+
+			await folderDocument.DeleteDocumentAsync ();
+		}
+
+		async Task DeleteNotes (Folder folder, DocumentReference folderDocument, CollectionReference notesCollection, int batchSize)
+		{
+			// Limit query to avoid out-of-memory errors on large collections.
+			// When deleting a collection guaranteed to fit in memory, batching can be avoided entirely.
+			var notes = await notesCollection.LimitedTo (batchSize).GetDocumentsAsync ();
+
+			// There's nothing to delete.
+			if (notes.Count == 0)
+				return;
+
+			var batch = notesCollection.Firestore.CreateBatch ();
+
+			foreach (var note in notes.Documents)
+				batch.DeleteDocument (note.Reference);
+
+			var folderData = new Dictionary<object, object> {
+				{ "notesCount", folder.NotesCount - (nuint)notes.Count }
+			};
+			batch.UpdateData (folderData, folderDocument);
+
+			await batch.CommitAsync ();
+
+			folder.NotesCount -= (nuint)notes.Count;
+
+			await DeleteNotes (folder, folderDocument, notesCollection, batchSize);
 		}
 
 		bool VerifyIfFolderExists (string name) => folders.Exists (f => f.Name == name);
