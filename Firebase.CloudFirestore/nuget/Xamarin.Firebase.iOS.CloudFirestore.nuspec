@@ -26,7 +26,7 @@
     <file src="output/Firebase.CloudFirestore.dll" target="lib/Xamarin.iOS10" />
 
     <!-- Add targets file for external native reference download -->
-    <file src="source/Firebase.RemoteConfig/Firebase.CloudFirestore.targets" target="build/Xamarin.Firebase.iOS.CloudFirestore.targets" />
+    <file src="source/Firebase.CloudFirestore/Firebase.CloudFirestore.targets" target="build/Xamarin.Firebase.iOS.CloudFirestore.targets" />
     <file src="External-Dependency-Info" target="THIRD-PARTY-NOTICES" />
   </files>
 </package>
