@@ -38,6 +38,10 @@
   BuildScript: ./Firebase.Invites/build.cake
   TriggerPaths: [ Firebase.Invites ]
   MacBuildTargets: [ samples, component ]
+- Name: Firebase.iOS.PerformanceMonitoring
+  BuildScript: ./Firebase.PerformanceMonitoring/build.cake
+  TriggerPaths: [ Firebase.PerformanceMonitoring ]
+  MacBuildTargets: [ samples, component ]
 - Name: Firebase.iOS.RemoteConfig
   BuildScript: ./Firebase.RemoteConfig/build.cake
   TriggerPaths: [ Firebase.RemoteConfig ]
@@ -97,8 +101,4 @@
 - Name: Google.iOS.TagManager
   BuildScript: ./Google.TagManager/build.cake
   TriggerPaths: [ Google.TagManager ]
-  MacBuildTargets: [ samples, component ]
-- Name: Firebase.PerformanceMonitoring
-  BuildScript: ./Firebase.PerformanceMonitoring/build.cake
-  TriggerPaths: [ Firebase.PerformanceMonitoring ]
   MacBuildTargets: [ samples, component ]
