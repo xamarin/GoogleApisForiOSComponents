@@ -5,9 +5,9 @@ PROJECT_ROOT=./Pods
 PROJECT=$(PROJECT_ROOT)/Pods.xcodeproj
 TARGETS=GTMOAuth2
 
-all: Podfile.lock $(TARGETS)
+all: Pods $(TARGETS)
 
-Podfile.lock :
+Pods:
 	$(POD) install
 
 $(TARGETS):
@@ -26,7 +26,7 @@ $(TARGETS):
 	-mv ./build/Release-iphonesimulator/$(currentTarget)/lib$(currentTarget).a $@
 
 clean:
-	@ rm -rf Podfile.lock Pods build
+	@ rm -rf Pods build
 	@ for target in $(TARGETS); do \
 	rm -f $$target*; \
 	done
