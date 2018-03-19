@@ -1,0 +1,12 @@
+PODS:
+  - Google-Mobile-Ads-SDK (7.27.0)
+
+DEPENDENCIES:
+  - Google-Mobile-Ads-SDK (= 7.27.0)
+
+SPEC CHECKSUMS:
+  Google-Mobile-Ads-SDK: 83f7f890e638ce8f1debd440ea363338c9f6be3b
+
+PODFILE CHECKSUM: 2c9c18fec3eed46e1a062162e475247d3880dfad
+
+COCOAPODS: 1.4.0

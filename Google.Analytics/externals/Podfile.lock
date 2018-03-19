@@ -1,0 +1,12 @@
+PODS:
+  - GoogleAnalytics (3.17.0)
+
+DEPENDENCIES:
+  - GoogleAnalytics (= 3.17.0)
+
+SPEC CHECKSUMS:
+  GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
+
+PODFILE CHECKSUM: e2e1aca97498dabc1f3fd0f427548a87e7a8277f
+
+COCOAPODS: 1.4.0
