@@ -153,6 +153,7 @@ void BuildGroups (List<BuildGroup> buildGroups, List<string> names, List<string>
 			}
 		}
 	} else {
+		podRepoUpdate = PodRepoUpdate.Forced;
 		Information ("Groups To Build: {0}", string.Join (", ", buildGroups));
 		groupsToBuild.AddRange (buildGroups);
 	}
