@@ -28,8 +28,10 @@ string [] MyDependencies = null;
 Task ("externals")
 	.Does (() => 
 {
+	if (DirectoryExists ("./externals/Pods/"))
+		return;
+
 	InvokeOtherGoogleModules (MyDependencies, "externals");
-	CocoaPodRepoUpdate ();
 	RunMake ("./externals/", "all");
 });
 

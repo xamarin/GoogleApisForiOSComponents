@@ -2,6 +2,7 @@
 #addin nuget:?package=Cake.FileHelpers&version=1.0.3.2
 #addin nuget:?package=Cake.Yaml&version=1.0.3
 #addin nuget:?package=Cake.Json&version=1.0.2
+#addin nuget:?package=Cake.XCode&version=2.0.9
 
 var TARGET = Argument ("target", Argument ("t", Argument ("Target", "build")));
 
@@ -19,6 +20,8 @@ var BUILD_TARGETS = Argument ("targets", Argument ("build-targets", Argument ("b
 
 var FORCE_BUILD = Argument ("force", Argument ("forcebuild", Argument ("force-build", "false"))).ToLower ().Equals ("true");
 
+var POD_REPO_UPDATE = Argument ("update", Argument ("repo-update", Argument ("pod-repo-update", false)));
+
 // Print out environment variables to console
 var ENV_VARS = EnvironmentVariables ();
 Information ("Environment Variables: {0}", "");
@@ -35,6 +38,12 @@ Information ("Git Path: {0}", GIT_PATH);
 Information ("Git Previous Commit: {0}", GIT_PREVIOUS_COMMIT);
 Information ("Git Commit: {0}", GIT_COMMIT);
 Information ("Force Build: {0}", FORCE_BUILD);
+
+public enum PodRepoUpdate {
+	NotRequired,
+	Required,
+	Forced
+}
 
 public class CakeStealer
 {
@@ -78,7 +87,7 @@ IEnumerable<string> ExecuteProcess (string file, string args)
 	return stdout;
 }
 
-void BuildGroups (List<BuildGroup> buildGroups, List<string> names, List<string> buildTargets, string gitPath, string gitBranch, string gitPreviousCommit, string gitCommit, bool forceBuild)
+void BuildGroups (List<BuildGroup> buildGroups, List<string> names, List<string> buildTargets, string gitPath, string gitBranch, string gitPreviousCommit, string gitCommit, bool forceBuild, PodRepoUpdate podRepoUpdate)
 {
 	bool runningOnMac = IsRunningOnUnix ();
 	bool runningOnWin = IsRunningOnWindows ();
@@ -117,6 +126,9 @@ void BuildGroups (List<BuildGroup> buildGroups, List<string> names, List<string>
 		foreach (var file in changedFiles) {
 			Information ("\t{0}", file);
 
+			if (podRepoUpdate == PodRepoUpdate.NotRequired && file.EndsWith ("Podfile"))
+				podRepoUpdate = PodRepoUpdate.Required;
+
 			foreach (var buildGroup in buildGroups) {
 				// If ignore triggers for the platform this is running on, do not add the group even if the trigger is matched
 				if ((buildGroup.IgnoreTriggersOnMac && runningOnMac) || (buildGroup.IgnoreTriggersOnWindows && runningOnWin))
@@ -141,6 +153,7 @@ void BuildGroups (List<BuildGroup> buildGroups, List<string> names, List<string>
 			}
 		}
 	} else {
+		podRepoUpdate = PodRepoUpdate.Forced;
 		Information ("Groups To Build: {0}", string.Join (", ", buildGroups));
 		groupsToBuild.AddRange (buildGroups);
 	}
@@ -167,6 +180,25 @@ void BuildGroups (List<BuildGroup> buildGroups, List<string> names, List<string>
 				buildGroup.BuildTargets.Clear ();
 				buildGroup.BuildTargets.AddRange (buildTargets);				
 			}	
+		}
+
+		if (podRepoUpdate != PodRepoUpdate.NotRequired) {
+			string message = string.Empty;
+			if (podRepoUpdate == PodRepoUpdate.Forced)
+				message = "Forcing Cocoapods repo update...";
+			else
+				message = "A modified Podfile was found...";
+
+			Information ("////////////////////////////////////////");
+			Information ("// Pods Repo Update Started           //");
+			Information ("////////////////////////////////////////");
+			
+			Information ($"{message}\nUpdating Cocoapods repo...");
+			CocoaPodRepoUpdate ();
+
+			Information ("////////////////////////////////////////");
+			Information ("// Pods Repo Update Ended             //");
+			Information ("////////////////////////////////////////");
 		}
 		
 		if (!DirectoryExists ("./output/"))
@@ -273,7 +305,9 @@ Task ("build").Does (() =>
 		Information ("Overriding build group names to: {0}", string.Join (", ", BUILD_NAMES));
 	}
 
-	BuildGroups (BUILD_GROUPS, BUILD_NAMES.ToList (), buildTargets, GIT_PATH, GIT_BRANCH, GIT_PREVIOUS_COMMIT, GIT_COMMIT, FORCE_BUILD);		
+	PodRepoUpdate podRepoUpdate = POD_REPO_UPDATE ? PodRepoUpdate.Forced : PodRepoUpdate.NotRequired;
+
+	BuildGroups (BUILD_GROUPS, BUILD_NAMES.ToList (), buildTargets, GIT_PATH, GIT_BRANCH, GIT_PREVIOUS_COMMIT, GIT_COMMIT, FORCE_BUILD, podRepoUpdate);		
 });
 
 RunTarget (TARGET);

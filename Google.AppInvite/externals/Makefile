@@ -6,9 +6,9 @@ INFODIRS=Pods
 POD=pod
 
 
-all: Podfile.lock Info.plist
+all: Pods Info.plist
 
-Podfile.lock :
+Pods:
 	$(POD) install
 
 ### Temporary workaround. Removes the CFBundleExecutable key from Info.plist files that causes Apple rejection.
@@ -25,7 +25,7 @@ Info.plist:
 ###
 
 clean:
-	rm -rf Podfile.lock Pods
+	rm -rf Pods
 
 .PHONY: all clean
 

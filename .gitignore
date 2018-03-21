@@ -7,5 +7,4 @@ tmp-nugets
 *.userprefs
 *.DS_Store
 Pods/
-Podfile.lock
 build

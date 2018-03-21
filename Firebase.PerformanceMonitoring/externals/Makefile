@@ -1,12 +1,12 @@
 
 POD=pod
 
-all: Podfile.lock
+all: Pods
 
-Podfile.lock :
+Pods:
 	$(POD) install
 
 clean:
-	rm -rf Podfile.lock Pods
+	rm -rf Pods
 
 .PHONY: all clean
