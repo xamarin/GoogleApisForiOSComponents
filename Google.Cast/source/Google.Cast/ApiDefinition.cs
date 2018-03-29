@@ -22,6 +22,19 @@ namespace Google.Cast
 		nint InvalidRequestId { get; }
 	}
 
+	// @interface GCKAdBreakClipVastAdsRequest : NSObject <NSCopying, NSSecureCoding>
+	[BaseType (typeof (NSObject), Name = "GCKAdBreakClipVastAdsRequest")]
+	interface AdBreakClipVastAdsRequest : INSCopying, INSSecureCoding 
+	{
+		// @property(nonatomic, strong, readonly) NSURL *adTagUrl;
+		[Export ("adTagUrl", ArgumentSemantic.Strong)]
+		NSUrl AdTagUrl { get; }
+
+		// @property(nonatomic, strong, readonly) NSString *adsResponse;
+		[Export ("adsResponse", ArgumentSemantic.Strong)]
+		string AdsResponse { get; }
+	}
+
 	// @interface GCKAdBreakClipInfo : NSObject <NSCopying>
 	[BaseType (typeof (NSObject), Name = "GCKAdBreakClipInfo")]
 	interface AdBreakClipInfo : INSCopying, INSSecureCoding
@@ -54,6 +67,29 @@ namespace Google.Cast
 		[Export ("mimeType", ArgumentSemantic.Strong)]
 		string MimeType { get; }
 
+		// @property(nonatomic, strong, readonly, GCK_NULLABLE) NSString *contentID;
+		[NullAllowed]
+		[Export ("contentID", ArgumentSemantic.Strong)]
+		string ContentId { get; }
+
+		// @property(nonatomic, strong, readonly, GCK_NULLABLE) NSURL *posterURL;
+		[NullAllowed]
+		[Export ("posterURL", ArgumentSemantic.Strong)]
+		NSUrl PosterUrl { get; }
+
+		// @property(nonatomic, assign, readonly) NSTimeInterval whenSkippableInMs;
+		[Export ("whenSkippableInMs")]
+		double WhenSkippableInMs { get; }
+
+		// @property(nonatomic, assign, readonly) GCKHLSSegmentFormat hlsSegmentFormat;
+		[Export ("hlsSegmentFormat")]
+		HlsSegmentFormat HlsSegmentFormat { get; }
+
+		// @property(nonatomic, strong, readonly, GCK_NULLABLE) GCKAdBreakClipVastAdsRequest *vastAdsRequest;
+		[NullAllowed]
+		[Export ("vastAdsRequest", ArgumentSemantic.Strong)]
+		AdBreakClipVastAdsRequest VastAdsRequest { get; }
+
 		// @property (readonly, nonatomic, strong) id _Nullable customData;
 		[NullAllowed]
 		[Export ("customData", ArgumentSemantic.Strong)]
@@ -79,6 +115,10 @@ namespace Google.Cast
 		// @property (readonly, nonatomic, strong) NSArray<NSString *> * _Nonnull adBreakClipIDs;
 		[Export ("adBreakClipIDs", ArgumentSemantic.Strong)]
 		string [] AdBreakClipIds { get; }
+
+		// @property(nonatomic, assign, readonly) BOOL embedded;
+		[Export ("embedded")]
+		bool Embedded { get; }
 
 		// -(instancetype _Nonnull)initWithPlaybackPosition:(NSTimeInterval)playbackPosition;
 		[Export ("initWithPlaybackPosition:")]
@@ -808,6 +848,10 @@ namespace Google.Cast
 		// @optional -(void)didRemoveDeviceAtIndex:(NSUInteger)index;
 		[Export ("didRemoveDeviceAtIndex:")]
 		void DidRemoveDevice (nuint index);
+
+        // @optional - (void)didRemoveDevice:(GCKDevice *)device atIndex:(NSUInteger)index;
+        [Export ("didRemoveDevice:atIndex")]
+        void DidRemoveDevice(Device device, nuint index);
 	}
 
 	[DisableDefaultCtor]
