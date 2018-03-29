@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>Xamarin.Firebase.iOS.Crashlytics</id>
+    <title>Firebase APIs Crashlytics iOS Library</title>
+    <version>3.10.1.0</version>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>C# bindings for Firebase APIs Crashlytics iOS Library</description>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <projectUrl></projectUrl>
+    <licenseUrl></licenseUrl>
+    <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseioscrashlytics_128x128.png</iconUrl>
+    <dependencies>
+      <group targetFramework="Xamarin.iOS10">
+        <dependency id="Xamarin.Build.Download" version="0.4.6" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="output/Firebase.Crashlytics.dll" target="lib/Xamarin.iOS10" />
+
+    <!-- Add targets file for external native reference download -->
+    <file src="source/Firebase.Crashlytics/Firebase.Crashlytics.targets" target="build/Xamarin.Firebase.iOS.Crashlytics.targets" />
+    <file src="External-Dependency-Info" target="THIRD-PARTY-NOTICES" />
+  </files>
+</package>

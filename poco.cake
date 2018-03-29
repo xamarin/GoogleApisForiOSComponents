@@ -94,6 +94,16 @@ public abstract class Firebase
 		}
 	}
 
+	public class Crashlytics : GoogleBase
+	{
+		public override string Name  { 
+			get { return "Firebase.Crashlytics"; }
+		}
+		public override string NuGetId { 
+			get { return "Xamarin.Firebase.iOS.CrashCrashlyticsReporting"; }
+		}
+	}
+
 	public class CrashReporting : GoogleBase
 	{
 		public override string Name  { 

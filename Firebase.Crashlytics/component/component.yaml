@@ -1,0 +1,34 @@
+version: 3.10.1.0
+name: Firebase Crashlytics for iOS
+id: firebaseioscrashlytics
+publisher: Xamarin Inc.
+publisher-url: https://xamarin.com
+src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Firebase.Crashlytics
+summary: Best and lightest-weight crash reporting for mobile, desktop and tvOS.
+icons:
+- ../../icons/firebaseioscrashlytics_128x128.png
+- ../../icons/firebaseioscrashlytics_512x512.png
+docs-url: https://firebase.google.com/docs/crashlytics/
+libraries:
+  ios-unified:
+  - ../output/Firebase.Crashlytics.dll
+is_shell: true
+packages:
+  ios-unified:
+  - Xamarin.Firebase.iOS.Crashlytics, Version=3.10.1.0
+samples:
+- name: Crashlytics Sample
+  path: ../samples/CrashlyticsSample/CrashlyticsSample.sln
+  removeProjects:
+  - Firebase.Crashlytics
+  installNuGets:
+  - project: CrashlyticsSample
+    packages:
+    - Xamarin.Firebase.iOS.Crashlytics
+  removeNodes:
+  - //xNS:Import[contains (@Project, 'Firebase.Crashlytics.targets')]
+local-nuget-repo: ../../tmp-nugets
+no_build: true
+additional-files:
+- source: ../External-Dependency-Info
+  destination: THIRD-PARTY-NOTICES
