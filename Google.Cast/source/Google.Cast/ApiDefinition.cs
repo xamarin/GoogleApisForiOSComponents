@@ -337,9 +337,14 @@ namespace Google.Cast
 		[Export ("createMiniMediaControlsViewController")]
 		UIMiniMediaControlsViewController CreateMiniMediaControlsViewController ();
 
-		// - (BOOL)presentCastInstructionsViewControllerOnce;
+		// - (BOOL) presentCastInstructionsViewControllerOnce GCK_DEPRECATED ("Use presentCastInstructionsViewControllerOnceWithCastButton:");
+		[Obsolete ("Use PresentCastInstructionsViewControllerOnce overloaded method instead.")] 
 		[Export ("presentCastInstructionsViewControllerOnce")]
 		bool PresentCastInstructionsViewControllerOnce ();
+
+		// -(BOOL)presentCastInstructionsViewControllerOnceWithCastButton:(GCKUICastButton * _Nonnull)castButton;
+		[Export ("presentCastInstructionsViewControllerOnceWithCastButton:")]
+		bool PresentCastInstructionsViewControllerOnce (UICastButton castButton);
 
 		// - (void)clearCastInstructionsShownFlag;
 		[Export ("clearCastInstructionsShownFlag")]
@@ -849,9 +854,9 @@ namespace Google.Cast
 		[Export ("didRemoveDeviceAtIndex:")]
 		void DidRemoveDevice (nuint index);
 
-        // @optional - (void)didRemoveDevice:(GCKDevice *)device atIndex:(NSUInteger)index;
-        [Export ("didRemoveDevice:atIndex")]
-        void DidRemoveDevice(Device device, nuint index);
+		// @optional - (void)didRemoveDevice:(GCKDevice *)device atIndex:(NSUInteger)index;
+		[Export ("didRemoveDevice:atIndex:")]
+		void DidRemoveDevice (Device device, nuint index);
 	}
 
 	[DisableDefaultCtor]
@@ -1017,6 +1022,10 @@ namespace Google.Cast
 		// @property (assign, readwrite, nonatomic) BOOL fileLoggingEnabled;
 		[Export ("fileLoggingEnabled")]
 		bool FileLoggingEnabled { get; set; }
+
+		// @property (assign, readwrite, nonatomic) BOOL consoleLoggingEnabled;
+		[Export ("consoleLoggingEnabled")]
+		bool ConsoleLoggingEnabled { get; set; }
 
 		// @property (nonatomic, assign, readwrite) NSUInteger maxLogFileSize;
 		[Export ("maxLogFileSize")]
@@ -1485,6 +1494,16 @@ namespace Google.Cast
 	[BaseType (typeof (NSObject), Name = "GCKMediaRequestItem")]
 	interface MediaRequestItem : INSCopying, INSSecureCoding
 	{
+		// +(NSString * _Nonnull)mapHLSSegmentFormatToString:(GCKHLSSegmentFormat)hlsSegmentFormat;
+		[Static]
+		[Export ("mapHLSSegmentFormatToString:")]
+		string MapHlsSegmentFormatToString (HlsSegmentFormat hlsSegmentFormat);
+
+		// +(GCKHLSSegmentFormat)mapHLSSegmentFormatStringToEnum:(NSString * _Nonnull)hlsSegmentFormatString;
+		[Static]
+		[Export ("mapHLSSegmentFormatStringToEnum:")]
+		HlsSegmentFormat MapHlsSegmentFormatStringToEnum (string hlsSegmentFormatString);
+
 		// -(instancetype _Nonnull)initWithURL:(NSURL * _Nonnull)url protocolType:(GCKStreamingProtocolType)protocolType initialTime:(NSTimeInterval)initialTime hlsSegmentFormat:(GCKHLSSegmentFormat)hlsSegmentFormat;
 		[Export ("initWithURL:protocolType:initialTime:hlsSegmentFormat:")]
 		IntPtr Constructor (NSUrl url, StreamingProtocolType protocolType, double initialTime, HlsSegmentFormat hlsSegmentFormat);
@@ -1957,15 +1976,27 @@ namespace Google.Cast
 		[Export ("seekToTimeInterval:resumeState:customData:")]
 		Request SeekTo (double position, MediaResumeState resumeState, [NullAllowed] NSObject customData);
 
-		// -(GCKRequest * _Nonnull)queueLoadItems:(NSArray<GCKMediaQueueItem *> * _Nonnull)queueItems startIndex:(NSUInteger)startIndex repeatMode:(GCKMediaRepeatMode)repeatMode;
+		// -(GCKRequest * _Nonnull)queueFetchItemIDs;
+		[Export ("queueFetchItemIDs")]
+		Request QueueFetchItemIds ();
+
+		// -(GCKRequest * _Nonnull)queueFetchItemsForIDs:(NSArray<NSNumber *> * _Nonnull)queueItemIDs;
+		[Internal]
+		[Export ("queueFetchItemsForIDs:")]
+		Request _QueueFetchItems (NSArray queueItemIds);
+
+		// -(GCKRequest * _Nonnull)queueLoadItems:(NSArray<GCKMediaQueueItem *> * _Nonnull)queueItems startIndex:(NSUInteger)startIndex repeatMode:(GCKMediaRepeatMode)repeatMode __attribute__((deprecated("Use queueLoadItems:withOptions:")));
+		[Obsolete]
 		[Export ("queueLoadItems:startIndex:repeatMode:")]
 		Request QueueLoadItems (MediaQueueItem [] queueItems, nuint startIndex, MediaRepeatMode repeatMode);
 
-		// -(GCKRequest * _Nonnull)queueLoadItems:(NSArray<GCKMediaQueueItem *> * _Nonnull)queueItems startIndex:(NSUInteger)startIndex repeatMode:(GCKMediaRepeatMode)repeatMode customData:(id _Nullable)customData;
+		// -(GCKRequest * _Nonnull)queueLoadItems:(NSArray<GCKMediaQueueItem *> * _Nonnull)queueItems startIndex:(NSUInteger)startIndex repeatMode:(GCKMediaRepeatMode)repeatMode customData:(id _Nullable)customData __attribute__((deprecated("Use queueLoadItems:withOptions:")));
+		[Obsolete]
 		[Export ("queueLoadItems:startIndex:repeatMode:customData:")]
 		Request QueueLoadItems (MediaQueueItem [] queueItems, nuint startIndex, MediaRepeatMode repeatMode, [NullAllowed] NSObject customData);
 
-		// -(GCKRequest * _Nonnull)queueLoadItems:(NSArray<GCKMediaQueueItem *> * _Nonnull)queueItems startIndex:(NSUInteger)startIndex playPosition:(NSTimeInterval)playPosition repeatMode:(GCKMediaRepeatMode)repeatMode customData:(id _Nullable)customData;
+		// -(GCKRequest * _Nonnull)queueLoadItems:(NSArray<GCKMediaQueueItem *> * _Nonnull)queueItems startIndex:(NSUInteger)startIndex playPosition:(NSTimeInterval)playPosition repeatMode:(GCKMediaRepeatMode)repeatMode customData:(id _Nullable)customData __attribute__((deprecated("Use queueLoadItems:withOptions:")));
+		[Obsolete]
 		[Export ("queueLoadItems:startIndex:playPosition:repeatMode:customData:")]
 		Request QueueLoadItems (MediaQueueItem [] queueItems, nuint startIndex, double playPosition, MediaRepeatMode repeatMode, [NullAllowed] NSObject customData);
 
@@ -2103,6 +2134,26 @@ namespace Google.Cast
 		// @optional -(void)remoteMediaClientDidUpdatePreloadStatus:(GCKRemoteMediaClient * _Nonnull)client;
 		[Export ("remoteMediaClientDidUpdatePreloadStatus:")]
 		void DidUpdatePreloadStatus (RemoteMediaClient client);
+
+		// @optional -(void)remoteMediaClient:(GCKRemoteMediaClient * _Nonnull)client didReceiveQueueItemIDs:(NSArray<NSNumber *> * _Nonnull)queueItemIDs;
+		[Export ("remoteMediaClient:didReceiveQueueItemIDs:")]
+		void DidReceiveQueueItemIds (RemoteMediaClient client, NSNumber [] queueItemIds);
+
+		// @optional -(void)remoteMediaClient:(GCKRemoteMediaClient * _Nonnull)client didInsertQueueItemsWithIDs:(NSArray<NSNumber *> * _Nonnull)queueItemIDs beforeItemWithID:(GCKMediaQueueItemID)beforeItemID;
+		[Export ("remoteMediaClient:didInsertQueueItemsWithIDs:beforeItemWithID:")]
+		void DidInsertQueueItems (RemoteMediaClient client, NSNumber [] queueItemIds, nuint beforeItemId);
+
+		// @optional -(void)remoteMediaClient:(GCKRemoteMediaClient * _Nonnull)client didUpdateQueueItemsWithIDs:(NSArray<NSNumber *> * _Nonnull)queueItemIDs;
+		[Export ("remoteMediaClient:didUpdateQueueItemsWithIDs:")]
+		void DidUpdateQueueItems (RemoteMediaClient client, NSNumber [] queueItemIds);
+
+		// @optional -(void)remoteMediaClient:(GCKRemoteMediaClient * _Nonnull)client didRemoveQueueItemsWithIDs:(NSArray<NSNumber *> * _Nonnull)queueItemIDs;
+		[Export ("remoteMediaClient:didRemoveQueueItemsWithIDs:")]
+		void DidRemoveQueueItems (RemoteMediaClient client, NSNumber [] queueItemIds);
+
+		// @optional -(void)remoteMediaClient:(GCKRemoteMediaClient * _Nonnull)client didReceiveQueueItems:(NSArray<GCKMediaQueueItem *> * _Nonnull)queueItems;
+		[Export ("remoteMediaClient:didReceiveQueueItems:")]
+		void DidReceiveQueueItems (RemoteMediaClient client, MediaQueueItem [] queueItems);
 	}
 
 	interface IRemoteMediaClientAdInfoParserDelegate
@@ -2150,6 +2201,30 @@ namespace Google.Cast
 		// -(void)notifyDidUpdateMetadata;
 		[Export ("notifyDidUpdateMetadata")]
 		void NotifyDidUpdateMetadata ();
+
+		// -(void)notifyDidReceiveQueueItemIDs:(NSArray<NSNumber *> * _Nonnull)itemIDs;
+		[Internal]
+		[Export ("notifyDidReceiveQueueItemIDs:")]
+		void _NotifyDidReceiveQueueItemIds (NSArray itemIds);
+
+		// -(void)notifyDidInsertQueueItemsWithIDs:(NSArray<NSNumber *> * _Nonnull)itemIDs beforeItemWithID:(GCKMediaQueueItemID)beforeItemID;
+		[Internal]
+		[Export ("notifyDidInsertQueueItemsWithIDs:beforeItemWithID:")]
+		void _NotifyDidInsertQueueItems (NSArray itemIds, nuint beforeItemId);
+
+		// -(void)notifyDidUpdateQueueItemsWithIDs:(NSArray<NSNumber *> * _Nonnull)itemIDs;
+		[Internal]
+		[Export ("notifyDidUpdateQueueItemsWithIDs:")]
+		void _NotifyDidUpdateQueueItems (NSArray itemIds);
+
+		// -(void)notifyDidRemoveQueueItemsWithIDs:(NSArray<NSNumber *> * _Nonnull)itemIDs;
+		[Internal]
+		[Export ("notifyDidRemoveQueueItemsWithIDs:")]
+		void _NotifyDidRemoveQueueItems (NSArray itemIds);
+
+		// -(void)notifyDidReceiveQueueItems:(NSArray<GCKMediaQueueItem *> * _Nonnull)items;
+		[Export ("notifyDidReceiveQueueItems:")]
+		void NotifyDidReceiveQueueItems (MediaQueueItem [] items);
 	}
 
 	// @interface GCKRequest : NSObject
