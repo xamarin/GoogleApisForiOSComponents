@@ -23,6 +23,5 @@
 
     <!-- Add targets file for external native reference download -->
     <file src="source/Firebase.Crashlytics/Firebase.Crashlytics.targets" target="build/Xamarin.Firebase.iOS.Crashlytics.targets" />
-    <file src="External-Dependency-Info" target="THIRD-PARTY-NOTICES" />
   </files>
 </package>
