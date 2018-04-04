@@ -19,6 +19,7 @@ namespace CastSample
 		List<Category> categories;
 		MediaListModel mediaListModel;
 		ImageFetcher imageFetcher;
+		UICastButton btnCast;
 
 		#endregion
 
@@ -39,6 +40,9 @@ namespace CastSample
 			// Perform any additional setup after loading the view, typically from a nib.
 
 			InitializeComponents ();
+
+			// Used to highlight the Cast button when it is first shown to users.
+			CastContext.SharedInstance.PresentCastInstructionsViewControllerOnce (btnCast);
 
 			categories = new List<Category> ();
 
@@ -178,7 +182,7 @@ namespace CastSample
 			}
 
 			// Play video on Cast device.
-			castSession.RemoteMediaClient.LoadMedia (mediaInformation, true);
+			castSession.RemoteMediaClient.LoadMedia (mediaInformation, new MediaLoadOptions { Autoplay = true });
 
 			// Allow the app to manage every manageable aspect of a
 			// cast session, with the exception of receiver volume control
@@ -245,7 +249,7 @@ namespace CastSample
 			// add the Cast button in ALL view controllers of your project.
 
 			// Cast button to allow the user to select a Cast device.
-			var btnCast = new UICastButton (new CGRect (0, 0, 24, 24)) { TintColor = UIColor.White };
+			btnCast = new UICastButton (new CGRect (0, 0, 24, 24)) { TintColor = UIColor.White };
 			NavigationItem.RightBarButtonItem = new UIBarButtonItem (btnCast);
 		}
 
