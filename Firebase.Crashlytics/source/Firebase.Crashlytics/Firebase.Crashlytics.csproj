@@ -37,6 +37,7 @@
     <Compile Include="FirebaseCrashlytics.linkwith.cs">
       <DependentUpon>..\..\..\Firebase.Core\source\Firebase.Core\FirebaseCore</DependentUpon>
     </Compile>
+    <Compile Include="Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
