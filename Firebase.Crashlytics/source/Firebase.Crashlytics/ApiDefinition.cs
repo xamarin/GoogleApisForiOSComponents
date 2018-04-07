@@ -294,14 +294,15 @@ namespace Fabric {
 	[BaseType (typeof (NSObject))]
 	interface Fabric {
 		// +(instancetype _Nonnull)with:(NSArray * _Nonnull)kitClasses;
+		[Internal]
 		[Static]
 		[Export ("with:")]
-		Fabric With (NSObject [] kitClasses);
+		Fabric _With (NSArray kitClasses);
 
 		// +(instancetype _Nonnull)sharedSDK;
 		[Static]
 		[Export ("sharedSDK")]
-		Fabric SharedSdk ();
+		Fabric SharedSdk { get; }
 
 		// @property (assign, nonatomic) BOOL debug;
 		[Export ("debug")]

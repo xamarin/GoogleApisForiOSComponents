@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using Foundation;
+using ObjCRuntime;
 
 namespace Firebase.Crashlytics {
 	public class Logging {
@@ -25,6 +26,20 @@ namespace Firebase.Crashlytics {
 			var pMessage = NSString.CreateNative (message);
 			_NSLog (pMessage, IntPtr.Zero);
 			NSString.ReleaseNative (pMessage);
+		}
+	}
+}
+
+namespace Fabric {
+	public partial class Fabric {
+		public static Fabric With (params Type [] kitClasses)
+		{
+			var classes = kitClasses == null ? throw new ArgumentNullException (nameof (kitClasses)) : new Class [kitClasses.Length];
+
+			for (int i = 0; i < kitClasses.Length; i++)
+				classes [i] = new Class (kitClasses [i]);
+			
+			return _With (NSArray.FromNSObjects (kitClasses.Length, classes));
 		}
 	}
 }

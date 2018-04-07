@@ -31,6 +31,8 @@ buildSpec = new BuildSpec () {
 	},
 };
 
+MyDependencies = new [] {"Firebase.Analytics"};
+
 Task ("clean").IsDependentOn ("clean-base").Does (() =>
 {
 	InvokeOtherGoogleModules (MyDependencies, "clean");
