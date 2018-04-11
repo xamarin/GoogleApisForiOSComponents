@@ -4,6 +4,10 @@ using Foundation;
 using ObjCRuntime;
 
 namespace Firebase.Crashlytics {
+	public partial class Crashlytics {
+		public static void Configure () => Loader.ForceLoad ();
+	}
+
 	public class Logging {
 		// extern void CLSLog (NSString * _Nonnull format, ...) __attribute__((format(NSString, 1, 2)));
 		[DllImport ("__Internal", EntryPoint = "CLSLog")]

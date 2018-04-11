@@ -4,8 +4,8 @@
 		<_FirebaseCrashlyticsAssemblyName>Firebase.Crashlytics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseCrashlyticsAssemblyName>
         <_FirebaseCrashlyticsItemsFolder>FCrshlytcs-3.10.1</_FirebaseCrashlyticsItemsFolder>
 		<_FabricItemsFolder>Fbrc-1.7.5</_FabricItemsFolder>
-        <_FirebaseCrashlyticsScriptsMasterAfterTargets>Build</_FirebaseCrashlyticsScriptsMasterAfterTargets>
-        <_FirebaseCrashlyticsScriptsMasterDependsOnTargets>_FirebaseCrashlyticsRunFabricScript</_FirebaseCrashlyticsScriptsMasterDependsOnTargets>
+        <_FirebaseCrashlyticsScriptMasterAfterTargets>Build</_FirebaseCrashlyticsScriptMasterAfterTargets>
+        <_FirebaseCrashlyticsScriptMasterDependsOnTargets>_FirebaseCrashlyticsCopyScript;_FirebaseCrashlyticsRunXamarinScript</_FirebaseCrashlyticsScriptMasterDependsOnTargets>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_FirebaseCrashlyticsItemsFolder)">
@@ -16,6 +16,7 @@
             <Url>https://kit-downloads.fabric.io/cocoapods/fabric/1.7.5/fabric.zip</Url>
             <Kind>Zip</Kind>
         </XamarinBuildDownload>
+        <XamarinBuildCopyResources Include="$(MSBuildThisFileDirectory)..\**\xamarin_run.sh;" />
         <XamarinBuildRestoreResources Include="_FirebaseCrashlyticsItems" />
 	</ItemGroup>
 	<Target Name="_FirebaseCrashlyticsItems">
@@ -37,12 +38,16 @@
 		</ItemGroup>
 
 	</Target>
-    <Target Name="_FirebaseCrashlyticsScriptsMasterTarget"
-            Condition="'$(_FirebaseCrashlyticsScriptsMasterDependsOnTargets)'!=''"
-            AfterTargets="$(_FirebaseCrashlyticsScriptsMasterAfterTargets)"
-            DependsOnTargets="$(_FirebaseCrashlyticsScriptsMasterDependsOnTargets)" />
-    <Target Name="_FirebaseCrashlyticsRunFabricScript" >
-        <Message Text="Running Fabric run script located at $(XamarinBuildDownloadDir)$(_FabricItemsFolder)" />
-        <Exec Command="export BUILT_PRODUCTS_DIR=$(MSBuildProjectDirectory)\$(DeviceSpecificOutputPath); export DWARF_DSYM_FILE_NAME=$(AssemblyName).app.dSYM; export DWARF_DSYM_FOLDER_PATH=$(MSBuildProjectDirectory)\$(DeviceSpecificOutputPath); export INFOPLIST_PATH=$(AssemblyName).app/Info.plist; export PROJECT_DIR=$(MSBuildProjectDirectory); export UNLOCALIZED_RESOURCES_FOLDER_PATH=$(AssemblyName).app; $(XamarinBuildDownloadDir)$(_FabricItemsFolder)\run"/>
+    <Target Name="_FirebaseCrashlyticsScriptMasterTarget"
+            Condition="'$(_FirebaseCrashlyticsScriptMasterDependsOnTargets)'!='' AND '$(_SdkIsSimulator)'=='False'"
+            AfterTargets="$(_FirebaseCrashlyticsScriptMasterAfterTargets)"
+            DependsOnTargets="$(_FirebaseCrashlyticsScriptMasterDependsOnTargets)" />
+    <Target Name="_FirebaseCrashlyticsCopyScript" Condition="!Exists('$(MSBuildProjectDirectory)\xamarin_run.sh')">  
+        <Message Text="Copying xamarin_run.sh file to $(MSBuildProjectDirectory)" />
+        <Copy SourceFiles="@(XamarinBuildCopyResources)" DestinationFolder="$(MSBuildProjectDirectory)" />
+    </Target>
+    <Target Name="_FirebaseCrashlyticsRunXamarinScript" >
+        <Message Text="Running Xamarin Run Script located at $(MSBuildProjectDirectory)" />
+        <Exec Command="$(MSBuildProjectDirectory)\xamarin_run.sh -n $(AssemblyName) -p $(MSBuildProjectDirectory) -o $(DeviceSpecificOutputPath) -s $(XamarinBuildDownloadDir)$(_FabricItemsFolder) -sdk $(_SdkRoot)"/>
     </Target>
 </Project>

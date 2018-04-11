@@ -4,6 +4,7 @@ using UIKit;
 using CoreGraphics;
 using Firebase.Crashlytics;
 using ObjCRuntime;
+using Foundation;
 
 namespace CrashlyticsSample {
 	public partial class ViewController : UIViewController {
@@ -25,15 +26,17 @@ namespace CrashlyticsSample {
 			button.TouchUpInside += Button_TouchUpInside;
 			View.AddSubview (button);
 
-			View.AddConstraint (NSLayoutConstraint.Create (button, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, 
-			                                               View, NSLayoutAttribute.CenterX, 
-			                                               1, 0));
+			View.AddConstraint (NSLayoutConstraint.Create (button, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal,
+								       View, NSLayoutAttribute.CenterX,
+								       1, 0));
 			View.AddConstraint (NSLayoutConstraint.Create (button, NSLayoutAttribute.CenterY, NSLayoutRelation.Equal,
-			                                               View, NSLayoutAttribute.CenterY,
-			                                               1, 0));
+								       View, NSLayoutAttribute.CenterY,
+								       1, 0));
 		}
 
-		void Button_TouchUpInside (object sender, EventArgs e) => Crashlytics.SharedInstance.Crash ();
+		void Button_TouchUpInside (object sender, EventArgs e) {
+			Crashlytics.SharedInstance.Crash ();
+		}
 
 		public override void DidReceiveMemoryWarning ()
 		{

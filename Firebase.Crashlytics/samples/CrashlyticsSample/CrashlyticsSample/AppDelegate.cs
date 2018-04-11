@@ -22,9 +22,10 @@ namespace CrashlyticsSample {
 			UIApplication.SharedApplication.StatusBarStyle = UIStatusBarStyle.LightContent;
 
 			App.Configure ();
-			Fabric.Fabric.With (typeof (Crashlytics));
+			Crashlytics.Configure ();
+			//Fabric.Fabric.With (typeof (Crashlytics));
 
-			//Fabric.Fabric.SharedSdk.Debug = true;
+			Fabric.Fabric.SharedSdk.Debug = true;
 
 			return true;
 		}
