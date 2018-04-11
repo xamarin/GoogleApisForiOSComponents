@@ -77,18 +77,6 @@ if [ "$SDKROOT" == "" ]; then
     argumentMissing
 fi
 
-export BUILT_PRODUCTS_DIR=/Users/israelsoto/GitHub/SotoiGhost/GoogleApisForiOSComponents/Firebase.Crashlytics/samples/CrashlyticsSample/CrashlyticsSample/bin/iPhone/Debug/device-builds/iphone9.1-11.2.6
-export DWARF_DSYM_FILE_NAME=CrashlyticsSample.app.dSYM
-export DWARF_DSYM_FOLDER_PATH=/Users/israelsoto/GitHub/SotoiGhost/GoogleApisForiOSComponents/Firebase.Crashlytics/samples/CrashlyticsSample/CrashlyticsSample/bin/iPhone/Debug/device-builds/iphone9.1-11.2.6
-export INFOPLIST_PATH=CrashlyticsSample.app/Info.plist
-export PROJECT_DIR=/Users/israelsoto/GitHub/SotoiGhost/GoogleApisForiOSComponents/Firebase.Crashlytics/samples/CrashlyticsSample/CrashlyticsSample
-export SRCROOT=/Users/israelsoto/GitHub/SotoiGhost/GoogleApisForiOSComponents/Firebase.Crashlytics/samples/CrashlyticsSample/CrashlyticsSample
-export UNLOCALIZED_RESOURCES_FOLDER_PATH=CrashlyticsSample.app
-export PLATFORM_NAME=iphoneos
-export SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk
-export EXECUTABLE_PATH=CrashlyticsSample.app/CrashlyticsSample
-export TARGETED_DEVICE_FAMILY=1,2
-
 FULL_DEVICE_SPECIFIC_OUTPUT_PATH="$PROJECT_DIR/$DEVICE_SPECIFIC_OUTPUT_PATH"
 
 BUILT_PRODUCTS_DIR=$FULL_DEVICE_SPECIFIC_OUTPUT_PATH

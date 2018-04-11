@@ -5,7 +5,7 @@
         <_FirebaseCrashlyticsItemsFolder>FCrshlytcs-3.10.1</_FirebaseCrashlyticsItemsFolder>
 		<_FabricItemsFolder>Fbrc-1.7.5</_FabricItemsFolder>
         <_FirebaseCrashlyticsScriptMasterAfterTargets>Build</_FirebaseCrashlyticsScriptMasterAfterTargets>
-        <_FirebaseCrashlyticsScriptMasterDependsOnTargets>_FirebaseCrashlyticsCopyScript;_FirebaseCrashlyticsRunXamarinScript</_FirebaseCrashlyticsScriptMasterDependsOnTargets>
+        <_FirebaseCrashlyticsScriptMasterDependsOnTargets>_FirebaseCrashlyticsCopyScript;_FirebaseCrashlyticsRunXamarinScript;_FirebaseCrashlyticsDeleteXamarinScript</_FirebaseCrashlyticsScriptMasterDependsOnTargets>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_FirebaseCrashlyticsItemsFolder)">
@@ -49,5 +49,9 @@
     <Target Name="_FirebaseCrashlyticsRunXamarinScript" >
         <Message Text="Running Xamarin Run Script located at $(MSBuildProjectDirectory)" />
         <Exec Command="$(MSBuildProjectDirectory)\xamarin_run.sh -n $(AssemblyName) -p $(MSBuildProjectDirectory) -o $(DeviceSpecificOutputPath) -s $(XamarinBuildDownloadDir)$(_FabricItemsFolder) -sdk $(_SdkRoot)"/>
+    </Target>
+    <Target Name="_FirebaseCrashlyticsDeleteXamarinScript" Condition="Exists('$(MSBuildProjectDirectory)\xamarin_run.sh')">
+        <Message Text="Deleting Xamarin Run Script located at $(MSBuildProjectDirectory)" />
+        <Delete Files="$(MSBuildProjectDirectory)\xamarin_run.sh"/>
     </Target>
 </Project>
