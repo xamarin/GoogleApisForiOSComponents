@@ -255,9 +255,6 @@ namespace Firebase.CloudFirestore
 		FieldValue ServerTimestamp { get; }
 	}
 
-	// id  _Nullable (^ _Nonnull)(FIRTransaction * _Nonnull, NSError * _Nullable * _Nullable)
-	internal delegate NSObject InternalTransactionUpdateHandler (Transaction transaction, IntPtr error);
-
 	// void (^)(id _Nullable result, NSError *_Nullable error)
 	delegate void TransactionCompletionHandler ([NullAllowed] NSObject result, [NullAllowed] NSError error);
 
@@ -299,7 +296,7 @@ namespace Firebase.CloudFirestore
 		// -(void)runTransactionWithBlock:(id  _Nullable (^ _Nonnull)(FIRTransaction * _Nonnull, NSError * _Nullable * _Nullable))updateBlock completion:(void (^ _Nonnull)(id _Nullable, NSError * _Nullable))completion;
 		[Internal]
 		[Export ("runTransactionWithBlock:completion:")]
-		void _RunTransaction (InternalTransactionUpdateHandler updateHandler, TransactionCompletionHandler completion);
+		void _RunTransaction (Func<Transaction, IntPtr, NSObject> updateHandler, TransactionCompletionHandler completion);
 
 		// -(FIRWriteBatch * _Nonnull)batch;
 		[Export ("batch")]

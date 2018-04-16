@@ -24,6 +24,7 @@ namespace Firebase.CloudFirestore
 
 	public partial class Firestore
 	{
+		// id  _Nullable (^ _Nonnull)(FIRTransaction * _Nonnull, NSError * _Nullable * _Nullable)
 		public delegate NSObject TransactionUpdateHandler (Transaction transaction, ref NSError error);
 
 		public void RunTransaction (TransactionUpdateHandler updateHandler, TransactionCompletionHandler completion)
