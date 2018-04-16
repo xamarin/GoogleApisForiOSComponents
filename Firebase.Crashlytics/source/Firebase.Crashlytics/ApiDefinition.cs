@@ -237,6 +237,9 @@ namespace Firebase.Crashlytics {
 		[Export ("setObjectValue:forKey:")]
 		void SetObjectValue ([NullAllowed] NSObject value, string key);
 
+		[Wrap ("SetObjectValue (new NSString (value), key)")]
+		void SetStringValue ([NullAllowed] string value, string key);
+
 		// -(void)setIntValue:(int)value forKey:(NSString * _Nonnull)key;
 		[Export ("setIntValue:forKey:")]
 		void SetIntValue (int value, string key);
