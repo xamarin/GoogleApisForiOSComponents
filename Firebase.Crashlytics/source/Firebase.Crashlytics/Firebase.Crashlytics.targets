@@ -5,7 +5,7 @@
         <_FirebaseCrashlyticsItemsFolder>FCrshlytcs-3.10.1</_FirebaseCrashlyticsItemsFolder>
 		<_FabricItemsFolder>Fbrc-1.7.5</_FabricItemsFolder>
         <_FirebaseCrashlyticsScriptMasterAfterTargets>Build</_FirebaseCrashlyticsScriptMasterAfterTargets>
-        <_FirebaseCrashlyticsScriptMasterDependsOnTargets>_FirebaseCrashlyticsCopyScript;_FirebaseCrashlyticsRunXamarinScript;_FirebaseCrashlyticsDeleteXamarinScript</_FirebaseCrashlyticsScriptMasterDependsOnTargets>
+        <_FirebaseCrashlyticsScriptMasterDependsOnTargets>_FirebaseCrashlyticsRunFabricScript</_FirebaseCrashlyticsScriptMasterDependsOnTargets>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_FirebaseCrashlyticsItemsFolder)">
@@ -42,16 +42,8 @@
             Condition="'$(_FirebaseCrashlyticsScriptMasterDependsOnTargets)'!='' AND '$(_SdkIsSimulator)'=='False'"
             AfterTargets="$(_FirebaseCrashlyticsScriptMasterAfterTargets)"
             DependsOnTargets="$(_FirebaseCrashlyticsScriptMasterDependsOnTargets)" />
-    <Target Name="_FirebaseCrashlyticsCopyScript" Condition="!Exists('$(MSBuildProjectDirectory)\xamarin_run.sh')">  
-        <Message Text="Copying xamarin_run.sh file to $(MSBuildProjectDirectory)" />
-        <Copy SourceFiles="@(XamarinBuildCopyResources)" DestinationFolder="$(MSBuildProjectDirectory)" />
-    </Target>
-    <Target Name="_FirebaseCrashlyticsRunXamarinScript" >
-        <Message Text="Running Xamarin Run Script located at $(MSBuildProjectDirectory)" />
-        <Exec Command="$(MSBuildProjectDirectory)\xamarin_run.sh -n $(AssemblyName) -p $(MSBuildProjectDirectory) -o $(DeviceSpecificOutputPath) -s $(XamarinBuildDownloadDir)$(_FabricItemsFolder) -sdk $(_SdkRoot)"/>
-    </Target>
-    <Target Name="_FirebaseCrashlyticsDeleteXamarinScript" Condition="Exists('$(MSBuildProjectDirectory)\xamarin_run.sh')">
-        <Message Text="Deleting Xamarin Run Script located at $(MSBuildProjectDirectory)" />
-        <Delete Files="$(MSBuildProjectDirectory)\xamarin_run.sh"/>
+    <Target Name="_FirebaseCrashlyticsRunFabricScript" >
+        <Message Text="Running Fabric upload-symbols Script located at $(XamarinBuildDownloadDir)$(_FabricItemsFolder)" />
+        <Exec Command="$(XamarinBuildDownloadDir)$(_FabricItemsFolder)\upload-symbols -gsp $(MSBuildProjectDirectory)\GoogleService-Info.plist -p ios $(DeviceSpecificOutputPath)\$(AssemblyName).app.dSYM"/>
     </Target>
 </Project>
