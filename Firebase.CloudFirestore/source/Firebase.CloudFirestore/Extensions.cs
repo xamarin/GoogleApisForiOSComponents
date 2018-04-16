@@ -24,9 +24,9 @@ namespace Firebase.CloudFirestore
 
 	public partial class Firestore
 	{
-		public delegate NSObject FirestoreUpdateHandler (Transaction transaction, out NSError error);
+		public delegate NSObject TransactionUpdateHandler (Transaction transaction, ref NSError error);
 
-		public void RunTransaction (FirestoreUpdateHandler updateHandler, TransactionCompletionHandler completion)
+		public void RunTransaction (TransactionUpdateHandler updateHandler, TransactionCompletionHandler completion)
 		{
 			_RunTransaction (InternalUpdateHandler, completion);
 
@@ -35,7 +35,8 @@ namespace Firebase.CloudFirestore
 				if (updateHandler == null)
 					return null;
 
-				var result = updateHandler (transaction, out NSError error);
+				NSError error = null;
+				var result = updateHandler (transaction, ref error);
 
 				if (error != null)
 					Marshal.WriteIntPtr (pError, error.Handle);
@@ -44,7 +45,7 @@ namespace Firebase.CloudFirestore
 			}
 		}
 
-		public Task<NSObject> RunTransactionAsync (FirestoreUpdateHandler updateHandler)
+		public Task<NSObject> RunTransactionAsync (TransactionUpdateHandler updateHandler)
 		{
 			var tcs = new TaskCompletionSource<NSObject> ();
 			RunTransaction (updateHandler, (result_, error_) => {
