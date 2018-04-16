@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
-using UIKit;
 using CoreGraphics;
-using Firebase.Crashlytics;
-using ObjCRuntime;
 using Foundation;
+using UIKit;
+
+using Firebase.Crashlytics;
 
 namespace CrashlyticsSample {
 	public partial class ViewController : UIViewController {
@@ -34,7 +36,17 @@ namespace CrashlyticsSample {
 								       1, 0));
 		}
 
-		void Button_TouchUpInside (object sender, EventArgs e) {
+		void Button_TouchUpInside (object sender, EventArgs e)
+		{
+			var data = new Dictionary<object, object> {
+				{ "Class name", nameof (ViewController)},
+				{ "Method name", nameof (Button_TouchUpInside) }
+			};
+			var nsData = NSDictionary.FromObjectsAndKeys (data.Values.ToArray (), data.Keys.ToArray (), data.Keys.Count);
+
+			Logging.NSLog ($"Hi! Maybe I'm about to crash! Here's some data: {nsData}");
+			Crashlytics.SharedInstance.SetObjectValue (nsData, "data");
+
 			Crashlytics.SharedInstance.Crash ();
 		}
 

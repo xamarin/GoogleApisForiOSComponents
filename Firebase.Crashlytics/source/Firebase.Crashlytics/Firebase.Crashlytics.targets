@@ -39,7 +39,7 @@
 
 	</Target>
     <Target Name="_FirebaseCrashlyticsScriptMasterTarget"
-            Condition="'$(_FirebaseCrashlyticsScriptMasterDependsOnTargets)'!='' AND '$(_SdkIsSimulator)'=='False'"
+            Condition="'$(_FirebaseCrashlyticsScriptMasterDependsOnTargets)'!='' AND '$(_SdkIsSimulator)'=='False' AND '$(OS)'=='Unix'"
             AfterTargets="$(_FirebaseCrashlyticsScriptMasterAfterTargets)"
             DependsOnTargets="$(_FirebaseCrashlyticsScriptMasterDependsOnTargets)" />
     <Target Name="_FirebaseCrashlyticsRunFabricScript" >

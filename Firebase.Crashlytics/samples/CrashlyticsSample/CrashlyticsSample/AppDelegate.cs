@@ -1,6 +1,5 @@
 ﻿using Foundation;
 using UIKit;
-using ObjCRuntime;
 
 using Firebase.Core;
 using Firebase.Crashlytics;
@@ -23,7 +22,6 @@ namespace CrashlyticsSample {
 
 			App.Configure ();
 			Crashlytics.Configure ();
-			//Fabric.Fabric.With (typeof (Crashlytics));
 
 			Fabric.Fabric.SharedSdk.Debug = true;
 

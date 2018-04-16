@@ -84,6 +84,8 @@ If you used Firebase Crash Reporting custom logs, you have to update those for F
 |--------------------------|-----------------------------|
 | CrashReporting.Log       | Logging.Log / Logging.NSLog |
 
+> ![warning_icon] _**Note:**_ _The string given to these methods must be an escaped string due it will be passed to a C function and it expects an escaped string. For example, if you want to print a %, you must type %%. Passing an unescaped string may cause the termination of your app._
+
 ## Set up manual initialization
 
 Like Firebase Crash Reporting, the Firebase Crashlytics SDK automatically initializes Crashlytics as soon as you add it to your app. If instead you initialize reporting manually, Crashlytics has a way to do that as well:
