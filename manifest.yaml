@@ -10,6 +10,10 @@
   BuildScript: ./Firebase.Auth/build.cake
   TriggerPaths: [ Firebase.Auth ]
   MacBuildTargets: [ samples, component ]
+- Name: Firebase.iOS.CloudFirestore
+  BuildScript: ./Firebase.CloudFirestore/build.cake
+  TriggerPaths: [ Firebase.CloudFirestore ]
+  MacBuildTargets: [ samples, component ]
 - Name: Firebase.iOS.CloudMessaging
   BuildScript: ./Firebase.CloudMessaging/build.cake
   TriggerPaths: [ Firebase.CloudMessaging ]

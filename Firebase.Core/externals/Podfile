@@ -19,4 +19,5 @@ target 'FirebaseCore' do
 	pod 'nanopb', '0.3.8'
 	pod 'GTMSessionFetcher/Full', '1.1.12'
 	pod 'Protobuf', '3.4.0'
+	pod 'leveldb-library', '1.18.3'
 end

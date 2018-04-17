@@ -35,11 +35,12 @@ public abstract class Firebase
 			get { return "Xamarin.Firebase.iOS.Analytics"; }
 		}
 		public override string [] BaseOf  { 
-			get { return new [] { new Firebase.AdMob ().Name, new Firebase.Auth ().Name, new Firebase.CloudMessaging ().Name, 
-					new Firebase.CrashReporting ().Name, new Firebase.Database ().Name, new Firebase.DynamicLinks ().Name, 
-					new Firebase.Invites ().Name, new Firebase.PerformanceMonitoring ().Name, new Firebase.RemoteConfig ().Name, 
-					new Firebase.Storage ().Name, new Google.Core ().Name, new Google.InstanceID ().Name, 
-					new Google.PlayGames ().Name, new Google.SignIn ().Name, new Google.TagManager ().Name };
+			get { return new [] { new Firebase.AdMob ().Name, new Firebase.Auth ().Name, new Firebase.CloudFirestore ().Name, 
+					new Firebase.CloudMessaging ().Name, new Firebase.CrashReporting ().Name, new Firebase.Database ().Name, 
+					new Firebase.DynamicLinks ().Name, new Firebase.Invites ().Name, new Firebase.PerformanceMonitoring ().Name, 
+					new Firebase.RemoteConfig ().Name, new Firebase.Storage ().Name, new Google.Core ().Name, 
+					new Google.InstanceID ().Name, new Google.PlayGames ().Name, new Google.SignIn ().Name,
+					new Google.TagManager ().Name };
 			}
 		}
 	}
@@ -51,6 +52,16 @@ public abstract class Firebase
 		}
 		public override string NuGetId { 
 			get { return "Xamarin.Firebase.iOS.Auth"; }
+		}
+	}
+
+	public class CloudFirestore : GoogleBase
+	{
+		public override string Name  { 
+			get { return "Firebase.CloudFirestore"; }
+		}
+		public override string NuGetId { 
+			get { return "Xamarin.Firebase.iOS.CloudFirestore"; }
 		}
 	}
 
@@ -74,11 +85,11 @@ public abstract class Firebase
 		}
 		public override string [] BaseOf  { 
 			get { return new [] { new Firebase.AdMob ().Name, new Firebase.Analytics ().Name, new Firebase.Auth ().Name, 
-					new Firebase.CloudMessaging ().Name, new Firebase.CrashReporting ().Name, new Firebase.Database ().Name, 
-					new Firebase.DynamicLinks ().Name, new Firebase.Invites ().Name, new Firebase.PerformanceMonitoring ().Name, 
-					new Firebase.RemoteConfig ().Name, new Firebase.Storage ().Name, new Google.Core ().Name, 
-					new Google.InstanceID ().Name, new Google.PlayGames ().Name, new Google.SignIn ().Name, 
-					new Google.TagManager ().Name };
+					new Firebase.CloudFirestore ().Name, new Firebase.CloudMessaging ().Name, new Firebase.CrashReporting ().Name,
+					new Firebase.Database ().Name, new Firebase.DynamicLinks ().Name, new Firebase.Invites ().Name, 
+					new Firebase.PerformanceMonitoring ().Name, new Firebase.RemoteConfig ().Name, new Firebase.Storage ().Name,
+					new Google.Core ().Name, new Google.InstanceID ().Name, new Google.PlayGames ().Name, 
+					new Google.SignIn ().Name, new Google.TagManager ().Name };
 			}
 		}
 	}
@@ -126,11 +137,11 @@ public abstract class Firebase
 		}
 		public override string [] BaseOf  { 
 			get { return new [] { new Firebase.AdMob ().Name, new Firebase.Analytics ().Name, new Firebase.Auth ().Name, 
-					new Firebase.CloudMessaging ().Name, new Firebase.CrashReporting ().Name, new Firebase.Database ().Name, 
-					new Firebase.DynamicLinks ().Name, new Firebase.Invites ().Name, new Firebase.PerformanceMonitoring ().Name, 
-					new Firebase.RemoteConfig ().Name, new Firebase.Storage ().Name, new Google.Core ().Name, 
-					new Google.InstanceID ().Name, new Google.PlayGames ().Name, new Google.SignIn ().Name, 
-					new Google.TagManager ().Name };
+					new Firebase.CloudFirestore ().Name, new Firebase.CloudMessaging ().Name, new Firebase.CrashReporting ().Name,
+					new Firebase.Database ().Name, new Firebase.DynamicLinks ().Name, new Firebase.Invites ().Name, 
+					new Firebase.PerformanceMonitoring ().Name, new Firebase.RemoteConfig ().Name, new Firebase.Storage ().Name,
+					new Google.Core ().Name, new Google.InstanceID ().Name, new Google.PlayGames ().Name, 
+					new Google.SignIn ().Name, new Google.TagManager ().Name };
 			}
 		}
 	}
@@ -315,13 +326,13 @@ public abstract class Xamarin
 			}
 			public override string [] BaseOf  { 
 					get { return new [] { new Firebase.AdMob ().Name, new Firebase.Analytics ().Name, new Firebase.Auth ().Name, 
-							new Firebase.CloudMessaging ().Name, new Firebase.Core ().Name, new Firebase.CrashReporting ().Name,
-							new Firebase.Database ().Name, new Firebase.DynamicLinks ().Name, new Firebase.InstanceID ().Name,
-							new Firebase.Invites ().Name, new Firebase.RemoteConfig ().Name, new Firebase.Storage ().Name,
-							new Google.Analytics ().Name, new Google.AppIndexing ().Name, new Google.Cast ().Name,
-							new Google.Core ().Name, new Google.InstanceID ().Name, new Google.Maps ().Name,
-							new Google.MobileAds ().Name, new Google.PlayGames ().Name, new Google.SignIn ().Name,
-							new Google.TagManager ().Name };
+							new Firebase.CloudFirestore ().Name, new Firebase.CloudMessaging ().Name, new Firebase.Core ().Name, 
+							new Firebase.CrashReporting ().Name, new Firebase.Database ().Name, new Firebase.DynamicLinks ().Name, 
+							new Firebase.InstanceID ().Name, new Firebase.Invites ().Name, new Firebase.PerformanceMonitoring ().Name, 
+							new Firebase.RemoteConfig ().Name, new Firebase.Storage ().Name, new Google.Analytics ().Name, 
+							new Google.AppIndexing ().Name, new Google.Cast ().Name, new Google.Core ().Name, 
+							new Google.InstanceID ().Name, new Google.Maps ().Name, new Google.MobileAds ().Name, 
+							new Google.PlayGames ().Name, new Google.SignIn ().Name, new Google.TagManager ().Name };
 				}
 			}
 		}

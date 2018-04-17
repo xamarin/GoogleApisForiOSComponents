@@ -3,7 +3,7 @@ XCODEBUILD=$(shell xcrun --sdk iphoneos --find xcodebuild)
 
 PROJECT_ROOT=./Pods
 PROJECT=$(PROJECT_ROOT)/Pods.xcodeproj
-TARGETS=GoogleToolboxForMac nanopb GTMSessionFetcher Protobuf leveldb-library
+TARGETS=gRPC-ProtoRPC gRPC gRPC-Core gRPC-RxLibrary BoringSSL
 
 all: Pods $(TARGETS)
 

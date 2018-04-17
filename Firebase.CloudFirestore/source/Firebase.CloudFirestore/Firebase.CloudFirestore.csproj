@@ -3,17 +3,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7C28F952-273E-4888-A9D7-61057B5361C3}</ProjectGuid>
+    <ProjectGuid>{07B73E52-5385-4A06-BF48-8E27A4DF8D88}</ProjectGuid>
     <ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>Firebase.Database</RootNamespace>
-    <AssemblyName>Firebase.Database</AssemblyName>
+    <RootNamespace>Firebase.CloudFirestore</RootNamespace>
+    <AssemblyName>Firebase.CloudFirestore</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -30,14 +30,13 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Extension.cs" />
-    <Compile Include="FirebaseDatabase.linkwith.cs">
-      <DependentUpon>FirebaseDatabase</DependentUpon>
-    </Compile>
+    <Compile Include="FirebaseCloudFirestore.linkwith.cs" />
     <Compile Include="Loader.cs" />
+    <Compile Include="Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
@@ -50,17 +49,47 @@
       <Project>{87BB564C-85A8-4EC1-AD16-EC0A1ACCEE56}</Project>
       <Name>Firebase.Analytics</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\Firebase.InstanceID.csproj">
-      <Project>{D6AA184C-DA45-4BBB-988A-451B20C7B804}</Project>
-      <Name>Firebase.InstanceID</Name>
+    <ProjectReference Include="..\..\..\Firebase.Auth\source\Firebase.Auth\Firebase.Auth.csproj">
+      <Project>{B6D38028-B1CF-4351-B53B-B5D35F19FC4A}</Project>
+      <Name>Firebase.Auth</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.csproj">
       <Project>{0AD1ED63-C008-41B3-8ADB-04696B4880E3}</Project>
       <Name>Firebase.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\Firebase.InstanceID.csproj">
+      <Project>{D6AA184C-DA45-4BBB-988A-451B20C7B804}</Project>
+      <Name>Firebase.InstanceID</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Firebase.Database.targets" />
+    <None Include="Firebase.CloudFirestore.targets" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingNativeLibrary Include="..\..\externals\BoringSSL">
+      <Link>BoringSSL</Link>
+    </ObjcBindingNativeLibrary>
+    <ObjcBindingNativeLibrary Include="..\..\externals\gRPC">
+      <Link>gRPC</Link>
+    </ObjcBindingNativeLibrary>
+    <ObjcBindingNativeLibrary Include="..\..\externals\gRPC-Core">
+      <Link>gRPC-Core</Link>
+    </ObjcBindingNativeLibrary>
+    <ObjcBindingNativeLibrary Include="..\..\externals\gRPC-ProtoRPC">
+      <Link>gRPC-ProtoRPC</Link>
+    </ObjcBindingNativeLibrary>
+    <ObjcBindingNativeLibrary Include="..\..\externals\gRPC-RxLibrary">
+      <Link>gRPC-RxLibrary</Link>
+    </ObjcBindingNativeLibrary>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\gRPCCertificates.bundle\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="..\..\externals\Pods\gRPC\etc\roots.pem">
+      <Link>Resources\gRPCCertificates.bundle\roots.pem</Link>
+    </BundleResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>
