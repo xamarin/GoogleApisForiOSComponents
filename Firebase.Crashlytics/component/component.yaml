@@ -12,6 +12,9 @@ docs-url: https://firebase.google.com/docs/crashlytics/
 libraries:
   ios-unified:
   - ../output/Firebase.Crashlytics.dll
+  - ../../Firebase.Analytics/output/Firebase.Analytics.dll
+  - ../../Firebase.Core/output/Firebase.Core.dll
+  - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
 is_shell: true
 packages:
   ios-unified:
@@ -21,11 +24,20 @@ samples:
   path: ../samples/CrashlyticsSample/CrashlyticsSample.sln
   removeProjects:
   - Firebase.Crashlytics
+  - Firebase.Analytics
+  - Firebase.Core
+  - Firebase.InstanceID
   installNuGets:
   - project: CrashlyticsSample
     packages:
     - Xamarin.Firebase.iOS.Crashlytics
+    - Xamarin.Firebase.iOS.Analytics
+    - Xamarin.Firebase.iOS.Core
+    - Xamarin.Firebase.iOS.InstanceID
   removeNodes:
   - //xNS:Import[contains (@Project, 'Firebase.Crashlytics.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.Core.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]
 local-nuget-repo: ../../tmp-nugets
 no_build: true
