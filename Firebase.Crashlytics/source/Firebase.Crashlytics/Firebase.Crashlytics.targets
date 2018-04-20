@@ -2,27 +2,35 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_FirebaseCrashlyticsAssemblyName>Firebase.Crashlytics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseCrashlyticsAssemblyName>
-        <_FirebaseCrashlyticsItemsFolder>FCrshlytcs-3.10.1</_FirebaseCrashlyticsItemsFolder>
+		<_FirebaseCrashlyticsItemsFolder>FCrshlytcs-3.10.1</_FirebaseCrashlyticsItemsFolder>
 		<_FabricItemsFolder>Fbrc-1.7.5</_FabricItemsFolder>
-        <_FirebaseCrashlyticsScriptMasterAfterTargets>Build</_FirebaseCrashlyticsScriptMasterAfterTargets>
-        <_FirebaseCrashlyticsScriptMasterDependsOnTargets>_FirebaseCrashlyticsRunFabricScript</_FirebaseCrashlyticsScriptMasterDependsOnTargets>
+		<_FabricScriptName>upload-symbols</_FabricScriptName>
+
+		<!-- Properties used to upload dSYM symbols to Firebase when using Visual Studio for Mac -->
+		<_FirebaseCrashlyticsUploadDSymToFirebaseMasterAfterTargets Condition="'$(OS)'=='Unix'">Build</_FirebaseCrashlyticsUploadDSymToFirebaseMasterAfterTargets>
+		<_FirebaseCrashlyticsUploadDSymToFirebaseMasterBeforeTargets Condition="'$(OS)'=='Unix'"></_FirebaseCrashlyticsUploadDSymToFirebaseMasterBeforeTargets>
+		<_FirebaseCrashlyticsUploadDSymToFirebaseMasterDependsOnTargets Condition="'$(OS)'=='Unix'">_FirebaseCrashlyticsUploadDSymToFirebaseOnMac</_FirebaseCrashlyticsUploadDSymToFirebaseMasterDependsOnTargets>
+
+		<!-- Properties used to upload dSYM symbols to Firebase when using Visual Studio for Windows -->
+		<_FirebaseCrashlyticsUploadDSymToFirebaseMasterAfterTargets Condition="'$(OS)'!='Unix'"></_FirebaseCrashlyticsUploadDSymToFirebaseMasterAfterTargets>
+		<_FirebaseCrashlyticsUploadDSymToFirebaseMasterBeforeTargets Condition="'$(OS)'!='Unix'">_SayGoodbye</_FirebaseCrashlyticsUploadDSymToFirebaseMasterBeforeTargets>
+		<_FirebaseCrashlyticsUploadDSymToFirebaseMasterDependsOnTargets Condition="'$(OS)'!='Unix'">_FirebaseCrashlyticsUploadDSymToFirebaseOnWindows</_FirebaseCrashlyticsUploadDSymToFirebaseMasterDependsOnTargets>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_FirebaseCrashlyticsItemsFolder)">
 			<Url>https://kit-downloads.fabric.io/cocoapods/crashlytics/3.10.1/crashlytics.zip</Url>
 			<Kind>Zip</Kind>
 		</XamarinBuildDownload>
-        <XamarinBuildDownload Include="$(_FabricItemsFolder)">
-            <Url>https://kit-downloads.fabric.io/cocoapods/fabric/1.7.5/fabric.zip</Url>
-            <Kind>Zip</Kind>
-        </XamarinBuildDownload>
-        <XamarinBuildCopyResources Include="$(MSBuildThisFileDirectory)..\**\xamarin_run.sh;" />
-        <XamarinBuildRestoreResources Include="_FirebaseCrashlyticsItems" />
+		<XamarinBuildDownload Include="$(_FabricItemsFolder)">
+			<Url>https://kit-downloads.fabric.io/cocoapods/fabric/1.7.5/fabric.zip</Url>
+			<Kind>Zip</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildRestoreResources Include="_FirebaseCrashlyticsItems" />
 	</ItemGroup>
 	<Target Name="_FirebaseCrashlyticsItems">
 
 		<PropertyGroup>
-            <_FirebaseCrashlyticsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseCrashlyticsItemsFolder)\iOS\</_FirebaseCrashlyticsSDKBaseFolder>
+			<_FirebaseCrashlyticsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseCrashlyticsItemsFolder)\iOS\</_FirebaseCrashlyticsSDKBaseFolder>
 			<_FabricSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FabricItemsFolder)\iOS\</_FabricSDKBaseFolder>
 		</PropertyGroup>
 
@@ -31,19 +39,40 @@
 				<LogicalName>Crashlytics</LogicalName>
 				<AssemblyName>$(_FirebaseCrashlyticsAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-            <RestoreAssemblyResource Include="$(_FabricSDKBaseFolder)Fabric.framework\Fabric">
-                <LogicalName>Fabric</LogicalName>
-                <AssemblyName>$(_FirebaseCrashlyticsAssemblyName)</AssemblyName>
-            </RestoreAssemblyResource>
+			<RestoreAssemblyResource Include="$(_FabricSDKBaseFolder)Fabric.framework\Fabric">
+				<LogicalName>Fabric</LogicalName>
+				<AssemblyName>$(_FirebaseCrashlyticsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
 		</ItemGroup>
 
 	</Target>
-    <Target Name="_FirebaseCrashlyticsScriptMasterTarget"
-            Condition="'$(_FirebaseCrashlyticsScriptMasterDependsOnTargets)'!='' AND '$(_SdkIsSimulator)'=='False' AND '$(OS)'=='Unix'"
-            AfterTargets="$(_FirebaseCrashlyticsScriptMasterAfterTargets)"
-            DependsOnTargets="$(_FirebaseCrashlyticsScriptMasterDependsOnTargets)" />
-    <Target Name="_FirebaseCrashlyticsRunFabricScript" >
-        <Message Text="Running Fabric upload-symbols Script located at $(XamarinBuildDownloadDir)$(_FabricItemsFolder)" />
-        <Exec Command="$(XamarinBuildDownloadDir)$(_FabricItemsFolder)\upload-symbols -gsp $(MSBuildProjectDirectory)\GoogleService-Info.plist -p ios $(DeviceSpecificOutputPath)\$(AssemblyName).app.dSYM"/>
-    </Target>
+	
+	<Target Name="_FirebaseCrashlyticsUploadDSymToFirebaseMasterTarget"
+			Condition="'$(_FirebaseCrashlyticsUploadDSymToFirebaseMasterDependsOnTargets)'!='' AND '$(_SdkIsSimulator)'=='False'"
+			AfterTargets="$(_FirebaseCrashlyticsUploadDSymToFirebaseMasterAfterTargets)"
+			BeforeTargets="$(_FirebaseCrashlyticsUploadDSymToFirebaseMasterBeforeTargets)"
+			DependsOnTargets="$(_FirebaseCrashlyticsUploadDSymToFirebaseMasterDependsOnTargets)" />
+	
+	<!-- Target to upload dSYM symbols to Firebase when using Visual Studio for Mac -->
+	<Target Name="_FirebaseCrashlyticsUploadDSymToFirebaseOnMac" >
+		<Message Text="Uploading dSYM to Firebase using Fabric $(_FabricScriptName) script located at $(XamarinBuildDownloadDir)$(_FabricItemsFolder)" />
+		<Exec Command="$(XamarinBuildDownloadDir)$(_FabricItemsFolder)\$(_FabricScriptName) -gsp $(MSBuildProjectDirectory)\GoogleService-Info.plist -p ios $(DeviceSpecificOutputPath)\$(AssemblyName).app.dSYM"/>
+	</Target>
+
+	<!-- Target to upload dSYM symbols to Firebase when using Visual Studio for Windows -->
+	<Target Name="_FirebaseCrashlyticsUploadDSymToFirebaseOnWindows" Condition="'$(IsMacEnabled)'=='true'" >
+		
+		<ItemGroup>
+			<_CopyFilesToMacOutput Include="$(XamarinBuildDownloadDir)$(_FabricItemsFolder)\$(_FabricScriptName)">
+				<TargetPath>$(_FabricScriptName)</TargetPath>
+			</_CopyFilesToMacOutput>
+		</ItemGroup>	
+
+		<Message Text="Copying Fabric $(_FabricScriptName) script located at $(XamarinBuildDownloadDir)$(_FabricItemsFolder) to Mac host" />
+		<CopyFilesToBuildServer SessionId="$(BuildSessionId)" Files="@(_CopyFilesToMacOutput)" />
+		<Exec SessionId="$(BuildSessionId)" Command="chmod +x $(_FabricScriptName)" ContinueOnError="true" />
+		
+		<Message Text="Uploading dSYM to Firebase using Fabric $(_FabricScriptName) script" />
+		<Exec SessionId="$(BuildSessionId)" Command="./$(_FabricScriptName) -gsp ./GoogleService-Info.plist -p ios ./$(DeviceSpecificOutputPath)\$(AssemblyName).app.dSYM" ContinueOnError="true" />
+	</Target>
 </Project>
