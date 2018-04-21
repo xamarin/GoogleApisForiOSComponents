@@ -1,6 +1,6 @@
 **Xamarin is not responsible for, nor does it grant any licenses to, third-party packages. Some packages may require or install dependencies which are governed by additional licenses.**
 
-Note: This component depends on [Firebase Crashlytics for iOS](https://firebase.google.com/docs/crashlytics/get-started), which is subject to the [Fabric Terms of Service](https://fabric.io/terms/fabric) and [Crashlytics Terms of Service](https://try.crashlytics.com/terms/terms-of-service.pdf)
+Note: This component depends on [Firebase Crashlytics for iOS](https://firebase.google.com/docs/crashlytics/get-started), which is subject to the [Terms of Service for Firebase Services](https://firebase.google.com/terms/)
 
 ### Xamarin Component for Firebase Crashlytics for iOS
 
