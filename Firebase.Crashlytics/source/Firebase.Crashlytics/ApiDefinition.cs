@@ -1,9 +1,9 @@
 ﻿using System;
 
-using UIKit;
+using CoreGraphics;
 using Foundation;
 using ObjCRuntime;
-using CoreGraphics;
+using UIKit;
 
 namespace Firebase.Crashlytics {
 	// @interface Answers : NSObject

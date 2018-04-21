@@ -1,5 +1,8 @@
 ﻿using System;
+using System.IO;
 using System.Runtime.InteropServices;
+using System.Runtime.CompilerServices;
+
 using Foundation;
 using ObjCRuntime;
 
@@ -24,12 +27,27 @@ namespace Firebase.Crashlytics {
 			NSString.ReleaseNative (pMessage);
 		}
 
+		public static void LogCallerInformation (string message, string className = "", [CallerFilePath] string filePath = "", [CallerMemberName] string memberName = "", [CallerLineNumber] int lineNumber = 0)
+		{
+			var classNameIsEmpty = string.IsNullOrWhiteSpace (className);
+			var filename = Path.GetFileName (filePath);
+			Log ($"{filename}: {(classNameIsEmpty ? " " : $" {className}.")}{memberName} line {lineNumber} $ {message}");
+		}
+
 		[Advice ("It is not recommended for Release builds.")]
 		public static void NSLog (string message)
 		{
 			var pMessage = NSString.CreateNative (message);
 			_NSLog (pMessage, IntPtr.Zero);
 			NSString.ReleaseNative (pMessage);
+		}
+
+		[Advice ("It is not recommended for Release builds.")]
+		public static void NSLogCallerInformation (string message, string className = "", [CallerFilePath] string filePath = "", [CallerMemberName] string memberName = "", [CallerLineNumber] int lineNumber = 0)
+		{
+			var classNameIsEmpty = string.IsNullOrWhiteSpace (className);
+			var filename = Path.GetFileName (filePath);
+			NSLog ($"{filename}:{(classNameIsEmpty ? " " : $" {className}.")}{memberName} line {lineNumber} $ {message}");
 		}
 	}
 }

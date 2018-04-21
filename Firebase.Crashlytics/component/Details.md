@@ -1,5 +1,3 @@
-## **Important note:** *This component is only compatible with Visual Studio for Mac.*
-
 Get clear, actionable insight into app issues with this powerful crash reporting solution.
 
 Firebase Crashlytics is a lightweight, realtime crash reporter that helps you track, prioritize, and fix stability issues that erode your app quality. Crashlytics saves you troubleshooting time by intelligently grouping crashes and highlighting the circumstances that lead up to them.

@@ -1,5 +1,3 @@
-<h2> <b>Important note:</b> <i>This component is only compatible with Visual Studio for Mac.</i> </h2>
-
 # Get Started with Firebase Crashlytics for iOS
 
 ## Table of Content
@@ -66,7 +64,7 @@ Crashlytics is the new, primary crash reporter for Firebase. If your app uses Fi
 
 ## Update project dependencies
 
-To update your app's depencencies for Firebase Crashlytics, swap the Xamarin.Firebase.iOS.CrashReporting NuGet within the Xamarin.Firebase.iOS.Crashlytics NuGet and remove the Firebase Crash Reporting custom command:
+To update your app's depencencies for Firebase Crashlytics, swap the Xamarin.Firebase.iOS.CrashReporting NuGet with the Xamarin.Firebase.iOS.Crashlytics NuGet and remove the Firebase Crash Reporting custom command:
 
 1. In Visual Studio, do a double click on **Packages** folder and add the Xamarin.Firebase.iOS.Crashlytics NuGet.
 2. Remove Xamarin.Firebase.iOS.CrashReporting NuGet by right clicking/Remove.
@@ -80,9 +78,9 @@ To update your app's depencencies for Firebase Crashlytics, swap the Xamarin.Fir
 
 If you used Firebase Crash Reporting custom logs, you have to update those for Firebase Crashlytics too:
 
-| Firebase Crash Reporting | Firebase Crashlytics        |
-|--------------------------|-----------------------------|
-| CrashReporting.Log       | Logging.Log / Logging.NSLog |
+| Firebase Crash Reporting | Firebase Crashlytics                                                                             |
+|--------------------------|--------------------------------------------------------------------------------------------------|
+| CrashReporting.Log       | Logging.Log / Logging.LogCallerInformation <br /> Logging.NSLog / Logging.NSLogCallerInformation |
 
 > ![warning_icon] _**Note:**_ _The string given to these methods must be an escaped string due it will be passed to a C function and it expects an escaped string. For example, if you want to print a %, you must type %%. Passing an unescaped string may cause the termination of your app._
 
@@ -146,16 +144,22 @@ void Button_TouchUpInside (object sender, EventArgs e)
 Crashlytics can’t capture crashes if your build attaches a debugger at launch. Adjust your build settings to change the project's debug information format:
 
 1. In Visual Studio, open your app project settings.
-2. Go to **Build** > **iOS Build**. Select an **iPhone** platform.
-3. Make sure that **Strip native debugging symbols** is unchecked.
+	* _Mac:_ Go to **Build** > **iOS Build**
+	* _Windows:_ Go to **iOS Build**
+2. Select an **iPhone** platform.
+2. Make sure that **Strip native debugging symbols** is unchecked.
 
 ## Test it out
 
-The code snippet above adds a button that crashes your app when pressed. For it to work, run the app without a debugger:
+The code snippet above adds a button that crashes your app when pressed. For it to work, run the app without a debugger, the debugger interferes with Crashlytics:
 
 1. Select a physical device and Debug configuration.
-2. Click on **Run/Start Without Debugging**. The build process will upload the `dSYM` file of the app to Firebase in a background process.
-3. Touch Crash to crash the app.
+2. Run the app without debugging:
+	* _Mac:_ Open **Run** menu > **Start Without Debugging**
+	* _Windows:_ Open **Build** menu > **Start Without Debugging**
+
+	The build process will upload the `dSYM` file of the app to Firebase in a background process.
+3. Touch Crash button to crash the app.
 4. Open your app once more to let the Crashlytics API report the crash. Your crash should show up in the Firebase console within 5 minutes.
 
 ## Enable Crashlytics debug mode
@@ -199,7 +203,51 @@ To do that, you have to disable automatic collection and initialize Crashlytics 
 
 To give yourself more context for the events leading up to a crash, you can add custom Crashlytics logs to your app. Crashlytics associates the logs with your crash data and makes them visible in the Firebase console.
 
+Use `LogCallerInformation` and `NSLogCallerInformation` methods to help pinpoint issues. It automatically includes information about the C# filename, method, and line number associated with the log. You can optionally pass the class name to have a better log:
+
+* **Debug builds:** `NSLogCallerInformation` method passes through to `NSLog` method so you can see the output in Visual Studio and on the device.
+* **Release builds:** To improve performance, `LogCallerInformation` method silences all other output and will be only shown on Firebase Crashlytics dashboard when a crash occurs.
+
+```csharp
+void Button_TouchUpInside (object sender, EventArgs e)
+{
+	var data = new Dictionary<object, object> {
+		{ "A keyblade", "for a heartless" },
+		{ "A heart", "for a nobody" }
+	};
+	var nsData = NSDictionary.FromObjectsAndKeys (data.Values.ToArray (), data.Keys.ToArray (), data.Keys.Count);
+
+	Logging.LogCallerInformation ($"Hi! Maybe, I'm about to crash! Here's some data: {nsData}", nameof (ViewController));
+
+	// or
+
+	Logging.NSLogCallerInformation ($"Hi! Maybe, I'm about to crash! Here's some data: {nsData}", nameof (ViewController));
+
+	Crashlytics.SharedInstance.Crash ();
+}
+```
+
+Assuming that you are coding in a file named `MyViewController.cs`, the output will be:
+
+```
+MyViewController.cs: ViewController.Button_TouchUpInside line 47 $ Hi! Maybe I'm about to crash! Here's some data: {
+    "A keyblade" = "for a heartless";
+    "A heart" = "for a nobody";
+}
+```
+
+If you omit the second parameter of `NSLogCallerInformation` or `LogCallerInformation` method, the output will be:
+
+```
+MyViewController.cs: Button_TouchUpInside line 47 $ Hi! Maybe I'm about to crash! Here's some data: {
+    "A keyblade" = "for a heartless";
+    "A heart" = "for a nobody";
+}
+```
+
 > ![note_icon] _To avoid slowing down your app, Crashlytics limits logs to 64kB. Crashlytics deletes older log entries if a session's logs go over that limit._
+
+> ![warning_icon] _**Note:**_ _The string given to these methods must be an escaped string due it will be passed to a C function and it expects an escaped string. For example, if you want to print a %, you must type %%. Passing an unescaped string may cause the termination of your app._
 
 ## Add custom keys
 
@@ -284,7 +332,7 @@ While it is safe to call this API on a background thread, remember that dispatch
 
 ### What about NSExceptions?
 
-Crashlytics doesn’t offer a facility for logging/recording NSException instances directly. Generally speaking, the Cocoa and Cocoa Touch APIs are not exception-safe. That means the use of `@catch` in Objective-C code can have very serious unintended side-effects in your process, even when used with extreme care. You should never use `@catch` statements in your Objective-C code. Please refer to Apple’s [documentation][2] on the topic.
+Crashlytics doesn’t offer a facility for logging/recording NSException instances directly. Generally speaking, the Cocoa and Cocoa Touch APIs are not exception-safe. That means the use of `@catch` in your Objective-C library code or in a third-party Objective-C code can have very serious unintended side-effects in your process, even when used with extreme care. You should never use `@catch` statements in your Objective-C code. Please refer to Apple’s [documentation][2] on the topic.
 
 ## Manage Crash Insights data
 
