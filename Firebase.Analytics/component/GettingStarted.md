@@ -63,7 +63,7 @@ It is very easy to log an event, the following example demonstrates how to log a
 ```csharp
 NSString [] keys = { ParameterNamesConstants.ContentType, ParameterNamesConstants.ItemId };
 NSObject [] values = { new NSString ("cont"), new NSString ("1") };
-var parameters = NSDictionary<NSString, NSObject>.FromObjectsAndKeys (keys, values, keys.Length);
+var parameters = NSDictionary<NSString, NSObject>.FromObjectsAndKeys (values, keys, keys.Length);
 Analytics.LogEvent (EventNamesConstants.SelectContent, parameters);
 ```
 
@@ -72,7 +72,7 @@ Or without constants values:
 ```csharp
 NSString [] keys = { new NSString ("Name") };
 NSObject [] values = { new NSString ("Image name") };
-var parameters = NSDictionary<NSString, NSObject>.FromObjectsAndKeys (keys, values, keys.Length);
+var parameters = NSDictionary<NSString, NSObject>.FromObjectsAndKeys (values, keys, keys.Length);
 Analytics.LogEvent ("share_image", parameters);
 ```
 
