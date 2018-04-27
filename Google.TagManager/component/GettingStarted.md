@@ -155,7 +155,14 @@ After you finished creating your custom classes, go to Google Tag Manager's web 
 
 ### Known issues
 
-* App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][12])
+* Error `Native linking failed, duplicate symbol '_main'` appears when you try to build for **iPhoneSimulator**. A workaround for this is to change the behavior of the **Registrar**:
+	1. Open your project settings
+	2. Go to **Build** tab
+	3. Select **iOS Build** option
+	4. Type `--registrar:static` in **Additional mtouch arguments** textbox
+	5. Click on **Ok**
+
+	Don't forget to add this in **Release** and **Debug** configuration of **iPhoneSimulator** platform.
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://developers.google.com/tag-manager/ios/v5/) to see original Google documentation._</sub>
 
@@ -170,4 +177,3 @@ After you finished creating your custom classes, go to Google Tag Manager's web 
 [9]: https://support.google.com/firebase/answer/6317486
 [10]: https://support.google.com/tagmanager/answer/6106961
 [11]: https://support.google.com/tagmanager/answer/6107163
-[12]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689

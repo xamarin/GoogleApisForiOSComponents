@@ -307,12 +307,19 @@ To learn how to read your data in Firebase Console, please, read the following [
 
 ## Known issues
 
-* App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][5])
 * Performance Monitoring has known compatibility issues with GTMSQLite. We recommend not using Performance Monitoring with apps that use GTMSQLite.
 * Performance Monitoring does not support network requests made using either `WebClient` or `HttpClient` class.
 * Method swizzling after calling `App.Configure ()` might interfere with the Performance Monitoring SDK.
 * Known issues with the iOS 8.0-8.2 Simulator prevent Performance Monitoring from capturing performance events. These issues are fixed in the iOS 8.3 Simulator and later versions.
 * Connections established using `NSUrlSession`'s BackgroundSessionConfiguration will exhibit longer than expected connection times. These connections are executed out-of-process and the timings reflect in-process callback events.
+* Error `Native linking failed, duplicate symbol '_main'` appears when you try to build for **iPhoneSimulator**. A workaround for this is to change the behavior of the **Registrar**:
+	1. Open your project settings
+	2. Go to **Build** tab
+	3. Select **iOS Build** option
+	4. Type `--registrar:static` in **Additional mtouch arguments** textbox
+	5. Click on **Ok**
+
+	Don't forget to add this in **Release** and **Debug** configuration of **iPhoneSimulator** platform.
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/dynamic-links/ios) to see original Firebase documentation._</sub>
 
@@ -320,6 +327,5 @@ To learn how to read your data in Firebase Console, please, read the following [
 [2]: http://support.google.com/firebase/answer/7015592
 [3]: https://components.xamarin.com/view/firebaseiosremoteconfig
 [4]: https://components.xamarin.com/gettingstarted/firebaseiosremoteconfig
-[5]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689
 [6]: https://console.firebase.google.com/project/_/performance/
 [7]: https://firebase.google.com/docs/perf-mon/help

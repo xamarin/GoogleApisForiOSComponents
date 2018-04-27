@@ -1105,7 +1105,14 @@ if (RewardBasedVideoAd.SharedInstance.IsReady) {
 
 ## Known issues
 
-* App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][6])
+* Error `Native linking failed, duplicate symbol '_main'` appears when you try to build for **iPhoneSimulator**. A workaround for this is to change the behavior of the **Registrar**:
+	1. Open your project settings
+	2. Go to **Build** tab
+	3. Select **iOS Build** option
+	4. Type `--registrar:static` in **Additional mtouch arguments** textbox
+	5. Click on **Ok**
+
+	Don't forget to add this in **Release** and **Debug** configuration of **iPhoneSimulator** platform.
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/admob/ios/quick-start) to see original Firebase documentation._</sub>
 
@@ -1114,7 +1121,6 @@ if (RewardBasedVideoAd.SharedInstance.IsReady) {
 [3]: https://apps.admob.com/#account/appmgmt:
 [4]: https://support.google.com/admob/answer/6240809
 [5]: https://support.google.com/dfp_premium/answer/6075370
-[6]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689
 [note_icon]: https://cdn3.iconfinder.com/data/icons/UltimateGnome/22x22/apps/gnome-app-install-star.png
 [warning_icon]: https://cdn2.iconfinder.com/data/icons/freecns-cumulus/32/519791-101_Warning-20.png
 [deprecated_icon]: https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519643-144_Forbidden-20.png "Deprecated"

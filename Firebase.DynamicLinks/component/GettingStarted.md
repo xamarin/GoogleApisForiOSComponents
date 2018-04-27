@@ -249,7 +249,14 @@ To learn about this, please, read the following [documentation][12].
 
 ## Known issues
 
-* App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][9])
+* Error `Native linking failed, duplicate symbol '_main'` appears when you try to build for **iPhoneSimulator**. A workaround for this is to change the behavior of the **Registrar**:
+	1. Open your project settings
+	2. Go to **Build** tab
+	3. Select **iOS Build** option
+	4. Type `--registrar:static` in **Additional mtouch arguments** textbox
+	5. Click on **Ok**
+
+	Don't forget to add this in **Release** and **Debug** configuration of **iPhoneSimulator** platform.
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/dynamic-links/ios) to see original Firebase documentation._</sub>
 
@@ -261,7 +268,6 @@ To learn about this, please, read the following [documentation][12].
 [6]: https://firebase.google.com/docs/dynamic-links/rest
 [7]: https://firebase.google.com/docs/dynamic-links/create-manually
 [8]: https://developer.apple.com/library/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html
-[9]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689
 [10]: https://firebase.google.com/docs/dynamic-links/analytics
 [11]: https://firebase.google.com/docs/dynamic-links/debug
 [12]: https://firebase.google.com/docs/dynamic-links/link-previews

@@ -1545,7 +1545,14 @@ Querying works with offline persistence. You can retrieve the results of queries
 ## Known issues
 
 * App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][11])
-* There are duplicated symbols when you build on simulator. Workaround: Open **project settings**/**iOS Build**, make sure you are on **iPhoneSimulator** platform and add `--registrar:static` to **Additional mtouch arguments** textbox.
+* Error `Native linking failed, duplicate symbol '_main'` appears when you try to build for **iPhoneSimulator**. A workaround for this is to change the behavior of the **Registrar**:
+	1. Open your project settings
+	2. Go to **Build** tab
+	3. Select **iOS Build** option
+	4. Type `--registrar:static` in **Additional mtouch arguments** textbox
+	5. Click on **Ok**
+
+	Don't forget to add this in **Release** and **Debug** configuration of **iPhoneSimulator** platform.
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/firestore/) to see original Firebase documentation._</sub>
 
