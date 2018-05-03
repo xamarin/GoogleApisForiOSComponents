@@ -9,8 +9,8 @@
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>C# bindings for Firebase APIs Crashlytics iOS Library</description>
     <copyright>© Microsoft Corporation. All rights reserved.</copyright>
-    <projectUrl>https://github.com/xamarin/GoogleApisForiOSComponents/blob/master/Firebase.Crashlytics</projectUrl>
-    <licenseUrl>https://github.com/xamarin/GoogleApisForiOSComponents/blob/master/Firebase.Crashlytics/component/License.md</licenseUrl>
+    <projectUrl>https://go.microsoft.com/fwlink/?linkid=873305</projectUrl>
+    <licenseUrl>https://go.microsoft.com/fwlink/?linkid=873306</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseioscrashlytics_128x128.png</iconUrl>
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
