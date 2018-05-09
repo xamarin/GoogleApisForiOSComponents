@@ -2109,7 +2109,7 @@ namespace Google.MobileAds
 	// @protocol GADMediatedNativeAd <NSObject>
 	[Model]
 	[Protocol]
-	[BaseType (typeof (NSObject), Name = "GADMediatedNativeAd")]
+	[BaseType (typeof (NSObject), Name = "Google_MobileAds_MediatedNativeAd")]
 	interface MediatedNativeAd
 	{
 		// @required -(id<GADMediatedNativeAdDelegate>)mediatedNativeAdDelegate;
