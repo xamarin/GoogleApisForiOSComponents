@@ -7,6 +7,7 @@ using UIKit;
 
 namespace Firebase.Crashlytics {
 	// @interface Answers : NSObject
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject))]
 	interface Answers {
 		// +(void)logSignUpWithMethod:(NSString * _Nullable)signUpMethodOrNil success:(NSNumber * _Nullable)signUpSucceededOrNil customAttributes:(NSDictionary<NSString *,id> * _Nullable)customAttributesOrNil;
@@ -132,6 +133,7 @@ namespace Firebase.Crashlytics {
 	}
 
 	// @interface CLSStackFrame : NSObject
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "CLSStackFrame")]
 	interface StackFrame {
 		// +(instancetype _Nonnull)stackFrame;
@@ -179,6 +181,7 @@ namespace Firebase.Crashlytics {
 	}
 
 	// @interface Crashlytics : NSObject
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject))]
 	interface Crashlytics {
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull APIKey;
@@ -235,22 +238,22 @@ namespace Firebase.Crashlytics {
 
 		// -(void)setObjectValue:(id _Nullable)value forKey:(NSString * _Nonnull)key;
 		[Export ("setObjectValue:forKey:")]
-		void SetObjectValue ([NullAllowed] NSObject value, string key);
+		void SetValue ([NullAllowed] NSObject nsObject, string key);
 
-		[Wrap ("SetObjectValue (new NSString (value), key)")]
-		void SetStringValue ([NullAllowed] string value, string key);
+		[Wrap ("SetValue ((NSObject)new NSString (aString), key)")]
+		void SetValue ([NullAllowed] string aString, string key);
 
 		// -(void)setIntValue:(int)value forKey:(NSString * _Nonnull)key;
 		[Export ("setIntValue:forKey:")]
-		void SetIntValue (int value, string key);
+		void SetValue (int value, string key);
 
 		// -(void)setBoolValue:(BOOL)value forKey:(NSString * _Nonnull)key;
 		[Export ("setBoolValue:forKey:")]
-		void SetBoolValue (bool value, string key);
+		void SetValue (bool value, string key);
 
 		// -(void)setFloatValue:(float)value forKey:(NSString * _Nonnull)key;
 		[Export ("setFloatValue:forKey:")]
-		void SetFloatValue (float value, string key);
+		void SetValue (float value, string key);
 
 		// -(void)recordCustomExceptionName:(NSString * _Nonnull)name reason:(NSString * _Nullable)reason frameArray:(NSArray<CLSStackFrame *> * _Nonnull)frameArray;
 		[Export ("recordCustomExceptionName:reason:frameArray:")]
