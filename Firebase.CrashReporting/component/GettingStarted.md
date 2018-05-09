@@ -149,6 +149,14 @@ crash.PerformSelector (new Selector ("doesNotRecognizeSelector"), crash, 0);
 * App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][3])
 * The Firebase SDK does not currently support using the `NSException` class in the Xcode simulator. If you use this class, it will result in malformed stack traces in the Firebase console. As a workaround, either use a physical device or test with a different type of exception.
 * Crash Reporting uses a unique ID to identify each user. Due to a known bug in Xcode 8.1, creating this ID fails on iOS 10 simulators, preventing the upload of error reports. To work around this in Xcode 8.1, you can run tests on a device, or turn on **Keychain Sharing** in your **Entitlements.plist** file. This bug has been addressed in the beta release of Xcode 8.2.
+* Error `Native linking failed, duplicate symbol '_main'` appears when you try to build for **iPhoneSimulator**. A workaround for this is to change the behavior of the **Registrar**:
+	1. Open your project settings
+	2. Go to **Build** tab
+	3. Select **iOS Build** option
+	4. Type `--registrar:static` in **Additional mtouch arguments** textbox
+	5. Click on **Ok**
+
+	Don't forget to add this in **Release** and **Debug** configuration of **iPhoneSimulator** platform.
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/crash/ios) to see original Firebase documentation._</sub>
 

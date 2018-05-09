@@ -26,3 +26,15 @@ await InstanceId.SharedInstance.DeleteIDAsync ();
 ```
 
 **Important Note**: In this version of Instance ID, Google is internally invoking the callback handler that you pass into the `DeleteID` method.  They first call back with a non-null error value (error Code 1), and then immediately call back again with a null error, indicating the call succeeded.  To work around this, the `DeleteIDAsync` call ignores
+
+## Know issues
+
+* Error `Native linking failed, duplicate symbol '_main'` appears when you try to build for **iPhoneSimulator**. A workaround for this is to change the behavior of the **Registrar**:
+	1. Open your project settings
+	2. Go to **Build** tab
+	3. Select **iOS Build** option
+	4. Type `--registrar:static` in **Additional mtouch arguments** textbox
+	5. Click on **Ok**
+
+	Don't forget to add this in **Release** and **Debug** configuration of **iPhoneSimulator** platform.
+	

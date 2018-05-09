@@ -184,13 +184,19 @@ When you build an app that includes both Firebase Remote Config and Google Analy
 
 ## Known issues
 
-* App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][4])
+* Error `Native linking failed, duplicate symbol '_main'` appears when you try to build for **iPhoneSimulator**. A workaround for this is to change the behavior of the **Registrar**:
+	1. Open your project settings
+	2. Go to **Build** tab
+	3. Select **iOS Build** option
+	4. Type `--registrar:static` in **Additional mtouch arguments** textbox
+	5. Click on **Ok**
+
+	Don't forget to add this in **Release** and **Debug** configuration of **iPhoneSimulator** platform.
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/remote-config/use-config-ios) to see original Firebase documentation._</sub>
 
 [1]: https://firebase.google.com/console/
 [2]: http://support.google.com/firebase/answer/7015592
 [3]: https://firebase.google.com/docs/remote-config/parameters
-[4]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689
 [5]: https://firebase.google.com/docs/remote-config/parameters
 [6]: https://firebase.google.com/docs/remote-config/config-analytics
