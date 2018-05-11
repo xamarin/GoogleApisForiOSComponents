@@ -6,7 +6,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 
 | Package Id                                                                 | NuGet                                      |
 |----------------------------------------------------------------------------|--------------------------------------------|
-| [Xamarin.Firebase.iOS.AdMob][F.AdMob.Name]                                 | [7.27.0.2][F.AdMob.Package]                |
+| [Xamarin.Firebase.iOS.AdMob][F.AdMob.Name]                                 | [7.27.0.3][F.AdMob.Package]                |
 | [Xamarin.Firebase.iOS.Analytics][F.Analytics.Name]                         | [4.0.5.1][F.Analytics.Package]             |
 | [Xamarin.Firebase.iOS.Auth][F.Auth.Name]                                   | [4.4.1.1][F.Auth.Package]                  |
 | [Xamarin.Firebase.iOS.CloudFirestore][F.CloudFirestore.Name]               | [0.9.4.0][F.CloudFirestore.Package]        |
@@ -25,7 +25,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Google.iOS.Cast][G.Cast.Name]                                     | [4.0.2.0][G.Cast.Package]                  |
 | [Xamarin.Google.iOS.InstanceID][G.InstanceID.Name]                         | [1.2.1.12][G.InstanceID.Package]           |
 | [Xamarin.Google.iOS.Maps][G.Maps.Name]                                     | [2.5.0.0][G.Maps.Package]                  |
-| [Xamarin.Google.iOS.MobileAds][G.MobileAds.Name]                           | [7.27.0.2][G.MobileAds.Package]            |
+| [Xamarin.Google.iOS.MobileAds][G.MobileAds.Name]                           | [7.27.0.3][G.MobileAds.Package]            |
 | [Xamarin.Google.iOS.Places][G.Places.Name]                                 | [2.5.0.0][G.Places.Package]                |
 | [Xamarin.Google.iOS.PlayGames][G.PlayGames.Name]                           | [5.1.1.10][G.PlayGames.Package]            |
 | [Xamarin.Google.iOS.SignIn][G.SignIn.Name]                                 | [4.1.1.1][G.SignIn.Package]                |
