@@ -92,27 +92,6 @@
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
     <Reference Include="MonoTouch.Dialog-1" />
-    <Reference Include="Firebase.InstanceID">
-      <HintPath>..\..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\bin\Release\Firebase.InstanceID.dll</HintPath>
-    </Reference>
-    <Reference Include="Firebase.Analytics">
-      <HintPath>..\..\..\source\Firebase.Analytics\bin\Release\Firebase.Analytics.dll</HintPath>
-    </Reference>
-    <Reference Include="Firebase.InstanceID">
-      <HintPath>..\..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\bin\Release\Firebase.InstanceID.dll</HintPath>
-    </Reference>
-    <Reference Include="Firebase.Core">
-      <HintPath>..\..\..\..\Firebase.Core\source\Firebase.Core\bin\Release\Firebase.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Firebase.InstanceID">
-      <HintPath>..\..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\bin\Release\Firebase.InstanceID.dll</HintPath>
-    </Reference>
-    <Reference Include="Firebase.Analytics">
-      <HintPath>..\..\..\source\Firebase.Analytics\bin\Release\Firebase.Analytics.dll</HintPath>
-    </Reference>
-    <Reference Include="Firebase.InstanceID">
-      <HintPath>..\..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\bin\Release\Firebase.InstanceID.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Contents.json" />
@@ -139,21 +118,21 @@
     <Compile Include="UserPropertyContext.cs" />
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="GoogleService-Info.plist" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\..\source\Firebase.Analytics\Firebase.Analytics.csproj">
       <Project>{87BB564C-85A8-4EC1-AD16-EC0A1ACCEE56}</Project>
       <Name>Firebase.Analytics</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\Firebase.InstanceID.csproj">
-      <Project>{D6AA184C-DA45-4BBB-988A-451B20C7B804}</Project>
-      <Name>Firebase.InstanceID</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.csproj">
       <Project>{0AD1ED63-C008-41B3-8ADB-04696B4880E3}</Project>
       <Name>Firebase.Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="GoogleService-Info.plist" />
+    <ProjectReference Include="..\..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\Firebase.InstanceID.csproj">
+      <Project>{D6AA184C-DA45-4BBB-988A-451B20C7B804}</Project>
+      <Name>Firebase.InstanceID</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\Firebase.InstanceID.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\source\Firebase.Analytics\Firebase.Analytics.targets" />

@@ -15,7 +15,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.CrashReporting][F.CrashReporting.Name]               | [2.0.0.6][F.CrashReporting.Package]        |
 | [Xamarin.Firebase.iOS.Database][F.Database.Name]                           | [4.1.3.2][F.Database.Package]              |
 | [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                   | [2.3.1.2][F.DynamicLinks.Package]          |
-| [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                       | [2.0.8.0][F.InstanceID.Package]            |
+| [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                       | [3.0.0.0][F.InstanceID.Package]            |
 | [Xamarin.Firebase.iOS.Invites][F.Invites.Name]                             | [2.0.2.2][F.Invites.Package]               |
 | [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name] | [1.1.0.2][F.PerformanceMonitoring.Package] |
 | [Xamarin.Firebase.iOS.RemoteConfig][F.RemoteConfig.Name]                   | [2.0.3.3][F.RemoteConfig.Package]          |
@@ -24,9 +24,9 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Google.iOS.AppIndexing][G.AppIndexing.Name]                       | [2.0.3.5][G.AppIndexing.Package]           |
 | [Xamarin.Google.iOS.Cast][G.Cast.Name]                                     | [4.1.0.1][G.Cast.Package]                  |
 | [Xamarin.Google.iOS.InstanceID][G.InstanceID.Name]                         | [1.2.1.13][G.InstanceID.Package]           |
-| [Xamarin.Google.iOS.Maps][G.Maps.Name]                                     | [2.5.0.0][G.Maps.Package]                  |
+| [Xamarin.Google.iOS.Maps][G.Maps.Name]                                     | [2.5.0.1][G.Maps.Package]                  |
 | [Xamarin.Google.iOS.MobileAds][G.MobileAds.Name]                           | [7.27.0.4][G.MobileAds.Package]            |
-| [Xamarin.Google.iOS.Places][G.Places.Name]                                 | [2.5.0.0][G.Places.Package]                |
+| [Xamarin.Google.iOS.Places][G.Places.Name]                                 | [2.5.0.1][G.Places.Package]                |
 | [Xamarin.Google.iOS.PlayGames][G.PlayGames.Name]                           | [5.1.1.10][G.PlayGames.Package]            |
 | [Xamarin.Google.iOS.SignIn][G.SignIn.Name]                                 | [4.1.1.2][G.SignIn.Package]                |
 | [Xamarin.Google.iOS.TagManager][G.TagManager.Name]                         | [6.0.0.4][G.TagManager.Package]            |
