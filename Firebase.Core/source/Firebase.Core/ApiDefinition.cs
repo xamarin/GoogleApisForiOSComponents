@@ -97,11 +97,6 @@ namespace Firebase.Core
 		[Export ("analyticsConfiguration", ArgumentSemantic.Strong)]
 		AnalyticsConfiguration AnalyticsConfiguration { get; set; }
 
-		// @property (assign, readwrite, nonatomic) FIRLogLevel logLevel;
-		[Obsolete ("Use -FIRDebugEnabled and -FIRDebugDisabled flags or use SetLoggerLevel method.")]
-		[Export ("logLevel", ArgumentSemantic.Assign)]
-		LogLevel LogLevel { get; set; }
-
 		// - (void)setLoggerLevel:(FIRLoggerLevel)loggerLevel;
 		[Export ("setLoggerLevel:")]
 		void SetLoggerLevel (LoggerLevel loggerLevel);
@@ -170,11 +165,6 @@ namespace Firebase.Core
 		[NullAllowed]
 		[Export ("storageBucket")]
 		string StorageBucket { get; set; }
-
-		// -(instancetype)initWithGoogleAppID:(NSString *)googleAppID bundleID:(NSString *)bundleID GCMSenderID:(NSString *)GCMSenderID APIKey:(NSString *)APIKey clientID:(NSString *)clientID trackingID:(NSString *)trackingID androidClientID:(NSString *)androidClientID databaseURL:(NSString *)databaseURL storageBucket:(NSString *)storageBucket deepLinkURLScheme:(NSString *)deepLinkURLScheme;
-		[Obsolete ("Use (string googleAppId, string gcmSenderId) constructor instead.")]
-		[Export ("initWithGoogleAppID:bundleID:GCMSenderID:APIKey:clientID:trackingID:androidClientID:databaseURL:storageBucket:deepLinkURLScheme:")]
-		IntPtr Constructor (string googleAppId, string bundleId, string gcmSenderId, string ApiKey, string clientId, string trackingId, string androidClientId, string databaseUrl, string storageBucket, string deepLinkUrlScheme);
 
 		// - (instancetype)initWithContentsOfFile:(NSString *)plistPath;
 		[Export ("initWithContentsOfFile:")]

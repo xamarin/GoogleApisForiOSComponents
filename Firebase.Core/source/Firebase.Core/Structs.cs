@@ -3,18 +3,6 @@ using ObjCRuntime;
 
 namespace Firebase.Core
 {
-	[Obsolete ("Use -FIRDebugEnabled and -FIRDebugDisabled flags or use SetLoggerLevel method in Configuration class.")]
-	[Native]
-	public enum LogLevel : long
-	{
-		Error = 0,
-		Warning,
-		Info,
-		Debug,
-		Assert,
-		Max = Assert
-	}
-
 	[Native]
 	public enum LoggerLevel : long
 	{
