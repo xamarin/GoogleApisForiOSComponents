@@ -6,6 +6,7 @@ using ObjCRuntime;
 namespace Firebase.Analytics
 {
 	// @interface FIRAnalytics : NSObject
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRAnalytics")]
 	interface Analytics
 	{
@@ -22,7 +23,12 @@ namespace Firebase.Analytics
 		// +(void)setUserID:(NSString * _Nullable)userID;
 		[Static]
 		[Export ("setUserID:")]
-		void SetUserID ([NullAllowed] string userID);
+		void SetUserId ([NullAllowed] string userId);
+
+		[Obsolete ("Use SetUserId method instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("SetUserId (userId)")]
+		void SetUserID ([NullAllowed] string userId);
 
 		// This method comes from a category (FIRAnalytics+AppDelegate.h)
 		// +(void)handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)(void))completionHandler;
@@ -48,7 +54,13 @@ namespace Firebase.Analytics
 		void SetScreenNameAndClass ([NullAllowed] string screenName, [NullAllowed] string screenClassOverride);
 
 		// + (NSString *)appInstanceID;
+		[Static]
 		[Export ("appInstanceID")]
 		string AppInstanceId { get; }
+
+		// + (void)resetAnalyticsData;
+		[Static]
+		[Export ("resetAnalyticsData")]
+		void ResetAnalyticsData ();
 	}
 }

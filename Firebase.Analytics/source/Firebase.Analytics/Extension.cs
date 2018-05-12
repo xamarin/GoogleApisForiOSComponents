@@ -3,25 +3,6 @@ using Foundation;
 
 namespace Firebase.Analytics
 {
-	public partial class Analytics
-	{
-		public static void LogEvent (NSString name, NSDictionary<NSString, NSObject> parameters)
-		{
-			if (name == null)
-				throw new ArgumentNullException (nameof (name));
-
-			LogEvent (name.ToString (), parameters);
-		}
-
-		public static void SetUserProperty (NSString value, NSString name)
-		{
-			if (name == null)
-				throw new ArgumentNullException (nameof (name));
-
-			SetUserProperty (value.ToString (), name.ToString ());
-		}
-	}
-
 	public static class EventNamesConstants
 	{
 		public static NSString AddPaymentInfo { get; } = new NSString ("add_payment_info");
@@ -53,6 +34,8 @@ namespace Firebase.Analytics
 		public static NSString ViewItem { get; } = new NSString ("view_item");
 		public static NSString ViewItemList { get; } = new NSString ("view_item_list");
 		public static NSString ViewSearchResults { get; } = new NSString ("view_search_results");
+		public static NSString LevelStart { get; } = new NSString ("level_start");
+		public static NSString LevelEnd { get; } = new NSString ("level_end");
 	}
 
 	public static class ParameterNamesConstants
@@ -104,6 +87,8 @@ namespace Firebase.Analytics
 		public static NSString TravelClass { get; } = new NSString ("travel_class");
 		public static NSString Value { get; } = new NSString ("value");
 		public static NSString VirtualCurrencyName { get; } = new NSString ("virtual_currency_name");
+		public static NSString LevelName { get; } = new NSString ("level_name");
+		public static NSString Success { get; } = new NSString ("success");
 	}
 
 	public static class UserPropertyNamesConstants
