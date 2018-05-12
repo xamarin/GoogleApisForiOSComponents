@@ -1,4 +1,4 @@
-version: 2.0.3.2
+version: 2.0.3.3
 name: Firebase Remote Config for iOS
 id: firebaseiosremoteconfig
 publisher: Xamarin Inc.
@@ -18,7 +18,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Firebase.iOS.RemoteConfig, Version=2.0.3.2
+  - Xamarin.Firebase.iOS.RemoteConfig, Version=2.0.3.3
 samples:
 - name: Remote Config Sample
   path: ../samples/RemoteConfigSample/RemoteConfigSample.sln

@@ -280,7 +280,7 @@ Task ("build").Does (() =>
 	Information ("List of bumped components due update:");
 	foreach (var pair in components)
 		if (pair.Value.Bumped)
-			Information ($"{pair.Key,-26}{pair.Value.CurrentVersion,-11}=>{"",-3}{pair.Value.NewVersion}");
+			Information ($"{pair.Key,-31}{pair.Value.CurrentVersion,-11}=>{"",-3}{pair.Value.NewVersion}");
 });
 
 Task ("Default").IsDependentOn ("build");
