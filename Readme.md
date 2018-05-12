@@ -20,9 +20,9 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name] | [1.1.0.2][F.PerformanceMonitoring.Package] |
 | [Xamarin.Firebase.iOS.RemoteConfig][F.RemoteConfig.Name]                   | [2.0.3.3][F.RemoteConfig.Package]          |
 | [Xamarin.Firebase.iOS.Storage][F.Storage.Name]                             | [2.1.1.2][F.Storage.Package]               |
-| [Xamarin.Google.iOS.Analytics][G.Analytics.Name]                           | [3.17.0.2][G.Analytics.Package]            |
-| [Xamarin.Google.iOS.AppIndexing][G.AppIndexing.Name]                       | [2.0.3.4][G.AppIndexing.Package]           |
-| [Xamarin.Google.iOS.Cast][G.Cast.Name]                                     | [4.0.2.0][G.Cast.Package]                  |
+| [Xamarin.Google.iOS.Analytics][G.Analytics.Name]                           | [3.17.0.3][G.Analytics.Package]            |
+| [Xamarin.Google.iOS.AppIndexing][G.AppIndexing.Name]                       | [2.0.3.5][G.AppIndexing.Package]           |
+| [Xamarin.Google.iOS.Cast][G.Cast.Name]                                     | [4.1.0.1][G.Cast.Package]                  |
 | [Xamarin.Google.iOS.InstanceID][G.InstanceID.Name]                         | [1.2.1.13][G.InstanceID.Package]           |
 | [Xamarin.Google.iOS.Maps][G.Maps.Name]                                     | [2.5.0.0][G.Maps.Package]                  |
 | [Xamarin.Google.iOS.MobileAds][G.MobileAds.Name]                           | [7.27.0.4][G.MobileAds.Package]            |

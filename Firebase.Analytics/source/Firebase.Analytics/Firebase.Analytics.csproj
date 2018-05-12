@@ -32,6 +32,21 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="Firebase.InstanceID">
+      <HintPath>..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\bin\Release\Firebase.InstanceID.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.InstanceID">
+      <HintPath>..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\bin\Release\Firebase.InstanceID.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Core">
+      <HintPath>..\..\..\Firebase.Core\source\Firebase.Core\bin\Release\Firebase.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.InstanceID">
+      <HintPath>..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\bin\Release\Firebase.InstanceID.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.InstanceID">
+      <HintPath>..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\bin\Release\Firebase.InstanceID.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
