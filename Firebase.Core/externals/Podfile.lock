@@ -1,37 +1,29 @@
 PODS:
-  - Firebase/Core (4.8.0):
-    - FirebaseAnalytics (= 4.0.5)
-    - FirebaseCore (= 4.0.13)
-  - FirebaseAnalytics (4.0.5):
-    - FirebaseCore (~> 4.0)
-    - FirebaseInstanceID (~> 2.0)
+  - Firebase/CoreOnly (5.0.0):
+    - FirebaseCore (= 5.0.0)
+  - FirebaseCore (5.0.0):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-    - nanopb (~> 0.3)
-  - FirebaseCore (4.0.13):
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseInstanceID (2.0.9):
-    - FirebaseCore (~> 4.0)
-  - GoogleToolboxForMac/Core (2.1.3):
-    - GoogleToolboxForMac/Defines (= 2.1.3)
-  - GoogleToolboxForMac/DebugUtils (2.1.3):
-    - GoogleToolboxForMac/Defines (= 2.1.3)
-  - GoogleToolboxForMac/Defines (2.1.3)
-  - GoogleToolboxForMac/Logger (2.1.3):
-    - GoogleToolboxForMac/Defines (= 2.1.3)
-  - GoogleToolboxForMac/NSData+zlib (2.1.3):
-    - GoogleToolboxForMac/Defines (= 2.1.3)
-  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.3):
-    - GoogleToolboxForMac/DebugUtils (= 2.1.3)
-    - GoogleToolboxForMac/Defines (= 2.1.3)
-    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.3)
-  - GoogleToolboxForMac/NSString+URLArguments (2.1.3)
-  - GoogleToolboxForMac/StringEncoding (2.1.3):
-    - GoogleToolboxForMac/Defines (= 2.1.3)
-  - GoogleToolboxForMac/URLBuilder (2.1.3):
-    - GoogleToolboxForMac/Core (= 2.1.3)
-    - GoogleToolboxForMac/Defines (= 2.1.3)
-    - GoogleToolboxForMac/NSDictionary+URLArguments (= 2.1.3)
-    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.3)
+  - GoogleToolboxForMac/Core (2.1.4):
+    - GoogleToolboxForMac/Defines (= 2.1.4)
+  - GoogleToolboxForMac/DebugUtils (2.1.4):
+    - GoogleToolboxForMac/Defines (= 2.1.4)
+  - GoogleToolboxForMac/Defines (2.1.4)
+  - GoogleToolboxForMac/Logger (2.1.4):
+    - GoogleToolboxForMac/Defines (= 2.1.4)
+  - GoogleToolboxForMac/NSData+zlib (2.1.4):
+    - GoogleToolboxForMac/Defines (= 2.1.4)
+  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.4):
+    - GoogleToolboxForMac/DebugUtils (= 2.1.4)
+    - GoogleToolboxForMac/Defines (= 2.1.4)
+    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.4)
+  - GoogleToolboxForMac/NSString+URLArguments (2.1.4)
+  - GoogleToolboxForMac/StringEncoding (2.1.4):
+    - GoogleToolboxForMac/Defines (= 2.1.4)
+  - GoogleToolboxForMac/URLBuilder (2.1.4):
+    - GoogleToolboxForMac/Core (= 2.1.4)
+    - GoogleToolboxForMac/Defines (= 2.1.4)
+    - GoogleToolboxForMac/NSDictionary+URLArguments (= 2.1.4)
+    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.4)
   - GTMSessionFetcher/Core (1.1.12)
   - GTMSessionFetcher/Full (1.1.12):
     - GTMSessionFetcher/Core (= 1.1.12)
@@ -44,28 +36,26 @@ PODS:
   - Protobuf (3.4.0)
 
 DEPENDENCIES:
-  - Firebase/Core (= 4.8.0)
-  - GoogleToolboxForMac/Logger (= 2.1.3)
-  - GoogleToolboxForMac/NSData+zlib (= 2.1.3)
-  - GoogleToolboxForMac/NSDictionary+URLArguments (= 2.1.3)
-  - GoogleToolboxForMac/StringEncoding (= 2.1.3)
-  - GoogleToolboxForMac/URLBuilder (= 2.1.3)
+  - Firebase/CoreOnly (= 5.0.0)
+  - GoogleToolboxForMac/Logger (= 2.1.4)
+  - GoogleToolboxForMac/NSData+zlib (= 2.1.4)
+  - GoogleToolboxForMac/NSDictionary+URLArguments (= 2.1.4)
+  - GoogleToolboxForMac/StringEncoding (= 2.1.4)
+  - GoogleToolboxForMac/URLBuilder (= 2.1.4)
   - GTMSessionFetcher/Full (= 1.1.12)
   - leveldb-library (= 1.18.3)
   - nanopb (= 0.3.8)
   - Protobuf (= 3.4.0)
 
 SPEC CHECKSUMS:
-  Firebase: 710decbbc6d9d48530e9a5dba3209740c3532e05
-  FirebaseAnalytics: 5b02a63ead2c3f0259cfc7f15e053e440587ecf8
-  FirebaseCore: 3c02ec652db3d03fdc8bc6d9154af3e20d64b6f5
-  FirebaseInstanceID: d2058a35e9bebda1b6dd42486b84917bde552a9d
-  GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
+  Firebase: 4bd804448ab2596794698773d41520a0af101e65
+  FirebaseCore: e46e4babb9de298fb2f736958edcc6da1dc60d73
+  GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
   leveldb-library: 10fb39c39e243db4af1828441162405bbcec1404
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 03eef2ee0b674770735cf79d9c4d3659cf6908e8
 
-PODFILE CHECKSUM: af32f485cb47f3144e353258a0aac2c48a50dc04
+PODFILE CHECKSUM: 41106a1ac8a16f1bccfb7242de09132d2feacc8e
 
 COCOAPODS: 1.4.0

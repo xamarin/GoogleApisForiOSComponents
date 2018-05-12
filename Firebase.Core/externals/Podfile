@@ -6,16 +6,17 @@ project, also, update Podfile file if needed.
 
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '7.0'
+platform :ios, '8.0'
 install! 'cocoapods', :integrate_targets => false
+use_frameworks!
 
 target 'FirebaseCore' do
-	pod 'Firebase/Core', '4.8.0'
-	pod 'GoogleToolboxForMac/NSData+zlib', '2.1.3'
-	pod 'GoogleToolboxForMac/NSDictionary+URLArguments', '2.1.3'
-	pod 'GoogleToolboxForMac/Logger', '2.1.3'
-	pod 'GoogleToolboxForMac/StringEncoding', '2.1.3'
-	pod 'GoogleToolboxForMac/URLBuilder', '2.1.3'
+	pod 'Firebase/CoreOnly', '5.0.0'
+	pod 'GoogleToolboxForMac/NSData+zlib', '2.1.4'
+	pod 'GoogleToolboxForMac/NSDictionary+URLArguments', '2.1.4'
+	pod 'GoogleToolboxForMac/Logger', '2.1.4'
+	pod 'GoogleToolboxForMac/StringEncoding', '2.1.4'
+	pod 'GoogleToolboxForMac/URLBuilder', '2.1.4'
 	pod 'nanopb', '0.3.8'
 	pod 'GTMSessionFetcher/Full', '1.1.12'
 	pod 'Protobuf', '3.4.0'
