@@ -26,9 +26,9 @@ In .targets file, located in Firebase.InstanceID binding, you can find:
 
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '7.0'
+platform :ios, '8.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'FirebaseAdMob' do
-	pod 'Firebase/AdMob', '4.8.0'
+	pod 'Firebase/AdMob', '5.0.0'
 end
