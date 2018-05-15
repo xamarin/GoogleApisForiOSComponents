@@ -15,10 +15,10 @@ Firebase Analytics collects usage and behavior data for your app. The SDK logs t
     - [View events in the dashboard](#view-events-in-the-dashboard)
 - [Set User Properties](#set-user-properties)
 - [Use Analytics in a WebView on iOS](#use-analytics-in-a-webview-on-ios)
-    - [Implement Javascript handler](#implement-javascript-handler)
-    - [Implement native interface](#implement-native-interface)
+  - [Implement Javascript handler](#implement-javascript-handler)
+  - [Implement native interface](#implement-native-interface)
 - [Debugging Events](#debugging-events)
-    - [Enabling debug mode](#enabling-debug-mode)
+  - [Enabling debug mode](#enabling-debug-mode)
 - [Track Screenviews](#track-screenviews)
     - [Automatically track screens](#automatically-track-screens)
     - [Manually track screens](#manually-track-screens)
@@ -65,20 +65,34 @@ NSString [] keys = { ParameterNamesConstants.ContentType, ParameterNamesConstant
 NSObject [] values = { new NSString ("cont"), new NSString ("1") };
 var parameters = NSDictionary<NSString, NSObject>.FromObjectsAndKeys (values, keys, keys.Length);
 Analytics.LogEvent (EventNamesConstants.SelectContent, parameters);
+
+// Or 
+
+var parameters = new Dictionary<object, object> {
+	{ ParameterNamesConstants.ContentType, "cont" },
+	{ ParameterNamesConstants.ItemId, "1" }
+};
+Analytics.LogEvent (EventNamesConstants.SelectContent, parameters);
 ```
 
-Or without constants values:
+In addition to the prescribed parameters, you can add the following parameters to any event:
+
+* **Custom parameters**: Custom parameters can be [registered][15] for reporting in your Analytics reports. They can also be used as filters in [audience][4] definitions that can be applied to every report. Custom parameters are also included in data [exported to BigQuery][5] if your app is linked to a BigQuery project.
+* **`ParameterNamesConstants.Value` parameter**: `ParameterNamesConstants.Value` is a general purpose parameter that is useful for accumulating a key metric that pertains to an event. Examples include revenue, distance, time, and points.
+
+If your application has specific needs not covered by a suggested event type, you can log your own custom events as shown in this example:
 
 ```csharp
 NSString [] keys = { new NSString ("Name") };
 NSObject [] values = { new NSString ("Image name") };
 var parameters = NSDictionary<NSString, NSObject>.FromObjectsAndKeys (values, keys, keys.Length);
 Analytics.LogEvent ("share_image", parameters);
+
+// Or
+
+var parameters = new Dictionary<object, object> { { "Name", "Image Name" } };
+Analytics.LogEvent ("share_image", parameters);
 ```
-
-One important thing to know about custom parameters is that they are not represented directly in your Analytics reports but they can be used as filters in [audience][4] definitions that can be applied to every report. Custom parameters are also included in data [exported to BigQuery][5] if your app is linked to a BigQuery project.
-
-Also, `ParameterNamesConstants.Value` is a general purpose parameter that is useful for accumulating a key metric that pertains to an event. Examples include revenue, distance, time, and points.
 
 > ![note_icon] **_Note: Data logged to Analytics can take hours to be refreshed on reports._**
 
@@ -102,6 +116,8 @@ User properties are attributes you define to describe segments of your userbase,
 Analytics automatically logs some [user properties][6]; you don't need to add any code to enable them. If your app needs to collect additional data, you can set up to 25 different Analytics User Properties in your app.
 
 > ![note_icon] **_Note: The Age, Gender, and Interests properties are automatically collected only if your app links to the Ad Support framework. Linking to this framework also automatically collects the Advertising Identifier (IDFA)._**
+
+You can set Analytics user properties to describe the users of your app. You can analyze behaviors of various user segments by applying these properties as filters to your reports.
 
 To set a user property you need to:
 
@@ -130,7 +146,7 @@ The **User Properties** tab shows a list of user properties that you have define
 
 Calls to log events or set user properties fired from within a WebView must be forwarded to native code before they can be sent to Firebase Analytics.
 
-### Implement Javascript handler
+## Implement Javascript handler
 
 The first step in using Google Analytics for Firebase in a WebView is to create JavaScript functions to forward events and user properties to native code. The following example shows how to do this in a way that is compatible with both Android and iOS native code:
 
@@ -184,7 +200,7 @@ function setUserProperty(name, value) {
 }
 ```
 
-### Implement native interface
+## Implement native interface
 
 To invoke native iOS code from JavaScript, create a message handler class conforming to the `IWKScriptMessageHandler` interface. You can make Firebase Analytics calls inside of the `DidReceiveScriptMessage` callback:
 
@@ -216,7 +232,7 @@ webView.Configuration.UserContentController.AddScriptMessageHandler (this, "fire
 
 DebugView enables you to see the raw event data logged by your app on development devices in near real-time. This is very useful for validation purposes during the instrumentation phase of development and can help you discover errors and mistakes in your analytics implementation and confirm that all events and user properties are being logged correctly.
 
-### Enabling debug mode
+## Enabling debug mode
 
 Generally, events logged by your app are batched together over the period of approximately one hour and uploaded together. This approach conserves the battery on end users’ devices and reduces network data usage. However, for the purposes of validating your analytics implementation (and, in order to view your analytics in the DebugView report), you can enable Debug mode on your development device to upload events with a minimal delay.
 
@@ -301,5 +317,6 @@ To learn more about this, please, read the following [documentation][14].
 [12]: https://firebase.google.com/docs/analytics/debugview
 [13]: https://console.firebase.google.com/project/_/analytics/app/_/events
 [14]: https://firebase.google.com/docs/analytics/extend-with-functions
+[15]: https://support.google.com/firebase/answer/7397304?hl=en&ref_topic=6317489
 [note_icon]: https://cdn3.iconfinder.com/data/icons/UltimateGnome/22x22/apps/gnome-app-install-star.png
 [warning_icon]: https://cdn2.iconfinder.com/data/icons/freecns-cumulus/32/519791-101_Warning-20.png

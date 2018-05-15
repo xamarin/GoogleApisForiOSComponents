@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using Foundation;
 using ObjCRuntime;
@@ -14,6 +15,10 @@ namespace Firebase.Analytics
 		[Static]
 		[Export ("logEventWithName:parameters:")]
 		void LogEvent (string name, [NullAllowed] NSDictionary<NSString, NSObject> parameters);
+
+		[Static]
+		[Wrap ("LogEvent (name, NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (parameters.Values), System.Linq.Enumerable.ToArray (parameters.Keys), parameters.Keys.Count))")]
+		void LogEvent (string name, [NullAllowed] Dictionary<object, object> parameters);
 
 		// +(void)setUserPropertyString:(NSString * _Nullable)value forName:(NSString * _Nonnull)name;
 		[Static]
