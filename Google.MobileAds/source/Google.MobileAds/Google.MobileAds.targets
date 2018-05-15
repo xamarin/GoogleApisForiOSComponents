@@ -2,12 +2,12 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_GoogleMobileAdsAssemblyName>Google.MobileAds, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleMobileAdsAssemblyName>
-		<_GoogleMobileAdsId>FAdM-7.27.0</_GoogleMobileAdsId>
+		<_GoogleMobileAdsId>FAdM-7.30.0</_GoogleMobileAdsId>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildRestoreResources Include="_GoogleMobileAdsItems" />
 		<XamarinBuildDownload Include="$(_GoogleMobileAdsId)">
-			<Url>https://dl.google.com/dl/cpdc/c40d338a23b6bcc9/Google-Mobile-Ads-SDK-7.27.0.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/fc0cd3cd7f4a1f3b/Google-Mobile-Ads-SDK-7.30.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 	</ItemGroup>
