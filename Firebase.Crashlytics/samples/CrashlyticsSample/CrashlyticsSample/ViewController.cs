@@ -45,7 +45,7 @@ namespace CrashlyticsSample {
 			var nsData = NSDictionary.FromObjectsAndKeys (data.Values.ToArray (), data.Keys.ToArray (), data.Keys.Count);
 
 			Logging.NSLogCallerInformation ($"Hi! Maybe I'm about to crash! Here's some data: {nsData}", nameof (ViewController));
-			Crashlytics.SharedInstance.SetObjectValue (nsData, "data");
+			Crashlytics.SharedInstance.SetValue (nsData, "data");
 
 			Crashlytics.SharedInstance.Crash ();
 		}
