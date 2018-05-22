@@ -33,7 +33,6 @@ samples:
   removeNodes:
   - //xNS:Import[contains (@Project, 'Google.MobileAds.targets')]
   - //xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]
-  - //xNS:Import[contains (@Project, 'Firebase.Core.targets')]
   - //xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]
 local-nuget-repo: ../../tmp-nugets
 no_build: true

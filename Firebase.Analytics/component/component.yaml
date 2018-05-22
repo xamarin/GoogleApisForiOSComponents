@@ -34,6 +34,5 @@ samples:
   removeNodes:
   - //xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]
   - //xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]
-  - //xNS:Import[contains (@Project, 'Firebase.Core.targets')]
 local-nuget-repo: ../../tmp-nugets
 no_build: true
