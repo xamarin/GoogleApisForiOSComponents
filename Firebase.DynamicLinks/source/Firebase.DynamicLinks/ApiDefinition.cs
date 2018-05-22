@@ -308,11 +308,6 @@ namespace Firebase.DynamicLinks
 		[Export ("url", ArgumentSemantic.Copy)]
 		NSUrl Url { get; }
 
-		// @property (readonly, assign, nonatomic) FIRDynamicLinkMatchConfidence matchConfidence __attribute__((deprecated("Use FIRDynamicLink.matchType instead.")));
-		[Obsolete ("Use MatchType property instead.")]
-		[Export ("matchConfidence", ArgumentSemantic.Assign)]
-		DynamicLinkMatchConfidence MatchConfidence { get; }
-
 		// @property (readonly, assign, nonatomic) FIRDLMatchType matchType;
 		[Export ("matchType", ArgumentSemantic.Assign)]
 		DynamicLinkMatchType MatchType { get; }
