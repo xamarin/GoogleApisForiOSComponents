@@ -3,26 +3,16 @@
 	<PropertyGroup>
 		<_FirebaseInstanceIDAssemblyName>Firebase.InstanceID, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseInstanceIDAssemblyName>
 		<_FirebaseInstanceIDItemsFolder>FInstncID-3.0.0</_FirebaseInstanceIDItemsFolder>
+		<_FirebaseInstanceIDSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseInstanceIDItemsFolder)\Frameworks\</_FirebaseInstanceIDSDKBaseFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_FirebaseInstanceIDItemsFolder)">
 			<Url>https://dl.google.com/dl/cpdc/271d7b3d6321da3c/FirebaseInstanceID-3.0.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
-		<XamarinBuildRestoreResources Include="_FirebaseInstanceIDItems" />
+		<NativeReference Include="$(_FirebaseInstanceIDSDKBaseFolder)FirebaseInstanceID.framework">
+			<Kind>Framework</Kind>
+			<ForceLoad>True</ForceLoad>
+		</NativeReference>
 	</ItemGroup>
-	<Target Name="_FirebaseInstanceIDItems">
-
-		<PropertyGroup>
-			<_FirebaseInstanceIDSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseInstanceIDItemsFolder)\Frameworks\</_FirebaseInstanceIDSDKBaseFolder>
-		</PropertyGroup>
-
-		<ItemGroup>
-			<RestoreAssemblyResource Include="$(_FirebaseInstanceIDSDKBaseFolder)FirebaseInstanceID.framework\FirebaseInstanceID">
-				<LogicalName>FirebaseInstanceID</LogicalName>
-				<AssemblyName>$(_FirebaseInstanceIDAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-		</ItemGroup>
-
-	</Target>
 </Project>

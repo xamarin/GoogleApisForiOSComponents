@@ -1249,6 +1249,7 @@ namespace Google.MobileAds {
 		[Export ("adLoader:didFailToReceiveAdWithError:")]
 		void DidFailToReceiveAd (AdLoader adLoader, RequestError error);
 
+		// @optional - (void)adLoaderDidFinishLoading:(GADAdLoader *)adLoader;
 		[Export ("adLoaderDidFinishLoading:")]
 		void DidFinishLoading (AdLoader adLoader);
 	}
@@ -2003,7 +2004,7 @@ namespace Google.MobileAds {
 
 		// - (void)customEventNativeAd:(id<GADCustomEventNativeAd>)customEventNativeAd didReceiveMediatedUnifiedNativeAd:(id<GADMediatedUnifiedNativeAd>) mediatedUnifiedNativeAd;
 		[Abstract]
-		[Export ("customEventNativeAd:didFailToLoadWithError:")]
+		[Export ("customEventNativeAd:didReceiveMediatedUnifiedNativeAd:")]
 		void DidReceiveMediatedUnifiedNativeAd (ICustomEventNativeAd customEventNativeAd, Mediation.IMediatedUnifiedNativeAd mediatedUnifiedNativeAd);
 	}
 
