@@ -20,8 +20,6 @@
   </metadata>
   <files>
     <file src="output/Firebase.Core.dll" target="lib/Xamarin.iOS10" />
-
-    <!-- Add targets file for external native reference download -->
     <file src="External-Dependency-Info" target="THIRD-PARTY-NOTICES" />
   </files>
 </package>

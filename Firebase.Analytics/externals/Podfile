@@ -1,24 +1,26 @@
 =begin
 Last run FirebaseAnalytics installed:
-- FirebaseAnalytics (4.0.4)
-- FirebaseCore (4.0.8)
-- FirebaseInstanceID (2.0.4)
-- GoogleToolboxForMac (2.1.3)
-- nanopb (0.3.8)
+* Firebase (5.0.0)
+* FirebaseAnalytics (5.0.0)
+* FirebaseCore (5.0.0)
+* FirebaseInstanceID (3.0.0)
+* GoogleToolboxForMac (2.1.4)
+* nanopb (0.3.8)
 
 Check if main version or subversion number has changed. 
 If yes, please, update *.targets files located in binding 
 projects, also, update Podfile files if needed.
 
-In .targets file, located in Firebase.Analytics binding, you can find:
-- FirebaseAnalytics (4.0.4)
+In Firebase.Analytics binding project, you can find the .targets file of:
+* FirebaseAnalytics (5.0.0)
 
-In .targets file, located in Firebase.Core binding, you can find:
-- FirebaseCore (4.0.8)
-- GoogleToolboxForMac (2.1.3)
+In Firebase.InstanceID binding project, you can find the .targets file of:
+* FirebaseInstanceID (3.0.0)
 
-In .targets file, located in Firebase.InstanceID binding, you can find:
-- FirebaseInstanceID (2.0.4)
+In Firebase.Core binding project, you can find the Native Reference of:
+* FirebaseCore (5.0.0)
+* GoogleToolboxForMac (2.1.4)
+* nanopb (0.3.8)
 =end
 
 source 'https://github.com/CocoaPods/Specs.git'

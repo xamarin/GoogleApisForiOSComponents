@@ -2,6 +2,9 @@
 Check if main version or subversion number has changed. 
 If yes, please, update *.targets file located in binding 
 project, also, update Podfile file if needed.
+
+In Firebase.InstanceID binding project, you can find the .targets file of:
+* FirebaseInstanceID (3.0.0)
 =end
 
 source 'https://github.com/CocoaPods/Specs.git'

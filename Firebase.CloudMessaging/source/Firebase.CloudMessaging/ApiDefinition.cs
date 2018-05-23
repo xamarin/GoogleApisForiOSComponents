@@ -13,6 +13,9 @@ namespace Firebase.CloudMessaging
 	// typedef void(^FIRMessagingDeleteFCMTokenCompletion)(NSError * _Nullable error) FIR_SWIFT_NAME(MessagingDeleteFCMTokenCompletion);
 	delegate void MessagingDeleteFcmTokenCompletionHandler([NullAllowed] NSError error);
 
+	// typedef void (^FIRMessagingTopicOperationCompletion)(NSError *_Nullable error);
+	delegate void MessagingTopicOperationCompletionHandler ([NullAllowed] NSError error);
+
 	[Obsolete ("Please listen for the Messaging.ConnectionStateChangedNotification NSNotification instead.")]
 	// typedef void(^FIRMessagingConnectCompletion)(NSError* __nullable error);
 	delegate void ConnectCompletionHandler ([NullAllowed] NSError error);
@@ -41,7 +44,6 @@ namespace Firebase.CloudMessaging
 	}
 
 	// @protocol FIRMessagingDelegate <NSObject>
-	[Introduced (PlatformName.iOS, 10, 0)]
 	[Model]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "FIRMessagingDelegate")]
@@ -51,20 +53,10 @@ namespace Firebase.CloudMessaging
 		[Export ("messaging:didReceiveRegistrationToken:")]
 		void DidReceiveRegistrationToken (Messaging messaging, string fcmToken);
 
-		// @optional -(void)messaging:(FIRMessaging * _Nonnull)messaging didRefreshRegistrationToken:(NSString * _Nonnull)fcmToken __attribute__((deprecated("Please use messaging:didReceiveRegistrationToken:, which is called for both current and refreshed tokens.")));
-		[Obsolete ("Use DidReceiveRegistrationToken method instead, which is called for both current and refreshed tokens.")]
-		[Export("messaging:didRefreshRegistrationToken:")]
-		void DidRefreshRegistrationToken (Messaging messaging, string fcmToken);
-
 		// - (void)messaging:(nonnull FIRMessaging *)messaging didReceiveMessage:(nonnull FIRMessagingRemoteMessage *)remoteMessage FIR_SWIFT_NAME(messaging(_:didReceive:) __IOS_AVAILABLE(10.0);
 		[Introduced (PlatformName.iOS, 10, 0, 0)]
 		[Export("messaging:didReceiveMessage:")]
 		void DidReceiveMessage (Messaging messaging, RemoteMessage remoteMessage);
-
-		// - (void)applicationReceivedRemoteMessage:(nonnull FIRMessagingRemoteMessage *)remoteMessage;
-		[Obsolete ("Use DidReceiveMessage method instead.")]
-		[Export ("applicationReceivedRemoteMessage:")]
-		void ApplicationReceivedRemoteMessage (RemoteMessage remoteMessage);
 	}
 
 	// @interface FIRMessaging : NSObject
@@ -102,13 +94,6 @@ namespace Firebase.CloudMessaging
 		[Export("delegate", ArgumentSemantic.Weak)]
 		IMessagingDelegate Delegate { get; set; }
 
-		// @property(nonatomic, weak, nullable) id<FIRMessagingDelegate> remoteMessageDelegate;
-		[Obsolete ("Use Delegate property instead.")]
-		[Introduced (PlatformName.iOS, 10, 0)]
-		[NullAllowed]
-		[Export ("remoteMessageDelegate", ArgumentSemantic.Weak)]
-		IMessagingDelegate RemoteMessageDelegate { get; set; }
-
 		// @property(nonatomic) BOOL shouldEstablishDirectChannel;
 		[Export("shouldEstablishDirectChannel")]
 		bool ShouldEstablishDirectChannel { get; set; }
@@ -130,6 +115,10 @@ namespace Firebase.CloudMessaging
 		// - (void)setAPNSToken:(nonnull NSData *)apnsToken type:(FIRMessagingAPNSTokenType)type;
 		[Export("setAPNSToken:type:")]
 		void SetApnsToken(NSData apnsToken, ApnsTokenType type);
+
+		// @property(nonatomic, assign, getter=isAutoInitEnabled) BOOL autoInitEnabled;
+		[Export ("autoInitEnabled")]
+		bool AutoInitEnabled { [Bind ("isAutoInitEnabled")] get; set; }
 
 		// @property(nonatomic, readonly, nullable) NSString *FCMToken FIR_SWIFT_NAME(fcmToken);
 		[NullAllowed]
@@ -160,9 +149,19 @@ namespace Firebase.CloudMessaging
 		[Export ("subscribeToTopic:")]
 		void Subscribe (string topic);
 
+		// -(void)subscribeToTopic:(NSString * _Nonnull)topic completion:(nullable FIRMessagingTopicOperationCompletion)completion;
+		[Async]
+		[Export ("subscribeToTopic:completion:")]
+		void Subscribe (string topic, MessagingTopicOperationCompletionHandler completion);
+
 		// -(void)unsubscribeFromTopic:(NSString * _Nonnull)topic;
 		[Export ("unsubscribeFromTopic:")]
 		void Unsubscribe (string topic);
+
+		//-(void)unsubscribeFromTopic:(NSString * _Nonnull)topic completion:(nullable FIRMessagingTopicOperationCompletion)completion;
+		[Async]
+		[Export ("unsubscribeFromTopic:completion:")]
+		void Unsubscribe (string topic, MessagingTopicOperationCompletionHandler completion);
 
 		// -(void)sendMessage:(NSDictionary * _Nonnull)message to:(NSString * _Nonnull)receiver withMessageID:(NSString * _Nonnull)messageID timeToLive:(int64_t)ttl;
 		[Export ("sendMessage:to:withMessageID:timeToLive:")]

@@ -1,4 +1,4 @@
-version: 2.0.8.2
+version: 3.0.0.0
 name: Firebase Cloud Messaging for iOS
 id: firebaseioscloudmessaging
 publisher: Xamarin Inc.
@@ -12,32 +12,29 @@ docs-url: https://firebase.google.com/docs/cloud-messaging/
 libraries:
   ios-unified:
   - ../output/Firebase.CloudMessaging.dll
-  - ../../Firebase.Analytics/output/Firebase.Analytics.dll
   - ../../Firebase.Core/output/Firebase.Core.dll
   - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Firebase.iOS.CloudMessaging, Version=2.0.8.2
+  - Xamarin.Firebase.iOS.CloudMessaging, Version=3.0.0.0
 samples:
 - name: Cloud Messaging Sample
   path: ../samples/CloudMessagingSample/CloudMessagingSample.sln
   removeProjects:
   - Firebase.CloudMessaging
-  - Firebase.Analytics
   - Firebase.Core
   - Firebase.InstanceID
   installNuGets:
   - project: CloudMessagingSample
     packages:
     - Xamarin.Firebase.iOS.CloudMessaging
-    - Xamarin.Firebase.iOS.Analytics
     - Xamarin.Firebase.iOS.Core
     - Xamarin.Firebase.iOS.InstanceID
   removeNodes:
-  - //xNS:Import[contains (@Project, 'Firebase.CloudMessaging.targets')]
-  - //xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]
-  - //xNS:Import[contains (@Project, 'Firebase.Core.targets')]
   - //xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]
 local-nuget-repo: ../../tmp-nugets
 no_build: true
+additional-files:
+- source: ../External-Dependency-Info
+  destination: THIRD-PARTY-NOTICES

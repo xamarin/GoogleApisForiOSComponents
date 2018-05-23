@@ -17,6 +17,7 @@
 		- [Monitor token generation](#monitor-token-generation)
 			- [Swizzling disabled: mapping your APNs token and registration token](#swizzling-disabled--mapping-your-apns-token-and-registration-token)
 		- [Import existing user APNs tokens](#import-existing-user-apns-tokens)
+	- [Prevent auto initialization](#prevent-auto-initialization)
 - [Send your First Message to a Backgrounded App](#send-your-first-message-to-a-backgrounded-app)
 	- [Send a notification message](#send-a-notification-message)
 - [Send Messages to Multiple Devices](#send-messages-to-multiple-devices)
@@ -29,6 +30,7 @@
 	- [Handle data messages in foregrounded apps](#handle-data-messages-in-foregrounded-apps)
 		- [Handle messages with method swizzling disabled](#handle-messages-with-method-swizzling-disabled)
 		- [Interpreting data message payload](#interpreting-data-message-payload)
+		- [Handle queued and deleted messages](#handle-queued-and-deleted-messages)
 - [Topic Messaging](#topic-messaging)
 	- [Subscribe the client app to a topic](#subscribe-the-client-app-to-a-topic)
 	- [Manage topic subscriptions on the server](#manage-topic-subscriptions-on-the-server)
@@ -190,6 +192,20 @@ After the FCM registration token is generated, you can access it and listen for 
 
 If you have an existing user base that you want to onboard to an FCM client app, use the [batchImport][7] API provided by Instance ID. With this API, you can bulk import existing iOS APNs tokens into FCM, mapping them to new, valid registration tokens.
 
+## Prevent auto initialization
+
+FCM generates an Instance ID, which is used as a registration token within FCM. When an Instance ID is generated the library will upload the identifier and configuration data to Firebase. If you want to get an explicit opt-in before using Instance ID, you can prevent generation at configure time by disabling FCM. To do this, add a metadata value to your `Info.plist` (not your `GoogleService-Info.plist`):
+
+`FirebaseMessagingAutoInitEnabled = NO`
+
+To re-enable FCM, you can make a runtime call:
+
+```csharp
+Messaging.SharedInstance.AutoInitEnabled = true;
+```
+
+This value persists across app restarts once set.
+
 ---
 
 # Send your First Message to a Backgrounded App
@@ -308,6 +324,7 @@ To receive data messages when your app is in the foreground, implement `DidRecei
 If you disable method swizzling, you'll need to call method `Messaging` `AppDidReceiveMessage` method. This lets FCM track message delivery and analytics, which is performed automatically with method swizzling enabled:
 
 ```csharp
+// With "FirebaseAppDelegateProxyEnabled": NO
 public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
 {
 	// Let FCM know about the message for analytics etc.
@@ -317,7 +334,38 @@ public override void DidReceiveRemoteNotification (UIApplication application, NS
 }
 ```
 
-> ![note_icon] Since iOS 10, you can set `UNUserNotificationCenter` `Delegate` to receive display notifications from Apple and `Messaging` `Delegate` to receive data messages from FCM. If you do not set these two delegates with `AppDelegate`, method swizzling for message handling is disabled. You'll need to call method `AppDidReceiveMessage` to track message delivery and analytics.
+Since iOS 10, you can set `UNUserNotificationCenter` `Delegate` to receive display notifications from Apple and `Messaging`s `Delegate` to receive data messages from FCM. If you do not set these two delegates with `AppDelegate`, method swizzling for message handling is disabled. You'll need to call method `AppDidReceiveMessage` to track message delivery and analytics.
+
+```csharp
+// Receive displayed notifications for iOS 10 devices.
+// Handle incoming notification messages while app is in the foreground.
+[Export ("userNotificationCenter:willPresentNotification:withCompletionHandler:")]
+public void WillPresentNotification (UNUserNotificationCenter center, UNNotification notification, Action<UNNotificationPresentationOptions> completionHandler)
+{
+	var userInfo = notification.Request.Content.UserInfo;
+
+	// With swizzling disabled you must let Messaging know about the message, for Analytics
+	//Messaging.SharedInstance.AppDidReceiveMessage (userInfo);
+
+	// Print full message.
+	Console.WriteLine (userInfo);
+
+	// Change this to your preferred presentation option
+	completionHandler (UNNotificationPresentationOptions.None);
+}
+
+// Handle notification messages after display notification is tapped by the user.
+[Export ("userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:")]
+public void DidReceiveNotificationResponse (UNUserNotificationCenter center, UNNotificationResponse response, Action completionHandler)
+{
+	var userInfo = response.Notification.Request.Content.UserInfo;
+
+	// Print full message.
+	Console.WriteLine (userInfo);
+
+	completionHandler ();
+}
+```
 
 ### Interpreting data message payload
 
@@ -330,6 +378,10 @@ The payload of data messages is a dictionary of keys and values. Data messages s
   "icon" : "myicon"
 }
 ```
+
+### Handle queued and deleted messages
+
+Apps that connect to FCM to receive data messages should handle `Messaging.MessagesDeletedNotification` with `NSNotificationCenter` or with `Messaging.Notifications.ObserveMessagesDeleted`. You may receive this callback when there are too many messages (>100) pending for your app on a particular device at the time it connects, or if the device hasn't connected to FCM for more than one month. When the app instance receives this callback, it should perform a full sync with your app server.
 
 ---
 
@@ -353,15 +405,41 @@ Client apps can subscribe to any existing topic, or they can create a new topic.
 The `Messaging` class handles topic messaging functionality. To subscribe to a topic, call `Subscribe` method from your application's main thread (FCM is not thread-safe):
 
 ```csharp
-Messaging.SharedInstance.Subscribe ("topic");
+Messaging.SharedInstance.Subscribe ("topic", (error) => {
+	// ...
+});
+Console.WriteLine ("Subscribed to topic");
+
+// async/away Version
+
+try {
+	await Messaging.SharedInstance.SubscribeAsync ("topic");
+	Console.WriteLine ("Subscribed to topic");
+} catch (NSErrorException ex) {
+	// ...
+}
 ```
 
-This makes an asynchronous request to the FCM backend and subscribes the client to the given topic. If the subscription request fails initially, FCM retries until it can subscribe to the topic successfully. Each time the app starts, FCM makes sure that all requested topics have been subscribed.
+This makes an asynchronous request to the FCM backend and subscribes the client to the given topic. Before calling `Subscribe` method, make sure that the client app instance has already received a registration token via the callback `IMessagingDelegate` `DidReceiveRegistrationToken` method.
+
+If the subscription request fails initially, FCM retries until it can subscribe to the topic successfully. Each time the app starts, FCM makes sure that all requested topics have been subscribed.
 
 To unsubscribe, call `Unsubscribe` method, and FCM unsubscribes from the topic in the background.
 
 ```csharp
-Messaging.SharedInstance.Unsubscribe ("topic");
+Messaging.SharedInstance.Unsubscribe ("topic", (error) => {
+	// ...
+});
+Console.WriteLine ("Unsubscribed to topic");
+
+// async/away Version
+
+try {
+	await Messaging.SharedInstance.UnsubscribeAsync ("topic");
+	Console.WriteLine ("Unsubscribed to topic");
+} catch (NSErrorException ex) {
+	// ...
+}
 ```
 
 ## Manage topic subscriptions on the server

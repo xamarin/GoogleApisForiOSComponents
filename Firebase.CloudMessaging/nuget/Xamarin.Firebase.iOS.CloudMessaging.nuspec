@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.Firebase.iOS.CloudMessaging</id>
     <title>Firebase APIs Cloud Messaging iOS Library</title>
-    <version>2.0.8.2</version>
+    <version>3.0.0.0</version>
     <authors>Microsoft</authors>
     <owners>Microsoft</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -15,7 +15,6 @@
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
         <dependency id="Xamarin.Build.Download" version="0.4.11" />
-        <dependency id="Xamarin.Firebase.iOS.Analytics" version="5.0.0.0" />
         <dependency id="Xamarin.Firebase.iOS.InstanceID" version="3.0.0.0" />
         <dependency id="Xamarin.Firebase.iOS.Core" version="5.0.0.0" />
       </group>
@@ -23,8 +22,6 @@
   </metadata>
   <files>
     <file src="output/Firebase.CloudMessaging.dll" target="lib/Xamarin.iOS10" />
-
-    <!-- Add targets file for external native reference download -->
-    <file src="source/Firebase.CloudMessaging/Firebase.CloudMessaging.targets" target="build/Xamarin.Firebase.iOS.CloudMessaging.targets" />
+    <file src="External-Dependency-Info" target="THIRD-PARTY-NOTICES" />
   </files>
 </package>

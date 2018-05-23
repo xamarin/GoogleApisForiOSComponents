@@ -111,10 +111,6 @@
     <Compile Include="UserInfoViewController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Firebase.Analytics\source\Firebase.Analytics\Firebase.Analytics.csproj">
-      <Project>{87BB564C-85A8-4EC1-AD16-EC0A1ACCEE56}</Project>
-      <Name>Firebase.Analytics</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\Firebase.InstanceID.csproj">
       <Project>{D6AA184C-DA45-4BBB-988A-451B20C7B804}</Project>
       <Name>Firebase.InstanceID</Name>
@@ -132,9 +128,6 @@
     <BundleResource Include="GoogleService-Info.plist" />
   </ItemGroup>
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\Firebase.InstanceID.targets" />
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.targets" />
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.Analytics\source\Firebase.Analytics\Firebase.Analytics.targets" />
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.CloudMessaging\source\Firebase.CloudMessaging\Firebase.CloudMessaging.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets')" />
 </Project>
