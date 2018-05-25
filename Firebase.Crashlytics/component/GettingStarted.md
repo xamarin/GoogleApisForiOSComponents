@@ -27,7 +27,6 @@
 		- [What about NSExceptions?](#what-about-nsexceptions)
 	- [Manage Crash Insights data](#manage-crash-insights-data)
 - [Extend Firebase Crashlytics with Cloud Functions](#extend-firebase-crashlytics-with-cloud-functions)
-- [Known issues](#known-issues)
 
 ## Before you begin
 
@@ -346,19 +345,6 @@ Crash Insights uses aggregated crash data to identify common stability trends. I
 # Extend Firebase Crashlytics with Cloud Functions
 
 You can trigger a function in response to Crashlytics issue events including new issues, regressed issues, and velocity alerts. To learn more about this, please, read the following [documentation][3].
-
----
-
-# Known issues
-
-* Error `Native linking failed, duplicate symbol '_main'` appears when you try to build for **iPhoneSimulator**. A workaround for this is to change the behavior of the **Registrar**:
-	1. Open your project settings
-	2. Go to **Build** tab
-	3. Select **iOS Build** option
-	4. Type `--registrar:static` in **Additional mtouch arguments** textbox
-	5. Click on **Ok**
-
-	Don't forget to add this in **Release** and **Debug** configuration of **iPhoneSimulator** platform.
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/crashlytics/get-started) to see original Firebase documentation._</sub>
 

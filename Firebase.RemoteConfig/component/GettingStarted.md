@@ -19,7 +19,6 @@ You can use Firebase Remote Config to define parameters in your app and update t
 - [Fetch and activate values from the server](#fetch-and-activate-values-from-the-server)
 - [Use parameter values](#use-parameter-values)
 - [Caching and throttling](#caching-and-throttling)
-- [Known issues](#known-issues)
 
 ## Remote Config Parameters and Conditions
 
@@ -181,17 +180,6 @@ During app development, you might want to refresh the cache very frequently (man
 ## Use Firebase Remote Config with Analytics
 
 When you build an app that includes both Firebase Remote Config and Google Analytics for Firebase, you gain the ability to understand your app users better and to respond to their needs more quickly. Read this [Firebase documentation][6] to learn more about this.
-
-## Known issues
-
-* Error `Native linking failed, duplicate symbol '_main'` appears when you try to build for **iPhoneSimulator**. A workaround for this is to change the behavior of the **Registrar**:
-	1. Open your project settings
-	2. Go to **Build** tab
-	3. Select **iOS Build** option
-	4. Type `--registrar:static` in **Additional mtouch arguments** textbox
-	5. Click on **Ok**
-
-	Don't forget to add this in **Release** and **Debug** configuration of **iPhoneSimulator** platform.
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/remote-config/use-config-ios) to see original Firebase documentation._</sub>
 

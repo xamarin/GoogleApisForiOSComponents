@@ -55,7 +55,6 @@ You can use Firebase Authentication to allow users to sign in to your app using 
 	- [Unlink an auth provider from a user account](#unlink-an-auth-provider-from-a-user-account)
 - [Create custom email action handlers](#create-custom-email-action-handlers)
 - [Extend Firebase Authentication with Cloud Functions](#extend-firebase-authentication-with-cloud-functions)
-- [Known issues](#known-issues)
 
 ## Add Firebase to your app
 
@@ -1721,19 +1720,6 @@ To learn more about this, please, read the following [documentation][19].
 You can trigger a function in response to the creation and deletion of user accounts via Firebase Authentication. For example, you could send a welcome email to a user who has just created an account in your app.
 
 To learn more about this, please, read the following [documentation][20].
-
----
-
-# Known issues
-
-* Error `Native linking failed, duplicate symbol '_main'` appears when you try to build for **iPhoneSimulator**. A workaround for this is to change the behavior of the **Registrar**:
-	1. Open your project settings
-	2. Go to **Build** tab
-	3. Select **iOS Build** option
-	4. Type `--registrar:static` in **Additional mtouch arguments** textbox
-	5. Click on **Ok**
-
-	Don't forget to add this in **Release** and **Debug** configuration of **iPhoneSimulator** platform.
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/auth/ios/manage-users) to see original Firebase documentation._</sub>
 

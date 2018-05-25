@@ -46,7 +46,6 @@ Firebase Storage lets you upload and share user generated content, such as image
 		- [Handle Error Messages](#handle-error-messages)
 - [Extend Cloud Storage with Cloud Functions](#extend-cloud-storage-with-cloud-functions)
 - [Integrate with Google Cloud Platform](#integrate-with-google-cloud-platform)
-- [Known issues](#known-issues)
 
 ## Add Firebase to your app
 
@@ -785,19 +784,6 @@ You can trigger a function in response to the uploading, updating, or deleting o
 Firebase Storage is tightly integrated with [Google Cloud Platform][1]. The Firebase SDKs for Storage store files directly in [Google Cloud Storage buckets][18], and as your app grows, you can easily integrate other Cloud services, such as managed compute like App Engine or Cloud Functions, or machine learning APIs like Cloud Vision or Google Translate.
 
 For more information, visit the following [documentation][19].
-
----
-
-# Known issues
-
-* Error `Native linking failed, duplicate symbol '_main'` appears when you try to build for **iPhoneSimulator**. A workaround for this is to change the behavior of the **Registrar**:
-	1. Open your project settings
-	2. Go to **Build** tab
-	3. Select **iOS Build** option
-	4. Type `--registrar:static` in **Additional mtouch arguments** textbox
-	5. Click on **Ok**
-
-	Don't forget to add this in **Release** and **Debug** configuration of **iPhoneSimulator** platform.
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/storage/ios/start) to see original Firebase documentation._</sub>
 

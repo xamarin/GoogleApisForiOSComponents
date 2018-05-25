@@ -23,7 +23,6 @@ Firebase Analytics collects usage and behavior data for your app. The SDK logs t
     - [Automatically track screens](#automatically-track-screens)
     - [Manually track screens](#manually-track-screens)
 - [Extend Google Analytics for Firebase with Cloud Functions](#extend-google-analytics-for-firebase-with-cloud-functions)
-- [Known issues](#known-issues)
 
 ## Add Firebase to your app
 
@@ -289,19 +288,6 @@ Google Analytics for Firebase provides event reports that help you understand ho
 > ![note_icon] _Only events marked as conversion events are currently supported by Cloud Functions. You can specify which events are conversion events in the [Events][13] tab of the Firebase console **Analytics** pane._
 
 To learn more about this, please, read the following [documentation][14].
-
----
-
-# Known issues
-
-* Error `Native linking failed, duplicate symbol '_main'` appears when you try to build for **iPhoneSimulator**. A workaround for this is to change the behavior of the **Registrar**:
-	1. Open your project settings
-	2. Go to **Build** tab
-	3. Select **iOS Build** option
-	4. Type `--registrar:static` in **Additional mtouch arguments** textbox
-	5. Click on **Ok**
-
-	Don't forget to add this in **Release** and **Debug** configuration of **iPhoneSimulator** platform.
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/analytics/ios/start) to see original Firebase documentation._</sub>
 
