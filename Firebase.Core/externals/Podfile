@@ -25,7 +25,7 @@ target 'FirebaseCore' do
 	pod 'GoogleToolboxForMac/StringEncoding', '2.1.4'
 	pod 'GoogleToolboxForMac/URLBuilder', '2.1.4'
 	pod 'nanopb', '0.3.8'
-	pod 'GTMSessionFetcher/Full', '1.1.12'
+	pod 'GTMSessionFetcher/Full', '1.1.13'
 	pod 'Protobuf', '3.5.0'
 	pod 'leveldb-library', '1.18.3'
 end
