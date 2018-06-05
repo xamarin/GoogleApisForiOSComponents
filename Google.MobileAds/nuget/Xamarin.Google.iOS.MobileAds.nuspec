@@ -20,6 +20,7 @@
   </metadata>
   <files>
     <file src="output/Google.MobileAds.dll" target="lib/Xamarin.iOS10" />
+    <file src="External-Dependency-Info" target="THIRD-PARTY-NOTICES" />
 
     <!-- Add targets file for external native reference download -->
     <file src="source/Google.MobileAds/Google.MobileAds.targets" target="build/Xamarin.Google.iOS.MobileAds.targets" />

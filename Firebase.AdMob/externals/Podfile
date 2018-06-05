@@ -6,22 +6,26 @@ Last run Firebase/AdMob installed:
 * FirebaseInstanceID (3.0.0)
 * Google-Mobile-Ads-SDK (7.30.0)
 * GoogleToolboxForMac (2.1.4)
+* PersonalizedAdConsent (1.0.1)
 * nanopb (0.3.8)
 
 Check if main version or subversion number has changed. 
 If yes, please, update *.targets files located in binding 
 projects, also, update Podfile files if needed.
 
-In Google.MobileAds binding, you can find the Native Reference of:
+In Google.MobileAds binding project, you can find the .targets file of:
 * Google-Mobile-Ads-SDK (7.30.0)
 
-In Firebase.Analytics binding, you can find the .targets file of:
+and the Native Reference of:
+* PersonalizedAdConsent (1.0.1)
+
+In Firebase.Analytics binding project, you can find the .targets file of:
 * FirebaseAnalytics (5.0.0)
 
-In Firebase.InstanceID binding, you can find the .targets file of:
+In Firebase.InstanceID binding project, you can find the .targets file of:
 * FirebaseInstanceID (3.0.0)
 
-In Firebase.Core binding, you can find the Native Reference of:
+In Firebase.Core binding project, you can find the Native Reference of:
 * FirebaseCore (5.0.0)
 * GoogleToolboxForMac (2.1.4)
 * nanopb (0.3.8)
@@ -31,7 +35,9 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '8.0'
 install! 'cocoapods', :integrate_targets => false
+use_frameworks!
 
 target 'FirebaseAdMob' do
 	pod 'Firebase/AdMob', '5.0.0'
+	pod 'PersonalizedAdConsent', '1.0.1'
 end

@@ -29,3 +29,5 @@ samples:
   - //xNS:Import[contains (@Project, 'Google.MobileAds.targets')]
 local-nuget-repo: ../../tmp-nugets
 no_build: true
+- source: ../External-Dependency-Info
+  destination: THIRD-PARTY-NOTICES

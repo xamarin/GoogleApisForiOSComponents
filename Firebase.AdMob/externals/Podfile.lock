@@ -25,9 +25,11 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - PersonalizedAdConsent (1.0.1)
 
 DEPENDENCIES:
   - Firebase/AdMob (= 5.0.0)
+  - PersonalizedAdConsent (= 1.0.1)
 
 SPEC CHECKSUMS:
   Firebase: 4bd804448ab2596794698773d41520a0af101e65
@@ -37,7 +39,8 @@ SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: 7404f68120ae8682afeb5af001fbf4aad731c78e
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  PersonalizedAdConsent: d42d32065787eca61a9a334d2f786e6f81ebb4c7
 
-PODFILE CHECKSUM: 0b22d2e08a415e93767f6f9b78103b3843c933da
+PODFILE CHECKSUM: d5c434786591a98ed98b8b134a7cb48919f83814
 
 COCOAPODS: 1.4.0

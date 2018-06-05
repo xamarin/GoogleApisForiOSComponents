@@ -55,4 +55,11 @@
   <ItemGroup>
     <None Include="Google.MobileAds.targets" />
   </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="..\..\..\Firebase.AdMob\externals\PersonalizedAdConsent.framework">
+      <Kind>Framework</Kind>
+      <ForceLoad>True</ForceLoad>
+      <LinkerFlags>-ObjC</LinkerFlags>
+    </NativeReference>
+  </ItemGroup>
 </Project>

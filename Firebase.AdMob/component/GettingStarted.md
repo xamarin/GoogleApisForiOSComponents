@@ -81,6 +81,38 @@
 	- [Set up event notifications](#set-up-event-notifications)
 	- [Display rewarded video](#display-rewarded-video)
 	- [Reload a rewarded video](#reload-a-rewarded-video)
+- [Targeting](#targeting)
+	- [Request](#request)
+		- [Location](#location)
+		- [Child-directed setting](#child-directed-setting)
+		- [Users under the age of consent](#users-under-the-age-of-consent)
+		- [Ad content filtering](#ad-content-filtering)
+		- [Content URL](#content-url)
+	- [Load an ad with targeting](#load-an-ad-with-targeting)
+	- [FAQ](#faq)
+- [Reporting](#reporting)
+- [Global Settings](#global-settings)
+	- [Video ad volume control](#video-ad-volume-control)
+	- [Changing audio session](#changing-audio-session)
+	- [In-app purchase reporting](#in-app-purchase-reporting)
+	- [Crash reporting](#crash-reporting)
+- [Requesting Consent from European Users](#requesting-consent-from-european-users)
+	- [Tips for using the Consent SDK](#tips-for-using-the-consent-sdk)
+		- [If you select 12 or fewer ad technology providers and don't use mediation](#if-you-select-12-or-fewer-ad-technology-providers-and-dont-use-mediation)
+		- [If you select more than 12 ad technology providers and don't use mediation](#if-you-select-more-than-12-ad-technology-providers-and-dont-use-mediation)
+		- [If you use AdMob mediation](#if-you-use-admob-mediation)
+	- [Update consent status](#update-consent-status)
+	- [Collect consent](#collect-consent)
+		- [Google-rendered consent form](#google-rendered-consent-form)
+		- [Load consent form](#load-consent-form)
+		- [Show consent form](#show-consent-form)
+		- [Publisher-managed consent collection](#publisher-managed-consent-collection)
+		- [Storing publisher managed consent](#storing-publisher-managed-consent)
+		- [Change or revoke consent](#change-or-revoke-consent)
+		- [Users under the age of consent](#users-under-the-age-of-consent)
+	- [Testing](#testing)
+	- [Forward consent to the Google Mobile Ads SDK](#forward-consent-to-the-google-mobile-ads-sdk)
+	- [FAQ](#faq)
 
 # Get Started
 
@@ -1569,6 +1601,609 @@ RewardBasedVideoAd.SharedInstance.Closed += (sender, e) => {
 };
 ```
 
+---
+ 
+ # Targeting
+
+This guide explains how to provide targeting information to an ad request.
+
+## Request
+
+The `Request` object collects targeting information to be sent with an ad request.
+
+### Location
+
+If a user has granted your app location permissions, location data is automatically passed to the SDK. The SDK uses this data to improve ad targeting without requiring any code changes in your app. You can, of course, [enable or disable location data for ads][9].
+
+Autopopulated location information is not forwarded to mediation networks and it may also be disabled entirely. Therefore, the SDK provides the ability to set location manually.
+
+After [getting the user's location][10], you can specify location-targeting information in the `Request` as follows:
+
+```csharp
+var request = Request.GetDefaultRequest ();
+
+if (locationManager.Location != null) {
+	var currentLocation = locationManager.Location;
+	request.SetLocation ((nfloat)currentLocation.Coordinate.Latitude, (nfloat)currentLocation.Coordinate.Longitude, (nfloat)currentLocation.HorizontalAccuracy);
+}
+```
+
+Out of respect for user privacy, Google asks that you only specify location if that information is already used by your app.
+
+### Child-directed setting
+
+For purposes of the Children's Online Privacy Protection Act (COPPA), there is a method called `Tag`.
+
+As an app developer, you can indicate whether you want Google to treat your content as child-directed when you make an ad request. When you indicate that you want Google to treat your content as child-directed, we take steps to disable IBA and remarketing ads on that ad request. The setting options are as follows:
+
+* Set `Tag` to `true` to indicates that you want your content treated as child-directed for purposes of COPPA.
+* Set `Tag` to `false` to indicate that you don't want your content treated as child-directed for purposes of COPPA.
+* Do not set `Tag` if you do not wish to indicate how you would like your content treated with respect to COPPA.
+
+```csharp
+var request = Request.GetDefaultRequest ();
+request.Tag (true);
+```
+
+By setting this tag, you certify that this notification is accurate and you are authorized to act on behalf of the owner of the app. You understand that abuse of this setting may result in termination of your Google account.
+
+### Users under the age of consent
+
+You can mark your ad requests to receive treatment for users in the European Economic Area (EEA) under the age of consent. This feature is designed to help facilitate compliance with the[ General Data Protection Regulation (GDPR)][11]. Note that you may have other legal obligations under GDPR. Please review the European Union’s guidance and consult with your own legal counsel. Please remember that Google's tools are designed to facilitate compliance and do not relieve any particular publisher of its obligations under the law. [Learn more about how the GDPR affects publishers][12].
+
+When using this feature, a Tag For Users under the Age of Consent in Europe (TFUA) parameter will be included in the ad request. This parameter disables personalized advertising, including remarketing, for that specific ad request. It also disables requests to third-party ad vendors, such as ad measurement pixels and third-party ad servers.
+
+The setting can be used with all versions of the Google Mobile Ads SDK by using the `tag_for_under_age_of_consent` network extra.
+
+* Set `tag_for_under_age_of_consent` to `true` to indicate that you want the ad request to be handled in a manner suitable for users under the age of consent.
+* Not setting `tag_for_under_age_of_consent` indicates that you don't want the ad request to be handled in a manner suitable for users under the age of consent.
+
+The following example indicates that you want TFUA included in your ad request:
+
+```csharp
+var data = new Dictionary<object, object> () { { "tag_for_under_age_of_consent", true } };
+
+var request = Request.GetDefaultRequest ();
+var extras = new Extras ();
+extras.AdditionalParameters = NSDictionary.FromObjectsAndKeys (data.Values.ToArray (), data.Keys.ToArray (), data.Keys.Count);
+request.RegisterAdNetworkExtras (extras);
+```
+
+> ![note_icon] _**Note:**_ _This `tag_for_under_age_of_consent` parameter is currently NOT forwarded to ad network mediation adapters. It is your responsibility to ensure that each third-party ad network in your application serves ads that are appropriate for users under the age of consent per GDPR._
+
+### Ad content filtering
+
+Apps can set a maximum ad content rating for their ad requests using the max_ad_content_rating network extra. AdMob ads returned for these requests will have a content rating at or below that level. The possible values for this network extra are based on [digital content label classifications][13], and should be one of the following strings:
+
+* G
+* PG
+* T
+* MA
+
+The following code configures an `Request` object to specify that ad content returned should correspond to a Digital Content Label designation no higher than G.
+
+```csharp
+var data = new Dictionary<object, object> () { { "max_ad_content_rating", "G" } };
+
+var request = Request.GetDefaultRequest ();
+var extras = new Extras ();
+extras.AdditionalParameters = NSDictionary.FromObjectsAndKeys (data.Values.ToArray (), data.Keys.ToArray (), data.Keys.Count);
+request.RegisterAdNetworkExtras (extras);
+```
+
+### Content URL
+
+When requesting an ad, apps may pass the URL of the content they are serving. This enables keyword targeting to match the ad with the content.
+
+For example, if your app serves blog articles and is requesting an ad while showing content from the article http://googleadsdeveloper.blogspot.com/2016/03/rewarded-video-support-for-admob.html, then you can pass this URL to target relevant keywords:
+
+```csharp
+var request = Request.GetDefaultRequest ();
+request.ContentUrl = "http://googleadsdeveloper.blogspot.com/2016/03/rewarded-video-support-for-admob.html";
+```
+
+## Load an ad with targeting
+
+Once all of your request targeting information is set, call `LoadRequest` on `BannerView` with your `Request` instance.
+
+```csharp
+var request = Request.GetDefaultRequest ();
+request.Tag (true);
+request.ContentUrl = "http://googleadsdeveloper.blogspot.com/2016/03/rewarded-video-support-for-admob.html";
+adView.LoadRequest (request);
+```
+
+## FAQ
+
+* **Can I release my app with `Request.TestDevices`?**
+	* Yes. Test ads are only shown on specific devices that you specify, so all of your users will still receive production ads.
+
+* **What targeting gets used when an ad automatically refreshes?**
+	* On ad refresh, the previously specified `Request` object is used for targeting again. To set new targeting, explicitly call `LoadRequest` on `BannerView` with a new `Request` object.
+
+---
+
+# Reporting 
+
+To learn more about this, please, read the following [documentation][14].
+
+---
+
+# Global Settings
+
+The `MobileAds` class provides global settings for controlling certain information collected by the Mobile Ads SDK.
+
+## Video ad volume control
+
+If your app has its own volume controls (such as custom music or sound effect volumes), disclosing app volume to the Google Mobile Ads SDK allows video ads to respect app volume settings. This ensures users receive video ads with the expected audio volume.
+
+The device volume, controlled through volume buttons or OS-level volume slider, determines the volume for device audio output. However, apps can independently adjust volume levels relative to the device volume to tailor the audio experience. You can report the relative app volume to the Google Mobile Ads SDK by setting the `ApplicationVolume` property. Valid ad volume values range from 0.0 (silent) to 1.0 (current device volume). Here's an example of how to report the relative app volume to the SDK:
+
+```csharp
+// Set app volume to be half of the current device volume.
+MobileAds.SharedInstance.ApplicationVolume = 0.5f;
+```
+
+To inform the Google Mobile Ads SDK that the app volume has been muted, set the `ApplicationMuted` property, as shown below:
+
+```csharp
+MobileAds.SharedInstance.ApplicationMuted = true;
+```
+
+Unmuting the app volume reverts it to its previously set level. By default, the app volume for the Google Mobile Ads SDK is set to 1 (the current device volume).
+
+> ![note_icon] _**Note:**_ _Video ads that are ineligible to be shown with muted audio are not returned for ad requests made when the app volume is reported as muted or set to a value of 0. This may restrict a subset of the broader video ads pool from serving._
+
+## Changing audio session
+
+Audio sessions allow you to express to the system your intentions for your app's audio behavior. Additional information on audio sessions can be found in Apple's [Audio Session Programming Guide][15]. The available options for managing the Google Mobile Ads SDK audio is via the `AudioVideoManager` property.
+
+If you don't use audio in your app, you don't need to use these APIs. The Google Mobile Ads SDK will automatically manage the audio session category when it plays audio. If you do play audio in your app and you want tighter control of how and when Google Mobile Ads SDK plays audio, these APIs can help.
+
+On the audio video manager, you can set the `AudioSessionIsApplicationManaged` property to `true` if you want to take responsibility for managing the audio session category yourself.
+
+If you will manage the audio session category, you should implement `IAudioVideoManagerDelegate` and set the `Delegate` property on the audio video manager or use audio video manager to be notified of ads video and audio playback events. You should then change the audio session category to the relevant category as per Apple's Audio Session Programming Guide linked above.
+
+> ![note_icon] **_Note:_** _By default, the Mobile Ads SDK will set the audio session category to AVAudioSessionCategoryAmbient when playing ads muted. If you prefer to have your app use `AVAudioSessionCategoryOptionDuckOthers` in this scenario, you must implement the `IAudioVideoManagerDelegate` interface and set the audio video manager `AudioSessionIsApplicationManaged` to `true`._
+
+Here is a simplified code sample which shows the recommended approach if your app plays music, using above APIs:
+
+```csharp
+void SetUp ()
+{
+	// If you decide to implement IAudioVideoManagerDelegate interface
+	MobileAds.SharedInstance.AudioVideoManager.Delegate = this;
+
+	// If you decide to use events
+	MobileAds.SharedInstance.AudioVideoManager.WillPlayAudio += (sender, e) => {
+		// The mobile ads SDK is notifying your app that it will play audio. You
+		// could optionally pause music depending on your apps design.
+		MyAppObject.SharedInstance.PauseAllMusic ();
+	};
+
+	MobileAds.SharedInstance.AudioVideoManager.PlayingAudioStopped += (sender, e) => {
+		// The mobile ads SDK is notifying your app that it has stopped playing
+		// audio. Depending on your design, you could resume music here.
+		MyAppObject.SharedInstance.ResumeAllMusic ();
+	};
+
+	MobileAds.SharedInstance.AudioVideoManager.AudioSessionIsApplicationManaged = true;
+}
+
+void MyAppWillStartPlayingMusic ()
+{
+	// Mutes all Google video ads.
+	MobileAds.SharedInstance.AudioVideoManager.AudioSessionIsApplicationManaged = true;
+	MobileAds.SharedInstance.ApplicationMuted = true;
+}
+
+void MyAppDidStopPlayingMusic ()
+{
+	// Un-mutes all of our video ads.
+	MobileAds.SharedInstance.AudioVideoManager.AudioSessionIsApplicationManaged = false;
+	MobileAds.SharedInstance.ApplicationMuted = false;
+}
+
+// If you decide to implement IAudioVideoManagerDelegate interface
+#region AudioVideoManager Delegate
+
+[Export ("audioVideoManagerWillPlayAudio:")]
+public void WillPlayAudio (AudioVideoManager audioVideoManager)
+{
+	// The mobile ads SDK is notifying your app that it will play audio. You
+	// could optionally pause music depending on your apps design.
+	MyAppObject.SharedInstance.PauseAllMusic ();
+}
+
+[Export ("audioVideoManagerDidStopPlayingAudio:")]
+public void DidStopPlayingAudio (AudioVideoManager audioVideoManager)
+{
+	// The mobile ads SDK is notifying your app that it has stopped playing
+	// audio. Depending on your design, you could resume music here.
+	MyAppObject.SharedInstance.ResumeAllMusic ();
+}
+
+#endregion
+```
+
+## In-app purchase reporting
+
+To help grow your in-app purchase revenue and maximize the total revenue generated by your app, the Mobile Ads SDK now automatically collects general in-app purchase (IAP) information (such as item purchase price and currency). Now, you won't have to implement extra logic to track IAP conversions yourself. If you're an AdMob developer, we recommend that you leverage this new functionality to enjoy the benefits of AdMob's smart monetization offerings. This IAP reporting setting must always be enabled if you are running in-app purchase house ads (currently in limited beta). This is necessary for IAP house ad conversions to be reported.
+
+In our latest SDK release, in-app purchase reporting is enabled by default. If you'd like, however, you can disable it by using the `DisableAutomatedInAppPurchaseReporting` method (unless you are running IAP house ads, as noted above). The best moment to call this method is when the app launches:
+
+```csharp
+public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
+{
+	...
+
+	MobileAds.DisableAutomatedInAppPurchaseReporting ();
+	
+	return true;
+}
+```
+
+## Crash reporting
+
+The Mobile Ads SDK inspects exceptions that occur in an iOS app and records them if they are caused by the SDK. These exceptions are collected so we can prevent them in future SDK versions.
+
+In our latest SDK release, crash reporting is enabled by default. If you don't want SDK-related exceptions to be recorded, you can disable this feature by calling the `DisableSDKCrashReporting` method. The best place to call this method is when the app launches:
+
+```csharp
+public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
+{
+	...
+
+	MobileAds.DisableSDKCrashReporting ();
+	
+	return true;
+}
+```
+
+---
+
+# Requesting Consent from European Users
+
+Under the Google [EU User Consent Policy][16], you must make certain disclosures to your users in the European Economic Area (EEA) and obtain their consent to use cookies or other local storage, where legally required, and to use personal data (such as AdID) to serve ads. This policy reflects the requirements of the EU ePrivacy Directive and the General Data Protection Regulation (GDPR).
+
+To support publishers in meeting their duties under this policy, Google offers a Consent SDK. The Consent SDK is an open-source library that provides utility functions for collecting consent from your users.
+
+Ads served by Google can be categorized as personalized or non-personalized, both requiring consent from users in the EEA. By default, ad requests to Google serve personalized ads, with ad selection based on the user's previously collected data. Google also supports configuring ad requests to serve non-personalized ads. [Learn more about personalized and non-personalized ads][17].
+
+This guide describes how to use the Consent SDK to obtain consent from users. It also describes how to forward consent to the Google Mobile Ads SDK once you have obtained consent.	
+
+## Tips for using the Consent SDK
+
+Prior to using any other methods in the Consent SDK, you should [update consent status](#update-consent-status) to make sure the Consent SDK has the latest information regarding the ad technology providers you've selected in the AdMob UI. If the list of ad technology providers has changed since the user last provided consent, the consent state is set back to an unknown state.
+
+### If you select 12 or fewer ad technology providers and don't use mediation
+
+You can use the Consent SDK to present a [Google-rendered consent form](#google-rendered-consent-form) to your users. The consent form displays a list of the ad technology providers you've selected in the AdMob UI. The Consent SDK stores the user consent response.
+
+If a user has consented to receive only non-personalized ads, you'll need to [forward consent to the Google Mobile Ads SDK](#forward-consent-to-the-google-mobile-ads-sdk).
+
+### If you select more than 12 ad technology providers and don't use mediation
+
+You can use the Consent SDK to dynamically retrieve the full list of ad technology providers from AdMob, as explained in [publisher-managed consent collection](#publisher-managed-consent-collection). However, you'll need to determine how the list of providers should be made available to your users and present your own consent form to your users.
+
+Once the user has made a consent choice, you can ask the Consent SDK to store the user's consent choice as explained in [Storing publisher managed consent](#storing-publisher-managed-consent).
+
+If a user has consented to receive only non-personalized ads, you'll need to [forward consent to the Google Mobile Ads SDK](#forward-consent-to-the-google-mobile-ads-sdk).
+
+### If you use AdMob mediation
+
+You can use the Consent SDK to dynamically retrieve the full list of ad technology providers from AdMob, as explained in [publisher-managed consent collection](#publisher-managed-consent-collection). You'll need to determine which additional ad technology providers from other ad networks need to be presented to your users for consent.
+
+As an app developer, you'll need to collect user consent for both the ad technology providers returned by the Consent SDK and the providers from other ad networks. You'll also need to manually store user consent responses and [forward consent to the Google Mobile Ads SDK](#forward-consent-to-the-google-mobile-ads-sdk) if the user consented to receive only non-personalized ads.
+
+> ![warning_icon] _**Warning:**_ _We recommend **against** using the Consent SDK to store publisher-managed consent if you collect consent for additional ad technology providers beyond those returned by the Consent SDK. The Consent SDK only tracks changes to the list of ad technology providers from AdMob, and cannot track changes to any additional providers you may add to your consent form._
+
+Google currently is unable to obtain and handle consent for mediation networks, so you'll need to obtain and handle consent for each ad network separately. We are actively working with all of our [open source and versioned][18] mediation networks to provide updated documentation with details on how to forward consent. Documentation is already live for the following mediation networks:
+
+* [AppLovin](https://developers.google.com/admob/ios/mediation/applovin#eu_consent_and_gdpr)
+* [Chartboost](https://developers.google.com/admob/ios/mediation/chartboost#eu_consent_and_gdpr)
+* [Facebook](https://developers.google.com/admob/ios/mediation/facebook#eu_consent_and_gdpr)
+* [IronSource](https://developers.google.com/admob/ios/mediation/ironsource#eu_consent_and_gdpr)
+* [MoPub](https://developers.google.com/admob/ios/mediation/mopub#eu_consent_and_gdpr)
+* [myTarget](https://developers.google.com/admob/ios/mediation/mytarget#eu_consent_and_gdpr)
+* [Tapjoy](https://developers.google.com/admob/ios/mediation/tapjoy#eu_consent_and_gdpr)
+* [Unity Ads](https://developers.google.com/admob/ios/mediation/unity#eu_consent_and_gdpr)
+* [Vungle](https://developers.google.com/admob/ios/mediation/vungle#eu_consent_and_gdpr)
+
+## Update consent status
+
+When using the Consent SDK, it is recommended that you determine the status of a user's consent at **every app launch**. To do this, call `RequestConsentInfoUpdate` method on an instance of `ConsentInformation`:
+
+```csharp
+using Google.MobileAds.Consent;
+
+...
+
+public override void ViewDidLoad ()
+{
+	base.ViewDidLoad ();
+
+	ConsentInformation.SharedInstance.RequestConsentInfoUpdate (new [] { "pub-0123456789012345" }, HandleConsentInformationUpdate;);
+
+	void HandleConsentInformationUpdate (NSError error)
+	{
+		if (error != null) {
+			// Consent info update failed.
+			return;
+		}
+
+		// Consent info update succeeded. The shared PACConsentInformation
+		// instance has been updated.
+	}
+}
+```
+
+The call to `RequestConsentInfoUpdate` requires two arguments:
+
+* An array of publisher IDs that your app requests ads from. [Find your publisher ID.][19]
+* A block that accepts an `NSError` as an input parameter, which provides information on a failed consent update request.
+
+An async/await version of this:
+
+```csharp
+try {
+	await ConsentInformation.SharedInstance.RequestConsentInfoUpdateAsync (new [] { "pub-0123456789012345" });
+
+	// Consent info update succeeded. The shared PACConsentInformation
+	// instance has been updated.
+} catch (NSErrorException ex) {
+	// Consent info update failed.
+}
+```
+
+If consent information is successfully updated, `ConsentInformation.SharedInstance.ConsentStatus` provides the updated consent status. It may have the values listed below:
+
+| Consent State                 | Definition                                                                                  |
+|-------------------------------|---------------------------------------------------------------------------------------------|
+| ConsentStatus.Personalized    | The user has granted consent for personalized ads.                                          |
+| ConsentStatus.NonPersonalized | The user has granted consent for non-personalized ads.                                      |
+| ConsentStatus.Unknown         | The user has neither granted nor declined consent for personalized or non-personalized ads. |
+
+Once consent information is successfully updated, you can also check `ConsentInformation.SharedInstance.IsRequestLocationInEeaOrUnknown` to see if the user is located in the European Economic Area or the request location is unknown.
+
+If the `IsRequestLocationInEeaOrUnknown` property is `false`, the user is not located in the European Economic Area and consent is not required under the [EU User Consent Policy][16]. You can make ad requests to the Google Mobile Ads SDK.
+
+If the `IsRequestLocationInEeaOrUnknown` property is `true`:
+
+* If the `ConsentStatus` is `ConsentStatus.Personalized` or `ConsentStatus.NonPersonalized`, the user has already provided consent. You can now [forward consent to the Google Mobile Ads SDK](#forward-consent-to-the-google-mobile-ads-sdk).
+* If the user has an `ConsentStatus.Unknown` consent, see the Collect consent section below, which describes the use of utility methods to collect consent.
+
+## Collect consent
+
+Google's Consent SDK provides two ways to collect consent from a user:
+
+* Present a [Google-rendered consent form](#google-rendered-consent-form) to the user.
+* Request the list of ad technology providers and collect consent yourself with the [Publisher-managed consent collection](#publisher-managed-consent-collection) option.
+
+Remember to provide users with the option to [Change or revoke consent](#change-or-revoke-consent).
+
+### Google-rendered consent form
+
+<img height=500 src="https://developers.google.com/admob/images/ios_eu_consent_form.png" />
+
+The Google-rendered consent form is a full-screen configurable form that displays over your app content. You can configure the form to present the user with combinations of the following options:
+
+* Consent to view personalized ads
+* Consent to view non-personalized ads
+* Use a paid version of the app instead of viewing ads
+
+You should review the consent text carefully: what appears by default is a message that **might** be appropriate if you use Google to monetize your app; but we cannot provide legal advice on the consent text that is appropriate for you. To update consent text of the Google-rendered consent form, modify the `consentform.html` file located at Xamarin Bulld Download cache. By default, the file is located at:
+
+* **Windows:** `$(LocalAppData)\XamarinBuildDownloadCache\GCnsnt-$(Version)\googleads-consent-sdk-ios-$(Version)\PersonalizedAdConsent\PersonalizedAdConsent\PersonalizedAdConsent.bundle`
+* **Mac:** `$(HOME)\Library\Caches\XamarinBuildDownload\GCnsnt-$(Version)\googleads-consent-sdk-ios-$(Version)\PersonalizedAdConsent\PersonalizedAdConsent\PersonalizedAdConsent.bundle`
+
+> ![note_icon] _**Important:**_ _The Google-rendered consent form is not supported if any of your publisher IDs use the commonly used set of ad technology providers. Attempting to load the Google-rendered consent form will always fail in this case._
+>
+> _If your publisher IDs use a custom set of providers, and the custom set of ad technology providers exceeds 12, the form removes the personalized ads option. To collect personalized consent for more than 12 ad technology providers, you must use the [Publisher-managed consent collection](#publisher-managed-consent-collection) option._
+
+The Google rendered consent form is configured and displayed using the `ConsentForm` class. The following code demonstrates how to build a `ConsentForm` with all three form options:
+
+```csharp
+// TODO: Replace with your app's privacy policy url.
+var url = new NSUrl ("https://www.your.com/privacyurl");
+var form = new ConsentForm (url) {
+	ShouldOfferPersonalizedAds = true,
+	ShouldOfferNonPersonalizedAds = true,
+	ShouldOfferAdFree = true
+};
+```
+
+The properties of `ConsentForm` are described in further detail below:
+
+* `ShouldOfferPersonalizedAds`
+	* Indicates whether the consent form should show a personalized ad option. Defaults to YES.
+
+* `ShouldOfferNonPersonalizedAds`
+	* Indicates whether the consent form should show a non-personalized ad option. Defaults to YES.
+
+* `ShouldOfferAdFree`
+	* Indicates whether the consent form should show an ad-free app option. Defaults to NO.
+
+### Load consent form
+
+Once you have created and configured a `ConsentForm` object, load the consent form by invoking the `Load` method of `ConsentForm`, as shown below:
+
+```csharp
+form.Load (HandleLoadCompletionHandler);
+
+void HandleLoadCompletionHandler (NSError error)
+{
+	if (error != null) {
+		// Handle error.
+		return;
+	}
+
+	// Load successful.
+}
+
+// async/await version
+
+try {
+	await form.LoadAsync ();
+	// Load successful.
+} catch (NSErrorException ex) {
+	// Handle error.
+}
+```
+
+### Show consent form
+
+To present the user with the Google-rendered consent form, call `Present` on a loaded ConsentForm, as demonstrated below:
+
+```csharp
+form.Present (this, HandleDismissCompletion);
+
+void HandleDismissCompletion (NSError error, bool userPrefersAdFree)
+{
+	if (error == null) {
+		// Handle error.
+		return;
+	}
+
+	if (userPrefersAdFree) {
+		// User prefers to use a paid version of the app.
+	} else {
+		// Check the user's consent choice.
+		var status = ConsentInformation.SharedInstance.ConsentStatus;
+	}
+}
+
+// async/await version
+
+var dismissCompletionResult = await form.PresentAsync (this);
+
+if (dismissCompletionResult.Error == null) {
+	// Handle error.
+	return;
+}
+
+if (dismissCompletionResult.UserPrefersAdFree) {
+	// User prefers to use a paid version of the app.
+} else {
+	// Check the user's consent choice.
+	var status = ConsentInformation.SharedInstance.ConsentStatus;
+}
+```
+
+The call to `Present` requires two arguments:
+
+* A `UIViewController` to present from.
+* A block that accepts an `NSError` and a `bool` as input parameters. The `NSError` provides information if there was an error showing the consent form. The `userPrefersAdFree` `bool` has a value of `true` when the user chose to use a paid version of the app in lieu of viewing ads.
+
+After the user selects an option and closes the form, the Consent SDK saves the user's choice and calls the block. You can read the user's choice and [forward consent to the Google Mobile Ads SDK](#forward-consent-to-the-google-mobile-ads-sdk).
+
+### Publisher-managed consent collection
+
+If you choose to get consent yourself, you can use the `AdProviders` property of the `ConsentInformation` class to get the ad technology providers associated with the publisher IDs used in your app. Note that consent is required for the full list of ad technology providers configured for your publisher IDs.
+
+> ![note_icon] _**Note:**_ _Before you access the `AdProviders` property of `ConsentInformation`, you must wait for the successful update of user's consent status as described in the Update consent status section._
+
+```csharp
+var adProviders = ConsentInformation.SharedInstance.AdProviders;
+```
+
+You can then use the list of ad providers to obtain consent yourself.
+
+### Storing publisher managed consent
+
+Upon getting consent, record the `ConsentStatus` corresponding to the user's response using the `Status` property of the `ConsentInformation` class.
+
+```csharp
+ConsentInformation.SharedInstance.ConsentStatus = ConsentStatus.Personalized;
+```
+
+After reporting consent to the Consent SDK, you can [forward consent to the Google Mobile Ads SDK](#forward-consent-to-the-google-mobile-ads-sdk).
+
+### Change or revoke consent
+
+> ![note_icon] _**Key Point:**_ _It is important that the user is able to change or revoke the consent they have provided at any time._
+
+To allow users to update their consent, simply repeat the steps outlined in the [Collect consent](#collect-consent) section when the user chooses to update their consent status.
+
+### Users under the age of consent
+
+If a publisher is aware that the user is under the age of consent, all ad requests must set TFUA (Tag For Users under the Age of Consent in Europe). To include this tag on all ad requests made from your app, set the `TagForUnderAgeOfConsent` property to `true`. This setting takes effect for all future ad requests:
+
+```csharp
+ConsentInformation.SharedInstance.TagForUnderAgeOfConsent = true;
+```
+
+Once the TFUA setting is enabled, the Google rendered consent form will fail to load. All ad requests that include TFUA will be made ineligible for personalized advertising and remarketing. TFUA disables requests to third-party ad technology providers, such as ad measurement pixels and third-party ad servers.
+
+To remove TFUA from ad requests, set the `TagForUnderAgeOfConsent` property to `false`.
+
+## Testing
+
+The Consent SDK has different behaviors depending on the value of `ConsentInformation.SharedInstance.RequestLocationInEeaOrUnknown`. For example, the consent form fails to load if the user is not located in the EEA.
+
+To enable easier testing of your app both inside and outside the EEA, the Consent SDK supports debug options that you can set prior to calling any other methods in the Consent SDK.
+
+1. Grab your device's advertising ID. You can write the following code to log your advertising ID:
+	```csharp
+	using AdSupport;
+
+	Console.WriteLine ($"Advertising ID: {ASIdentifierManager.SharedManager.AdvertisingIdentifier.AsString ()}");
+	```
+
+	And then check the console to get it:
+
+	```
+	Advertising ID: 41E538F6-9C98-4EF2-B3EE-D7BD8CAF8339
+	```
+2. Whitelist your device to be a debug device using the advertising ID from the console:
+	```csharp
+	ConsentInformation.SharedInstance.DebugIdentifiers = new [] { "41E538F6-9C98-4EF2-B3EE-D7BD8CAF8339" };
+	```
+	
+	> ![warning_icon] _**Warning:**_ _We highly discourage directly setting debugIdentifiers to the current device's advertising ID. You don't want to run the risk of releasing your app with code in place that overwrites every user's geography._
+	
+	> ![note_icon] _**Note:**_ _Simulators are automatically added as debug devices and don't need to be whitelisted._
+3. Finally, set the debugGeography to your preferred geography for testing purposes
+	```csharp
+	// Geography appears as in EEA for debug devices.
+	ConsentInformation.SharedInstance.DebugGeography = DebugGeography.Eea;
+
+	// Geography appears as not in EEA for debug devices.
+	ConsentInformation.SharedInstance.DebugGeography = DebugGeography.NotEea;
+	```
+
+After completing these steps, calls to [update consent status](#update-consent-status) will take into account your debug geography.
+
+## Forward consent to the Google Mobile Ads SDK
+
+> ![note_icon] _**Note:**_ _The code in this section can be used with any version of the Google Mobile Ads SDK. It can also be used regardless of whether you used the Consent SDK to gather consent._
+
+The default behavior of the Google Mobile Ads SDK is to serve personalized ads. If a user has consented to receive only non-personalized ads, you can configure an GADRequest object with the following code to specify that only non-personalized ads should be requested:
+
+```csharp
+var data = new Dictionary<object, object> { { "npa", "1" } };
+
+var request = Request.GetDefaultRequest ();
+var extras = new Extras {
+	AdditionalParameters = NSDictionary.FromObjectsAndKeys (data.Values.ToArray (), data.Keys.ToArray (), data.Keys.Count)
+};
+request.RegisterAdNetworkExtras (extras);
+```
+
+> ![note_icon] _**Note:**_ _Google's [EU User Consent Policy][16] requires that you collect consent for the full list of ad technology providers configured for your publisher IDs before displaying personalized ads, even if you are using a third-party mediation solution to send ad request to Google._
+
+If non-personalized ads are requested, the ad request URL currently includes `&npa=1`. However, note that this is an internal implementation detail of the Google Mobile Ads SDK and is subject to change.
+
+## FAQ
+
+**How many ad technology providers does the Consent SDK support?**
+
+The Consent SDK does not impose a limit on the number of ad technology providers a publisher chooses to enable. However, the Google-rendered consent form supports a maximum of 12 ad technology providers. Publishers with more than 12 ad technology providers can create and manage their own consent form using the ad technology partners fetched from the Consent SDK.
+
+**Does the list of ad technology providers returned by the SDK automatically update if I change my selection in the AdMob UI?**
+
+Yes, if you make changes to the list of ad technology providers in the AdMob UI, the changes will propagate to Google’s ad servers in approximately one hour.
+
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/admob/ios/quick-start) to see original Firebase documentation._</sub>
 
 [1]: https://firebase.google.com/console/
@@ -1579,6 +2214,17 @@ RewardBasedVideoAd.SharedInstance.Closed += (sender, e) => {
 [6]: https://support.google.com/admob/answer/7187428
 [7]: https://support.google.com/dfp_premium/answer/6366881?visit_id=1-636620822163502235-512919786&rd=1
 [8]: https://developers.google.com/mobile-ads-sdk/docs/dfp/ios/targeting
+[9]: https://support.google.com/admob/answer/6373176
+[10]: https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/LocationAwarenessPG/CoreLocation/CoreLocation.html
+[11]: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/LocationAwarenessPG/CoreLocation/CoreLocation.html
+[12]: https://support.google.com/admob/answer/7666366
+[13]: https://support.google.com/admob/answer/7562142
+[14]: https://developers.google.com/admob/ios/reporting
+[15]: https://developer.apple.com/library/archive/documentation/Audio/Conceptual/AudioSessionProgrammingGuide/Introduction/Introduction.html
+[16]: https://www.google.com/about/company/user-consent-policy.html
+[17]: https://support.google.com/admob/answer/7676680
+[18]: https://developers.google.com/admob/ios/mediation/#choosing_your_mediation_networks
+[19]: https://support.google.com/admob/answer/2784578
 [note_icon]: https://cdn3.iconfinder.com/data/icons/UltimateGnome/22x22/apps/gnome-app-install-star.png
 [warning_icon]: https://cdn2.iconfinder.com/data/icons/freecns-cumulus/32/519791-101_Warning-20.png
 [deprecated_icon]: https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519643-144_Forbidden-20.png "Deprecated"
