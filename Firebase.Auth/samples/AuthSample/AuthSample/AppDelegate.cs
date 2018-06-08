@@ -1,20 +1,20 @@
-﻿using Foundation;
+﻿using System;
+
+using Foundation;
 using UIKit;
-using System;
-using Firebase.Core;
-using Google.SignIn;
+using UserNotifications;
+
 using Facebook.CoreKit;
 using Firebase.Auth;
-using CoreTelephony;
-using UserNotifications;
-using Firebase.CloudMessaging;
+using Firebase.Core;
+using Google.SignIn;
 
 namespace AuthSample
 {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the
 	// User Interface of the application, as well as listening (and optionally responding) to application events from iOS.
 	[Register ("AppDelegate")]
-	public class AppDelegate : UIApplicationDelegate, IUNUserNotificationCenterDelegate, IMessagingDelegate
+	public class AppDelegate : UIApplicationDelegate, IUNUserNotificationCenterDelegate
 	{
 		// class-level declarations
 

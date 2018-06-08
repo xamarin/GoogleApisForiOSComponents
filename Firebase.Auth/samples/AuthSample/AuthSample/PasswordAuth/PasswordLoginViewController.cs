@@ -54,7 +54,7 @@ namespace AuthSample
 			indicatorView.StartAnimating ();
 			View.EndEditing (true);
 
-			auth.SignIn (email, password, SignInOnCompletion);
+			auth.SignInWithPassword (email, password, SignInOnCompletion);
 		}
 
 		public void RegisterNewAccount ()
@@ -79,7 +79,7 @@ namespace AuthSample
 			auth.SendPasswordReset (email, SendPasswordResetOnCompletion);
 		}
 
-		void SignInOnCompletion (User user, NSError error)
+		void SignInOnCompletion (AuthDataResult authResult, NSError error)
 		{
 			indicatorView.StopAnimating ();
 

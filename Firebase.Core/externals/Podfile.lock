@@ -24,9 +24,9 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.4)
     - GoogleToolboxForMac/NSDictionary+URLArguments (= 2.1.4)
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.4)
-  - GTMSessionFetcher/Core (1.1.13)
-  - GTMSessionFetcher/Full (1.1.13):
-    - GTMSessionFetcher/Core (= 1.1.13)
+  - GTMSessionFetcher/Core (1.1.15)
+  - GTMSessionFetcher/Full (1.1.15):
+    - GTMSessionFetcher/Core (= 1.1.15)
   - leveldb-library (1.18.3)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -42,7 +42,7 @@ DEPENDENCIES:
   - GoogleToolboxForMac/NSDictionary+URLArguments (= 2.1.4)
   - GoogleToolboxForMac/StringEncoding (= 2.1.4)
   - GoogleToolboxForMac/URLBuilder (= 2.1.4)
-  - GTMSessionFetcher/Full (= 1.1.13)
+  - GTMSessionFetcher/Full (= 1.1.15)
   - leveldb-library (= 1.18.3)
   - nanopb (= 0.3.8)
   - Protobuf (= 3.5.0)
@@ -51,11 +51,11 @@ SPEC CHECKSUMS:
   Firebase: 4bd804448ab2596794698773d41520a0af101e65
   FirebaseCore: e46e4babb9de298fb2f736958edcc6da1dc60d73
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
-  GTMSessionFetcher: 5bb1eae636127de695590f50e7d248483eb891e6
+  GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
   leveldb-library: 10fb39c39e243db4af1828441162405bbcec1404
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
 
-PODFILE CHECKSUM: b01294c06ad81a806c5994bb523634ad679b629b
+PODFILE CHECKSUM: 1566edb490966ac9fe756b340d5c1cfdf0958f23
 
 COCOAPODS: 1.4.0
