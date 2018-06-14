@@ -484,7 +484,7 @@ namespace Google.MobileAds {
 		void Tag (bool forChildDirectedTreatment);
 
 		[Obsolete ("Please, use Tag method instead. This will be removed in future versions.")]
-		[Wrap ("TagForChildDirectedTreatment (childDirectedTreatment)")]
+		[Wrap ("Tag (childDirectedTreatment)")]
 		void TagForChildDirectedTreatment (bool childDirectedTreatment);
 
 		[NullAllowed]
