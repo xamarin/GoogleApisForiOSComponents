@@ -11,6 +11,8 @@ projects, also, update Podfile files if needed.
 
 In Google.SignIn binding project, you can find the .targets file of:
 * GoogleSignIn (4.1.2)
+
+and the Native Reference of:
 * GTMOAuth2 (1.1.6)
 
 In Firebase.Core binding project, you can find the Native Reference of:

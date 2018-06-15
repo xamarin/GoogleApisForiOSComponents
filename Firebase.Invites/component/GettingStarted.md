@@ -62,7 +62,7 @@ After you have configured your app, you must next enable your app to handle inco
 
 When a user selects an incoming app invite on their iOS device, if the user has not yet installed your app, they can choose to install your app from its iTunes App Store page. When the user opens your app for the first time, it's important for your app to provide a personalized onboarding experience to increase the likelihood they will become an engaged, long-term user of your app. To help you do this, the Invites SDK provides the deeplink and invitation ID associated with the app invite received by the user.
 
-> **_Note:_** _If the Invites SDK indicates a weak match for a deeplink, it means that the match between the deeplink and the receiving device may not be perfect. In this case your app should reveal no personal information from the deeplink._
+>  ![note_icon] **_Note:_** _If the Invites SDK indicates a weak match for a deeplink, it means that the match between the deeplink and the receiving device may not be perfect. In this case your app should reveal no personal information from the deeplink._
 
 ```csharp
 // Support for iOS 9 or later
@@ -88,6 +88,7 @@ public override bool OpenUrl (UIApplication application, NSUrl url, string sourc
 	}
 }
 ```
+
 ## Enable your users to send app invites
 
 Now that your app is ready to handle incoming invites correctly, it is time to enable your app to send invitations to the user's contacts.

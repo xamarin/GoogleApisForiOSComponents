@@ -1,4 +1,4 @@
-version: 2.0.2.2
+version: 3.0.0.0
 name: Firebase Invites for iOS
 id: firebaseiosinvites
 publisher: Xamarin Inc.
@@ -20,7 +20,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Firebase.iOS.Invites, Version=2.0.2.2
+  - Xamarin.Firebase.iOS.Invites, Version=3.0.0.0
 samples:
 - name: Invites Sample
   path: ../samples/InvitesSample/InvitesSample.sln
@@ -45,7 +45,6 @@ samples:
   - //xNS:Import[contains (@Project, 'Google.SignIn.targets')]
   - //xNS:Import[contains (@Project, 'Firebase.DynamicLinks.targets')]
   - //xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]
-  - //xNS:Import[contains (@Project, 'Firebase.Core.targets')]
   - //xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]
 local-nuget-repo: ../../tmp-nugets
 no_build: true
