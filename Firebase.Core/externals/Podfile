@@ -8,7 +8,7 @@ In Firebase.Core binding project, you can find the Native Reference of:
 * nanopb (0.3.8)
 * GTMSessionFetcher (1.1.15)
 * Protobuf (3.5.0)
-* leveldb-library (1.18.3)
+* leveldb-library (1.20.0)
 =end
 
 source 'https://github.com/CocoaPods/Specs.git'
@@ -27,5 +27,5 @@ target 'FirebaseCore' do
 	pod 'nanopb', '0.3.8'
 	pod 'GTMSessionFetcher/Full', '1.1.15'
 	pod 'Protobuf', '3.5.0'
-	pod 'leveldb-library', '1.18.3'
+	pod 'leveldb-library', '1.20.0'
 end

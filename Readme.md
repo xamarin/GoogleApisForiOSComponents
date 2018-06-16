@@ -13,7 +13,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.CloudMessaging][F.CloudMessaging.Name]               | [3.0.0.0][F.CloudMessaging.Package]        |
 | [Xamarin.Firebase.iOS.Core][F.Core.Name]                                   | [5.0.0.0][F.Core.Package]                  |
 | [Xamarin.Firebase.iOS.CrashReporting][F.CrashReporting.Name]               | [2.0.0.6][F.CrashReporting.Package]        |
-| [Xamarin.Firebase.iOS.Database][F.Database.Name]                           | [4.1.3.2][F.Database.Package]              |
+| [Xamarin.Firebase.iOS.Database][F.Database.Name]                           | [5.0.0.0][F.Database.Package]              |
 | [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                   | [3.0.0.0][F.DynamicLinks.Package]          |
 | [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                       | [3.0.0.0][F.InstanceID.Package]            |
 | [Xamarin.Firebase.iOS.Invites][F.Invites.Name]                             | [3.0.0.0][F.Invites.Package]               |
