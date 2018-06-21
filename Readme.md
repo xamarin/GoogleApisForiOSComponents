@@ -19,7 +19,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.Invites][F.Invites.Name]                             | [3.0.0.0][F.Invites.Package]               |
 | [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name] | [1.1.0.2][F.PerformanceMonitoring.Package] |
 | [Xamarin.Firebase.iOS.RemoteConfig][F.RemoteConfig.Name]                   | [2.0.3.3][F.RemoteConfig.Package]          |
-| [Xamarin.Firebase.iOS.Storage][F.Storage.Name]                             | [2.1.1.2][F.Storage.Package]               |
+| [Xamarin.Firebase.iOS.Storage][F.Storage.Name]                             | [3.0.0.0][F.Storage.Package]               |
 | [Xamarin.Google.iOS.Analytics][G.Analytics.Name]                           | [3.17.0.3][G.Analytics.Package]            |
 | [Xamarin.Google.iOS.AppIndexing][G.AppIndexing.Name]                       | [2.0.3.5][G.AppIndexing.Package]           |
 | [Xamarin.Google.iOS.Cast][G.Cast.Name]                                     | [4.1.0.1][G.Cast.Package]                  |
