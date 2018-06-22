@@ -9,7 +9,7 @@ namespace Google.Cast
 {
 	static class Helper
 	{
-		public static nuint [] GetNUint (NSArray nsArray)
+		public static nuint [] GetNUintArray (NSArray nsArray)
 		{
 			var items = new nuint [nsArray.Count];
 
@@ -100,7 +100,7 @@ namespace Google.Cast
 				nuint [] activeTracksIds = null;
 
 				if (activeTracksIdsArray != null)
-					activeTracksIds = Helper.GetNUint (activeTracksIdsArray);
+					activeTracksIds = Helper.GetNUintArray (activeTracksIdsArray);
 
 				return activeTracksIds;
 			}
@@ -119,7 +119,7 @@ namespace Google.Cast
 				nuint [] activeTracksIds = null;
 
 				if (activeTracksIdsArray != null)
-					activeTracksIds = Helper.GetNUint (activeTracksIdsArray);
+					activeTracksIds = Helper.GetNUintArray (activeTracksIdsArray);
 
 				return activeTracksIds;
 			}
@@ -154,7 +154,7 @@ namespace Google.Cast
 				nuint [] activeTracksIds = null;
 
 				if (activeTracksIdsArray != null)
-					activeTracksIds = Helper.GetNUint (activeTracksIdsArray);
+					activeTracksIds = Helper.GetNUintArray (activeTracksIdsArray);
 
 				return activeTracksIds;
 			}
@@ -173,7 +173,7 @@ namespace Google.Cast
 				nuint [] activeTracksIds = null;
 
 				if (activeTracksIdsArray != null)
-					activeTracksIds = Helper.GetNUint (activeTracksIdsArray);
+					activeTracksIds = Helper.GetNUintArray (activeTracksIdsArray);
 
 				return activeTracksIds;
 			}
@@ -220,6 +220,16 @@ namespace Google.Cast
 			return _SetActiveTrackIds (activeTrackIdsArray);
 		}
 
+		public Request QueueFetchItems (nuint [] queueItemIds)
+		{
+			if (queueItemIds == null)
+				throw new ArgumentNullException (nameof (queueItemIds));
+
+			NSArray queueItemIdsArray = NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), queueItemIds);
+
+			return _QueueFetchItems (queueItemIdsArray);
+		}
+
 		public Request QueueRemoveItems (nuint [] itemIds)
 		{
 			if (itemIds == null)
@@ -258,6 +268,49 @@ namespace Google.Cast
 			NSArray queueItemIdsArray = NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), queueItemIds);
 
 			return _QueueReorderItems (queueItemIdsArray, beforeItemId, customData);
+		}
+	}
+
+	public static partial class RemoteMediaClient_Protected
+	{
+		public static void NotifyDidReceiveQueueItemIds (this RemoteMediaClient instance, nuint [] itemIds)
+		{
+			if (itemIds == null)
+				throw new ArgumentNullException (nameof (itemIds));
+
+			NSArray itemIdsArray = NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), itemIds);
+
+			_NotifyDidReceiveQueueItemIds (instance, itemIdsArray);
+		}
+
+		public static void NotifyDidInsertQueueItems (this RemoteMediaClient instance, nuint [] itemIds, nuint beforeItemId)
+		{
+			if (itemIds == null)
+				throw new ArgumentNullException (nameof (itemIds));
+
+			NSArray itemIdsArray = NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), itemIds);
+
+			_NotifyDidInsertQueueItems (instance, itemIdsArray, beforeItemId);
+		}
+
+		public static void NotifyDidUpdateQueueItems (this RemoteMediaClient instance, nuint [] itemIds)
+		{
+			if (itemIds == null)
+				throw new ArgumentNullException (nameof (itemIds));
+
+			NSArray itemIdsArray = NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), itemIds);
+
+			_NotifyDidUpdateQueueItems (instance, itemIdsArray);
+		}
+
+		public static void NotifyDidRemoveQueueItems (this RemoteMediaClient instance, nuint [] itemIds)
+		{
+			if (itemIds == null)
+				throw new ArgumentNullException (nameof (itemIds));
+
+			NSArray itemIdsArray = NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), itemIds);
+
+			_NotifyDidRemoveQueueItems (instance, itemIdsArray);
 		}
 	}
 
@@ -404,7 +457,7 @@ namespace Google.Cast
 				nuint [] selectedTrackIds = null;
 
 				if (selectedTrackIdsArray != null)
-					selectedTrackIds = Helper.GetNUint (selectedTrackIdsArray);
+					selectedTrackIds = Helper.GetNUintArray (selectedTrackIdsArray);
 
 				return selectedTrackIds;
 			}

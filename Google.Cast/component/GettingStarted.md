@@ -1,4 +1,44 @@
-# Integrate Cast v3 into your iOS App
+# Table of Content
+
+- [Table of Content](#table-of-content)
+- [Integrate CAF Sender into your iOS App](#integrate-caf-sender-into-your-ios-app)
+	- [App flow](#app-flow)
+	- [Call methods from main thread](#call-methods-from-main-thread)
+	- [Initialize the Cast Context](#initialize-the-cast-context)
+	- [The Cast UX Widgets](#the-cast-ux-widgets)
+	- [Add a Cast Button](#add-a-cast-button)
+	- [Configure device discovery](#configure-device-discovery)
+	- [How Session Management Works](#how-session-management-works)
+	- [Automatic Reconnection](#automatic-reconnection)
+	- [How Media Control Works](#how-media-control-works)
+	- [Set Media Metadata](#set-media-metadata)
+	- [Load media](#load-media)
+		- [4K Video Format](#4k-video-format)
+	- [Add Mini Controllers](#add-mini-controllers)
+	- [Add Expanded Controller](#add-expanded-controller)
+	- [Handle Errors](#handle-errors)
+	- [Logging](#logging)
+- [Add Advanced CAF Sender Features to your iOS App](#add-advanced-caf-sender-features-to-your-ios-app)
+	- [Style the Widgets](#style-the-widgets)
+		- [Customize the Widgets](#customize-the-widgets)
+		- [Choose Controller Buttons](#choose-controller-buttons)
+	- [How Volume Control Works](#how-volume-control-works)
+	- [Using Media Tracks](#using-media-tracks)
+		- [Styling Text Tracks](#styling-text-tracks)
+		- [Receive Status Updates](#receive-status-updates)
+		- [Satisfy CORS Requirements](#satisfy-cors-requirements)
+	- [Add a Custom Channel](#add-a-custom-channel)
+	- [Use Queueing](#use-queueing)
+		- [Create and Load Media Queue Items](#create-and-load-media-queue-items)
+		- [Receive Media Queue Status Update](#receive-media-queue-status-update)
+		- [Edit the Queue](#edit-the-queue)
+	- [Supporting Autoplay](#supporting-autoplay)
+	- [Override Image Selection and Caching](#override-image-selection-and-caching)
+- [Apply Custom Styles to Your iOS App](#apply-custom-styles-to-your-ios-app)
+	- [Applying a style to a UI element of a widget](#applying-a-style-to-a-ui-element-of-a-widget)
+	- [Table of Views and Styles](#table-of-views-and-styles)
+
+# Integrate CAF Sender into your iOS App
 
 The mobile device or laptop is the sender which controls the playback, and the Google Cast device is the receiver which displays the content on the TV.
 
@@ -18,6 +58,12 @@ The following steps describe the typical high-level execution flow for a sender 
 * The framework uses the communication channel to load and control media playback on the receiver.
 * The framework synchronizes the media playback state between sender and receiver: when the user makes sender UI actions, the framework passes those media control requests to the receiver, and when the receiver sends media status updates, the framework updates the state of the sender UI.
 * When the user clicks on the Cast button to disconnect from the Cast device, the framework will disconnect the sender app from the receiver.
+
+To troubleshoot your sender, you need to enable [logging](#logging).
+
+## Call methods from main thread
+
+All SDK methods must be called from the main thread.
 
 ## Initialize the Cast Context
 
@@ -40,7 +86,8 @@ public override bool FinishedLaunching (UIApplication application, NSDictionary 
 {
 
 	// Contains options that affect the behavior of the framework.
-	var options = new CastOptions (ReceiverApplicationId);
+	var discoveryCreiteria = new DiscoveryCriteria (ReceiverApplicationId);
+	var options = new CastOptions (discoveryCreiteria);
 
 	// CastContext coordinates all of the framework's activities.
 	CastContext.SetSharedInstance (options);
@@ -342,7 +389,9 @@ void LogMessage (string message, string function)
 
 > ***Note:*** *Don't forget to implement the `ILoggerDelegate` interface to your class.*
 
-# Add Advanced Cast v3 Features to your iOS App
+---
+
+# Add Advanced CAF Sender Features to your iOS App
 
 ## Style the Widgets
 
@@ -585,6 +634,63 @@ See [Autoplay & Queueing APIs][12].
 Various components of the framework (namely the Cast dialog, the mini controller, the expanded controller, and the `UIMediaController` if so configured) will display artwork for the currently casting media. The URLs to the image artwork are typically included in the `MediaMetadata` for the media, but the sender app may have an alternate source for the URLs. The `IUIImagePicker` interface defines a means for selecting an appropriate image for a given usage and desired size. It has a single method, `GetImage`, which takes a `UIImageHints` object and a `MediaMetadata` object as parameters, and returns a `Image` object as a result. The framework provides a default implementation of `IUIImagePicker` which always selects the first image in the list of images in the `MediaMetadata` object, but the app can provide an alternate implementation by setting the ImagePicker property of the `CastContext` singleton.
 
 The `IUIImageCache` interface defines a means of caching images that are downloaded by the framework via HTTPS. The framework provides a default implementation of `UIImageCache` which stores downloaded image files in the app's cache directory, but the app can provide an alternate implementation by setting the ImageCache property of the CastContext singleton.
+
+---
+
+# Apply Custom Styles to Your iOS App
+
+The Cast framework enables you to style the font, color, and images of UI elements of the default widgets in your Cast application, giving the views a look and feel that matches the rest of your app. This styling mechanism is available only with Cast iOS SDK v3 or later.
+
+The following section shows you how to apply custom styles to any of the Cast widgets or group of widgets.
+
+## Applying a style to a UI element of a widget
+
+This procedure uses the example of setting the body text color of your app's mini controller to red.
+
+1. Look in the [table of views and styles](#table-of-views-and-styles) to find the view name of the widget or group of widgets that you want to style. Group names are marked with ▼.
+
+	Example: `MiniController` widget view
+
+2. Find the names of the attributes you want to change from the list of properties in the corresponding style class listed in this table.
+
+	Example: `BodyTextColor` is a property of the `UIStyleAttributesMiniController` class.
+
+3. Write the code.
+
+	Example:
+
+	```csharp
+	var castStyle = UIStyle.SharedInstance;
+	castStyle.CastViews.MediaControl.MiniController.BodyTextColor = UIColor.Red;
+	// Assign colors, fonts and images to other properties, as needed
+	castStyle.ApplyStyle ();
+	```
+
+	Descriptions of each line of code:
+
+	1. Get the shared instance of `Google.Cast.UIStyle`.
+	2. Create a color using the Apple class `UIColor`, then assign the color to the `BodyTextColor` property of the `MiniController`.
+	3. Similarly, assign other colors, fonts (using `UIFont`), and images (using `UIImage`) to properties of widgets and groups.
+	4. Use the `ApplyStyle` method to refresh all currently visible views with their assigned styles.
+
+Use this pattern for applying any style to any UI element of any widget.
+
+## Table of Views and Styles
+
+This table shows the seven widget views and three groups (marked with ▼) that you can apply styles to.
+
+| View name               | Type   | Style class                             |
+|-------------------------|--------|-----------------------------------------|
+| ▼ CastViews             | Group  | UIStyleAttributesCastViews              |
+| ▼ DeviceControl         | Group  | UIStyleAttributesDeviceControl          |
+| DeviceChooser           | Widget | UIStyleAttributesDeviceChooser          |
+| ConnectionController    | Widget | UIStyleAttributesConnectionController   |
+| GuestModePairingDialog  | Widget | UIStyleAttributesGuestModePairingDialog |
+| ▼ MediaControl          | Group  | UIStyleAttributesMediaControl           |
+| MiniController          | Widget | UIStyleAttributesMiniController         |
+| ExpandedController      | Widget | UIStyleAttributesExpandedController     |
+| TrackSelector           | Widget | UIStyleAttributesTrackSelector          |
+| Instructions            | Widget | UIStyleAttributesInstructions           |
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://developers.google.com/cast/docs/ios_sender_integrate) to see original Google documentation._</sub>
 

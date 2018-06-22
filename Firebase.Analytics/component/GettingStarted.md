@@ -8,20 +8,20 @@ Firebase Analytics collects usage and behavior data for your app. The SDK logs t
 ## Table of Content
 
 - [Get Started with Firebase Analytics for iOS](#get-started-with-firebase-analytics-for-ios)
-	- [Table of Content](#table-of-content)
-	- [Add Firebase to your app](#add-firebase-to-your-app)
-	- [Configure Analytics in your app](#configure-analytics-in-your-app)
+  - [Table of Content](#table-of-content)
+  - [Add Firebase to your app](#add-firebase-to-your-app)
+  - [Configure Analytics in your app](#configure-analytics-in-your-app)
 - [Log events](#log-events)
-		- [View events in the dashboard](#view-events-in-the-dashboard)
+    - [View events in the dashboard](#view-events-in-the-dashboard)
 - [Set User Properties](#set-user-properties)
 - [Use Analytics in a WebView on iOS](#use-analytics-in-a-webview-on-ios)
-		- [Implement Javascript handler](#implement-javascript-handler)
-		- [Implement native interface](#implement-native-interface)
+    - [Implement Javascript handler](#implement-javascript-handler)
+    - [Implement native interface](#implement-native-interface)
 - [Debugging Events](#debugging-events)
-		- [Enabling debug mode](#enabling-debug-mode)
+    - [Enabling debug mode](#enabling-debug-mode)
 - [Track Screenviews](#track-screenviews)
-		- [Automatically track screens](#automatically-track-screens)
-		- [Manually track screens](#manually-track-screens)
+    - [Automatically track screens](#automatically-track-screens)
+    - [Manually track screens](#manually-track-screens)
 - [Extend Google Analytics for Firebase with Cloud Functions](#extend-google-analytics-for-firebase-with-cloud-functions)
 - [Known issues](#known-issues)
 
@@ -63,7 +63,7 @@ It is very easy to log an event, the following example demonstrates how to log a
 ```csharp
 NSString [] keys = { ParameterNamesConstants.ContentType, ParameterNamesConstants.ItemId };
 NSObject [] values = { new NSString ("cont"), new NSString ("1") };
-var parameters = NSDictionary<NSString, NSObject>.FromObjectsAndKeys (keys, values, keys.Length);
+var parameters = NSDictionary<NSString, NSObject>.FromObjectsAndKeys (values, keys, keys.Length);
 Analytics.LogEvent (EventNamesConstants.SelectContent, parameters);
 ```
 
@@ -72,7 +72,7 @@ Or without constants values:
 ```csharp
 NSString [] keys = { new NSString ("Name") };
 NSObject [] values = { new NSString ("Image name") };
-var parameters = NSDictionary<NSString, NSObject>.FromObjectsAndKeys (keys, values, keys.Length);
+var parameters = NSDictionary<NSString, NSObject>.FromObjectsAndKeys (values, keys, keys.Length);
 Analytics.LogEvent ("share_image", parameters);
 ```
 
@@ -278,8 +278,14 @@ To learn more about this, please, read the following [documentation][14].
 
 # Known issues
 
-* App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][8])
-* Passing `-FIRDebugEnabled` to Extra mlaunch Arguments doesn't enable debug console. (Bug [#43899][9])
+* Error `Native linking failed, duplicate symbol '_main'` appears when you try to build for **iPhoneSimulator**. A workaround for this is to change the behavior of the **Registrar**:
+	1. Open your project settings
+	2. Go to **Build** tab
+	3. Select **iOS Build** option
+	4. Type `--registrar:static` in **Additional mtouch arguments** textbox
+	5. Click on **Ok**
+
+	Don't forget to add this in **Release** and **Debug** configuration of **iPhoneSimulator** platform.
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/analytics/ios/start) to see original Firebase documentation._</sub>
 
@@ -290,8 +296,6 @@ To learn more about this, please, read the following [documentation][14].
 [5]: https://support.google.com/firebase/answer/6318765
 [6]: https://support.google.com/firebase/answer/6317486
 [7]: https://support.google.com/firebase/answer/6317519?hl=en&ref_topic=6317489#create-property
-[8]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689
-[9]: https://bugzilla.xamarin.com/show_bug.cgi?id=43899
 [10]: https://support.google.com/firebase/answer/6317522?hl=en&ref_topic=6317489
 [11]: https://support.google.com/firebase/answer/6317517?hl=en&ref_topic=6317489
 [12]: https://firebase.google.com/docs/analytics/debugview

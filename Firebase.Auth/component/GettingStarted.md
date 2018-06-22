@@ -41,11 +41,11 @@ You can use Firebase Authentication to allow users to sign in to your app using 
 		- [Set up reCAPTCHA verification](#set-up-recaptcha-verification)
 	- [3. Send a verification code to the user's phone](#3-send-a-verification-code-to-the-users-phone)
 	- [4. Sign in the user with the verification code](#4-sign-in-the-user-with-the-verification-code)
-	- [Appendix: Using phone sign-in without swizzling](#appendix-using-phone-sign-in-without-swizzling)
+	- [Appendix: Using phone sign-in without swizzling](#appendix--using-phone-sign-in-without-swizzling)
 - [Authenticate with Firebase Using a Custom Authentication System](#authenticate-with-firebase-using-a-custom-authentication-system)
 - [Authenticate with Firebase Anonymously](#authenticate-with-firebase-anonymously)
 - [Passing State in Email Actions](#passing-state-in-email-actions)
-	- [Passing state/continue URL in email actions](#passing-statecontinue-url-in-email-actions)
+	- [Passing state/continue URL in email actions](#passing-state-continue-url-in-email-actions)
 	- [Configuring Firebase Dynamic Links](#configuring-firebase-dynamic-links)
 	- [Handling email actions in a web application](#handling-email-actions-in-a-web-application)
 	- [Handling email actions in a mobile application](#handling-email-actions-in-a-mobile-application)
@@ -1726,7 +1726,14 @@ To learn more about this, please, read the following [documentation][20].
 
 # Known issues
 
-* App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][13])
+* Error `Native linking failed, duplicate symbol '_main'` appears when you try to build for **iPhoneSimulator**. A workaround for this is to change the behavior of the **Registrar**:
+	1. Open your project settings
+	2. Go to **Build** tab
+	3. Select **iOS Build** option
+	4. Type `--registrar:static` in **Additional mtouch arguments** textbox
+	5. Click on **Ok**
+
+	Don't forget to add this in **Release** and **Debug** configuration of **iPhoneSimulator** platform.
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/auth/ios/manage-users) to see original Firebase documentation._</sub>
 
@@ -1742,7 +1749,6 @@ To learn more about this, please, read the following [documentation][20].
 [10]: https://github.com/settings/applications/new
 [11]: https://github.com/settings/developers
 [12]: https://support.google.com/firebase/answer/7000714
-[13]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689
 [14]: https://firebase.google.com/pricing/
 [15]: https://firebase.google.com/docs/cloud-messaging/ios/certs
 [16]: https://developer.apple.com/membercenter/index.action

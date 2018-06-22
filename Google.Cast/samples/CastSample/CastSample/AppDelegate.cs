@@ -32,7 +32,8 @@ namespace CastSample
 			UIApplication.SharedApplication.StatusBarStyle = UIStatusBarStyle.LightContent;
 
 			// Contains options that affect the behavior of the framework.
-			var options = new CastOptions (ReceiverApplicationId);
+			var discoveryCreiteria = new DiscoveryCriteria (ReceiverApplicationId);
+			var options = new CastOptions (discoveryCreiteria);
 
 			// CastContext coordinates all of the framework's activities.
 			CastContext.SetSharedInstance (options);
@@ -47,9 +48,6 @@ namespace CastSample
 			var navigationController = appStoryboard.InstantiateInitialViewController () as UINavigationController;
 			var castContainer = CastContext.SharedInstance.CreateCastContainerController (navigationController);
 			castContainer.MiniMediaControlsItemEnabled = true;
-
-			// Used to highlight the Cast button when it is first shown to users.
-			CastContext.SharedInstance.PresentCastInstructionsViewControllerOnce ();
 
 			// Use Default Expanded Media Controls
 			CastContext.SharedInstance.UseDefaultExpandedMediaControls = true;

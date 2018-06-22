@@ -159,7 +159,14 @@ public void InviteFinished (string [] invitationIds, NSError error)
 
 # Known issues
 
-* App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][7])
+* Error `Native linking failed, duplicate symbol '_main'` appears when you try to build for **iPhoneSimulator**. A workaround for this is to change the behavior of the **Registrar**:
+	1. Open your project settings
+	2. Go to **Build** tab
+	3. Select **iOS Build** option
+	4. Type `--registrar:static` in **Additional mtouch arguments** textbox
+	5. Click on **Ok**
+
+	Don't forget to add this in **Release** and **Debug** configuration of **iPhoneSimulator** platform.
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/invites/ios) to see original Firebase documentation._</sub>
 
@@ -169,6 +176,5 @@ public void InviteFinished (string [] invitationIds, NSError error)
 [4]: https://components.xamarin.com/gettingstarted/googleiossignin
 [5]: https://firebase.google.com/docs/invites/best-practices
 [6]: https://firebase.google.com/docs/invites/ios#customize-the-invitation
-[7]: https://bugzilla.xamarin.com/show_bug.cgi?id=43689
 [note_icon]: https://cdn3.iconfinder.com/data/icons/UltimateGnome/22x22/apps/gnome-app-install-star.png
 [warning_icon]: https://cdn2.iconfinder.com/data/icons/freecns-cumulus/32/519791-101_Warning-20.png

@@ -1,4 +1,4 @@
-version: 6.0.0.2
+version: 6.0.0.3
 name: Google Tag Manager for iOS
 id: googleiostagmanager
 publisher: Xamarin Inc.
@@ -19,7 +19,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Google.iOS.TagManager, Version=6.0.0.2
+  - Xamarin.Google.iOS.TagManager, Version=6.0.0.3
 samples:
 - name: Tag Manager Sample
   path: ../samples/TagManagerSample/TagManagerSample.sln

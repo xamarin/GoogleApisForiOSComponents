@@ -62,10 +62,5 @@
   <ItemGroup>
     <None Include="Firebase.Database.targets" />
   </ItemGroup>
-  <ItemGroup>
-    <ObjcBindingNativeLibrary Include="..\..\externals\leveldb-library">
-      <Link>leveldb-library</Link>
-    </ObjcBindingNativeLibrary>
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>
