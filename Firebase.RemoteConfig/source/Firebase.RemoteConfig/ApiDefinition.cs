@@ -100,6 +100,10 @@ namespace Firebase.RemoteConfig
 		[Export ("activateFetched")]
 		bool ActivateFetched ();
 
+        // -(FIRRemoteConfigValue * _Nonnull)objectForKeyedSubscript:(NSString * _Nonnull)key;
+        [Export("objectForKeyedSubscript:")]
+        RemoteConfigValue ObjectForKeyedSubscript(string key);
+
 		// -(FIRRemoteConfigValue * _Nonnull)configValueForKey:(NSString * _Nullable)key;
 		[Export ("configValueForKey:")]
 		RemoteConfigValue GetConfigValue ([NullAllowed] string key);
