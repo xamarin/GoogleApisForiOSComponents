@@ -265,8 +265,8 @@ namespace CloudFirestoreSample
 		async Task<bool> SignIn ()
 		{
 			try {
-				User user = await auth.SignInAnonymouslyAsync ();
-				AppDelegate.UserUid = user.Uid;
+				AuthDataResult authData = await auth.SignInAnonymouslyAsync ();
+				AppDelegate.UserUid = authData.User.Uid;
 				return true;
 
 			} catch (NSErrorException ex) {

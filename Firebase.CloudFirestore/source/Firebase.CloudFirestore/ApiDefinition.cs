@@ -62,7 +62,7 @@ namespace Firebase.CloudFirestore
 
 		// @property (readonly, nonatomic, strong) FIRDocumentSnapshot * _Nonnull document;
 		[Export ("document", ArgumentSemantic.Strong)]
-		DocumentSnapshot Document { get; }
+		QueryDocumentSnapshot Document { get; }
 
 		// @property (readonly, nonatomic) NSUInteger oldIndex;
 		[Export ("oldIndex")]
@@ -71,24 +71,6 @@ namespace Firebase.CloudFirestore
 		// @property (readonly, nonatomic) NSUInteger newIndex;
 		[Export ("newIndex")]
 		nuint NewIndex { get; }
-	}
-
-	// @interface FIRDocumentListenOptions : NSObject
-	[BaseType (typeof (NSObject), Name = "FIRDocumentListenOptions")]
-	interface DocumentListenOptions
-	{
-		// +(instancetype _Nonnull)options;
-		[Static]
-		[Export ("options")]
-		DocumentListenOptions Create ();
-
-		// @property (readonly, assign, nonatomic) BOOL includeMetadataChanges;
-		[Export ("includeMetadataChanges")]
-		bool IncludeMetadataChanges { get; }
-
-		// -(instancetype _Nonnull)includeMetadataChanges:(BOOL)includeMetadataChanges;
-		[Export ("includeMetadataChanges:")]
-		DocumentListenOptions SetIncludeMetadataChanges (bool includeMetadataChanges);
 	}
 
 	// typedef void (^FIRDocumentSnapshotBlock)(FIRDocumentSnapshot * _Nullable, NSError * _Nullable);
@@ -129,12 +111,12 @@ namespace Firebase.CloudFirestore
 		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count))")]
 		void SetData (Dictionary<object, object> documentData);
 
-		// -(void)setData:(NSDictionary<NSString *,id> * _Nonnull)documentData options:(FIRSetOptions * _Nonnull)options;
-		[Export ("setData:options:")]
-		void SetData (NSDictionary<NSString, NSObject> documentData, SetOptions options);
+		// -(void)setData:(NSDictionary<NSString *,id> * _Nonnull)documentData merge:(BOOL)merge;
+		[Export ("setData:merge:")]
+		void SetData (NSDictionary<NSString, NSObject> documentData, bool merge);
 
-		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), options)")]
-		void SetData (Dictionary<object, object> documentData, SetOptions options);
+		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), merge)")]
+		void SetData (Dictionary<object, object> documentData, bool merge);
 
 		// -(void)setData:(NSDictionary<NSString *,id> * _Nonnull)documentData completion:(void (^ _Nullable)(NSError * _Nullable))completion;
 		[Async]
@@ -145,14 +127,14 @@ namespace Firebase.CloudFirestore
 		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), completion)")]
 		void SetData (Dictionary<object, object> documentData, [NullAllowed] DocumentActionCompletionHandler completion);
 
-		// -(void)setData:(NSDictionary<NSString *,id> * _Nonnull)documentData options:(FIRSetOptions * _Nonnull)options completion:(void (^ _Nullable)(NSError * _Nullable))completion;
+		// -(void)setData:(NSDictionary<NSString *,id> * _Nonnull)documentData merge:(BOOL)merge completion:(void (^ _Nullable)(NSError * _Nullable))completion;
 		[Async]
-		[Export ("setData:options:completion:")]
-		void SetData (NSDictionary<NSString, NSObject> documentData, SetOptions options, [NullAllowed] DocumentActionCompletionHandler completion);
+		[Export ("setData:merge:completion:")]
+		void SetData (NSDictionary<NSString, NSObject> documentData, bool merge, [NullAllowed] DocumentActionCompletionHandler completion);
 
 		[Async]
-		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), options, completion)")]
-		void SetData (Dictionary<object, object> documentData, SetOptions options, [NullAllowed] DocumentActionCompletionHandler completion);
+		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), merge, completion)")]
+		void SetData (Dictionary<object, object> documentData, bool merge, [NullAllowed] DocumentActionCompletionHandler completion);
 
 		// -(void)updateData:(NSDictionary<id,id> * _Nonnull)fields;
 		[Export ("updateData:")]
@@ -184,13 +166,17 @@ namespace Firebase.CloudFirestore
 		[Export ("getDocumentWithCompletion:")]
 		void GetDocument (DocumentSnapshotHandler completion);
 
+		// -(void)getDocumentWithSource:(FIRFirestoreSource)source completion:(FIRDocumentSnapshotBlock _Nonnull)completion;
+		[Export ("getDocumentWithSource:completion:")]
+		void GetDocument (FirestoreSource source, DocumentSnapshotHandler completion);
+
 		// -(id<FIRListenerRegistration> _Nonnull)addSnapshotListener:(FIRDocumentSnapshotBlock _Nonnull)listener;
 		[Export ("addSnapshotListener:")]
 		IListenerRegistration AddSnapshotListener (DocumentSnapshotHandler listener);
 
-		// -(id<FIRListenerRegistration> _Nonnull)addSnapshotListenerWithOptions:(FIRDocumentListenOptions * _Nullable)options listener:(FIRDocumentSnapshotBlock _Nonnull)listener;
-		[Export ("addSnapshotListenerWithOptions:listener:")]
-		IListenerRegistration AddSnapshotListener ([NullAllowed] DocumentListenOptions options, DocumentSnapshotHandler listener);
+		// -(id<FIRListenerRegistration> _Nonnull)addSnapshotListenerWithIncludeMetadataChanges:(BOOL)includeMetadataChanges listener:(FIRDocumentSnapshotBlock _Nonnull)listener;
+		[Export ("addSnapshotListenerWithIncludeMetadataChanges:listener:")]
+		IListenerRegistration AddSnapshotListener (bool includeMetadataChanges, DocumentSnapshotHandler listener);
 	}
 
 	// @interface FIRDocumentSnapshot : NSObject
@@ -218,10 +204,40 @@ namespace Firebase.CloudFirestore
 		[Export ("data")]
 		NSDictionary<NSString, NSObject> Data { get; }
 
+		// -(NSDictionary<NSString *,id> * _Nullable)dataWithServerTimestampBehavior:(FIRServerTimestampBehavior)serverTimestampBehavior;
+		[return: NullAllowed]
+		[Export ("dataWithServerTimestampBehavior:")]
+		NSDictionary<NSString, NSObject> GetData (ServerTimestampBehavior serverTimestampBehavior);
+
+		// -(id _Nullable)valueForField:(id _Nonnull)field;
+		[return: NullAllowed]
+		[Export ("valueForField:")]
+		NSObject GetValue (NSObject field);
+
+		// -(id _Nullable)valueForField:(id _Nonnull)field serverTimestampBehavior:(FIRServerTimestampBehavior)serverTimestampBehavior;
+		[return: NullAllowed]
+		[Export ("valueForField:serverTimestampBehavior:")]
+		NSObject GetValue (NSObject field, ServerTimestampBehavior serverTimestampBehavior);
+
 		// -(id _Nullable)objectForKeyedSubscript:(id _Nonnull)key;
 		[return: NullAllowed]
 		[Export ("objectForKeyedSubscript:")]
 		NSObject GetObject (NSObject key);
+	}
+
+	// @interface FIRQueryDocumentSnapshot : FIRDocumentSnapshot
+	[DisableDefaultCtor]
+	[BaseType (typeof (DocumentSnapshot), Name = "FIRQueryDocumentSnapshot")]
+	interface QueryDocumentSnapshot {
+		// -(NSDictionary<NSString *,id> * _Nonnull)data;
+		[New]
+		[Export ("data")]
+		NSDictionary<NSString, NSObject> Data { get; }
+
+		// -(NSDictionary<NSString *,id> * _Nonnull)dataWithServerTimestampBehavior:(FIRServerTimestampBehavior)serverTimestampBehavior;
+		[New]
+		[Export ("dataWithServerTimestampBehavior:")]
+		NSDictionary<NSString, NSObject> GetData (ServerTimestampBehavior serverTimestampBehavior);
 	}
 
 	// @interface FIRFieldPath : NSObject <NSCopying>
@@ -307,6 +323,14 @@ namespace Firebase.CloudFirestore
 		[Static]
 		[Export ("enableLogging:")]
 		void EnableLogging (bool logging);
+
+		// -(void)enableNetworkWithCompletion:(void (^ _Nullable)(NSError * _Nullable))completion;
+		[Export ("enableNetworkWithCompletion:")]
+		void EnableNetwork ([NullAllowed] Action<NSError> completion);
+
+		// -(void)disableNetworkWithCompletion:(void (^ _Nullable)(NSError * _Nullable))completion;
+		[Export ("disableNetworkWithCompletion:")]
+		void DisableNetwork ([NullAllowed] Action<NSError> completion);
 	}
 
 	// @interface FIRFirestoreSettings : NSObject <NSCopying>
@@ -328,6 +352,10 @@ namespace Firebase.CloudFirestore
 		// @property (getter = isPersistenceEnabled, nonatomic) BOOL persistenceEnabled;
 		[Export ("persistenceEnabled")]
 		bool PersistenceEnabled { [Bind ("isPersistenceEnabled")] get; set; }
+
+		// @property (getter = areTimestampsInSnapshotsEnabled, nonatomic) BOOL timestampsInSnapshotsEnabled;
+		[Export ("timestampsInSnapshotsEnabled")]
+		bool TimestampsInSnapshotsEnabled { [Bind ("areTimestampsInSnapshotsEnabled")] get; set; }
 	}
 
 	// @interface FIRGeoPoint : NSObject <NSCopying>
@@ -361,32 +389,6 @@ namespace Firebase.CloudFirestore
 		void Remove ();
 	}
 
-	// @interface FIRQueryListenOptions : NSObject
-	[BaseType (typeof (NSObject), Name = "FIRQueryListenOptions")]
-	interface QueryListenOptions
-	{
-		// +(instancetype _Nonnull)options;
-		[Static]
-		[Export ("options")]
-		QueryListenOptions Create ();
-
-		// @property (readonly, assign, nonatomic) BOOL includeQueryMetadataChanges;
-		[Export ("includeQueryMetadataChanges")]
-		bool IncludeQueryMetadataChanges { get; }
-
-		// -(instancetype _Nonnull)includeQueryMetadataChanges:(BOOL)includeQueryMetadataChanges;
-		[Export ("includeQueryMetadataChanges:")]
-		QueryListenOptions SetIncludeQueryMetadataChanges (bool includeQueryMetadataChanges);
-
-		// @property (readonly, assign, nonatomic) BOOL includeDocumentMetadataChanges;
-		[Export ("includeDocumentMetadataChanges")]
-		bool IncludeDocumentMetadataChanges { get; }
-
-		// -(instancetype _Nonnull)includeDocumentMetadataChanges:(BOOL)includeDocumentMetadataChanges;
-		[Export ("includeDocumentMetadataChanges:")]
-		QueryListenOptions SetIncludeDocumentMetadataChanges (bool includeDocumentMetadataChanges);
-	}
-
 	// typedef void (^FIRQuerySnapshotBlock)(FIRQuerySnapshot * _Nullable, NSError * _Nullable);
 	delegate void QuerySnapshotHandler ([NullAllowed] QuerySnapshot snapshot, [NullAllowed] NSError error);
 
@@ -404,13 +406,17 @@ namespace Firebase.CloudFirestore
 		[Export ("getDocumentsWithCompletion:")]
 		void GetDocuments (QuerySnapshotHandler completion);
 
+		// -(void)getDocumentsWithSource:(FIRFirestoreSource)source completion:(FIRQuerySnapshotBlock _Nonnull)completion;
+		[Export ("getDocumentsWithSource:completion:")]
+		void GetDocuments (FirestoreSource source, QuerySnapshotHandler completion);
+
 		// -(id<FIRListenerRegistration> _Nonnull)addSnapshotListener:(FIRQuerySnapshotBlock _Nonnull)listener;
 		[Export ("addSnapshotListener:")]
 		IListenerRegistration AddSnapshotListener (QuerySnapshotHandler listener);
 
-		// -(id<FIRListenerRegistration> _Nonnull)addSnapshotListenerWithOptions:(FIRQueryListenOptions * _Nullable)options listener:(FIRQuerySnapshotBlock _Nonnull)listener;
-		[Export ("addSnapshotListenerWithOptions:listener:")]
-		IListenerRegistration AddSnapshotListener ([NullAllowed] QueryListenOptions options, QuerySnapshotHandler listener);
+		// -(id<FIRListenerRegistration> _Nonnull)addSnapshotListenerWithIncludeMetadataChanges:(BOOL)includeMetadataChanges listener:(FIRQuerySnapshotBlock _Nonnull)listener;
+		[Export ("addSnapshotListenerWithIncludeMetadataChanges:listener:")]
+		IListenerRegistration AddSnapshotListener (bool includeMetadataChanges, QuerySnapshotHandler listener);
 
 		// -(FIRQuery * _Nonnull)queryWhereField:(NSString * _Nonnull)field isEqualTo:(id _Nonnull)value;
 		[Export ("queryWhereField:isEqualTo:")]
@@ -481,6 +487,10 @@ namespace Firebase.CloudFirestore
 
 		[Wrap ("WhereGreaterThanOrEqualsTo (path, FromObject (value))")]
 		Query WhereGreaterThanOrEqualsTo (FieldPath path, object value);
+
+		// -(FIRQuery * _Nonnull)queryFilteredUsingPredicate:(NSPredicate * _Nonnull)predicate;
+		[Export ("queryFilteredUsingPredicate:")]
+		Query FilteredBy (NSPredicate predicate);
 
 		// -(FIRQuery * _Nonnull)queryOrderedByField:(NSString * _Nonnull)field;
 		[Export ("queryOrderedByField:")]
@@ -570,26 +580,15 @@ namespace Firebase.CloudFirestore
 
 		// @property (readonly, nonatomic, strong) NSArray<FIRDocumentSnapshot *> * _Nonnull documents;
 		[Export ("documents", ArgumentSemantic.Strong)]
-		DocumentSnapshot [] Documents { get; }
+		QueryDocumentSnapshot [] Documents { get; }
 
 		// @property (readonly, nonatomic, strong) NSArray<FIRDocumentChange *> * _Nonnull documentChanges;
 		[Export ("documentChanges", ArgumentSemantic.Strong)]
 		DocumentChange [] DocumentChanges { get; }
-	}
 
-	// @interface FIRSetOptions : NSObject
-	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FIRSetOptions")]
-	interface SetOptions
-	{
-		// +(instancetype _Nonnull)merge;
-		[Static]
-		[Export ("merge")]
-		SetOptions Merge { get; }
-
-		// @property (readonly, getter = isMerge, nonatomic) BOOL merge;
-		[Export ("isMerge")]
-		bool IsMerge { get; }
+		// -(NSArray<FIRDocumentChange *> * _Nonnull)documentChangesWithIncludeMetadataChanges:(BOOL)includeMetadataChanges;
+		[Export ("documentChangesWithIncludeMetadataChanges:")]
+		DocumentChange [] GetDocumentChanges (bool includeMetadataChanges);
 	}
 
 	// @interface FIRSnapshotMetadata : NSObject
@@ -606,6 +605,47 @@ namespace Firebase.CloudFirestore
 		bool IsFromCache { get; }
 	}
 
+	// @interface FIRTimestamp : NSObject <NSCopying>
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FIRTimestamp")]
+	interface Timestamp : INSCopying {
+		// -(instancetype _Nonnull)initWithSeconds:(int64_t)seconds nanoseconds:(int32_t)nanoseconds __attribute__((objc_designated_initializer));
+		[Export ("initWithSeconds:nanoseconds:")]
+		[DesignatedInitializer]
+		IntPtr Constructor (long seconds, int nanoseconds);
+
+		// +(instancetype _Nonnull)timestampWithSeconds:(int64_t)seconds nanoseconds:(int32_t)nanoseconds;
+		[Static]
+		[Export ("timestampWithSeconds:nanoseconds:")]
+		Timestamp Create (long seconds, int nanoseconds);
+
+		// +(instancetype _Nonnull)timestampWithDate:(NSDate * _Nonnull)date;
+		[Static]
+		[Export ("timestampWithDate:")]
+		Timestamp Create (NSDate date);
+
+		// +(instancetype _Nonnull)timestamp;
+		[Static]
+		[Export ("timestamp")]
+		Timestamp Create ();
+
+		// -(NSDate * _Nonnull)dateValue;
+		[Export ("dateValue")]
+		NSDate DateValue { get; }
+
+		// -(NSComparisonResult)compare:(FIRTimestamp * _Nonnull)other;
+		[Export ("compare:")]
+		NSComparisonResult Compare (Timestamp other);
+
+		// @property (readonly, assign, nonatomic) int64_t seconds;
+		[Export ("seconds")]
+		long Seconds { get; }
+
+		// @property (readonly, assign, nonatomic) int32_t nanoseconds;
+		[Export ("nanoseconds")]
+		int Nanoseconds { get; }
+	}
+
 	// @interface FIRTransaction : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRTransaction")]
@@ -618,12 +658,12 @@ namespace Firebase.CloudFirestore
 		[Wrap ("SetData (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count), document)")]
 		Transaction SetData (Dictionary<object, object> data, DocumentReference document);
 
-		// -(FIRTransaction * _Nonnull)setData:(NSDictionary<NSString *,id> * _Nonnull)data forDocument:(FIRDocumentReference * _Nonnull)document options:(FIRSetOptions * _Nonnull)options;
-		[Export ("setData:forDocument:options:")]
-		Transaction SetData (NSDictionary<NSString, NSObject> data, DocumentReference document, SetOptions options);
+		// -(FIRTransaction * _Nonnull)setData:(NSDictionary<NSString *,id> * _Nonnull)data forDocument:(FIRDocumentReference * _Nonnull)document merge:(BOOL)merge;
+		[Export ("setData:forDocument:merge:")]
+		Transaction SetData (NSDictionary<NSString, NSObject> data, DocumentReference document, bool merge);
 
-		[Wrap ("SetData (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count), document, options)")]
-		Transaction SetData (Dictionary<object, object> data, DocumentReference document, SetOptions options);
+		[Wrap ("SetData (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count), document, merge)")]
+		Transaction SetData (Dictionary<object, object> data, DocumentReference document, bool merge);
 
 		// -(FIRTransaction * _Nonnull)updateData:(NSDictionary<id,id> * _Nonnull)fields forDocument:(FIRDocumentReference * _Nonnull)document;
 		[Export ("updateData:forDocument:")]
@@ -657,12 +697,12 @@ namespace Firebase.CloudFirestore
 		[Wrap ("SetData (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count), document)")]
 		WriteBatch SetData (Dictionary<object, object> data, DocumentReference document);
 
-		// -(FIRWriteBatch * _Nonnull)setData:(NSDictionary<NSString *,id> * _Nonnull)data forDocument:(FIRDocumentReference * _Nonnull)document options:(FIRSetOptions * _Nonnull)options;
-		[Export ("setData:forDocument:options:")]
-		WriteBatch SetData (NSDictionary<NSString, NSObject> data, DocumentReference document, SetOptions options);
+		// -(FIRWriteBatch * _Nonnull)setData:(NSDictionary<NSString *,id> * _Nonnull)data forDocument:(FIRDocumentReference * _Nonnull)document merge:(BOOL)merge;
+		[Export ("setData:forDocument:merge:")]
+		WriteBatch SetData (NSDictionary<NSString, NSObject> data, DocumentReference document, bool merge);
 
-		[Wrap ("SetData (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count), document, options)")]
-		WriteBatch SetData (Dictionary<object, object> data, DocumentReference document, SetOptions options);
+		[Wrap ("SetData (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count), document, merge)")]
+		WriteBatch SetData (Dictionary<object, object> data, DocumentReference document, bool merge);
 
 		// -(FIRWriteBatch * _Nonnull)updateData:(NSDictionary<id,id> * _Nonnull)fields forDocument:(FIRDocumentReference * _Nonnull)document;
 		[Export ("updateData:forDocument:")]
@@ -675,9 +715,13 @@ namespace Firebase.CloudFirestore
 		[Export ("deleteDocument:")]
 		WriteBatch DeleteDocument (DocumentReference document);
 
+		// -(void)commit;
+		[Export ("commit")]
+		void Commit ();
+
 		// -(void)commitWithCompletion:(void (^ _Nonnull)(NSError * _Nullable))completion;
 		[Async]
 		[Export ("commitWithCompletion:")]
-		void Commit (CommitCompletionHandler completion);
+		void Commit ([NullAllowed] CommitCompletionHandler completion);
 	}
 }

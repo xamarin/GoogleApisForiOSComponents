@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.Firebase.iOS.CloudFirestore</id>
     <title>Firebase APIs Cloud Firestore iOS Library</title>
-    <version>0.9.4.1</version>
+    <version>0.12.0.0</version>
     <authors>Microsoft</authors>
     <owners>Microsoft</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -15,9 +15,6 @@
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
         <dependency id="Xamarin.Build.Download" version="0.4.11" />
-        <dependency id="Xamarin.Firebase.iOS.Auth" version="4.2.1.1" />
-        <dependency id="Xamarin.Firebase.iOS.Analytics" version="5.0.0.0" />
-        <dependency id="Xamarin.Firebase.iOS.InstanceID" version="3.0.0.0" />
         <dependency id="Xamarin.Firebase.iOS.Core" version="5.0.0.0" />
       </group>
     </dependencies>

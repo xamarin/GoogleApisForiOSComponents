@@ -1,60 +1,46 @@
 =begin
-
 Last run FirebaseFirestore installed:
-- BoringSSL (9.0)
-- Firebase (4.3.0)
-- FirebaseAnalytics (4.0.4)
-- FirebaseAuth (4.3.2)
-- FirebaseCore (4.0.8)
-- FirebaseFirestore (0.8.0)
-- FirebaseInstanceID (2.0.6)
-- GTMSessionFetcher (1.1.12)
-- GoogleToolboxForMac (2.1.3)
-- Protobuf (3.5.0)
-- gRPC (1.6.5)
-- gRPC-Core (1.6.5)
-- gRPC-ProtoRPC (1.6.5)
-- gRPC-RxLibrary (1.6.5)
-- leveldb-library (1.20)
-- nanopb (0.3.8)
+* BoringSSL (9.0)
+* Firebase (5.0.0)
+* FirebaseCore (5.0.0)
+* FirebaseFirestore (0.12.0)
+* GoogleToolboxForMac (2.1.4)
+* Protobuf (3.5.0)
+* gRPC (1.8.0)
+* gRPC-Core (1.8.0)
+* gRPC-ProtoRPC (1.8.0)
+* gRPC-RxLibrary (1.8.0)
+* leveldb-library (1.20)
+* nanopb (0.3.8)
 
 Check if main version or subversion number has changed. 
 If yes, please, update *.targets files located in binding 
 projects, also, update Podfile files if needed.
 
-In .targets file, located in Firebase.CloudFirestore binding, you can find:
-- FirebaseFirestore (0.8.0)
-- gRPC (1.6.5)
-- gRPC-Core (1.6.5)
-- gRPC-ProtoRPC (1.6.5)
-- gRPC-RxLibrary (1.6.5)
-- BoringSSL (9.0)
+In Firebase.CloudFirestore binding project, you can find the Native Reference of:
+* BoringSSL (9.0)
+* FirebaseFirestore (0.12.0)
+* gRPC (1.8.0)
+* gRPC-Core (1.8.0)
+* gRPC-ProtoRPC (1.8.0)
+* gRPC-RxLibrary (1.8.0)
 
-In .targets file, located in Firebase.Auth binding, you can find:
-- FirebaseAuth (4.2.1)
-
-In .targets file, located in Firebase.Analytics binding, you can find:
-- FirebaseAnalytics (4.0.4)
-
-In .targets file, located in Firebase.Core binding, you can find:
-- FirebaseCore (4.0.8)
-- GTMSessionFetcher (1.1.12)
-- GoogleToolboxForMac (2.1.3)
-- Protobuf (3.5.0)
-- leveldb-library (1.20)
-- nanopb (0.3.8)
-
-In .targets file, located in Firebase.InstanceID binding, you can find:
-- FirebaseInstanceID (2.0.4)
+In Firebase.Core binding project, you can find the Native Reference of:
+* FirebaseCore (5.0.0)
+* GoogleToolboxForMac (2.1.4)
+* Protobuf (3.5.0)
+* leveldb-library (1.20)
+* nanopb (0.3.8)
 =end
 
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '7.0'
+platform :ios, '8.0'
 install! 'cocoapods', :integrate_targets => false
+use_frameworks!
 
 target 'FirebaseCloudFirestore' do
-	pod 'Firebase/Firestore', '4.3.0'
+	pod 'Firebase/Firestore', '5.0.0'
 	pod 'gRPC-ProtoRPC', '1.8.0'
 	pod 'gRPC', '1.8.0'
 	pod 'gRPC-Core', '1.8.0'

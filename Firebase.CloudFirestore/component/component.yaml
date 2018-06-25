@@ -1,4 +1,4 @@
-version: 0.9.4.1
+version: 0.12.0.0
 name: Firebase Cloud Firestore for iOS
 id: firebaseioscloudfirestore
 publisher: Xamarin Inc.
@@ -12,36 +12,24 @@ docs-url: https://firebase.google.com/docs/firestore/
 libraries:
   ios-unified:
   - ../output/Firebase.CloudFirestore.dll
-  - ../../Firebase.Analytics/output/Firebase.Analytics.dll
   - ../../Firebase.Core/output/Firebase.Core.dll
-  - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Firebase.iOS.CloudFirestore, Version=0.9.4.1
+  - Xamarin.Firebase.iOS.CloudFirestore, Version=0.12.0.0
 samples:
 - name: Cloud Firestore Sample
   path: ../samples/CloudFirestoreSample/CloudFirestoreSample.sln
   removeProjects:
   - Firebase.CloudFirestore
   - Firebase.Auth
-  - Firebase.Analytics
   - Firebase.Core
-  - Firebase.InstanceID
   installNuGets:
   - project: CloudFirestoreSample
     packages:
     - Xamarin.Firebase.iOS.CloudFirestore
     - Xamarin.Firebase.iOS.Auth
-    - Xamarin.Firebase.iOS.Analytics
     - Xamarin.Firebase.iOS.Core
-    - Xamarin.Firebase.iOS.InstanceID
-  removeNodes:
-  - //xNS:Import[contains (@Project, 'Firebase.CloudFirestore.targets')]
-  - //xNS:Import[contains (@Project, 'Firebase.Auth.targets')]
-  - //xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]
-  - //xNS:Import[contains (@Project, 'Firebase.Core.targets')]
-  - //xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]
 local-nuget-repo: ../../tmp-nugets
 no_build: true
 additional-files:

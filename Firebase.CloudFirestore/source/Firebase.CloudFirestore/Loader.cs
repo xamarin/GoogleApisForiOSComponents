@@ -5,10 +5,7 @@ namespace Firebase.CloudFirestore
 	{
 		static Loader ()
 		{
-			Firebase.InstanceID.Loader.ForceLoad ();
 			Firebase.Core.Loader.ForceLoad ();
-			Firebase.Analytics.Loader.ForceLoad ();
-			Firebase.Auth.Loader.ForceLoad ();
 		}
 
 		public static void ForceLoad () { }
