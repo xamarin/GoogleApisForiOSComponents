@@ -325,10 +325,12 @@ namespace Firebase.CloudFirestore
 		void EnableLogging (bool logging);
 
 		// -(void)enableNetworkWithCompletion:(void (^ _Nullable)(NSError * _Nullable))completion;
+		[Async]
 		[Export ("enableNetworkWithCompletion:")]
 		void EnableNetwork ([NullAllowed] Action<NSError> completion);
 
 		// -(void)disableNetworkWithCompletion:(void (^ _Nullable)(NSError * _Nullable))completion;
+		[Async]
 		[Export ("disableNetworkWithCompletion:")]
 		void DisableNetwork ([NullAllowed] Action<NSError> completion);
 	}
