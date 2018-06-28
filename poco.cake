@@ -16,6 +16,19 @@ public abstract class GoogleBase
 
 public abstract class Firebase
 {
+	public class ABTesting : GoogleBase
+	{
+		public override string Name { 
+			get { return "Firebase.ABTesting"; }
+		}
+		public override string NuGetId { 
+			get { return "Xamarin.Firebase.iOS.ABTesting"; }
+		}
+		public override string [] BaseOf  { 
+			get { return new [] { new Firebase.RemoteConfig ().Name }; }
+		}
+	}
+
 	public class AdMob : GoogleBase
 	{
 		public override string Name { 
@@ -35,12 +48,12 @@ public abstract class Firebase
 			get { return "Xamarin.Firebase.iOS.Analytics"; }
 		}
 		public override string [] BaseOf  { 
-			get { return new [] { new Firebase.AdMob ().Name, new Firebase.Auth ().Name, new Firebase.CloudFirestore ().Name, 
-					new Firebase.CloudMessaging ().Name, new Firebase.CrashReporting ().Name, new Firebase.Database ().Name, 
-					new Firebase.DynamicLinks ().Name, new Firebase.Invites ().Name, new Firebase.PerformanceMonitoring ().Name, 
-					new Firebase.RemoteConfig ().Name, new Firebase.Storage ().Name, new Google.Core ().Name, 
-					new Google.InstanceID ().Name, new Google.PlayGames ().Name, new Google.SignIn ().Name,
-					new Google.TagManager ().Name };
+			get { return new [] { new Firebase.ABTesting ().Name, new Firebase.AdMob ().Name, new Firebase.Auth ().Name, 
+					new Firebase.CloudFirestore ().Name, new Firebase.CloudMessaging ().Name, new Firebase.CrashReporting ().Name,
+					new Firebase.Database ().Name, new Firebase.DynamicLinks ().Name, new Firebase.Invites ().Name,
+					new Firebase.PerformanceMonitoring ().Name, new Firebase.RemoteConfig ().Name, new Firebase.Storage ().Name,
+					new Google.Core ().Name, new Google.InstanceID ().Name, new Google.PlayGames ().Name,
+					new Google.SignIn ().Name, new Google.TagManager ().Name };
 			}
 		}
 	}
@@ -84,12 +97,12 @@ public abstract class Firebase
 			get { return "Xamarin.Firebase.iOS.Core"; }
 		}
 		public override string [] BaseOf  { 
-			get { return new [] { new Firebase.AdMob ().Name, new Firebase.Analytics ().Name, new Firebase.Auth ().Name, 
-					new Firebase.CloudFirestore ().Name, new Firebase.CloudMessaging ().Name, new Firebase.CrashReporting ().Name,
-					new Firebase.Database ().Name, new Firebase.DynamicLinks ().Name, new Firebase.Invites ().Name, 
-					new Firebase.PerformanceMonitoring ().Name, new Firebase.RemoteConfig ().Name, new Firebase.Storage ().Name,
-					new Google.Core ().Name, new Google.InstanceID ().Name, new Google.PlayGames ().Name, 
-					new Google.SignIn ().Name, new Google.TagManager ().Name };
+			get { return new [] { new Firebase.ABTesting ().Name, new Firebase.AdMob ().Name, new Firebase.Analytics ().Name,
+					new Firebase.Auth ().Name, new Firebase.CloudFirestore ().Name, new Firebase.CloudMessaging ().Name,
+					new Firebase.CrashReporting ().Name, new Firebase.Database ().Name, new Firebase.DynamicLinks ().Name,
+					new Firebase.Invites ().Name, new Firebase.PerformanceMonitoring ().Name, new Firebase.RemoteConfig ().Name,
+					new Firebase.Storage ().Name, new Google.Core ().Name, new Google.InstanceID ().Name,
+					new Google.PlayGames ().Name, new Google.SignIn ().Name, new Google.TagManager ().Name };
 			}
 		}
 	}
@@ -146,12 +159,12 @@ public abstract class Firebase
 			get { return "Xamarin.Firebase.iOS.InstanceID"; }
 		}
 		public override string [] BaseOf  { 
-			get { return new [] { new Firebase.AdMob ().Name, new Firebase.Analytics ().Name, new Firebase.Auth ().Name, 
-					new Firebase.CloudFirestore ().Name, new Firebase.CloudMessaging ().Name, new Firebase.CrashReporting ().Name,
-					new Firebase.Database ().Name, new Firebase.DynamicLinks ().Name, new Firebase.Invites ().Name, 
-					new Firebase.PerformanceMonitoring ().Name, new Firebase.RemoteConfig ().Name, new Firebase.Storage ().Name,
-					new Google.Core ().Name, new Google.InstanceID ().Name, new Google.PlayGames ().Name, 
-					new Google.SignIn ().Name, new Google.TagManager ().Name };
+			get { return new [] { new Firebase.ABTesting ().Name, new Firebase.AdMob ().Name, new Firebase.Analytics ().Name,
+					new Firebase.Auth ().Name, new Firebase.CloudFirestore ().Name, new Firebase.CloudMessaging ().Name,
+					new Firebase.CrashReporting ().Name,,new Firebase.Database ().Name, new Firebase.DynamicLinks ().Name,
+					new Firebase.Invites ().Name, new Firebase.PerformanceMonitoring ().Name, new Firebase.RemoteConfig ().Name,
+					new Firebase.Storage ().Name, new Google.Core ().Name, new Google.InstanceID ().Name,
+					new Google.PlayGames ().Name, new Google.SignIn ().Name, new Google.TagManager ().Name };
 			}
 		}
 	}

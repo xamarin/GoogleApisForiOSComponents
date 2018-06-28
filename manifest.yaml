@@ -1,3 +1,7 @@
+- Name: Firebase.iOS.ABTesting
+  BuildScript: ./Firebase.ABTesting/build.cake
+  TriggerPaths: [ Firebase.ABTesting ]
+  MacBuildTargets: [ samples, component ]
 - Name: Firebase.iOS.AdMob
   BuildScript: ./Firebase.AdMob/build.cake
   TriggerPaths: [ Firebase.AdMob ]

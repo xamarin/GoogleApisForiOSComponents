@@ -6,10 +6,11 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 
 | Package Id                                                                 | NuGet                                      |
 |----------------------------------------------------------------------------|--------------------------------------------|
+| [Xamarin.Firebase.iOS.ABTesting][F.ABTesting.Name]                         | [2.0.0.0][F.ABTesting.Package]             |
 | [Xamarin.Firebase.iOS.AdMob][F.AdMob.Name]                                 | [7.30.0.0][F.AdMob.Package]                |
 | [Xamarin.Firebase.iOS.Analytics][F.Analytics.Name]                         | [5.0.0.0][F.Analytics.Package]             |
 | [Xamarin.Firebase.iOS.Auth][F.Auth.Name]                                   | [5.0.0.0][F.Auth.Package]                  |
-| [Xamarin.Firebase.iOS.CloudFirestore][F.CloudFirestore.Name]               | [0.12.0.0][F.CloudFirestore.Package]        |
+| [Xamarin.Firebase.iOS.CloudFirestore][F.CloudFirestore.Name]               | [0.12.0.0][F.CloudFirestore.Package]       |
 | [Xamarin.Firebase.iOS.CloudMessaging][F.CloudMessaging.Name]               | [3.0.0.0][F.CloudMessaging.Package]        |
 | [Xamarin.Firebase.iOS.Core][F.Core.Name]                                   | [5.0.0.0][F.Core.Package]                  |
 | [Xamarin.Firebase.iOS.CrashReporting][F.CrashReporting.Name]               | [2.0.0.6][F.CrashReporting.Package]        |
@@ -81,6 +82,7 @@ You will need to complete a Contribution License Agreement before your pull requ
 ## .NET Foundation
 This project is part of the [.NET Foundation][104]
 
+[F.ABTesting.Name]: Firebase.ABTesting
 [F.AdMob.Name]: Firebase.AdMob
 [F.Analytics.Name]: Firebase.Analytics
 [F.Auth.Name]: Firebase.Auth
@@ -96,6 +98,7 @@ This project is part of the [.NET Foundation][104]
 [F.RemoteConfig.Name]: Firebase.RemoteConfig
 [F.Storage.Name]: Firebase.Storage
 
+[F.ABTesting.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.ABTesting/
 [F.AdMob.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.AdMob/
 [F.Analytics.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Analytics/
 [F.Auth.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Auth/
