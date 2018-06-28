@@ -32,7 +32,7 @@ buildSpec = new BuildSpec () {
 };
 
 // "Firebase.InstanceID" implied from Firebase.Analytics
-MyDependencies = new [] {"Firebase.Analytics"};
+MyDependencies = new [] {"Firebase.ABTesting"};
 
 Task ("clean").IsDependentOn ("clean-base").Does (() =>
 {

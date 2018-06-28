@@ -18,4 +18,5 @@
 			<LinkerFlags>-ObjC -lz</LinkerFlags>
 			<Frameworks>Security SystemConfiguration</Frameworks>
 		</NativeReference>
+	</ItemGroup>
 </Project>

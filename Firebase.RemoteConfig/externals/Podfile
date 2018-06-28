@@ -1,34 +1,43 @@
 =begin
 Last run FirebaseRemoteConfig installed:
-- FirebaseAnalytics (4.0.5.1)
-- FirebaseCore (4.0.13.1)
-- FirebaseInstanceID (2.0.4)
-- FirebaseRemoteConfig (2.1.0)
-- GoogleToolboxForMac (2.1.3)
+* Firebase (5.0.0)
+* FirebaseABTesting (2.0.0)
+* FirebaseAnalytics (5.0.0)
+* FirebaseCore (5.0.0)
+* FirebaseInstanceID (3.0.0)
+* FirebaseRemoteConfig (3.0.0)
+* GoogleToolboxForMac (2.1.4)
+* Protobuf (3.5.0)
+* nanopb (0.3.8)
 
 Check if main version or subversion number has changed. 
 If yes, please, update *.targets files located in binding 
 projects, also, update Podfile files if needed.
 
-In .targets file, located in Firebase.RemoteConfig binding, you can find:
-- FirebaseRemoteConfig (2.1.0)
+In Firebase.RemoteConfig binding project, you can find the .targets file of:
+* FirebaseRemoteConfig (3.0.0)
 
-In .targets file, located in Firebase.Analytics binding, you can find:
-- FirebaseAnalytics (4.0.5.1)
+In Firebase.ABTesting binding project, you can find the .targets file of:
+* FirebaseABTesting (2.0.0)
 
-In .targets file, located in Firebase.Core binding, you can find:
-- FirebaseCore (4.0.13.1)
-- GoogleToolboxForMac (2.1.3)
+In Firebase.Analytics binding project, you can find the .targets file of:
+* FirebaseAnalytics (5.0.0)
 
-In .targets file, located in Firebase.InstanceID binding, you can find:
-- FirebaseInstanceID (2.0.4)
+In Firebase.InstanceID binding project, you can find the .targets file of:
+* FirebaseInstanceID (3.0.0)
+
+In Firebase.Core binding project, you can find the Native Reference of:
+* FirebaseCore (5.0.0)
+* GoogleToolboxForMac (2.1.4)
+* Protobuf (3.5.0)
+* nanopb (0.3.8)
 =end
 
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '7.0'
+platform :ios, '8.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'FirebaseRemoteConfig' do
-	pod 'Firebase/RemoteConfig', '4.8.0'
+	pod 'Firebase/RemoteConfig', '5.0.0'
 end

@@ -30,12 +30,10 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FirebaseRemoteConfig.linkwith.cs">
-      <DependentUpon>FirebaseRemoteConfig</DependentUpon>
-    </Compile>
     <Compile Include="Extension.cs" />
     <Compile Include="Loader.cs" />
   </ItemGroup>
@@ -60,6 +58,10 @@
     <ProjectReference Include="..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.csproj">
       <Project>{0AD1ED63-C008-41B3-8ADB-04696B4880E3}</Project>
       <Name>Firebase.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Firebase.ABTesting\source\Firebase.ABTesting\Firebase.ABTesting.csproj">
+      <Project>{DC604F3B-B755-4697-AB9A-CAFF451D2CB7}</Project>
+      <Name>Firebase.ABTesting</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />

@@ -4,6 +4,7 @@ using UIKit;
 using Foundation;
 using ObjCRuntime;
 using CoreGraphics;
+using System.Collections.Generic;
 
 namespace Firebase.RemoteConfig
 {
@@ -89,10 +90,12 @@ namespace Firebase.RemoteConfig
 		RemoteConfig SharedInstance { get; }
 
 		// -(void)fetchWithCompletionHandler:(FIRRemoteConfigFetchCompletion _Nullable)completionHandler;
+		[Async]
 		[Export ("fetchWithCompletionHandler:")]
 		void Fetch ([NullAllowed] RemoteConfigFetchCompletionHandler completionHandler);
 
 		// -(void)fetchWithExpirationDuration:(NSTimeInterval)expirationDuration completionHandler:(FIRRemoteConfigFetchCompletion _Nullable)completionHandler;
+		[Async]
 		[Export ("fetchWithExpirationDuration:completionHandler:")]
 		void Fetch (double expirationDuration, [NullAllowed] RemoteConfigFetchCompletionHandler completionHandler);
 
@@ -100,9 +103,9 @@ namespace Firebase.RemoteConfig
 		[Export ("activateFetched")]
 		bool ActivateFetched ();
 
-        // -(FIRRemoteConfigValue * _Nonnull)objectForKeyedSubscript:(NSString * _Nonnull)key;
-        [Export("objectForKeyedSubscript:")]
-        RemoteConfigValue ObjectForKeyedSubscript(string key);
+		// -(FIRRemoteConfigValue * _Nonnull)objectForKeyedSubscript:(NSString * _Nonnull)key;
+		[Export("objectForKeyedSubscript:")]
+		RemoteConfigValue ObjectForKeyedSubscript(string key);
 
 		// -(FIRRemoteConfigValue * _Nonnull)configValueForKey:(NSString * _Nullable)key;
 		[Export ("configValueForKey:")]
@@ -132,9 +135,15 @@ namespace Firebase.RemoteConfig
 		[Export ("setDefaults:")]
 		void SetDefaults ([NullAllowed] NSDictionary defaults);
 
+		[Wrap ("SetDefaults (defaults == null ? null : NSDictionary.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (defaults.Values), System.Linq.Enumerable.ToArray (defaults.Keys), defaults.Keys.Count))")]
+		void SetDefaults (Dictionary<object, object> defaults);
+
 		// -(void)setDefaults:(NSDictionary<NSString *,NSObject *> * _Nullable)defaultConfig namespace:(NSString * _Nullable)aNamespace;
 		[Export ("setDefaults:namespace:")]
 		void SetDefaults ([NullAllowed] NSDictionary defaults, [NullAllowed] string aNamespace);
+
+		[Wrap ("SetDefaults (defaults == null ? null : NSDictionary.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (defaults.Values), System.Linq.Enumerable.ToArray (defaults.Keys), defaults.Keys.Count), aNamespace)")]
+		void SetDefaults (Dictionary<object, object> defaults, string aNamespace);
 
 		// -(void)setDefaultsFromPlistFileName:(NSString * _Nullable)fileName;
 		[Export ("setDefaultsFromPlistFileName:")]
@@ -145,8 +154,8 @@ namespace Firebase.RemoteConfig
 		void SetDefaults ([NullAllowed] string plistFileName, [NullAllowed] string aNamespace);
 
 		// -(FIRRemoteConfigValue * _Nullable)defaultValueForKey:(NSString * _Nullable)key namespace:(NSString * _Nullable)aNamespace;
-		[Export ("defaultValueForKey:namespace:")]
 		[return: NullAllowed]
+		[Export ("defaultValueForKey:namespace:")]
 		RemoteConfigValue GetDefaultValue ([NullAllowed] string key, [NullAllowed] string aNamespace);
 	}
 }
