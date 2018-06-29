@@ -7,38 +7,9 @@ using CoreGraphics;
 
 namespace Firebase.PerformanceMonitoring
 {
-	interface IPerformanceAttributable {}
-
-	// @protocol FIRPerformanceAttributable <NSObject>
-	[Protocol, Model]
-	[BaseType (typeof (NSObject), Name = "FIRPerformanceAttributable")]
-	interface PerformanceAttributable
-	{
-		// @required @property (readonly, nonatomic) NSDictionary<NSString *,NSString *> * _Nonnull attributes;
-		[Abstract]
-		[Export ("attributes")]
-		NSDictionary<NSString,NSString> Attributes { get; }
-
-		// @required -(void)setValue:(NSString * _Nonnull)value forAttribute:(NSString * _Nonnull)attribute;
-		[Abstract]
-		[Export ("setValue:forAttribute:")]
-		void SetValue (string value,string attribute);
-
-		// @required -(NSString * _Nullable)valueForAttribute:(NSString * _Nonnull)attribute;
-		[Abstract]
-		[Export ("valueForAttribute:")]
-		[return: NullAllowed]
-		string GetValue (string attribute);
-
-		// @required -(void)removeAttribute:(NSString * _Nonnull)attribute;
-		[Abstract]
-		[Export ("removeAttribute:")]
-		void RemoveAttribute (string attribute);
-	}
-
 	// @interface FIRHTTPMetric : NSObject <FIRPerformanceAttributable>
-	[BaseType (typeof (NSObject), Name = "FIRHTTPMetric")]
 	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FIRHTTPMetric")]
 	interface HttpMetric : PerformanceAttributable
 	{
 		// -(instancetype _Nullable)initWithURL:(NSURL * _Nonnull)URL HTTPMethod:(FIRHTTPMethod)httpMethod;
@@ -70,36 +41,10 @@ namespace Firebase.PerformanceMonitoring
 		void Stop ();
 	}
 
-	// @interface FIRTrace : NSObject
-	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FIRTrace")]
-	interface Trace : PerformanceAttributable
-	{
-		// @property (readonly, copy, nonatomic) NSString * _Nonnull name;
-		[Export ("name")]
-		string Name { get; }
-
-		// -(void)start;
-		[Export ("start")]
-		void Start ();
-
-		// -(void)stop;
-		[Export ("stop")]
-		void Stop ();
-
-		// -(void)incrementCounterNamed:(NSString * _Nonnull)counterName;
-		[Export ("incrementCounterNamed:")]
-		void IncrementCounter (string counterName);
-
-		// -(void)incrementCounterNamed:(NSString * _Nonnull)counterName by:(NSInteger)incrementValue;
-		[Export ("incrementCounterNamed:by:")]
-		void IncrementCounter (string counterName, nint incrementValue);
-	}
-
 	// @interface FIRPerformance : NSObject
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRPerformance")]
-	interface Performance
-	{
+	interface Performance {
 		// @property (getter = isDataCollectionEnabled, assign, nonatomic) BOOL dataCollectionEnabled;
 		[Export ("dataCollectionEnabled")]
 		bool DataCollectionEnabled { [Bind ("isDataCollectionEnabled")] get; set; }
@@ -123,5 +68,72 @@ namespace Firebase.PerformanceMonitoring
 		[Export ("traceWithName:")]
 		[return: NullAllowed]
 		Trace GetTrace (string name);
+	}
+
+	interface IPerformanceAttributable { }
+
+	// @protocol FIRPerformanceAttributable <NSObject>
+	[Protocol (Name = "FIRPerformanceAttributable")]
+	interface PerformanceAttributable {
+		// @required @property (readonly, nonatomic) NSDictionary<NSString *,NSString *> * _Nonnull attributes;
+		[Abstract]
+		[Export ("attributes")]
+		NSDictionary<NSString, NSString> Attributes { get; }
+
+		// @required -(void)setValue:(NSString * _Nonnull)value forAttribute:(NSString * _Nonnull)attribute;
+		[Abstract]
+		[Export ("setValue:forAttribute:")]
+		void SetValue (string value, string attribute);
+
+		// @required -(NSString * _Nullable)valueForAttribute:(NSString * _Nonnull)attribute;
+		[Abstract]
+		[Export ("valueForAttribute:")]
+		[return: NullAllowed]
+		string GetValue (string attribute);
+
+		// @required -(void)removeAttribute:(NSString * _Nonnull)attribute;
+		[Abstract]
+		[Export ("removeAttribute:")]
+		void RemoveAttribute (string attribute);
+	}
+
+	// @interface FIRTrace : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FIRTrace")]
+	interface Trace : PerformanceAttributable
+	{
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull name;
+		[Export ("name")]
+		string Name { get; }
+
+		// -(void)start;
+		[Export ("start")]
+		void Start ();
+
+		// -(void)stop;
+		[Export ("stop")]
+		void Stop ();
+
+		// -(void)incrementCounterNamed:(NSString * _Nonnull)counterName __attribute__((deprecated("Please use -incrementMetric:byInt: instead.")));
+		[Obsolete ("Please, use IncrementMetric method instead.")]
+		[Export ("incrementCounterNamed:")]
+		void IncrementCounter (string counterName);
+
+		// -(void)incrementCounterNamed:(NSString * _Nonnull)counterName by:(NSInteger)incrementValue __attribute__((deprecated("Please use -incrementMetric:byInt: instead.")));
+		[Obsolete ("Please, use IncrementMetric method instead.")]
+		[Export ("incrementCounterNamed:by:")]
+		void IncrementCounter (string counterName, nint incrementValue);
+
+		// -(void)incrementMetric:(NSString * _Nonnull)metricName byInt:(int64_t)incrementValue;
+		[Export ("incrementMetric:byInt:")]
+		void IncrementMetric (string metricName, long incrementValue);
+
+		// -(int64_t)valueForIntMetric:(NSString * _Nonnull)metricName;
+		[Export ("valueForIntMetric:")]
+		long GetIntValue (string metricName);
+
+		// -(void)setIntValue:(int64_t)value forMetric:(NSString * _Nonnull)metricName;
+		[Export ("setIntValue:forMetric:")]
+		void SetIntValue (long value, string metricName);
 	}
 }

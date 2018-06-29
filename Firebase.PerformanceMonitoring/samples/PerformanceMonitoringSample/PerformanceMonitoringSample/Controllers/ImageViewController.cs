@@ -57,7 +57,7 @@ namespace PerformanceMonitoringSample
 		{
 			if (!isDownloadFinished) {
 				cancellationTokenSource.Cancel ();
-				trace.IncrementCounter ("cancelled");
+				trace.IncrementMetric ("cancelled", 1);
 			}
 
 			trace.Stop ();
@@ -79,7 +79,7 @@ namespace PerformanceMonitoringSample
 
 			if (downloadFailed) {
 				downloadFailed = false;
-				trace.IncrementCounter ("retry");
+				trace.IncrementMetric ("retry", 1);
 			}
 
 			if (SgmDownloadTool.SelectedSegment == 0)
@@ -136,9 +136,9 @@ namespace PerformanceMonitoringSample
 
 			if (downloadFailed) {
 				image = UIImage.FromFile ("error.png");
-				trace.IncrementCounter ("failed");
+				trace.IncrementMetric ("failed", 1);
 			} else {
-				trace.IncrementCounter ("completed");
+				trace.IncrementMetric ("completed", 1);
 			}
 
 			InvokeOnMainThread (() => {

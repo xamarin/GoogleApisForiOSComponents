@@ -151,6 +151,10 @@
       <Project>{7B83F848-4947-4510-81BE-8DDF360A354F}</Project>
       <Name>Firebase.PerformanceMonitoring</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Firebase.ABTesting\source\Firebase.ABTesting\Firebase.ABTesting.csproj">
+      <Project>{DC604F3B-B755-4697-AB9A-CAFF451D2CB7}</Project>
+      <Name>Firebase.ABTesting</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="GoogleService-Info.plist" />
@@ -158,9 +162,9 @@
     <BundleResource Include="RemoteConfigDefaults.plist" />
   </ItemGroup>
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\Firebase.InstanceID.targets" />
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.Analytics\source\Firebase.Analytics\Firebase.Analytics.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.RemoteConfig\source\Firebase.RemoteConfig\Firebase.RemoteConfig.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.ABTesting\source\Firebase.ABTesting\Firebase.ABTesting.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\source\Firebase.PerformanceMonitoring\Firebase.PerformanceMonitoring.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets')" />
