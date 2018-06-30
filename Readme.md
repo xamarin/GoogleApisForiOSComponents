@@ -13,6 +13,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.CloudFirestore][F.CloudFirestore.Name]               | [0.12.0.0][F.CloudFirestore.Package]       |
 | [Xamarin.Firebase.iOS.CloudMessaging][F.CloudMessaging.Name]               | [3.0.0.0][F.CloudMessaging.Package]        |
 | [Xamarin.Firebase.iOS.Core][F.Core.Name]                                   | [5.0.0.0][F.Core.Package]                  |
+| [Xamarin.Firebase.iOS.Crashlytics][F.Crashlytics.Name]                     | [3.10.1.0][F.Crashlytics.Package]          |
 | [Xamarin.Firebase.iOS.Database][F.Database.Name]                           | [5.0.0.0][F.Database.Package]              |
 | [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                   | [3.0.0.0][F.DynamicLinks.Package]          |
 | [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                       | [3.0.0.0][F.InstanceID.Package]            |
@@ -60,6 +61,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Performance Monitoring | 2.0.0.0           | 5.0.0          |
 | Firebase RemoteConfig           | 3.0.0.0           | 5.0.0          |
 | Firebase Storage                | 3.0.0.0           | 5.0.0          |
+| Google Sign-In                  | 4.1.2.0           | 5.0.0          |
 
 ## Building
 
@@ -85,9 +87,9 @@ The following targets can be specified:
  - `component` builds the xamarin components (depends on `samples` and `nuget`)
  - `clean` cleans up everything
 
-### Working in Xamarin Studio
+### Working in Visual Studio
 
-Before the `.sln` files will compile in Xamarin Studio, the external dependencies need to be downloaded.  This can be done by running the `build.sh` or `build.ps1` with the target `externals`.  After the externals are setup, the `.sln` files should compile in an IDE.
+Before the `.sln` files will compile in Visual Studio, the external dependencies need to be downloaded.  This can be done by running the `build.sh` or `build.ps1` with the target `externals`.  After the externals are setup, the `.sln` files should compile in an IDE.
 
 ## License
 
@@ -102,6 +104,7 @@ You will need to complete a Contribution License Agreement before your pull requ
 
 This project is part of the [.NET Foundation][104]
 
+
 [comment]: # (Path for active Firebase component folders)
 
 [F.ABTesting.Name]: Firebase.ABTesting
@@ -111,6 +114,7 @@ This project is part of the [.NET Foundation][104]
 [F.CloudFirestore.Name]: Firebase.CloudFirestore
 [F.CloudMessaging.Name]: Firebase.CloudMessaging
 [F.Core.Name]: Firebase.Core
+[F.Crashlytics.Name]: Firebase.Crashlytics
 [F.Database.Name]: Firebase.Database
 [F.DynamicLinks.Name]: Firebase.DynamicLinks
 [F.InstanceID.Name]: Firebase.InstanceID
@@ -128,6 +132,7 @@ This project is part of the [.NET Foundation][104]
 [F.CloudFirestore.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.CloudFirestore/
 [F.CloudMessaging.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.CloudMessaging/
 [F.Core.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Core/
+[F.Crashlytics.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Crashlytics/
 [F.Database.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Database/
 [F.DynamicLinks.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.DynamicLinks/
 [F.InstanceID.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.InstanceID/
