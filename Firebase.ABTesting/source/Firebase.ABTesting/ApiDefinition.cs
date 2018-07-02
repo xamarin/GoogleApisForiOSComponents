@@ -1,4 +1,5 @@
 ﻿using Foundation;
+using ObjCRuntime;
 
 namespace Firebase.ABTesting {
 	// @interface FIRExperimentController : NSObject
@@ -19,47 +20,51 @@ namespace Firebase.ABTesting {
 		double GetLatestExperimentStartTimestampBetweenTimestamp (double timestamp, NSData [] payloads);
 	}
 
-	// @interface FIRLifecycleEvents : NSObject
-	[BaseType (typeof (NSObject), Name = "FIRLifecycleEvents")]
-	interface LifecycleEvents {
+	[Static]
+	interface DefaultLifecycleEventNames {
 		// extern NSString *const _Nonnull FIRSetExperimentEventName;
 		[Field ("FIRSetExperimentEventName", "__Internal")]
-		NSString DefaultSetExperimentEventName { get; }
+		NSString SetExperiment { get; }
 
 		// extern NSString *const _Nonnull FIRActivateExperimentEventName;
 		[Field ("FIRActivateExperimentEventName", "__Internal")]
-		NSString DefaultActivateExperimentEventName { get; }
+		NSString ActivateExperiment { get; }
 
 		// extern NSString *const _Nonnull FIRClearExperimentEventName;
 		[Field ("FIRClearExperimentEventName", "__Internal")]
-		NSString DefaultClearExperimentEventName { get; }
+		NSString ClearExperiment { get; }
 
 		// extern NSString *const _Nonnull FIRTimeoutExperimentEventName;
 		[Field ("FIRTimeoutExperimentEventName", "__Internal")]
-		NSString DefaultTimeoutExperimentEventName { get; }
+		NSString TimeoutExperiment { get; }
 
 		// extern NSString *const _Nonnull FIRExpireExperimentEventName;
 		[Field ("FIRExpireExperimentEventName", "__Internal")]
-		NSString DefaultExpireExperimentEventName { get; }
+		NSString ExpireExperiment { get; }
+	}
 
+	// @interface FIRLifecycleEvents : NSObject
+	[BaseType (typeof (NSObject), Name = "FIRLifecycleEvents")]
+	interface LifecycleEvents {
 		// @property (copy, nonatomic) NSString * _Nonnull setExperimentEventName;
-		[Export ("setExperimentEventName")]
-		string SetExperimentEventName { get; set; }
+		[Advice ("You can use the default event name 'DefaultLifecycleEventNames.SetExperiment'.")]
+		[Export ("setExperimentEventName", ArgumentSemantic = ArgumentSemantic.Copy)]
+		NSString SetExperimentEventName { get; set; }
 
 		// @property (copy, nonatomic) NSString * _Nonnull activateExperimentEventName;
-		[Export ("activateExperimentEventName")]
-		string ActivateExperimentEventName { get; set; }
+		[Export ("activateExperimentEventName", ArgumentSemantic = ArgumentSemantic.Copy)]
+		NSString ActivateExperimentEventName { get; set; }
 
 		// @property (copy, nonatomic) NSString * _Nonnull clearExperimentEventName;
-		[Export ("clearExperimentEventName")]
-		string ClearExperimentEventName { get; set; }
+		[Export ("clearExperimentEventName", ArgumentSemantic = ArgumentSemantic.Copy)]
+		NSString ClearExperimentEventName { get; set; }
 
 		// @property (copy, nonatomic) NSString * _Nonnull timeoutExperimentEventName;
-		[Export ("timeoutExperimentEventName")]
-		string TimeoutExperimentEventName { get; set; }
+		[Export ("timeoutExperimentEventName", ArgumentSemantic = ArgumentSemantic.Copy)]
+		NSString TimeoutExperimentEventName { get; set; }
 
 		// @property (copy, nonatomic) NSString * _Nonnull expireExperimentEventName;
-		[Export ("expireExperimentEventName")]
-		string ExpireExperimentEventName { get; set; }
+		[Export ("expireExperimentEventName", ArgumentSemantic = ArgumentSemantic.Copy)]
+		NSString ExpireExperimentEventName { get; set; }
 	}
 }
