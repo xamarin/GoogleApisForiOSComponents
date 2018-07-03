@@ -4,7 +4,7 @@ If yes, please, update *.targets file located in binding
 project, also, update Podfile file if needed.
 
 In Firebase.InstanceID binding project, you can find the .targets file of:
-* FirebaseInstanceID (3.0.0)
+* FirebaseInstanceID (3.1.1)
 =end
 
 source 'https://github.com/CocoaPods/Specs.git'
@@ -13,5 +13,5 @@ platform :ios, '8.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'FirebaseInstanceID' do
-	pod 'FirebaseInstanceID', '3.0.0'
+	pod 'FirebaseInstanceID', '3.1.1'
 end

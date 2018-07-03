@@ -1,20 +1,20 @@
 PODS:
-  - FirebaseCore (5.0.0):
+  - FirebaseCore (5.0.5):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseInstanceID (3.0.0):
+  - FirebaseInstanceID (3.1.1):
     - FirebaseCore (~> 5.0)
   - GoogleToolboxForMac/Defines (2.1.4)
   - GoogleToolboxForMac/NSData+zlib (2.1.4):
     - GoogleToolboxForMac/Defines (= 2.1.4)
 
 DEPENDENCIES:
-  - FirebaseInstanceID (= 3.0.0)
+  - FirebaseInstanceID (= 3.1.1)
 
 SPEC CHECKSUMS:
-  FirebaseCore: e46e4babb9de298fb2f736958edcc6da1dc60d73
-  FirebaseInstanceID: 83e0040351565df711a5db3d8ebe5ea21aca998a
+  FirebaseCore: 42b3267233bd21a5abd54117ccc38ca3dd0f8e83
+  FirebaseInstanceID: f3f0657372592ecdfdfe2cac604a5a75758376a6
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
 
-PODFILE CHECKSUM: b79d583bc69cd31f0a4e4850a0c41ec50c28782f
+PODFILE CHECKSUM: b03aea93947f79fd99ffb57b2babc2798727cdaf
 
 COCOAPODS: 1.4.0

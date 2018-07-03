@@ -16,7 +16,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.Crashlytics][F.Crashlytics.Name]                     | [3.10.3.0][F.Crashlytics.Package]          |
 | [Xamarin.Firebase.iOS.Database][F.Database.Name]                           | [5.0.0.0][F.Database.Package]              |
 | [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                   | [3.0.0.0][F.DynamicLinks.Package]          |
-| [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                       | [3.0.0.0][F.InstanceID.Package]            |
+| [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                       | [3.1.1.0][F.InstanceID.Package]            |
 | [Xamarin.Firebase.iOS.Invites][F.Invites.Name]                             | [3.0.0.0][F.Invites.Package]               |
 | [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name] | [2.0.0.0][F.PerformanceMonitoring.Package] |
 | [Xamarin.Firebase.iOS.RemoteConfig][F.RemoteConfig.Name]                   | [3.0.0.0][F.RemoteConfig.Package]          |
@@ -47,21 +47,21 @@ Here's a table that shows in which global version is located each component of F
 
 | Component Name                  | Component Version | Global Version |
 |---------------------------------|:-----------------:|:--------------:|
-| Firebase A/B Testing            | 2.0.0.0           | 5.0.0          |
-| Firebase AdMob                  | 7.30.0.0          | 5.0.0          |
-| Firebase Analytics              | 5.0.0.0           | 5.0.0          |
-| Firebase Auth                   | 5.0.0.0           | 5.0.0          |
-| Firebase Cloud Firestore        | 0.12.0.0          | 5.0.0          |
-| Firebase Cloud Messaging        | 3.0.0.0           | 5.0.0          |
-| Firebase Core                   | 5.0.5.0           | 5.0.5          |
-| Firebase Database               | 5.0.0.0           | 5.0.0          |
-| Firebase Dynamic Links          | 3.0.0.0           | 5.0.0          |
-| Firebase Instance ID            | 3.0.0.0           | 5.0.0          |
-| Firebase Invites                | 3.0.0.0           | 5.0.0          |
-| Firebase Performance Monitoring | 2.0.0.0           | 5.0.0          |
-| Firebase RemoteConfig           | 3.0.0.0           | 5.0.0          |
-| Firebase Storage                | 3.0.0.0           | 5.0.0          |
-| Google Sign-In                  | 4.1.2.0           | 5.0.0          |
+| Firebase A/B Testing            | **2.0.0.0**       | **5.0.0**      |
+| Firebase AdMob                  | **7.30.0.0**      | **5.0.0**      |
+| Firebase Analytics              | **5.0.0.0**       | **5.0.0**      |
+| Firebase Auth                   | **5.0.0.0**       | **5.0.0**      |
+| Firebase Cloud Firestore        | **0.12.0.0**      | **5.0.0**      |
+| Firebase Cloud Messaging        | **3.0.0.0**       | **5.0.0**      |
+| Firebase Core                   | **5.0.5.0**       | **5.4.0**      |
+| Firebase Database               | **5.0.0.0**       | **5.0.0**      |
+| Firebase Dynamic Links          | **3.0.0.0**       | **5.0.0**      |
+| Firebase Instance ID            | **3.1.1.0**       | **5.4.0**      |
+| Firebase Invites                | **3.0.0.0**       | **5.0.0**      |
+| Firebase Performance Monitoring | **2.0.0.0**       | **5.0.0**      |
+| Firebase RemoteConfig           | **3.0.0.0**       | **5.0.0**      |
+| Firebase Storage                | **3.0.0.0**       | **5.0.0**      |
+| Google Sign-In                  | **4.1.2.0**       | **5.0.0**      |
 
 ## Building
 

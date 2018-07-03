@@ -22,8 +22,11 @@ buildSpec = new BuildSpec () {
 	},
 };
 
+MyDependencies = new [] {"Firebase.Core"};
+
 Task ("clean").IsDependentOn ("clean-base").Does (() =>
 {
+	InvokeOtherGoogleModules (MyDependencies, "clean");
 	RunMake ("./externals/", "clean");
 	DeleteFiles ("../tmp-nugets/Xamarin.Firebase.iOS.InstanceID*");
 });
