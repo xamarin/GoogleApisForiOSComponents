@@ -14,9 +14,6 @@ namespace ApiDefinition {
 	partial class Messaging {
 		static Messaging ()
 		{
-			Firebase.Core.Loader.ForceLoad ();
-			Firebase.InstanceID.Loader.ForceLoad ();
-			Firebase.Analytics.Loader.ForceLoad ();
 			Firebase.Crashlytics.Loader.ForceLoad ();
 		}
 	}

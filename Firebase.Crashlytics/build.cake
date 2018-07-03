@@ -31,7 +31,7 @@ buildSpec = new BuildSpec () {
 	},
 };
 
-MyDependencies = new [] {"Firebase.Analytics"};
+MyDependencies = new [] {"Firebase.Core"};
 
 Task ("clean").IsDependentOn ("clean-base").Does (() =>
 {

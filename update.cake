@@ -22,7 +22,7 @@ public Dictionary<string, GoogleBase> CreateComponents ()
 {
 	var googleComponents = new Dictionary<string, GoogleBase> ();
 	
-	googleComponents ["Firebase.ABTesting"] = GetComponent<Firebase.AdMob> ();
+	googleComponents ["Firebase.ABTesting"] = GetComponent<Firebase.ABTesting> ();
 	googleComponents ["Firebase.AdMob"] = GetComponent<Firebase.AdMob> ();
 	googleComponents ["Firebase.Analytics"] = GetComponent<Firebase.Analytics> ();
 	googleComponents ["Firebase.Auth"] = GetComponent<Firebase.Auth> ();

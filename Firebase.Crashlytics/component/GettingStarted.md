@@ -48,7 +48,6 @@ Once you have your `GoogleService-Info.plist` file downloaded in your computer, 
 3. Add the following line of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Core` and `Firebase.Crashlytics` namespace):
 
 ```csharp
-App.Configure ();
 Crashlytics.Configure ();
 ```
 
