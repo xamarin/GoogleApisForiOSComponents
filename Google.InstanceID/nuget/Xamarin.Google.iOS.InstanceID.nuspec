@@ -18,7 +18,7 @@
         <dependency id="Xamarin.Google.iOS.Core" version="3.1.0.1" />
         <dependency id="Xamarin.Firebase.iOS.Analytics" version="5.0.0.0" />
         <dependency id="Xamarin.Firebase.iOS.InstanceID" version="3.0.0.0" />
-        <dependency id="Xamarin.Firebase.iOS.Core" version="5.0.0.0" />
+        <dependency id="Xamarin.Firebase.iOS.Core" version="5.0.5.0" />
       </group>
     </dependencies>
   </metadata>

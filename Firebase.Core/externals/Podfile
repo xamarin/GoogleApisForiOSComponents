@@ -3,7 +3,7 @@ Check if main version or subversion number has changed.
 If yes, please, update Podfile file if needed.
 
 In Firebase.Core binding project, you can find the Native Reference of:
-* FirebaseCore (5.0.0)
+* FirebaseCore (5.0.5)
 * GoogleToolboxForMac (2.1.4)
 * nanopb (0.3.8)
 * GTMSessionFetcher (1.1.15)
@@ -18,7 +18,7 @@ install! 'cocoapods', :integrate_targets => false
 use_frameworks!
 
 target 'FirebaseCore' do
-	pod 'Firebase/CoreOnly', '5.0.0'
+	pod 'Firebase/CoreOnly', '5.4.0'
 	pod 'GoogleToolboxForMac/NSData+zlib', '2.1.4'
 	pod 'GoogleToolboxForMac/NSDictionary+URLArguments', '2.1.4'
 	pod 'GoogleToolboxForMac/Logger', '2.1.4'
