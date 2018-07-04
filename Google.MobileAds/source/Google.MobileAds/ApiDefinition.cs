@@ -476,7 +476,7 @@ namespace Google.MobileAds {
 		[Export ("setLocationWithLatitude:longitude:accuracy:")]
 		void SetLocation (nfloat latitude, nfloat longitude, nfloat accuracyInMeters);
 
-		[Obsolete ("Use SetLocation (nfloat, nfloat, nfloat) method instead.")]
+		[Obsolete ("Use SetLocation (nfloat, nfloat, nfloat) overload method instead.")]
 		[Export ("setLocationWithDescription:")]
 		void SetLocation (string locationDescription);
 
@@ -499,12 +499,9 @@ namespace Google.MobileAds {
 		[Export ("requestAgent", ArgumentSemantic.Copy)]
 		string RequestAgent { get; set; }
 
-		#region "Deprecated GAdRequest Methods"
-
+		[Obsolete ("Use the Birthday property instead.")]
 		[Export ("setBirthdayWithMonth:day:year:")]
 		void SetBirthday (nint m, nint d, nint y);
-
-		#endregion
 
 	}
 
@@ -1674,6 +1671,7 @@ namespace Google.MobileAds {
 	}
 
 	// @interface GADNativeExpressAdView : UIView
+	[Obsolete]
 	[DisableDefaultCtor]
 	[BaseType (typeof (UIView),
 		   Name = "GADNativeExpressAdView",
@@ -2012,10 +2010,11 @@ namespace Google.MobileAds {
 
 	[BaseType (typeof (NSObject), Name = "GADCustomEventRequest")]
 	interface CustomEventRequest {
-
+		[Obsolete ("Use Request.Gender property instead.")]
 		[Export ("userGender", ArgumentSemantic.Assign)]
 		Gender UserGender { get; }
 
+		[Obsolete ("Use Request.Birthday property instead.")]
 		[NullAllowed]
 		[Export ("userBirthday", ArgumentSemantic.Copy)]
 		NSDate UserBirthday { get; }

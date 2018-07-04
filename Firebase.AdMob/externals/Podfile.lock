@@ -1,22 +1,22 @@
 PODS:
-  - Firebase/AdMob (5.0.0):
+  - Firebase/AdMob (5.4.0):
     - Firebase/Core
-    - Google-Mobile-Ads-SDK (= 7.30.0)
-  - Firebase/Core (5.0.0):
+    - Google-Mobile-Ads-SDK (= 7.31.0)
+  - Firebase/Core (5.4.0):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (= 5.0.0)
-  - Firebase/CoreOnly (5.0.0):
-    - FirebaseCore (= 5.0.0)
-  - FirebaseAnalytics (5.0.0):
+    - FirebaseAnalytics (= 5.0.1)
+  - Firebase/CoreOnly (5.4.0):
+    - FirebaseCore (= 5.0.5)
+  - FirebaseAnalytics (5.0.1):
     - FirebaseCore (~> 5.0)
     - FirebaseInstanceID (~> 3.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
     - nanopb (~> 0.3)
-  - FirebaseCore (5.0.0):
+  - FirebaseCore (5.0.5):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseInstanceID (3.0.0):
+  - FirebaseInstanceID (3.1.1):
     - FirebaseCore (~> 5.0)
-  - Google-Mobile-Ads-SDK (7.30.0)
+  - Google-Mobile-Ads-SDK (7.31.0)
   - GoogleToolboxForMac/Defines (2.1.4)
   - GoogleToolboxForMac/NSData+zlib (2.1.4):
     - GoogleToolboxForMac/Defines (= 2.1.4)
@@ -25,22 +25,22 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - PersonalizedAdConsent (1.0.1)
+  - PersonalizedAdConsent (1.0.3)
 
 DEPENDENCIES:
-  - Firebase/AdMob (= 5.0.0)
-  - PersonalizedAdConsent (= 1.0.1)
+  - Firebase/AdMob (= 5.4.0)
+  - PersonalizedAdConsent (= 1.0.3)
 
 SPEC CHECKSUMS:
-  Firebase: 4bd804448ab2596794698773d41520a0af101e65
-  FirebaseAnalytics: 19812b49fa5f283dd6b23edf8a14b5d477029ab8
-  FirebaseCore: e46e4babb9de298fb2f736958edcc6da1dc60d73
-  FirebaseInstanceID: 83e0040351565df711a5db3d8ebe5ea21aca998a
-  Google-Mobile-Ads-SDK: 7404f68120ae8682afeb5af001fbf4aad731c78e
+  Firebase: d66f4f29c23f22d96808d9abc174d81d8eee968f
+  FirebaseAnalytics: b3628aea54c50464c32c393fb2ea032566e7ecc2
+  FirebaseCore: 42b3267233bd21a5abd54117ccc38ca3dd0f8e83
+  FirebaseInstanceID: f3f0657372592ecdfdfe2cac604a5a75758376a6
+  Google-Mobile-Ads-SDK: 6e529e748b45507a2ca904e0b5a52669ba3920c4
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  PersonalizedAdConsent: d42d32065787eca61a9a334d2f786e6f81ebb4c7
+  PersonalizedAdConsent: b50a8a5d6065b6db23121e8fcc0dce2ae983f6ea
 
-PODFILE CHECKSUM: d5c434786591a98ed98b8b134a7cb48919f83814
+PODFILE CHECKSUM: 245f18a4e392fd57b6af80816fe174bfaccb5540
 
 COCOAPODS: 1.4.0
