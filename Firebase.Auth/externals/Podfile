@@ -1,8 +1,8 @@
 =begin
 Last run FirebaseAuth installed:
-* Firebase (5.0.0)
-* FirebaseAuth (5.0.0)
-* FirebaseCore (5.0.0)
+* Firebase (5.4.0)
+* FirebaseAuth (5.0.2)
+* FirebaseCore (5.0.5)
 * GTMSessionFetcher (1.1.15)
 * GoogleToolboxForMac (2.1.4)
 
@@ -11,10 +11,10 @@ If yes, please, update *.targets files located in binding
 projects, also, update Podfile files if needed.
 
 In Firebase.Auth binding project, you can find the Native Reference of:
-* FirebaseAuth (5.0.0)
+* FirebaseAuth (5.0.4)
 
 In Firebase.Core binding project, you can find the Native Reference of:
-* FirebaseCore (5.0.0)
+* FirebaseCore (5.0.5)
 * GTMSessionFetcher (1.1.15)
 * GoogleToolboxForMac (2.1.4)
 =end
@@ -26,5 +26,5 @@ install! 'cocoapods', :integrate_targets => false
 use_frameworks!
 
 target 'FirebaseAuth' do
-	pod 'Firebase/Auth', '5.0.0'
+	pod 'Firebase/Auth', '5.4.0'
 end
