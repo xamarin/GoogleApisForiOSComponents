@@ -1,9 +1,10 @@
 =begin
 Last run FirebaseDynamicLinks installed:
-* FirebaseAnalytics (5.0.0)
-* FirebaseCore (5.0.0)
-* FirebaseDynamicLinks (3.0.0)
-* FirebaseInstanceID (3.0.0)
+* Firebase (5.4.0)
+* FirebaseAnalytics (5.0.1)
+* FirebaseCore (5.0.5)
+* FirebaseDynamicLinks (3.0.1)
+* FirebaseInstanceID (3.1.1)
 * GoogleToolboxForMac (2.1.4)
 * nanopb (0.3.8)
 
@@ -12,16 +13,16 @@ If yes, please, update *.targets files located in binding
 projects, also, update Podfile files if needed.
 
 In Firebase.DynamicLinks binding project, you can find the .targets file of:
-* FirebaseDynamicLinks (3.0.0)
+* FirebaseDynamicLinks (3.0.1)
 
 In Firebase.Analytics binding project, you can find the .targets file of:
-* FirebaseAnalytics (5.0.0)
+* FirebaseAnalytics (5.0.1)
 
 In Firebase.InstanceID binding project, you can find the .targets file of:
-* FirebaseInstanceID (3.0.0)
+* FirebaseInstanceID (3.1.1)
 
 In Firebase.Core binding project, you can find the Native Reference of:
-* FirebaseCore (5.0.0)
+* FirebaseCore (5.0.5)
 * GoogleToolboxForMac (2.1.4)
 * nanopb (0.3.8)
 =end
@@ -32,5 +33,5 @@ platform :ios, '8.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'FirebaseDynamicLinks' do
-	pod 'Firebase/DynamicLinks', '5.0.0'
+	pod 'Firebase/DynamicLinks', '5.4.0'
 end
