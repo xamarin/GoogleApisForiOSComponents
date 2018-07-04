@@ -48,9 +48,9 @@ public abstract class Firebase
 			get { return "Xamarin.Firebase.iOS.Analytics"; }
 		}
 		public override string [] BaseOf  { 
-			get { return new [] { new Firebase.ABTesting ().Name, new Firebase.AdMob ().Name, new Firebase.CloudMessaging ().Name, 
-					new Firebase.DynamicLinks ().Name, new Firebase.Invites ().Name, new Firebase.PerformanceMonitoring ().Name, 
-					new Firebase.RemoteConfig ().Name, new Google.InstanceID ().Name, new Google.TagManager ().Name };
+			get { return new [] { new Firebase.ABTesting ().Name, new Firebase.AdMob ().Name, new Firebase.DynamicLinks ().Name, 
+					new Firebase.Invites ().Name, new Firebase.PerformanceMonitoring ().Name, new Firebase.RemoteConfig ().Name, 
+					new Google.InstanceID ().Name, new Google.TagManager ().Name };
 			}
 		}
 	}
