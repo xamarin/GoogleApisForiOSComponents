@@ -7,7 +7,7 @@ In Firebase.Core binding project, you can find the Native Reference of:
 * GoogleToolboxForMac (2.1.4)
 * nanopb (0.3.8)
 * GTMSessionFetcher (1.1.15)
-* Protobuf (3.5.0)
+* Protobuf (3.6.0)
 * leveldb-library (1.20.0)
 =end
 
@@ -26,6 +26,6 @@ target 'FirebaseCore' do
 	pod 'GoogleToolboxForMac/URLBuilder', '2.1.4'
 	pod 'nanopb', '0.3.8'
 	pod 'GTMSessionFetcher/Full', '1.1.15'
-	pod 'Protobuf', '3.5.0'
+	pod 'Protobuf', '3.6.0'
 	pod 'leveldb-library', '1.20.0'
 end

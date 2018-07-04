@@ -1,14 +1,14 @@
 PODS:
-  - Firebase/CoreOnly (5.0.0):
-    - FirebaseCore (= 5.0.0)
-  - Firebase/Messaging (5.0.0):
+  - Firebase/CoreOnly (5.4.0):
+    - FirebaseCore (= 5.0.5)
+  - Firebase/Messaging (5.4.0):
     - Firebase/CoreOnly
-    - FirebaseMessaging (= 3.0.0)
-  - FirebaseCore (5.0.0):
+    - FirebaseMessaging (= 3.0.3)
+  - FirebaseCore (5.0.5):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseInstanceID (3.0.0):
+  - FirebaseInstanceID (3.1.1):
     - FirebaseCore (~> 5.0)
-  - FirebaseMessaging (3.0.0):
+  - FirebaseMessaging (3.0.3):
     - FirebaseCore (~> 5.0)
     - FirebaseInstanceID (~> 3.0)
     - GoogleToolboxForMac/Logger (~> 2.1)
@@ -18,19 +18,19 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - GoogleToolboxForMac/NSData+zlib (2.1.4):
     - GoogleToolboxForMac/Defines (= 2.1.4)
-  - Protobuf (3.5.0)
+  - Protobuf (3.6.0)
 
 DEPENDENCIES:
-  - Firebase/Messaging (= 5.0.0)
+  - Firebase/Messaging (= 5.4.0)
 
 SPEC CHECKSUMS:
-  Firebase: 4bd804448ab2596794698773d41520a0af101e65
-  FirebaseCore: e46e4babb9de298fb2f736958edcc6da1dc60d73
-  FirebaseInstanceID: 83e0040351565df711a5db3d8ebe5ea21aca998a
-  FirebaseMessaging: f2360a966ecfb0d14facf0fbdf306efc2df0ddbe
+  Firebase: d66f4f29c23f22d96808d9abc174d81d8eee968f
+  FirebaseCore: 42b3267233bd21a5abd54117ccc38ca3dd0f8e83
+  FirebaseInstanceID: f3f0657372592ecdfdfe2cac604a5a75758376a6
+  FirebaseMessaging: f43eb0c0e1da096e659de6f713038e74862a62cd
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
-  Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
+  Protobuf: 0fc0ad8bec688b2a3017a139953e01374fedbd5f
 
-PODFILE CHECKSUM: a75f64aa08c0430f609cf005ab1166c6da7a7bee
+PODFILE CHECKSUM: ab8138f94572f2b2086c67ed516ac7d33cbfed24
 
 COCOAPODS: 1.4.0

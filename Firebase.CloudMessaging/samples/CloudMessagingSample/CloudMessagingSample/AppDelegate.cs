@@ -124,15 +124,9 @@ namespace CloudMessagingSample
 
 		public static void ShowMessage (string title, string message, UIViewController fromViewController, Action actionForOk = null)
 		{
-			if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
-				var alert = UIAlertController.Create (title, message, UIAlertControllerStyle.Alert);
-				alert.AddAction (UIAlertAction.Create ("Ok", UIAlertActionStyle.Default, (obj) => actionForOk?.Invoke ()));
-				fromViewController.PresentViewController (alert, true, null);
-			} else {
-				var alert = new UIAlertView (title, message, null, "Ok", null);
-				alert.Clicked += (sender, e) => actionForOk?.Invoke ();
-				alert.Show ();
-			}
+			var alert = UIAlertController.Create (title, message, UIAlertControllerStyle.Alert);
+			alert.AddAction (UIAlertAction.Create ("Ok", UIAlertActionStyle.Default, (obj) => actionForOk?.Invoke ()));
+			fromViewController.PresentViewController (alert, true, null);
 		}
 
 		void LogInformation (string methodName, object information) => Console.WriteLine ($"\nMethod name: {methodName}\nInformation: {information}");
