@@ -47,7 +47,7 @@ Here's a table that shows in which global version is located each component of F
 
 | Component Name                  | Component Version | Global Version |
 |---------------------------------|:-----------------:|:--------------:|
-| Firebase A/B Testing            | **2.0.0.0**       | **5.0.0**      |
+| Firebase A/B Testing            | **2.0.0.0**       | **5.4.0**      |
 | Firebase AdMob                  | **7.31.0.0**      | **5.4.0**      |
 | Firebase Analytics              | **5.0.1.0**       | **5.4.0**      |
 | Firebase Auth                   | **5.0.2.0**       | **5.4.0**      |
@@ -57,11 +57,11 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Database               | **5.0.2.0**       | **5.4.0**      |
 | Firebase Dynamic Links          | **3.0.1.0**       | **5.4.0**      |
 | Firebase Instance ID            | **3.1.1.0**       | **5.4.0**      |
-| Firebase Invites                | **3.0.0.0**       | **5.0.0**      |
+| Firebase Invites                | **3.0.0.0**       | **5.4.0**      |
 | Firebase Performance Monitoring | **2.0.1.0**       | **5.4.0**      |
-| Firebase RemoteConfig           | **3.0.0.0**       | **5.0.0**      |
-| Firebase Storage                | **3.0.0.0**       | **5.0.0**      |
-| Google Sign-In                  | **4.1.2.0**       | **5.0.0**      |
+| Firebase RemoteConfig           | **3.0.0.0**       | **5.4.0**      |
+| Firebase Storage                | **3.0.0.0**       | **5.4.0**      |
+| Google Sign-In                  | **4.1.2.0**       | **5.4.0**      |
 
 ## Building
 

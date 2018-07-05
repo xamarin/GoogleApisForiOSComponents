@@ -1,10 +1,10 @@
 PODS:
-  - Firebase/CoreOnly (5.0.0):
-    - FirebaseCore (= 5.0.0)
-  - Firebase/Storage (5.0.0):
+  - Firebase/CoreOnly (5.4.0):
+    - FirebaseCore (= 5.0.5)
+  - Firebase/Storage (5.4.0):
     - Firebase/CoreOnly
     - FirebaseStorage (= 3.0.0)
-  - FirebaseCore (5.0.0):
+  - FirebaseCore (5.0.5):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseStorage (3.0.0):
     - FirebaseCore (~> 5.0)
@@ -15,15 +15,15 @@ PODS:
   - GTMSessionFetcher/Core (1.1.15)
 
 DEPENDENCIES:
-  - Firebase/Storage (= 5.0.0)
+  - Firebase/Storage (= 5.4.0)
 
 SPEC CHECKSUMS:
-  Firebase: 4bd804448ab2596794698773d41520a0af101e65
-  FirebaseCore: e46e4babb9de298fb2f736958edcc6da1dc60d73
+  Firebase: d66f4f29c23f22d96808d9abc174d81d8eee968f
+  FirebaseCore: 42b3267233bd21a5abd54117ccc38ca3dd0f8e83
   FirebaseStorage: 7ca4bb7b58a25fa647b04f524033fc7cb7eb272b
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
 
-PODFILE CHECKSUM: 6d0def5cbc57abfc07f72a298b5f642ab1a6612a
+PODFILE CHECKSUM: 1aacb7cfad011eb018c1117acd3b39415ce5a99e
 
 COCOAPODS: 1.4.0
