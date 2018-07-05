@@ -1,12 +1,12 @@
 PODS:
-  - Firebase/CoreOnly (5.0.0):
-    - FirebaseCore (= 5.0.0)
-  - Firebase/Database (5.0.0):
+  - Firebase/CoreOnly (5.4.0):
+    - FirebaseCore (= 5.0.5)
+  - Firebase/Database (5.4.0):
     - Firebase/CoreOnly
-    - FirebaseDatabase (= 5.0.0)
-  - FirebaseCore (5.0.0):
+    - FirebaseDatabase (= 5.0.2)
+  - FirebaseCore (5.0.5):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseDatabase (5.0.0):
+  - FirebaseDatabase (5.0.2):
     - FirebaseCore (~> 5.0)
     - leveldb-library (~> 1.18)
   - GoogleToolboxForMac/Defines (2.1.4)
@@ -15,15 +15,15 @@ PODS:
   - leveldb-library (1.20)
 
 DEPENDENCIES:
-  - Firebase/Database (= 5.0.0)
+  - Firebase/Database (= 5.4.0)
 
 SPEC CHECKSUMS:
-  Firebase: 4bd804448ab2596794698773d41520a0af101e65
-  FirebaseCore: e46e4babb9de298fb2f736958edcc6da1dc60d73
-  FirebaseDatabase: 697eb53e5b4fe7cd4fa8756c1f82a9fca011345f
+  Firebase: d66f4f29c23f22d96808d9abc174d81d8eee968f
+  FirebaseCore: 42b3267233bd21a5abd54117ccc38ca3dd0f8e83
+  FirebaseDatabase: 27be5ac5bc75e0b17537b2bbfada8258addcc8cd
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
 
-PODFILE CHECKSUM: e342678a74d5534113024cf61ec5b56d2b0a6e55
+PODFILE CHECKSUM: 312e44ca815364948f92959a201c00e9df9268b6
 
 COCOAPODS: 1.4.0

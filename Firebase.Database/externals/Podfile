@@ -1,8 +1,8 @@
 =begin
 Last run FirebaseDatabase installed:
-* Firebase (5.0.0)
-* FirebaseCore (5.0.0)
-* FirebaseDatabase (5.0.0)
+* Firebase (5.4.0)
+* FirebaseCore (5.0.5)
+* FirebaseDatabase (5.0.2)
 * GoogleToolboxForMac (2.1.4)
 * leveldb-library (1.20)
 
@@ -11,10 +11,10 @@ If yes, please, update *.targets files located in binding
 projects, also, update Podfile files if needed.
 
 In Firebase.Database binding project, you can find the Native Reference of:
-* FirebaseDatabase (5.0.0)
+* FirebaseDatabase (5.0.2)
 
 In Firebase.Core binding project, you can find the Native Reference of:
-* FirebaseCore (5.0.0)
+* FirebaseCore (5.0.5)
 * GoogleToolboxForMac (2.1.4)
 * leveldb-library (1.20)
 =end
@@ -26,5 +26,5 @@ install! 'cocoapods', :integrate_targets => false
 use_frameworks!
 
 target 'FirebaseDatabase' do
-	pod 'Firebase/Database', '5.0.0'
+	pod 'Firebase/Database', '5.4.0'
 end
