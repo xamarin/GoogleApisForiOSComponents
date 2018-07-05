@@ -1,50 +1,54 @@
 PODS:
-  - BoringSSL (9.0):
-    - BoringSSL/Implementation (= 9.0)
-    - BoringSSL/Interface (= 9.0)
-  - BoringSSL/Implementation (9.0):
-    - BoringSSL/Interface (= 9.0)
-  - BoringSSL/Interface (9.0)
-  - Firebase/CoreOnly (5.0.0):
-    - FirebaseCore (= 5.0.0)
-  - Firebase/Firestore (5.0.0):
+  - BoringSSL (10.0):
+    - BoringSSL/Implementation (= 10.0)
+    - BoringSSL/Interface (= 10.0)
+  - BoringSSL/Implementation (10.0):
+    - BoringSSL/Interface (= 10.0)
+  - BoringSSL/Interface (10.0)
+  - Firebase/CoreOnly (5.4.0):
+    - FirebaseCore (= 5.0.5)
+  - Firebase/Firestore (5.4.0):
     - Firebase/CoreOnly
-    - FirebaseFirestore (= 0.12.0)
-  - FirebaseCore (5.0.0):
+    - FirebaseFirestore (= 0.12.5)
+  - FirebaseCore (5.0.5):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseFirestore (0.12.0):
+  - FirebaseFirestore (0.12.5):
     - FirebaseCore (~> 5.0)
-    - FirebaseFirestore/abseil-cpp (= 0.12.0)
+    - FirebaseFirestore/abseil-cpp (= 0.12.5)
     - gRPC-ProtoRPC (~> 1.0)
     - leveldb-library (~> 1.18)
+    - nanopb (~> 0.3.8)
     - Protobuf (~> 3.1)
-  - FirebaseFirestore/abseil-cpp (0.12.0):
+  - FirebaseFirestore/abseil-cpp (0.12.5):
     - FirebaseCore (~> 5.0)
     - gRPC-ProtoRPC (~> 1.0)
     - leveldb-library (~> 1.18)
+    - nanopb (~> 0.3.8)
     - Protobuf (~> 3.1)
   - GoogleToolboxForMac/Defines (2.1.4)
   - GoogleToolboxForMac/NSData+zlib (2.1.4):
     - GoogleToolboxForMac/Defines (= 2.1.4)
-  - gRPC (1.8.0):
-    - gRPC-RxLibrary (= 1.8.0)
-    - gRPC/Main (= 1.8.0)
-  - gRPC-Core (1.8.0):
-    - gRPC-Core/Implementation (= 1.8.0)
-    - gRPC-Core/Interface (= 1.8.0)
-  - gRPC-Core/Implementation (1.8.0):
-    - BoringSSL (~> 9.0)
-    - gRPC-Core/Interface (= 1.8.0)
+  - gRPC (1.13.0):
+    - gRPC-RxLibrary (= 1.13.0)
+    - gRPC/Main (= 1.13.0)
+  - gRPC-Core (1.13.0):
+    - gRPC-Core/Implementation (= 1.13.0)
+    - gRPC-Core/Interface (= 1.13.0)
+  - gRPC-Core/Implementation (1.13.0):
+    - BoringSSL (~> 10.0)
+    - gRPC-Core/Interface (= 1.13.0)
     - nanopb (~> 0.3)
-  - gRPC-Core/Interface (1.8.0)
-  - gRPC-ProtoRPC (1.8.0):
-    - gRPC (= 1.8.0)
-    - gRPC-RxLibrary (= 1.8.0)
+  - gRPC-Core/Interface (1.13.0)
+  - gRPC-ProtoRPC (1.13.0):
+    - gRPC-ProtoRPC/Main (= 1.13.0)
+  - gRPC-ProtoRPC/Main (1.13.0):
+    - gRPC (= 1.13.0)
+    - gRPC-RxLibrary (= 1.13.0)
     - Protobuf (~> 3.0)
-  - gRPC-RxLibrary (1.8.0)
-  - gRPC/Main (1.8.0):
-    - gRPC-Core (= 1.8.0)
-    - gRPC-RxLibrary (= 1.8.0)
+  - gRPC-RxLibrary (1.13.0)
+  - gRPC/Main (1.13.0):
+    - gRPC-Core (= 1.13.0)
+    - gRPC-RxLibrary (= 1.13.0)
   - leveldb-library (1.20)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -54,27 +58,27 @@ PODS:
   - Protobuf (3.6.0)
 
 DEPENDENCIES:
-  - BoringSSL (= 9.0)
-  - Firebase/Firestore (= 5.0.0)
-  - gRPC (= 1.8.0)
-  - gRPC-Core (= 1.8.0)
-  - gRPC-ProtoRPC (= 1.8.0)
-  - gRPC-RxLibrary (= 1.8.0)
+  - BoringSSL (= 10.0)
+  - Firebase/Firestore (= 5.4.0)
+  - gRPC (= 1.13.0)
+  - gRPC-Core (= 1.13.0)
+  - gRPC-ProtoRPC (= 1.13.0)
+  - gRPC-RxLibrary (= 1.13.0)
 
 SPEC CHECKSUMS:
-  BoringSSL: 19083b821ef3ae0f758fae15482e183003b1e265
-  Firebase: 4bd804448ab2596794698773d41520a0af101e65
-  FirebaseCore: e46e4babb9de298fb2f736958edcc6da1dc60d73
-  FirebaseFirestore: c3fd43060679baeaeb0f9b78bc5258904d2e4946
+  BoringSSL: 32764dbaf5f5888cf51fbaa172a010126b41bcd4
+  Firebase: d66f4f29c23f22d96808d9abc174d81d8eee968f
+  FirebaseCore: 42b3267233bd21a5abd54117ccc38ca3dd0f8e83
+  FirebaseFirestore: b041e4a94601e18e82a863e0dcfa9d3e55cc2031
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
-  gRPC: cc3f797b97bf221a9e535e8e012a6f99b1d7f797
-  gRPC-Core: 250fd60016c4e4c413279f4002679b0e14e7df26
-  gRPC-ProtoRPC: 5b934b29a95b94b0f871d4fc361ff52269476765
-  gRPC-RxLibrary: 7c57a1b2ff2f9cafb0face35bbfa0a326281295d
+  gRPC: 81b990caa01d7c32605d300c2ffd1b5ba0ef9e49
+  gRPC-Core: a56b086a8ef5ced6f6ba5be5bc0a63fca185015a
+  gRPC-ProtoRPC: 842797fbe05dfcf891afb4a5048e5ccf5f06ef86
+  gRPC-RxLibrary: fa6852f98d6ec0b73c0ec2f6406c26943099d501
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 0fc0ad8bec688b2a3017a139953e01374fedbd5f
 
-PODFILE CHECKSUM: efdb2df6124407cb9022c072b931e4e3b823e199
+PODFILE CHECKSUM: 0b9f5966adeef8788566532526c65f5be5a0e09e
 
 COCOAPODS: 1.4.0

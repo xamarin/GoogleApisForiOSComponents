@@ -1,15 +1,15 @@
 =begin
 Last run FirebaseFirestore installed:
-* BoringSSL (9.0)
-* Firebase (5.0.0)
-* FirebaseCore (5.0.0)
-* FirebaseFirestore (0.12.0)
+* BoringSSL (10.0)
+* Firebase (5.4.0)
+* FirebaseCore (5.0.5)
+* FirebaseFirestore (0.12.5)
 * GoogleToolboxForMac (2.1.4)
-* Protobuf (3.5.0)
-* gRPC (1.8.0)
-* gRPC-Core (1.8.0)
-* gRPC-ProtoRPC (1.8.0)
-* gRPC-RxLibrary (1.8.0)
+* Protobuf (3.6.0)
+* gRPC (1.13.0)
+* gRPC-Core (1.13.0)
+* gRPC-ProtoRPC (1.13.0)
+* gRPC-RxLibrary (1.13.0)
 * leveldb-library (1.20)
 * nanopb (0.3.8)
 
@@ -18,17 +18,17 @@ If yes, please, update *.targets files located in binding
 projects, also, update Podfile files if needed.
 
 In Firebase.CloudFirestore binding project, you can find the Native Reference of:
-* BoringSSL (9.0)
-* FirebaseFirestore (0.12.0)
-* gRPC (1.8.0)
-* gRPC-Core (1.8.0)
-* gRPC-ProtoRPC (1.8.0)
-* gRPC-RxLibrary (1.8.0)
+* BoringSSL (10.0)
+* FirebaseFirestore (0.12.5)
+* gRPC (1.13.0)
+* gRPC-Core (1.13.0)
+* gRPC-ProtoRPC (1.13.0)
+* gRPC-RxLibrary (1.13.0)
 
 In Firebase.Core binding project, you can find the Native Reference of:
-* FirebaseCore (5.0.0)
+* FirebaseCore (5.0.5)
 * GoogleToolboxForMac (2.1.4)
-* Protobuf (3.5.0)
+* Protobuf (3.6.0)
 * leveldb-library (1.20)
 * nanopb (0.3.8)
 =end
@@ -40,10 +40,10 @@ install! 'cocoapods', :integrate_targets => false
 use_frameworks!
 
 target 'FirebaseCloudFirestore' do
-	pod 'Firebase/Firestore', '5.0.0'
-	pod 'gRPC-ProtoRPC', '1.8.0'
-	pod 'gRPC', '1.8.0'
-	pod 'gRPC-Core', '1.8.0'
-	pod 'gRPC-RxLibrary', '1.8.0'
-	pod 'BoringSSL', '9.0'
+	pod 'Firebase/Firestore', '5.4.0'
+	pod 'gRPC-ProtoRPC', '1.13.0'
+	pod 'gRPC', '1.13.0'
+	pod 'gRPC-Core', '1.13.0'
+	pod 'gRPC-RxLibrary', '1.13.0'
+	pod 'BoringSSL', '10.0'
 end

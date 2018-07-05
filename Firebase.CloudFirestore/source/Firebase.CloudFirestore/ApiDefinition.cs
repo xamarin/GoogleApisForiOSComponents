@@ -118,6 +118,23 @@ namespace Firebase.CloudFirestore
 		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), merge)")]
 		void SetData (Dictionary<object, object> documentData, bool merge);
 
+		// - (void) setData:(NSDictionary<NSString*, id>*) documentData mergeFields:(NSArray<id>*) mergeFields;
+		[Advice ("The mergeFields argument can contain NSString and FieldPath.")]
+		[Export ("setData:mergeFields:")]
+		void SetData (NSDictionary<NSString, NSObject> documentData, NSArray mergeFields);
+
+		[Wrap ("SetData (documentData, NSArray.FromStrings (mergeFields))")]
+		void SetData (NSDictionary<NSString, NSObject> documentData, string [] mergeFields);
+
+		[Wrap ("SetData (documentData, NSArray.FromNSObjects (mergeFields))")]
+		void SetData (NSDictionary<NSString, NSObject> documentData, FieldPath [] mergeFields);
+
+		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), NSArray.FromStrings (mergeFields))")]
+		void SetData (Dictionary<object, object> documentData, string [] mergeFields);
+
+		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), NSArray.FromNSObjects (mergeFields))")]
+		void SetData (Dictionary<object, object> documentData, FieldPath [] mergeFields);
+
 		// -(void)setData:(NSDictionary<NSString *,id> * _Nonnull)documentData completion:(void (^ _Nullable)(NSError * _Nullable))completion;
 		[Async]
 		[Export ("setData:completion:")]
@@ -135,6 +152,28 @@ namespace Firebase.CloudFirestore
 		[Async]
 		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), merge, completion)")]
 		void SetData (Dictionary<object, object> documentData, bool merge, [NullAllowed] DocumentActionCompletionHandler completion);
+
+		// - (void)setData:(NSDictionary<NSString *, id> *)documentData mergeFields:(NSArray<id>*)mergeFields completion:(nullable void (^)(NSError* _Nullable error))completion;
+		[Advice ("The mergeFields argument can contain NSString and FieldPath.")]
+		[Async]
+		[Export ("setData:mergeFields:completion:")]
+		void SetData (NSDictionary<NSString, NSObject> documentData, NSArray mergeFields, [NullAllowed] DocumentActionCompletionHandler completion);
+
+		[Async]
+		[Wrap ("SetData (documentData, NSArray.FromStrings (mergeFields), completion)")]
+		void SetData (NSDictionary<NSString, NSObject> documentData, string [] mergeFields, [NullAllowed] DocumentActionCompletionHandler completion);
+
+		[Async]
+		[Wrap ("SetData (documentData, NSArray.FromNSObjects (mergeFields), completion)")]
+		void SetData (NSDictionary<NSString, NSObject> documentData, FieldPath [] mergeFields, [NullAllowed] DocumentActionCompletionHandler completion);
+
+		[Async]
+		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), NSArray.FromStrings (mergeFields), completion)")]
+		void SetData (Dictionary<object, object> documentData, string [] mergeFields, [NullAllowed] DocumentActionCompletionHandler completion);
+
+		[Async]
+		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), NSArray.FromNSObjects (mergeFields), completion)")]
+		void SetData (Dictionary<object, object> documentData, FieldPath [] mergeFields, [NullAllowed] DocumentActionCompletionHandler completion);
 
 		// -(void)updateData:(NSDictionary<id,id> * _Nonnull)fields;
 		[Export ("updateData:")]
@@ -667,6 +706,23 @@ namespace Firebase.CloudFirestore
 		[Wrap ("SetData (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count), document, merge)")]
 		Transaction SetData (Dictionary<object, object> data, DocumentReference document, bool merge);
 
+		// - (FIRTransaction*) setData:(NSDictionary<NSString*, id>*)data forDocument:(FIRDocumentReference*)document mergeFields:(NSArray<id>*)mergeFields
+		[Advice ("The mergeFields argument can contain NSString and FieldPath.")]
+		[Export ("setData:forDocument:mergeFields:")]
+		Transaction SetData (NSDictionary<NSString, NSObject> data, DocumentReference document, NSArray mergeFields);
+
+		[Wrap ("SetData (documentData, document, NSArray.FromStrings (mergeFields))")]
+		Transaction SetData (NSDictionary<NSString, NSObject> documentData, DocumentReference document, string [] mergeFields);
+
+		[Wrap ("SetData (documentData, document, NSArray.FromNSObjects (mergeFields))")]
+		Transaction SetData (NSDictionary<NSString, NSObject> documentData, DocumentReference document, FieldPath [] mergeFields);
+
+		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), document, NSArray.FromStrings (mergeFields))")]
+		Transaction SetData (Dictionary<object, object> documentData, DocumentReference document, string [] mergeFields);
+
+		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), document, NSArray.FromNSObjects (mergeFields))")]
+		Transaction SetData (Dictionary<object, object> documentData, DocumentReference document, FieldPath [] mergeFields);
+
 		// -(FIRTransaction * _Nonnull)updateData:(NSDictionary<id,id> * _Nonnull)fields forDocument:(FIRDocumentReference * _Nonnull)document;
 		[Export ("updateData:forDocument:")]
 		Transaction UpdateData (NSDictionary<NSObject, NSObject> fields, DocumentReference document);
@@ -705,6 +761,23 @@ namespace Firebase.CloudFirestore
 
 		[Wrap ("SetData (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count), document, merge)")]
 		WriteBatch SetData (Dictionary<object, object> data, DocumentReference document, bool merge);
+
+		// - (FIRWriteBatch *)setData:(NSDictionary<NSString *, id> *)data forDocument:(FIRDocumentReference*)document mergeFields:(NSArray<id>*)mergeFields
+		[Advice ("The mergeFields argument can contain NSString and FieldPath.")]
+		[Export ("setData:forDocument:mergeFields:")]
+		WriteBatch SetData (NSDictionary<NSString, NSObject> data, DocumentReference document, NSArray mergeFields);
+
+		[Wrap ("SetData (documentData, document, NSArray.FromStrings (mergeFields))")]
+		WriteBatch SetData (NSDictionary<NSString, NSObject> documentData, DocumentReference document, string [] mergeFields);
+
+		[Wrap ("SetData (documentData, document, NSArray.FromNSObjects (mergeFields))")]
+		WriteBatch SetData (NSDictionary<NSString, NSObject> documentData, DocumentReference document, FieldPath [] mergeFields);
+
+		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), document, NSArray.FromStrings (mergeFields))")]
+		WriteBatch SetData (Dictionary<object, object> documentData, DocumentReference document, string [] mergeFields);
+
+		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), document, NSArray.FromNSObjects (mergeFields))")]
+		WriteBatch SetData (Dictionary<object, object> documentData, DocumentReference document, FieldPath [] mergeFields);
 
 		// -(FIRWriteBatch * _Nonnull)updateData:(NSDictionary<id,id> * _Nonnull)fields forDocument:(FIRDocumentReference * _Nonnull)document;
 		[Export ("updateData:forDocument:")]
