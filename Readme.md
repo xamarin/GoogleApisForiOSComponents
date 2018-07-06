@@ -30,7 +30,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Google.iOS.Places][G.Places.Name]                                 | [2.5.0.1][G.Places.Package]                |
 | [Xamarin.Google.iOS.PlayGames][G.PlayGames.Name]                           | [5.1.1.10][G.PlayGames.Package]            |
 | [Xamarin.Google.iOS.SignIn][G.SignIn.Name]                                 | [4.1.2.0][G.SignIn.Package]                |
-| [Xamarin.Google.iOS.TagManager][G.TagManager.Name]                         | [6.0.0.4][G.TagManager.Package]            |
+| [Xamarin.Google.iOS.TagManager][G.TagManager.Name]                         | [7.0.0.0][G.TagManager.Package]            |
 
 **Deprecated Libraries**
 
@@ -62,6 +62,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase RemoteConfig           | **3.0.0.0**       | **5.4.0**      |
 | Firebase Storage                | **3.0.0.0**       | **5.4.0**      |
 | Google Sign-In                  | **4.1.2.0**       | **5.4.0**      |
+| Google Tag Manager              | **7.0.0.0**       | **5.4.0**      |
 
 ## Building
 
