@@ -9,8 +9,8 @@
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>C# bindings for Firebase APIs A/B Testing iOS Library</description>
     <copyright>© Microsoft Corporation. All rights reserved.</copyright>
-    <projectUrl>https://go.microsoft.com/fwlink/?linkid=865532</projectUrl>
-    <licenseUrl>https://go.microsoft.com/fwlink/?linkid=865536</licenseUrl>
+    <projectUrl>https://go.microsoft.com/fwlink/?linkid=2004275</projectUrl>
+    <licenseUrl>https://go.microsoft.com/fwlink/?linkid=2004700</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseiosabtesting_128x128.png</iconUrl>
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
