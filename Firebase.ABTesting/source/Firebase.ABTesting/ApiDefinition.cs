@@ -52,18 +52,22 @@ namespace Firebase.ABTesting {
 		NSString SetExperimentEventName { get; set; }
 
 		// @property (copy, nonatomic) NSString * _Nonnull activateExperimentEventName;
+		[Advice ("You can use the default event name 'DefaultLifecycleEventNames.ActivateExperiment'.")]
 		[Export ("activateExperimentEventName", ArgumentSemantic = ArgumentSemantic.Copy)]
 		NSString ActivateExperimentEventName { get; set; }
 
 		// @property (copy, nonatomic) NSString * _Nonnull clearExperimentEventName;
+		[Advice ("You can use the default event name 'DefaultLifecycleEventNames.ClearExperiment'.")]
 		[Export ("clearExperimentEventName", ArgumentSemantic = ArgumentSemantic.Copy)]
 		NSString ClearExperimentEventName { get; set; }
 
 		// @property (copy, nonatomic) NSString * _Nonnull timeoutExperimentEventName;
+		[Advice ("You can use the default event name 'DefaultLifecycleEventNames.TimeoutExperiment'.")]
 		[Export ("timeoutExperimentEventName", ArgumentSemantic = ArgumentSemantic.Copy)]
 		NSString TimeoutExperimentEventName { get; set; }
 
 		// @property (copy, nonatomic) NSString * _Nonnull expireExperimentEventName;
+		[Advice ("You can use the default event name 'DefaultLifecycleEventNames.ExpireExperiment'.")]
 		[Export ("expireExperimentEventName", ArgumentSemantic = ArgumentSemantic.Copy)]
 		NSString ExpireExperimentEventName { get; set; }
 	}
