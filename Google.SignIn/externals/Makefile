@@ -13,13 +13,8 @@ Pods:
 $(TARGETS):
 	$(MAKE) $@-iphoneos
 	$(MAKE) $@-iphonesimulator
-	@ if [ "$@" == "leveldb-library" ]; then \
-		lipo -create -output leveldb.framework/leveldb leveldb.framework/leveldb leveldb-library-iphonesimulator.framework/leveldb; \
-		rm -rf leveldb-library-iphonesimulator.framework; \
-	else \
-		lipo -create -output $@.framework/$@ $@.framework/$@ $@-iphonesimulator.framework/$@; \
-		rm -rf $@-iphonesimulator.framework; \
-	fi
+	@ lipo -create -output $@.framework/$@ $@.framework/$@ $@-iphonesimulator.framework/$@
+	@ rm -rf $@-iphonesimulator.framework
 
 %-iphoneos:
 	$(eval currentTarget=$(subst -iphoneos,,$@))
