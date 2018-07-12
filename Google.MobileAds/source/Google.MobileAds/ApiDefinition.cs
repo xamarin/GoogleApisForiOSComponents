@@ -2581,7 +2581,7 @@ namespace Google.MobileAds.DoubleClick {
 		// - (void)adLoader:(GADAdLoader *)adLoader didReceiveDFPBannerView:(DFPBannerView *)bannerView;
 		[Abstract]
 		[Export ("adLoader:didReceiveDFPBannerView:")]
-		NSValue [] DidReceiveBannerView (Google.MobileAds.AdLoader adLoader, BannerView bannerView);
+		void DidReceiveBannerView (Google.MobileAds.AdLoader adLoader, BannerView bannerView);
 	}
 
 	[BaseType (typeof (Google.MobileAds.BannerView),
