@@ -29,7 +29,7 @@ namespace AuthSample
 
 			if (AccessToken.CurrentAccessToken != null) {
 				var credential = FacebookAuthProvider.GetCredential (AccessToken.CurrentAccessToken.TokenString);
-				Auth.DefaultInstance.SignIn (credential, SignInOnCompletion);
+				Auth.DefaultInstance.SignInAndRetrieveDataWithCredential (credential, SignInOnCompletion);
 			}
 		}
 
@@ -51,10 +51,10 @@ namespace AuthSample
 			var credential = FacebookAuthProvider.GetCredential (AccessToken.CurrentAccessToken.TokenString);
 
 			// Authenticate with Firebase using the credential
-			Auth.DefaultInstance.SignIn (credential, SignInOnCompletion);
+			Auth.DefaultInstance.SignInAndRetrieveDataWithCredential (credential, SignInOnCompletion);
 		}
 
-		void SignInOnCompletion (User user, NSError error)
+		void SignInOnCompletion (AuthDataResult authResult, NSError error)
 		{
 			if (error != null) {
 				AuthErrorCode errorCode;

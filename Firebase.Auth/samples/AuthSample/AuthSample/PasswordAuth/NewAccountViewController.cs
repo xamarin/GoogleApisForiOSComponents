@@ -61,7 +61,7 @@ namespace AuthSample
 			Auth.DefaultInstance.CreateUser (email, password, CreateUserOnCompletion);
 		}
 
-		void CreateUserOnCompletion (User user, NSError error)
+		void CreateUserOnCompletion (AuthDataResult authResult, NSError error)
 		{
 			indicatorView.StopAnimating ();
 

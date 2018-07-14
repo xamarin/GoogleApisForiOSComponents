@@ -86,3 +86,21 @@ namespace Google.MobileAds
 		BottomLeftCorner
 	}
 }
+
+namespace Google.MobileAds.Consent {
+	[Native]
+	public enum ConsentStatus : long
+	{
+		Unknown = 0,
+		NonPersonalized = 1,
+		Personalized = 2
+	}
+
+	[Native]
+	public enum DebugGeography : long
+	{
+		Disabled = 0,
+		Eea = 1,
+		NotEea = 2
+	}
+}

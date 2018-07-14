@@ -45,7 +45,7 @@ You can use Firebase Authentication to allow users to sign in to your app using 
 - [Authenticate with Firebase Using a Custom Authentication System](#authenticate-with-firebase-using-a-custom-authentication-system)
 - [Authenticate with Firebase Anonymously](#authenticate-with-firebase-anonymously)
 - [Passing State in Email Actions](#passing-state-in-email-actions)
-	- [Passing state/continue URL in email actions](#passing-state-continue-url-in-email-actions)
+	- [Passing state/continue URL in email actions](#passing-state/continue-url-in-email-actions)
 	- [Configuring Firebase Dynamic Links](#configuring-firebase-dynamic-links)
 	- [Handling email actions in a web application](#handling-email-actions-in-a-web-application)
 	- [Handling email actions in a mobile application](#handling-email-actions-in-a-mobile-application)
@@ -55,7 +55,6 @@ You can use Firebase Authentication to allow users to sign in to your app using 
 	- [Unlink an auth provider from a user account](#unlink-an-auth-provider-from-a-user-account)
 - [Create custom email action handlers](#create-custom-email-action-handlers)
 - [Extend Firebase Authentication with Cloud Functions](#extend-firebase-authentication-with-cloud-functions)
-- [Known issues](#known-issues)
 
 ## Add Firebase to your app
 
@@ -196,7 +195,7 @@ if (user != null) {
 }
 ```
 
-**_Note_**: _`CurrentUser` might also be `null` because the auth object has not finished initializing. If you use a listener to keep track of the user's sign-in status, you don't need to handle this case._
+> ![note_icon] **_Note_**: _`CurrentUser` might also be `null` because the auth object has not finished initializing. If you use a listener to keep track of the user's sign-in status, you don't need to handle this case._
 
 ## Sign out a user
 
@@ -660,11 +659,11 @@ firebase auth:import users.json --hash-algo=scrypt --rounds=8 --mem-cost=14
 
 ---
 
-## Authenticate with Firebase using Password-Based Accounts
+# Authenticate with Firebase using Password-Based Accounts
 
 You can use Firebase Authentication to let your users authenticate with Firebase using their email addresses and passwords, and to manage your app's password-based accounts.
 
-### Create an account
+## Create a password-based account
 
 When a new user signs up using your app's sign-up form, complete any new account validation steps that your app requires, such as verifying that the new account's password was correctly typed and meets your complexity requirements.
 
@@ -791,6 +790,144 @@ If the user successfully signs in, you can get the user's account data from the 
 
 ---
 
+# Authenticate with Firebase Using Email Link in iOS 
+
+You can use Firebase Authentication to sign in a user by sending them an email containing a link, which they can click to sign in. In the process, the user's email address is also verified.
+
+There are numerous benefits to signing in by email:
+
+* Low friction sign-up and sign-in.
+* Lower risk of password reuse across applications, which can undermine security of even well-selected passwords.
+* The ability to authenticate a user while also verifying that the user is the legitimate owner of an email address.
+* A user only needs an accessible email account to sign in. No ownership of a phone number or social media account is required.
+* A user can sign in securely without the need to provide (or remember) a password, which can be cumbersome on a mobile device.
+* An existing user who previously signed in with an email identifier (password or federated) can be upgraded to sign in with just the email. For example, a user who has forgotten their password can still sign in without needing to reset their password.
+
+## Enable Email Link sign-in for your Firebase project
+
+To sign in users by email link, you must first enable the Email provider and Email link sign-in method for your Firebase project:
+
+* In the [Firebase console][1], open the **Auth** section.
+* On the **Sign in method** tab, enable the **Email/Password** provider. Note that email/password sign-in must be enabled to use email link sign-in.
+* In the same section, enable **Email link (passwordless sign-in)** sign-in method.
+* Click **Save**.
+
+## Send an authentication link to the user's email address
+
+To initiate the authentication flow, present the user with an interface that prompts the user to provide their email address and then call `SendSignInLink` method to request that Firebase send the authentication link to the user's email.
+
+1. Construct the `ActionCodeSettings` object, which provides Firebase with instructions on how to construct the email link. Set the following fields:
+	* Url The deep link to embed and any additional state to be passed along. The link's domain has to be whitelisted in the Firebase Console list of authorized domains.
+	* IOSBundleId and AndroidPackageName : The apps to use when the sign-in link is opened on an Android or iOS device. Learn more on how to [configure Firebase Dynamic Links](#configuring-firebase-dynamic-links) to open email action links via mobile apps.
+	* HandleCodeInApp: Set to `true`. The sign-in operation has to always be completed in the app unlike other out of band email actions (password reset and email verifications). This is because, at the end of the flow, the user is expected to be signed in and their Auth state persisted within the app.
+	
+	```csharp
+	var actionCodeSettings = new ActionCodeSettings {
+		Url = new NSUrl ("https://www.example.com"),
+		IOSBundleId = NSBundle.MainBundle.BundleIdentifier,
+		// The sign-in operation has to always be completed in the app.
+		HandleCodeInApp = true
+	};
+	```
+
+	To learn more on `ActionCodeSettings`, refer to the [Passing State in Email Actions](#passing-state/continue-url-in-email-actions) section.
+2. Ask the user for their email.
+3. Send the authentication link to the user's email, and save the user's email in case the user completes the email sign-in on the same device.
+	```csharp
+	Auth.DefaultInstance.SendSignInLink (email, actionCodeSettings, HandleSendSignInLinkToEmail);
+
+	void HandleSendSignInLinkToEmail (NSError error)
+	{
+		if (error != null) {
+			Console.WriteLine (error.LocalizedDescription);
+			return;
+		}
+
+		// The link was successfully sent. Inform the user.
+		// Save the email locally so you don't need to ask the user for it again
+		// if they open the link on the same device.
+		NSUserDefaults.StandardUserDefaults.SetString (email, "Email");
+		Console.WriteLine ("Check your email for link.");
+	}
+
+	// Async/await
+
+	try {
+		await Auth.DefaultInstance.SendSignInLinkAsync (email, actionCodeSettings);
+
+		// The link was successfully sent. Inform the user.
+		// Save the email locally so you don't need to ask the user for it again
+		// if they open the link on the same device.
+		NSUserDefaults.StandardUserDefaults.SetString (email, "Email");
+		Console.WriteLine ("Check your email for link.");
+	} catch (NSErrorException ex) {
+		Console.WriteLine (error.LocalizedDescription);
+	}
+	```
+
+## Complete sign in with the email link
+
+### Security concerns
+
+To prevent a sign-in link from being used to sign in as an unintended user or on an unintended device, Firebase Auth requires the user's email address to be provided when completing the sign-in flow. For sign-in to succeed, this email address must match the address to which the sign-in link was originally sent.
+
+You can streamline this flow for users who open the sign-in link on the same device they request the link, by storing their email address locally when you send the sign-in email. Then, use this address to complete the flow.
+
+After sign-in completion, any previous unverified mechanism of sign-in will be removed from the user and any existing sessions will be invalidated. For example, if someone previously created an unverified account with the same email and password, the user's password will be removed to prevent the impersonator who claimed ownership and created that unverified account from signing in again with the same account.
+
+### Completing sign-in in an iOS mobile app
+
+Firebase Authentication uses Firebase Dynamic Links to send the email link to a mobile device. For sign-in completion via mobile application, the application has to be configured to detect the incoming application link, parse the underlying deep link and then complete the sign-in.
+
+### Configuring Firebase Dynamic Links
+
+Firebase Auth uses [Firebase Dynamic Links][21] when sending a link that is meant to be opened in a mobile application. In order to use this feature, Dynamic Links need to be configured in the Firebase Console.
+
+1. Enable Firebase Dynamic Links:
+	1. In the Firebase console, open the Dynamic Links section.
+	2. If you have not yet accepted the Dynamic Links terms and created a Dynamic Links domain, do so now.
+
+		If you already created a Dynamic Links domain, take note of it. A Dynamic Links domain typically looks like the following example:
+
+		```csharp
+		example.page.link
+		```
+
+		You will need this value when you configure your iOS or Android app to intercept the incoming link.
+2. Configuring iOS applications:
+	1. If you plan on handling these links from your iOS appliction, the iOS bundle ID needs to be specified in the Firebase Console project settings. In addition, the App Store ID and the Apple Developer Team ID also need to be specified.
+	2. You will also need to configure the FDL universal link domain as an Associated Domain in your application capabilities.
+	3. If you plan to distribute your application to iOS versions 8 and under, you will need to set your iOS bundle ID as a custom scheme for incoming URLs.
+	4. For more on this, refer to [Receiving iOS Dynamic Links][21] instructions.
+
+### Verify link and sign in
+
+After you receive the link as described above, verify that it is meant for email link authentication and complete the sign in.
+
+```csharp
+if (Auth.DefaultInstance.IsSignIn (link)) {
+	Auth.DefaultInstance.SignInWithLink (email, link, HandleAuthDataResult);
+}
+
+void HandleAuthDataResult (AuthDataResult authResult, NSError error)
+{
+	// ...
+}
+
+// Async/await
+
+if (Auth.DefaultInstance.IsSignIn (link)) {
+	try {
+		var authResult = await Auth.DefaultInstance.SignInWithLinkAsync (email, link);
+
+		// ...
+	} catch (NSErrorException ex) {
+	}
+}
+```
+
+---
+
 # Authenticate Using Google Sign-In
 
 You can let your users authenticate with Firebase using their Google Accounts by integrating Google Sign-In into your app. To be able to use this authentication, please, first integrate [Google Sign-In for iOS][3] to your app.
@@ -799,8 +936,8 @@ Once you have integrated Sign-In into your app, follow these steps to complete y
 
 * If you haven't yet connected your app to your Firebase project, do so from the [Firebase console][1].
 * Enable Google Sign-In in the Firebase console:
-  * In the [Firebase console][1], open the **Auth** section.
-  * On the **Sign in method** tab, enable the **Google** sign-in method and click **Save**.
+	* In the [Firebase console][1], open the **Auth** section.
+	* On the **Sign in method** tab, enable the **Google** sign-in method and click **Save**.
 * In your code, in `ISignInDelegate.DidSignIn` method, get a Google ID token and Google access token from the `Authentication` object and exchange them for a Firebase credential and, finally, authenticate with Firebase using the credential:
 
 ```csharp
@@ -813,12 +950,12 @@ public void DidSignIn (SignIn signIn, GoogleUser user, NSError error)
 		
 		// Authenticate with Firebase using the credential
 		// Visit https://firebase.google.com/docs/auth/ios/errors for more information
-		Auth.DefaultInstance.SignIn (credential, HandleAuthResult);
+		Auth.DefaultInstance.SignInAndRetrieveDataWithCredential (authCredential, HandleAuthDataResult);
 	} else {
 		// Print error
 	}
 
-	void HandleAuthResult (User user, NSError error)
+	void HandleAuthDataResult (AuthDataResult authResult, NSError error)
 	{
 		if (error != null) {
 			AuthErrorCode errorCode;
@@ -858,9 +995,9 @@ Once you have integrated Facebook into your app, follow these steps to complete 
 * If you haven't yet connected your app to your Firebase project, do so from the [Firebase console][1].
 * On the [Facebook for Developers][5] site, get the **App ID** and an **App Secret** for your app.
 * Enable Facebook Login:
-  * In the [Firebase console][1], open the Auth section.
-  * On the **Sign in method** tab, enable the **Facebook** sign-in method and specify the **App ID** and **App Secret** you got from Facebook.
-  * Then, make sure your **OAuth redirect URI** (e.g. `my-app-12345.firebaseapp.com/__/auth/handler`) is listed as one of your **OAuth redirect URIs** in your Facebook app's settings page on the [Facebook for Developers][5] site in the **Products** > **Facebook Login** > **Settings**.
+	* In the [Firebase console][1], open the Auth section.
+	* On the **Sign in method** tab, enable the **Facebook** sign-in method and specify the **App ID** and **App Secret** you got from Facebook.
+	* Then, make sure your **OAuth redirect URI** (e.g. `my-app-12345.firebaseapp.com/__/auth/handler`) is listed as one of your **OAuth redirect URIs** in your Facebook app's settings page on the [Facebook for Developers][5] site in the **Products** > **Facebook Login** > **Settings**.
 * In your code, after a user successfully signs in, in your `Completed` event or in your `DidComplete` method, get an access token for the signed-in user and exchange it for a Firebase credential and, finally, authenticate with Firebase using the credential:
 
 ```csharp
@@ -877,9 +1014,9 @@ BtnLogin.Completed += (object sender, LoginButtonCompletedEventArgs e) => {
 	var credential = FacebookAuthProvider.GetCredential (AccessToken.CurrentAccessToken.TokenString);
 
 	// Authenticate with Firebase using the credential
-	Auth.DefaultInstance.SignIn (credential, HandleAuthResult);
+	Auth.DefaultInstance.SignInAndRetrieveDataWithCredential (authCredential, HandleAuthDataResult);
 
-	void HandleAuthResult (User user, NSError error)
+	void HandleAuthDataResult (AuthDataResult authResult, NSError error)
 	{
 		if (error != null) {
 			AuthErrorCode errorCode;
@@ -918,9 +1055,13 @@ Once you have integrated Xamarin.Auth into your app, follow these steps to compl
 
 * [Register your app][9] as a developer application on Twitter and get your app's **API Key** and **API Secret**.
 * Enable Twitter Login in the Firebase console:
-  * In the [Firebase console][1], open the **Auth** section.
-  * On the **Sign in method** tab, enable the **Twitter** sign-in method and specify the **API Key** and **API Secret** you got from Twitter.
-  * Then, make sure your Firebase **OAuth redirect URI** (e.g. `my-app-12345.firebaseapp.com/__/auth/handler`) is set as your **Callback URL** in your app's settings page on your [Twitter app's config][9].
+	* In the [Firebase console][1], open the **Auth** section.
+	* On the **Sign in method** tab, enable the **Twitter** sign-in method and specify the **API Key** and **API Secret** you got from Twitter.
+	* Then, make sure your Firebase **OAuth redirect URI** (e.g. `my-app-12345.firebaseapp.com/__/auth/handler`) is set as your **Callback URL** in your app's settings page on your [Twitter app's config][9].
+
+		Be sure to select **Enable Callback Locking** when you set your redirect URI in the Twitter console.
+
+		> ![warning_icon] _Callback locking, which is disabled by default, is necessary to prevent Firebase security tokens from being intercepted by unauthorized parties._
 * After a user successfully signs in, in your implementation of `Completed`, exchange the Twitter auth token and Twitter auth token secret for a Firebase credential:
 
 ```csharp
@@ -1000,9 +1141,9 @@ Once you have integrated Xamarin.Auth into your app, follow these steps to compl
 
 * [Register your app][10] as a developer application on GitHub and get your app's OAuth 2.0 **Client ID** and **Client Secret**.
 * Enable GitHub authentication in the Firebase console:
-  * In the [Firebase console][1], open the **Auth** section.
-  * On the **Sign in method** tab, enable the **GitHub** sign-in method and specify the OAuth 2.0 **Client ID** and **Client Secret** you got from GitHub.
-  * Then, make sure your Firebase **OAuth redirect URI** (e.g. `my-app-12345.firebaseapp.com/__/auth/handler`) is set as your **Authorization callback URL** in your app's settings page on your [GitHub app's config][11].
+	* In the [Firebase console][1], open the **Auth** section.
+	* On the **Sign in method** tab, enable the **GitHub** sign-in method and specify the OAuth 2.0 **Client ID** and **Client Secret** you got from GitHub.
+	* Then, make sure your Firebase **OAuth redirect URI** (e.g. `my-app-12345.firebaseapp.com/__/auth/handler`) is set as your **Authorization callback URL** in your app's settings page on your [GitHub app's config][11].
 * After a user successfully signs in with GitHub, in your implementation of `Completed`, exchange the OAuth 2.0 access token from GitHub for a Firebase credential:
 
 ```csharp
@@ -1098,7 +1239,7 @@ If you already have an APNs certificate, you can upload the certificate instead.
 To enable the Firebase SDK to use reCAPTCHA verification:
 
 1. Add custom URL schemes to your project:
-    
+	
 	1. Open your **Info.plist**: Select the **Advance** tab, and expand the URL Types section.
 	2. Click the **Add URL Type** button, and add a **URL scheme** for your **reversed client ID**. To find this value, open the **GoogleService-Info.plist** configuration file, and look for the **REVERSED_CLIENT_ID** key. Copy the value of that key, and paste it into the **URL Schemes** box on the configuration page. Leave the other fields blank.
 
@@ -1109,8 +1250,8 @@ To enable the Firebase SDK to use reCAPTCHA verification:
 To initiate phone number sign-in, present the user an interface that prompts them to provide their phone number, and then call `VerifyPhoneNumber` method to request that Firebase send an authentication code to the user's phone by SMS:
 
 1. Get the user's phone number.
-
-    Legal requirements vary, but as a best practice and to set expectations for your users, you should inform them that if they use phone sign-in, they might receive an SMS message for verification and standard rates apply.
+	
+	Legal requirements vary, but as a best practice and to set expectations for your users, you should inform them that if they use phone sign-in, they might receive an SMS message for verification and standard rates apply.
 
 2. Call `VerifyPhoneNumber`, passing to it the user's phone number:
 
@@ -1209,6 +1350,101 @@ After the user provides your app with the verification code from the SMS message
 		// Do your magic to handle authentication result
 	}
 	```
+
+### Test with whitelisted phone numbers
+
+You can whitelist phone numbers for development via the Firebase console. Whitelisting phone numbers provides these benefits:
+
+* Test phone number authentication without consuming your usage quota.
+* Test phone number authentication without sending an actual SMS message.
+* Run consecutive tests with the same phone number without getting throttled. This minimizes the risk of rejection during App store review process if the reviewer happens to use the same phone number for testing.
+* Test readily in development environments without any additional effort, such as the ability to develop in an iOS simulator or an Android emulator without Google Play Services.
+* Write integration tests without being blocked by security checks normally applied on real phone numbers in a production environment.
+
+Phone numbers to whitelist must meet these requirements:
+
+* Make sure you use fictional numbers that do not already exist. Firebase Authentication does not allow you to whitelist existing phone numbers used by real users. One option is to use 555 prefixed numbers as US test phone numbers, for example: +1 650-555-3434
+* Phone numbers have to be correctly formatted for length and other constraints. They will still go through the same validation as a real user's phone number.
+* You can add up to 10 phone numbers for development.
+* Use test phone numbers/codes that are hard to guess and change those frequently.
+
+#### Whitelist phone numbers and verification codes
+
+* In the [Firebase console][1], open the **Authentication section**.
+* In the **Sign in method** tab, enable the Phone provider if you haven't already.
+* Open the **Phone numbers for testing** accordion menu.
+* Provide the phone number you want to test, for example: _+1 650-555-3434_.
+* Provide the 6-digit verification code for that specific number, for example: _654321_.
+* **Add** the number. If there's a need, you can delete the phone number and its code by hovering over the corresponding row and clicking the trash icon.
+
+#### Manual testing
+
+You can directly start using a whitelisted phone number in your application. This allows you to perform manual testing during development stages without running into quota issues or throttling. You can also test directly from an iOS simulator or Android emulator without Google Play Services installed.
+
+When you provide the whitelisted phone number and send the verification code, no actual SMS is sent. Instead, you need to provide the previously configured verification code to complete the sign in.
+
+On sign-in completion, a Firebase user is created with that phone number. The user has the same behavior and properties as a real phone number user, and can access Realtime Database/Cloud Firestore and other services the same way. The ID token minted during this process has the same signature as a real phone number user.
+
+> ![warning_icon] _Because the ID token for the whitelisted phone number has the same signature as a real phone number user, it is important to store these numbers securely and to continuously recycle them._
+
+Another option is to [set a test role via custom claims][22] on these users to differentiate them as fake users if you want to further restrict access. 
+
+#### Integration testing
+
+In addition to manual testing, Firebase Authentication provides APIs to help write integration tests for phone auth testing. These APIs disable app verification by disabling the reCAPTCHA requirement in web and silent push notifications in iOS. This makes automation testing possible in these flows and easier to implement. In addition, they help provide the ability to test instant verification flows on Android.
+
+> ![note_icon] _Make sure app verification is not disabled for production apps and that no whitelisted phone numbers are hardcoded in your production app._
+
+On iOS, the `AppVerificationDisabledForTesting` setting has to be set to `true` before calling `VerifyPhoneNumber`. This is processed without requiring any APNs token or sending silent push notifications in the background, making it easier to test in a simulator. This also disables the reCAPTCHA fallback flow.
+
+Note that when app verification is disabled, using a non-whitelisted phone number will fail to complete sign in. Only whitelisted phone numbers can be used with this API. 
+
+```csharp
+var phoneNumber = "+16505554567";
+
+// This test verification code is specified for the given test phone number in the developer console.
+var testVerificationCode = "123456";
+
+Auth.DefaultInstance.Settings.AppVerificationDisabledForTesting = true;
+PhoneAuthProvider.DefaultInstance.VerifyPhoneNumber (phoneNumber, null, HandleVerificationResult);
+
+void HandleVerificationResult (string verificationId, NSError error)
+{
+	if (error != null) {
+		// Handle error
+		Console.WriteLine (error.LocalizedDescription);
+		return;
+	}
+
+	var authCredential = PhoneAuthProvider.DefaultInstance.GetCredential (verificationId ?? "", testVerificationCode);
+
+	Auth.DefaultInstance.SignInAndRetrieveDataWithCredential (authCredential, HandleAuthDataResult);
+}
+
+void HandleAuthDataResult (AuthDataResult authResult, NSError error)
+{
+	if (error != null) {
+		// Handle error
+		Console.WriteLine (error.LocalizedDescription);
+		return;
+	}
+
+	// Success
+}
+
+// Async/await
+
+try {
+	var verificationId = await PhoneAuthProvider.DefaultInstance.VerifyPhoneNumberAsync (phoneNumber, null);
+	var authCredential = PhoneAuthProvider.DefaultInstance.GetCredential (verificationId ?? "", testVerificationCode);
+	var authResult = await Auth.DefaultInstance.SignInAndRetrieveDataWithCredentialAsync (authCredential);
+
+	// Success
+} catch (NSErrorException ex) {
+	// Handle error
+	Console.WriteLine (error.LocalizedDescription);
+}
+```
 
 ## Appendix: Using phone sign-in without swizzling
 
@@ -1452,13 +1688,10 @@ try {
 Firebase Auth uses [Firebase Dynamic Links][18] when sending a link that is meant to be opened in a mobile application. In order to use this feature, Dynamic Links need to be configured in the Firebase Console.
 
 1. Enable Firebase Dynamic Links:
-
 	1. In the [Firebase console][1], open the **Dynamic Links** section.
 	2. If you have not yet accepted the Dynamic Links terms, select **Get Started**. Go back to the main Dynamic Links dashboard.
 	3. Take note of your **Dynamic Link Domain**. It should look as follows: **abc123.app.goo.gl**. This will needed when configuring the Android or iOS app to intercept the incoming link.
-
 2. Configuring iOS applications:
-
 	1. If you plan on handling these links from your iOS appliction, the iOS bundle ID needs to be specified in the Firebase Console project settings. In addition, the App Store ID and the Apple Developer Team ID also need to be specified.
 	2. You will also need to configure the FDL universal link domain as an Associated Domain in your application capabilities.
 	3. If you plan to distribute your application to iOS versions 8 and under, you will need to set your iOS bundle ID as a custom scheme for incoming URLs.
@@ -1479,7 +1712,7 @@ In this case, the mobile app link sent to the user will be an FDL link whose pay
 
 ---
 
-## Convert an anonymous account to a permanent account
+# Convert an anonymous account to a permanent account
 
 When an anonymous user signs up to your app, you might want to allow them to continue their work with their new account—for example, you might want to make the items the user added to their shopping cart before they signed up available in their new account's shopping cart. To do so, complete the following steps:
 
@@ -1722,19 +1955,6 @@ You can trigger a function in response to the creation and deletion of user acco
 
 To learn more about this, please, read the following [documentation][20].
 
----
-
-# Known issues
-
-* Error `Native linking failed, duplicate symbol '_main'` appears when you try to build for **iPhoneSimulator**. A workaround for this is to change the behavior of the **Registrar**:
-	1. Open your project settings
-	2. Go to **Build** tab
-	3. Select **iOS Build** option
-	4. Type `--registrar:static` in **Additional mtouch arguments** textbox
-	5. Click on **Ok**
-
-	Don't forget to add this in **Release** and **Debug** configuration of **iPhoneSimulator** platform.
-
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/auth/ios/manage-users) to see original Firebase documentation._</sub>
 
 [1]: https://firebase.google.com/console/
@@ -1756,5 +1976,7 @@ To learn more about this, please, read the following [documentation][20].
 [18]: https://components.xamarin.com/view/firebaseiosdynamiclinks
 [19]: https://firebase.google.com/docs/auth/custom-email-handler
 [20]: https://firebase.google.com/docs/auth/ios/account-linking
+[21]: https://github.com/xamarin/GoogleApisForiOSComponents/blob/master/Firebase.DynamicLinks/component/GettingStarted.md
+[22]: https://firebase.google.com/docs/auth/admin/custom-claims
 [note_icon]: https://cdn3.iconfinder.com/data/icons/UltimateGnome/22x22/apps/gnome-app-install-star.png
 [warning_icon]: https://cdn2.iconfinder.com/data/icons/freecns-cumulus/32/519791-101_Warning-20.png

@@ -312,14 +312,6 @@ To learn how to read your data in Firebase Console, please, read the following [
 * Method swizzling after calling `App.Configure ()` might interfere with the Performance Monitoring SDK.
 * Known issues with the iOS 8.0-8.2 Simulator prevent Performance Monitoring from capturing performance events. These issues are fixed in the iOS 8.3 Simulator and later versions.
 * Connections established using `NSUrlSession`'s BackgroundSessionConfiguration will exhibit longer than expected connection times. These connections are executed out-of-process and the timings reflect in-process callback events.
-* Error `Native linking failed, duplicate symbol '_main'` appears when you try to build for **iPhoneSimulator**. A workaround for this is to change the behavior of the **Registrar**:
-	1. Open your project settings
-	2. Go to **Build** tab
-	3. Select **iOS Build** option
-	4. Type `--registrar:static` in **Additional mtouch arguments** textbox
-	5. Click on **Ok**
-
-	Don't forget to add this in **Release** and **Debug** configuration of **iPhoneSimulator** platform.
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/dynamic-links/ios) to see original Firebase documentation._</sub>
 

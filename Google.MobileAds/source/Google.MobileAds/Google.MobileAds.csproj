@@ -35,15 +35,13 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GoogleMobileAds.linkwith.cs">
-      <DependentUpon>GoogleMobileAds</DependentUpon>
-    </Compile>
     <Compile Include="Loader.cs" />
     <Compile Include="Extensions.cs" />
   </ItemGroup>
@@ -56,5 +54,12 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
   <ItemGroup>
     <None Include="Google.MobileAds.targets" />
+  </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="..\..\..\Firebase.AdMob\externals\PersonalizedAdConsent.framework">
+      <Kind>Framework</Kind>
+      <ForceLoad>True</ForceLoad>
+      <LinkerFlags>-ObjC</LinkerFlags>
+    </NativeReference>
   </ItemGroup>
 </Project>

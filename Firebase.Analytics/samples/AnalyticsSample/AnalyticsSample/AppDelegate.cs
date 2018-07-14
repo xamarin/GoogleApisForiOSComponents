@@ -35,13 +35,9 @@ namespace AnalyticsSample
 
 		public static void ShowMessage (string title, string message, UIViewController fromViewController)
 		{
-			if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
-				var alert = UIAlertController.Create (title, message, UIAlertControllerStyle.Alert);
-				alert.AddAction (UIAlertAction.Create ("Ok", UIAlertActionStyle.Default, (obj) => { }));
-				fromViewController.PresentViewController (alert, true, null);
-			} else {
-				new UIAlertView (title, message, null, "Ok", null).Show ();
-			}
+			var alert = UIAlertController.Create (title, message, UIAlertControllerStyle.Alert);
+			alert.AddAction (UIAlertAction.Create ("Ok", UIAlertActionStyle.Default, (obj) => { }));
+			fromViewController.PresentViewController (alert, true, null);
 		}
 
 		public override void OnResignActivation (UIApplication application)

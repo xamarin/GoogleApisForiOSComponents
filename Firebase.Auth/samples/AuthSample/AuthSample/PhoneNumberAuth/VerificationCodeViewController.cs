@@ -64,10 +64,10 @@ namespace AuthSample
 			var verificationId = NSUserDefaults.StandardUserDefaults.StringForKey ("AuthVerificationID");
 			var credential = PhoneAuthProvider.DefaultInstance.GetCredential (verificationId, verificationCode);
 
-			Auth.DefaultInstance.SignIn (credential, SignInOnCompletion);
+			Auth.DefaultInstance.SignInAndRetrieveDataWithCredential (credential, SignInOnCompletion);
 		}
 
-		void SignInOnCompletion (User user, NSError error)
+		void SignInOnCompletion (AuthDataResult authResult, NSError error)
 		{
 			indicatorView.StopAnimating ();
 

@@ -5,9 +5,10 @@ namespace Firebase.RemoteConfig
 	{
 		static Loader ()
 		{
-			Firebase.InstanceID.Loader.ForceLoad ();
 			Firebase.Core.Loader.ForceLoad ();
+			Firebase.InstanceID.Loader.ForceLoad ();
 			Firebase.Analytics.Loader.ForceLoad ();
+			Firebase.ABTesting.Loader.ForceLoad ();
 		}
 
 		public static void ForceLoad () { }

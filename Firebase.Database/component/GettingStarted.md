@@ -45,7 +45,6 @@ The Firebase Database is a cloud-hosted database. Data is stored as JSON and syn
 	- [Clock Skew](#clock-skew)
 - [Automated Backups](#automated-backups)
 - [Best practices](#best-practices)
-- [Known issues](#known-issues)
 
 ## Add Firebase to your app
 
@@ -704,17 +703,6 @@ To learn more about this, please, read the following [documentation][22].
 With Cloud Functions, you can handle events in the Firebase Realtime Database with no need to update client code. Cloud Functions lets you run database operations with full administrative privileges, and ensures that each change to the database is processed individually. You can make Firebase Database changes via the [DeltaSnapshot][23] or via the [Admin SDK][24].
 
 To learn more about this, please, read the following [documentation][25].
-
-## Known issues
-
-* Error `Native linking failed, duplicate symbol '_main'` appears when you try to build for **iPhoneSimulator**. A workaround for this is to change the behavior of the **Registrar**:
-	1. Open your project settings
-	2. Go to **Build** tab
-	3. Select **iOS Build** option
-	4. Type `--registrar:static` in **Additional mtouch arguments** textbox
-	5. Click on **Ok**
-
-	Don't forget to add this in **Release** and **Debug** configuration of **iPhoneSimulator** platform.
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/database/ios/start) to see original Firebase documentation._</sub>
 

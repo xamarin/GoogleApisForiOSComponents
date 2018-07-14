@@ -1,3 +1,7 @@
+- Name: Firebase.iOS.ABTesting
+  BuildScript: ./Firebase.ABTesting/build.cake
+  TriggerPaths: [ Firebase.ABTesting ]
+  MacBuildTargets: [ samples, component ]
 - Name: Firebase.iOS.AdMob
   BuildScript: ./Firebase.AdMob/build.cake
   TriggerPaths: [ Firebase.AdMob ]
@@ -26,10 +30,10 @@
   BuildScript: ./Firebase.Crashlytics/build.cake
   TriggerPaths: [ Firebase.Crashlytics ]
   MacBuildTargets: [ samples, component ]
-- Name: Firebase.iOS.CrashReporting
-  BuildScript: ./Firebase.CrashReporting/build.cake
-  TriggerPaths: [ Firebase.CrashReporting ]
-  MacBuildTargets: [ samples, component ]
+# - Name: Firebase.iOS.CrashReporting
+#   BuildScript: ./Firebase.CrashReporting/build.cake
+#   TriggerPaths: [ Firebase.CrashReporting ]
+#   MacBuildTargets: [ samples, component ]
 - Name: Firebase.iOS.Database
   BuildScript: ./Firebase.Database/build.cake
   TriggerPaths: [ Firebase.Database ]

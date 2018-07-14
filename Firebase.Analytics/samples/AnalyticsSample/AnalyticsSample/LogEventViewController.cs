@@ -226,5 +226,11 @@ namespace AnalyticsSample
 			Analytics.LogEvent (eventKey, NSDictionary<NSString, NSObject>.FromObjectsAndKeys (parameters.Values, parameters.Keys, parameters.Values.Length));
 			AppDelegate.ShowMessage ("Event Logged successful", string.Empty, this);
 		}
+
+		void Test ()
+		{
+			var parameters = new Dictionary<object, object> { { "Name", "Image Name" } };
+			Analytics.LogEvent ("share_image", parameters);
+		}
 	}
 }

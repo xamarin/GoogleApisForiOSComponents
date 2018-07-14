@@ -1,4 +1,4 @@
-version: 4.4.1.1
+version: 5.0.2.0
 name: Firebase Auth for iOS
 id: firebaseiosauth
 publisher: Xamarin Inc.
@@ -12,38 +12,28 @@ docs-url: https://firebase.google.com/docs/auth/
 libraries:
   ios-unified:
   - ../output/Firebase.Auth.dll
-  - ../../Firebase.Analytics/output/Firebase.Analytics.dll
   - ../../Firebase.Core/output/Firebase.Core.dll
-  - ../../Firebase.InstanceID/output/Firebase.InstanceID.dll
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Firebase.iOS.Auth, Version=4.4.1.1
+  - Xamarin.Firebase.iOS.Auth, Version=5.0.2.0
 samples:
 - name: Auth Sample
   path: ../samples/AuthSample/AuthSample.sln
   removeProjects:
   - Firebase.Auth
   - Google.SignIn
-  - Firebase.Analytics
-  - Firebase.CloudMessaging
   - Firebase.Core
-  - Firebase.InstanceID
   installNuGets:
   - project: AuthSample
     packages:
     - Xamarin.Firebase.iOS.Auth
     - Xamarin.Google.iOS.SignIn
-    - Xamarin.Firebase.iOS.CloudMessaging
-    - Xamarin.Firebase.iOS.Analytics
     - Xamarin.Firebase.iOS.Core
-    - Xamarin.Firebase.iOS.InstanceID
   removeNodes:
-  - //xNS:Import[contains (@Project, 'Firebase.Auth.targets')]
   - //xNS:Import[contains (@Project, 'Google.SignIn.targets')]
-  - //xNS:Import[contains (@Project, 'Firebase.CloudMessaging.targets')]
-  - //xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]
-  - //xNS:Import[contains (@Project, 'Firebase.Core.targets')]
-  - //xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]
 local-nuget-repo: ../../tmp-nugets
 no_build: true
+additional-files:
+- source: ../External-Dependency-Info
+  destination: THIRD-PARTY-NOTICES

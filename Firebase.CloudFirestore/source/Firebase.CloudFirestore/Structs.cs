@@ -12,6 +12,14 @@ namespace Firebase.CloudFirestore
 	}
 
 	[Native]
+	public enum ServerTimestampBehavior : long
+	{
+		None,
+		Estimate,
+		Previous
+	}
+
+	[Native]
 	public enum FirestoreErrorCode : long
 	{
 		Ok = 0,
@@ -31,5 +39,13 @@ namespace Firebase.CloudFirestore
 		Unavailable = 14,
 		DataLoss = 15,
 		Unauthenticated = 16
+	}
+
+	[Native]
+	public enum FirestoreSource : ulong
+	{
+		Default,
+		Server,
+		Cache
 	}
 }

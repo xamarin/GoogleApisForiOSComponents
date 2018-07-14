@@ -24,7 +24,8 @@ namespace Firebase.Auth
 		Unknown = 0,
 		PasswordReset = 1,
 		VerifyEmail = 2,
-		RecoverEmail = 3
+		RecoverEmail = 3,
+		EmailLink = 4
 	}
 
 	[Native]
@@ -89,6 +90,7 @@ namespace Firebase.Auth
 		InvalidClientId = 17060,
 		WebNetworkRequestFailed = 17061,
 		WebInternalError = 17062,
+		NullUser = 17067,
 		KeychainError = 17995,
 		InternalError = 17999
 	}

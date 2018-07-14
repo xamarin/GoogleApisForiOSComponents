@@ -1,0 +1,39 @@
+=begin
+Last run FirebaseABTesting installed:
+* Firebase (5.4.0)
+* FirebaseABTesting (2.0.0)
+* FirebaseAnalytics (5.0.1)
+* FirebaseCore (5.0.5)
+* FirebaseInstanceID (3.1.1)
+* GoogleToolboxForMac (2.1.4)
+* Protobuf (3.6.0)
+* nanopb (0.3.8)
+
+Check if main version or subversion number has changed. 
+If yes, please, update *.targets files located in binding 
+projects, also, update Podfile files if needed.
+
+In Firebase.ABTesting binding project, you can find the .targets file of:
+* FirebaseABTesting (2.0.0)
+
+In Firebase.Analytics binding project, you can find the .targets file of:
+* FirebaseAnalytics (5.0.1)
+
+In Firebase.InstanceID binding project, you can find the .targets file of:
+* FirebaseInstanceID (3.1.1)
+
+In Firebase.Core binding project, you can find the Native Reference of:
+* FirebaseCore (5.0.5)
+* GoogleToolboxForMac (2.1.4)
+* Protobuf (3.6.0)
+* nanopb (0.3.8)
+=end
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '8.0'
+install! 'cocoapods', :integrate_targets => false
+
+target 'FirebaseABTesting' do
+	pod 'Firebase/ABTesting', '5.4.0'
+end

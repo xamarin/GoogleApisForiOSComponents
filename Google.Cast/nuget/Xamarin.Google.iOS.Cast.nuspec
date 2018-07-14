@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.Google.iOS.Cast</id>
     <title>Google APIs Cast iOS Library</title>
-    <version>4.1.0.0</version>
+    <version>4.1.0.1</version>
     <authors>Microsoft</authors>
     <owners>Microsoft</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -14,7 +14,7 @@
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/googleioscast_128x128.png</iconUrl>
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
-        <dependency id="Xamarin.Build.Download" version="0.4.6" />
+        <dependency id="Xamarin.Build.Download" version="0.4.11" />
       </group>
     </dependencies>
   </metadata>

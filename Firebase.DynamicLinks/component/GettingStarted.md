@@ -54,9 +54,6 @@ Once you have your `GoogleService-Info.plist` file downloaded in your computer, 
 7. Add the following lines of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Core` namespace):
 
 ```csharp
-// Set DeepLinkUrlScheme to the custom URL scheme you defined in your
-// Info.plist.
-Options.DefaultInstance.DeepLinkUrlScheme = "CUSTOM_URL_SCHEME";
 App.Configure ();
 ```
 
@@ -183,6 +180,28 @@ try {
 }
 ```
 
+### Specifying a custom URL scheme for Dynamic Links
+
+By default, Dynamic Links uses your app's bundle identifier as the URL scheme needed to open up your application. We recommend staying with this default value to keep your implementation simple.
+
+However, developers who are already using a custom URL scheme for other purposes may wish to use this same custom URL scheme for their Dynamic Links as well. If you are in this situation, you can specify a different URL scheme for your Firebase Dynamic Links by following these steps:
+
+1. When setting up your app, make sure you specify the default URL scheme to be used by your application before configuring your FirebaseApp shared instance:
+
+	```csharp
+	public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
+	{
+		// Set DeepLinkUrlScheme to the custom URL scheme you defined in your
+		// Info.plist.
+		Options.DefaultInstance.DeepLinkUrlScheme = "com.xamarin.firebase.ios.dynamiclinkssample";
+		App.Configure ();
+
+		return true;
+	}
+	```
+
+2. Whenever you create any Dynamic Link, you will need to specify the custom URL scheme that your app uses. You can do this through the Firebase console, setting the `customScheme` in the Builder API, specifying the `ius` parameter in your URL, or sending the `iosCustomScheme` parameter to the REST API
+
 ## Manually constructing a Dynamic Link URL
 
 Please, read this [Firebase documentation][7] to learn how to construct a Dynamic Link URL manually.
@@ -246,17 +265,6 @@ To learn more about this, please, read the following [documentation][11].
 ## Generate link previews with social metadata
 
 To learn about this, please, read the following [documentation][12].
-
-## Known issues
-
-* Error `Native linking failed, duplicate symbol '_main'` appears when you try to build for **iPhoneSimulator**. A workaround for this is to change the behavior of the **Registrar**:
-	1. Open your project settings
-	2. Go to **Build** tab
-	3. Select **iOS Build** option
-	4. Type `--registrar:static` in **Additional mtouch arguments** textbox
-	5. Click on **Ok**
-
-	Don't forget to add this in **Release** and **Debug** configuration of **iPhoneSimulator** platform.
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/dynamic-links/ios) to see original Firebase documentation._</sub>
 

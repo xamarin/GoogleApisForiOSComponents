@@ -1,4 +1,4 @@
-version: 7.27.0.3
+version: 7.31.0.0
 name: Firebase AdMob for iOS
 id: firebaseiosadmob
 publisher: Xamarin Inc
@@ -18,7 +18,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Firebase.iOS.AdMob, Version=7.27.0.3
+  - Xamarin.Firebase.iOS.AdMob, Version=7.31.0.0
 samples:
 - name: AdMob Sample
   path: ../samples/AdMobSample/AdMobSample.sln
@@ -33,7 +33,6 @@ samples:
   removeNodes:
   - //xNS:Import[contains (@Project, 'Google.MobileAds.targets')]
   - //xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]
-  - //xNS:Import[contains (@Project, 'Firebase.Core.targets')]
   - //xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]
 local-nuget-repo: ../../tmp-nugets
 no_build: true

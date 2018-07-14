@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.Google.iOS.Analytics</id>
     <title>Google APIs Analytics iOS Library</title>
-    <version>3.17.0.2</version>
+    <version>3.17.0.3</version>
     <authors>Microsoft</authors>
     <owners>Microsoft</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -14,7 +14,7 @@
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/googleiosanalytics_128x128.png</iconUrl>
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
-        <dependency id="Xamarin.Build.Download" version="0.4.6" />
+        <dependency id="Xamarin.Build.Download" version="0.4.11" />
       </group>
     </dependencies>
   </metadata>

@@ -1,4 +1,4 @@
-version: 1.1.0.1
+version: 2.0.1.0
 name: Firebase Performance Monitoring for iOS
 id: firebaseiosperformancemonitoring
 publisher: Xamarin Inc.
@@ -9,7 +9,6 @@ icons:
 - ../../icons/firebaseiosperformancemonitoring_128x128.png
 - ../../icons/firebaseiosperformancemonitoring_512x512.png
 docs-url: https://firebase.google.com/docs/perf-mon/
-license: ../License.md
 libraries:
   ios-unified:
   - ../output/Firebase.PerformanceMonitoring.dll
@@ -19,13 +18,14 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Firebase.iOS.PerformanceMonitoring, Version=1.1.0.1
+  - Xamarin.Firebase.iOS.PerformanceMonitoring, Version=2.0.1.0
 samples:
 - name: Performance Monitoring Sample
   path: ../samples/PerformanceMonitoringSample/PerformanceMonitoringSample.sln
   removeProjects:
   - Firebase.PerformanceMonitoring
   - Firebase.RemoteConfig
+  - Firebase.ABTesting
   - Firebase.Analytics
   - Firebase.Core
   - Firebase.InstanceID
@@ -34,14 +34,15 @@ samples:
     packages:
     - Xamarin.Firebase.iOS.PerformanceMonitoring
     - Xamarin.Firebase.iOS.RemoteConfig
+    - Xamarin.Firebase.iOS.ABTesting
     - Xamarin.Firebase.iOS.Analytics
     - Xamarin.Firebase.iOS.Core
     - Xamarin.Firebase.iOS.InstanceID
   removeNodes:
   - //xNS:Import[contains (@Project, 'Firebase.PerformanceMonitoring.targets')]
   - //xNS:Import[contains (@Project, 'Firebase.RemoteConfig.targets')]
+  - //xNS:Import[contains (@Project, 'Firebase.ABTesting.targets')]
   - //xNS:Import[contains (@Project, 'Firebase.Analytics.targets')]
-  - //xNS:Import[contains (@Project, 'Firebase.Core.targets')]
   - //xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]
 local-nuget-repo: ../../tmp-nugets
 no_build: true

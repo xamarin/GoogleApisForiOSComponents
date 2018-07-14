@@ -22,6 +22,7 @@ public Dictionary<string, GoogleBase> CreateComponents ()
 {
 	var googleComponents = new Dictionary<string, GoogleBase> ();
 	
+	googleComponents ["Firebase.ABTesting"] = GetComponent<Firebase.ABTesting> ();
 	googleComponents ["Firebase.AdMob"] = GetComponent<Firebase.AdMob> ();
 	googleComponents ["Firebase.Analytics"] = GetComponent<Firebase.Analytics> ();
 	googleComponents ["Firebase.Auth"] = GetComponent<Firebase.Auth> ();
@@ -280,7 +281,7 @@ Task ("build").Does (() =>
 	Information ("List of bumped components due update:");
 	foreach (var pair in components)
 		if (pair.Value.Bumped)
-			Information ($"{pair.Key,-26}{pair.Value.CurrentVersion,-11}=>{"",-3}{pair.Value.NewVersion}");
+			Information ($"{pair.Key,-31}{pair.Value.CurrentVersion,-11}=>{"",-3}{pair.Value.NewVersion}");
 });
 
 Task ("Default").IsDependentOn ("build");

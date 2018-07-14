@@ -9,3 +9,4 @@ tmp-nugets
 Pods/
 build
 .vs/
+*.framework

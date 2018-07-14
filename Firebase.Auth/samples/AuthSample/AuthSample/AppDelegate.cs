@@ -1,20 +1,20 @@
-﻿using Foundation;
+﻿using System;
+
+using Foundation;
 using UIKit;
-using System;
-using Firebase.Core;
-using Google.SignIn;
+using UserNotifications;
+
 using Facebook.CoreKit;
 using Firebase.Auth;
-using CoreTelephony;
-using UserNotifications;
-using Firebase.CloudMessaging;
+using Firebase.Core;
+using Google.SignIn;
 
 namespace AuthSample
 {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the
 	// User Interface of the application, as well as listening (and optionally responding) to application events from iOS.
 	[Register ("AppDelegate")]
-	public class AppDelegate : UIApplicationDelegate, IUNUserNotificationCenterDelegate, IMessagingDelegate
+	public class AppDelegate : UIApplicationDelegate, IUNUserNotificationCenterDelegate
 	{
 		// class-level declarations
 
@@ -67,41 +67,22 @@ namespace AuthSample
 
 		public static void ShowMessage (string title, string message, UIViewController fromViewController, Action okAction = null)
 		{
-			if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
-				var alert = UIAlertController.Create (title, message, UIAlertControllerStyle.Alert);
-				alert.AddAction (UIAlertAction.Create ("Ok", UIAlertActionStyle.Default, (obj) => okAction?.Invoke ()));
-				fromViewController.PresentViewController (alert, true, null);
-			} else {
-				var alert = new UIAlertView (title, message, null, "Ok", null);
-				alert.Canceled += (sender, e) => okAction?.Invoke ();
-				alert.Show ();
-			}
+			var alert = UIAlertController.Create (title, message, UIAlertControllerStyle.Alert);
+			alert.AddAction (UIAlertAction.Create ("Ok", UIAlertActionStyle.Default, (obj) => okAction?.Invoke ()));
+			fromViewController.PresentViewController (alert, true, null);
 		}
 
 		public static void ShowMessage (string title, string message, UIViewController fromViewController, string cancelTitle, Action cancelAction, string otherTitle, Action otherAction)
 		{
-			if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
-				var alert = UIAlertController.Create (title, message, UIAlertControllerStyle.Alert);
-				var btnCancel = UIAlertAction.Create (cancelTitle, UIAlertActionStyle.Default, (obj) => cancelAction?.Invoke ());
-				var btnOther = UIAlertAction.Create (otherTitle, UIAlertActionStyle.Default, (obj) => otherAction?.Invoke ());
+			var alert = UIAlertController.Create (title, message, UIAlertControllerStyle.Alert);
+			var btnCancel = UIAlertAction.Create (cancelTitle, UIAlertActionStyle.Default, (obj) => cancelAction?.Invoke ());
+			var btnOther = UIAlertAction.Create (otherTitle, UIAlertActionStyle.Default, (obj) => otherAction?.Invoke ());
 
-				alert.AddAction (btnCancel);
-				alert.AddAction (btnOther);
-				alert.PreferredAction = btnOther;
+			alert.AddAction (btnCancel);
+			alert.AddAction (btnOther);
+			alert.PreferredAction = btnOther;
 
-				fromViewController.PresentViewController (alert, true, null);
-			} else {
-				var alert = new UIAlertView (title, message, null, cancelTitle, otherTitle);
-				alert.Dismissed += (sender, e) => {
-					var a = (UIAlertView)sender;
-
-					if (e.ButtonIndex == a.CancelButtonIndex)
-						cancelAction?.Invoke ();
-					else
-						otherAction?.Invoke ();
-					};
-				alert.Show ();
-			}
+			fromViewController.PresentViewController (alert, true, null);
 		}
 	}
 }

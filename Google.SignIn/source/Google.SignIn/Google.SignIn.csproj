@@ -40,9 +40,6 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Loader.cs" />
-    <Compile Include="GoogleSignIn.linkwith.cs">
-      <DependentUpon>GoogleSignIn</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
@@ -52,14 +49,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\Firebase.InstanceID.csproj">
-      <Project>{D6AA184C-DA45-4BBB-988A-451B20C7B804}</Project>
-      <Name>Firebase.InstanceID</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Firebase.Analytics\source\Firebase.Analytics\Firebase.Analytics.csproj">
-      <Project>{87BB564C-85A8-4EC1-AD16-EC0A1ACCEE56}</Project>
-      <Name>Firebase.Analytics</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.csproj">
       <Project>{0AD1ED63-C008-41B3-8ADB-04696B4880E3}</Project>
       <Name>Firebase.Core</Name>
@@ -69,8 +58,10 @@
     <None Include="Google.SignIn.targets" />
   </ItemGroup>
   <ItemGroup>
-    <ObjcBindingNativeLibrary Include="..\..\externals\GTMOAuth2">
-      <Link>GTMOAuth2</Link>
-    </ObjcBindingNativeLibrary>
+    <NativeReference Include="..\..\externals\GTMOAuth2.framework">
+      <Kind>Framework</Kind>
+      <Frameworks>Security SystemConfiguration</Frameworks>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
   </ItemGroup>
 </Project>

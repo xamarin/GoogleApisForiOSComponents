@@ -140,15 +140,4 @@ public void DidDisconnect (SignIn signIn, GoogleUser user, NSError error)
 }
 ```
 
-## Known issues
-
-* Error `Native linking failed, duplicate symbol '_main'` appears when you try to build for **iPhoneSimulator**. A workaround for this is to change the behavior of the **Registrar**:
-	1. Open your project settings
-	2. Go to **Build** tab
-	3. Select **iOS Build** option
-	4. Type `--registrar:static` in **Additional mtouch arguments** textbox
-	5. Click on **Ok**
-
-	Don't forget to add this in **Release** and **Debug** configuration of **iPhoneSimulator** platform.
-
 [1]: https://developers.google.com/mobile/add?platform=ios&cntapi=gcm

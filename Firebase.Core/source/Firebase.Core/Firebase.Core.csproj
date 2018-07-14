@@ -33,10 +33,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FirebaseCore.linkwith.cs">
-      <DependentUpon>FirebaseCore</DependentUpon>
-    </Compile>
     <Compile Include="Loader.cs" />
+    <Compile Include="Extension.cs" />
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
@@ -45,24 +43,34 @@
     <ObjcBindingCoreSource Include="Structs.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Firebase.Core.targets" />
-  </ItemGroup>
-  <ItemGroup>
-    <ObjcBindingNativeLibrary Include="..\..\externals\GoogleToolboxForMac">
-      <Link>GoogleToolboxForMac</Link>
-    </ObjcBindingNativeLibrary>
-    <ObjcBindingNativeLibrary Include="..\..\externals\GTMSessionFetcher">
-      <Link>GTMSessionFetcher</Link>
-    </ObjcBindingNativeLibrary>
-    <ObjcBindingNativeLibrary Include="..\..\externals\Protobuf">
-      <Link>Protobuf</Link>
-    </ObjcBindingNativeLibrary>
-    <ObjcBindingNativeLibrary Include="..\..\externals\nanopb">
-      <Link>nanopb</Link>
-    </ObjcBindingNativeLibrary>
-    <ObjcBindingNativeLibrary Include="..\..\externals\leveldb-library">
-      <Link>leveldb-library</Link>
-    </ObjcBindingNativeLibrary>
+    <NativeReference Include="..\..\externals\FirebaseCore.framework">
+      <Kind>Framework</Kind>
+      <ForceLoad>True</ForceLoad>
+      <Frameworks>Foundation SystemConfiguration</Frameworks>
+    </NativeReference>
+    <NativeReference Include="..\..\externals\GoogleToolboxForMac.framework">
+      <Kind>Framework</Kind>
+      <Frameworks>SystemConfiguration</Frameworks>
+      <ForceLoad>True</ForceLoad>
+      <LinkerFlags>-lz</LinkerFlags>
+    </NativeReference>
+    <NativeReference Include="..\..\externals\GTMSessionFetcher.framework">
+      <Kind>Framework</Kind>
+      <Frameworks>Security</Frameworks>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+    <NativeReference Include="..\..\externals\leveldb.framework">
+      <Kind>Framework</Kind>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+    <NativeReference Include="..\..\externals\nanopb.framework">
+      <Kind>Framework</Kind>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+    <NativeReference Include="..\..\externals\Protobuf.framework">
+      <Kind>Framework</Kind>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>

@@ -14,13 +14,4 @@ namespace Firebase.InstanceID
 		OperationInProgress = 5,
 		InvalidRequest = 7
 	}
-
-	[Obsolete ("Use FIRMessaging's APNSToken property instead.")]
-	[Native]
-	public enum ApnsTokenType : long
-	{
-		Unknown,
-		Sandbox,
-		Prod
-	}
 }

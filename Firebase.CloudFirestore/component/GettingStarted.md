@@ -64,7 +64,6 @@
 		- [Listen to offline data](#listen-to-offline-data)
 		- [Get offline data](#get-offline-data)
 		- [Query offline data](#query-offline-data)
-	- [Known issues](#known-issues)
 
 ## Create a Cloud Firestore project
 
@@ -1539,20 +1538,6 @@ If you get a document while the device is offline, Cloud Firestore returns data 
 ### Query offline data
 
 Querying works with offline persistence. You can retrieve the results of queries with either a direct get or by listening, as described in the preceding sections. You can also create new queries on locally persisted data while the device is offline, but the queries will initially run only against the cached documents.
-
----
-
-## Known issues
-
-* App doesn't compile when `Incremental builds` is enabled. (Bug [#43689][11])
-* Error `Native linking failed, duplicate symbol '_main'` appears when you try to build for **iPhoneSimulator**. A workaround for this is to change the behavior of the **Registrar**:
-	1. Open your project settings
-	2. Go to **Build** tab
-	3. Select **iOS Build** option
-	4. Type `--registrar:static` in **Additional mtouch arguments** textbox
-	5. Click on **Ok**
-
-	Don't forget to add this in **Release** and **Debug** configuration of **iPhoneSimulator** platform.
 
 <sub>_Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/readme/policies/) and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/). Click [here](https://firebase.google.com/docs/firestore/) to see original Firebase documentation._</sub>
 

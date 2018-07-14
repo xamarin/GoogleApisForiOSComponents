@@ -11,14 +11,6 @@ namespace Firebase.DynamicLinks
 		Unguessable
 	}
 
-	[Obsolete ("Use DynamicLinkMatchType enum instead.")]
-	[Native]
-	public enum DynamicLinkMatchConfidence : ulong
-	{
-		Weak,
-		Strong
-	}
-
 	[Native]
 	public enum DynamicLinkMatchType : ulong
 	{

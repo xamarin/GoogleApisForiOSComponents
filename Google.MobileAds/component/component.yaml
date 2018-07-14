@@ -1,4 +1,4 @@
-version: 7.27.0.3
+version: 7.31.0.0
 name: Google Mobile Ads for iOS
 id: googleiosmobileads
 publisher: Xamarin Inc
@@ -15,7 +15,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Google.iOS.MobileAds, Version=7.27.0.3
+  - Xamarin.Google.iOS.MobileAds, Version=7.31.0.0
 samples:
 - name: Google Mobile Ads AdMob Sample
   path: ../samples/MobileAdsExample/MobileAdsExample.sln
@@ -29,3 +29,6 @@ samples:
   - //xNS:Import[contains (@Project, 'Google.MobileAds.targets')]
 local-nuget-repo: ../../tmp-nugets
 no_build: true
+additional-files:
+- source: ../External-Dependency-Info
+  destination: THIRD-PARTY-NOTICES

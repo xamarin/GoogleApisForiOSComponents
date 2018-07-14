@@ -17,21 +17,12 @@ namespace DatabaseSample
 		/// <param name="okAction">Action to be done when user press the Ok button.</param>
 		public static void ShowMessage (string title, string message, UIViewController fromViewController, string okTitle, Action okAction = null)
 		{
-			if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
-				var alert = UIAlertController.Create (title, message, UIAlertControllerStyle.Alert);
-				alert.AddAction (UIAlertAction.Create (okTitle, UIAlertActionStyle.Default, (obj) => {
-					okAction?.Invoke ();
-				}));
+			var alert = UIAlertController.Create (title, message, UIAlertControllerStyle.Alert);
+			alert.AddAction (UIAlertAction.Create (okTitle, UIAlertActionStyle.Default, (obj) => {
+				okAction?.Invoke ();
+			}));
 
-				fromViewController.PresentViewController (alert, true, null);
-			} else {
-				var alert = new UIAlertView (title, message, null, "Ok", null);
-				alert.Dismissed += (sender, e) => {
-					okAction?.Invoke ();
-				};
-
-				alert.Show ();
-			}
+			fromViewController.PresentViewController (alert, true, null);
 		}
 
 		/// <summary>
@@ -62,52 +53,30 @@ namespace DatabaseSample
 			    otherActions != null &&
 			    otherTitles.Length != otherActions.Length)
 				throw new ArgumentException ("otherTitles and otherActions arrays have different sizes");
+			
+			var alert = UIAlertController.Create (title, message, UIAlertControllerStyle.Alert);
 
-			if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
+			if (!string.IsNullOrWhiteSpace (destructiveTitle))
+				alert.AddAction (UIAlertAction.Create (destructiveTitle, UIAlertActionStyle.Destructive, (obj) => {
+					destructiveAction?.Invoke ();
+				}));
 
-				var alert = UIAlertController.Create (title, message, UIAlertControllerStyle.Alert);
+			if (!string.IsNullOrWhiteSpace (cancelTitle))
+				alert.AddAction (UIAlertAction.Create (cancelTitle, UIAlertActionStyle.Cancel, (obj) => {
+					cancelAction?.Invoke ();
+				}));
 
-				if (!string.IsNullOrWhiteSpace (destructiveTitle))
-					alert.AddAction (UIAlertAction.Create (destructiveTitle, UIAlertActionStyle.Destructive, (obj) => {
-						destructiveAction?.Invoke ();
+			if (otherTitles != null && otherActions != null) {
+				for (int i = 0; i < otherTitles.Length; i++) {
+					var otherTitle = otherTitles [i];
+					var otherAction = otherActions [i];
+					alert.AddAction (UIAlertAction.Create (otherTitle, UIAlertActionStyle.Default, (obj) => {
+						otherAction?.Invoke ();
 					}));
-
-				if (!string.IsNullOrWhiteSpace (cancelTitle))
-					alert.AddAction (UIAlertAction.Create (cancelTitle, UIAlertActionStyle.Cancel, (obj) => {
-						cancelAction?.Invoke ();
-					}));
-
-				if (otherTitles != null && otherActions != null) {
-					for (int i = 0; i < otherTitles.Length; i++) {
-						var otherTitle = otherTitles [i];
-						var otherAction = otherActions [i];
-						alert.AddAction (UIAlertAction.Create (otherTitle, UIAlertActionStyle.Default, (obj) => {
-							otherAction?.Invoke ();
-						}));
-					}
 				}
-
-				fromViewController.PresentViewController (alert, true, null);
-			} else {
-				var buttons = new List<string> ();
-
-				if (otherTitles != null)
-					buttons.AddRange (otherTitles);
-
-				if (!string.IsNullOrWhiteSpace (cancelTitle))
-					buttons.Add (cancelTitle);
-
-				var alert = new UIAlertView (title, message, null, destructiveTitle, buttons.ToArray ());
-				alert.Dismissed += (sender, e) => {
-					if (e.ButtonIndex <= 0)
-						destructiveAction?.Invoke ();
-					else if (otherTitles == null || e.ButtonIndex > otherTitles.Length)
-						cancelAction?.Invoke ();
-					else
-						otherActions [e.ButtonIndex - 1]?.Invoke ();
-				};
-				alert.Show ();
 			}
+
+			fromViewController.PresentViewController (alert, true, null);
 		}
 
 		/// <summary>
@@ -137,46 +106,30 @@ namespace DatabaseSample
 				return;
 			}
 
-			if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
-				var alert = UIAlertController.Create (title, message, UIAlertControllerStyle.Alert);
+			var alert = UIAlertController.Create (title, message, UIAlertControllerStyle.Alert);
 
-				foreach (var placeholder in placeholders) {
-					alert.AddTextField ((textField) => {
-						textField.Placeholder = placeholder;
-						textField.TextAlignment = UITextAlignment.Center;
-					});
-				}
-
-				alert.AddAction (UIAlertAction.Create (okTitle, UIAlertActionStyle.Default, (obj) => {
-					var textfields = alert.TextFields;
-					var inputs = new string [textfields.Length];
-
-					for (int i = 0; i < textfields.Length; i++)
-						inputs [i] = textfields [i].Text;
-
-					result?.Invoke (false, inputs);
-				}));
-
-				alert.AddAction (UIAlertAction.Create ("Cancel", UIAlertActionStyle.Cancel, (obj) => {
-					result?.Invoke (true, null);
-				}));
-
-				fromViewController.PresentViewController (alert, true, null);
-			} else {
-				var alert = new UIAlertView (title, message, null, "Cancel", okTitle) {
-					AlertViewStyle = UIAlertViewStyle.PlainTextInput
-				};
-				alert.Dismissed += (sender, e) => {
-					if (e.ButtonIndex == 0) {
-						result?.Invoke (true, null);
-					} else {
-						var value = (sender as UIAlertView).GetTextField (0).Text;
-						result?.Invoke (false, new [] { value });
-					}
-				};
-
-				alert.Show ();
+			foreach (var placeholder in placeholders) {
+				alert.AddTextField ((textField) => {
+					textField.Placeholder = placeholder;
+					textField.TextAlignment = UITextAlignment.Center;
+				});
 			}
+
+			alert.AddAction (UIAlertAction.Create (okTitle, UIAlertActionStyle.Default, (obj) => {
+				var textfields = alert.TextFields;
+				var inputs = new string [textfields.Length];
+
+				for (int i = 0; i < textfields.Length; i++)
+					inputs [i] = textfields [i].Text;
+
+				result?.Invoke (false, inputs);
+			}));
+
+			alert.AddAction (UIAlertAction.Create ("Cancel", UIAlertActionStyle.Cancel, (obj) => {
+				result?.Invoke (true, null);
+			}));
+
+			fromViewController.PresentViewController (alert, true, null);
 		}
 	}
 }

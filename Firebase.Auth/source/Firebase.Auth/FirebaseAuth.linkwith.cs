@@ -1,9 +1,0 @@
-﻿using System;
-using ObjCRuntime;
-
-[assembly: LinkWith ("FirebaseAuth",
-		     LinkTarget.ArmV7 | LinkTarget.Arm64 | LinkTarget.Simulator | LinkTarget.Simulator64,
-                     Frameworks = "SafariServices Security",
-		     LinkerFlags = "-ObjC -lc++ -lsqlite3 -lz",
-		     ForceLoad = true,
-		     SmartLink = true)]

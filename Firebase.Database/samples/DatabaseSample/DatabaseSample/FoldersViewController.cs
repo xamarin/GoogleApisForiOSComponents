@@ -155,10 +155,10 @@ namespace DatabaseSample
 		}
 
 		// Sign in Anonymously
-		void SignInAnonymouslyCompleted (User user, NSError error)
+		void SignInAnonymouslyCompleted (AuthDataResult authDataResult, NSError error)
 		{
 			if (error == null) {
-				AppDelegate.UserUid = user.Uid;
+				AppDelegate.UserUid = authDataResult.User.Uid;
 
 				// Points to https://MyDatabaseId.firebaseio.com/users
 				userNode = AppDelegate.RootNode.GetChild ("users").GetChild (AppDelegate.UserUid);

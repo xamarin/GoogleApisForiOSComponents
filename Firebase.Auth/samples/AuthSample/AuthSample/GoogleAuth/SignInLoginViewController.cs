@@ -40,7 +40,7 @@ namespace AuthSample
 				var credential = GoogleAuthProvider.GetCredential (authentication.IdToken, authentication.AccessToken);
 
 				// Authenticate with Firebase using the credential
-				Auth.DefaultInstance.SignIn (credential, SignInOnCompletion);
+				Auth.DefaultInstance.SignInAndRetrieveDataWithCredential (credential, SignInOnCompletion);
 			} else {
 				BtnSignIn.Enabled = true;
 				AppDelegate.ShowMessage ("Could not login!", error.LocalizedDescription, NavigationController);
@@ -53,7 +53,7 @@ namespace AuthSample
 			NavigationController.PopToRootViewController (true);
 		}
 
-		void SignInOnCompletion (User user, NSError error)
+		void SignInOnCompletion (AuthDataResult authResult, NSError error)
 		{
 			if (error != null) {
 				AuthErrorCode errorCode;
