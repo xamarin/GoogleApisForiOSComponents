@@ -350,7 +350,8 @@ public abstract class Xamarin
 							new Firebase.PerformanceMonitoring ().Name, new Firebase.RemoteConfig ().Name, new Firebase.Storage ().Name, 
 							new Google.Analytics ().Name, new Google.AppIndexing ().Name, new Google.Cast ().Name, 
 							new Google.InstanceID ().Name, new Google.Maps ().Name, new Google.MobileAds ().Name, 
-							new Google.PlayGames ().Name, new Google.SignIn ().Name, new Google.TagManager ().Name };
+							new Google.Places ().Name, new Google.PlayGames ().Name, new Google.SignIn ().Name, 
+							new Google.TagManager ().Name };
 				}
 			}
 		}

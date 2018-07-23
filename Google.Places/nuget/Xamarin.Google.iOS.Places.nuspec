@@ -15,7 +15,7 @@
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
         <dependency id="Xamarin.Google.iOS.Maps" version="2.5.0.0" />
-        <dependency id="Xamarin.Build.Download" version="0.4.7" />
+        <dependency id="Xamarin.Build.Download" version="0.4.11" />
       </group>
     </dependencies>
   </metadata>
