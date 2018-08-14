@@ -1,14 +1,17 @@
-#addin nuget:?package=Cake.Xamarin.Build&version=2.0.18
-#addin nuget:?package=Cake.FileHelpers&version=1.0.3.2
-#addin nuget:?package=Cake.Yaml&version=1.0.3
-#addin nuget:?package=Cake.Json&version=1.0.2
-#addin nuget:?package=Cake.XCode&version=2.0.9
+#addin nuget:?package=Cake.Xamarin.Build&version=4.0.1
+#addin nuget:?package=Cake.FileHelpers&version=3.0.0
+#addin nuget:?package=Cake.Yaml&version=2.1.0
+#addin nuget:?package=Cake.Json&version=3.0.1
+#addin nuget:?package=Cake.XCode&version=4.0.0
+#addin nuget:?package=Newtonsoft.Json&version=9.0.1
+#addin nuget:?package=YamlDotNet&version=4.2.1
+
 
 var TARGET = Argument ("target", Argument ("t", Argument ("Target", "build")));
 
 var GIT_PREVIOUS_COMMIT = EnvironmentVariable ("GIT_PREVIOUS_SUCCESSFUL_COMMIT") ?? Argument ("gitpreviouscommit", "");
-var GIT_COMMIT = EnvironmentVariable ("GIT_COMMIT") ?? Argument("gitcommit", "");
-var GIT_BRANCH = EnvironmentVariable ("GIT_BRANCH") ?? "origin/master";
+var GIT_COMMIT = EnvironmentVariable ("GIT_COMMIT") ?? EnvironmentVariable ("GIT_CLONE_COMMIT_HASH") ?? Argument("gitcommit", "");
+var GIT_BRANCH = EnvironmentVariable ("GIT_BRANCH") ?? EnvironmentVariable ("BITRISE_GIT_BRANCH") ?? "origin/master";
 var GIT_PATH = EnvironmentVariable ("GIT_EXE") ?? (IsRunningOnWindows () ? "C:\\Program Files (x86)\\Git\\bin\\git.exe" : "git");
 
 var BUILD_GROUPS = DeserializeYamlFromFile<List<BuildGroup>> ("./manifest.yaml");
