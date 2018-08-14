@@ -74,7 +74,7 @@ The build script for this project uses [Cake][102].  To run the build, you can u
 
 ```
 cd Firebase.Core
-sh ../build.sh --target libs
+sh ../build.sh --target=libs
 ```
 
 The bootstrapper script will automatically download Cake.exe and all the required tools and files into the `./tools/` folder.
