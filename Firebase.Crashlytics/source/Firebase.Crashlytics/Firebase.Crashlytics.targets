@@ -50,7 +50,7 @@
 	<!-- Target to upload dSYM symbols to Firebase when using Visual Studio for Mac -->
 	<Target Name="_FirebaseCrashlyticsUploadDSymToFirebaseOnMac" >
 		<Message Text="Uploading dSYM to Firebase using Fabric $(_FabricScriptName) script located at $(XamarinBuildDownloadDir)$(_FabricItemsFolder)" />
-		<Exec Command="$(XamarinBuildDownloadDir)$(_FabricItemsFolder)\$(_FabricScriptName) -gsp $(MSBuildProjectDirectory)\GoogleService-Info.plist -p ios $(DeviceSpecificOutputPath)\$(AssemblyName).app.dSYM"/>
+		<Exec Command="$(XamarinBuildDownloadDir)$(_FabricItemsFolder)\$(_FabricScriptName) -gsp '$(MSBuildProjectDirectory)\GoogleService-Info.plist' -p ios $(DeviceSpecificOutputPath)\$(AssemblyName).app.dSYM"/>
 	</Target>
 
 	<!-- Target to upload dSYM symbols to Firebase when using Visual Studio for Windows -->
