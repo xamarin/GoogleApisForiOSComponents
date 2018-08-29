@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.Firebase.iOS.AdMob</id>
     <title>Firebase APIs AdMob iOS Library</title>
-    <version>7.31.0.1</version>
+    <version>7.31.0.2</version>
     <authors>Microsoft</authors>
     <owners>Microsoft</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -15,7 +15,7 @@
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
         <dependency id="Xamarin.Build.Download" version="0.4.11" />
-        <dependency id="Xamarin.Google.iOS.MobileAds" version="7.31.0.1" />
+        <dependency id="Xamarin.Google.iOS.MobileAds" version="7.31.0.2" />
         <dependency id="Xamarin.Firebase.iOS.Analytics" version="5.0.1.0" />
         <dependency id="Xamarin.Firebase.iOS.InstanceID" version="3.1.1.0" />
         <dependency id="Xamarin.Firebase.iOS.Core" version="5.0.5.0" />
