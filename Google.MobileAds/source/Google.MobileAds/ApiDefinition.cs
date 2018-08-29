@@ -2555,7 +2555,7 @@ namespace Google.MobileAds {
 	}
 
 	// @interface GADMediaView : UIView
-	[BaseType (typeof (NSObject), Name = "GADMediaView")]
+	[BaseType (typeof (UIView), Name = "GADMediaView")]
 	interface MediaView {
 	}
 

@@ -1,6 +1,8 @@
-#addin nuget:?package=Cake.Incubator&version=1.2.0
-#addin nuget:?package=Cake.Yaml&version=1.0.3
-#addin nuget:?package=Cake.Json&version=1.0.2
+#addin nuget:?package=Cake.Incubator&version=3.0.0
+#addin nuget:?package=Cake.Yaml&version=2.1.0
+#addin nuget:?package=Cake.Json&version=3.0.1
+#addin nuget:?package=Newtonsoft.Json&version=9.0.1
+#addin nuget:?package=YamlDotNet&version=4.2.1
 
 #load "poco.cake"
 #load "poco.yaml.cake"
@@ -84,26 +86,6 @@ public T GetComponent<T> () where T : GoogleBase, new ()
 	return component;
 }
 
-// Temporary Workaround
-// Converts a yaml file into a string with Json format.
-public string ConvertYamlToJsonFromFile (FilePath filename)
-{
-	object yaml = null;
-	var deserializer = new Deserializer ();
-	var serializer = new Serializer (SerializationOptions.JsonCompatible);
-
-	using (var textReader = System.IO.File.OpenText (filename.FullPath)) {
-		var eventReader = new EventReader (new MergingParser (new Parser (textReader)));
-		yaml = deserializer.Deserialize (eventReader);
-	}
-
-	var stringBuilder = new StringBuilder ();
-	using (var textWriter = new StringWriter (stringBuilder))
-		serializer.Serialize (textWriter, yaml);
-
-	return stringBuilder.ToString ();
-}
-
 // Updates versions inside of the component.yaml of the desired component
 public void UpdateYamlVersions (GoogleBase component)
 {
@@ -116,12 +98,7 @@ public void UpdateYamlVersions (GoogleBase component)
 	Information ($"Updating version in component.yaml file of {component.Name} component.");
 
 	// Deserialize the component.yaml into an object
-	// var componentData = DeserializeYamlFromFile<Component> (yamlPath);
-
-	// Temporary Workaround. Seems that YamlDotNet cannot deserialize an object within an object in version 3.8.0
-	// This doesn't happen in version 4.x
-	var jsonString = ConvertYamlToJsonFromFile (yamlPath);
-	var componentData = DeserializeJson<Component> (jsonString);
+	var componentData = DeserializeYamlFromFile<Component> (yamlPath);
 
 	// Update the main version of component.yaml
 	componentData.Version = component.NewVersion;
