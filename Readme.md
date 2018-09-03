@@ -7,7 +7,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | Package Id                                                                 | NuGet                                      |
 |----------------------------------------------------------------------------|--------------------------------------------|
 | [Xamarin.Firebase.iOS.ABTesting][F.ABTesting.Name]                         | [2.0.0.0][F.ABTesting.Package]             |
-| [Xamarin.Firebase.iOS.AdMob][F.AdMob.Name]                                 | [7.31.0.1][F.AdMob.Package]                |
+| [Xamarin.Firebase.iOS.AdMob][F.AdMob.Name]                                 | [7.31.0.2][F.AdMob.Package]                |
 | [Xamarin.Firebase.iOS.Analytics][F.Analytics.Name]                         | [5.0.1.0][F.Analytics.Package]             |
 | [Xamarin.Firebase.iOS.Auth][F.Auth.Name]                                   | [5.0.2.0][F.Auth.Package]                  |
 | [Xamarin.Firebase.iOS.CloudFirestore][F.CloudFirestore.Name]               | [0.12.5.0][F.CloudFirestore.Package]       |
@@ -26,7 +26,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Google.iOS.Cast][G.Cast.Name]                                     | [4.1.0.1][G.Cast.Package]                  |
 | [Xamarin.Google.iOS.InstanceID][G.InstanceID.Name]                         | [1.2.1.13][G.InstanceID.Package]           |
 | [Xamarin.Google.iOS.Maps][G.Maps.Name]                                     | [2.5.0.1][G.Maps.Package]                  |
-| [Xamarin.Google.iOS.MobileAds][G.MobileAds.Name]                           | [7.31.0.1][G.MobileAds.Package]            |
+| [Xamarin.Google.iOS.MobileAds][G.MobileAds.Name]                           | [7.31.0.2][G.MobileAds.Package]            |
 | [Xamarin.Google.iOS.Places][G.Places.Name]                                 | [2.5.0.1][G.Places.Package]                |
 | [Xamarin.Google.iOS.PlayGames][G.PlayGames.Name]                           | [5.1.1.10][G.PlayGames.Package]            |
 | [Xamarin.Google.iOS.SignIn][G.SignIn.Name]                                 | [4.1.2.0][G.SignIn.Package]                |
@@ -48,7 +48,7 @@ Here's a table that shows in which global version is located each component of F
 | Component Name                  | Component Version | Global Version |
 |---------------------------------|:-----------------:|:--------------:|
 | Firebase A/B Testing            | **2.0.0.0**       | **5.4.0**      |
-| Firebase AdMob                  | **7.31.0.1**      | **5.4.0**      |
+| Firebase AdMob                  | **7.31.0.2**      | **5.4.0**      |
 | Firebase Analytics              | **5.0.1.0**       | **5.4.0**      |
 | Firebase Auth                   | **5.0.2.0**       | **5.4.0**      |
 | Firebase Cloud Firestore        | **0.12.5.0**      | **5.4.0**      |
