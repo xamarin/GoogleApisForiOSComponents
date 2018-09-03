@@ -1,4 +1,4 @@
-version: 3.10.3.0
+version: 3.10.3.1
 name: Firebase Crashlytics for iOS
 id: firebaseioscrashlytics
 publisher: Xamarin Inc.
@@ -15,7 +15,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Firebase.iOS.Crashlytics, Version=3.10.3.0
+  - Xamarin.Firebase.iOS.Crashlytics, Version=3.10.3.1
 samples:
 - name: Crashlytics Sample
   path: ../samples/CrashlyticsSample/CrashlyticsSample.sln
