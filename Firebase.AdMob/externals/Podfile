@@ -40,4 +40,4 @@ use_frameworks!
 target 'FirebaseAdMob' do
 	pod 'Firebase/AdMob', '5.4.0'
 	pod 'PersonalizedAdConsent', '1.0.3'
-end
+end 
