@@ -1,8 +1,8 @@
 PODS:
-  - Firebase/CoreOnly (5.4.0):
-    - FirebaseCore (= 5.0.5)
-  - FirebaseCore (5.0.5):
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - Firebase/CoreOnly (5.7.0):
+    - FirebaseCore (= 5.1.2)
+  - FirebaseCore (5.1.2):
+    - GoogleUtilities/Logger (~> 5.2)
   - GoogleToolboxForMac/Core (2.1.4):
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - GoogleToolboxForMac/DebugUtils (2.1.4):
@@ -24,6 +24,9 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.4)
     - GoogleToolboxForMac/NSDictionary+URLArguments (= 2.1.4)
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.4)
+  - GoogleUtilities/Environment (5.2.2)
+  - GoogleUtilities/Logger (5.2.2):
+    - GoogleUtilities/Environment
   - GTMSessionFetcher/Core (1.1.15)
   - GTMSessionFetcher/Full (1.1.15):
     - GTMSessionFetcher/Core (= 1.1.15)
@@ -36,26 +39,28 @@ PODS:
   - Protobuf (3.6.0)
 
 DEPENDENCIES:
-  - Firebase/CoreOnly (= 5.4.0)
+  - Firebase/CoreOnly (= 5.7.0)
   - GoogleToolboxForMac/Logger (= 2.1.4)
   - GoogleToolboxForMac/NSData+zlib (= 2.1.4)
   - GoogleToolboxForMac/NSDictionary+URLArguments (= 2.1.4)
   - GoogleToolboxForMac/StringEncoding (= 2.1.4)
   - GoogleToolboxForMac/URLBuilder (= 2.1.4)
+  - GoogleUtilities/Logger (= 5.2.2)
   - GTMSessionFetcher/Full (= 1.1.15)
   - leveldb-library (= 1.20.0)
   - nanopb (= 0.3.8)
   - Protobuf (= 3.6.0)
 
 SPEC CHECKSUMS:
-  Firebase: d66f4f29c23f22d96808d9abc174d81d8eee968f
-  FirebaseCore: 42b3267233bd21a5abd54117ccc38ca3dd0f8e83
+  Firebase: 734a4f92957aa6c40e7ae3fda3d9359e1890aa87
+  FirebaseCore: 3a97432acb324b439fbed338e642f9cbb516a63d
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
+  GoogleUtilities: 06b66f9567769a7958db20a92f0128b2843e49d5
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 0fc0ad8bec688b2a3017a139953e01374fedbd5f
 
-PODFILE CHECKSUM: 94c64dec090efa13a34524a1bce852fac1595d4b
+PODFILE CHECKSUM: ebfd39a8b3b7f1423833c1a9050ce0a5ea5c6f69
 
 COCOAPODS: 1.4.0

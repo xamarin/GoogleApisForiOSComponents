@@ -18,7 +18,8 @@ install! 'cocoapods', :integrate_targets => false
 use_frameworks!
 
 target 'FirebaseCore' do
-	pod 'Firebase/CoreOnly', '5.4.0'
+	pod 'Firebase/CoreOnly', '5.7.0'
+	pod 'GoogleUtilities/Logger', '5.2.2'
 	pod 'GoogleToolboxForMac/NSData+zlib', '2.1.4'
 	pod 'GoogleToolboxForMac/NSDictionary+URLArguments', '2.1.4'
 	pod 'GoogleToolboxForMac/Logger', '2.1.4'

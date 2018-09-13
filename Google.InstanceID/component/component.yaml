@@ -1,4 +1,4 @@
-version: 1.2.1.13
+version: 1.2.1.14
 name: Google Instance ID for iOS
 id: googleiosinstanceid
 publisher: Xamarin Inc.
@@ -19,7 +19,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Google.iOS.InstanceID, Version=1.2.1.13
+  - Xamarin.Google.iOS.InstanceID, Version=1.2.1.14
 samples:
 - name: InstanceID Sample
   path: ../samples/InstanceIDSample/InstanceIDSample.sln

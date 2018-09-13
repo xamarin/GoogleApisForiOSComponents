@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.Firebase.iOS.Analytics</id>
     <title>Firebase APIs Analytics iOS Library</title>
-    <version>5.0.1.0</version>
+    <version>5.0.1.1</version>
     <authors>Microsoft</authors>
     <owners>Microsoft</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -15,8 +15,8 @@
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
         <dependency id="Xamarin.Build.Download" version="0.4.11" />
-        <dependency id="Xamarin.Firebase.iOS.InstanceID" version="3.1.1.0" />
-        <dependency id="Xamarin.Firebase.iOS.Core" version="5.0.5.0" />
+        <dependency id="Xamarin.Firebase.iOS.InstanceID" version="3.1.1.1" />
+        <dependency id="Xamarin.Firebase.iOS.Core" version="5.1.2.0" />
       </group>
     </dependencies>
   </metadata>

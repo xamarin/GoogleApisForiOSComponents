@@ -81,6 +81,10 @@ namespace Firebase.Core
 		// @property (readonly, nonatomic) FIROptions * _Nonnull options;
 		[Export ("options", ArgumentSemantic.Copy)]
 		Options Options { get; }
+
+		// @property(nonatomic, readwrite, getter=isDataCollectionDefaultEnabled) BOOL dataCollectionDefaultEnabled;
+		[Export ("dataCollectionDefaultEnabled", ArgumentSemantic.Assign)]
+		bool DataCollectionDefaultEnabled { [Bind ("isDataCollectionDefaultEnabled")] get; set; }
 	}
 
 	// @interface FIRConfiguration : NSObject
