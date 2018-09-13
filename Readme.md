@@ -47,7 +47,7 @@ Here's a table that shows in which global version is located each component of F
 
 | Component Name                  | Component Version | Global Version |
 |---------------------------------|:-----------------:|:--------------:|
-| Firebase A/B Testing            | **2.0.0.1**       | **5.4.0**      |
+| Firebase A/B Testing            | **2.0.0.1**       | **5.7.0**      |
 | Firebase AdMob                  | **7.31.0.3**      | **5.4.0**      |
 | Firebase Analytics              | **5.0.1.1**       | **5.4.0**      |
 | Firebase Auth                   | **5.0.2.1**       | **5.4.0**      |
