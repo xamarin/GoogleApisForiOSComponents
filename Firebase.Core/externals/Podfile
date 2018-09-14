@@ -3,7 +3,7 @@ Check if main version or subversion number has changed.
 If yes, please, update Podfile file if needed.
 
 In Firebase.Core binding project, you can find the Native Reference of:
-* FirebaseCore (5.2.1)
+* FirebaseCore (5.1.2)
 * GoogleUtilities (5.2.2)
 * GoogleToolboxForMac (2.1.4)
 * nanopb (0.3.8)

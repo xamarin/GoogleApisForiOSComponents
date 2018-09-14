@@ -15,7 +15,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.Core][F.Core.Name]                                   | [5.1.2.0][F.Core.Package]                  |
 | [Xamarin.Firebase.iOS.Crashlytics][F.Crashlytics.Name]                     | [3.10.3.1][F.Crashlytics.Package]          |
 | [Xamarin.Firebase.iOS.Database][F.Database.Name]                           | [5.0.2.1][F.Database.Package]              |
-| [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                   | [3.0.1.1][F.DynamicLinks.Package]          |
+| [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                   | [3.0.2.0][F.DynamicLinks.Package]          |
 | [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                       | [3.2.1.0][F.InstanceID.Package]            |
 | [Xamarin.Firebase.iOS.Invites][F.Invites.Name]                             | [3.0.0.1][F.Invites.Package]               |
 | [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name] | [2.0.1.1][F.PerformanceMonitoring.Package] |
@@ -55,7 +55,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Cloud Messaging        | **3.0.3.1**       | **5.4.0**      |
 | Firebase Core                   | **5.1.2.0**       | **5.7.0**      |
 | Firebase Database               | **5.0.2.1**       | **5.4.0**      |
-| Firebase Dynamic Links          | **3.0.1.1**       | **5.4.0**      |
+| Firebase Dynamic Links          | **3.0.2.0**       | **5.7.0**      |
 | Firebase Instance ID            | **3.2.1.0**       | **5.7.0**      |
 | Firebase Invites                | **3.0.0.1**       | **5.4.0**      |
 | Firebase Performance Monitoring | **2.0.1.1**       | **5.4.0**      |
