@@ -16,7 +16,7 @@
       <group targetFramework="Xamarin.iOS10">
         <dependency id="Xamarin.Build.Download" version="0.4.11" />
         <dependency id="Xamarin.Google.iOS.MobileAds" version="7.31.0.2" />
-        <dependency id="Xamarin.Firebase.iOS.Analytics" version="5.0.1.1" />
+        <dependency id="Xamarin.Firebase.iOS.Analytics" version="5.1.1.0" />
         <dependency id="Xamarin.Firebase.iOS.InstanceID" version="3.2.1.0" />
         <dependency id="Xamarin.Firebase.iOS.Core" version="5.1.2.0" />
       </group>

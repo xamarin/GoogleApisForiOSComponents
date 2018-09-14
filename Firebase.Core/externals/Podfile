@@ -3,7 +3,7 @@ Check if main version or subversion number has changed.
 If yes, please, update Podfile file if needed.
 
 In Firebase.Core binding project, you can find the Native Reference of:
-* FirebaseCore (5.0.5)
+* FirebaseCore (5.2.1)
 * GoogleUtilities (5.2.2)
 * GoogleToolboxForMac (2.1.4)
 * nanopb (0.3.8)
@@ -22,6 +22,10 @@ target 'FirebaseCore' do
 	pod 'Firebase/CoreOnly', '5.7.0'
 	pod 'GoogleUtilities/Environment', '5.2.2'
 	pod 'GoogleUtilities/Logger', '5.2.2'
+	pod 'GoogleUtilities/AppDelegateSwizzler', '5.2.2'
+	pod 'GoogleUtilities/MethodSwizzler', '5.2.2'
+	pod 'GoogleUtilities/NSData+zlib', '5.2.2'
+	pod 'GoogleUtilities/Network', '5.2.2'
 	pod 'GoogleToolboxForMac/NSData+zlib', '2.1.4'
 	pod 'GoogleToolboxForMac/NSDictionary+URLArguments', '2.1.4'
 	pod 'GoogleToolboxForMac/Logger', '2.1.4'

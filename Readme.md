@@ -8,7 +8,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 |----------------------------------------------------------------------------|--------------------------------------------|
 | [Xamarin.Firebase.iOS.ABTesting][F.ABTesting.Name]                         | [2.0.0.1][F.ABTesting.Package]             |
 | [Xamarin.Firebase.iOS.AdMob][F.AdMob.Name]                                 | [7.31.0.3][F.AdMob.Package]                |
-| [Xamarin.Firebase.iOS.Analytics][F.Analytics.Name]                         | [5.0.1.1][F.Analytics.Package]             |
+| [Xamarin.Firebase.iOS.Analytics][F.Analytics.Name]                         | [5.1.1.0][F.Analytics.Package]             |
 | [Xamarin.Firebase.iOS.Auth][F.Auth.Name]                                   | [5.0.2.1][F.Auth.Package]                  |
 | [Xamarin.Firebase.iOS.CloudFirestore][F.CloudFirestore.Name]               | [0.12.5.1][F.CloudFirestore.Package]       |
 | [Xamarin.Firebase.iOS.CloudMessaging][F.CloudMessaging.Name]               | [3.0.3.1][F.CloudMessaging.Package]        |
@@ -49,7 +49,7 @@ Here's a table that shows in which global version is located each component of F
 |---------------------------------|:-----------------:|:--------------:|
 | Firebase A/B Testing            | **2.0.0.1**       | **5.7.0**      |
 | Firebase AdMob                  | **7.31.0.3**      | **5.4.0**      |
-| Firebase Analytics              | **5.0.1.1**       | **5.4.0**      |
+| Firebase Analytics              | **5.1.1.0**       | **5.7.0**      |
 | Firebase Auth                   | **5.0.2.1**       | **5.4.0**      |
 | Firebase Cloud Firestore        | **0.12.5.1**      | **5.4.0**      |
 | Firebase Cloud Messaging        | **3.0.3.1**       | **5.4.0**      |

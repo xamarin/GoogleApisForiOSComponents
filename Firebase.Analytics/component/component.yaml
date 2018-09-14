@@ -1,4 +1,4 @@
-version: 5.0.1.1
+version: 5.1.1.0
 name: Firebase Analytics for iOS
 id: firebaseiosanalytics
 publisher: Xamarin Inc.
@@ -17,7 +17,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Firebase.iOS.Analytics, Version=5.0.1.1
+  - Xamarin.Firebase.iOS.Analytics, Version=5.1.1.0
 samples:
 - name: Analytics Sample
   path: ../samples/AnalyticsSample/AnalyticsSample.sln

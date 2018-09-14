@@ -3,13 +3,19 @@
 
 	<PropertyGroup>
 		<_FirebaseAnalyticsAssemblyName>Firebase.Analytics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseAnalyticsAssemblyName>
-		<_FirebaseAnalyticsItemsFolder>FAnlytcs-5.0.1</_FirebaseAnalyticsItemsFolder>
+		<_FirebaseAnalyticsItemsFolder>FAnlytcs-5.1.1</_FirebaseAnalyticsItemsFolder>
 		<_FirebaseAnalyticsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseAnalyticsItemsFolder)\Frameworks\</_FirebaseAnalyticsSDKBaseFolder>
+		<_GoogleAppMeasurementItemsFolder>GAppM-5.1.1</_GoogleAppMeasurementItemsFolder>
+		<_GoogleAppMeasurementSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleAppMeasurementItemsFolder)\Frameworks\</_GoogleAppMeasurementSDKBaseFolder>
 	</PropertyGroup>
 
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_FirebaseAnalyticsItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/bd09cdebbfc1de79/FirebaseAnalytics-5.0.1.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/6f130d94ce07a34c/FirebaseAnalytics-5.1.1.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildDownload Include="$(_GoogleAppMeasurementItemsFolder)">
+			<Url>https://dl.google.com/dl/cpdc/5481760f2bbdc1a4/GoogleAppMeasurement-5.1.1.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_FirebaseAnalyticsSDKBaseFolder)FirebaseAnalytics.framework">
@@ -22,7 +28,13 @@
 			<Kind>Framework</Kind>
 			<ForceLoad>True</ForceLoad>
 		</NativeReference>
-		<NativeReference Include="$(_FirebaseAnalyticsSDKBaseFolder)FirebaseNanoPB.framework">
+		<NativeReference Include="$(_GoogleAppMeasurementSDKBaseFolder)GoogleAppMeasurement.framework">
+			<Kind>Framework</Kind>
+			<ForceLoad>True</ForceLoad>
+			<LinkerFlags>-ObjC -lc++ -lsqlite3 -lz</LinkerFlags>
+			<Frameworks>Security StoreKit SystemConfiguration UIKit</Frameworks>
+		</NativeReference>
+		<NativeReference Include="$(_GoogleAppMeasurementSDKBaseFolder)MeasurementNanoPB.framework">
 			<Kind>Framework</Kind>
 			<ForceLoad>True</ForceLoad>
 		</NativeReference>
