@@ -7,7 +7,7 @@ In Firebase.Core binding project, you can find the Native Reference of:
 * GoogleUtilities (5.2.2)
 * GoogleToolboxForMac (2.1.4)
 * nanopb (0.3.8)
-* GTMSessionFetcher (1.1.15)
+* GTMSessionFetcher (1.2.0)
 * Protobuf (3.6.1)
 * leveldb-library (1.20.0)
 =end
@@ -18,21 +18,30 @@ platform :ios, '8.0'
 install! 'cocoapods', :integrate_targets => false
 use_frameworks!
 
+$GOOGLE_UTILITIES_VERSION = '5.2.2'
+$GOOGLE_TOOLBOX_FOR_MAC_VERSION = '2.1.4'
+$NANOPB_VERSION = '0.3.8'
+$GTM_SESSION_FETCHER = '1.2.0'
+$PROTOBUF_VERSION = '3.6.1'
+$LEVELDB_LIBRARY_VERSION = '1.20.0'
+
 target 'FirebaseCore' do
 	pod 'Firebase/CoreOnly', '5.7.0'
-	pod 'GoogleUtilities/Environment', '5.2.2'
-	pod 'GoogleUtilities/Logger', '5.2.2'
-	pod 'GoogleUtilities/AppDelegateSwizzler', '5.2.2'
-	pod 'GoogleUtilities/MethodSwizzler', '5.2.2'
-	pod 'GoogleUtilities/NSData+zlib', '5.2.2'
-	pod 'GoogleUtilities/Network', '5.2.2'
-	pod 'GoogleToolboxForMac/NSData+zlib', '2.1.4'
-	pod 'GoogleToolboxForMac/NSDictionary+URLArguments', '2.1.4'
-	pod 'GoogleToolboxForMac/Logger', '2.1.4'
-	pod 'GoogleToolboxForMac/StringEncoding', '2.1.4'
-	pod 'GoogleToolboxForMac/URLBuilder', '2.1.4'
-	pod 'nanopb', '0.3.8'
-	pod 'GTMSessionFetcher/Full', '1.1.15'
-	pod 'Protobuf', '3.6.1'
-	pod 'leveldb-library', '1.20.0'
+	pod 'GoogleUtilities/Environment', $GOOGLE_UTILITIES_VERSION
+	pod 'GoogleUtilities/Logger', $GOOGLE_UTILITIES_VERSION
+	pod 'GoogleUtilities/AppDelegateSwizzler', $GOOGLE_UTILITIES_VERSION
+	pod 'GoogleUtilities/MethodSwizzler', $GOOGLE_UTILITIES_VERSION
+	pod 'GoogleUtilities/NSData+zlib', $GOOGLE_UTILITIES_VERSION
+	pod 'GoogleUtilities/Network', $GOOGLE_UTILITIES_VERSION
+	pod 'GoogleUtilities/ISASwizzler', $GOOGLE_UTILITIES_VERSION
+	pod 'GoogleUtilities/MethodSwizzler', $GOOGLE_UTILITIES_VERSION
+	pod 'GoogleToolboxForMac/NSData+zlib', $GOOGLE_TOOLBOX_FOR_MAC_VERSION
+	pod 'GoogleToolboxForMac/NSDictionary+URLArguments', $GOOGLE_TOOLBOX_FOR_MAC_VERSION
+	pod 'GoogleToolboxForMac/Logger', $GOOGLE_TOOLBOX_FOR_MAC_VERSION
+	pod 'GoogleToolboxForMac/StringEncoding', $GOOGLE_TOOLBOX_FOR_MAC_VERSION
+	pod 'GoogleToolboxForMac/URLBuilder', $GOOGLE_TOOLBOX_FOR_MAC_VERSION
+	pod 'nanopb', $NANOPB_VERSION
+	pod 'GTMSessionFetcher/Full', $GTM_SESSION_FETCHER
+	pod 'Protobuf', $PROTOBUF_VERSION
+	pod 'leveldb-library', $LEVELDB_LIBRARY_VERSION
 end

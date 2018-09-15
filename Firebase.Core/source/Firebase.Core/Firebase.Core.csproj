@@ -74,7 +74,8 @@
     <NativeReference Include="..\..\externals\GoogleUtilities.framework">
       <Kind>Framework</Kind>
       <ForceLoad>True</ForceLoad>
-      <LinkerFlags>-ObjC</LinkerFlags>
+      <LinkerFlags>-ObjC -lz</LinkerFlags>
+      <Frameworks>Security SystemConfiguration</Frameworks>
     </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
