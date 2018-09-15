@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.Firebase.iOS.RemoteConfig</id>
     <title>Firebase APIs Remote Config iOS Library</title>
-    <version>3.0.0.1</version>
+    <version>3.0.1.0</version>
     <authors>Microsoft</authors>
     <owners>Microsoft</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>

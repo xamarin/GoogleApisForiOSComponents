@@ -2,12 +2,12 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_FirebaseRemoteConfigAssemblyName>Firebase.RemoteConfig, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseRemoteConfigAssemblyName>
-		<_FirebaseRemoteConfigItemsFolder>FRmtC-3.0.0</_FirebaseRemoteConfigItemsFolder>
+		<_FirebaseRemoteConfigItemsFolder>FRmtC-3.0.1</_FirebaseRemoteConfigItemsFolder>
 		<_FirebaseRemoteConfigSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseRemoteConfigItemsFolder)\Frameworks\</_FirebaseRemoteConfigSDKBaseFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="'$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True'">
 		<XamarinBuildDownload Include="$(_FirebaseRemoteConfigItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/e0aa88d60d686944/FirebaseRemoteConfig-3.0.0.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/75f333bf7d842bed/FirebaseRemoteConfig-3.0.1.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_FirebaseRemoteConfigSDKBaseFolder)FirebaseRemoteConfig.framework">

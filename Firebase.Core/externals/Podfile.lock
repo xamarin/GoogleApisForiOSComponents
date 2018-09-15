@@ -49,7 +49,7 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - Protobuf (3.6.0)
+  - Protobuf (3.6.1)
 
 DEPENDENCIES:
   - Firebase/CoreOnly (= 5.7.0)
@@ -67,7 +67,7 @@ DEPENDENCIES:
   - GTMSessionFetcher/Full (= 1.1.15)
   - leveldb-library (= 1.20.0)
   - nanopb (= 0.3.8)
-  - Protobuf (= 3.6.0)
+  - Protobuf (= 3.6.1)
 
 SPEC CHECKSUMS:
   Firebase: 734a4f92957aa6c40e7ae3fda3d9359e1890aa87
@@ -77,8 +77,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  Protobuf: 0fc0ad8bec688b2a3017a139953e01374fedbd5f
+  Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
 
-PODFILE CHECKSUM: 0369e2546154c66f3c47889d789ef11ed38d3885
+PODFILE CHECKSUM: 96757afeaa8daa2d1765d8e07e45fde1edef8076
 
 COCOAPODS: 1.4.0

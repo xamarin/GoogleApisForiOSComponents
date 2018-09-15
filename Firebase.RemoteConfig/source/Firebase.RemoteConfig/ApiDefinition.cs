@@ -129,14 +129,14 @@ namespace Firebase.RemoteConfig
 
 		// -(void)setDefaults:(NSDictionary<NSString *,NSObject *> * _Nullable)defaults;
 		[Export ("setDefaults:")]
-		void SetDefaults ([NullAllowed] NSDictionary defaults);
+		void SetDefaults ([NullAllowed] NSDictionary nsDefaults);
 
 		[Wrap ("SetDefaults (defaults == null ? null : NSDictionary.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (defaults.Values), System.Linq.Enumerable.ToArray (defaults.Keys), defaults.Keys.Count))")]
 		void SetDefaults (Dictionary<object, object> defaults);
 
 		// -(void)setDefaults:(NSDictionary<NSString *,NSObject *> * _Nullable)defaultConfig namespace:(NSString * _Nullable)aNamespace;
 		[Export ("setDefaults:namespace:")]
-		void SetDefaults ([NullAllowed] NSDictionary defaults, [NullAllowed] string aNamespace);
+		void SetDefaults ([NullAllowed] NSDictionary nsDefaults, [NullAllowed] string aNamespace);
 
 		[Wrap ("SetDefaults (defaults == null ? null : NSDictionary.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (defaults.Values), System.Linq.Enumerable.ToArray (defaults.Keys), defaults.Keys.Count), aNamespace)")]
 		void SetDefaults (Dictionary<object, object> defaults, string aNamespace);
