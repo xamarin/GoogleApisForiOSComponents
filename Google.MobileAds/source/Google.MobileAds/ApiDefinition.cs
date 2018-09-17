@@ -1,11 +1,11 @@
 ﻿using System;
-
-using ObjCRuntime;
-using Foundation;
-using UIKit;
-using StoreKit;
-using CoreGraphics;
 using System.Collections.Generic;
+
+using CoreGraphics;
+using Foundation;
+using ObjCRuntime;
+using StoreKit;
+using UIKit;
 
 namespace Google.MobileAds {
 	#region CustomLib
@@ -58,54 +58,67 @@ namespace Google.MobileAds {
 	[Static]
 	interface NativeAppInstallConstants {
 		// GAD_EXTERN NSString *const GADNativeAppInstallHeadlineAsset;
+		[Obsolete]
 		[Field ("GADNativeAppInstallHeadlineAsset", "__Internal")]
 		NSString HeadlineAsset { get; }
 
 		// GAD_EXTERN NSString *const GADNativeAppInstallCallToActionAsset;
+		[Obsolete]
 		[Field ("GADNativeAppInstallCallToActionAsset", "__Internal")]
 		NSString CallToActionAsset { get; }
 
 		// GAD_EXTERN NSString *const GADNativeAppInstallIconAsset;
+		[Obsolete]
 		[Field ("GADNativeAppInstallIconAsset", "__Internal")]
 		NSString IconAsset { get; }
 
 		// GAD_EXTERN NSString *const GADNativeAppInstallBodyAsset;
+		[Obsolete]
 		[Field ("GADNativeAppInstallBodyAsset", "__Internal")]
 		NSString BodyAsset { get; }
 
 		// GAD_EXTERN NSString *const GADNativeAppInstallStoreAsset;
+		[Obsolete]
 		[Field ("GADNativeAppInstallStoreAsset", "__Internal")]
 		NSString StoreAsset { get; }
 
 		// GAD_EXTERN NSString *const GADNativeAppInstallPriceAsset;
+		[Obsolete]
 		[Field ("GADNativeAppInstallPriceAsset", "__Internal")]
 		NSString PriceAsset { get; }
 
 		// GAD_EXTERN NSString *const GADNativeAppInstallImageAsset;
+		[Obsolete]
 		[Field ("GADNativeAppInstallImageAsset", "__Internal")]
 		NSString ImageAsset { get; }
 
 		// GAD_EXTERN NSString *const GADNativeAppInstallStarRatingAsset;
+		[Obsolete]
 		[Field ("GADNativeAppInstallStarRatingAsset", "__Internal")]
 		NSString StarRatingAsset { get; }
 
 		// GAD_EXTERN NSString *const GADNativeAppInstallAttributionIconAsset;
+		[Obsolete]
 		[Field ("GADNativeAppInstallAttributionIconAsset", "__Internal")]
 		NSString AttributionIconAsset { get; }
 
 		// GAD_EXTERN NSString *const GADNativeAppInstallAttributionTextAsset;
+		[Obsolete]
 		[Field ("GADNativeAppInstallAttributionTextAsset", "__Internal")]
 		NSString AttributionTextAsset { get; }
 
 		// GAD_EXTERN NSString *const GADNativeAppInstallMediaViewAsset;
+		[Obsolete]
 		[Field ("GADNativeAppInstallMediaViewAsset", "__Internal")]
 		NSString MediaViewAsset { get; }
 
 		// GAD_EXTERN NSString *const GADNativeAppInstallAdChoicesViewAsset;
+		[Obsolete]
 		[Field ("GADNativeAppInstallAdChoicesViewAsset", "__Internal")]
 		NSString AdChoicesViewAsset { get; }
 
 		// GAD_EXTERN NSString *const GADNativeAppInstallBackgroundAsset;
+		[Obsolete]
 		[Field ("GADNativeAppInstallBackgroundAsset", "__Internal")]
 		NSString BackgroundAsset { get; }
 	}
@@ -113,46 +126,57 @@ namespace Google.MobileAds {
 	[Static]
 	interface NativeContentConstants {
 		// GAD_EXTERN NSString *const GADNativeContentHeadlineAsset;
+		[Obsolete]
 		[Field ("GADNativeContentHeadlineAsset", "__Internal")]
 		NSString HeadlineAsset { get; }
 
 		// GAD_EXTERN NSString *const GADNativeContentBodyAsset;
+		[Obsolete]
 		[Field ("GADNativeContentBodyAsset", "__Internal")]
 		NSString BodyAsset { get; }
 
 		// GAD_EXTERN NSString *const GADNativeContentCallToActionAsset;
+		[Obsolete]
 		[Field ("GADNativeContentCallToActionAsset", "__Internal")]
 		NSString CallToActionAsset { get; }
 
 		// GAD_EXTERN NSString *const GADNativeContentAdvertiserAsset;
+		[Obsolete]
 		[Field ("GADNativeContentAdvertiserAsset", "__Internal")]
 		NSString AdvertiserAsset { get; }
 
 		// GAD_EXTERN NSString *const GADNativeContentImageAsset;
+		[Obsolete]
 		[Field ("GADNativeContentImageAsset", "__Internal")]
 		NSString ImageAsset { get; }
 
 		// GAD_EXTERN NSString *const GADNativeContentLogoAsset;
+		[Obsolete]
 		[Field ("GADNativeContentLogoAsset", "__Internal")]
 		NSString LogoAsset { get; }
 
 		// GAD_EXTERN NSString *const GADNativeContentAttributionIconAsset;
+		[Obsolete]
 		[Field ("GADNativeContentAttributionIconAsset", "__Internal")]
 		NSString AttributionIconAsset { get; }
 
 		// GAD_EXTERN NSString *const GADNativeContentAttributionTextAsset;
+		[Obsolete]
 		[Field ("GADNativeContentAttributionTextAsset", "__Internal")]
 		NSString AttributionTextAsset { get; }
 
 		// GAD_EXTERN NSString *const GADNativeContentMediaViewAsset;
+		[Obsolete]
 		[Field ("GADNativeContentMediaViewAsset", "__Internal")]
 		NSString MediaViewAsset { get; }
 
 		// GAD_EXTERN NSString *const GADNativeContentAdChoicesViewAsset;
+		[Obsolete]
 		[Field ("GADNativeContentAdChoicesViewAsset", "__Internal")]
 		NSString AdChoicesViewAsset { get; }
 
 		// GAD_EXTERN NSString *const GADNativeContentBackgroundAsset;
+		[Obsolete]
 		[Field ("GADNativeContentBackgroundAsset", "__Internal")]
 		NSString BackgroundAsset { get; }
 	}
@@ -192,6 +216,10 @@ namespace Google.MobileAds {
 		// @property(nonatomic, readonly, strong) GADAudioVideoManager *audioVideoManager;
 		[Export ("audioVideoManager", ArgumentSemantic.Strong)]
 		AudioVideoManager AudioVideoManager { get; }
+
+		// @property(nonatomic, readonly, strong) GADRequestConfiguration *requestConfiguration;
+		[Export ("requestConfiguration", ArgumentSemantic.Strong)]
+		RequestConfiguration RequestConfiguration { get; }
 
 		// - (BOOL)isSDKVersionAtLeastMajor:(NSInteger)major minor:(NSInteger)minor patch:(NSInteger)patch;
 		[Export ("isSDKVersionAtLeastMajor:minor:patch:")]
@@ -539,6 +567,11 @@ namespace Google.MobileAds {
 		[Export ("userIdentifier")]
 		string UserIdentifier { get; }
 
+		// @property (nonatomic, copy, nullable) NSString* customRewardString;
+		[NullAllowed]
+		[Export ("customRewardString")]
+		string CustomRewardString { get; set; }
+
 		// +(GADRewardBasedVideoAd *)sharedInstance;
 		[Static]
 		[Export ("sharedInstance")]
@@ -860,9 +893,18 @@ namespace Google.MobileAds {
 		[Export ("adNetworkClassName")]
 		string AdNetworkClassName { get; }
 
+		// @property(nonatomic, readonly, getter=isCustomMuteThisAdAvailable) BOOL customMuteThisAdAvailable;
+		[Export ("isCustomMuteThisAdAvailable")]
+		bool IsCustomMuteThisAdAvailable { get; }
+
+		// @property(nonatomic, readonly, nullable) NSArray<GADMuteThisAdReason *> *muteThisAdReasons;
+		[NullAllowed]
+		[Export ("muteThisAdReasons")]
+		MuteThisAdReason [] MuteThisAdReasons { get; }
+
 		// -(void)registerAdView:(UIView * _Nonnull)adView clickableAssetViews:(NSDictionary<GADUnifiedNativeAssetIdentifier,UIView *> * _Nonnull)clickableAssetViews nonclickableAssetViews:(NSDictionary<GADUnifiedNativeAssetIdentifier,UIView *> * _Nonnull)nonclickableAssetViews;
 		[Export ("registerAdView:clickableAssetViews:nonclickableAssetViews:")]
-		void RegisterAdView (UIView adView, NSDictionary<NSString, UIView> clickableAssetViews, NSDictionary<NSString, UIView> nonclickableAssetViews);
+		void RegisterAdView (UIView adView, NSDictionary<NSString, UIView> nsClickableAssetViews, NSDictionary<NSString, UIView> nsNonclickableAssetViews);
 
 		[Wrap ("RegisterAdView (adView, NSDictionary<NSString, UIView>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (clickableAssetViews.Values), System.Linq.Enumerable.ToArray (clickableAssetViews.Keys), clickableAssetViews.Keys.Count), NSDictionary<NSString, UIView>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (nonclickableAssetViews.Values), System.Linq.Enumerable.ToArray (nonclickableAssetViews.Keys), nonclickableAssetViews.Keys.Count))")]
 		void RegisterAdView (UIView adView, Dictionary<string, UIView> clickableAssetViews, Dictionary<string, UIView> nonclickableAssetViews);
@@ -870,6 +912,10 @@ namespace Google.MobileAds {
 		// -(void)unregisterAdView;
 		[Export ("unregisterAdView")]
 		void UnregisterAdView ();
+
+		// - (void)muteThisAdWithReason:(nullable GADMuteThisAdReason *)reason;
+		[Export ("muteThisAdWithReason:")]
+		void MuteThisAd (MuteThisAdReason reason);
 
 		///
 		/// From UnifiedNativeAd_ConfirmationClick Category
@@ -1055,6 +1101,11 @@ namespace Google.MobileAds {
 		[EventArgs ("UnifiedNativeAd")]
 		[Export ("nativeAdWillLeaveApplication:")]
 		void WillLeaveApplication (UnifiedNativeAd nativeAd);
+
+		// @optional -(void)nativeAdIsMuted:(GADUnifiedNativeAd *)nativeAd;
+		[EventArgs ("UnifiedNativeAd")]
+		[Export ("nativeAdIsMuted:")]
+		void IsMuted (UnifiedNativeAd nativeAd);
 	}
 
 	interface IUnifiedNativeAdUnconfirmedClickDelegate { }
@@ -1361,6 +1412,7 @@ namespace Google.MobileAds {
 	}
 
 	// @interface GADNativeAppInstallAd : GADNativeAd
+	[Obsolete ("Use UnifiedNativeAd class instead")]
 	[BaseType (typeof (NativeAd), Name = "GADNativeAppInstallAd")]
 	interface NativeAppInstallAd {
 		// @property (readonly, copy, nonatomic) NSString * headline;
@@ -1425,6 +1477,7 @@ namespace Google.MobileAds {
 	}
 
 	// @protocol GADNativeAppInstallAdLoaderDelegate <GADAdLoaderDelegate>
+	[Obsolete ("Use the IUnifiedNativeAdLoaderDelegate interface instead.")]
 	[Model (AutoGeneratedName = true)]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "GADNativeAppInstallAdLoaderDelegate")]
@@ -1436,6 +1489,7 @@ namespace Google.MobileAds {
 	}
 
 	// @interface GADNativeAppInstallAdView : UIView
+	[Obsolete ("Use the UnifiedNativeAdView class instead.")]
 	[BaseType (typeof (UIView), Name = "GADNativeAppInstallAdView")]
 	interface NativeAppInstallAdView {
 		[Export ("initWithFrame:")]
@@ -1498,6 +1552,7 @@ namespace Google.MobileAds {
 	}
 
 	// @interface GADNativeContentAd : GADNativeAd
+	[Obsolete ("Use the UnifiedNativeAd class instead.")]
 	[BaseType (typeof (NativeAd), Name = "GADNativeContentAd")]
 	interface NativeContentAd {
 		// @property (readonly, copy, nonatomic) NSString * headline;
@@ -1551,6 +1606,7 @@ namespace Google.MobileAds {
 	interface INativeContentAdLoaderDelegate {
 	}
 
+	[Obsolete ("Use the IUnifiedNativeAdLoaderDelegate interface instead.")]
 	[Model (AutoGeneratedName = true)]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "GADNativeContentAdLoaderDelegate")]
@@ -1562,6 +1618,7 @@ namespace Google.MobileAds {
 	}
 
 	// @interface GADNativeContentAdView : UIView
+	[Obsolete ("Use the UnifiedNativeAdView class instead.")]
 	[BaseType (typeof (UIView), Name = "GADNativeContentAdView")]
 	interface NativeContentAdView {
 		[Export ("initWithFrame:")]
@@ -2554,12 +2611,60 @@ namespace Google.MobileAds {
 		bool HasVideoContent ();
 	}
 
+	// @interface GADMuteThisAdReason : NSObject
+	[BaseType (typeof (NSObject), Name = "GADMuteThisAdReason")]
+	interface MuteThisAdReason {
+		// @property(nonatomic, readonly, nonnull) NSString *reasonDescription;
+		[Export ("reasonDescription")]
+		string ReasonDescription { get; }
+	}
+
+	#endregion
+
 	// @interface GADMediaView : UIView
 	[BaseType (typeof (UIView), Name = "GADMediaView")]
 	interface MediaView {
 	}
 
-	#endregion
+	// @interface GADNativeMuteThisAdLoaderOptions : GADAdLoaderOptions
+	[BaseType (typeof (AdLoaderOptions), Name = "GADNativeMuteThisAdLoaderOptions")]
+	interface NativeMuteThisAdLoaderOptions {
+		// @property(nonatomic) BOOL customMuteThisAdRequested;
+		[Export ("customMuteThisAdRequested", ArgumentSemantic.Assign)]
+		bool CustomMuteThisAdRequested { get; set; }
+	}
+
+	[Static]
+	interface MaxAdContentRatingConstants {
+		// GAD_EXTERN GADMaxAdContentRating _Nonnull const GADMaxAdContentRatingGeneral;
+		[Field ("GADMaxAdContentRatingGeneral", "__Internal")]
+		NSString General { get; }
+
+		// GAD_EXTERN GADMaxAdContentRating _Nonnull const GADMaxAdContentRatingParentalGuidance;
+		[Field ("GADMaxAdContentRatingParentalGuidance", "__Internal")]
+		NSString ParentalGuidance { get; }
+
+		// GAD_EXTERN GADMaxAdContentRating _Nonnull const GADMaxAdContentRatingTeen;
+		[Field ("GADMaxAdContentRatingTeen", "__Internal")]
+		NSString Teen { get; }
+
+		// GAD_EXTERN GADMaxAdContentRating _Nonnull const GADMaxAdContentRatingMatureAudience;
+		[Field ("GADMaxAdContentRatingMatureAudience", "__Internal")]
+		NSString MatureAudience { get; }
+	}
+
+	// @interface GADRequestConfiguration : NSObject
+	[BaseType (typeof (NSObject), Name = "GADRequestConfiguration")]
+	interface RequestConfiguration {
+		// @property(nonatomic, strong, nullable) GADMaxAdContentRating maxAdContentRating;
+		[NullAllowed]
+		[Export ("maxAdContentRating", ArgumentSemantic.Strong)]
+		string MaxAdContentRating { get; set; }
+
+		// - (void)tagForUnderAgeOfConsent:(BOOL)underAgeOfConsent;
+		[Export ("tagForUnderAgeOfConsent:")]
+		void TagForUnderAgeOfConsent (bool underAgeOfConsent);
+	}
 }
 
 namespace Google.MobileAds.DoubleClick {
@@ -2641,7 +2746,7 @@ namespace Google.MobileAds.DoubleClick {
 
 		// - (void)setAdOptions:(NSArray *)adOptions;
 		[Export ("setAdOptions:")]
-		void SetAdOptions (Google.MobileAds.AdLoaderOptions [] adOptions);
+		void SetAdOptions (AdLoaderOptions [] adOptions);
 
 		[Internal]
 		[Export ("setValidAdSizesWithSizes:", IsVariadic = true)]
