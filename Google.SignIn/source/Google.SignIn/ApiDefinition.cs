@@ -80,9 +80,14 @@ namespace Google.SignIn
 		[Export ("authentication")]
 		Authentication Authentication { get; }
 
-		// @property (readonly, nonatomic) NSArray * accessibleScopes;
+		// @property (nonatomic, readonly) NSArray* accessibleScopes __attribute__ ((deprecated("Use grantedScopes instead.")));
+		[Obsolete ("Use the GrantedScopes property instead.")]
 		[Export ("accessibleScopes")]
 		string [] AccessibleScopes { get; }
+
+		// @property(nonatomic, readonly) NSArray *grantedScopes;
+		[Export ("grantedScopes")]
+		string [] GrantedScopes { get; }
 
 		// @property (readonly, nonatomic) NSString * hostedDomain;
 		[Export ("hostedDomain")]

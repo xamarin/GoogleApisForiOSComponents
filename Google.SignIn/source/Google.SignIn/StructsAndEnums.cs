@@ -11,7 +11,8 @@ namespace Google.SignIn
 		Keychain = -2,
 		NoSignInHandlersInstalled = -3,
 		HasNoAuthInKeychain = -4,
-		Canceled = -5
+		Canceled = -5,
+		Emm = -6
 	}
 
 	[Native]

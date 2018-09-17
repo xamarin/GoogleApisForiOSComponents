@@ -15,7 +15,7 @@
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
         <dependency id="Xamarin.Build.Download" version="0.4.11" />
-        <dependency id="Xamarin.Google.iOS.SignIn" version="4.1.2.1" />
+        <dependency id="Xamarin.Google.iOS.SignIn" version="4.2.0.0" />
         <dependency id="Xamarin.Firebase.iOS.DynamicLinks" version="3.0.2.0" />
         <dependency id="Xamarin.Firebase.iOS.Analytics" version="5.1.1.0" />
         <dependency id="Xamarin.Firebase.iOS.InstanceID" version="3.2.1.0" />
