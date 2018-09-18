@@ -42,7 +42,7 @@ $(TARGETS):
 
 %-iphonesimulator:
 	@ $(eval currentTarget=$(subst -iphonesimulator,,$@))
-	@ $(XCODEBUILD) -project $(PROJECT) -target $(currentTarget) -sdk iphonesimulator -arch i386 -arch x86_64 -configuration Release clean build
+	@ $(XCODEBUILD) -project $(PROJECT) -target $(currentTarget) -sdk iphonesimulator -arch i386 -arch x86_64 -configuration Release build
 
 clean:
 	@ rm -rf Pods build *.framework
