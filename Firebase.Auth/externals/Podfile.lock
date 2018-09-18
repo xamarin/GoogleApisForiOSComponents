@@ -1,29 +1,34 @@
 PODS:
-  - Firebase/Auth (5.4.0):
+  - Firebase/Auth (5.7.0):
     - Firebase/CoreOnly
-    - FirebaseAuth (= 5.0.2)
-  - Firebase/CoreOnly (5.4.0):
-    - FirebaseCore (= 5.0.5)
-  - FirebaseAuth (5.0.2):
+    - FirebaseAuth (= 5.0.3)
+  - Firebase/CoreOnly (5.7.0):
+    - FirebaseCore (= 5.1.2)
+  - FirebaseAuth (5.0.3):
+    - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 5.0)
+    - GoogleUtilities/Environment (~> 5.2)
     - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseCore (5.0.5):
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - GoogleToolboxForMac/Defines (2.1.4)
-  - GoogleToolboxForMac/NSData+zlib (2.1.4):
-    - GoogleToolboxForMac/Defines (= 2.1.4)
-  - GTMSessionFetcher/Core (1.1.15)
+  - FirebaseAuthInterop (1.0.0)
+  - FirebaseCore (5.1.2):
+    - GoogleUtilities/Logger (~> 5.2)
+  - GoogleUtilities/Environment (5.2.3)
+  - GoogleUtilities/Logger (5.2.3):
+    - GoogleUtilities/Environment
+  - GTMSessionFetcher/Core (1.2.0)
 
 DEPENDENCIES:
-  - Firebase/Auth (= 5.4.0)
+  - Firebase/Auth (= 5.7.0)
+  - FirebaseAuthInterop (= 1.0.0)
 
 SPEC CHECKSUMS:
-  Firebase: d66f4f29c23f22d96808d9abc174d81d8eee968f
-  FirebaseAuth: 096e457cdd4274412a66c4a35874787e411f5a03
-  FirebaseCore: 42b3267233bd21a5abd54117ccc38ca3dd0f8e83
-  GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
-  GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
+  Firebase: 734a4f92957aa6c40e7ae3fda3d9359e1890aa87
+  FirebaseAuth: 657a25e4be044d2d333663ebf515a861c5a59cd7
+  FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
+  FirebaseCore: 3a97432acb324b439fbed338e642f9cbb516a63d
+  GoogleUtilities: 6f681e27050c5e130325e89fa0316dfca826f954
+  GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
 
-PODFILE CHECKSUM: 40761becc2a3dfcc5e2aa41b64c1b549d2561bec
+PODFILE CHECKSUM: c82307c7fd02327477ec3ff96bc980699ffb9474
 
 COCOAPODS: 1.4.0

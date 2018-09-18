@@ -1,8 +1,8 @@
 =begin
 Last run GoogleSignIn installed:
 * GTMOAuth2 (1.1.6)
-* GTMSessionFetcher (1.1.15)
-* GoogleSignIn (4.1.2)
+* GTMSessionFetcher (1.2.0)
+* GoogleSignIn (4.2.0)
 * GoogleToolboxForMac (2.1.4)
 
 Check if main version or subversion number has changed. 
@@ -10,14 +10,14 @@ If yes, please, update *.targets files located in binding
 projects, also, update Podfile files if needed.
 
 In Google.SignIn binding project, you can find the .targets file of:
-* GoogleSignIn (4.1.2)
+* GoogleSignIn (4.2.0)
 
 and the Native Reference of:
 * GTMOAuth2 (1.1.6)
 
 In Firebase.Core binding project, you can find the Native Reference of:
 * GoogleToolboxForMac (2.1.4)
-* GTMSessionFetcher (1.1.13)
+* GTMSessionFetcher (1.2.0)
 =end
 
 source 'https://github.com/CocoaPods/Specs.git'

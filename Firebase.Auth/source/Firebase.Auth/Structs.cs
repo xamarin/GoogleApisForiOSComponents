@@ -92,6 +92,7 @@ namespace Firebase.Auth
 		WebInternalError = 17062,
 		NullUser = 17067,
 		KeychainError = 17995,
-		InternalError = 17999
+		InternalError = 17999,
+		MalformedJwt = 18000
 	}
 }
