@@ -68,6 +68,7 @@ DEPENDENCIES:
   - GoogleUtilities/MethodSwizzler (= 5.2.2)
   - GoogleUtilities/Network (= 5.2.2)
   - GoogleUtilities/NSData+zlib (= 5.2.2)
+  - GoogleUtilities/Reachability (= 5.2.2)
   - GTMSessionFetcher/Full (= 1.2.0)
   - leveldb-library (= 1.20.0)
   - nanopb (= 0.3.8)
@@ -84,6 +85,6 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
 
-PODFILE CHECKSUM: b8e7f88e00179c9a8006ec4e2b37d003d8783917
+PODFILE CHECKSUM: fd04da73bc7f4d81490db1be5fe8a93e32c0c5ea
 
 COCOAPODS: 1.4.0

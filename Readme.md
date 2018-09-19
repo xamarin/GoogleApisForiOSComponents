@@ -20,7 +20,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.Invites][F.Invites.Name]                             | [3.0.0.1][F.Invites.Package]               |
 | [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name] | [2.1.1.0][F.PerformanceMonitoring.Package] |
 | [Xamarin.Firebase.iOS.RemoteConfig][F.RemoteConfig.Name]                   | [3.0.1.0][F.RemoteConfig.Package]          |
-| [Xamarin.Firebase.iOS.Storage][F.Storage.Name]                             | [3.0.0.1][F.Storage.Package]               |
+| [Xamarin.Firebase.iOS.Storage][F.Storage.Name]                             | [3.0.1.0][F.Storage.Package]               |
 | [Xamarin.Google.iOS.Analytics][G.Analytics.Name]                           | [3.17.0.3][G.Analytics.Package]            |
 | [Xamarin.Google.iOS.AppIndexing][G.AppIndexing.Name]                       | [2.0.3.5][G.AppIndexing.Package]           |
 | [Xamarin.Google.iOS.Cast][G.Cast.Name]                                     | [4.1.0.1][G.Cast.Package]                  |
@@ -60,7 +60,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Invites                | **3.0.0.1**       | **5.4.0**      |
 | Firebase Performance Monitoring | **2.1.1.0**       | **5.7.0**      |
 | Firebase RemoteConfig           | **3.0.1.0**       | **5.7.0**      |
-| Firebase Storage                | **3.0.0.1**       | **5.4.0**      |
+| Firebase Storage                | **3.0.1.0**       | **5.7.0**      |
 | Google Sign-In                  | **4.2.0.0**       | **5.7.0**      |
 | Google Tag Manager              | **7.0.0.1**       | **5.4.0**      |
 
