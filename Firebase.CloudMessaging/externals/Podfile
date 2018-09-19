@@ -1,26 +1,26 @@
 =begin
 Last run FirebaseMessaging installed:
-* Firebase (5.4.0)
-* FirebaseCore (5.0.5)
-* FirebaseInstanceID (3.1.1)
-* FirebaseMessaging (3.0.3)
-* GoogleToolboxForMac (2.1.4)
-* Protobuf (3.6.0)
+* Firebase (5.7.0)
+* FirebaseCore (5.1.2)
+* FirebaseInstanceID (3.2.1)
+* FirebaseMessaging (3.1.1)
+* GoogleUtilities (5.2.2)
+* Protobuf (3.6.1)
 
 Check if main version or subversion number has changed. 
 If yes, please, update *.targets files, if any, located in binding 
 projects, also, update Podfile files if needed.
 
 In Firebase.CloudMessaging binding project, you can find the Native Reference of:
-* FirebaseMessaging (3.0.3)
+* FirebaseMessaging (3.1.1)
 
 In Firebase.InstanceID binding project, you can find the .targets file of:
-* FirebaseInstanceID (3.1.1)
+* FirebaseInstanceID (3.2.1)
 
 In Firebase.Core binding project, you can find the Native Reference of:
-* FirebaseCore (5.0.5)
-* GoogleToolboxForMac (2.1.4)
-* Protobuf (3.6.0)
+* FirebaseCore (5.1.2)
+* GoogleUtilities (5.2.2)
+* Protobuf (3.6.1)
 =end
 
 source 'https://github.com/CocoaPods/Specs.git'
@@ -30,5 +30,5 @@ install! 'cocoapods', :integrate_targets => false
 use_frameworks!
 
 target 'FirebaseMessaging' do
-	pod 'Firebase/Messaging', '5.4.0'
+	pod 'Firebase/Messaging', '5.7.0'
 end

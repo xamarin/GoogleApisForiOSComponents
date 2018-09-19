@@ -28,14 +28,14 @@ $FIREBASE_AUTH_INTEROP_VERSION = '1.0.0'
 
 target 'FirebaseCore' do
 	pod 'Firebase/CoreOnly', '5.7.0'
-	pod 'GoogleUtilities/Environment', $GOOGLE_UTILITIES_VERSION
-	pod 'GoogleUtilities/Logger', $GOOGLE_UTILITIES_VERSION
 	pod 'GoogleUtilities/AppDelegateSwizzler', $GOOGLE_UTILITIES_VERSION
-	pod 'GoogleUtilities/MethodSwizzler', $GOOGLE_UTILITIES_VERSION
-	pod 'GoogleUtilities/NSData+zlib', $GOOGLE_UTILITIES_VERSION
-	pod 'GoogleUtilities/Network', $GOOGLE_UTILITIES_VERSION
+	pod 'GoogleUtilities/Environment', $GOOGLE_UTILITIES_VERSION
 	pod 'GoogleUtilities/ISASwizzler', $GOOGLE_UTILITIES_VERSION
+	pod 'GoogleUtilities/Logger', $GOOGLE_UTILITIES_VERSION
 	pod 'GoogleUtilities/MethodSwizzler', $GOOGLE_UTILITIES_VERSION
+	pod 'GoogleUtilities/Network', $GOOGLE_UTILITIES_VERSION
+	pod 'GoogleUtilities/NSData+zlib', $GOOGLE_UTILITIES_VERSION
+	pod 'GoogleUtilities/Reachability', $GOOGLE_UTILITIES_VERSION
 	pod 'GoogleToolboxForMac/NSData+zlib', $GOOGLE_TOOLBOX_FOR_MAC_VERSION
 	pod 'GoogleToolboxForMac/NSDictionary+URLArguments', $GOOGLE_TOOLBOX_FOR_MAC_VERSION
 	pod 'GoogleToolboxForMac/Logger', $GOOGLE_TOOLBOX_FOR_MAC_VERSION
