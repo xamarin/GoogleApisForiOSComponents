@@ -38,14 +38,14 @@ namespace Firebase.CloudFirestore
 
 		// -(FIRDocumentReference * _Nonnull)addDocumentWithData:(NSDictionary<NSString *,id> * _Nonnull)data;
 		[Export ("addDocumentWithData:")]
-		DocumentReference AddDocument (NSDictionary<NSString, NSObject> data);
+		DocumentReference AddDocument (NSDictionary<NSString, NSObject> nsData);
 
 		[Wrap ("AddDocument (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count))")]
 		DocumentReference AddDocument (Dictionary<object, object> data);
 
 		// -(FIRDocumentReference * _Nonnull)addDocumentWithData:(NSDictionary<NSString *,id> * _Nonnull)data completion:(void (^ _Nullable)(NSError * _Nullable))completion;
 		[Export ("addDocumentWithData:completion:")]
-		DocumentReference AddDocument (NSDictionary<NSString, NSObject> data, AddDocumentCompletionHandler completion);
+		DocumentReference AddDocument (NSDictionary<NSString, NSObject> nsData, AddDocumentCompletionHandler completion);
 
 		[Wrap ("AddDocument (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count), completion)")]
 		DocumentReference AddDocument (Dictionary<object, object> data, AddDocumentCompletionHandler completion);
@@ -106,14 +106,14 @@ namespace Firebase.CloudFirestore
 
 		// -(void)setData:(NSDictionary<NSString *,id> * _Nonnull)documentData;
 		[Export ("setData:")]
-		void SetData (NSDictionary<NSString, NSObject> documentData);
+		void SetData (NSDictionary<NSString, NSObject> nsDocumentData);
 
 		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count))")]
 		void SetData (Dictionary<object, object> documentData);
 
 		// -(void)setData:(NSDictionary<NSString *,id> * _Nonnull)documentData merge:(BOOL)merge;
 		[Export ("setData:merge:")]
-		void SetData (NSDictionary<NSString, NSObject> documentData, bool merge);
+		void SetData (NSDictionary<NSString, NSObject> nsDocumentData, bool merge);
 
 		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), merge)")]
 		void SetData (Dictionary<object, object> documentData, bool merge);
@@ -121,13 +121,16 @@ namespace Firebase.CloudFirestore
 		// - (void) setData:(NSDictionary<NSString*, id>*) documentData mergeFields:(NSArray<id>*) mergeFields;
 		[Advice ("The mergeFields argument can contain NSString and FieldPath.")]
 		[Export ("setData:mergeFields:")]
-		void SetData (NSDictionary<NSString, NSObject> documentData, NSArray mergeFields);
+		void SetData (NSDictionary<NSString, NSObject> nsDocumentData, NSArray mergeFields);
 
-		[Wrap ("SetData (documentData, NSArray.FromStrings (mergeFields))")]
-		void SetData (NSDictionary<NSString, NSObject> documentData, string [] mergeFields);
+		[Wrap ("SetData (nsDocumentData, NSArray.FromStrings (mergeFields))")]
+		void SetData (NSDictionary<NSString, NSObject> nsDocumentData, string [] mergeFields);
 
-		[Wrap ("SetData (documentData, NSArray.FromNSObjects (mergeFields))")]
-		void SetData (NSDictionary<NSString, NSObject> documentData, FieldPath [] mergeFields);
+		[Wrap ("SetData (nsDocumentData, NSArray.FromNSObjects (mergeFields))")]
+		void SetData (NSDictionary<NSString, NSObject> nsDocumentData, FieldPath [] mergeFields);
+
+		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), mergeFields)")]
+		void SetData (Dictionary<object, object> documentData, NSArray mergeFields);
 
 		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), NSArray.FromStrings (mergeFields))")]
 		void SetData (Dictionary<object, object> documentData, string [] mergeFields);
@@ -138,7 +141,7 @@ namespace Firebase.CloudFirestore
 		// -(void)setData:(NSDictionary<NSString *,id> * _Nonnull)documentData completion:(void (^ _Nullable)(NSError * _Nullable))completion;
 		[Async]
 		[Export ("setData:completion:")]
-		void SetData (NSDictionary<NSString, NSObject> documentData, [NullAllowed] DocumentActionCompletionHandler completion);
+		void SetData (NSDictionary<NSString, NSObject> nsDocumentData, [NullAllowed] DocumentActionCompletionHandler completion);
 
 		[Async]
 		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), completion)")]
@@ -147,7 +150,7 @@ namespace Firebase.CloudFirestore
 		// -(void)setData:(NSDictionary<NSString *,id> * _Nonnull)documentData merge:(BOOL)merge completion:(void (^ _Nullable)(NSError * _Nullable))completion;
 		[Async]
 		[Export ("setData:merge:completion:")]
-		void SetData (NSDictionary<NSString, NSObject> documentData, bool merge, [NullAllowed] DocumentActionCompletionHandler completion);
+		void SetData (NSDictionary<NSString, NSObject> nsDocumentData, bool merge, [NullAllowed] DocumentActionCompletionHandler completion);
 
 		[Async]
 		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), merge, completion)")]
@@ -157,15 +160,19 @@ namespace Firebase.CloudFirestore
 		[Advice ("The mergeFields argument can contain NSString and FieldPath.")]
 		[Async]
 		[Export ("setData:mergeFields:completion:")]
-		void SetData (NSDictionary<NSString, NSObject> documentData, NSArray mergeFields, [NullAllowed] DocumentActionCompletionHandler completion);
+		void SetData (NSDictionary<NSString, NSObject> nsDocumentData, NSArray mergeFields, [NullAllowed] DocumentActionCompletionHandler completion);
 
 		[Async]
-		[Wrap ("SetData (documentData, NSArray.FromStrings (mergeFields), completion)")]
-		void SetData (NSDictionary<NSString, NSObject> documentData, string [] mergeFields, [NullAllowed] DocumentActionCompletionHandler completion);
+		[Wrap ("SetData (nsDocumentData, NSArray.FromStrings (mergeFields), completion)")]
+		void SetData (NSDictionary<NSString, NSObject> nsDocumentData, string [] mergeFields, [NullAllowed] DocumentActionCompletionHandler completion);
 
 		[Async]
-		[Wrap ("SetData (documentData, NSArray.FromNSObjects (mergeFields), completion)")]
-		void SetData (NSDictionary<NSString, NSObject> documentData, FieldPath [] mergeFields, [NullAllowed] DocumentActionCompletionHandler completion);
+		[Wrap ("SetData (nsDocumentData, NSArray.FromNSObjects (mergeFields), completion)")]
+		void SetData (NSDictionary<NSString, NSObject> nsDocumentData, FieldPath [] mergeFields, [NullAllowed] DocumentActionCompletionHandler completion);
+
+		[Async]
+		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), mergeFields, completion)")]
+		void SetData (Dictionary<object, object> documentData, NSArray mergeFields, [NullAllowed] DocumentActionCompletionHandler completion);
 
 		[Async]
 		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), NSArray.FromStrings (mergeFields), completion)")]
@@ -177,7 +184,7 @@ namespace Firebase.CloudFirestore
 
 		// -(void)updateData:(NSDictionary<id,id> * _Nonnull)fields;
 		[Export ("updateData:")]
-		void UpdateData (NSDictionary<NSObject, NSObject> fields);
+		void UpdateData (NSDictionary<NSObject, NSObject> nsFields);
 
 		[Wrap ("UpdateData (fields == null ? null : NSDictionary<NSObject, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (fields.Values), System.Linq.Enumerable.ToArray (fields.Keys), fields.Keys.Count))")]
 		void UpdateData (Dictionary<object, object> fields);
@@ -185,7 +192,7 @@ namespace Firebase.CloudFirestore
 		// -(void)updateData:(NSDictionary<id,id> * _Nonnull)fields completion:(void (^ _Nullable)(NSError * _Nullable))completion;
 		[Async]
 		[Export ("updateData:completion:")]
-		void UpdateData (NSDictionary<NSObject, NSObject> fields, [NullAllowed] DocumentActionCompletionHandler completion);
+		void UpdateData (NSDictionary<NSObject, NSObject> nsFields, [NullAllowed] DocumentActionCompletionHandler completion);
 
 		[Async]
 		[Wrap ("UpdateData (fields == null ? null : NSDictionary<NSObject, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (fields.Values), System.Linq.Enumerable.ToArray (fields.Keys), fields.Keys.Count), completion)")]
@@ -308,6 +315,16 @@ namespace Firebase.CloudFirestore
 		[Static]
 		[Export ("fieldValueForServerTimestamp")]
 		FieldValue ServerTimestamp { get; }
+
+		// +(instancetype)fieldValueForArrayUnion:(NSArray<id> *)elements;
+		[Static]
+		[Export ("fieldValueForArrayUnion:")]
+		FieldValue FromArrayUnion (NSObject [] elements);
+
+		// +(instancetype)fieldValueForArrayRemove:(NSArray<id> *)elements NS_SWIFT_NAME(arrayRemove(_:));
+		[Static]
+		[Export ("fieldValueForArrayRemove:")]
+		FieldValue FromArrayRemove (NSObject [] elements);
 	}
 
 	// void (^)(id _Nullable result, NSError *_Nullable error)
@@ -461,73 +478,87 @@ namespace Firebase.CloudFirestore
 
 		// -(FIRQuery * _Nonnull)queryWhereField:(NSString * _Nonnull)field isEqualTo:(id _Nonnull)value;
 		[Export ("queryWhereField:isEqualTo:")]
-		Query WhereEqualsTo (string field, NSObject value);
+		Query WhereEqualsTo (string field, NSObject nsValue);
 
 		[Wrap ("WhereEqualsTo (field, FromObject (value))")]
 		Query WhereEqualsTo (string field, object value);
 
 		// -(FIRQuery * _Nonnull)queryWhereFieldPath:(FIRFieldPath * _Nonnull)path isEqualTo:(id _Nonnull)value;
 		[Export ("queryWhereFieldPath:isEqualTo:")]
-		Query WhereEqualsTo (FieldPath path, NSObject value);
+		Query WhereEqualsTo (FieldPath path, NSObject nsValue);
 
 		[Wrap ("WhereEqualsTo (path, FromObject (value))")]
 		Query WhereEqualsTo (FieldPath path, object value);
 
 		// -(FIRQuery * _Nonnull)queryWhereField:(NSString * _Nonnull)field isLessThan:(id _Nonnull)value;
 		[Export ("queryWhereField:isLessThan:")]
-		Query WhereLessThan (string field, NSObject value);
+		Query WhereLessThan (string field, NSObject nsValue);
 
 		[Wrap ("WhereLessThan (field, FromObject (value))")]
 		Query WhereLessThan (string field, object value);
 
 		// -(FIRQuery * _Nonnull)queryWhereFieldPath:(FIRFieldPath * _Nonnull)path isLessThan:(id _Nonnull)value;
 		[Export ("queryWhereFieldPath:isLessThan:")]
-		Query WhereLessThan (FieldPath path, NSObject value);
+		Query WhereLessThan (FieldPath path, NSObject nsValue);
 
 		[Wrap ("WhereLessThan (path, FromObject (value))")]
 		Query WhereLessThan (FieldPath path, object value);
 
 		// -(FIRQuery * _Nonnull)queryWhereField:(NSString * _Nonnull)field isLessThanOrEqualTo:(id _Nonnull)value;
 		[Export ("queryWhereField:isLessThanOrEqualTo:")]
-		Query WhereLessThanOrEqualsTo (string field, NSObject value);
+		Query WhereLessThanOrEqualsTo (string field, NSObject nsValue);
 
 		[Wrap ("WhereLessThanOrEqualsTo (field, FromObject (value))")]
 		Query WhereLessThanOrEqualsTo (string field, object value);
 
 		// -(FIRQuery * _Nonnull)queryWhereFieldPath:(FIRFieldPath * _Nonnull)path isLessThanOrEqualTo:(id _Nonnull)value;
 		[Export ("queryWhereFieldPath:isLessThanOrEqualTo:")]
-		Query WhereLessThanOrEqualsTo (FieldPath path, NSObject value);
+		Query WhereLessThanOrEqualsTo (FieldPath path, NSObject nsValue);
 
 		[Wrap ("WhereLessThanOrEqualsTo (path, FromObject (value))")]
 		Query WhereLessThanOrEqualsTo (FieldPath path, object value);
 
 		// -(FIRQuery * _Nonnull)queryWhereField:(NSString * _Nonnull)field isGreaterThan:(id _Nonnull)value;
 		[Export ("queryWhereField:isGreaterThan:")]
-		Query WhereGreaterThan (string field, NSObject value);
+		Query WhereGreaterThan (string field, NSObject nsValue);
 
 		[Wrap ("WhereGreaterThan (field, FromObject (value))")]
 		Query WhereGreaterThan (string field, object value);
 
 		// -(FIRQuery * _Nonnull)queryWhereFieldPath:(FIRFieldPath * _Nonnull)path isGreaterThan:(id _Nonnull)value;
 		[Export ("queryWhereFieldPath:isGreaterThan:")]
-		Query WhereGreaterThan (FieldPath path, NSObject value);
+		Query WhereGreaterThan (FieldPath path, NSObject nsValue);
 
 		[Wrap ("WhereGreaterThan (path, FromObject (value))")]
 		Query WhereGreaterThan (FieldPath path, object value);
 
 		// -(FIRQuery * _Nonnull)queryWhereField:(NSString * _Nonnull)field isGreaterThanOrEqualTo:(id _Nonnull)value;
 		[Export ("queryWhereField:isGreaterThanOrEqualTo:")]
-		Query WhereGreaterThanOrEqualsTo (string field, NSObject value);
+		Query WhereGreaterThanOrEqualsTo (string field, NSObject nsValue);
 
 		[Wrap ("WhereGreaterThanOrEqualsTo (field, FromObject (value))")]
 		Query WhereGreaterThanOrEqualsTo (string field, object value);
 
 		// -(FIRQuery * _Nonnull)queryWhereFieldPath:(FIRFieldPath * _Nonnull)path isGreaterThanOrEqualTo:(id _Nonnull)value;
 		[Export ("queryWhereFieldPath:isGreaterThanOrEqualTo:")]
-		Query WhereGreaterThanOrEqualsTo (FieldPath path, NSObject value);
+		Query WhereGreaterThanOrEqualsTo (FieldPath path, NSObject nsValue);
 
 		[Wrap ("WhereGreaterThanOrEqualsTo (path, FromObject (value))")]
 		Query WhereGreaterThanOrEqualsTo (FieldPath path, object value);
+
+		// - (FIRQuery *)queryWhereField:(NSString *)field arrayContains:(id) value;
+		[Export ("queryWhereField:arrayContains:")]
+		Query WhereArrayContains (string path, NSObject nsValue);
+
+		[Wrap ("WhereArrayContains (path, FromObject (value))")]
+		Query WhereArrayContains (string path, object value);
+
+		// - (FIRQuery *)queryWhereFieldPath:(FIRFieldPath *)path arrayContains:(id) value;
+		[Export ("queryWhereFieldPath:arrayContains:")]
+		Query WhereArrayContains (FieldPath path, NSObject nsValue);
+
+		[Wrap ("WhereArrayContains (path, FromObject (value))")]
+		Query WhereArrayContains (FieldPath path, object value);
 
 		// -(FIRQuery * _Nonnull)queryFilteredUsingPredicate:(NSPredicate * _Nonnull)predicate;
 		[Export ("queryFilteredUsingPredicate:")]
@@ -559,7 +590,7 @@ namespace Firebase.CloudFirestore
 
 		// -(FIRQuery * _Nonnull)queryStartingAtValues:(NSArray * _Nonnull)fieldValues;
 		[Export ("queryStartingAtValues:")]
-		Query StartingAt (NSObject [] fieldValues);
+		Query StartingAt (NSObject [] nsFieldValues);
 
 		[Wrap ("StartingAt (CloudFirestoreHelper.GetNSObjects (fieldValues))")]
 		Query StartingAt (object [] fieldValues);
@@ -570,7 +601,7 @@ namespace Firebase.CloudFirestore
 
 		// -(FIRQuery * _Nonnull)queryStartingAfterValues:(NSArray * _Nonnull)fieldValues;
 		[Export ("queryStartingAfterValues:")]
-		Query StartingAfter (NSObject [] fieldValues);
+		Query StartingAfter (NSObject [] nsFieldValues);
 
 		[Wrap ("StartingAfter (CloudFirestoreHelper.GetNSObjects (fieldValues))")]
 		Query StartingAfter (object [] fieldValues);
@@ -581,7 +612,7 @@ namespace Firebase.CloudFirestore
 
 		// -(FIRQuery * _Nonnull)queryEndingBeforeValues:(NSArray * _Nonnull)fieldValues;
 		[Export ("queryEndingBeforeValues:")]
-		Query EndingBefore (NSObject [] fieldValues);
+		Query EndingBefore (NSObject [] nsFieldValues);
 
 		[Wrap ("EndingBefore (CloudFirestoreHelper.GetNSObjects (fieldValues))")]
 		Query EndingBefore (object [] fieldValues);
@@ -592,7 +623,7 @@ namespace Firebase.CloudFirestore
 
 		// -(FIRQuery * _Nonnull)queryEndingAtValues:(NSArray * _Nonnull)fieldValues;
 		[Export ("queryEndingAtValues:")]
-		Query EndingAt (NSObject [] fieldValues);
+		Query EndingAt (NSObject [] nsFieldValues);
 
 		[Wrap ("EndingAt (CloudFirestoreHelper.GetNSObjects (fieldValues))")]
 		Query EndingAt (object [] fieldValues);
@@ -694,14 +725,14 @@ namespace Firebase.CloudFirestore
 	{
 		// -(FIRTransaction * _Nonnull)setData:(NSDictionary<NSString *,id> * _Nonnull)data forDocument:(FIRDocumentReference * _Nonnull)document;
 		[Export ("setData:forDocument:")]
-		Transaction SetData (NSDictionary<NSString, NSObject> data, DocumentReference document);
+		Transaction SetData (NSDictionary<NSString, NSObject> nsData, DocumentReference document);
 
 		[Wrap ("SetData (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count), document)")]
 		Transaction SetData (Dictionary<object, object> data, DocumentReference document);
 
 		// -(FIRTransaction * _Nonnull)setData:(NSDictionary<NSString *,id> * _Nonnull)data forDocument:(FIRDocumentReference * _Nonnull)document merge:(BOOL)merge;
 		[Export ("setData:forDocument:merge:")]
-		Transaction SetData (NSDictionary<NSString, NSObject> data, DocumentReference document, bool merge);
+		Transaction SetData (NSDictionary<NSString, NSObject> nsData, DocumentReference document, bool merge);
 
 		[Wrap ("SetData (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count), document, merge)")]
 		Transaction SetData (Dictionary<object, object> data, DocumentReference document, bool merge);
@@ -709,23 +740,26 @@ namespace Firebase.CloudFirestore
 		// - (FIRTransaction*) setData:(NSDictionary<NSString*, id>*)data forDocument:(FIRDocumentReference*)document mergeFields:(NSArray<id>*)mergeFields
 		[Advice ("The mergeFields argument can contain NSString and FieldPath.")]
 		[Export ("setData:forDocument:mergeFields:")]
-		Transaction SetData (NSDictionary<NSString, NSObject> data, DocumentReference document, NSArray mergeFields);
+		Transaction SetData (NSDictionary<NSString, NSObject> nsData, DocumentReference document, NSArray mergeFields);
 
-		[Wrap ("SetData (documentData, document, NSArray.FromStrings (mergeFields))")]
-		Transaction SetData (NSDictionary<NSString, NSObject> documentData, DocumentReference document, string [] mergeFields);
+		[Wrap ("SetData (nsData, document, NSArray.FromStrings (mergeFields))")]
+		Transaction SetData (NSDictionary<NSString, NSObject> nsData, DocumentReference document, string [] mergeFields);
 
-		[Wrap ("SetData (documentData, document, NSArray.FromNSObjects (mergeFields))")]
-		Transaction SetData (NSDictionary<NSString, NSObject> documentData, DocumentReference document, FieldPath [] mergeFields);
+		[Wrap ("SetData (nsData, document, NSArray.FromNSObjects (mergeFields))")]
+		Transaction SetData (NSDictionary<NSString, NSObject> nsData, DocumentReference document, FieldPath [] mergeFields);
 
-		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), document, NSArray.FromStrings (mergeFields))")]
-		Transaction SetData (Dictionary<object, object> documentData, DocumentReference document, string [] mergeFields);
+		[Wrap ("SetData (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count), document, mergeFields)")]
+		Transaction SetData (Dictionary<object, object> data, DocumentReference document, NSArray mergeFields);
 
-		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), document, NSArray.FromNSObjects (mergeFields))")]
-		Transaction SetData (Dictionary<object, object> documentData, DocumentReference document, FieldPath [] mergeFields);
+		[Wrap ("SetData (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count), document, NSArray.FromStrings (mergeFields))")]
+		Transaction SetData (Dictionary<object, object> data, DocumentReference document, string [] mergeFields);
+
+		[Wrap ("SetData (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count), document, NSArray.FromNSObjects (mergeFields))")]
+		Transaction SetData (Dictionary<object, object> data, DocumentReference document, FieldPath [] mergeFields);
 
 		// -(FIRTransaction * _Nonnull)updateData:(NSDictionary<id,id> * _Nonnull)fields forDocument:(FIRDocumentReference * _Nonnull)document;
 		[Export ("updateData:forDocument:")]
-		Transaction UpdateData (NSDictionary<NSObject, NSObject> fields, DocumentReference document);
+		Transaction UpdateData (NSDictionary<NSObject, NSObject> nsFields, DocumentReference document);
 
 		[Wrap ("UpdateData (fields == null ? null : NSDictionary<NSObject, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (fields.Values), System.Linq.Enumerable.ToArray (fields.Keys), fields.Keys.Count), document)")]
 		Transaction UpdateData (Dictionary<object, object> fields, DocumentReference document);
@@ -750,14 +784,14 @@ namespace Firebase.CloudFirestore
 	{
 		// -(FIRWriteBatch * _Nonnull)setData:(NSDictionary<NSString *,id> * _Nonnull)data forDocument:(FIRDocumentReference * _Nonnull)document;
 		[Export ("setData:forDocument:")]
-		WriteBatch SetData (NSDictionary<NSString, NSObject> data, DocumentReference document);
+		WriteBatch SetData (NSDictionary<NSString, NSObject> nsData, DocumentReference document);
 
 		[Wrap ("SetData (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count), document)")]
 		WriteBatch SetData (Dictionary<object, object> data, DocumentReference document);
 
 		// -(FIRWriteBatch * _Nonnull)setData:(NSDictionary<NSString *,id> * _Nonnull)data forDocument:(FIRDocumentReference * _Nonnull)document merge:(BOOL)merge;
 		[Export ("setData:forDocument:merge:")]
-		WriteBatch SetData (NSDictionary<NSString, NSObject> data, DocumentReference document, bool merge);
+		WriteBatch SetData (NSDictionary<NSString, NSObject> nsData, DocumentReference document, bool merge);
 
 		[Wrap ("SetData (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count), document, merge)")]
 		WriteBatch SetData (Dictionary<object, object> data, DocumentReference document, bool merge);
@@ -765,23 +799,26 @@ namespace Firebase.CloudFirestore
 		// - (FIRWriteBatch *)setData:(NSDictionary<NSString *, id> *)data forDocument:(FIRDocumentReference*)document mergeFields:(NSArray<id>*)mergeFields
 		[Advice ("The mergeFields argument can contain NSString and FieldPath.")]
 		[Export ("setData:forDocument:mergeFields:")]
-		WriteBatch SetData (NSDictionary<NSString, NSObject> data, DocumentReference document, NSArray mergeFields);
+		WriteBatch SetData (NSDictionary<NSString, NSObject> nsData, DocumentReference document, NSArray mergeFields);
 
-		[Wrap ("SetData (documentData, document, NSArray.FromStrings (mergeFields))")]
-		WriteBatch SetData (NSDictionary<NSString, NSObject> documentData, DocumentReference document, string [] mergeFields);
+		[Wrap ("SetData (nsData, document, NSArray.FromStrings (mergeFields))")]
+		WriteBatch SetData (NSDictionary<NSString, NSObject> nsData, DocumentReference document, string [] mergeFields);
 
-		[Wrap ("SetData (documentData, document, NSArray.FromNSObjects (mergeFields))")]
-		WriteBatch SetData (NSDictionary<NSString, NSObject> documentData, DocumentReference document, FieldPath [] mergeFields);
+		[Wrap ("SetData (nsData, document, NSArray.FromNSObjects (mergeFields))")]
+		WriteBatch SetData (NSDictionary<NSString, NSObject> nsData, DocumentReference document, FieldPath [] mergeFields);
 
-		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), document, NSArray.FromStrings (mergeFields))")]
-		WriteBatch SetData (Dictionary<object, object> documentData, DocumentReference document, string [] mergeFields);
+		[Wrap ("SetData (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count), document, mergeFields)")]
+		WriteBatch SetData (Dictionary<object, object> data, DocumentReference document, NSArray mergeFields);
 
-		[Wrap ("SetData (documentData == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (documentData.Values), System.Linq.Enumerable.ToArray (documentData.Keys), documentData.Keys.Count), document, NSArray.FromNSObjects (mergeFields))")]
-		WriteBatch SetData (Dictionary<object, object> documentData, DocumentReference document, FieldPath [] mergeFields);
+		[Wrap ("SetData (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count), document, NSArray.FromStrings (mergeFields))")]
+		WriteBatch SetData (Dictionary<object, object> data, DocumentReference document, string [] mergeFields);
+
+		[Wrap ("SetData (data == null ? null : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (data.Values), System.Linq.Enumerable.ToArray (data.Keys), data.Keys.Count), document, NSArray.FromNSObjects (mergeFields))")]
+		WriteBatch SetData (Dictionary<object, object> data, DocumentReference document, FieldPath [] mergeFields);
 
 		// -(FIRWriteBatch * _Nonnull)updateData:(NSDictionary<id,id> * _Nonnull)fields forDocument:(FIRDocumentReference * _Nonnull)document;
 		[Export ("updateData:forDocument:")]
-		WriteBatch UpdateData (NSDictionary<NSObject, NSObject> fields, DocumentReference document);
+		WriteBatch UpdateData (NSDictionary<NSObject, NSObject> nsFields, DocumentReference document);
 
 		[Wrap ("UpdateData (fields == null ? null : NSDictionary<NSObject, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (fields.Values), System.Linq.Enumerable.ToArray (fields.Keys), fields.Keys.Count), document)")]
 		WriteBatch UpdateData (Dictionary<object, object> fields, DocumentReference document);

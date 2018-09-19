@@ -19,7 +19,6 @@ PODS:
 
 DEPENDENCIES:
   - Firebase/Auth (= 5.7.0)
-  - FirebaseAuthInterop (= 1.0.0)
 
 SPEC CHECKSUMS:
   Firebase: 734a4f92957aa6c40e7ae3fda3d9359e1890aa87
@@ -29,6 +28,6 @@ SPEC CHECKSUMS:
   GoogleUtilities: 6f681e27050c5e130325e89fa0316dfca826f954
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
 
-PODFILE CHECKSUM: c82307c7fd02327477ec3ff96bc980699ffb9474
+PODFILE CHECKSUM: 1376fdd586f3b59502aee2ab5c31566030a62bd2
 
 COCOAPODS: 1.4.0

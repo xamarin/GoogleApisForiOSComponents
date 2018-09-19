@@ -1,6 +1,7 @@
 PODS:
   - Firebase/CoreOnly (5.7.0):
     - FirebaseCore (= 5.1.2)
+  - FirebaseAuthInterop (1.0.0)
   - FirebaseCore (5.1.2):
     - GoogleUtilities/Logger (~> 5.2)
   - GoogleToolboxForMac/Core (2.1.4):
@@ -54,6 +55,7 @@ PODS:
 
 DEPENDENCIES:
   - Firebase/CoreOnly (= 5.7.0)
+  - FirebaseAuthInterop (= 1.0.0)
   - GoogleToolboxForMac/Logger (= 2.1.4)
   - GoogleToolboxForMac/NSData+zlib (= 2.1.4)
   - GoogleToolboxForMac/NSDictionary+URLArguments (= 2.1.4)
@@ -73,6 +75,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Firebase: 734a4f92957aa6c40e7ae3fda3d9359e1890aa87
+  FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
   FirebaseCore: 3a97432acb324b439fbed338e642f9cbb516a63d
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GoogleUtilities: 06b66f9567769a7958db20a92f0128b2843e49d5
@@ -81,6 +84,6 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
 
-PODFILE CHECKSUM: 10274753547baae0e9343de95cc7d25dfa7d43b8
+PODFILE CHECKSUM: b8e7f88e00179c9a8006ec4e2b37d003d8783917
 
 COCOAPODS: 1.4.0

@@ -13,10 +13,10 @@ projects, also, update Podfile files if needed.
 
 In Firebase.Auth binding project, you can find the Native Reference of:
 * FirebaseAuth (5.0.3)
-* FirebaseAuthInterop (1.0.0)
 
 In Firebase.Core binding project, you can find the Native Reference of:
 * FirebaseCore (5.1.2)
+* FirebaseAuthInterop (1.0.0)
 * GTMSessionFetcher (1.2.0)
 * GoogleUtilities (5.2.2)
 =end
@@ -29,5 +29,4 @@ use_frameworks!
 
 target 'FirebaseAuth' do
 	pod 'Firebase/Auth', '5.7.0'
-	pod 'FirebaseAuthInterop', '1.0.0'
 end

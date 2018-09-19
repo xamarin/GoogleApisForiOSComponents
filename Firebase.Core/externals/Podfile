@@ -24,6 +24,7 @@ $NANOPB_VERSION = '0.3.8'
 $GTM_SESSION_FETCHER = '1.2.0'
 $PROTOBUF_VERSION = '3.6.1'
 $LEVELDB_LIBRARY_VERSION = '1.20.0'
+$FIREBASE_AUTH_INTEROP_VERSION = '1.0.0'
 
 target 'FirebaseCore' do
 	pod 'Firebase/CoreOnly', '5.7.0'
@@ -44,4 +45,5 @@ target 'FirebaseCore' do
 	pod 'GTMSessionFetcher/Full', $GTM_SESSION_FETCHER
 	pod 'Protobuf', $PROTOBUF_VERSION
 	pod 'leveldb-library', $LEVELDB_LIBRARY_VERSION
+	pod 'FirebaseAuthInterop', $FIREBASE_AUTH_INTEROP_VERSION
 end
