@@ -77,9 +77,9 @@ namespace Google.Cast
 		[Export ("posterURL", ArgumentSemantic.Strong)]
 		NSUrl PosterUrl { get; }
 
-		// @property(nonatomic, assign, readonly) NSTimeInterval whenSkippableInMs;
-		[Export ("whenSkippableInMs")]
-		double WhenSkippableInMs { get; }
+		// @property(nonatomic, assign, readonly) NSTimeInterval whenSkippable;
+		[Export ("whenSkippable")]
+		double WhenSkippable { get; }
 
 		// @property(nonatomic, assign, readonly) GCKHLSSegmentFormat hlsSegmentFormat;
 		[Export ("hlsSegmentFormat")]
