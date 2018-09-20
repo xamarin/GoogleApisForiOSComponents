@@ -1145,7 +1145,11 @@ namespace Google.Cast
 		[Export ("customData", ArgumentSemantic.Strong)]
 		NSObject CustomData { get; }
 
-		[Export ("initWithContentID:streamType:contentType:metadata:streamDuration:mediaTracks:textTrackStyle:customData:")]
+        [Export ("initWithContentID:streamType:contentType:metadata:adBreaks:adBreakClips:streamDuration:mediaTracks:textTrackStyle:customData:")]
+        IntPtr Constructor (string contentId, MediaStreamType streamType, string contentType, [NullAllowed] MediaMetadata metadata, [NullAllowed] AdBreakInfo adBreaks, [NullAllowed] AdBreakClipInfo adBreakClips, double streamDuration, [NullAllowed] MediaTrack[] mediaTracks, [NullAllowed] MediaTextTrackStyle textTrackStyle, [NullAllowed] NSObject customData);
+
+        // -(Deprecated Use initWithContentID:streamType:contentType:metadata:adBreaks: adBreakClips:streamDuration:mediaTracks:textTrackStyle:entity:customData: for ads and entity support)
+        [Export ("initWithContentID:streamType:contentType:metadata:streamDuration:mediaTracks:textTrackStyle:customData:")]
 		IntPtr Constructor (string contentId, MediaStreamType streamType, string contentType, [NullAllowed] MediaMetadata metadata, double streamDuration, [NullAllowed] MediaTrack [] mediaTracks, [NullAllowed] MediaTextTrackStyle textTrackStyle, [NullAllowed] NSObject customData);
 
 		// -(GCKMediaTrack * _Nullable)mediaTrackWithID:(NSInteger)trackID;
