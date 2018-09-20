@@ -1961,6 +1961,10 @@ namespace Google.Cast
 		[Export ("playWithCustomData:")]
 		Request Play ([NullAllowed] NSObject customData);
 
+        // -(GCKRequest * _Nonnull) skipAd;   
+        [Export("skipAd")]
+        Request SkipAd ();
+
 		// -(GCKRequest * _Nonnull)seekWithOptions:(GCKMediaSeekOptions * _Nonnull)options;
 		[Export ("seekWithOptions:")]
 		Request Seek (MediaSeekOptions options);
