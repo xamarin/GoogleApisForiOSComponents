@@ -54,7 +54,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Cloud Firestore        | **0.13.2.0**      | **5.7.0**      |
 | Firebase Cloud Messaging        | **3.1.1.0**       | **5.7.0**      |
 | Firebase Core                   | **5.1.2.0**       | **5.7.0**      |
-| Firebase Database               | **5.0.2.1**       | **5.4.0**      |
+| Firebase Database               | **5.0.2.1**       | **5.7.0**      |
 | Firebase Dynamic Links          | **3.0.2.0**       | **5.7.0**      |
 | Firebase Instance ID            | **3.2.1.0**       | **5.7.0**      |
 | Firebase Invites                | **3.0.0.1**       | **5.4.0**      |
