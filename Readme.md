@@ -57,7 +57,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Database               | **5.0.2.1**       | **5.7.0**      |
 | Firebase Dynamic Links          | **3.0.2.0**       | **5.7.0**      |
 | Firebase Instance ID            | **3.2.1.0**       | **5.7.0**      |
-| Firebase Invites                | **3.0.0.1**       | **5.4.0**      |
+| Firebase Invites                | **3.0.0.1**       | **5.7.0**      |
 | Firebase Performance Monitoring | **2.1.1.0**       | **5.7.0**      |
 | Firebase RemoteConfig           | **3.0.1.0**       | **5.7.0**      |
 | Firebase Storage                | **3.0.1.0**       | **5.7.0**      |
