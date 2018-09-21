@@ -1,8 +1,8 @@
 PODS:
-  - Firebase/CoreOnly (5.7.0):
-    - FirebaseCore (= 5.1.2)
+  - Firebase/CoreOnly (5.8.1):
+    - FirebaseCore (= 5.1.3)
   - FirebaseAuthInterop (1.0.0)
-  - FirebaseCore (5.1.2):
+  - FirebaseCore (5.1.3):
     - GoogleUtilities/Logger (~> 5.2)
   - GoogleToolboxForMac/Core (2.1.4):
     - GoogleToolboxForMac/Defines (= 2.1.4)
@@ -54,7 +54,7 @@ PODS:
   - Protobuf (3.6.1)
 
 DEPENDENCIES:
-  - Firebase/CoreOnly (= 5.7.0)
+  - Firebase/CoreOnly (= 5.8.1)
   - FirebaseAuthInterop (= 1.0.0)
   - GoogleToolboxForMac/Logger (= 2.1.4)
   - GoogleToolboxForMac/NSData+zlib (= 2.1.4)
@@ -75,9 +75,9 @@ DEPENDENCIES:
   - Protobuf (= 3.6.1)
 
 SPEC CHECKSUMS:
-  Firebase: 734a4f92957aa6c40e7ae3fda3d9359e1890aa87
+  Firebase: a870ed114d769b424021a0c8ddb0c86c3250a0c5
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
-  FirebaseCore: 3a97432acb324b439fbed338e642f9cbb516a63d
+  FirebaseCore: 27bd80e5bfaaf9552a1f5cacb4c7e8bb925bab22
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GoogleUtilities: 06b66f9567769a7958db20a92f0128b2843e49d5
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
@@ -85,6 +85,6 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
 
-PODFILE CHECKSUM: fd04da73bc7f4d81490db1be5fe8a93e32c0c5ea
+PODFILE CHECKSUM: 6973e15e1522ffe272acd8a776700bbe569e9275
 
 COCOAPODS: 1.4.0
