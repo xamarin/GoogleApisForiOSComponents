@@ -1,4 +1,4 @@
-version: 0.13.2.0
+version: 0.13.3.0
 name: Firebase Cloud Firestore for iOS
 id: firebaseioscloudfirestore
 publisher: Xamarin Inc.
@@ -16,7 +16,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Firebase.iOS.CloudFirestore, Version=0.13.2.0
+  - Xamarin.Firebase.iOS.CloudFirestore, Version=0.13.3.0
 samples:
 - name: Cloud Firestore Sample
   path: ../samples/CloudFirestoreSample/CloudFirestoreSample.sln

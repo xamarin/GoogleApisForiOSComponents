@@ -18,7 +18,7 @@ $(TARGETS):
 
 %-iphoneos:
 	$(eval currentTarget=$(subst -iphoneos,,$@))
-	$(XCODEBUILD) -project $(PROJECT) -target $(currentTarget) -sdk iphoneos -arch armv7 -arch arm64 -configuration Release clean build
+	$(XCODEBUILD) -project $(PROJECT) -target $(currentTarget) -sdk iphoneos -arch armv7 -arch arm64 -configuration Release build
 	@ find ./build/Release-iphoneos/$(currentTarget) -type d -name "*.framework" | xargs -I % mv % ./
 
 %-iphonesimulator:

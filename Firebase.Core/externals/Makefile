@@ -17,12 +17,10 @@ $(TARGETS):
 	else \
 		echo $@; \
 	fi))
-	@ if [ ! -d "./build/Release-iphoneos/$@/$(libraryName).framework" ]; then \
-		$(MAKE) $@-iphoneos; \
-		$(MAKE) $@-iphonesimulator; \
-	fi
 	@ if [ ! -d "./$(libraryName).framework" ]; then \
+		$(MAKE) $@-iphoneos; \
 		cp -R ./build/Release-iphoneos/$@/$(libraryName).framework ./; \
+		$(MAKE) $@-iphonesimulator; \
 		cp -R ./build/Release-iphonesimulator/$@/$(libraryName).framework/ ./$(libraryName)-iphonesimulator.framework; \
 		lipo -create -output $(libraryName).framework/$(libraryName) $(libraryName).framework/$(libraryName) $(libraryName)-iphonesimulator.framework/$(libraryName); \
 		rm -rf $(libraryName)-iphonesimulator.framework; \
@@ -30,7 +28,7 @@ $(TARGETS):
 
 %-iphoneos:
 	@ $(eval currentTarget=$(subst -iphoneos,,$@))
-	@ $(XCODEBUILD) -project $(PROJECT) -target $(currentTarget) -sdk iphoneos -arch armv7 -arch arm64 -configuration Release clean build
+	@ $(XCODEBUILD) -project $(PROJECT) -target $(currentTarget) -sdk iphoneos -arch armv7 -arch arm64 -configuration Release build
 
 %-iphonesimulator:
 	@ $(eval currentTarget=$(subst -iphonesimulator,,$@))
