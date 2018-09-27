@@ -47,22 +47,22 @@ Here's a table that shows in which global version is located each component of F
 
 | Component Name                  | Component Version | Global Version |
 |---------------------------------|:-----------------:|:--------------:|
-| Firebase A/B Testing            | **2.0.0.1**       | **5.7.0**      |
-| Firebase AdMob                  | **7.32.0.0**      | **5.7.0**      |
+| Firebase A/B Testing            | **2.0.0.1**       | **5.8.1**      |
+| Firebase AdMob                  | **7.32.0.0**      | **5.8.1**      |
 | Firebase Analytics              | **5.1.4.0**       | **5.8.1**      |
 | Firebase Auth                   | **5.0.4.0**       | **5.8.1**      |
 | Firebase Cloud Firestore        | **0.13.3.0**      | **5.8.1**      |
 | Firebase Cloud Messaging        | **3.1.2.0**       | **5.8.1**      |
 | Firebase Core                   | **5.1.3.0**       | **5.8.1**      |
 | Firebase Database               | **5.0.3.0**       | **5.8.1**      |
-| Firebase Dynamic Links          | **3.0.2.0**       | **5.7.0**      |
-| Firebase Instance ID            | **3.2.1.0**       | **5.7.0**      |
+| Firebase Dynamic Links          | **3.0.2.0**       | **5.8.1**      |
+| Firebase Instance ID            | **3.2.1.0**       | **5.8.1**      |
 | Firebase Invites                | **3.0.1.0**       | **5.8.1**      |
 | Firebase Performance Monitoring | **2.1.2.0**       | **5.8.1**      |
-| Firebase RemoteConfig           | **3.0.1.0**       | **5.7.0**      |
+| Firebase RemoteConfig           | **3.0.1.0**       | **5.8.1**      |
 | Firebase Storage                | **3.0.2.0**       | **5.8.1**      |
-| Google Sign-In                  | **4.2.0.0**       | **5.7.0**      |
-| Google Tag Manager              | **7.1.1.0**       | **5.7.0**      |
+| Google Sign-In                  | **4.2.0.0**       | **5.8.1**      |
+| Google Tag Manager              | **7.1.1.0**       | **5.8.1**      |
 
 ## Building
 
