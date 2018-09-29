@@ -12,7 +12,7 @@
 		<NativeReference Include="$(XamarinBuildDownloadDir)$(_GoogleCastItemsFolder)\GoogleCastSDK-ios-4.3.2_dynamic\GoogleCast.framework">
       		<IsCxx>False</IsCxx>
 			<LinkerFlags>-lc++</LinkerFlags>
-			<Frameworks>Accelerate AudioToolbox AVFoundation CFNetwork CoreBluetooth CoreGraphics CoreMedia CoreText Foundation MediaAccessibility MediaPlayer QuartzCore Security SystemConfiguration UIKit</Frameworks>
+			<Frameworks>Accelerate AudioToolbox AVFoundation CFNetwork CoreBluetooth CoreData CoreGraphics CoreMedia CoreText Foundation MediaAccessibility MediaPlayer QuartzCore Security SystemConfiguration UIKit</Frameworks>
       		<Kind>Framework</Kind>
     	</NativeReference>
 	</ItemGroup>

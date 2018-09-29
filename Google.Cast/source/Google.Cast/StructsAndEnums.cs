@@ -306,6 +306,15 @@ namespace Google.Cast
 	}
 
 	[Native]
+	public enum NetworkAddressType : long
+	{
+		Unknown = 0,
+		IPv4 = 1,
+		IPv6 = 2,
+		Ipc = 3
+	}
+
+	[Native]
 	public enum RequestAbortReason : long
 	{
 		Replaced = 1,
