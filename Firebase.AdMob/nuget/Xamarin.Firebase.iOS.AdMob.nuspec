@@ -22,4 +22,7 @@
       </group>
     </dependencies>
   </metadata>
+  <files>
+    <file src="_._" target="lib/Xamarin.iOS10" />
+  </files>
 </package>
