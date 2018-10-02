@@ -1,22 +1,23 @@
 =begin
 Last run FirebaseStorage installed:
-* Firebase (5.4.0)
-* FirebaseCore (5.0.5)
-* FirebaseStorage (3.0.0)
-* GTMSessionFetcher (1.1.15)
-* GoogleToolboxForMac (2.1.4)
+* Firebase (5.8.1)
+* FirebaseAuthInterop (1.0.0)
+* FirebaseCore (5.1.2)
+* FirebaseStorage (3.0.2)
+* GTMSessionFetcher (1.2.0)
+* GoogleUtilities (5.3.0)
 
 Check if main version or subversion number has changed. 
 If yes, please, update *.targets files located in binding 
 projects, also, update Podfile files if needed.
 
 In Firebase.Storage binding project, you can find the Native Reference of:
-* FirebaseStorage (3.0.0)
+* FirebaseStorage (3.0.2)
 
 In Firebase.Core binding project, you can find the Native Reference of:
-* FirebaseCore (5.0.5)
-* GTMSessionFetcher (1.1.15)
-* GoogleToolboxForMac (2.1.4)
+* FirebaseCore (5.1.2)
+* GTMSessionFetcher (1.2.0)
+* GoogleUtilities (5.3.0)
 =end
 
 source 'https://github.com/CocoaPods/Specs.git'
@@ -26,5 +27,5 @@ install! 'cocoapods', :integrate_targets => false
 use_frameworks!
 
 target 'FirebaseStorage' do
-	pod 'Firebase/Storage', '5.4.0'
+	pod 'Firebase/Storage', '5.8.1'
 end

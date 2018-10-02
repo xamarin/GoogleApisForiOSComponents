@@ -46,7 +46,7 @@
     <NativeReference Include="..\..\externals\FirebaseCore.framework">
       <Kind>Framework</Kind>
       <ForceLoad>True</ForceLoad>
-      <Frameworks>Foundation SystemConfiguration</Frameworks>
+      <Frameworks>Foundation</Frameworks>
     </NativeReference>
     <NativeReference Include="..\..\externals\GoogleToolboxForMac.framework">
       <Kind>Framework</Kind>
@@ -70,6 +70,12 @@
     <NativeReference Include="..\..\externals\Protobuf.framework">
       <Kind>Framework</Kind>
       <ForceLoad>True</ForceLoad>
+    </NativeReference>
+    <NativeReference Include="..\..\externals\GoogleUtilities.framework">
+      <Kind>Framework</Kind>
+      <ForceLoad>True</ForceLoad>
+      <LinkerFlags>-ObjC -lz</LinkerFlags>
+      <Frameworks>Security SystemConfiguration</Frameworks>
     </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />

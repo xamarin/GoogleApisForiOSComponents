@@ -56,7 +56,7 @@
     <None Include="Google.MobileAds.targets" />
   </ItemGroup>
   <ItemGroup>
-    <NativeReference Include="..\..\..\Google.MobileAds\externals\PersonalizedAdConsent.framework">
+    <NativeReference Include="..\..\externals\PersonalizedAdConsent.framework">
       <Kind>Framework</Kind>
       <ForceLoad>True</ForceLoad>
       <LinkerFlags>-ObjC</LinkerFlags>

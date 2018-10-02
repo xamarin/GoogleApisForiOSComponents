@@ -1,4 +1,4 @@
-version: 5.0.2.0
+version: 5.0.3.0
 name: Firebase Database for iOS
 id: firebaseiosdatabase
 publisher: Xamarin Inc.
@@ -16,7 +16,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Firebase.iOS.Database, Version=5.0.2.0
+  - Xamarin.Firebase.iOS.Database, Version=5.0.3.0
 samples:
 - name: Database Sample
   path: ../samples/DatabaseSample/DatabaseSample.sln

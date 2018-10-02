@@ -12,7 +12,8 @@ namespace Firebase.Auth
 	interface ActionCodeSettings
 	{
 		// @property (copy, nonatomic) NSURL * _Nullable URL;
-		[NullAllowed, Export ("URL", ArgumentSemantic.Copy)]
+		[NullAllowed]
+		[Export ("URL", ArgumentSemantic.Copy)]
 		NSUrl Url { get; set; }
 
 		// @property (assign, nonatomic) BOOL handleCodeInApp;

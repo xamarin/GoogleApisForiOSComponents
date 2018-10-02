@@ -165,7 +165,7 @@ namespace Firebase.CloudMessaging
 
 		// -(void)sendMessage:(NSDictionary * _Nonnull)message to:(NSString * _Nonnull)receiver withMessageID:(NSString * _Nonnull)messageID timeToLive:(int64_t)ttl;
 		[Export ("sendMessage:to:withMessageID:timeToLive:")]
-		void SendMessage (NSDictionary message, string receiver, string messageId, long ttl);
+		void SendMessage (NSDictionary nsMessage, string receiver, string messageId, long ttl);
 
 		[Wrap ("SendMessage (message == null ? null : NSDictionary.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (message.Values), System.Linq.Enumerable.ToArray (message.Keys), message.Keys.Count), receiver, messageId, ttl)")]
 		void SendMessage (Dictionary<object, object> message, string receiver, string messageId, long ttl);

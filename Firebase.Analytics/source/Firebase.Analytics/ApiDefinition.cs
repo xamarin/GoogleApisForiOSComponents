@@ -14,7 +14,7 @@ namespace Firebase.Analytics
 		// +(void)logEventWithName:(NSString * _Nonnull)name parameters:(NSDictionary<NSString *,NSObject *> * _Nullable)parameters;
 		[Static]
 		[Export ("logEventWithName:parameters:")]
-		void LogEvent (string name, [NullAllowed] NSDictionary<NSString, NSObject> parameters);
+		void LogEvent (string name, [NullAllowed] NSDictionary<NSString, NSObject> nsParameters);
 
 		[Static]
 		[Wrap ("LogEvent (name, NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (parameters.Values), System.Linq.Enumerable.ToArray (parameters.Keys), parameters.Keys.Count))")]

@@ -20,6 +20,10 @@ buildSpec = new BuildSpec () {
 
 MyDependencies = new [] { "Firebase.Analytics", "Google.MobileAds" };
 
+Task ("pre-nuget-base").IsDependeeOf ("nuget-base").Does (() => {
+	StartProcess("touch", new ProcessSettings { Arguments = "_._" });
+});
+
 Task ("clean").IsDependentOn ("clean-base").Does (() =>
 {
 	InvokeOtherGoogleModules (MyDependencies, "clean");

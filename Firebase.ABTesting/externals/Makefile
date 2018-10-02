@@ -10,5 +10,3 @@ clean:
 	rm -rf Pods
 
 .PHONY: all clean
-
-

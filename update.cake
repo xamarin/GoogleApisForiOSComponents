@@ -17,7 +17,7 @@ using Newtonsoft.Json;
 var TARGET = Argument ("target", Argument ("t", Argument ("Target", "build")));
 var COMPONENT_NAME = Argument ("component-name", Argument ("cn", Argument ("Component-name", "")));
 var COMPONENT_VERSION = Argument ("component-version", Argument ("cv", Argument ("Component-version", "")));
-var BUMP_DEPENDENTS = Argument ("bump-dependents", Argument ("bd", true));
+var BUMP_DEPENDENTS = Argument ("bump-dependents", Argument ("bd", false));
 
 // Creates a dictionary of components available in repo that are not deprecated.
 public Dictionary<string, GoogleBase> CreateComponents ()
