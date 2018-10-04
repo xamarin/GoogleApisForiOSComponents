@@ -1,4 +1,4 @@
-version: 3.0.1.0
+version: 3.0.1.1
 name: Firebase Invites for iOS
 id: firebaseiosinvites
 publisher: Xamarin Inc.
@@ -20,7 +20,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Firebase.iOS.Invites, Version=3.0.1.0
+  - Xamarin.Firebase.iOS.Invites, Version=3.0.1.1
 samples:
 - name: Invites Sample
   path: ../samples/InvitesSample/InvitesSample.sln
@@ -48,6 +48,3 @@ samples:
   - //xNS:Import[contains (@Project, 'Firebase.InstanceID.targets')]
 local-nuget-repo: ../../tmp-nugets
 no_build: true
-additional-files:
-- source: ../External-Dependency-Info
-  destination: THIRD-PARTY-NOTICES

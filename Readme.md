@@ -17,7 +17,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.Database][F.Database.Name]                           | [5.0.3.0][F.Database.Package]              |
 | [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                   | [3.0.2.0][F.DynamicLinks.Package]          |
 | [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                       | [3.2.1.0][F.InstanceID.Package]            |
-| [Xamarin.Firebase.iOS.Invites][F.Invites.Name]                             | [3.0.1.0][F.Invites.Package]               |
+| [Xamarin.Firebase.iOS.Invites][F.Invites.Name]                             | [3.0.1.1][F.Invites.Package]               |
 | [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name] | [2.1.2.0][F.PerformanceMonitoring.Package] |
 | [Xamarin.Firebase.iOS.RemoteConfig][F.RemoteConfig.Name]                   | [3.0.1.0][F.RemoteConfig.Package]          |
 | [Xamarin.Firebase.iOS.Storage][F.Storage.Name]                             | [3.0.2.0][F.Storage.Package]               |
@@ -57,7 +57,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Database               | **5.0.3.0**       | **5.8.1**      |
 | Firebase Dynamic Links          | **3.0.2.0**       | **5.8.1**      |
 | Firebase Instance ID            | **3.2.1.0**       | **5.8.1**      |
-| Firebase Invites                | **3.0.1.0**       | **5.8.1**      |
+| Firebase Invites                | **3.0.1.1**       | **5.8.1**      |
 | Firebase Performance Monitoring | **2.1.2.0**       | **5.8.1**      |
 | Firebase RemoteConfig           | **3.0.1.0**       | **5.8.1**      |
 | Firebase Storage                | **3.0.2.0**       | **5.8.1**      |
