@@ -77,9 +77,9 @@ namespace Google.Cast
 		[Export ("posterURL", ArgumentSemantic.Strong)]
 		NSUrl PosterUrl { get; }
 
-		// @property(nonatomic, assign, readonly) NSTimeInterval whenSkippableInMs;
-		[Export ("whenSkippableInMs")]
-		double WhenSkippableInMs { get; }
+		// @property(nonatomic, assign, readonly) NSTimeInterval whenSkippable;
+		[Export ("whenSkippable")]
+		double WhenSkippable { get; }
 
 		// @property(nonatomic, assign, readonly) GCKHLSSegmentFormat hlsSegmentFormat;
 		[Export ("hlsSegmentFormat")]
@@ -1145,7 +1145,11 @@ namespace Google.Cast
 		[Export ("customData", ArgumentSemantic.Strong)]
 		NSObject CustomData { get; }
 
-		[Export ("initWithContentID:streamType:contentType:metadata:streamDuration:mediaTracks:textTrackStyle:customData:")]
+        [Export ("initWithContentID:streamType:contentType:metadata:adBreaks:adBreakClips:streamDuration:mediaTracks:textTrackStyle:customData:")]
+        IntPtr Constructor (string contentId, MediaStreamType streamType, string contentType, [NullAllowed] MediaMetadata metadata, [NullAllowed] AdBreakInfo adBreaks, [NullAllowed] AdBreakClipInfo adBreakClips, double streamDuration, [NullAllowed] MediaTrack[] mediaTracks, [NullAllowed] MediaTextTrackStyle textTrackStyle, [NullAllowed] NSObject customData);
+
+        // -(Deprecated Use initWithContentID:streamType:contentType:metadata:adBreaks: adBreakClips:streamDuration:mediaTracks:textTrackStyle:entity:customData: for ads and entity support)
+        [Export ("initWithContentID:streamType:contentType:metadata:streamDuration:mediaTracks:textTrackStyle:customData:")]
 		IntPtr Constructor (string contentId, MediaStreamType streamType, string contentType, [NullAllowed] MediaMetadata metadata, double streamDuration, [NullAllowed] MediaTrack [] mediaTracks, [NullAllowed] MediaTextTrackStyle textTrackStyle, [NullAllowed] NSObject customData);
 
 		// -(GCKMediaTrack * _Nullable)mediaTrackWithID:(NSInteger)trackID;
@@ -1956,6 +1960,10 @@ namespace Google.Cast
 		// -(GCKRequest * _Nonnull)playWithCustomData:(id _Nullable)customData;
 		[Export ("playWithCustomData:")]
 		Request Play ([NullAllowed] NSObject customData);
+
+        // -(GCKRequest * _Nonnull) skipAd;   
+        [Export("skipAd")]
+        Request SkipAd ();
 
 		// -(GCKRequest * _Nonnull)seekWithOptions:(GCKMediaSeekOptions * _Nonnull)options;
 		[Export ("seekWithOptions:")]
