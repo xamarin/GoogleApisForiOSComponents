@@ -37,6 +37,7 @@ $GOOGLE_MOBILE_VISION = '1.3.2'
 target 'FirebaseMLKit' do
 	pod 'Firebase/MLCommon', $FIREBASE_VERSION
 	pod 'Firebase/MLModelInterpreter', $FIREBASE_VERSION
+	pod 'Firebase/MLVision', $FIREBASE_VERSION
 	pod 'Firebase/MLVisionBarcodeModel', $FIREBASE_VERSION
 	pod 'Firebase/MLVisionFaceModel', $FIREBASE_VERSION
 	pod 'Firebase/MLVisionLabelModel', $FIREBASE_VERSION
