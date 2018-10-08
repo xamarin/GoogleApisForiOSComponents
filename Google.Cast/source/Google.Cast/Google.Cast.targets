@@ -2,17 +2,17 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_GoogleCastAssemblyName>Google.Cast, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleCastAssemblyName>
-		<_GoogleCastItemsFolder>GCst-4.1.0</_GoogleCastItemsFolder>
+		<_GoogleCastItemsFolder>GCst-4.3.2</_GoogleCastItemsFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GoogleCastItemsFolder)">
-			<Url>https://developers.google.com/cast/downloads/GoogleCastSDK-ios-4.1.0.zip</Url>
+			<Url>https://developers.google.com/cast/downloads/GoogleCastSDK-ios-4.3.2_dynamic.zip</Url>
 			<Kind>Zip</Kind>
 		</XamarinBuildDownload>
-		<NativeReference Include="$(XamarinBuildDownloadDir)$(_GoogleCastItemsFolder)\GoogleCastSDK-ios-4.1.0\GoogleCast.framework">
+		<NativeReference Include="$(XamarinBuildDownloadDir)$(_GoogleCastItemsFolder)\GoogleCastSDK-ios-4.3.2_dynamic\GoogleCast.framework">
       		<IsCxx>False</IsCxx>
 			<LinkerFlags>-lc++</LinkerFlags>
-			<Frameworks>Accelerate AudioToolbox AVFoundation CFNetwork CoreBluetooth CoreGraphics CoreMedia CoreText Foundation MediaAccessibility MediaPlayer QuartzCore Security SystemConfiguration UIKit</Frameworks>
+			<Frameworks>Accelerate AudioToolbox AVFoundation CFNetwork CoreBluetooth CoreData CoreGraphics CoreMedia CoreText Foundation MediaAccessibility MediaPlayer QuartzCore Security SystemConfiguration UIKit</Frameworks>
       		<Kind>Framework</Kind>
     	</NativeReference>
 	</ItemGroup>

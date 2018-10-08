@@ -6,11 +6,9 @@ using UIKit;
 using CoreGraphics;
 using SessionOptions = Foundation.NSDictionary<Foundation.NSString, Foundation.INSCoding>;
 
-namespace Google.Cast
-{
+namespace Google.Cast {
 	[Static]
-	interface Common
-	{
+	interface Common {
 		[Field ("kGCKFrameworkVersion", "__Internal")]
 		NSString FrameworkVersion { get; }
 
@@ -24,8 +22,7 @@ namespace Google.Cast
 
 	// @interface GCKAdBreakClipVastAdsRequest : NSObject <NSCopying, NSSecureCoding>
 	[BaseType (typeof (NSObject), Name = "GCKAdBreakClipVastAdsRequest")]
-	interface AdBreakClipVastAdsRequest : INSCopying, INSSecureCoding 
-	{
+	interface AdBreakClipVastAdsRequest : INSCopying, INSSecureCoding {
 		// @property(nonatomic, strong, readonly) NSURL *adTagUrl;
 		[Export ("adTagUrl", ArgumentSemantic.Strong)]
 		NSUrl AdTagUrl { get; }
@@ -37,8 +34,7 @@ namespace Google.Cast
 
 	// @interface GCKAdBreakClipInfo : NSObject <NSCopying>
 	[BaseType (typeof (NSObject), Name = "GCKAdBreakClipInfo")]
-	interface AdBreakClipInfo : INSCopying, INSSecureCoding
-	{
+	interface AdBreakClipInfo : INSCopying, INSSecureCoding {
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull adBreakClipID;
 		[Export ("adBreakClipID", ArgumentSemantic.Strong)]
 		string AdBreakClipId { get; }
@@ -77,9 +73,9 @@ namespace Google.Cast
 		[Export ("posterURL", ArgumentSemantic.Strong)]
 		NSUrl PosterUrl { get; }
 
-		// @property(nonatomic, assign, readonly) NSTimeInterval whenSkippableInMs;
-		[Export ("whenSkippableInMs")]
-		double WhenSkippableInMs { get; }
+		// @property(nonatomic, assign, readonly) NSTimeInterval whenSkippable;
+		[Export ("whenSkippable")]
+		double WhenSkippable { get; }
 
 		// @property(nonatomic, assign, readonly) GCKHLSSegmentFormat hlsSegmentFormat;
 		[Export ("hlsSegmentFormat")]
@@ -98,8 +94,7 @@ namespace Google.Cast
 
 	// @interface GCKAdBreakInfo : NSObject <NSCopying>
 	[BaseType (typeof (NSObject), Name = "GCKAdBreakInfo")]
-	interface AdBreakInfo : INSCopying, INSSecureCoding
-	{
+	interface AdBreakInfo : INSCopying, INSSecureCoding {
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull adBreakID;
 		[Export ("adBreakID", ArgumentSemantic.Strong)]
 		string AdBreakId { get; }
@@ -127,8 +122,7 @@ namespace Google.Cast
 
 	// @interface GCKAdBreakStatus : NSObject <NSCopying>
 	[BaseType (typeof (NSObject), Name = "GCKAdBreakStatus")]
-	interface AdBreakStatus : INSCopying
-	{
+	interface AdBreakStatus : INSCopying {
 		// @property (readonly, assign, nonatomic) NSTimeInterval currentAdBreakTime;
 		[Export ("currentAdBreakTime")]
 		double CurrentAdBreakTime { get; }
@@ -147,8 +141,7 @@ namespace Google.Cast
 	}
 
 	[BaseType (typeof (NSObject), Name = "GCKApplicationMetadata")]
-	interface ApplicationMetadata : INSCopying
-	{
+	interface ApplicationMetadata : INSCopying {
 
 		[Export ("applicationID", ArgumentSemantic.Copy)]
 		string ApplicationId { get; }
@@ -179,8 +172,7 @@ namespace Google.Cast
 
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKCastChannel")]
-	interface CastChannel
-	{
+	interface CastChannel {
 
 		[Field ("kGCKInvalidRequestID", "__Internal")]
 		nint InvalidRequestId { get; }
@@ -223,16 +215,14 @@ namespace Google.Cast
 		void DidChangeWritableState (bool isWritable);
 	}
 
-	interface CastStateDidChangeDidChangeEventArgs
-	{
+	interface CastStateDidChangeDidChangeEventArgs {
 		[Export ("kGCKNotificationKeyCastState")]
 		CastState CastState { get; }
 	}
 
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKCastContext")]
-	interface CastContext
-	{
+	interface CastContext {
 
 		// extern NSString *const _Nonnull kGCKNotificationKeyCastState __attribute__((visibility("default")));
 		[Field ("kGCKNotificationKeyCastState", "__Internal")]
@@ -323,8 +313,7 @@ namespace Google.Cast
 
 	[Category]
 	[BaseType (typeof (CastContext))]
-	interface CastContext_UI
-	{
+	interface CastContext_UI {
 		// - (void)presentCastDialog;
 		[Export ("presentCastDialog")]
 		void PresentCastDialog ();
@@ -338,7 +327,7 @@ namespace Google.Cast
 		UIMiniMediaControlsViewController CreateMiniMediaControlsViewController ();
 
 		// - (BOOL) presentCastInstructionsViewControllerOnce GCK_DEPRECATED ("Use presentCastInstructionsViewControllerOnceWithCastButton:");
-		[Obsolete ("Use PresentCastInstructionsViewControllerOnce overloaded method instead.")] 
+		[Obsolete ("Use PresentCastInstructionsViewControllerOnce overloaded method instead.")]
 		[Export ("presentCastInstructionsViewControllerOnce")]
 		bool PresentCastInstructionsViewControllerOnce ();
 
@@ -357,8 +346,7 @@ namespace Google.Cast
 
 	// @interface GCKCastOptions : NSObject <NSCopying>
 	[BaseType (typeof (NSObject), Name = "GCKCastOptions")]
-	interface CastOptions : INSCopying, INSSecureCoding
-	{
+	interface CastOptions : INSCopying, INSSecureCoding {
 		// -(instancetype _Nonnull)initWithDiscoveryCriteria:(GCKDiscoveryCriteria * _Nonnull)discoveryCriteria;
 		[Export ("initWithDiscoveryCriteria:")]
 		IntPtr Constructor (DiscoveryCriteria discoveryCriteria);
@@ -406,8 +394,7 @@ namespace Google.Cast
 
 	// @interface GCKCastSession : GCKSession
 	[BaseType (typeof (Session), Name = "GCKCastSession")]
-	interface CastSession
-	{
+	interface CastSession {
 		// @property (readonly, assign, nonatomic) GCKActiveInputStatus activeInputStatus;
 		[Export ("activeInputStatus", ArgumentSemantic.Assign)]
 		ActiveInputStatus ActiveInputStatus { get; }
@@ -455,16 +442,14 @@ namespace Google.Cast
 		Request RequestMultizoneStatus ();
 	}
 
-	interface ICastDeviceStatusListener
-	{
+	interface ICastDeviceStatusListener {
 	}
 
 	// @protocol GCKCastDeviceStatusListener <NSObject>
-	[Model]
+	[Model (AutoGeneratedName = true)]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "GCKCastDeviceStatusListener")]
-	interface CastDeviceStatusListener
-	{
+	interface CastDeviceStatusListener {
 		// @optional -(void)castSession:(GCKCastSession * _Nonnull)castSession didReceiveActiveInputStatus:(GCKActiveInputStatus)activeInputStatus;
 		[Export ("castSession:didReceiveActiveInputStatus:")]
 		void DidReceiveActiveInputStatus (CastSession castSession, ActiveInputStatus activeInputStatus);
@@ -492,8 +477,7 @@ namespace Google.Cast
 
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKColor")]
-	interface Color : INSCopying, INSSecureCoding
-	{
+	interface Color : INSCopying, INSSecureCoding {
 
 		[Export ("red")]
 		nfloat Red { get; }
@@ -562,15 +546,20 @@ namespace Google.Cast
 		Color GetWhite ();
 	}
 
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKDevice")]
-	interface Device : INSCopying, INSSecureCoding
-	{
+	interface Device : INSCopying, INSSecureCoding {
 		// extern NSString *const _Nonnull kGCKCastDeviceCategory __attribute__((visibility("default")));
 		[Field ("kGCKCastDeviceCategory", "__Internal")]
 		NSString CastDeviceCategory { get; }
 
+		[Obsolete ("Use NetworkAddress for both IPv4 and IPv6 support.")]
 		[Export ("ipAddress", ArgumentSemantic.Copy)]
 		string IpAddress { get; }
+
+		// @property(nonatomic, copy, readonly) GCKNetworkAddress *networkAddress;
+		[Export ("networkAddress", ArgumentSemantic.Copy)]
+		NetworkAddress NetworkAddress { get; }
 
 		[Export ("servicePort", ArgumentSemantic.Assign)]
 		ushort ServicePort { get; }
@@ -645,8 +634,7 @@ namespace Google.Cast
 	// @interface GCKDeviceProvider : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKDeviceProvider")]
-	interface DeviceProvider
-	{
+	interface DeviceProvider {
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull deviceCategory;
 		[Export ("deviceCategory")]
 		string DeviceCategory { get; }
@@ -684,8 +672,7 @@ namespace Google.Cast
 	// @interface Protected (GCKDeviceProvider)
 	[Category]
 	[BaseType (typeof (DeviceProvider))]
-	interface DeviceProvider_Protected
-	{
+	interface DeviceProvider_Protected {
 		// -(void)notifyDidStartDiscovery;
 		[Export ("notifyDidStartDiscovery")]
 		void NotifyDidStartDiscovery ();
@@ -703,15 +690,19 @@ namespace Google.Cast
 		void NotifyDidUpdateDevice (Device device);
 
 		// -(GCKDevice * _Nonnull)createDeviceWithID:(NSString * _Nonnull)deviceID ipAddress:(NSString * _Nonnull)ipAddress servicePort:(uint16_t)servicePort;
+		[Obsolete ("Use createDeviceWithID:networkAddress:servicePort: for IPv4 and IPv6 support.")]
 		[Export ("createDeviceWithID:ipAddress:servicePort:")]
 		Device CreateDevice (string deviceId, string ipAddress, ushort servicePort);
+
+		// - (GCKDevice *)createDeviceWithID:(NSString *)deviceID networkAddress:(GCKNetworkAddress*)networkAddress servicePort:(uint16_t)servicePort;
+		[Export ("createDeviceWithID:networkAddress:servicePort:")]
+		Device CreateDevice (string deviceId, NetworkAddress networkAddress, ushort servicePort);
 	}
 
 	// @interface GCKDiscoveryCriteria : NSObject <NSCopying, NSSecureCoding>
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKDiscoveryCriteria")]
-	interface DiscoveryCriteria : INSCopying, INSSecureCoding
-	{
+	interface DiscoveryCriteria : INSCopying, INSSecureCoding {
 		// extern NSString *const _Nonnull kGCKDefaultMediaReceiverApplicationID __attribute__((visibility("default")));
 		[Field ("kGCKDefaultMediaReceiverApplicationID", "__Internal")]
 		NSString DefaultMediaReceiverApplicationId { get; }
@@ -751,8 +742,7 @@ namespace Google.Cast
 	// @interface GCKDiscoveryManager : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKDiscoveryManager")]
-	interface DiscoveryManager
-	{
+	interface DiscoveryManager {
 		// extern NSString *const _Nonnull kGCKKeyHasDiscoveredDevices __attribute__((visibility("default")));
 		[Field ("kGCKKeyHasDiscoveredDevices", "__Internal")]
 		NSString KeyHasDiscoveredDevices { get; }
@@ -816,16 +806,14 @@ namespace Google.Cast
 		void CancelFindOperation ();
 	}
 
-	interface IDiscoveryManagerListener
-	{
+	interface IDiscoveryManagerListener {
 	}
 
 	// @protocol GCKDiscoveryManagerListener <NSObject>
-	[Model]
+	[Model (AutoGeneratedName = true)]
 	[Protocol]
 	[BaseType (typeof (NSObject))]
-	interface DiscoveryManagerListener
-	{
+	interface DiscoveryManagerListener {
 		// @optional -(void)didStartDiscoveryForDeviceCategory:(NSString * _Nonnull)deviceCategory;
 		[Export ("didStartDiscoveryForDeviceCategory:")]
 		void DidStartDiscoveryForDeviceCategory (string deviceCategory);
@@ -861,8 +849,7 @@ namespace Google.Cast
 
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSError), Name = "GCKError")]
-	interface Error
-	{
+	interface Error {
 
 		[Field ("kGCKErrorCustomDataKey", "__Internal")]
 		NSString CustomDataKey { get; }
@@ -893,8 +880,7 @@ namespace Google.Cast
 		Name = "GCKGenericChannel",
 		Delegates = new string [] { "Delegate" },
 		Events = new Type [] { typeof (GenericChannelDelegate) })]
-	interface GenericChannel
-	{
+	interface GenericChannel {
 
 		[NullAllowed]
 		[Export ("delegate", ArgumentSemantic.Weak)]
@@ -904,16 +890,14 @@ namespace Google.Cast
 		IntPtr Constructor (string protocolNamespace);
 	}
 
-	interface IGenericChannelDelegate
-	{
+	interface IGenericChannelDelegate {
 
 	}
 
-	[Model]
+	[Model (AutoGeneratedName = true)]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "GCKGenericChannelDelegate")]
-	interface GenericChannelDelegate
-	{
+	interface GenericChannelDelegate {
 
 		[Abstract]
 		[EventArgs ("GenericChannelTextMessageReceived")]
@@ -940,8 +924,7 @@ namespace Google.Cast
 
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKImage")]
-	interface Image : INSCopying, INSSecureCoding
-	{
+	interface Image : INSCopying, INSSecureCoding {
 
 		[Export ("URL", ArgumentSemantic.Strong)]
 		NSUrl Url { get; }
@@ -958,8 +941,7 @@ namespace Google.Cast
 
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKJSONUtils")]
-	interface JsonUtils
-	{
+	interface JsonUtils {
 
 		[Static]
 		[return: NullAllowed]
@@ -985,8 +967,7 @@ namespace Google.Cast
 	}
 
 	[BaseType (typeof (NSObject), Name = "GCKLaunchOptions")]
-	interface LaunchOptions : INSCopying, INSSecureCoding
-	{
+	interface LaunchOptions : INSCopying, INSSecureCoding {
 		[NullAllowed]
 		[Export ("languageCode", ArgumentSemantic.Copy)]
 		string LanguageCode { get; set; }
@@ -1003,8 +984,7 @@ namespace Google.Cast
 
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKLogger")]
-	interface Logger
-	{
+	interface Logger {
 
 		[NullAllowed]
 		[Export ("delegate", ArgumentSemantic.Weak)]
@@ -1045,16 +1025,14 @@ namespace Google.Cast
 		Logger SharedInstance { get; }
 	}
 
-	interface ILoggerDelegate
-	{
+	interface ILoggerDelegate {
 
 	}
 
-	[Model]
+	[Model (AutoGeneratedName = true)]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "GCKLoggerDelegate")]
-	interface LoggerDelegate
-	{
+	interface LoggerDelegate {
 		// @optional -(void)logMessage:(NSString * _Nonnull)message atLevel:(GCKLoggerLevel)level fromFunction:(NSString * _Nonnull)function location:(NSString * _Nonnull)location;
 		[Export ("logMessage:atLevel:fromFunction:location:")]
 		void LogMessage (string message, LoggerLevel level, string function, string location);
@@ -1067,8 +1045,7 @@ namespace Google.Cast
 
 	// @interface GCKLoggerFilter : NSObject
 	[BaseType (typeof (NSObject), Name = "GCKLoggerFilter")]
-	interface LoggerFilter
-	{
+	interface LoggerFilter {
 		// @property (assign, readwrite, nonatomic) GCKLoggerLevel minimumLevel;
 		[Export ("minimumLevel", ArgumentSemantic.Assign)]
 		LoggerLevel MinimumLevel { get; set; }
@@ -1091,8 +1068,7 @@ namespace Google.Cast
 	}
 
 	[Static]
-	interface MediaCommon
-	{
+	interface MediaCommon {
 		// extern const NSTimeInterval kGCKInvalidTimeInterval __attribute__((visibility("default")));
 		[Field ("kGCKInvalidTimeInterval", "__Internal")]
 		double InvalidTimeInterval { get; }
@@ -1100,9 +1076,7 @@ namespace Google.Cast
 
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKMediaInformation")]
-	interface MediaInformation : INSCopying, INSSecureCoding
-	{
-
+	interface MediaInformation : INSCopying, INSSecureCoding {
 		[Export ("contentID", ArgumentSemantic.Copy)]
 		string ContentId { get; }
 
@@ -1145,6 +1119,10 @@ namespace Google.Cast
 		[Export ("customData", ArgumentSemantic.Strong)]
 		NSObject CustomData { get; }
 
+		[Export ("initWithContentID:streamType:contentType:metadata:adBreaks:adBreakClips:streamDuration:mediaTracks:textTrackStyle:customData:")]
+		IntPtr Constructor (string contentId, MediaStreamType streamType, string contentType, [NullAllowed] MediaMetadata metadata, [NullAllowed] AdBreakInfo adBreaks, [NullAllowed] AdBreakClipInfo adBreakClips, double streamDuration, [NullAllowed] MediaTrack [] mediaTracks, [NullAllowed] MediaTextTrackStyle textTrackStyle, [NullAllowed] NSObject customData);
+
+		[Obsolete ("Use the (string, MediaStreamType, string, MediaMetadata, AdBreakInfo, AdBreakClipInfo, double, MediaTrack [], MediaTextTrackStyle, NSObject) constructor instead.")]
 		[Export ("initWithContentID:streamType:contentType:metadata:streamDuration:mediaTracks:textTrackStyle:customData:")]
 		IntPtr Constructor (string contentId, MediaStreamType streamType, string contentType, [NullAllowed] MediaMetadata metadata, double streamDuration, [NullAllowed] MediaTrack [] mediaTracks, [NullAllowed] MediaTextTrackStyle textTrackStyle, [NullAllowed] NSObject customData);
 
@@ -1156,8 +1134,7 @@ namespace Google.Cast
 
 	// @interface GCKMediaInformationBuilder : NSObject
 	[BaseType (typeof (NSObject), Name = "GCKMediaInformationBuilder")]
-	interface MediaInformationBuilder
-	{
+	interface MediaInformationBuilder {
 		// @property (readwrite, copy, nonatomic) NSString * _Nonnull contentID;
 		[Export ("contentID")]
 		string ContentId { get; set; }
@@ -1234,8 +1211,11 @@ namespace Google.Cast
 
 	// @interface GCKMediaLoadOptions : NSObject <NSCopying, NSSecureCoding>
 	[BaseType (typeof (NSObject), Name = "GCKMediaLoadOptions")]
-	interface MediaLoadOptions : INSCopying, INSSecureCoding
-	{
+	interface MediaLoadOptions : INSCopying, INSSecureCoding {
+		// GCK_EXTERN NSString *const kGCKCredentialsTypeCloud;
+		[Field ("kGCKCredentialsTypeCloud", "__Internal")]
+		NSString CredentialsTypeCloud { get; }
+
 		// @property (assign, readwrite, nonatomic) BOOL autoplay;
 		[Export ("autoplay")]
 		bool Autoplay { get; set; }
@@ -1257,11 +1237,20 @@ namespace Google.Cast
 		[NullAllowed]
 		[Export ("customData", ArgumentSemantic.Strong)]
 		NSObject CustomData { get; set; }
+
+		// @property(nonatomic, copy, readwrite, GCK_NULLABLE) NSString *credentials;
+		[NullAllowed]
+		[Export ("credentials")]
+		string Credentials { get; set; }
+
+		// @property(nonatomic, copy, readwrite, GCK_NULLABLE) NSString *credentialsType;
+		[NullAllowed]
+		[Export ("credentialsType")]
+		string CredentialsType { get; set; }
 	}
 
 	[Static]
-	interface MetadataKey
-	{
+	interface MetadataKey {
 		[Field ("kGCKMetadataKeyCreationDate", "__Internal")]
 		NSString CreationDate { get; }
 
@@ -1324,8 +1313,7 @@ namespace Google.Cast
 	}
 
 	[BaseType (typeof (NSObject), Name = "GCKMediaMetadata")]
-	interface MediaMetadata : INSCopying, INSSecureCoding
-	{
+	interface MediaMetadata : INSCopying, INSSecureCoding {
 		[Export ("metadataType", ArgumentSemantic.Assign)]
 		MediaMetadataType MetadataType { get; }
 
@@ -1389,8 +1377,7 @@ namespace Google.Cast
 	}
 
 	[BaseType (typeof (NSObject), Name = "GCKMediaQueueItem")]
-	interface MediaQueueItem : INSCopying
-	{
+	interface MediaQueueItem : INSCopying {
 		// extern const NSUInteger kGCKMediaQueueInvalidItemID __attribute__((visibility("default")));
 		[Field ("kGCKMediaQueueInvalidItemID", "__Internal")]
 		nuint InvalidItemId { get; }
@@ -1447,10 +1434,29 @@ namespace Google.Cast
 		MediaQueueItem MediaQueueItemModified (Action<MediaQueueItemBuilder> block);
 	}
 
+	[BaseType (typeof (NSObject), Name = "GCKMediaQueueLoadOptions")]
+	interface MediaQueueLoadOptions : INSCopying, INSSecureCoding {
+		// @property(nonatomic, assign, readwrite) NSUInteger startIndex;
+		[Export ("startIndex", ArgumentSemantic.Assign)]
+		nuint StartIndex { get; set; }
+
+		// @property(nonatomic, assign, readwrite) NSTimeInterval playPosition;
+		[Export ("playPosition", ArgumentSemantic.Assign)]
+		double PlayPosition { get; set; }
+
+		// @property(nonatomic, assign, readwrite) GCKMediaRepeatMode repeatMode;
+		[Export ("repeatMode", ArgumentSemantic.Assign)]
+		MediaRepeatMode RepeatMode { get; set; }
+
+		// @property(nonatomic, strong, readwrite, GCK_NULLABLE) id customData;
+		[NullAllowed]
+		[Export ("customData", ArgumentSemantic.Strong)]
+		NSObject CustomData { get; set; }
+	}
+
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKMediaQueueItemBuilder")]
-	interface MediaQueueItemBuilder
-	{
+	interface MediaQueueItemBuilder {
 		//@property(nonatomic, copy, readwrite) GCKMediaInformation *mediaInformation;
 		[NullAllowed]
 		[Export ("mediaInformation", ArgumentSemantic.Copy)]
@@ -1492,8 +1498,7 @@ namespace Google.Cast
 
 	// @interface GCKMediaRequestItem : NSObject <NSCopying, NSSecureCoding>
 	[BaseType (typeof (NSObject), Name = "GCKMediaRequestItem")]
-	interface MediaRequestItem : INSCopying, INSSecureCoding
-	{
+	interface MediaRequestItem : INSCopying, INSSecureCoding {
 		// +(NSString * _Nonnull)mapHLSSegmentFormatToString:(GCKHLSSegmentFormat)hlsSegmentFormat;
 		[Static]
 		[Export ("mapHLSSegmentFormatToString:")]
@@ -1531,8 +1536,7 @@ namespace Google.Cast
 
 	// @interface GCKMediaSeekOptions : NSObject <NSCopying, NSSecureCoding>
 	[BaseType (typeof (NSObject), Name = "GCKMediaSeekOptions")]
-	interface MediaSeekOptions : INSCopying, INSSecureCoding
-	{
+	interface MediaSeekOptions : INSCopying, INSSecureCoding {
 		// @property (assign, readwrite, nonatomic) NSTimeInterval interval;
 		[Export ("interval")]
 		double Interval { get; set; }
@@ -1552,8 +1556,7 @@ namespace Google.Cast
 	}
 
 	[Static]
-	interface MediaCommand
-	{
+	interface MediaCommand {
 		[Field ("kGCKMediaCommandPause", "__Internal")]
 		nint Pause { get; }
 
@@ -1580,8 +1583,7 @@ namespace Google.Cast
 	}
 
 	[BaseType (typeof (NSObject), Name = "GCKMediaStatus")]
-	interface MediaStatus : INSCopying
-	{
+	interface MediaStatus : INSCopying {
 		[Export ("mediaSessionID", ArgumentSemantic.Assign)]
 		nint MediaSessionId { get; }
 
@@ -1691,8 +1693,7 @@ namespace Google.Cast
 	}
 
 	[BaseType (typeof (NSObject), Name = "GCKMediaTextTrackStyle")]
-	interface MediaTextTrackStyle : INSCopying, INSSecureCoding
-	{
+	interface MediaTextTrackStyle : INSCopying, INSSecureCoding {
 		[Static]
 		[Export ("createDefault")]
 		MediaTextTrackStyle CreateDefault ();
@@ -1738,8 +1739,7 @@ namespace Google.Cast
 
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKMediaTrack")]
-	interface MediaTrack : INSCopying, INSSecureCoding
-	{
+	interface MediaTrack : INSCopying, INSSecureCoding {
 		[Export ("initWithIdentifier:contentIdentifier:contentType:type:textSubtype:name:languageCode:customData:")]
 		IntPtr Constructor (nint identifier, [NullAllowed] string contentIdentifier, string contentType, MediaTrackType type, MediaTextTrackSubtype textSubtype, [NullAllowed] string name, [NullAllowed] string languageCode, [NullAllowed] NSObject customData);
 
@@ -1775,8 +1775,7 @@ namespace Google.Cast
 	// @interface GCKMultizoneDevice : NSObject <NSCopying>
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKMultizoneDevice")]
-	interface MultizoneDevice : INSCopying, INSSecureCoding
-	{
+	interface MultizoneDevice : INSCopying, INSSecureCoding {
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull deviceID;
 		[Export ("deviceID")]
 		string DeviceId { get; }
@@ -1808,8 +1807,7 @@ namespace Google.Cast
 
 	// @interface GCKMultizoneStatus : NSObject <NSCopying>
 	[BaseType (typeof (NSObject), Name = "GCKMultizoneStatus")]
-	interface MultizoneStatus : INSCopying, INSSecureCoding
-	{
+	interface MultizoneStatus : INSCopying, INSSecureCoding {
 		// @property (readwrite, copy, nonatomic) NSArray<GCKMultizoneDevice *> * _Nonnull devices;
 		[Export ("devices", ArgumentSemantic.Copy)]
 		MultizoneDevice [] Devices { get; set; }
@@ -1823,10 +1821,64 @@ namespace Google.Cast
 		IntPtr Constructor (MultizoneDevice [] devices);
 	}
 
+	// @interface GCKNetworkAddress : NSObject <NSCopying, NSCoding>
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "GCKNetworkAddress")]
+	interface NetworkAddress : INSCopying, INSCoding {
+		// @property (readonly, assign, nonatomic) GCKNetworkAddressType type;
+		[Export ("type", ArgumentSemantic.Assign)]
+		NetworkAddressType Type { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nullable ipAddress;
+		[NullAllowed, Export ("ipAddress")]
+		string IpAddress { get; }
+
+		// @property (readonly, copy, nonatomic) NSData * _Nullable addressData;
+		[NullAllowed, Export ("addressData", ArgumentSemantic.Copy)]
+		NSData AddressData { get; }
+
+		// -(instancetype _Nonnull)initWithType:(GCKNetworkAddressType)type ipAddress:(NSString * _Nullable)ipAddress;
+		[Export ("initWithType:ipAddress:")]
+		IntPtr Constructor (NetworkAddressType type, [NullAllowed] string ipAddress);
+
+		// -(instancetype _Nonnull)initWithType:(GCKNetworkAddressType)type addressData:(NSData * _Nullable)addressData;
+		[Export ("initWithType:addressData:")]
+		IntPtr Constructor (NetworkAddressType type, [NullAllowed] NSData addressData);
+
+		// +(GCKNetworkAddress * _Nonnull)wildcardAddressOfType:(GCKNetworkAddressType)type;
+		[Static]
+		[Export ("wildcardAddressOfType:")]
+		NetworkAddress GetWildcardAddress (NetworkAddressType type);
+
+		// +(GCKNetworkAddress * _Nonnull)loopbackAddressOfType:(GCKNetworkAddressType)type;
+		[Static]
+		[Export ("loopbackAddressOfType:")]
+		NetworkAddress GetLoopbackAddress (NetworkAddressType type);
+
+		// +(GCKNetworkAddress * _Nonnull)IPv4BroadcastAddress;
+		[Static]
+		[Export ("IPv4BroadcastAddress")]
+		NetworkAddress IPv4BroadcastAddress { get; }
+
+		// +(GCKNetworkAddress * _Nonnull)addressWithIPv4Address:(NSString * _Nonnull)ipAddress;
+		[Static]
+		[Export ("addressWithIPv4Address:")]
+		NetworkAddress CreateAddressFromIPv4Address (string ipAddress);
+
+		// +(GCKNetworkAddress * _Nonnull)addressWithIPv6Address:(NSString * _Nonnull)ipAddress;
+		[Static]
+		[Export ("addressWithIPv6Address:")]
+		NetworkAddress CreateAddressFromIPv6Address (string ipAddress);
+
+		// +(GCKNetworkAddress * _Nonnull)addressWithIPCPath:(NSString * _Nonnull)path;
+		[Static]
+		[Export ("addressWithIPCPath:")]
+		NetworkAddress CreateAddressFromIPCPath (string path);
+	}
+
 	// @interface GCKOpenURLOptions : NSObject <NSCopying, NSSecureCoding>
 	[BaseType (typeof (NSObject), Name = "GCKOpenURLOptions")]
-	interface OpenUrlOptions : INSCopying, INSSecureCoding
-	{
+	interface OpenUrlOptions : INSCopying, INSSecureCoding {
 		// @property (readwrite, copy, nonatomic) NSString * _Nullable deviceUniqueID;
 		[NullAllowed]
 		[Export ("deviceUniqueID")]
@@ -1855,8 +1907,7 @@ namespace Google.Cast
 
 	// @interface GCKRemoteMediaClient : NSObject
 	[BaseType (typeof (NSObject), Name = "GCKRemoteMediaClient")]
-	interface RemoteMediaClient
-	{
+	interface RemoteMediaClient {
 		// @property (readonly, assign, nonatomic) BOOL connected;
 		[Export ("connected")]
 		bool Connected { get; }
@@ -1957,6 +2008,10 @@ namespace Google.Cast
 		[Export ("playWithCustomData:")]
 		Request Play ([NullAllowed] NSObject customData);
 
+		// -(GCKRequest * _Nonnull) skipAd;   
+		[Export ("skipAd")]
+		Request SkipAd ();
+
 		// -(GCKRequest * _Nonnull)seekWithOptions:(GCKMediaSeekOptions * _Nonnull)options;
 		[Export ("seekWithOptions:")]
 		Request Seek (MediaSeekOptions options);
@@ -1999,6 +2054,10 @@ namespace Google.Cast
 		[Obsolete]
 		[Export ("queueLoadItems:startIndex:playPosition:repeatMode:customData:")]
 		Request QueueLoadItems (MediaQueueItem [] queueItems, nuint startIndex, double playPosition, MediaRepeatMode repeatMode, [NullAllowed] NSObject customData);
+
+		// -(GCKRequest * _Nonnull)queueLoadItems:(NSArray<GCKMediaQueueItem *> * _Nonnull)queueItems withOptions:(GCKMediaQueueLoadOptions * _Nonnull)options;
+		[Export ("queueLoadItems:withOptions:")]
+		Request QueueLoadItems (MediaQueueItem [] queueItems, MediaQueueLoadOptions options);
 
 		// -(GCKRequest * _Nonnull)queueInsertItems:(NSArray<GCKMediaQueueItem *> * _Nonnull)queueItems beforeItemWithID:(NSUInteger)beforeItemID;
 		[Export ("queueInsertItems:beforeItemWithID:")]
@@ -2105,16 +2164,14 @@ namespace Google.Cast
 		double ApproximateStreamPosition { get; }
 	}
 
-	interface IRemoteMediaClientListener
-	{
+	interface IRemoteMediaClientListener {
 	}
 
 	// @protocol GCKRemoteMediaClientListener <NSObject>
-	[Model]
+	[Model (AutoGeneratedName = true)]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "GCKRemoteMediaClientListener")]
-	interface RemoteMediaClientListener
-	{
+	interface RemoteMediaClientListener {
 		// @optional -(void)remoteMediaClient:(GCKRemoteMediaClient * _Nonnull)client didStartMediaSessionWithID:(NSInteger)sessionID;
 		[Export ("remoteMediaClient:didStartMediaSessionWithID:")]
 		void DidStartMediaSession (RemoteMediaClient client, nint sessionId);
@@ -2156,17 +2213,15 @@ namespace Google.Cast
 		void DidReceiveQueueItems (RemoteMediaClient client, MediaQueueItem [] queueItems);
 	}
 
-	interface IRemoteMediaClientAdInfoParserDelegate
-	{
+	interface IRemoteMediaClientAdInfoParserDelegate {
 	}
 
 	// @protocol GCKRemoteMediaClientAdInfoParserDelegate <NSObject>
 	[Obsolete]
-	[Model]
+	[Model (AutoGeneratedName = true)]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "GCKRemoteMediaClientAdInfoParserDelegate")]
-	interface RemoteMediaClientAdInfoParserDelegate
-	{
+	interface RemoteMediaClientAdInfoParserDelegate {
 		// @optional -(BOOL)remoteMediaClient:(GCKRemoteMediaClient * _Nonnull)client shouldSetPlayingAdInMediaStatus:(GCKMediaStatus * _Nonnull)mediaStatus;
 		[Export ("remoteMediaClient:shouldSetPlayingAdInMediaStatus:")]
 		bool ShouldSetPlayingAdInMediaStatus (RemoteMediaClient client, MediaStatus mediaStatus);
@@ -2180,8 +2235,7 @@ namespace Google.Cast
 	// @interface Protected (GCKRemoteMediaClient)
 	[Category]
 	[BaseType (typeof (RemoteMediaClient))]
-	interface RemoteMediaClient_Protected
-	{
+	interface RemoteMediaClient_Protected {
 		// -(void)notifyDidStartMediaSession;
 		[Export ("notifyDidStartMediaSession")]
 		void NotifyDidStartMediaSession ();
@@ -2232,8 +2286,7 @@ namespace Google.Cast
 		   Name = "GCKRequest",
 		   Delegates = new string [] { "Delegate" },
 		   Events = new Type [] { typeof (RequestDelegate) })]
-	interface Request
-	{
+	interface Request {
 		// @property (readwrite, nonatomic, weak) id<GCKRequestDelegate> _Nullable delegate;
 		[NullAllowed]
 		[Export ("delegate", ArgumentSemantic.Weak)]
@@ -2278,16 +2331,14 @@ namespace Google.Cast
 		void Abort (RequestAbortReason reason);
 	}
 
-	interface IRequestDelegate
-	{
+	interface IRequestDelegate {
 	}
 
 	// @protocol GCKRequestDelegate <NSObject>
-	[Model]
+	[Model (AutoGeneratedName = true)]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "GCKRequestDelegate")]
-	interface RequestDelegate
-	{
+	interface RequestDelegate {
 		// @optional -(void)requestDidComplete:(GCKRequest * _Nonnull)request;
 		[EventArgs ("RequestCompleted")]
 		[EventName ("Completed")]
@@ -2308,8 +2359,7 @@ namespace Google.Cast
 	}
 
 	[BaseType (typeof (NSObject), Name = "GCKSenderApplicationInfo")]
-	interface SenderApplicationInfo : INSCopying
-	{
+	interface SenderApplicationInfo : INSCopying {
 
 		[Export ("platform", ArgumentSemantic.Assign)]
 		SenderApplicationInfoPlatform Platform { get; }
@@ -2326,8 +2376,7 @@ namespace Google.Cast
 	// @interface GCKSession : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKSession")]
-	interface Session
-	{
+	interface Session {
 		// @property (readonly, nonatomic, strong) GCKDevice * _Nonnull device;
 		[Export ("device", ArgumentSemantic.Strong)]
 		Device Device { get; }
@@ -2357,6 +2406,7 @@ namespace Google.Cast
 		string DeviceStatusText { get; }
 
 		// @property (readonly, copy, nonatomic) GCKSessionTraits * _Nonnull traits;
+		[NullAllowed]
 		[Export ("traits", ArgumentSemantic.Copy)]
 		SessionTraits Traits { get; }
 
@@ -2381,11 +2431,11 @@ namespace Google.Cast
 
 		// -(instancetype _Nonnull)initWithDevice:(GCKDevice * _Nonnull)device traits:(GCKSessionTraits * _Nonnull)traits sessionID:(NSString * _Nullable)sessionID;
 		[Export ("initWithDevice:traits:sessionID:")]
-		IntPtr Constructor (Device device, SessionTraits traits, [NullAllowed] string sessionId);
+		IntPtr Constructor (Device device, [NullAllowed] SessionTraits traits, [NullAllowed] string sessionId);
 
 		// -(instancetype _Nonnull)initWithDevice:(GCKDevice * _Nonnull)device traits:(GCKSessionTraits * _Nonnull)traits sessionID:(NSString * _Nullable)sessionID sessionOptions:(GCKSessionOptions * _Nullable)sessionOptions;
 		[Export ("initWithDevice:traits:sessionID:sessionOptions:")]
-		IntPtr Constructor (Device device, SessionTraits traits, [NullAllowed] string sessionId, [NullAllowed] SessionOptions sessionOptions);
+		IntPtr Constructor (Device device, [NullAllowed] SessionTraits traits, [NullAllowed] string sessionId, [NullAllowed] SessionOptions sessionOptions);
 
 		// - (GCKRequest*) setDeviceVolume:(float) volume;
 		[Export ("setDeviceVolume:")]
@@ -2399,8 +2449,7 @@ namespace Google.Cast
 	// @interface Protected (GCKSession)
 	[Category]
 	[BaseType (typeof (Session))]
-	interface Session_Protected
-	{
+	interface Session_Protected {
 		// -(void)start;
 		[Export ("start")]
 		void Start ();
@@ -2443,8 +2492,7 @@ namespace Google.Cast
 	// @interface GCKSessionManager : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKSessionManager")]
-	interface SessionManager
-	{
+	interface SessionManager {
 		// GCK_EXTERN NSString *const kGCKKeyConnectionState;
 		[Field ("kGCKKeyConnectionState", "__Internal")]
 		NSString KeyConnectionState { get; }
@@ -2513,16 +2561,14 @@ namespace Google.Cast
 		void RemoveListener (ISessionManagerListener listener);
 	}
 
-	interface ISessionManagerListener
-	{
+	interface ISessionManagerListener {
 	}
 
 	// @protocol GCKSessionManagerListener <NSObject>
-	[Model]
+	[Model (AutoGeneratedName = true)]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "GCKSessionManagerListener")]
-	interface SessionManagerListener
-	{
+	interface SessionManagerListener {
 		// @optional -(void)sessionManager:(GCKSessionManager * _Nonnull)sessionManager willStartSession:(GCKSession * _Nonnull)session;
 		[Export ("sessionManager:willStartSession:")]
 		void WillStartSession (SessionManager sessionManager, Session session);
@@ -2614,8 +2660,7 @@ namespace Google.Cast
 
 	// @interface GCKSessionTraits : NSObject <NSCopying, NSCoding>
 	[BaseType (typeof (NSObject), Name = "GCKSessionTraits")]
-	interface SessionTraits : INSCopying, INSSecureCoding
-	{
+	interface SessionTraits : INSCopying, INSSecureCoding {
 		// @property (readonly, assign, nonatomic) float minimumVolume;
 		[Export ("minimumVolume")]
 		float MinimumVolume { get; }
@@ -2645,8 +2690,7 @@ namespace Google.Cast
 	// @interface GCKUIButton : UIButton
 	[Obsolete ("Use UIMultistateButton class instead.")]
 	[BaseType (typeof (UIMultistateButton), Name = "GCKUIButton")]
-	interface GCKUIButton
-	{
+	interface GCKUIButton {
 		[Export ("initWithFrame:")]
 		IntPtr Constructor (CGRect frame);
 
@@ -2657,8 +2701,7 @@ namespace Google.Cast
 
 	// @interface GCKUICastButton : UIButton
 	[BaseType (typeof (UIButton), Name = "GCKUICastButton")]
-	interface UICastButton
-	{
+	interface UICastButton {
 		// @property (assign, readwrite, nonatomic) BOOL triggersDefaultCastDialog;
 		[Export ("triggersDefaultCastDialog")]
 		bool TriggersDefaultCastDialog { get; set; }
@@ -2678,8 +2721,7 @@ namespace Google.Cast
 
 	// @interface GCKUICastContainerViewController : UIViewController
 	[BaseType (typeof (UIViewController), Name = "GCKUICastContainerViewController")]
-	interface UICastContainerViewController
-	{
+	interface UICastContainerViewController {
 		[Export ("initWithNibName:bundle:")]
 		IntPtr Constructor (string nibName, NSBundle bundle);
 
@@ -2700,8 +2742,7 @@ namespace Google.Cast
 
 	// @interface GCKUIDeviceVolumeController : NSObject
 	[BaseType (typeof (NSObject), Name = "GCKUIDeviceVolumeController")]
-	interface UIDeviceVolumeController
-	{
+	interface UIDeviceVolumeController {
 		// extern const UIControlState GCKUIControlStateMuteOff __attribute__((visibility("default")));
 		[Internal]
 		[Field ("GCKUIControlStateMuteOff", "__Internal")]
@@ -2768,8 +2809,7 @@ namespace Google.Cast
 
 	// @interface GCKUIExpandedMediaControlsViewController : UIViewController <GCKUIMediaButtonBarProtocol>
 	[BaseType (typeof (UIViewController), Name = "GCKUIExpandedMediaControlsViewController")]
-	interface UIExpandedMediaControlsViewController : UIMediaButtonBarProtocol
-	{
+	interface UIExpandedMediaControlsViewController : UIMediaButtonBarProtocol {
 		[Export ("initWithNibName:bundle:")]
 		IntPtr Constructor (string nibName, NSBundle bundle);
 
@@ -2778,16 +2818,14 @@ namespace Google.Cast
 		bool HideStreamPositionControlsForLiveContent { get; set; }
 	}
 
-	interface IUIImageCache
-	{
+	interface IUIImageCache {
 	}
 
 	// @protocol GCKUIImageCache <NSObject>
-	[Model]
+	[Model (AutoGeneratedName = true)]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "GCKUIImageCache")]
-	interface UIImageCache
-	{
+	interface UIImageCache {
 		// @required -(void)fetchImageForURL:(NSURL * _Nonnull)imageURL completion:(void (^ _Nonnull)(UIImage * _Nullable))completion;
 		[Abstract]
 		[Export ("fetchImageForURL:completion:")]
@@ -2797,8 +2835,7 @@ namespace Google.Cast
 	// @interface GCKUIImageHints : NSObject <NSCopying, NSCoding>
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKUIImageHints")]
-	interface UIImageHints : INSCopying, INSSecureCoding
-	{
+	interface UIImageHints : INSCopying, INSSecureCoding {
 		// @property (readonly, assign, nonatomic) GCKMediaMetadataImageType imageType;
 		[Export ("imageType", ArgumentSemantic.Assign)]
 		MediaMetadataImageType ImageType { get; }
@@ -2821,16 +2858,14 @@ namespace Google.Cast
 		IntPtr Constructor (MediaMetadataImageType imageType, CGSize imageSize, [NullAllowed] INSSecureCoding customData);
 	}
 
-	interface IUIImagePicker
-	{
+	interface IUIImagePicker {
 	}
 
 	// @protocol GCKUIImagePicker <NSObject>
-	[Model]
+	[Model (AutoGeneratedName = true)]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "GCKUIImagePicker")]
-	interface UIImagePicker
-	{
+	interface UIImagePicker {
 		// @required -(GCKImage * _Nullable)getImageWithHints:(GCKUIImageHints * _Nonnull)imageHints fromMetadata:(const GCKMediaMetadata * _Nonnull)metadata;
 		[Abstract]
 		[return: NullAllowed]
@@ -2838,16 +2873,14 @@ namespace Google.Cast
 		Image GetImage (UIImageHints imageHints, MediaMetadata metadata);
 	}
 
-	interface IUIMediaButtonBarProtocol
-	{
+	interface IUIMediaButtonBarProtocol {
 	}
 
 	// @protocol GCKUIMediaButtonBarProtocol <NSObject>
-	[Model]
+	[Model (AutoGeneratedName = true)]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "GCKUIMediaButtonBarProtocol")]
-	interface UIMediaButtonBarProtocol
-	{
+	interface UIMediaButtonBarProtocol {
 		// @required -(NSUInteger)buttonCount;
 		[Abstract]
 		[Export ("buttonCount")]
@@ -2883,8 +2916,7 @@ namespace Google.Cast
 		   Name = "GCKUIMediaController",
 		   Delegates = new string [] { "Delegate" },
 		   Events = new Type [] { typeof (UIMediaControllerDelegate) })]
-	interface UIMediaController
-	{
+	interface UIMediaController {
 		// extern const UIControlState GCKUIControlStateRepeatOff __attribute__((visibility("default")));
 		[Internal]
 		[Field ("GCKUIControlStateRepeatOff", "__Internal")]
@@ -3085,6 +3117,16 @@ namespace Google.Cast
 		[Export ("mediaLoadingIndicator", ArgumentSemantic.Weak)]
 		UIActivityIndicatorView MediaLoadingIndicator { get; set; }
 
+		// @property (readwrite, nonatomic, weak) UILabel * _Nullable skipAdLabel;
+		[NullAllowed]
+		[Export ("skipAdLabel", ArgumentSemantic.Weak)]
+		UILabel SkipAdLabel { get; set; }
+
+		// @property (readwrite, nonatomic, weak) UIButton * _Nullable skipAdButton;
+		[NullAllowed]
+		[Export ("skipAdButton", ArgumentSemantic.Weak)]
+		UIButton SkipAdButton { get; set; }
+
 		// -(void)bindLabel:(UILabel * _Nonnull)label toMetadataKey:(NSString * _Nonnull)key;
 		[Export ("bindLabel:toMetadataKey:")]
 		void BindLabel (UILabel label, string key);
@@ -3120,18 +3162,21 @@ namespace Google.Cast
 		// -(void)selectTracks;
 		[Export ("selectTracks")]
 		void SelectTracks ();
+
+		// - (void)skipAd;
+		[Export ("skipAd")]
+		void SkipAd ();
+
 	}
 
-	interface IUIMediaControllerDelegate
-	{
+	interface IUIMediaControllerDelegate {
 	}
 
 	// @protocol GCKUIMediaControllerDelegate <NSObject>
-	[Model]
+	[Model (AutoGeneratedName = true)]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "GCKUIMediaControllerDelegate")]
-	interface UIMediaControllerDelegate
-	{
+	interface UIMediaControllerDelegate {
 		// @optional -(void)mediaController:(GCKUIMediaController * _Nonnull)mediaController didUpdatePlayerState:(GCKMediaPlayerState)playerState lastStreamPosition:(NSTimeInterval)streamPosition;
 		[EventArgs ("UIMediaControllerPlayerStateUpdated")]
 		[EventName ("PlayerStateUpdated")]
@@ -3153,8 +3198,7 @@ namespace Google.Cast
 
 	// @interface GCKUIMediaTrackSelectionViewController : UITabBarController
 	[BaseType (typeof (UITabBarController), Name = "GCKUIMediaTrackSelectionViewController")]
-	interface UIMediaTrackSelectionViewController
-	{
+	interface UIMediaTrackSelectionViewController {
 		[Export ("initWithNibName:bundle:")]
 		IntPtr Constructor (string nibName, NSBundle bundle);
 
@@ -3175,15 +3219,14 @@ namespace Google.Cast
 		NSArray _SelectedTrackIds { get; set; }
 	}
 
-	interface IUIMediaTrackSelectionViewControllerDelegate
-	{
+	interface IUIMediaTrackSelectionViewControllerDelegate {
 	}
 
 	// @protocol GCKUIMediaTrackSelectionViewControllerDelegate <NSObject>
-	[Protocol, Model]
+	[Model (AutoGeneratedName = true)]
+	[Protocol]
 	[BaseType (typeof (NSObject), Name = "GCKUIMediaTrackSelectionViewControllerDelegate")]
-	interface UIMediaTrackSelectionViewControllerDelegate
-	{
+	interface UIMediaTrackSelectionViewControllerDelegate {
 		// @required -(void)didSelectMediaTracks:(NSArray<NSNumber *> * _Nonnull)mediaTrackIDs;
 		[Abstract]
 		[Export ("didSelectMediaTracks:")]
@@ -3194,9 +3237,8 @@ namespace Google.Cast
 	[BaseType (typeof (UIViewController),
 		   Name = "GCKUIMiniMediaControlsViewController",
 		   Delegates = new string [] { "Delegate" },
-	           Events = new Type [] { typeof (UIMiniMediaControlsViewControllerDelegate) })]
-	interface UIMiniMediaControlsViewController : UIMediaButtonBarProtocol
-	{
+		   Events = new Type [] { typeof (UIMiniMediaControlsViewControllerDelegate) })]
+	interface UIMiniMediaControlsViewController : UIMediaButtonBarProtocol {
 		[Export ("initWithNibName:bundle:")]
 		IntPtr Constructor (string nibName, NSBundle bundle);
 
@@ -3218,16 +3260,14 @@ namespace Google.Cast
 		nfloat MinHeight { get; }
 	}
 
-	interface IUIMiniMediaControlsViewControllerDelegate
-	{
+	interface IUIMiniMediaControlsViewControllerDelegate {
 	}
 
 	// @protocol GCKUIMiniMediaControlsViewControllerDelegate <NSObject>
-	[Model]
+	[Model (AutoGeneratedName = true)]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "GCKUIMiniMediaControlsViewControllerDelegate")]
-	interface UIMiniMediaControlsViewControllerDelegate
-	{
+	interface UIMiniMediaControlsViewControllerDelegate {
 		// @required -(void)miniMediaControlsViewController:(GCKUIMiniMediaControlsViewController * _Nonnull)miniMediaControlsViewController shouldAppear:(BOOL)shouldAppear;
 		[Abstract]
 		[EventArgs ("UIMiniMediaControlsViewControllerShouldAppear")]
@@ -3237,8 +3277,7 @@ namespace Google.Cast
 
 	// @interface GCKUIMultistateButton : UIButton
 	[BaseType (typeof (UIButton), Name = "GCKUIMultistateButton")]
-	interface UIMultistateButton
-	{
+	interface UIMultistateButton {
 		// @property (assign, readwrite, nonatomic) NSUInteger buttonState;
 		[Export ("buttonState")]
 		nuint ButtonState { get; set; }
@@ -3251,8 +3290,7 @@ namespace Google.Cast
 	// @interface GCKUIPlaybackRateController : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKUIPlaybackRateController")]
-	interface UIPlaybackRateController
-	{
+	interface UIPlaybackRateController {
 		[DesignatedInitializer]
 		[Export ("init")]
 		IntPtr Constructor ();
@@ -3268,8 +3306,7 @@ namespace Google.Cast
 
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKUIPlayPauseToggleController")]
-	interface UIPlayPauseToggleController
-	{
+	interface UIPlayPauseToggleController {
 		[DesignatedInitializer]
 		[Export ("init")]
 		IntPtr Constructor ();
@@ -3285,8 +3322,7 @@ namespace Google.Cast
 
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKUIStreamPositionController")]
-	interface UIStreamPositionController
-	{
+	interface UIStreamPositionController {
 		[DesignatedInitializer]
 		[Export ("init")]
 		IntPtr Constructor ();
@@ -3307,8 +3343,7 @@ namespace Google.Cast
 	// @interface GCKUIStyle : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKUIStyle")]
-	interface UIStyle
-	{
+	interface UIStyle {
 		// +(GCKUIStyle * _Nonnull)sharedInstance;
 		[Static]
 		[Export ("sharedInstance")]
@@ -3318,15 +3353,19 @@ namespace Google.Cast
 		[Export ("applyStyle")]
 		void ApplyStyle ();
 
-		// @property (readonly, nonatomic, strong) GCKUIStyleAttributesCastViews * _Nonnull castViews;
-		[Export ("castViews", ArgumentSemantic.Strong)]
-		UIStyleAttributesCastViews CastViews { get; }
+		///
+		/// Due the GCKUIStyleAttributesCastViews symbol is
+		/// private external, we cannot bind this property for now.
+		/// 
+
+		//// @property (readonly, nonatomic, strong) GCKUIStyleAttributesCastViews * _Nonnull castViews;
+		//[Export ("castViews", ArgumentSemantic.Strong)]
+		//UIStyleAttributesCastViews CastViews { get; }
 	}
 
 	// @interface GCKUIStyleAttributes : NSObject
 	[BaseType (typeof (NSObject), Name = "GCKUIStyleAttributes")]
-	interface UIStyleAttributes
-	{
+	interface UIStyleAttributes {
 		// @property (readwrite, nonatomic, strong) UIImage * _Nonnull closedCaptionsImage;
 		[Export ("closedCaptionsImage", ArgumentSemantic.Strong)]
 		UIImage ClosedCaptionsImage { get; set; }
@@ -3452,103 +3491,96 @@ namespace Google.Cast
 		CGSize HeadingTextShadowOffset { get; set; }
 	}
 
-	// @interface GCKUIStyleAttributesInstructions : GCKUIStyleAttributes
-	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesInstructions")]
-	interface UIStyleAttributesInstructions
-	{
-	}
+	///
+	/// These symbols are private externals.
+	///
 
-	// @interface GCKUIStyleAttributesGuestModePairingDialog : GCKUIStyleAttributes
-	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesGuestModePairingDialog")]
-	interface UIStyleAttributesGuestModePairingDialog
-	{
-	}
+	//// @interface GCKUIStyleAttributesInstructions : GCKUIStyleAttributes
+	//[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesInstructions")]
+	//interface UIStyleAttributesInstructions {
+	//}
 
-	// @interface GCKUIStyleAttributesTrackSelector : GCKUIStyleAttributes
-	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesTrackSelector")]
-	interface UIStyleAttributesTrackSelector
-	{
-	}
+	//// @interface GCKUIStyleAttributesGuestModePairingDialog : GCKUIStyleAttributes
+	//[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesGuestModePairingDialog")]
+	//interface UIStyleAttributesGuestModePairingDialog {
+	//}
 
-	// @interface GCKUIStyleAttributesMiniController : GCKUIStyleAttributes
-	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesMiniController")]
-	interface UIStyleAttributesMiniController
-	{
-	}
+	//// @interface GCKUIStyleAttributesTrackSelector : GCKUIStyleAttributes
+	//[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesTrackSelector")]
+	//interface UIStyleAttributesTrackSelector {
+	//}
 
-	// @interface GCKUIStyleAttributesExpandedController : GCKUIStyleAttributes
-	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesExpandedController")]
-	interface UIStyleAttributesExpandedController
-	{
-	}
+	//// @interface GCKUIStyleAttributesMiniController : GCKUIStyleAttributes
+	//[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesMiniController")]
+	//interface UIStyleAttributesMiniController {
+	//}
 
-	// @interface GCKUIStyleAttributesDeviceChooser : GCKUIStyleAttributes
-	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesDeviceChooser")]
-	interface UIStyleAttributesDeviceChooser
-	{
-	}
+	//// @interface GCKUIStyleAttributesExpandedController : GCKUIStyleAttributes
+	//[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesExpandedController")]
+	//interface UIStyleAttributesExpandedController {
+	//}
 
-	// @interface GCKUIStyleAttributesConnectionController : GCKUIStyleAttributes
-	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesConnectionController")]
-	interface UIStyleAttributesConnectionController
-	{
-	}
+	//// @interface GCKUIStyleAttributesDeviceChooser : GCKUIStyleAttributes
+	//[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesDeviceChooser")]
+	//interface UIStyleAttributesDeviceChooser {
+	//}
 
-	// @interface GCKUIStyleAttributesMediaControl : GCKUIStyleAttributes
-	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesMediaControl")]
-	interface UIStyleAttributesMediaControl
-	{
-		//@property (readonly, nonatomic, strong) GCKUIStyleAttributesExpandedController* expandedController;
-		[Export ("expandedController", ArgumentSemantic.Strong)]
-		UIStyleAttributesExpandedController ExpandedController { get; }
+	//// @interface GCKUIStyleAttributesConnectionController : GCKUIStyleAttributes
+	//[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesConnectionController")]
+	//interface UIStyleAttributesConnectionController {
+	//}
 
-		//@property (readonly, nonatomic, strong) GCKUIStyleAttributesMiniController* miniController;
-		[Export ("miniController", ArgumentSemantic.Strong)]
-		UIStyleAttributesMiniController MiniController { get; }
+	//// @interface GCKUIStyleAttributesMediaControl : GCKUIStyleAttributes
+	//[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesMediaControl")]
+	//interface UIStyleAttributesMediaControl {
+	//	//@property (readonly, nonatomic, strong) GCKUIStyleAttributesExpandedController* expandedController;
+	//	[Export ("expandedController", ArgumentSemantic.Strong)]
+	//	UIStyleAttributesExpandedController ExpandedController { get; }
 
-		//@property (readonly, nonatomic, strong) GCKUIStyleAttributesTrackSelector* trackSelector;
-		[Export ("trackSelector", ArgumentSemantic.Strong)]
-		UIStyleAttributesTrackSelector TrackSelector { get; }
-	}
+	//	//@property (readonly, nonatomic, strong) GCKUIStyleAttributesMiniController* miniController;
+	//	[Export ("miniController", ArgumentSemantic.Strong)]
+	//	UIStyleAttributesMiniController MiniController { get; }
 
-	// @interface GCKUIStyleAttributesDeviceControl : GCKUIStyleAttributes
-	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesDeviceControl")]
-	interface UIStyleAttributesDeviceControl
-	{
-		// @property (readonly, nonatomic, strong) GCKUIStyleAttributesDeviceChooser* deviceChooser;
-		[Export ("deviceChooser", ArgumentSemantic.Strong)]
-		UIStyleAttributesDeviceChooser DeviceChooser { get; }
+	//	//@property (readonly, nonatomic, strong) GCKUIStyleAttributesTrackSelector* trackSelector;
+	//	[Export ("trackSelector", ArgumentSemantic.Strong)]
+	//	UIStyleAttributesTrackSelector TrackSelector { get; }
+	//}
 
-		// @property (readonly, nonatomic, strong) GCKUIStyleAttributesConnectionController* connectionController;
-		[Export ("connectionController", ArgumentSemantic.Strong)]
-		UIStyleAttributesConnectionController ConnectionController { get; }
+	//// @interface GCKUIStyleAttributesDeviceControl : GCKUIStyleAttributes
+	//[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesDeviceControl")]
+	//interface UIStyleAttributesDeviceControl {
+	//	// @property (readonly, nonatomic, strong) GCKUIStyleAttributesDeviceChooser* deviceChooser;
+	//	[Export ("deviceChooser", ArgumentSemantic.Strong)]
+	//	UIStyleAttributesDeviceChooser DeviceChooser { get; }
 
-		// @property (readonly, nonatomic, strong) GCKUIStyleAttributesGuestModePairingDialog* guestModePairingDialog;
-		[Export ("guestModePairingDialog", ArgumentSemantic.Strong)]
-		UIStyleAttributesGuestModePairingDialog GuestModePairingDialog { get; }
-	}
+	//	// @property (readonly, nonatomic, strong) GCKUIStyleAttributesConnectionController* connectionController;
+	//	[Export ("connectionController", ArgumentSemantic.Strong)]
+	//	UIStyleAttributesConnectionController ConnectionController { get; }
 
-	// @interface GCKUIStyleAttributesCastViews : GCKUIStyleAttributes
-	[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesCastViews")]
-	interface UIStyleAttributesCastViews
-	{
-		// @property (readonly, nonatomic, strong) GCKUIStyleAttributesDeviceControl* deviceControl;
-		[Export ("deviceControl", ArgumentSemantic.Strong)]
-		UIStyleAttributesDeviceControl DeviceControl { get; }
+	//	// @property (readonly, nonatomic, strong) GCKUIStyleAttributesGuestModePairingDialog* guestModePairingDialog;
+	//	[Export ("guestModePairingDialog", ArgumentSemantic.Strong)]
+	//	UIStyleAttributesGuestModePairingDialog GuestModePairingDialog { get; }
+	//}
 
-		// @property(readonly, nonatomic, strong) GCKUIStyleAttributesMediaControl *mediaControl;
-		[Export ("mediaControl", ArgumentSemantic.Strong)]
-		UIStyleAttributesMediaControl MediaControl { get; }
+	//// @interface GCKUIStyleAttributesCastViews : GCKUIStyleAttributes
+	//[BaseType (typeof (UIStyleAttributes), Name = "GCKUIStyleAttributesCastViews")]
+	//interface UIStyleAttributesCastViews {
+	//	// @property (readonly, nonatomic, strong) GCKUIStyleAttributesDeviceControl* deviceControl;
+	//	[Export ("deviceControl", ArgumentSemantic.Strong)]
+	//	UIStyleAttributesDeviceControl DeviceControl { get; }
 
-		// @property(readonly, nonatomic, strong) GCKUIStyleAttributesInstructions *instructions;
-		[Export ("instructions", ArgumentSemantic.Strong)]
-		UIStyleAttributesInstructions Instructions { get; }
-	}
+	//	// @property(readonly, nonatomic, strong) GCKUIStyleAttributesMediaControl *mediaControl;
+	//	[Export ("mediaControl", ArgumentSemantic.Strong)]
+	//	UIStyleAttributesMediaControl MediaControl { get; }
+
+	//	// @property(readonly, nonatomic, strong) GCKUIStyleAttributesInstructions *instructions;
+	//	[Export ("instructions", ArgumentSemantic.Strong)]
+	//	UIStyleAttributesInstructions Instructions { get; }
+	//}
 
 	// @interface GCKUIUtils : NSObject
 	[BaseType (typeof (NSObject), Name = "GCKUIUtils")]
-	interface UIUtils
-	{
+	interface UIUtils {
 		// +(UIViewController * _Nullable)currentViewController;
 		[Static]
 		[NullAllowed]
@@ -3563,8 +3595,7 @@ namespace Google.Cast
 
 	// @interface GCKVideoInfo : NSObject
 	[BaseType (typeof (NSObject), Name = "GCKVideoInfo")]
-	interface VideoInfo : INSCopying, INSSecureCoding
-	{
+	interface VideoInfo : INSCopying, INSSecureCoding {
 		// @property (readonly, assign, nonatomic) NSUInteger width;
 		[Export ("width")]
 		nuint Width { get; }
@@ -3580,8 +3611,7 @@ namespace Google.Cast
 
 	[Category]
 	[BaseType (typeof (NSDictionary))]
-	interface NSDictionary_GCKAdditions
-	{
+	interface NSDictionary_GCKAdditions {
 		[return: NullAllowed]
 		[Export ("gck_stringForKey:withDefaultValue:")]
 		string GetString (string key, [NullAllowed] string defaultValue);
@@ -3631,8 +3661,7 @@ namespace Google.Cast
 	// @interface GCKAdditions (NSMutableDictionary)
 	[Category]
 	[BaseType (typeof (NSMutableDictionary))]
-	interface NSMutableDictionary_GCKAdditions
-	{
+	interface NSMutableDictionary_GCKAdditions {
 		// -(void)gck_setStringValue:(NSString * _Nonnull)value forKey:(NSString * _Nonnull)key;
 		[Export ("gck_setStringValue:forKey:")]
 		void SetString (string value, string key);
@@ -3657,8 +3686,7 @@ namespace Google.Cast
 	// @interface GCKAdditions (NSTimer)
 	[Category]
 	[BaseType (typeof (NSTimer))]
-	interface NSTimer_GCKAdditions
-	{
+	interface NSTimer_GCKAdditions {
 		// +(NSTimer * _Nonnull)gck_scheduledTimerWithTimeInterval:(NSTimeInterval)interval weakTarget:(id _Nonnull)target selector:(SEL _Nonnull)selector userInfo:(id _Nullable)userInfo repeats:(BOOL)repeats;
 		[Static]
 		[Export ("gck_scheduledTimerWithTimeInterval:weakTarget:selector:userInfo:repeats:")]

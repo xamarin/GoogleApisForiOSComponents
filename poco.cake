@@ -98,7 +98,7 @@ public abstract class Firebase
 					new Firebase.Auth ().Name, new Firebase.CloudFirestore ().Name, new Firebase.CloudMessaging ().Name, 
 					new Firebase.Database ().Name, new Firebase.DynamicLinks ().Name, new Firebase.InstanceID ().Name, 
 					new Firebase.Invites ().Name, new Firebase.PerformanceMonitoring ().Name, new Firebase.RemoteConfig ().Name, 
-					new Firebase.Storage ().Name, new Google.InstanceID ().Name, new Google.PlayGames ().Name, 
+					new Firebase.Storage ().Name, new Google.Cast ().Name, new Google.InstanceID ().Name, new Google.PlayGames ().Name, 
 					new Google.SignIn ().Name, new Google.TagManager ().Name };
 			}
 		}

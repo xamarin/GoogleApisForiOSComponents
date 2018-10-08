@@ -4,5 +4,5 @@ platform :ios, '8.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'GoogleCast' do
-	pod 'google-cast-sdk', '4.1.0'
+	pod 'google-cast-sdk', '4.3.2'
 end
