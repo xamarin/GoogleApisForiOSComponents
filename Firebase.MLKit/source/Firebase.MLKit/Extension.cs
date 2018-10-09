@@ -1,5 +1,7 @@
 ﻿using System;
+
 using Foundation;
+
 namespace Firebase.MLKit.ModelInterpreter {
 	public partial class ModelInputOutputOptions {
 		public bool SetInputFormat (nuint index, ModelElementType type, nuint [] dimensions, out NSError error)
