@@ -6,7 +6,7 @@ namespace Firebase.MLKit
 		static Loader ()
 		{
 			Firebase.Core.Loader.ForceLoad ();
-			Firebase.InstanceID.Loader.ForceLoad ();
+			Firebase.MLKit.Common.Loader.ForceLoad ();
 		}
 
 		public static void ForceLoad () { }
