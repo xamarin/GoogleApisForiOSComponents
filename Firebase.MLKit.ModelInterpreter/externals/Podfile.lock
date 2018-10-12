@@ -1,0 +1,45 @@
+PODS:
+  - Firebase/CoreOnly (5.8.1):
+    - FirebaseCore (= 5.1.3)
+  - Firebase/MLModelInterpreter (5.8.1):
+    - Firebase/CoreOnly
+    - FirebaseMLModelInterpreter (= 0.11.0)
+  - FirebaseCore (5.1.3):
+    - GoogleUtilities/Logger (~> 5.2)
+  - FirebaseInstanceID (3.2.2):
+    - FirebaseCore (~> 5.1)
+    - GoogleUtilities/Environment (~> 5.3)
+    - GoogleUtilities/UserDefaults (~> 5.3)
+  - FirebaseMLCommon (0.11.0):
+    - FirebaseCore (~> 5.1)
+  - FirebaseMLModelInterpreter (0.11.0):
+    - FirebaseCore (~> 5.1)
+    - FirebaseInstanceID (~> 3.2)
+    - FirebaseMLCommon (~> 0.11)
+    - GTMSessionFetcher/Core (~> 1.1)
+    - TensorFlowLite (= 0.1.7)
+  - GoogleUtilities/Environment (5.3.0)
+  - GoogleUtilities/Logger (5.3.0):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/UserDefaults (5.3.0):
+    - GoogleUtilities/Logger
+  - GTMSessionFetcher/Core (1.2.0)
+  - TensorFlowLite (0.1.7)
+
+DEPENDENCIES:
+  - Firebase/MLModelInterpreter (= 5.8.1)
+  - TensorFlowLite (= 0.1.7)
+
+SPEC CHECKSUMS:
+  Firebase: a870ed114d769b424021a0c8ddb0c86c3250a0c5
+  FirebaseCore: 27bd80e5bfaaf9552a1f5cacb4c7e8bb925bab22
+  FirebaseInstanceID: 78ba376fcd5b94c001f9999b2cbd3d1f1e56e78d
+  FirebaseMLCommon: 285b93416df5f37164ad08795cb799f253fda549
+  FirebaseMLModelInterpreter: 8754f25ee75034dc13010397d35113ca5c1a021c
+  GoogleUtilities: 760ccb53b7c7f40f9c02d8c241f76f841a7a6162
+  GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
+  TensorFlowLite: 7cd43376c604938a12110b8335a5a407afe41688
+
+PODFILE CHECKSUM: f6c60f842f3d2b0f3b3dfba78ef5a4c68bbb21ef
+
+COCOAPODS: 1.4.0
