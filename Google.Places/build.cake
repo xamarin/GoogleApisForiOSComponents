@@ -23,7 +23,7 @@ buildSpec = new BuildSpec () {
 	},
 
 	NuGets = new [] {
-		new NuGetInfo { NuSpec = "./nuget/Xamarin.Google.iOS.Places.nuspec", BuildsOn = BuildPlatforms.Mac },
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Google.iOS.Places.nuspec", BuildsOn = BuildPlatforms.Mac, RequireLicenseAcceptance = true },
 	},
 
 	Components = new [] {

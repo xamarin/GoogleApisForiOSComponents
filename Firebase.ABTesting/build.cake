@@ -18,7 +18,7 @@ buildSpec = new BuildSpec () {
 	},
 
 	NuGets = new [] {
-		new NuGetInfo { NuSpec = "./nuget/Xamarin.Firebase.iOS.ABTesting.nuspec", BuildsOn = BuildPlatforms.Mac, RequireLicenseAcceptance = true},
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Firebase.iOS.ABTesting.nuspec", BuildsOn = BuildPlatforms.Mac, RequireLicenseAcceptance = true },
 	},
 };
 
