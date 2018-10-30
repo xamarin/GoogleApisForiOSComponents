@@ -2,9 +2,9 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_FirebaseCrashlyticsAssemblyName>Firebase.Crashlytics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseCrashlyticsAssemblyName>
-		<_FirebaseCrashlyticsItemsFolder>FCrshlytcs-3.10.3</_FirebaseCrashlyticsItemsFolder>
+		<_FirebaseCrashlyticsItemsFolder>FCrshlytcs-3.10.9</_FirebaseCrashlyticsItemsFolder>
 		<_FirebaseCrashlyticsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseCrashlyticsItemsFolder)\iOS\</_FirebaseCrashlyticsSDKBaseFolder>
-		<_FabricItemsFolder>Fbrc-1.7.8</_FabricItemsFolder>
+		<_FabricItemsFolder>Fbrc-1.7.13</_FabricItemsFolder>
 		<_FabricSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FabricItemsFolder)\iOS\</_FabricSDKBaseFolder>
 		<_FabricScriptName>upload-symbols</_FabricScriptName>
 
@@ -20,11 +20,11 @@
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_FirebaseCrashlyticsItemsFolder)">
-			<Url>https://kit-downloads.fabric.io/cocoapods/crashlytics/3.10.3/crashlytics.zip</Url>
+			<Url>https://kit-downloads.fabric.io/cocoapods/crashlytics/3.10.9/crashlytics.zip</Url>
 			<Kind>Zip</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildDownload Include="$(_FabricItemsFolder)">
-			<Url>https://kit-downloads.fabric.io/cocoapods/fabric/1.7.8/fabric.zip</Url>
+			<Url>https://kit-downloads.fabric.io/cocoapods/fabric/1.7.13/fabric.zip</Url>
 			<Kind>Zip</Kind>
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_FirebaseCrashlyticsSDKBaseFolder)Crashlytics.framework">
