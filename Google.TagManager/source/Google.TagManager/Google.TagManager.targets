@@ -47,7 +47,7 @@
 	<Target Name="_GoogleTagManagerItems">
 		<ItemGroup>
 			<RestoreAssemblyResource Include="$(_GoogleTagManagerSDKBaseFolder)Resources\TagManagerResources\TAGRuntime.js.dat">
-				<LogicalName>__monotouch_content_TagManagerResources_fTAGRuntime.js.dat</LogicalName>
+				<LogicalName>__monotouch_content_TagManagerResources.bundle_fTAGRuntime.js.dat</LogicalName>
 				<AssemblyName>$(_GoogleTagManagerAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 		</ItemGroup>
