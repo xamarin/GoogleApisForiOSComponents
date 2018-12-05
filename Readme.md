@@ -12,7 +12,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.Auth][F.Auth.Name]                                   | [5.0.4.0][F.Auth.Package]                  |
 | [Xamarin.Firebase.iOS.CloudFirestore][F.CloudFirestore.Name]               | [0.13.3.0][F.CloudFirestore.Package]       |
 | [Xamarin.Firebase.iOS.CloudMessaging][F.CloudMessaging.Name]               | [3.1.2.0][F.CloudMessaging.Package]        |
-| [Xamarin.Firebase.iOS.Core][F.Core.Name]                                   | [5.1.3.0][F.Core.Package]                  |
+| [Xamarin.Firebase.iOS.Core][F.Core.Name]                                   | [5.1.8.0][F.Core.Package]                  |
 | [Xamarin.Firebase.iOS.Crashlytics][F.Crashlytics.Name]                     | [3.10.3.1][F.Crashlytics.Package]          |
 | [Xamarin.Firebase.iOS.Database][F.Database.Name]                           | [5.0.3.0][F.Database.Package]              |
 | [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                   | [3.0.2.0][F.DynamicLinks.Package]          |
@@ -53,7 +53,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Auth                   | **5.0.4.0**       | **5.8.1**      |
 | Firebase Cloud Firestore        | **0.13.3.0**      | **5.8.1**      |
 | Firebase Cloud Messaging        | **3.1.2.0**       | **5.8.1**      |
-| Firebase Core                   | **5.1.3.0**       | **5.8.1**      |
+| Firebase Core                   | **5.1.8.0**       | **5.13.0**      |
 | Firebase Database               | **5.0.3.0**       | **5.8.1**      |
 | Firebase Dynamic Links          | **3.0.2.0**       | **5.8.1**      |
 | Firebase Instance ID            | **3.2.1.0**       | **5.8.1**      |
