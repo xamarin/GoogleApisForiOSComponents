@@ -12,20 +12,28 @@ namespace Firebase.MLKit.Vision {
 	// @interface FIRVision : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRVision")]
-	interface Vision {
+	interface VisionApi {
 		// @property (getter = isStatsCollectionEnabled, nonatomic) BOOL statsCollectionEnabled;
 		[Export ("statsCollectionEnabled")]
 		bool StatsCollectionEnabled { [Bind ("isStatsCollectionEnabled")] get; set; }
 
+		// This method is not finding the default instance of Firebase.Core.App
+		// but, if I pass the default instance to Create (App) overload method,
+		// it works properly. Need to investigate this.
+		//// +(instancetype _Nonnull)vision;
+		//[Static]
+		//[Export ("vision")]
+		//VisionApi Create ();
+
 		// +(instancetype _Nonnull)vision;
 		[Static]
-		[Export ("vision")]
-		Vision Create ();
-
+		[Wrap ("Create (Firebase.Core.App.DefaultInstance)")]
+		VisionApi Create ();
+		
 		// +(instancetype _Nonnull)visionForApp:(FIRApp * _Nonnull)app;
 		[Static]
 		[Export ("visionForApp:")]
-		Vision Create (Core.App app);
+		VisionApi Create (Core.App app);
 
 		// -(FIRVisionBarcodeDetector * _Nonnull)barcodeDetectorWithOptions:(FIRVisionBarcodeDetectorOptions * _Nonnull)options;
 		[Export ("barcodeDetectorWithOptions:")]
@@ -615,7 +623,7 @@ namespace Firebase.MLKit.Vision {
 
 		// @property (nonatomic) NSArray<NSString *> * _Nullable languageHints;
 		[NullAllowed]
-		[Export ("languageHints", ArgumentSemantic.Assign)]
+		[Export ("languageHints", ArgumentSemantic.Copy)]
 		string [] LanguageHints { get; set; }
 
 		// @property (copy, nonatomic) NSString * _Nullable APIKeyOverride;
@@ -832,6 +840,78 @@ namespace Firebase.MLKit.Vision {
 		VisionFaceLandmark GetLandmark (string type);
 	}
 
+	[Static]
+	interface FaceContourType {
+		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeAll;
+		[Field ("FIRFaceContourTypeAll", "__Internal")]
+		NSString All { get; }
+
+		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeFace;
+		[Field ("FIRFaceContourTypeFace", "__Internal")]
+		NSString Face { get; }
+
+		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeLeftEyebrowTop;
+		[Field ("FIRFaceContourTypeLeftEyebrowTop", "__Internal")]
+		NSString LeftEyebrowTop { get; }
+
+		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeLeftEyebrowBottom;
+		[Field ("FIRFaceContourTypeLeftEyebrowBottom", "__Internal")]
+		NSString LeftEyebrowBottom { get; }
+
+		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeRightEyebrowTop;
+		[Field ("FIRFaceContourTypeRightEyebrowTop", "__Internal")]
+		NSString RightEyebrowTop { get; }
+
+		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeRightEyebrowBottom;
+		[Field ("FIRFaceContourTypeRightEyebrowBottom", "__Internal")]
+		NSString RightEyebrowBottom { get; }
+
+		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeLeftEye;
+		[Field ("FIRFaceContourTypeLeftEye", "__Internal")]
+		NSString LeftEye { get; }
+
+		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeRightEye;
+		[Field ("FIRFaceContourTypeRightEye", "__Internal")]
+		NSString RightEye { get; }
+
+		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeUpperLipTop;
+		[Field ("FIRFaceContourTypeUpperLipTop", "__Internal")]
+		NSString UpperLipTop { get; }
+
+		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeUpperLipBottom;
+		[Field ("FIRFaceContourTypeUpperLipBottom", "__Internal")]
+		NSString UpperLipBottom { get; }
+
+		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeLowerLipTop;
+		[Field ("FIRFaceContourTypeLowerLipTop", "__Internal")]
+		NSString LowerLipTop { get; }
+
+		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeLowerLipBottom;
+		[Field ("FIRFaceContourTypeLowerLipBottom", "__Internal")]
+		NSString LowerLipBottom { get; }
+
+		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeNoseBridge;
+		[Field ("FIRFaceContourTypeNoseBridge", "__Internal")]
+		NSString NoseBridge { get; }
+
+		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeNoseBottom;
+		[Field ("FIRFaceContourTypeNoseBottom", "__Internal")]
+		NSString NoseBottom { get; }
+	}
+
+	// @interface FIRVisionFaceContour : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FIRVisionFaceContour")]
+	interface VisionFaceContour {
+		// @property (readonly, nonatomic) FIRFaceContourType _Nonnull type;
+		[Export ("type")]
+		NSString Type { get; }
+
+		// @property (readonly, nonatomic) NSArray<FIRVisionPoint *> * _Nonnull points;
+		[Export ("points")]
+		VisionPoint [] Points { get; }
+	}
+
 	// typedef void (^FIRVisionFaceDetectionCallback)(NSArray<FIRVisionFace *> * _Nullable, NSError * _Nullable);
 	delegate void VisionFaceDetectionCallbackHandler ([NullAllowed] VisionFace [] face, [NullAllowed] NSError error);
 
@@ -839,38 +919,43 @@ namespace Firebase.MLKit.Vision {
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRVisionFaceDetector")]
 	interface VisionFaceDetector {
-		// -(void)detectInImage:(FIRVisionImage * _Nonnull)image completion:(FIRVisionFaceDetectionCallback _Nonnull)completion;
+		// -(void)processImage:(FIRVisionImage * _Nonnull)image completion:(FIRVisionFaceDetectionCallback _Nonnull)completion;
 		[Async]
-		[Export ("detectInImage:completion:")]
-		void Detect (VisionImage image, VisionFaceDetectionCallbackHandler completion);
+		[Export ("processImage:completion:")]
+		void ProcessImage (VisionImage image, VisionFaceDetectionCallbackHandler completion);
+
+		// -(NSArray<FIRVisionFace *> * _Nullable)resultsInImage:(FIRVisionImage * _Nonnull)image error:(NSError * _Nullable * _Nullable)error;
+		[return: NullAllowed]
+		[Export ("resultsInImage:error:")]
+		VisionFace [] GetResults (VisionImage image, [NullAllowed] out NSError error);
 	}
 
 	// @interface FIRVisionFaceDetectorOptions : NSObject
 	[BaseType (typeof (NSObject), Name = "FIRVisionFaceDetectorOptions")]
 	interface VisionFaceDetectorOptions {
-		// extern const CGFloat FIRVisionFaceDetectionMinSize;
-		[Field ("FIRVisionFaceDetectionMinSize", "__Internal")]
-		nfloat VisionFaceDetectionMinSize { get; }
+		// @property (nonatomic) FIRVisionFaceDetectorClassificationMode classificationMode;
+		[Export ("classificationMode", ArgumentSemantic.Assign)]
+		VisionFaceDetectorClassificationMode ClassificationMode { get; set; }
 
-		// @property (nonatomic) FIRVisionFaceDetectorClassification classificationType;
-		[Export ("classificationType", ArgumentSemantic.Assign)]
-		VisionFaceDetectorClassification ClassificationType { get; set; }
+		// @property (nonatomic) FIRVisionFaceDetectorPerformanceMode performanceMode;
+		[Export ("performanceMode", ArgumentSemantic.Assign)]
+		VisionFaceDetectorPerformanceMode PerformanceMode { get; set; }
 
-		// @property (nonatomic) FIRVisionFaceDetectorMode modeType;
-		[Export ("modeType", ArgumentSemantic.Assign)]
-		VisionFaceDetectorMode ModeType { get; set; }
+		// @property (nonatomic) FIRVisionFaceDetectorLandmarkMode landmarkMode;
+		[Export ("landmarkMode", ArgumentSemantic.Assign)]
+		VisionFaceDetectorLandmarkMode LandmarkMode { get; set; }
 
-		// @property (nonatomic) FIRVisionFaceDetectorLandmark landmarkType;
-		[Export ("landmarkType", ArgumentSemantic.Assign)]
-		VisionFaceDetectorLandmark LandmarkType { get; set; }
+		// @property (nonatomic) FIRVisionFaceDetectorContourMode contourMode;
+		[Export ("contourMode", ArgumentSemantic.Assign)]
+		VisionFaceDetectorContourMode ContourMode { get; set; }
 
 		// @property (nonatomic) CGFloat minFaceSize;
 		[Export ("minFaceSize")]
 		nfloat MinFaceSize { get; set; }
 
-		// @property (nonatomic) BOOL isTrackingEnabled;
-		[Export ("isTrackingEnabled")]
-		bool IsTrackingEnabled { get; set; }
+		// @property (getter = isTrackingEnabled, nonatomic) BOOL trackingEnabled;
+		[Export ("trackingEnabled")]
+		bool TrackingEnabled { [Bind ("isTrackingEnabled")] get; set; }
 	}
 
 	[Static]
@@ -961,10 +1046,6 @@ namespace Firebase.MLKit.Vision {
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRVisionLabel")]
 	interface VisionLabel {
-		// @property (readonly, nonatomic) CGRect frame;
-		[Export ("frame")]
-		CGRect Frame { get; }
-
 		// @property (readonly, nonatomic) float confidence;
 		[Export ("confidence")]
 		float Confidence { get; }
@@ -1072,13 +1153,13 @@ namespace Firebase.MLKit.Vision {
 		[Export ("frame")]
 		CGRect Frame { get; }
 
-		// @property (readonly, nonatomic) NSArray<NSValue *> * _Nonnull cornerPoints;
-		[Export ("cornerPoints")]
-		NSValue [] CornerPoints { get; }
-
 		// @property (readonly, nonatomic) NSArray<FIRVisionTextRecognizedLanguage *> * _Nonnull recognizedLanguages;
 		[Export ("recognizedLanguages")]
 		VisionTextRecognizedLanguage [] RecognizedLanguages { get; }
+
+		// @property (readonly, nonatomic) NSArray<NSValue *> * _Nonnull cornerPoints;
+		[Export ("cornerPoints")]
+		NSValue [] CornerPoints { get; }
 
 		// @property (readonly, nonatomic) NSNumber * _Nullable confidence;
 		[NullAllowed]
@@ -1098,13 +1179,13 @@ namespace Firebase.MLKit.Vision {
 		[Export ("frame")]
 		CGRect Frame { get; }
 
-		// @property (readonly, nonatomic) NSArray<NSValue *> * _Nonnull cornerPoints;
-		[Export ("cornerPoints")]
-		NSValue [] CornerPoints { get; }
-
 		// @property (readonly, nonatomic) NSArray<FIRVisionTextRecognizedLanguage *> * _Nonnull recognizedLanguages;
 		[Export ("recognizedLanguages")]
 		VisionTextRecognizedLanguage [] RecognizedLanguages { get; }
+		
+		// @property (readonly, nonatomic) NSArray<NSValue *> * _Nonnull cornerPoints;
+		[Export ("cornerPoints")]
+		NSValue [] CornerPoints { get; }
 
 		// @property (readonly, nonatomic) NSNumber * _Nullable confidence;
 		[NullAllowed]
@@ -1128,13 +1209,13 @@ namespace Firebase.MLKit.Vision {
 		[Export ("frame")]
 		CGRect Frame { get; }
 
-		// @property (readonly, nonatomic) NSArray<NSValue *> * _Nonnull cornerPoints;
-		[Export ("cornerPoints")]
-		NSValue [] CornerPoints { get; }
-
 		// @property (readonly, nonatomic) NSArray<FIRVisionTextRecognizedLanguage *> * _Nonnull recognizedLanguages;
 		[Export ("recognizedLanguages")]
 		VisionTextRecognizedLanguage [] RecognizedLanguages { get; }
+		
+		// @property (readonly, nonatomic) NSArray<NSValue *> * _Nonnull cornerPoints;
+		[Export ("cornerPoints")]
+		NSValue [] CornerPoints { get; }
 
 		// @property (readonly, nonatomic) NSNumber * _Nullable confidence;
 		[NullAllowed]
@@ -1189,22 +1270,32 @@ namespace Google.MobileVision {
 	interface Detector {
 		// +(GMVDetector *)detectorOfType:(NSString *)type options:(NSDictionary *)options;
 		[Static]
+		[return: NullAllowed]
 		[Export ("detectorOfType:options:")]
-		Detector Create (string type, NSDictionary options);
+		Detector Create (string type, [NullAllowed] NSDictionary options);
+
+		[Static]
+		[return: NullAllowed]
+		[Wrap ("Create (type, options == null ? null : NSDictionary.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (options.Values), System.Linq.Enumerable.ToArray (options.Keys), options.Keys.Count))")]
+		Detector Create (string type, [NullAllowed] Dictionary<object, object> options);
 
 		// -(NSArray<__kindof GMVFeature *> *)featuresInImage:(UIImage *)image options:(NSDictionary *)options;
+		[return: NullAllowed]
 		[Export ("featuresInImage:options:")]
-		Feature [] GetFeatures (UIImage image, NSDictionary nsOptions);
+		Feature [] GetFeatures (UIImage image, [NullAllowed] NSDictionary nsOptions);
 
+		[return: NullAllowed]
 		[Wrap ("GetFeatures (image, options == null ? null : NSDictionary.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (options.Values), System.Linq.Enumerable.ToArray (options.Keys), options.Keys.Count))")]
-		Feature [] GetFeatures (UIImage image, Dictionary<object, object> options);
+		Feature [] GetFeatures (UIImage image, [NullAllowed] Dictionary<object, object> options);
 
 		// -(NSArray<__kindof GMVFeature *> *)featuresInBuffer:(CMSampleBufferRef)sampleBuffer options:(NSDictionary *)options;
+		[return: NullAllowed]
 		[Export ("featuresInBuffer:options:")]
-		Feature [] GetFeatures (CMSampleBuffer sampleBuffer, NSDictionary options);
+		Feature [] GetFeatures (CMSampleBuffer sampleBuffer, [NullAllowed] NSDictionary options);
 
+		[return: NullAllowed]
 		[Wrap ("GetFeatures (sampleBuffer, options == null ? null : NSDictionary.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (options.Values), System.Linq.Enumerable.ToArray (options.Keys), options.Keys.Count))")]
-		Feature [] GetFeatures (CMSampleBuffer sampleBuffer, Dictionary<object, object> options);
+		Feature [] GetFeatures (CMSampleBuffer sampleBuffer, [NullAllowed] Dictionary<object, object> options);
 	}
 
 	[Static]
@@ -1677,6 +1768,80 @@ namespace Google.MobileVision {
 		TextLineFeature [] Lines { get; }
 	}
 
+	// @interface GMVFaceContour : NSObject
+	[BaseType (typeof (NSObject), Name = "GMVFaceContour")]
+	interface FacialContour {
+		// @property (readonly, copy, atomic) NSArray<NSValue *> * allPoints;
+		[BindAs (typeof (CGPoint []))]
+		[Export ("allPoints", ArgumentSemantic.Copy)]
+		NSValue [] AllPoints { get; }
+
+		// @property (readonly, copy, atomic) NSArray<NSValue *> * faceContour;
+		[BindAs (typeof (CGPoint []))]
+		[Export ("faceContour", ArgumentSemantic.Copy)]
+		NSValue [] FaceContour { get; }
+
+		// @property (readonly, copy, atomic) NSArray<NSValue *> * topLeftEyebrowContour;
+		[BindAs (typeof (CGPoint []))]
+		[Export ("topLeftEyebrowContour", ArgumentSemantic.Copy)]
+		NSValue [] TopLeftEyebrowContour { get; }
+
+		// @property (readonly, copy, atomic) NSArray<NSValue *> * bottomLeftEyebrowContour;
+		[BindAs (typeof (CGPoint []))]
+		[Export ("bottomLeftEyebrowContour", ArgumentSemantic.Copy)]
+		NSValue [] BottomLeftEyebrowContour { get; }
+
+		// @property (readonly, copy, atomic) NSArray<NSValue *> * topRightEyebrowContour;
+		[BindAs (typeof (CGPoint []))]
+		[Export ("topRightEyebrowContour", ArgumentSemantic.Copy)]
+		NSValue [] TopRightEyebrowContour { get; }
+
+		// @property (readonly, copy, atomic) NSArray<NSValue *> * bottomRightEyebrowContour;
+		[BindAs (typeof (CGPoint []))]
+		[Export ("bottomRightEyebrowContour", ArgumentSemantic.Copy)]
+		NSValue [] BottomRightEyebrowContour { get; }
+
+		// @property (readonly, copy, atomic) NSArray<NSValue *> * leftEyeContour;
+		[BindAs (typeof (CGPoint []))]
+		[Export ("leftEyeContour", ArgumentSemantic.Copy)]
+		NSValue [] LeftEyeContour { get; }
+
+		// @property (readonly, copy, atomic) NSArray<NSValue *> * rightEyeContour;
+		[BindAs (typeof (CGPoint []))]
+		[Export ("rightEyeContour", ArgumentSemantic.Copy)]
+		NSValue [] RightEyeContour { get; }
+
+		// @property (readonly, copy, atomic) NSArray<NSValue *> * topUpperLipContour;
+		[BindAs (typeof (CGPoint []))]
+		[Export ("topUpperLipContour", ArgumentSemantic.Copy)]
+		NSValue [] TopUpperLipContour { get; }
+
+		// @property (readonly, copy, atomic) NSArray<NSValue *> * bottomUpperLipContour;
+		[BindAs (typeof (CGPoint []))]
+		[Export ("bottomUpperLipContour", ArgumentSemantic.Copy)]
+		NSValue [] BottomUpperLipContour { get; }
+
+		// @property (readonly, copy, atomic) NSArray<NSValue *> * topLowerLipContour;
+		[BindAs (typeof (CGPoint []))]
+		[Export ("topLowerLipContour", ArgumentSemantic.Copy)]
+		NSValue [] TopLowerLipContour { get; }
+
+		// @property (readonly, copy, atomic) NSArray<NSValue *> * bottomLowerLipContour;
+		[BindAs (typeof (CGPoint []))]
+		[Export ("bottomLowerLipContour", ArgumentSemantic.Copy)]
+		NSValue [] BottomLowerLipContour { get; }
+
+		// @property (readonly, copy, atomic) NSArray<NSValue *> * noseBridgeContour;
+		[BindAs (typeof (CGPoint []))]
+		[Export ("noseBridgeContour", ArgumentSemantic.Copy)]
+		NSValue [] NoseBridgeContour { get; }
+
+		// @property (readonly, copy, atomic) NSArray<NSValue *> * bottomNoseContour;
+		[BindAs (typeof (CGPoint []))]
+		[Export ("bottomNoseContour", ArgumentSemantic.Copy)]
+		NSValue [] BottomNoseContour { get; }
+	}
+
 	// @interface GMVFaceFeature : GMVFeature
 	[BaseType (typeof (Feature), Name = "GMVFaceFeature")]
 	interface FaceFeature {
@@ -1695,6 +1860,14 @@ namespace Google.MobileVision {
 		// @property (readonly, assign, atomic) CGFloat headEulerAngleZ;
 		[Export ("headEulerAngleZ")]
 		nfloat HeadEulerAngleZ { get; }
+
+		// @property (atomic, assign, readonly) BOOL hasHeadEulerAngleX;
+		[Export ("hasHeadEulerAngleX")]
+		bool HasHeadEulerAngleX { get; }
+
+		// @property (atomic, assign, readonly) CGFloat headEulerAngleX;
+		[Export ("headEulerAngleX")]
+		nfloat HeadEulerAngleX { get; }
 
 		// @property (readonly, assign, atomic) BOOL hasMouthPosition;
 		[Export ("hasMouthPosition")]
@@ -1807,6 +1980,10 @@ namespace Google.MobileVision {
 		// @property (readonly, assign, atomic) CGFloat rightEyeOpenProbability;
 		[Export ("rightEyeOpenProbability")]
 		nfloat RightEyeOpenProbability { get; }
+
+		// @property (atomic, copy, readonly) GMVFaceContour* contour;
+		[Export ("contour", ArgumentSemantic.Copy)]
+		FacialContour Contour { get; }
 	}
 
 	// @interface GMVLabelFeature : GMVFeature

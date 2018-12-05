@@ -93,19 +93,25 @@ namespace Firebase.MLKit.Vision {
 	}
 
 	[Native]
-	public enum VisionFaceDetectorClassification : ulong {
+	public enum VisionFaceDetectorClassificationMode : ulong {
 		None = 1,
 		All
 	}
 
 	[Native]
-	public enum VisionFaceDetectorMode : ulong {
+	public enum VisionFaceDetectorPerformanceMode : ulong {
 		Fast = 1,
 		Accurate
 	}
 
 	[Native]
-	public enum VisionFaceDetectorLandmark : ulong {
+	public enum VisionFaceDetectorLandmarkMode : ulong {
+		None = 1,
+		All
+	}
+
+	[Native]
+	public enum VisionFaceDetectorContourMode : ulong {
 		None = 1,
 		All
 	}
@@ -141,12 +147,6 @@ namespace Firebase.MLKit.Vision {
 
 namespace Google.MobileVision {
 	[Native]
-	public enum ResultCoordinateSpace : long  {
-		ExifCoordinateSpace = 1,
-		CoordinateSpace = 2
-	}
-
-	[Native]
 	public enum DetectorError : long  {
 		DetectorInvalidInput = -301
 	}
@@ -166,13 +166,15 @@ namespace Google.MobileVision {
 	[Native]
 	public enum DetectorFaceModeOption : long  {
 		FastMode = 200,
-		AccurateMode = 201
+		AccurateMode = 201,
+		SelfieMode = 202
 	}
 
 	[Native]
 	public enum DetectorFaceLandmark : long  {
 		None = 1 << 0,
-		All = 1 << 1
+		All = 1 << 1,
+		Contour = 1 << 2
 	}
 
 	[Native]
