@@ -554,6 +554,7 @@ namespace Firebase.MLKit.Vision {
 		string Label { get; }
 
 		// @property (readonly, nonatomic) NSNumber * _Nullable confidence;
+		[BindAs (typeof (float?))]
 		[NullAllowed]
 		[Export ("confidence")]
 		NSNumber Confidence { get; }
@@ -587,6 +588,7 @@ namespace Firebase.MLKit.Vision {
 		string Landmark { get; }
 
 		// @property (readonly, nonatomic) NSNumber * _Nullable confidence;
+		[BindAs (typeof (float?))]
 		[NullAllowed]
 		[Export ("confidence")]
 		NSNumber Confidence { get; }
@@ -602,7 +604,7 @@ namespace Firebase.MLKit.Vision {
 	}
 
 	// typedef void (^FIRVisionCloudLandmarkDetectionCompletion)(NSArray<FIRVisionCloudLandmark *> * _Nullable, NSError * _Nullable);
-	delegate void VisionCloudLandmarkDetectionCompletionHandler ([NullAllowed] VisionCloudLandmark [] landmarks, [NullAllowed] NSError error);
+	delegate void VisionCloudLandmarkDetectionCallbackHandler ([NullAllowed] VisionCloudLandmark [] landmarks, [NullAllowed] NSError error);
 
 	// @interface FIRVisionCloudLandmarkDetector : NSObject
 	[DisableDefaultCtor]
@@ -611,7 +613,7 @@ namespace Firebase.MLKit.Vision {
 		// -(void)detectInImage:(FIRVisionImage * _Nonnull)image completion:(FIRVisionCloudLandmarkDetectionCompletion _Nonnull)completion;
 		[Async]
 		[Export ("detectInImage:completion:")]
-		void Detect (VisionImage image, VisionCloudLandmarkDetectionCompletionHandler completion);
+		void Detect (VisionImage image, VisionCloudLandmarkDetectionCallbackHandler completion);
 	}
 
 	// @interface FIRVisionCloudTextRecognizerOptions : NSObject
@@ -666,6 +668,7 @@ namespace Firebase.MLKit.Vision {
 		CGRect Frame { get; }
 
 		// @property (readonly, nonatomic) NSNumber * _Nonnull confidence;
+		[BindAs (typeof (float?))]
 		[Export ("confidence")]
 		NSNumber Confidence { get; }
 
@@ -696,6 +699,7 @@ namespace Firebase.MLKit.Vision {
 		CGRect Frame { get; }
 
 		// @property (readonly, nonatomic) NSNumber * _Nonnull confidence;
+		[BindAs (typeof (float))]
 		[Export ("confidence")]
 		NSNumber Confidence { get; }
 
@@ -735,6 +739,7 @@ namespace Firebase.MLKit.Vision {
 		CGRect Frame { get; }
 
 		// @property (readonly, nonatomic) NSNumber * _Nonnull confidence;
+		[BindAs (typeof (float))]
 		[Export ("confidence")]
 		NSNumber Confidence { get; }
 
@@ -765,6 +770,7 @@ namespace Firebase.MLKit.Vision {
 		CGRect Frame { get; }
 
 		// @property (readonly, nonatomic) NSNumber * _Nonnull confidence;
+		[BindAs (typeof (float))]
 		[Export ("confidence")]
 		NSNumber Confidence { get; }
 
@@ -913,7 +919,7 @@ namespace Firebase.MLKit.Vision {
 	}
 
 	// typedef void (^FIRVisionFaceDetectionCallback)(NSArray<FIRVisionFace *> * _Nullable, NSError * _Nullable);
-	delegate void VisionFaceDetectionCallbackHandler ([NullAllowed] VisionFace [] face, [NullAllowed] NSError error);
+	delegate void VisionFaceDetectionCallbackHandler ([NullAllowed] VisionFace [] faces, [NullAllowed] NSError error);
 
 	// @interface FIRVisionFaceDetector : NSObject
 	[DisableDefaultCtor]
@@ -1060,7 +1066,7 @@ namespace Firebase.MLKit.Vision {
 	}
 
 	// typedef void (^FIRVisionLabelDetectionCallback)(NSArray<FIRVisionLabel *> * _Nullable, NSError * _Nullable);
-	delegate void VisionLabelDetectionCallbackHandler ([NullAllowed] VisionLabel [] lables, [NullAllowed] NSError error);
+	delegate void VisionLabelDetectionCallbackHandler ([NullAllowed] VisionLabel [] labels, [NullAllowed] NSError error);
 
 	// @interface FIRVisionLabelDetector : NSObject
 	[DisableDefaultCtor]
@@ -1091,19 +1097,22 @@ namespace Firebase.MLKit.Vision {
 	[BaseType (typeof (NSObject), Name = "FIRVisionLatitudeLongitude")]
 	interface VisionLatitudeLongitude {
 		// @property (nonatomic) NSNumber * _Nullable latitude;
+		[BindAs (typeof (double?))]
 		[NullAllowed]
 		[Export ("latitude", ArgumentSemantic.Assign)]
 		NSNumber Latitude { get; set; }
 
 		// @property (nonatomic) NSNumber * _Nullable longitude;
+		[BindAs (typeof (double?))]
 		[NullAllowed]
 		[Export ("longitude", ArgumentSemantic.Assign)]
 		NSNumber Longitude { get; set; }
 
 		// -(instancetype _Nonnull)initWithLatitude:(NSNumber * _Nullable)latitude longitude:(NSNumber * _Nullable)longitude __attribute__((objc_designated_initializer));
+		[Internal]
 		[Export ("initWithLatitude:longitude:")]
 		[DesignatedInitializer]
-		IntPtr Constructor ([NullAllowed] NSNumber latitude, [NullAllowed] NSNumber longitude);
+		IntPtr _InitWithLatitudeAndLongitude ([NullAllowed] NSNumber latitude, [NullAllowed] NSNumber longitude);
 	}
 
 	// @interface FIRVisionPoint : NSObject
@@ -1111,14 +1120,17 @@ namespace Firebase.MLKit.Vision {
 	[BaseType (typeof (NSObject), Name = "FIRVisionPoint")]
 	interface VisionPoint {
 		// @property (readonly, nonatomic) NSNumber * _Nonnull x;
+		[BindAs (typeof (float))]
 		[Export ("x")]
 		NSNumber X { get; }
 
 		// @property (readonly, nonatomic) NSNumber * _Nonnull y;
+		[BindAs (typeof (float))]
 		[Export ("y")]
 		NSNumber Y { get; }
 
 		// @property (readonly, nonatomic) NSNumber * _Nullable z;
+		[BindAs (typeof (float?))]
 		[NullAllowed]
 		[Export ("z")]
 		NSNumber Z { get; }
@@ -1162,6 +1174,7 @@ namespace Firebase.MLKit.Vision {
 		NSValue [] CornerPoints { get; }
 
 		// @property (readonly, nonatomic) NSNumber * _Nullable confidence;
+		[BindAs (typeof (float?))]
 		[NullAllowed]
 		[Export ("confidence")]
 		NSNumber Confidence { get; }
@@ -1188,6 +1201,7 @@ namespace Firebase.MLKit.Vision {
 		NSValue [] CornerPoints { get; }
 
 		// @property (readonly, nonatomic) NSNumber * _Nullable confidence;
+		[BindAs (typeof (float?))]
 		[NullAllowed]
 		[Export ("confidence")]
 		NSNumber Confidence { get; }
@@ -1218,6 +1232,7 @@ namespace Firebase.MLKit.Vision {
 		NSValue [] CornerPoints { get; }
 
 		// @property (readonly, nonatomic) NSNumber * _Nullable confidence;
+		[BindAs (typeof (float?))]
 		[NullAllowed]
 		[Export ("confidence")]
 		NSNumber Confidence { get; }
