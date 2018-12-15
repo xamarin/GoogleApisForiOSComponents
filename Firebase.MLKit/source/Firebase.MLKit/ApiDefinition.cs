@@ -843,66 +843,12 @@ namespace Firebase.MLKit.Vision {
 		// -(FIRVisionFaceLandmark * _Nullable)landmarkOfType:(FIRFaceLandmarkType _Nonnull)type;
 		[return: NullAllowed]
 		[Export ("landmarkOfType:")]
-		VisionFaceLandmark GetLandmark (string type);
-	}
+		VisionFaceLandmark GetLandmark ([BindAs (typeof (FaceLandmarkType))] NSString type);
 
-	[Static]
-	interface FaceContourType {
-		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeAll;
-		[Field ("FIRFaceContourTypeAll", "__Internal")]
-		NSString All { get; }
-
-		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeFace;
-		[Field ("FIRFaceContourTypeFace", "__Internal")]
-		NSString Face { get; }
-
-		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeLeftEyebrowTop;
-		[Field ("FIRFaceContourTypeLeftEyebrowTop", "__Internal")]
-		NSString LeftEyebrowTop { get; }
-
-		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeLeftEyebrowBottom;
-		[Field ("FIRFaceContourTypeLeftEyebrowBottom", "__Internal")]
-		NSString LeftEyebrowBottom { get; }
-
-		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeRightEyebrowTop;
-		[Field ("FIRFaceContourTypeRightEyebrowTop", "__Internal")]
-		NSString RightEyebrowTop { get; }
-
-		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeRightEyebrowBottom;
-		[Field ("FIRFaceContourTypeRightEyebrowBottom", "__Internal")]
-		NSString RightEyebrowBottom { get; }
-
-		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeLeftEye;
-		[Field ("FIRFaceContourTypeLeftEye", "__Internal")]
-		NSString LeftEye { get; }
-
-		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeRightEye;
-		[Field ("FIRFaceContourTypeRightEye", "__Internal")]
-		NSString RightEye { get; }
-
-		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeUpperLipTop;
-		[Field ("FIRFaceContourTypeUpperLipTop", "__Internal")]
-		NSString UpperLipTop { get; }
-
-		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeUpperLipBottom;
-		[Field ("FIRFaceContourTypeUpperLipBottom", "__Internal")]
-		NSString UpperLipBottom { get; }
-
-		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeLowerLipTop;
-		[Field ("FIRFaceContourTypeLowerLipTop", "__Internal")]
-		NSString LowerLipTop { get; }
-
-		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeLowerLipBottom;
-		[Field ("FIRFaceContourTypeLowerLipBottom", "__Internal")]
-		NSString LowerLipBottom { get; }
-
-		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeNoseBridge;
-		[Field ("FIRFaceContourTypeNoseBridge", "__Internal")]
-		NSString NoseBridge { get; }
-
-		// extern const FIRFaceContourType _Nonnull FIRFaceContourTypeNoseBottom;
-		[Field ("FIRFaceContourTypeNoseBottom", "__Internal")]
-		NSString NoseBottom { get; }
+		// -(nullable FIRVisionFaceContour *)contourOfType:(FIRFaceContourType) type;
+		[return: NullAllowed]
+		[Export ("contourOfType:")]
+		VisionFaceContour GetContour ([BindAs (typeof (FaceContourType))] NSString type);
 	}
 
 	// @interface FIRVisionFaceContour : NSObject
@@ -910,6 +856,7 @@ namespace Firebase.MLKit.Vision {
 	[BaseType (typeof (NSObject), Name = "FIRVisionFaceContour")]
 	interface VisionFaceContour {
 		// @property (readonly, nonatomic) FIRFaceContourType _Nonnull type;
+		[BindAs (typeof (FaceLandmarkType))]
 		[Export ("type")]
 		NSString Type { get; }
 
@@ -964,56 +911,14 @@ namespace Firebase.MLKit.Vision {
 		bool TrackingEnabled { [Bind ("isTrackingEnabled")] get; set; }
 	}
 
-	[Static]
-	interface FaceLandmarkTypes {
-		// extern const FIRFaceLandmarkType _Nonnull FIRFaceLandmarkTypeMouthBottom;
-		[Field ("FIRFaceLandmarkTypeMouthBottom", "__Internal")]
-		NSString MouthBottom { get; }
-
-		// extern const FIRFaceLandmarkType _Nonnull FIRFaceLandmarkTypeMouthRight;
-		[Field ("FIRFaceLandmarkTypeMouthRight", "__Internal")]
-		NSString MouthRight { get; }
-
-		// extern const FIRFaceLandmarkType _Nonnull FIRFaceLandmarkTypeMouthLeft;
-		[Field ("FIRFaceLandmarkTypeMouthLeft", "__Internal")]
-		NSString MouthLeft { get; }
-
-		// extern const FIRFaceLandmarkType _Nonnull FIRFaceLandmarkTypeLeftEar;
-		[Field ("FIRFaceLandmarkTypeLeftEar", "__Internal")]
-		NSString LeftEar { get; }
-
-		// extern const FIRFaceLandmarkType _Nonnull FIRFaceLandmarkTypeRightEar;
-		[Field ("FIRFaceLandmarkTypeRightEar", "__Internal")]
-		NSString RightEar { get; }
-
-		// extern const FIRFaceLandmarkType _Nonnull FIRFaceLandmarkTypeLeftEye;
-		[Field ("FIRFaceLandmarkTypeLeftEye", "__Internal")]
-		NSString LeftEye { get; }
-
-		// extern const FIRFaceLandmarkType _Nonnull FIRFaceLandmarkTypeRightEye;
-		[Field ("FIRFaceLandmarkTypeRightEye", "__Internal")]
-		NSString RightEye { get; }
-
-		// extern const FIRFaceLandmarkType _Nonnull FIRFaceLandmarkTypeLeftCheek;
-		[Field ("FIRFaceLandmarkTypeLeftCheek", "__Internal")]
-		NSString LeftCheek { get; }
-
-		// extern const FIRFaceLandmarkType _Nonnull FIRFaceLandmarkTypeRightCheek;
-		[Field ("FIRFaceLandmarkTypeRightCheek", "__Internal")]
-		NSString RightCheek { get; }
-
-		// extern const FIRFaceLandmarkType _Nonnull FIRFaceLandmarkTypeNoseBase;
-		[Field ("FIRFaceLandmarkTypeNoseBase", "__Internal")]
-		NSString NoseBase { get; }
-	}
-
 	// @interface FIRVisionFaceLandmark : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRVisionFaceLandmark")]
 	interface VisionFaceLandmark {
 		// @property (readonly, nonatomic) FIRFaceLandmarkType _Nonnull type;
+		[BindAs (typeof (FaceLandmarkType))]
 		[Export ("type")]
-		string Type { get; }
+		NSString Type { get; }
 
 		// @property (readonly, nonatomic) FIRVisionPoint * _Nonnull position;
 		[Export ("position")]
@@ -1110,8 +1015,8 @@ namespace Firebase.MLKit.Vision {
 
 		// -(instancetype _Nonnull)initWithLatitude:(NSNumber * _Nullable)latitude longitude:(NSNumber * _Nullable)longitude __attribute__((objc_designated_initializer));
 		[Internal]
-		[Export ("initWithLatitude:longitude:")]
 		[DesignatedInitializer]
+		[Export ("initWithLatitude:longitude:")]
 		IntPtr _InitWithLatitudeAndLongitude ([NullAllowed] NSNumber latitude, [NullAllowed] NSNumber longitude);
 	}
 
@@ -1283,54 +1188,6 @@ namespace Google.MobileVision {
 	// @interface GMVDetector : NSObject
 	[BaseType (typeof (NSObject), Name = "GMVDetector")]
 	interface Detector {
-		// +(GMVDetector *)detectorOfType:(NSString *)type options:(NSDictionary *)options;
-		[Static]
-		[return: NullAllowed]
-		[Export ("detectorOfType:options:")]
-		Detector Create (string type, [NullAllowed] NSDictionary options);
-
-		[Static]
-		[return: NullAllowed]
-		[Wrap ("Create (type, options == null ? null : NSDictionary.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (options.Values), System.Linq.Enumerable.ToArray (options.Keys), options.Keys.Count))")]
-		Detector Create (string type, [NullAllowed] Dictionary<object, object> options);
-
-		// -(NSArray<__kindof GMVFeature *> *)featuresInImage:(UIImage *)image options:(NSDictionary *)options;
-		[return: NullAllowed]
-		[Export ("featuresInImage:options:")]
-		Feature [] GetFeatures (UIImage image, [NullAllowed] NSDictionary nsOptions);
-
-		[return: NullAllowed]
-		[Wrap ("GetFeatures (image, options == null ? null : NSDictionary.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (options.Values), System.Linq.Enumerable.ToArray (options.Keys), options.Keys.Count))")]
-		Feature [] GetFeatures (UIImage image, [NullAllowed] Dictionary<object, object> options);
-
-		// -(NSArray<__kindof GMVFeature *> *)featuresInBuffer:(CMSampleBufferRef)sampleBuffer options:(NSDictionary *)options;
-		[return: NullAllowed]
-		[Export ("featuresInBuffer:options:")]
-		Feature [] GetFeatures (CMSampleBuffer sampleBuffer, [NullAllowed] NSDictionary options);
-
-		[return: NullAllowed]
-		[Wrap ("GetFeatures (sampleBuffer, options == null ? null : NSDictionary.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (options.Values), System.Linq.Enumerable.ToArray (options.Keys), options.Keys.Count))")]
-		Feature [] GetFeatures (CMSampleBuffer sampleBuffer, [NullAllowed] Dictionary<object, object> options);
-	}
-
-	[Static]
-	interface DetectorConstants {
-		// extern NSString *const GMVDetectorTypeFace;
-		[Field ("GMVDetectorTypeFace", "__Internal")]
-		NSString FaceType { get; }
-
-		// extern NSString *const GMVDetectorTypeBarcode;
-		[Field ("GMVDetectorTypeBarcode", "__Internal")]
-		NSString BarcodeType { get; }
-
-		// extern NSString *const GMVDetectorTypeText;
-		[Field ("GMVDetectorTypeText", "__Internal")]
-		NSString TextType { get; }
-
-		// extern NSString *const GMVDetectorTypeLabel;
-		[Field ("GMVDetectorTypeLabel", "__Internal")]
-		NSString LabelType { get; }
-
 		// extern const float kGMVDetectorLabelScoreThresholdDefaultValue;
 		[Field ("kGMVDetectorLabelScoreThresholdDefaultValue", "__Internal")]
 		float LabelScoreThresholdDefaultValue { get; }
@@ -1366,33 +1223,35 @@ namespace Google.MobileVision {
 		// extern NSString *const GMVDetectorImageOrientation;
 		[Field ("GMVDetectorImageOrientation", "__Internal")]
 		NSString ImageOrientation { get; }
-	}
 
-	[Static]
-	interface FeatureTypes {
-		// extern NSString *const GMVFeatureTypeFace;
-		[Field ("GMVFeatureTypeFace", "__Internal")]
-		NSString Face { get; }
+		// +(GMVDetector *)detectorOfType:(NSString *)type options:(NSDictionary *)options;
+		[Static]
+		[return: NullAllowed]
+		[Export ("detectorOfType:options:")]
+		Detector Create ([BindAs (typeof (DetectorType))] NSString type, [NullAllowed] NSDictionary options);
 
-		// extern NSString *const GMVFeatureTypeBarcode;
-		[Field ("GMVFeatureTypeBarcode", "__Internal")]
-		NSString Barcode { get; }
+		[Static]
+		[return: NullAllowed]
+		[Wrap ("Create (type, options == null ? null : NSDictionary.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (options.Values), System.Linq.Enumerable.ToArray (options.Keys), options.Keys.Count))")]
+		Detector Create ([BindAs (typeof (DetectorType))] NSString type, [NullAllowed] Dictionary<object, object> options);
 
-		// extern NSString *const GMVFeatureTypeTextBlock;
-		[Field ("GMVFeatureTypeTextBlock", "__Internal")]
-		NSString TextBlock { get; }
+		// -(NSArray<__kindof GMVFeature *> *)featuresInImage:(UIImage *)image options:(NSDictionary *)options;
+		[return: NullAllowed]
+		[Export ("featuresInImage:options:")]
+		Feature [] GetFeatures (UIImage image, [NullAllowed] NSDictionary nsOptions);
 
-		// extern NSString *const GMVFeatureTypeTextLine;
-		[Field ("GMVFeatureTypeTextLine", "__Internal")]
-		NSString TextLine { get; }
+		[return: NullAllowed]
+		[Wrap ("GetFeatures (image, options == null ? null : NSDictionary.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (options.Values), System.Linq.Enumerable.ToArray (options.Keys), options.Keys.Count))")]
+		Feature [] GetFeatures (UIImage image, [NullAllowed] Dictionary<object, object> options);
 
-		// extern NSString *const GMVFeatureTypeTextElement;
-		[Field ("GMVFeatureTypeTextElement", "__Internal")]
-		NSString TextElement { get; }
+		// -(NSArray<__kindof GMVFeature *> *)featuresInBuffer:(CMSampleBufferRef)sampleBuffer options:(NSDictionary *)options;
+		[return: NullAllowed]
+		[Export ("featuresInBuffer:options:")]
+		Feature [] GetFeatures (CMSampleBuffer sampleBuffer, [NullAllowed] NSDictionary options);
 
-		// extern NSString *const GMVFeatureTypeLabel;
-		[Field ("GMVFeatureTypeLabel", "__Internal")]
-		NSString Label { get; }
+		[return: NullAllowed]
+		[Wrap ("GetFeatures (sampleBuffer, options == null ? null : NSDictionary.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (options.Values), System.Linq.Enumerable.ToArray (options.Keys), options.Keys.Count))")]
+		Feature [] GetFeatures (CMSampleBuffer sampleBuffer, [NullAllowed] Dictionary<object, object> options);
 	}
 
 	// @interface GMVFeature : NSObject
@@ -1403,8 +1262,9 @@ namespace Google.MobileVision {
 		CGRect Bounds { get; }
 
 		// @property (readonly, copy, atomic) NSString * type;
+		[BindAs (typeof (FeatureType))]
 		[Export ("type")]
-		string Type { get; }
+		NSString Type { get; }
 
 		// @property (readonly, assign, atomic) BOOL hasTrackingID;
 		[Export ("hasTrackingID")]

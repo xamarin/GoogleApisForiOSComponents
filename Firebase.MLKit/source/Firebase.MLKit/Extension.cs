@@ -4,12 +4,8 @@ using Foundation;
 
 namespace Firebase.MLKit.Vision {
 	public partial class VisionLatitudeLongitude : NSObject {
-		public VisionLatitudeLongitude (double latitude, double longitude) : base (NSObjectFlag.Empty)
+		public VisionLatitudeLongitude (double latitude, double longitude) : this (NSNumber.FromDouble (latitude), NSNumber.FromDouble (longitude))
 		{
-			var nsLatitude = NSNumber.FromDouble (latitude);
-			var nsLongitude = NSNumber.FromDouble (longitude);
-
-			Handle = _InitWithLatitudeAndLongitude (nsLatitude, nsLongitude);
 		}
 
 		public VisionLatitudeLongitude (NSNumber latitude, NSNumber longitude) : base (NSObjectFlag.Empty)
