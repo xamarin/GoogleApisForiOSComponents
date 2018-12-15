@@ -347,9 +347,7 @@ namespace Google.MobileVision {
 		Pdf417 = 2048,
 		Aztec = 4096
 	}
-}
 
-namespace Google.MobileVision {
 	public enum DetectorType {
 		// extern NSString *const GMVDetectorTypeFace;
 		[Field ("GMVDetectorTypeFace", "__Internal")]
