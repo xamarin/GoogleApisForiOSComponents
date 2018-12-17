@@ -40,6 +40,7 @@ target 'FirebaseCore' do
 	pod 'GoogleUtilities/Network', $GOOGLE_UTILITIES_VERSION
 	pod 'GoogleUtilities/NSData+zlib', $GOOGLE_UTILITIES_VERSION
 	pod 'GoogleUtilities/Reachability', $GOOGLE_UTILITIES_VERSION
+	pod 'GoogleUtilities/UserDefaults', $GOOGLE_UTILITIES_VERSION
 	pod 'GoogleToolboxForMac/NSData+zlib', $GOOGLE_TOOLBOX_FOR_MAC_VERSION
 	pod 'GoogleToolboxForMac/NSDictionary+URLArguments', $GOOGLE_TOOLBOX_FOR_MAC_VERSION
 	pod 'GoogleToolboxForMac/Logger', $GOOGLE_TOOLBOX_FOR_MAC_VERSION
