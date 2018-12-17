@@ -6,12 +6,18 @@ namespace Firebase.MLKit.ModelInterpreter {
 	public partial class ModelInputOutputOptions {
 		public bool SetInputFormat (nuint index, ModelElementType type, nuint [] dimensions, out NSError error)
 		{
+			if (dimensions == null)
+				throw new ArgumentNullException (nameof (dimensions));
+
 			var nsDimensions = NSArray.FromNSObjects ((d) => NSNumber.FromNUInt (d), dimensions);
 			return _SetInputFormat (index, type, nsDimensions, out error);
 		}
 
 		public bool SetOutputFormat (nuint index, ModelElementType type, nuint [] dimensions, out NSError error)
 		{
+			if (dimensions == null)
+				throw new ArgumentNullException (nameof (dimensions));
+
 			var nsDimensions = NSArray.FromNSObjects ((d) => NSNumber.FromNUInt (d), dimensions);
 			return _SetOutputFormat (index, type, nsDimensions, out error);
 		}
@@ -65,7 +71,7 @@ namespace Firebase.MLKit.ModelInterpreter {
 			if (input == null)
 				throw new ArgumentNullException (nameof (input));
 
-			var nsInput = NSArray.FromNSObjects<long> ((i) => NSNumber.FromLong ((nint)i), input);
+			var nsInput = NSArray.FromNSObjects ((i) => NSNumber.FromLong ((nint)i), input);
 			return _AddInput (nsInput, out error);
 		}
 
