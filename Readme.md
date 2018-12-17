@@ -18,6 +18,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                   | [3.0.2.0][F.DynamicLinks.Package]          |
 | [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                       | [3.2.1.0][F.InstanceID.Package]            |
 | [Xamarin.Firebase.iOS.Invites][F.Invites.Name]                             | [3.0.1.1][F.Invites.Package]               |
+| [Xamarin.Firebase.iOS.MLKit][F.MLKit.Name]                                 | [3.0.1.1][F.MLKit.Package]                 |
 | [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name] | [2.1.2.0][F.PerformanceMonitoring.Package] |
 | [Xamarin.Firebase.iOS.RemoteConfig][F.RemoteConfig.Name]                   | [3.0.1.0][F.RemoteConfig.Package]          |
 | [Xamarin.Firebase.iOS.Storage][F.Storage.Name]                             | [3.0.2.0][F.Storage.Package]               |
@@ -53,11 +54,12 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Auth                   | **5.0.4.0**       | **5.8.1**      |
 | Firebase Cloud Firestore        | **0.13.3.0**      | **5.8.1**      |
 | Firebase Cloud Messaging        | **3.1.2.0**       | **5.8.1**      |
-| Firebase Core                   | **5.1.8.0**       | **5.13.0**      |
+| Firebase Core                   | **5.1.8.0**       | **5.13.0**     |
 | Firebase Database               | **5.0.3.0**       | **5.8.1**      |
 | Firebase Dynamic Links          | **3.0.2.0**       | **5.8.1**      |
 | Firebase Instance ID            | **3.2.1.0**       | **5.8.1**      |
 | Firebase Invites                | **3.0.1.1**       | **5.8.1**      |
+| Firebase MLKit                  | **0.13.0.0**      | **5.13.0*      |
 | Firebase Performance Monitoring | **2.1.2.0**       | **5.8.1**      |
 | Firebase RemoteConfig           | **3.0.1.0**       | **5.8.1**      |
 | Firebase Storage                | **3.0.2.0**       | **5.8.1**      |
@@ -120,6 +122,7 @@ This project is part of the [.NET Foundation][104]
 [F.DynamicLinks.Name]: Firebase.DynamicLinks
 [F.InstanceID.Name]: Firebase.InstanceID
 [F.Invites.Name]: Firebase.Invites
+[F.MLKit.Name]: Firebase.MLKit
 [F.PerformanceMonitoring.Name]: Firebase.PerformanceMonitoring
 [F.RemoteConfig.Name]: Firebase.RemoteConfig
 [F.Storage.Name]: Firebase.Storage
@@ -138,6 +141,7 @@ This project is part of the [.NET Foundation][104]
 [F.DynamicLinks.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.DynamicLinks/
 [F.InstanceID.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.InstanceID/
 [F.Invites.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Invites/
+[F.MLKit.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.MLKit/
 [F.PerformanceMonitoring.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.PerformanceMonitoring/
 [F.RemoteConfig.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.RemoteConfig/
 [F.Storage.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Storage/
