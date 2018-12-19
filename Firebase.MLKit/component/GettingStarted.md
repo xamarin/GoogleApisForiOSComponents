@@ -9,7 +9,7 @@ ML Kit is a mobile SDK that brings Google's machine learning expertise to Androi
 - [Get Started with Firebase MLKit for iOS](#get-started-with-firebase-mlkit-for-ios)
 	- [Table of Content](#table-of-content)
 	- [Add Firebase to your app](#add-firebase-to-your-app)
-	- [Configure Analytics in your app](#configure-analytics-in-your-app)
+	- [Configure MLKit in your app](#configure-mlkit-in-your-app)
 - [Text Recognition](#text-recognition)
 	- [Choose between on-device and Cloud APIs](#choose-between-on-device-and-cloud-apis)
 - [Recognize Text in Images with ML Kit on iOS](#recognize-text-in-images-with-ml-kit-on-ios)
@@ -62,10 +62,10 @@ ML Kit is a mobile SDK that brings Google's machine learning expertise to Androi
 
 ## Add Firebase to your app
 
-1. Create a Firebase project in the [Firebase console][1], if you don't already have one. If you already have an existing Google project associated with your mobile app, click **Import Google Project**. Otherwise, click **Create New Project**.
-2. Click **Add Firebase to your iOS app** and follow the setup steps. If you're importing an existing Google project, this may happen automatically and you can just [download the config file][2].
+1. Create a Firebase project in the [Firebase console][10], if you don't already have one. If you already have an existing Google project associated with your mobile app, click **Import Google Project**. Otherwise, click **Create New Project**.
+2. Click **Add Firebase to your iOS app** and follow the setup steps. If you're importing an existing Google project, this may happen automatically and you can just [download the config file][11].
 3. When prompted, enter your app's bundle ID. It's important to enter the bundle ID your app is using; this can only be set when you add an app to your Firebase project.
-4. At the end, you'll download a `GoogleService-Info.plist` file. You can [download this file][2] again at any time.
+4. At the end, you'll download a `GoogleService-Info.plist` file. You can [download this file][11] again at any time.
 
 If you want to use the Cloud-based model, and you have not already enabled the Cloud-based APIs for your project, do so now:
 
@@ -80,7 +80,7 @@ If you want to use the Cloud-based model, and you have not already enabled the C
 
 If you want to use only the on-device model, you can skip these steps.
 
-## Configure Analytics in your app
+## Configure MLKit in your app
 
 Once you have your `GoogleService-Info.plist` file downloaded in your computer, do the following steps in Visual Studio:
 
@@ -1290,6 +1290,8 @@ Read this [document][9] to learn more about this.
 [7]: https://firebase.google.com/docs/ml-kit/face-detection-concepts
 [8]: https://developers.google.com/knowledge-graph/
 [9]: https://firebase.google.com/docs/ml-kit/ios/secure-api-key
+[10]: https://firebase.google.com/console/
+[11]: http://support.google.com/firebase/answer/7015592
 [note_icon]: https://cdn3.iconfinder.com/data/icons/UltimateGnome/22x22/apps/gnome-app-install-star.png
 [warning_icon]: https://cdn2.iconfinder.com/data/icons/freecns-cumulus/32/519791-101_Warning-20.png
 [available_icon]: https://cdn3.iconfinder.com/data/icons/flat-actions-icons-9/512/Tick_Mark-24.png

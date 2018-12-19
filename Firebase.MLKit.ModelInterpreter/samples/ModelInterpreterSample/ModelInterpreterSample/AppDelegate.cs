@@ -19,6 +19,7 @@ namespace ModelInterpreterSample {
 			// If not required for your application you can safely delete this method
 
 			var t = typeof (Firebase.MLKit.ModelInterpreter.ModelInterpreter);
+			var t2 = Firebase.Core.Configuration.SharedInstance;
 
 			return true;
 		}

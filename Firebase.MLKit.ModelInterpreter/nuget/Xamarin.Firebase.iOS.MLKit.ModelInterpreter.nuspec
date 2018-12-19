@@ -25,6 +25,6 @@
     <file src="output/Firebase.MLKit.ModelInterpreter.dll" target="lib/Xamarin.iOS10" />
 
     <!-- Add targets file for external native reference download -->
-    <file src="source/Firebase.MLKit/Firebase.MLKit.ModelInterpreter.targets" target="build/Xamarin.Firebase.iOS.MLKit.ModelInterpreter.targets" />
+    <file src="source/Firebase.MLKit.ModelInterpreter/Firebase.MLKit.ModelInterpreter.targets" target="build/Xamarin.Firebase.iOS.MLKit.ModelInterpreter.targets" />
   </files>
 </package>

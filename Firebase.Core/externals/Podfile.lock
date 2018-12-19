@@ -50,6 +50,8 @@ PODS:
   - GoogleUtilities/NSData+zlib (5.3.6)
   - GoogleUtilities/Reachability (5.3.6):
     - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (5.3.6):
+    - GoogleUtilities/Logger
   - GTMSessionFetcher (1.2.1):
     - GTMSessionFetcher/Full (= 1.2.1)
   - GTMSessionFetcher/Core (1.2.1)
@@ -81,6 +83,7 @@ DEPENDENCIES:
   - GoogleUtilities/Network (= 5.3.6)
   - GoogleUtilities/NSData+zlib (= 5.3.6)
   - GoogleUtilities/Reachability (= 5.3.6)
+  - GoogleUtilities/UserDefaults (= 5.3.6)
   - GTMSessionFetcher/Full (= 1.2.1)
   - leveldb-library (= 1.20.0)
   - nanopb (= 0.3.8)
@@ -98,6 +101,6 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
 
-PODFILE CHECKSUM: b81ac31ab5821745013aa7105317459435d2dd13
+PODFILE CHECKSUM: cb1139757a49baa3cd92cfb2fec181cb7a299306
 
 COCOAPODS: 1.4.0

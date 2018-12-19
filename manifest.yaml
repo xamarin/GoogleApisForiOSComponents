@@ -50,6 +50,18 @@
   BuildScript: ./Firebase.Invites/build.cake
   TriggerPaths: [ Firebase.Invites ]
   MacBuildTargets: [ samples, component ]
+- Name: Firebase.iOS.MLKit
+  BuildScript: ./Firebase.MLKit/build.cake
+  TriggerPaths: [ Firebase.MLKit ]
+  MacBuildTargets: [ samples, component ]
+- Name: Firebase.iOS.MLKit.Common
+  BuildScript: ./Firebase.MLKit.Common/build.cake
+  TriggerPaths: [ Firebase.MLKit.Common ]
+  MacBuildTargets: [ samples, component ]
+- Name: Firebase.iOS.MLKit.ModelInterpreter
+  BuildScript: ./Firebase.MLKit.ModelInterpreter/build.cake
+  TriggerPaths: [ Firebase.MLKit.ModelInterpreter ]
+  MacBuildTargets: [ samples, component ]
 - Name: Firebase.iOS.PerformanceMonitoring
   BuildScript: ./Firebase.PerformanceMonitoring/build.cake
   TriggerPaths: [ Firebase.PerformanceMonitoring ]
