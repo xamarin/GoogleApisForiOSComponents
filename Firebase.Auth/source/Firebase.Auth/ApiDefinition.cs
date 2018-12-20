@@ -246,7 +246,7 @@ namespace Firebase.Auth
 		// -(void)signInWithCustomToken:(NSString * _Nonnull)token completion:(FIRAuthResultCallback _Nullable)completion;
 		[Async]
 		[Export ("signInWithCustomToken:completion:")]
-		void SignInWithCustomToken (string token, [NullAllowed] AuthResultHandler completion);
+		void SignInWithCustomToken (string token, [NullAllowed] AuthDataResultHandler completion);
 
 		// -(void)signInAndRetrieveDataWithCustomToken:(NSString * _Nonnull)token completion:(FIRAuthDataResultCallback _Nullable)completion;
 		[Obsolete ("Please, use SignInWithCustomToken method instead.")]

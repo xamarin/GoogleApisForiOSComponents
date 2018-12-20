@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.Firebase.iOS.Auth</id>
     <title>Firebase APIs Auth iOS Library</title>
-    <version>5.0.4.0</version>
+    <version>5.0.4.1</version>
     <authors>Microsoft</authors>
     <owners>Microsoft</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
