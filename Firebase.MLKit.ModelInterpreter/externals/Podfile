@@ -1,0 +1,43 @@
+=begin
+Last run FirebaseMLKit installed:
+* Firebase (5.13.0)
+* FirebaseCore (5.1.8)
+* FirebaseInstanceID (3.3.0)
+* FirebaseMLCommon (0.13.0)
+* FirebaseMLModelInterpreter (0.13.0)
+* GTMSessionFetcher (1.2.1)
+* GoogleUtilities (5.3.6)
+* TensorFlowLite (1.10.1)
+
+Check if main version or subversion number has changed. 
+If yes, please, update *.targets files located in binding 
+projects, also, update Podfile files if needed.
+
+In Firebase.MLKit.ModelInterpreter binding project, you can find the .targets file of:
+* FirebaseMLModelInterpreter (0.13.0)
+* TensorFlowLite (1.10.1)
+
+In Firebase.MLKit.Common binding project, you can find the .targets file of:
+* FirebaseMLCommon (0.13.0)
+
+In Firebase.InstanceID binding project, you can find the .targets file of:
+* FirebaseInstanceID (3.3.0)
+
+In Firebase.Core binding project, you can find the Native Reference of:
+* FirebaseCore (5.1.8)
+* GTMSessionFetcher (1.2.1)
+* GoogleUtilities (5.3.6)
+=end
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '9.0'
+install! 'cocoapods', :integrate_targets => false
+
+$FIREBASE_VERSION = '5.13.0'
+$TENSOR_FLOW_LITE_VERSION = '1.10.1'
+
+target 'FirebaseMLKit' do
+	pod 'Firebase/MLModelInterpreter', $FIREBASE_VERSION
+	pod 'TensorFlowLite', $TENSOR_FLOW_LITE_VERSION
+end

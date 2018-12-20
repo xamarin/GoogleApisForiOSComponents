@@ -1,19 +1,19 @@
 =begin
 Last run FirebaseInstanceID installed:
-Installing FirebaseCore (5.1.2)
-Installing FirebaseInstanceID (3.2.1)
-Installing GoogleUtilities (5.2.2)
+* FirebaseCore (5.1.8)
+* FirebaseInstanceID (3.3.0)
+* GoogleUtilities (5.3.6)
 
 Check if main version or subversion number has changed. 
 If yes, please, update *.targets file located in binding 
 project, also, update Podfile file if needed.
 
 In Firebase.InstanceID binding project, you can find the .targets file of:
-* FirebaseInstanceID (3.2.1)
+* FirebaseInstanceID (3.3.0)
 
 In Firebase.Core binding project, you can find the Native Reference of:
-* FirebaseCore (5.1.2)
-* GoogleUtilities (5.2.2)
+* FirebaseCore (5.1.8)
+* GoogleUtilities (5.3.6)
 =end
 
 source 'https://github.com/CocoaPods/Specs.git'
@@ -22,5 +22,5 @@ platform :ios, '8.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'FirebaseInstanceID' do
-	pod 'FirebaseInstanceID', '3.2.1'
+	pod 'FirebaseInstanceID', '3.3.0'
 end

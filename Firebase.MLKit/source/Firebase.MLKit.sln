@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firebase.MLKit", "Firebase.MLKit\Firebase.MLKit.csproj", "{52E4C180-C6CB-4819-A5FD-0BE805FEEE33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firebase.Core", "..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.csproj", "{0AD1ED63-C008-41B3-8ADB-04696B4880E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firebase.MLKit.Common", "..\..\Firebase.MLKit.Common\source\Firebase.MLKit.Common\Firebase.MLKit.Common.csproj", "{43A3F6C8-A2D8-414E-8509-F824D0B3B838}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52E4C180-C6CB-4819-A5FD-0BE805FEEE33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52E4C180-C6CB-4819-A5FD-0BE805FEEE33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52E4C180-C6CB-4819-A5FD-0BE805FEEE33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52E4C180-C6CB-4819-A5FD-0BE805FEEE33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AD1ED63-C008-41B3-8ADB-04696B4880E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AD1ED63-C008-41B3-8ADB-04696B4880E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AD1ED63-C008-41B3-8ADB-04696B4880E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AD1ED63-C008-41B3-8ADB-04696B4880E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43A3F6C8-A2D8-414E-8509-F824D0B3B838}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43A3F6C8-A2D8-414E-8509-F824D0B3B838}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43A3F6C8-A2D8-414E-8509-F824D0B3B838}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43A3F6C8-A2D8-414E-8509-F824D0B3B838}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

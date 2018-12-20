@@ -1,21 +1,24 @@
 PODS:
-  - FirebaseCore (5.1.3):
+  - FirebaseCore (5.1.8):
     - GoogleUtilities/Logger (~> 5.2)
-  - FirebaseInstanceID (3.2.1):
+  - FirebaseInstanceID (3.3.0):
     - FirebaseCore (~> 5.1)
-    - GoogleUtilities/Environment (~> 5.2)
-  - GoogleUtilities/Environment (5.2.3)
-  - GoogleUtilities/Logger (5.2.3):
+    - GoogleUtilities/Environment (~> 5.3)
+    - GoogleUtilities/UserDefaults (~> 5.3)
+  - GoogleUtilities/Environment (5.3.6)
+  - GoogleUtilities/Logger (5.3.6):
     - GoogleUtilities/Environment
+  - GoogleUtilities/UserDefaults (5.3.6):
+    - GoogleUtilities/Logger
 
 DEPENDENCIES:
-  - FirebaseInstanceID (= 3.2.1)
+  - FirebaseInstanceID (= 3.3.0)
 
 SPEC CHECKSUMS:
-  FirebaseCore: 27bd80e5bfaaf9552a1f5cacb4c7e8bb925bab22
-  FirebaseInstanceID: ea5af6920d0a4a29b40459d055bebe4a6c1333c4
-  GoogleUtilities: 6f681e27050c5e130325e89fa0316dfca826f954
+  FirebaseCore: fba2bfaa691c49028309b92e4dd37cc4b5512fbe
+  FirebaseInstanceID: e2fa4cb35ef5558c200f7f0ad8a53e212215f93e
+  GoogleUtilities: 95996bea7c7d9b8fb811b7507669a4a8762f80c7
 
-PODFILE CHECKSUM: d735be29761de3544cbf9a932eb570eeb051d9ca
+PODFILE CHECKSUM: c0011280098d41d97c779e4b73500dc1849f3fbe
 
 COCOAPODS: 1.4.0

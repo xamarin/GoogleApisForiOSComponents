@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.Firebase.iOS.Invites</id>
     <title>Firebase APIs Invites iOS Library</title>
-    <version>3.0.1.0</version>
+    <version>3.0.1.1</version>
     <authors>Microsoft</authors>
     <owners>Microsoft</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -28,6 +28,5 @@
 
     <!-- Add targets file for external native reference download -->
     <file src="source/Firebase.Invites/Firebase.Invites.targets" target="build/Xamarin.Firebase.iOS.Invites.targets" />
-    <file src="External-Dependency-Info" target="THIRD-PARTY-NOTICES" />
   </files>
 </package>

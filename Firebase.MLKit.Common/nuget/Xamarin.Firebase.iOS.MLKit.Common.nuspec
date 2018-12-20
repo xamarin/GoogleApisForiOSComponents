@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>Xamarin.Firebase.iOS.MLKit.Common</id>
+    <title>Firebase APIs MLKit Common iOS Library</title>
+    <version>0.13.0.0</version>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>C# bindings for Firebase APIs MLKit Common iOS Library</description>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <projectUrl>https://go.microsoft.com/fwlink/?linkid=2029245</projectUrl>
+    <licenseUrl>https://go.microsoft.com/fwlink/?linkid=2028994</licenseUrl>
+    <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseiosmlkitcommon_128x128.png</iconUrl>
+    <dependencies>
+      <group targetFramework="Xamarin.iOS10">
+        <dependency id="Xamarin.Build.Download" version="0.4.11" />
+        <dependency id="Xamarin.Firebase.iOS.Core" version="5.1.8.0" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="output/Firebase.MLKit.Common.dll" target="lib/Xamarin.iOS10" />
+
+    <!-- Add targets file for external native reference download -->
+    <file src="source/Firebase.MLKit.Common/Firebase.MLKit.Common.targets" target="build/Xamarin.Firebase.iOS.MLKit.Common.targets" />
+  </files>
+</package>

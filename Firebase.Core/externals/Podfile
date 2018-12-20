@@ -3,12 +3,13 @@ Check if main version or subversion number has changed.
 If yes, please, update Podfile file if needed.
 
 In Firebase.Core binding project, you can find the Native Reference of:
-* Firebase (5.8.1)
+* Firebase (5.13.0)
 * FirebaseAuthInterop (1.0.0)
-* FirebaseCore (5.1.3)
-* GTMSessionFetcher (1.2.0)
+* FirebaseCore (5.1.8)
+* GTMSessionFetcher (1.2.1)
 * GoogleToolboxForMac (2.1.4)
-* GoogleUtilities (5.3.0)
+* GoogleUtilities (5.3.6)
+* GoogleAPIClientForREST (1.3.7)
 * Protobuf (3.6.1)
 * leveldb-library (1.20)
 * nanopb (0.3.8)
@@ -20,16 +21,17 @@ platform :ios, '8.0'
 install! 'cocoapods', :integrate_targets => false
 use_frameworks!
 
-$GOOGLE_UTILITIES_VERSION = '5.3.0'
+$GOOGLE_UTILITIES_VERSION = '5.3.6'
 $GOOGLE_TOOLBOX_FOR_MAC_VERSION = '2.1.4'
+$GOOGLE_API_CLIENT_FOR_REST_VERSION = '1.3.7'
 $NANOPB_VERSION = '0.3.8'
-$GTM_SESSION_FETCHER = '1.2.0'
+$GTM_SESSION_FETCHER = '1.2.1'
 $PROTOBUF_VERSION = '3.6.1'
 $LEVELDB_LIBRARY_VERSION = '1.20.0'
 $FIREBASE_AUTH_INTEROP_VERSION = '1.0.0'
 
 target 'FirebaseCore' do
-	pod 'Firebase/CoreOnly', '5.8.1'
+	pod 'Firebase/CoreOnly', '5.13.0'
 	pod 'GoogleUtilities/AppDelegateSwizzler', $GOOGLE_UTILITIES_VERSION
 	pod 'GoogleUtilities/Environment', $GOOGLE_UTILITIES_VERSION
 	pod 'GoogleUtilities/ISASwizzler', $GOOGLE_UTILITIES_VERSION
@@ -38,11 +40,14 @@ target 'FirebaseCore' do
 	pod 'GoogleUtilities/Network', $GOOGLE_UTILITIES_VERSION
 	pod 'GoogleUtilities/NSData+zlib', $GOOGLE_UTILITIES_VERSION
 	pod 'GoogleUtilities/Reachability', $GOOGLE_UTILITIES_VERSION
+	pod 'GoogleUtilities/UserDefaults', $GOOGLE_UTILITIES_VERSION
 	pod 'GoogleToolboxForMac/NSData+zlib', $GOOGLE_TOOLBOX_FOR_MAC_VERSION
 	pod 'GoogleToolboxForMac/NSDictionary+URLArguments', $GOOGLE_TOOLBOX_FOR_MAC_VERSION
 	pod 'GoogleToolboxForMac/Logger', $GOOGLE_TOOLBOX_FOR_MAC_VERSION
 	pod 'GoogleToolboxForMac/StringEncoding', $GOOGLE_TOOLBOX_FOR_MAC_VERSION
 	pod 'GoogleToolboxForMac/URLBuilder', $GOOGLE_TOOLBOX_FOR_MAC_VERSION
+	pod 'GoogleAPIClientForREST', $GOOGLE_API_CLIENT_FOR_REST_VERSION
+	pod 'GoogleAPIClientForREST/Vision', $GOOGLE_API_CLIENT_FOR_REST_VERSION
 	pod 'nanopb', $NANOPB_VERSION
 	pod 'GTMSessionFetcher/Full', $GTM_SESSION_FETCHER
 	pod 'Protobuf', $PROTOBUF_VERSION
