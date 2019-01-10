@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.Google.iOS.Maps</id>
     <title>Google APIs Maps iOS Library</title>
-    <version>2.5.0.1</version>
+    <version>2.7.0.0</version>
     <authors>Microsoft</authors>
     <owners>Microsoft</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>

@@ -520,6 +520,10 @@ namespace Google.Maps
 		[Export ("didTapMyLocationButtonForMapView:"), DelegateName ("GMSDidTapMyLocation"), DefaultValue (false)]
 		bool DidTapMyLocationButton (MapView mapView);
 
+		// - (void)mapView:(GMSMapView *)mapView didTapMyLocation:(CLLocationCoordinate2D)location;
+		[Export ("mapView:didTapMyLocation:"), EventArgs ("GMSMyLocationTapped"), EventName ("MyLocationTapped")]
+		void DidTapMyLocation (MapView mapView, CLLocationCoordinate2D location);
+
 		// - (void)mapViewDidStartTileRendering:(GMSMapView *)mapView;
 		[Export ("mapViewDidStartTileRendering:"), EventArgs ("GMSTileRendering"), EventName ("TileRenderingStarted")]
 		void DidStartTileRendering (MapView mapView);
@@ -612,7 +616,7 @@ namespace Google.Maps
 
 		// @property(nonatomic, nullable) GMSCoordinateBounds *cameraTargetBounds;
 		[NullAllowed]
-		[Export ("cameraTargetBounds")]
+		[Export ("cameraTargetBounds", ArgumentSemantic.Strong)]
 		CoordinateBounds CameraTargetBounds { get; set; }
 
 		[Static]
@@ -718,6 +722,7 @@ namespace Google.Maps
 		[Export ("opacity", ArgumentSemantic.Assign)]
 		float Opacity { get; set; }
 
+		[New]
 		[NullAllowed]
 		[Export ("userData", ArgumentSemantic.Strong)]
 		NSObject UserData { get; set; }
@@ -739,7 +744,7 @@ namespace Google.Maps
 	}
 
 	[DisableDefaultCtor]
-	[BaseType (typeof (CALayer), Name = "GMSMarkerLayer")]
+	[BaseType (typeof (OverlayLayer), Name = "GMSMarkerLayer")]
 	interface MarkerLayer
 	{
 
@@ -806,6 +811,11 @@ namespace Google.Maps
 		[Export ("userData", ArgumentSemantic.Strong)]
 		NSObject UserData { get; set; }
 	}
+
+	// @interface GMSOverlayLayer : CALayer
+	[DisableDefaultCtor]
+	[BaseType (typeof (CALayer), Name = "GMSOverlayLayer")]
+	interface OverlayLayer { }
 
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GMSPanorama")]
@@ -917,6 +927,14 @@ namespace Google.Maps
 		[Export ("requestPanoramaNearCoordinate:radius:callback:")]
 		void RequestPanorama (CLLocationCoordinate2D coordinate, nuint radius, PanoramaCallback callback);
 
+		// - (void)requestPanoramaNearCoordinate:(CLLocationCoordinate2D)coordinate source:(GMSPanoramaSource)source callback:(GMSPanoramaCallback)callback;
+		[Export ("requestPanoramaNearCoordinate:source:callback:")]
+		void RequestPanorama (CLLocationCoordinate2D coordinate, PanoramaSource source, PanoramaCallback callback);
+
+		// - (void) requestPanoramaNearCoordinate:(CLLocationCoordinate2D)coordinate radius:(NSUInteger)radius source:(GMSPanoramaSource)source callback:(GMSPanoramaCallback)callback;
+		[Export ("requestPanoramaNearCoordinate:radius:source:callback:")]
+		void RequestPanorama (CLLocationCoordinate2D coordinate, nuint radius, PanoramaSource source, PanoramaCallback callback);
+
 		[Export ("requestPanoramaWithID:callback:")]
 		void RequestPanorama (string panoramaID, PanoramaCallback callback);
 	}
@@ -1019,6 +1037,14 @@ namespace Google.Maps
 		[Export ("moveNearCoordinate:radius:")]
 		void MoveNearCoordinate (CLLocationCoordinate2D coordinate, nuint radius);
 
+		// -(void)moveNearCoordinate:(CLLocationCoordinate2D)coordinate source:(GMSPanoramaSource)source;
+		[Export ("moveNearCoordinate:source:")]
+		void MoveNearCoordinate (CLLocationCoordinate2D coordinate, PanoramaSource source);
+
+		// -(void)moveNearCoordinate:(CLLocationCoordinate2D)coordinate radius:(NSUInteger)radius source:(GMSPanoramaSource)source;
+		[Export ("moveNearCoordinate:radius:source:")]
+		void MoveNearCoordinate (CLLocationCoordinate2D coordinate, nuint radius, PanoramaSource source);
+
 		[Export ("moveToPanoramaID:")]
 		void MoveToPanoramaId (string panoramaId);
 
@@ -1035,6 +1061,16 @@ namespace Google.Maps
 		[Static]
 		[Export ("panoramaWithFrame:nearCoordinate:radius:")]
 		PanoramaView FromFrame (CGRect frame, CLLocationCoordinate2D coordinate, nuint radius);
+
+		// +(instancetype _Nonnull)panoramaWithFrame:(CGRect)frame nearCoordinate:(CLLocationCoordinate2D)coordinate source:(GMSPanoramaSource)source;
+		[Static]
+		[Export ("panoramaWithFrame:nearCoordinate:source:")]
+		PanoramaView FromFrame (CGRect frame, CLLocationCoordinate2D coordinate, PanoramaSource source);
+
+		// +(instancetype _Nonnull)panoramaWithFrame:(CGRect)frame nearCoordinate:(CLLocationCoordinate2D)coordinate radius:(NSUInteger)radius source:(GMSPanoramaSource)source;
+		[Static]
+		[Export ("panoramaWithFrame:nearCoordinate:radius:source:")]
+		PanoramaView FromFrame (CGRect frame, CLLocationCoordinate2D coordinate, nuint radius, PanoramaSource source);
 	}
 
 	[BaseType (typeof (NSObject), Name = "GMSPath")]
@@ -1202,6 +1238,11 @@ namespace Google.Maps
 		[Static]
 		[Export ("provideAPIKey:")]
 		bool ProvideAPIKey (string APIKey);
+
+		// +(BOOL)provideAPIOptions:(NSArray<NSString *> * _Nonnull)APIOptions;
+		[Static]
+		[Export ("provideAPIOptions:")]
+		bool ProvideApiOptions (string [] apiOptions);
 
 		[Static]
 		[Export ("openSourceLicenseInfo")]
