@@ -1,24 +1,24 @@
 PODS:
-  - GoogleMaps (2.5.0):
-    - GoogleMaps/Maps (= 2.5.0)
-  - GoogleMaps/Base (2.5.0)
-  - GoogleMaps/Maps (2.5.0):
+  - GoogleMaps (2.7.0):
+    - GoogleMaps/Maps (= 2.7.0)
+  - GoogleMaps/Base (2.7.0)
+  - GoogleMaps/Maps (2.7.0):
     - GoogleMaps/Base
-  - GooglePlacePicker (2.5.0):
-    - GoogleMaps (= 2.5.0)
-    - GooglePlaces (= 2.5.0)
-  - GooglePlaces (2.5.0):
-    - GoogleMaps/Base (= 2.5.0)
+  - GooglePlacePicker (2.7.0):
+    - GoogleMaps (= 2.7.0)
+    - GooglePlaces (= 2.7.0)
+  - GooglePlaces (2.7.0):
+    - GoogleMaps/Base (= 2.7.0)
 
 DEPENDENCIES:
-  - GooglePlacePicker (= 2.5.0)
-  - GooglePlaces (= 2.5.0)
+  - GooglePlacePicker (= 2.7.0)
+  - GooglePlaces (= 2.7.0)
 
 SPEC CHECKSUMS:
-  GoogleMaps: c087b8e5dfe87ca6ebf59adb9b4894a4146bec4f
-  GooglePlacePicker: 1573e644ab54564d95c2643edc0f29091609e966
-  GooglePlaces: dd70d9d71ea1c7944846afe67de3712c99b30a77
+  GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
+  GooglePlacePicker: 59ea44db173c58486ad6123993e81feefcbce9c3
+  GooglePlaces: 3d06e6c99654545b4738ce49648745779c25f2ef
 
-PODFILE CHECKSUM: 8dad7bdaa5730b2f5618795aa41ead194429a297
+PODFILE CHECKSUM: 2d593001d7fee35fa30df2b3a2c50a5c0a523be7
 
 COCOAPODS: 1.4.0

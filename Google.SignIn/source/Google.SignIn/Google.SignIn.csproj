@@ -57,11 +57,4 @@
   <ItemGroup>
     <None Include="Google.SignIn.targets" />
   </ItemGroup>
-  <ItemGroup>
-    <NativeReference Include="..\..\externals\GTMOAuth2.framework">
-      <Kind>Framework</Kind>
-      <Frameworks>Security SystemConfiguration</Frameworks>
-      <ForceLoad>True</ForceLoad>
-    </NativeReference>
-  </ItemGroup>
 </Project>
