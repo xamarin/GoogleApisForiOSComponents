@@ -56,6 +56,12 @@ namespace Google.Maps
 	}
 
 	[Native]
+	public enum PanoramaSource : ulong {
+		Default = 0,
+		Outside
+	}
+
+	[Native]
 	public enum LengthKind : ulong
 	{
 		Geodesic,
