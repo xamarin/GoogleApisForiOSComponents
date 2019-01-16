@@ -1,4 +1,4 @@
-version: 4.2.0.0
+version: 4.4.0.0
 name: Google Sign-In for iOS
 id: googleiossignin
 publisher: Xamarin Inc.
@@ -16,7 +16,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Google.iOS.SignIn, Version=4.2.0.0
+  - Xamarin.Google.iOS.SignIn, Version=4.4.0.0
 samples:
 - name: Sign-In Sample
   path: ../samples/SignInExample/SignInExample.sln
@@ -32,6 +32,3 @@ samples:
   - //xNS:Import[contains (@Project, 'Google.SignIn.targets')]
 local-nuget-repo: ../../tmp-nugets
 no_build: true
-additional-files:
-- source: ../External-Dependency-Info
-  destination: THIRD-PARTY-NOTICES
