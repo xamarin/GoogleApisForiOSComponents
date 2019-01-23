@@ -3,12 +3,12 @@ Check if main version or subversion number has changed.
 If yes, please, update Podfile file if needed.
 
 In Firebase.Core binding project, you can find the Native Reference of:
-* Firebase (5.13.0)
+* Firebase (5.15.0)
 * FirebaseAuthInterop (1.0.0)
-* FirebaseCore (5.1.8)
+* FirebaseCore (5.1.10)
 * GTMSessionFetcher (1.2.1)
 * GoogleToolboxForMac (2.1.4)
-* GoogleUtilities (5.3.6)
+* GoogleUtilities (5.3.7)
 * GoogleAPIClientForREST (1.3.7)
 * Protobuf (3.6.1)
 * leveldb-library (1.20)
@@ -21,7 +21,7 @@ platform :ios, '8.0'
 install! 'cocoapods', :integrate_targets => false
 use_frameworks!
 
-$GOOGLE_UTILITIES_VERSION = '5.3.6'
+$GOOGLE_UTILITIES_VERSION = '5.3.7'
 $GOOGLE_TOOLBOX_FOR_MAC_VERSION = '2.1.4'
 $GOOGLE_API_CLIENT_FOR_REST_VERSION = '1.3.7'
 $NANOPB_VERSION = '0.3.8'
@@ -31,7 +31,7 @@ $LEVELDB_LIBRARY_VERSION = '1.20.0'
 $FIREBASE_AUTH_INTEROP_VERSION = '1.0.0'
 
 target 'FirebaseCore' do
-	pod 'Firebase/CoreOnly', '5.13.0'
+	pod 'Firebase/CoreOnly', '5.15.0'
 	pod 'GoogleUtilities/AppDelegateSwizzler', $GOOGLE_UTILITIES_VERSION
 	pod 'GoogleUtilities/Environment', $GOOGLE_UTILITIES_VERSION
 	pod 'GoogleUtilities/ISASwizzler', $GOOGLE_UTILITIES_VERSION
