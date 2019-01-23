@@ -16,7 +16,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.Crashlytics][F.Crashlytics.Name]                       | [3.10.3.1][F.Crashlytics.Package]            |
 | [Xamarin.Firebase.iOS.Database][F.Database.Name]                             | [5.0.3.0][F.Database.Package]                |
 | [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                     | [3.0.2.0][F.DynamicLinks.Package]            |
-| [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                         | [3.3.0.0][F.InstanceID.Package]              |
+| [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                         | [3.3.0.1][F.InstanceID.Package]              |
 | [Xamarin.Firebase.iOS.Invites][F.Invites.Name]                               | [3.0.1.1][F.Invites.Package]                 |
 | [Xamarin.Firebase.iOS.MLKit][F.MLKit.Name]                                   | [0.13.0.0][F.MLKit.Package]                  |
 | [Xamarin.Firebase.iOS.MLKit.Common][F.MLKit.Common.Name]                     | [0.13.0.0][F.MLKit.Common.Package]           |
@@ -59,7 +59,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Core                    | **5.1.10.0**      | **5.15.0**     |
 | Firebase Database                | **5.0.3.0**       | **5.8.1**      |
 | Firebase Dynamic Links           | **3.0.2.0**       | **5.8.1**      |
-| Firebase Instance ID             | **3.3.0.0**       | **5.13.0**     |
+| Firebase Instance ID             | **3.3.0.1**       | **5.15.0**     |
 | Firebase Invites                 | **3.0.1.1**       | **5.8.1**      |
 | Firebase MLKit                   | **0.13.0.0**      | **5.13.0*      |
 | Firebase MLKit Common            | **0.13.0.0**      | **5.13.0*      |
