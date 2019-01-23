@@ -18,7 +18,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                     | [3.0.2.0][F.DynamicLinks.Package]            |
 | [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                         | [3.3.0.1][F.InstanceID.Package]              |
 | [Xamarin.Firebase.iOS.Invites][F.Invites.Name]                               | [3.0.1.1][F.Invites.Package]                 |
-| [Xamarin.Firebase.iOS.MLKit][F.MLKit.Name]                                   | [0.13.0.0][F.MLKit.Package]                  |
+| [Xamarin.Firebase.iOS.MLKit][F.MLKit.Name]                                   | [0.13.0.1][F.MLKit.Package]                  |
 | [Xamarin.Firebase.iOS.MLKit.Common][F.MLKit.Common.Name]                     | [0.13.0.0][F.MLKit.Common.Package]           |
 | [Xamarin.Firebase.iOS.MLKit.ModelInterpreter][F.MLKit.ModelInterpreter.Name] | [0.13.0.0][F.MLKit.ModelInterpreter.Package] |
 | [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name]   | [2.1.2.0][F.PerformanceMonitoring.Package]   |
@@ -61,7 +61,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Dynamic Links           | **3.0.2.0**       | **5.8.1**      |
 | Firebase Instance ID             | **3.3.0.1**       | **5.15.0**     |
 | Firebase Invites                 | **3.0.1.1**       | **5.8.1**      |
-| Firebase MLKit                   | **0.13.0.0**      | **5.13.0*      |
+| Firebase MLKit                   | **0.13.0.1**      | **5.13.0*      |
 | Firebase MLKit Common            | **0.13.0.0**      | **5.13.0*      |
 | Firebase MLKit Model Interpreter | **0.13.0.0**      | **5.13.0*      |
 | Firebase Performance Monitoring  | **2.1.2.0**       | **5.8.1**      |
