@@ -97,9 +97,10 @@ public abstract class Firebase
 			get { return new [] { new Firebase.ABTesting ().Name, new Firebase.AdMob ().Name, new Firebase.Analytics ().Name, 
 					new Firebase.Auth ().Name, new Firebase.CloudFirestore ().Name, new Firebase.CloudMessaging ().Name, 
 					new Firebase.Database ().Name, new Firebase.DynamicLinks ().Name, new Firebase.InstanceID ().Name, 
-					new Firebase.Invites ().Name, new Firebase.PerformanceMonitoring ().Name, new Firebase.RemoteConfig ().Name, 
-					new Firebase.Storage ().Name, new Google.Cast ().Name, new Google.InstanceID ().Name, new Google.PlayGames ().Name, 
-					new Google.SignIn ().Name, new Google.TagManager ().Name };
+					new Firebase.Invites ().Name, new Firebase.MLKit ().Name, new Firebase.MLKit.Common ().Name, 
+					new Firebase.MLKit.ModelInterpreter ().Name, new Firebase.PerformanceMonitoring ().Name, new Firebase.RemoteConfig ().Name, 
+					new Firebase.Storage ().Name, new Google.Cast ().Name, new Google.InstanceID ().Name, 
+					new Google.PlayGames ().Name, new Google.SignIn ().Name, new Google.TagManager ().Name };
 			}
 		}
 	}
@@ -158,8 +159,8 @@ public abstract class Firebase
 		public override string [] BaseOf  { 
 			get { return new [] { new Firebase.ABTesting ().Name, new Firebase.AdMob ().Name, new Firebase.Analytics ().Name, 
 					new Firebase.CloudMessaging ().Name, new Firebase.DynamicLinks ().Name, new Firebase.Invites ().Name, 
-					new Firebase.PerformanceMonitoring ().Name, new Firebase.RemoteConfig ().Name, new Google.InstanceID ().Name, 
-					new Google.TagManager ().Name };
+					new Firebase.MLKit.ModelInterpreter ().Name, new Firebase.PerformanceMonitoring ().Name, new Firebase.RemoteConfig ().Name, 
+					new Google.InstanceID ().Name, new Google.TagManager ().Name };
 			}
 		}
 	}
@@ -171,6 +172,39 @@ public abstract class Firebase
 		}
 		public override string NuGetId { 
 			get { return "Xamarin.Firebase.iOS.Invites"; }
+		}
+	}
+
+	public class MLKit : GoogleBase
+	{
+		public override string Name  { 
+			get { return "Firebase.MLKit"; }
+		}
+		public override string NuGetId { 
+			get { return "Xamarin.Firebase.iOS.MLKit"; }
+		}
+
+		public class Common : MLKit
+		{
+			public override string Name  { 
+				get { return "Firebase.MLKit.Common"; }
+			}
+			public override string NuGetId { 
+				get { return "Xamarin.Firebase.iOS.MLKit.Common"; }
+			}
+			public override string [] BaseOf  { 
+				get { return new [] { new Firebase.MLKit ().Name, new Firebase.MLKit.ModelInterpreter ().Name }; }
+			}
+		}
+
+		public class ModelInterpreter : MLKit
+		{
+			public override string Name  { 
+				get { return "Firebase.MLKit.ModelInterpreter"; }
+			}
+			public override string NuGetId { 
+				get { return "Xamarin.Firebase.iOS.MLKit.ModelInterpreter"; }
+			}
 		}
 	}
 
@@ -349,7 +383,8 @@ public abstract class Xamarin
 							new Firebase.DynamicLinks ().Name, new Firebase.InstanceID ().Name, new Firebase.Invites ().Name, 
 							new Firebase.PerformanceMonitoring ().Name, new Firebase.RemoteConfig ().Name, new Firebase.Storage ().Name, 
 							new Google.Analytics ().Name, new Google.AppIndexing ().Name, new Google.Cast ().Name, 
-							new Google.InstanceID ().Name, new Google.Maps ().Name, new Google.MobileAds ().Name, 
+							new Google.InstanceID ().Name, new Firebase.MLKit ().Name, new Firebase.MLKit.Common ().Name, 
+							new Firebase.MLKit.ModelInterpreter ().Name, new Google.Maps ().Name, new Google.MobileAds ().Name, 
 							new Google.Places ().Name, new Google.PlayGames ().Name, new Google.SignIn ().Name, 
 							new Google.TagManager ().Name };
 				}
