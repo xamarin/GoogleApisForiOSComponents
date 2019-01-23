@@ -933,6 +933,18 @@ namespace Google.MobileAds {
 		// -(void)cancelUnconfirmedClick;
 		[Export ("cancelUnconfirmedClick")]
 		void CancelUnconfirmedClick ();
+
+		///
+		/// From UnifiedNativeAd_CustomClickGesture Category
+		///
+
+		// - (void)enableCustomClickGestures;
+		[Export ("enableCustomClickGestures")]
+		void EnableCustomClickGestures ();
+
+		// - (void)recordCustomClickGesture;
+		[Export ("recordCustomClickGesture")]
+		void RecordCustomClickGesture ();
 	}
 
 	interface IUnifiedNativeAdLoaderDelegate { }
@@ -1396,6 +1408,7 @@ namespace Google.MobileAds {
 		UIImage Image { get; }
 
 		// @property (readonly, nonatomic, strong) NSURL * imageURL;
+		[NullAllowed]
 		[Export ("imageURL", ArgumentSemantic.Copy)]
 		NSUrl ImageUrl { get; }
 
