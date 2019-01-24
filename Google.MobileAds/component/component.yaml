@@ -6,8 +6,8 @@ publisher-url: https://xamarin.com
 src-url: https://github.com/xamarin/GoogleApisForiOSComponents/tree/master/Google.MobileAds
 summary: Connect with advertisers and show relevant ads in your app. Users click on ads, you make money.
 icons:
-- ../../icons/googlemobileads_128x128.png
-- ../../icons/googlemobileads_512x512.png
+- ../../icons/googleiosmobileads_128x128.png
+- ../../icons/googleiosmobileads_512x512.png
 docs-url: https://developers.google.com/admob/
 libraries:
   ios-unified:
