@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.Firebase.iOS.Core</id>
     <title>Firebase APIs Core iOS Library</title>
-    <version>5.1.10.0</version>
+    <version>5.2.0.0</version>
     <authors>Microsoft</authors>
     <owners>Microsoft</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
