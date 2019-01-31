@@ -19,10 +19,7 @@ buildSpec = new BuildSpec () {
 	},
 
 	Samples = new ISolutionBuilder [] {
-		new IOSSolutionBuilder { SolutionPath = "./samples/AdMobSample/AdMobSample.sln", Configuration = "Release", BuildsOn = BuildPlatforms.Mac,
-		Properties = new Dictionary<string, List<string>> {
-			{ "MtouchArch", new List<string> { "ARM64" } }
-		} },
+		new IOSSolutionBuilder { SolutionPath = "./samples/AdMobSample/AdMobSample.sln", Configuration = "Release", BuildsOn = BuildPlatforms.Mac },
 	},
 
 	NuGets = new [] {
