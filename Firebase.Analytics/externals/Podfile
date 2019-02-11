@@ -1,28 +1,28 @@
 =begin
 Last run FirebaseAnalytics installed:
-* Firebase (5.8.1)
-* FirebaseAnalytics (5.1.4)
-* FirebaseCore (5.1.3)
-* FirebaseInstanceID (3.2.1)
-* GoogleAppMeasurement (5.1.4)
-* GoogleUtilities (5.3.0)
-* nanopb (0.3.8)
+* Firebase (5.16.0)
+* FirebaseAnalytics (5.5.0)
+* FirebaseCore (5.2.0)
+* FirebaseInstanceID (3.4.0)
+* GoogleAppMeasurement (5.5.0)
+* GoogleUtilities (5.3.7)
+* nanopb (0.3.901)
 
 Check if main version or subversion number has changed. 
 If yes, please, update *.targets files located in binding 
 projects, also, update Podfile files if needed.
 
 In Firebase.Analytics binding project, you can find the .targets file of:
-* FirebaseAnalytics (5.1.4)
-* GoogleAppMeasurement (5.1.4)
+* FirebaseAnalytics (5.5.0)
+* GoogleAppMeasurement (5.5.0)
 
 In Firebase.InstanceID binding project, you can find the .targets file of:
-* FirebaseInstanceID (3.2.1)
+* FirebaseInstanceID (3.4.0)
 
 In Firebase.Core binding project, you can find the Native Reference of:
-* FirebaseCore (5.1.3)
-* GoogleUtilities (5.3.0)
-* nanopb (0.3.8)
+* FirebaseCore (5.2.0)
+* GoogleUtilities (5.3.7)
+* nanopb (0.3.901)
 =end
 
 source 'https://github.com/CocoaPods/Specs.git'
@@ -31,6 +31,6 @@ platform :ios, '8.0'
 install! 'cocoapods', :integrate_targets => false
 
 target 'FirebaseAnalytics' do
-	pod 'Firebase/Analytics', '5.8.1'
-	pod 'GoogleAppMeasurement', '5.1.4'
+	pod 'Firebase/Analytics', '5.16.0'
+	pod 'GoogleAppMeasurement', '5.5.0'
 end

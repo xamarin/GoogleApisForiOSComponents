@@ -467,6 +467,14 @@ namespace Google.MobileAds {
 
 	}
 
+	// @interface GADMediaContent : NSObject
+	[BaseType (typeof (NSObject), Name = "GADMediaContent")]
+	interface MediaContent {
+		// @property(nonatomic, readonly) CGFloat aspectRatio;
+		[Export ("aspectRatio")]
+		nfloat AspectRatio { get; }
+	}
+
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GADRequest")]
 	interface Request : INSCopying {
@@ -902,6 +910,10 @@ namespace Google.MobileAds {
 		[Export ("muteThisAdReasons")]
 		MuteThisAdReason [] MuteThisAdReasons { get; }
 
+		// @property(nonatomic, readonly, nonnull) GADMediaContent *mediaContent;
+		[Export ("mediaContent")]
+		MediaContent MediaContent { get; }
+
 		// -(void)registerAdView:(UIView * _Nonnull)adView clickableAssetViews:(NSDictionary<GADUnifiedNativeAssetIdentifier,UIView *> * _Nonnull)clickableAssetViews nonclickableAssetViews:(NSDictionary<GADUnifiedNativeAssetIdentifier,UIView *> * _Nonnull)nonclickableAssetViews;
 		[Export ("registerAdView:clickableAssetViews:nonclickableAssetViews:")]
 		void RegisterAdView (UIView adView, NSDictionary<NSString, UIView> nsClickableAssetViews, NSDictionary<NSString, UIView> nsNonclickableAssetViews);
@@ -933,6 +945,18 @@ namespace Google.MobileAds {
 		// -(void)cancelUnconfirmedClick;
 		[Export ("cancelUnconfirmedClick")]
 		void CancelUnconfirmedClick ();
+
+		///
+		/// From UnifiedNativeAd_CustomClickGesture Category
+		///
+
+		// - (void)enableCustomClickGestures;
+		[Export ("enableCustomClickGestures")]
+		void EnableCustomClickGestures ();
+
+		// - (void)recordCustomClickGesture;
+		[Export ("recordCustomClickGesture")]
+		void RecordCustomClickGesture ();
 	}
 
 	interface IUnifiedNativeAdLoaderDelegate { }
@@ -1396,6 +1420,7 @@ namespace Google.MobileAds {
 		UIImage Image { get; }
 
 		// @property (readonly, nonatomic, strong) NSURL * imageURL;
+		[NullAllowed]
 		[Export ("imageURL", ArgumentSemantic.Copy)]
 		NSUrl ImageUrl { get; }
 
@@ -1445,7 +1470,7 @@ namespace Google.MobileAds {
 		[Export ("price")]
 		string Price { get; }
 
-		// @property (readonly, nonatomic, strong) NSArray * images;
+		// @property (readonly, nonatomic, strong) NSArray<GADNativeAdImage *> * images;
 		[NullAllowed]
 		[Export ("images", ArgumentSemantic.Strong)]
 		NativeAdImage [] Images { get; }
@@ -1565,7 +1590,7 @@ namespace Google.MobileAds {
 		[Export ("body")]
 		string Body { get; }
 
-		// @property (readonly, copy, nonatomic) NSArray * images;
+		// @property (readonly, copy, nonatomic) NSArray<GADNativeAdImage *> * images;
 		[NullAllowed]
 		[Export ("images", ArgumentSemantic.Copy)]
 		NativeAdImage [] Images { get; }
@@ -2624,6 +2649,10 @@ namespace Google.MobileAds {
 	// @interface GADMediaView : UIView
 	[BaseType (typeof (UIView), Name = "GADMediaView")]
 	interface MediaView {
+		// @property (nonatomic, nullable) GADMediaContent* mediaContent;
+		[NullAllowed]
+		[Export ("mediaContent")]
+		MediaContent MediaContent { get; set; }
 	}
 
 	// @interface GADNativeMuteThisAdLoaderOptions : GADAdLoaderOptions

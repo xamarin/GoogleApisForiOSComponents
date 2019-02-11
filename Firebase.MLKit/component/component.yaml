@@ -1,4 +1,4 @@
-version: 0.13.0.0
+version: 0.13.0.1
 name: Firebase MLKit for iOS
 id: firebaseiosmlkit
 publisher: Xamarin Inc.
@@ -17,7 +17,7 @@ libraries:
 is_shell: true
 packages:
   ios-unified:
-  - Xamarin.Firebase.iOS.MLKit, Version=0.13.0.0
+  - Xamarin.Firebase.iOS.MLKit, Version=0.13.0.1
 samples:
 - name: MLKit Sample
   path: ../samples/MLKitSample/MLKitSample.sln

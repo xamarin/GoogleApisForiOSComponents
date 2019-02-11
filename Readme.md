@@ -7,18 +7,18 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | Package Id                                                                   | NuGet                                        |
 |------------------------------------------------------------------------------|----------------------------------------------|
 | [Xamarin.Firebase.iOS.ABTesting][F.ABTesting.Name]                           | [2.0.0.1][F.ABTesting.Package]               |
-| [Xamarin.Firebase.iOS.AdMob][F.AdMob.Name]                                   | [7.32.0.0][F.AdMob.Package]                  |
-| [Xamarin.Firebase.iOS.Analytics][F.Analytics.Name]                           | [5.1.4.1][F.Analytics.Package]               |
+| [Xamarin.Firebase.iOS.AdMob][F.AdMob.Name]                                   | [7.38.0.0][F.AdMob.Package]                  |
+| [Xamarin.Firebase.iOS.Analytics][F.Analytics.Name]                           | [5.5.0.0][F.Analytics.Package]               |
 | [Xamarin.Firebase.iOS.Auth][F.Auth.Name]                                     | [5.0.4.1][F.Auth.Package]                    |
 | [Xamarin.Firebase.iOS.CloudFirestore][F.CloudFirestore.Name]                 | [0.13.3.0][F.CloudFirestore.Package]         |
 | [Xamarin.Firebase.iOS.CloudMessaging][F.CloudMessaging.Name]                 | [3.1.2.0][F.CloudMessaging.Package]          |
-| [Xamarin.Firebase.iOS.Core][F.Core.Name]                                     | [5.1.8.0][F.Core.Package]                    |
+| [Xamarin.Firebase.iOS.Core][F.Core.Name]                                     | [5.2.0.0][F.Core.Package]                    |
 | [Xamarin.Firebase.iOS.Crashlytics][F.Crashlytics.Name]                       | [3.10.3.1][F.Crashlytics.Package]            |
 | [Xamarin.Firebase.iOS.Database][F.Database.Name]                             | [5.0.3.0][F.Database.Package]                |
 | [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                     | [3.0.2.0][F.DynamicLinks.Package]            |
-| [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                         | [3.3.0.0][F.InstanceID.Package]              |
+| [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                         | [3.4.0.0][F.InstanceID.Package]              |
 | [Xamarin.Firebase.iOS.Invites][F.Invites.Name]                               | [3.0.1.1][F.Invites.Package]                 |
-| [Xamarin.Firebase.iOS.MLKit][F.MLKit.Name]                                   | [0.13.0.0][F.MLKit.Package]                  |
+| [Xamarin.Firebase.iOS.MLKit][F.MLKit.Name]                                   | [0.13.0.1][F.MLKit.Package]                  |
 | [Xamarin.Firebase.iOS.MLKit.Common][F.MLKit.Common.Name]                     | [0.13.0.0][F.MLKit.Common.Package]           |
 | [Xamarin.Firebase.iOS.MLKit.ModelInterpreter][F.MLKit.ModelInterpreter.Name] | [0.13.0.0][F.MLKit.ModelInterpreter.Package] |
 | [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name]   | [2.1.2.0][F.PerformanceMonitoring.Package]   |
@@ -29,7 +29,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Google.iOS.Cast][G.Cast.Name]                                       | [4.3.2.0][G.Cast.Package]                    |
 | [Xamarin.Google.iOS.InstanceID][G.InstanceID.Name]                           | [1.2.1.14][G.InstanceID.Package]             |
 | [Xamarin.Google.iOS.Maps][G.Maps.Name]                                       | [2.7.0.0][G.Maps.Package]                    |
-| [Xamarin.Google.iOS.MobileAds][G.MobileAds.Name]                             | [7.32.0.0][G.MobileAds.Package]              |
+| [Xamarin.Google.iOS.MobileAds][G.MobileAds.Name]                             | [7.38.0.0][G.MobileAds.Package]              |
 | [Xamarin.Google.iOS.Places][G.Places.Name]                                   | [2.7.0.0][G.Places.Package]                  |
 | [Xamarin.Google.iOS.PlayGames][G.PlayGames.Name]                             | [5.1.1.10][G.PlayGames.Package]              |
 | [Xamarin.Google.iOS.SignIn][G.SignIn.Name]                                   | [4.2.0.0][G.SignIn.Package]                  |
@@ -51,17 +51,17 @@ Here's a table that shows in which global version is located each component of F
 | Component Name                   | Component Version | Global Version |
 |----------------------------------|:-----------------:|:--------------:|
 | Firebase A/B Testing             | **2.0.0.1**       | **5.8.1**      |
-| Firebase AdMob                   | **7.32.0.0**      | **5.8.1**      |
-| Firebase Analytics               | **5.1.4.1**       | **5.8.1**      |
+| Firebase AdMob                   | **7.38.0.0**      | **5.16.0**     |
+| Firebase Analytics               | **5.5.0.0**       | **5.16.0**     |
 | Firebase Auth                    | **5.0.4.1**       | **5.8.1**      |
 | Firebase Cloud Firestore         | **0.13.3.0**      | **5.8.1**      |
 | Firebase Cloud Messaging         | **3.1.2.0**       | **5.8.1**      |
-| Firebase Core                    | **5.1.8.0**       | **5.13.0**     |
+| Firebase Core                    | **5.2.0.0**       | **5.16.0**     |
 | Firebase Database                | **5.0.3.0**       | **5.8.1**      |
 | Firebase Dynamic Links           | **3.0.2.0**       | **5.8.1**      |
-| Firebase Instance ID             | **3.3.0.0**       | **5.13.0**     |
+| Firebase Instance ID             | **3.4.0.0**       | **5.16.0**     |
 | Firebase Invites                 | **3.0.1.1**       | **5.8.1**      |
-| Firebase MLKit                   | **0.13.0.0**      | **5.13.0*      |
+| Firebase MLKit                   | **0.13.0.1**      | **5.13.0*      |
 | Firebase MLKit Common            | **0.13.0.0**      | **5.13.0*      |
 | Firebase MLKit Model Interpreter | **0.13.0.0**      | **5.13.0*      |
 | Firebase Performance Monitoring  | **2.1.2.0**       | **5.8.1**      |

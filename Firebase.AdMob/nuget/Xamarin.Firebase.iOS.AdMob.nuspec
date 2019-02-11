@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.Firebase.iOS.AdMob</id>
     <title>Firebase APIs AdMob iOS Library</title>
-    <version>7.32.0.1</version>
+    <version>7.38.0.0-beta1</version>
     <authors>Microsoft</authors>
     <owners>Microsoft</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -12,13 +12,14 @@
     <projectUrl>https://go.microsoft.com/fwlink/?linkid=865546</projectUrl>
     <licenseUrl>https://go.microsoft.com/fwlink/?linkid=865550</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseiosadmob_128x128.png</iconUrl>
+    <releaseNotes>This package has an issue with armv7 arch due missing symbols, which may cause not to work properly on some devices. This issue has been reported to Google.</releaseNotes>
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
         <dependency id="Xamarin.Build.Download" version="0.4.11" />
-        <dependency id="Xamarin.Google.iOS.MobileAds" version="7.32.0.0" />
-        <dependency id="Xamarin.Firebase.iOS.Analytics" version="5.1.4.1" />
-        <dependency id="Xamarin.Firebase.iOS.InstanceID" version="3.2.1.0" />
-        <dependency id="Xamarin.Firebase.iOS.Core" version="5.1.3.0" />
+        <dependency id="Xamarin.Google.iOS.MobileAds" version="7.38.0.0-beta1" />
+        <dependency id="Xamarin.Firebase.iOS.Analytics" version="5.5.0.0" />
+        <dependency id="Xamarin.Firebase.iOS.InstanceID" version="3.4.0.0" />
+        <dependency id="Xamarin.Firebase.iOS.Core" version="5.2.0.0" />
       </group>
     </dependencies>
   </metadata>
