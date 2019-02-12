@@ -4,7 +4,9 @@
 		<_GoogleMobileAdsAssemblyName>Google.MobileAds, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleMobileAdsAssemblyName>
 		<_GoogleMobileAdsId>FAdM-7.38.0</_GoogleMobileAdsId>
 		<_GoogleMobileAdsConsentId>GCnsnt-1.0.3</_GoogleMobileAdsConsentId>
-		<_GoogleMobileAdsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleMobileAdsId)\Frameworks\frameworks\</_GoogleMobileAdsSDKBaseFolder>
+		<_GoogleMobileAdsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleMobileAdsId)\</_GoogleMobileAdsSDKBaseFolder>
+		<_GoogleMobileAdsFrameworkFolder>$(_GoogleMobileAdsSDKBaseFolder)Frameworks\frameworks\</_GoogleMobileAdsFrameworkFolder>
+		<_GoogleMobileAdsLibraryFolder>$(_GoogleMobileAdsSDKBaseFolder)Libraries\</_GoogleMobileAdsLibraryFolder>
 		<_GoogleMobileAdsConsentSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleMobileAdsConsentId)\googleads-consent-sdk-ios-1.0.3\PersonalizedAdConsent\PersonalizedAdConsent\</_GoogleMobileAdsConsentSDKBaseFolder>
 		<_GoogleMobileAdsCopyConsentFormMasterBeforeTargets>_CodesignNativeLibraries</_GoogleMobileAdsCopyConsentFormMasterBeforeTargets>
 		<_GoogleMobileAdsCopyConsentFormMasterDependsOnTargets>_GoogleMobileAdsCopyConsentForm</_GoogleMobileAdsCopyConsentFormMasterDependsOnTargets>
@@ -14,7 +16,7 @@
 			<Url>https://dl.google.com/dl/cpdc/b8745d3de2e626d7/Google-Mobile-Ads-SDK-7.38.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
-		<NativeReference Include="$(_GoogleMobileAdsSDKBaseFolder)GoogleMobileAds.framework">
+		<NativeReference Include="$(_GoogleMobileAdsFrameworkFolder)GoogleMobileAds.framework">
 			<Kind>Framework</Kind>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC -lz -lsqlite3</LinkerFlags>
@@ -27,8 +29,19 @@
 			<Kind>Zip</Kind>
 		</XamarinBuildDownload>
 		<GoogleMobileAdsCopyResources Include="$(_GoogleMobileAdsConsentSDKBaseFolder)PersonalizedAdConsent.bundle\consentform.html" />
+		
+		<XamarinBuildRestoreResources Include="_GoogleMobileAdsItems" />
 	</ItemGroup>
-
+	
+	<Target Name="_GoogleMobileAdsItems">
+		<ItemGroup>
+			<RestoreAssemblyResource Include="$(_GoogleMobileAdsLibraryFolder)libGoogleMobileAds.a">
+				<LogicalName>libGoogleMobileAds.a</LogicalName>
+				<AssemblyName>$(_GoogleMobileAdsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+		</ItemGroup>
+	</Target>
+	
 	<Target Name="_GoogleMobileAdsCopyConsentFormMasterTargets"
 			Condition="'$(_GoogleMobileAdsCopyConsentFormMasterDependsOnTargets)'!=''"
 			BeforeTargets="$(_GoogleMobileAdsCopyConsentFormMasterBeforeTargets)"
