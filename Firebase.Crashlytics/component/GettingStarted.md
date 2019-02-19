@@ -44,10 +44,12 @@
 Once you have your `GoogleService-Info.plist` file downloaded in your computer, do the following steps in Visual Studio:
 
 1. Add `GoogleService-Info.plist` file to your app project.
-2. Set `GoogleService-Info.plist` **build action** behaviour to `Bundle Resource` by Right clicking/Build Action.
-3. Add the following line of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Core` and `Firebase.Crashlytics` namespace):
+2. Set `GoogleService-Info.plist` **build action** behavior to `Bundle Resource` by Right clicking/Build Action.
+3. Add the `Xamarin.Firebase.iOS.Core` NuGet to your project.
+4. Add the following lines of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Core` and `Firebase.Crashlytics` namespace):
 
 ```csharp
+App.Configure ();
 Crashlytics.Configure ();
 ```
 
