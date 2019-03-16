@@ -3,15 +3,13 @@
 
     <PropertyGroup>
         <_GooglePlacesAssemblyName>Google.Places, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GooglePlacesAssemblyName>
-        <_GooglePlacesItemsFolder>GPlcs-2.7.0</_GooglePlacesItemsFolder>
-        <_GooglePlacePickerItemsFolder>GPlcP-2.7.0</_GooglePlacePickerItemsFolder>
+        <_GooglePlacesItemsFolder>GPlcs-3.0.3</_GooglePlacesItemsFolder>
 		<_GooglePlacesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GooglePlacesItemsFolder)\Frameworks\</_GooglePlacesSDKBaseFolder>
-		<_GooglePlacePickerSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GooglePlacePickerItemsFolder)\Frameworks\</_GooglePlacePickerSDKBaseFolder>
     </PropertyGroup>
 
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GooglePlacesItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/7a167e6ab4a55dbc/GooglePlaces-2.7.0.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/7859fc497bd34749/GooglePlaces-3.0.3.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework">
@@ -19,17 +17,6 @@
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC</LinkerFlags>
 		</NativeReference>
-		
-		<XamarinBuildDownload Include="$(_GooglePlacePickerItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/b3af1cead1fe8d2b/GooglePlacePicker-2.7.0.tar.gz</Url>
-			<Kind>Tgz</Kind>
-		</XamarinBuildDownload>
-		<NativeReference Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework">
-			<Kind>Framework</Kind>
-			<ForceLoad>True</ForceLoad>
-			<LinkerFlags>-ObjC</LinkerFlags>
-		</NativeReference>
-
 		<XamarinBuildRestoreResources Include="_GooglePlacesItems" />
 	</ItemGroup>
 
@@ -273,218 +260,6 @@
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\zh_TW.lproj\GooglePlaces.strings">
 				<LogicalName>__monotouch_content_GooglePlaces.bundle_fzh__TW.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\Info.plist">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fInfo.plist</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\red_icons.png">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fred__icons.png</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\red_icons%402x.png">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fred__icons%402x.png</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\red_icons%403x.png">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fred__icons%403x.png</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\white_icons.png">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fwhite__icons.png</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\white_icons%402x.png">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fwhite__icons%402x.png</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\white_icons%403x.png">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fwhite__icons%403x.png</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\ar.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_far.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\ca.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fca.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\cs.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fcs.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\da.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fda.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\de.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fde.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\el.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fel.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\en.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fen.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\en_AU.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fen__AU.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\en_GB.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fen__GB.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\en_IN.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fen__IN.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\es.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fes.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\es_419.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fes__419.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\es_MX.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fes__MX.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\fi.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_ffi.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\fr.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_ffr.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\fr_CA.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_ffr__CA.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\he.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fhe.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\hi.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fhi.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\hr.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fhr.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\hu.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fhu.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\id.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fid.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\it.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fit.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\iw.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fiw.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\ja.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fja.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\ko.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fko.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\lt.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_flt.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\lv.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_flv.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\ms.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fms.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\nb.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fnb.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\nl.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fnl.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\no.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fno.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\pl.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fpl.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\pt.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fpt.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\pt_BR.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fpt__BR.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\pt_PT.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fpt__PT.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\ro.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fro.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\ru.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fru.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\sk.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fsk.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\sv.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fsv.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\th.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fth.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\tr.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_ftr.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\uk.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fuk.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\vi.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fvi.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\zh_CN.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fzh__CN.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\zh_HK.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fzh__HK.lproj_fGooglePlacePicker.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacePickerSDKBaseFolder)GooglePlacePicker.framework\Resources\GooglePlacePicker.bundle\zh_TW.lproj\GooglePlacePicker.strings">
-				<LogicalName>__monotouch_content_GooglePlacePicker.bundle_fzh__TW.lproj_fGooglePlacePicker.strings</LogicalName>
 				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 		</ItemGroup>

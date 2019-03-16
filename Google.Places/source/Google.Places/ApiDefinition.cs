@@ -21,6 +21,10 @@ namespace Google.Places
 		// @property(nonatomic, readonly, copy) NSString *name;
 		[Export ("name")]
 		string Name { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nullable shortName;
+		[NullAllowed, Export ("shortName")]
+		string ShortName { get; }
 	}
 
 	interface IAutocompleteFetcherDelegate
@@ -70,6 +74,10 @@ namespace Google.Places
 		[NullAllowed]
 		[Export ("autocompleteFilter", ArgumentSemantic.Strong)]
 		AutocompleteFilter AutocompleteFilter { get; set; }
+
+		// -(void)provideSessionToken:(GMSAutocompleteSessionToken * _Nonnull)sessionToken;
+		[Export ("provideSessionToken:")]
+		void ProvideSessionToken (AutocompleteSessionToken sessionToken);
 
 		// - (void)sourceTextHasChanged:(NSString *)text;
 		[Export ("sourceTextHasChanged:")]
@@ -228,6 +236,15 @@ namespace Google.Places
 		[NullAllowed]
 		[Export ("tintColor", ArgumentSemantic.Strong)]
 		UIColor TintColor { get; set; }
+
+		// @property (assign, nonatomic) GMSPlaceField placeFields;
+		[Export ("placeFields", ArgumentSemantic.Assign)]
+		PlaceField PlaceFields { get; set; }
+	}
+
+	// @interface GMSAutocompleteSessionToken : NSObject
+	[BaseType (typeof (NSObject), Name = "GMSAutocompleteSessionToken")]
+	interface AutocompleteSessionToken {
 	}
 
 	interface IAutocompleteTableDataSourceDelegate
@@ -323,9 +340,17 @@ namespace Google.Places
 		[Export ("tintColor", ArgumentSemantic.Strong)]
 		UIColor TintColor { get; set; }
 
+		// @property (assign, nonatomic) GMSPlaceField placeFields;
+		[Export ("placeFields", ArgumentSemantic.Assign)]
+		PlaceField PlaceFields { get; set; }
+
 		// - (void)sourceTextHasChanged:(NSString *)text;
 		[Export ("sourceTextHasChanged:")]
 		void SourceTextHasChanged ([NullAllowed] string text);
+
+		// -(void)clearResults;
+		[Export ("clearResults")]
+		void ClearResults ();
 	}
 
 	interface IAutocompleteViewControllerDelegate
@@ -426,6 +451,61 @@ namespace Google.Places
 		[NullAllowed]
 		[Export ("tintColor", ArgumentSemantic.Strong)]
 		UIColor TintColor { get; set; }
+
+		// @property (assign, nonatomic) GMSPlaceField placeFields;
+		[Export ("placeFields", ArgumentSemantic.Assign)]
+		PlaceField PlaceFields { get; set; }
+	}
+
+	// @interface GMSTime : NSObject
+	[BaseType (typeof (NSObject), Name = "GMSTime")]
+	interface Time {
+		// @property (readonly, assign, nonatomic) NSUInteger hour;
+		[Export ("hour")]
+		nuint Hour { get; }
+
+		// @property (readonly, assign, nonatomic) NSUInteger minute;
+		[Export ("minute")]
+		nuint Minute { get; }
+	}
+
+	// @interface GMSEvent : NSObject
+	[BaseType (typeof (NSObject), Name = "GMSEvent")]
+	interface Event {
+		// @property (readonly, assign, nonatomic) GMSDayOfWeek day;
+		[Export ("day", ArgumentSemantic.Assign)]
+		DayOfWeek Day { get; }
+
+		// @property (readonly, nonatomic, strong) GMSTime * _Nonnull time;
+		[Export ("time", ArgumentSemantic.Strong)]
+		Time Time { get; }
+	}
+
+	// @interface GMSPeriod : NSObject
+	[BaseType (typeof (NSObject), Name = "GMSPeriod")]
+	interface Period {
+		// @property (readonly, nonatomic, strong) GMSEvent * _Nonnull openEvent;
+		[Export ("openEvent", ArgumentSemantic.Strong)]
+		Event OpenEvent { get; }
+
+		// @property (readonly, nonatomic, strong) GMSEvent * _Nullable closeEvent;
+		[NullAllowed]
+		[Export ("closeEvent", ArgumentSemantic.Strong)]
+		Event CloseEvent { get; }
+	}
+
+	// @interface GMSOpeningHours : NSObject
+	[BaseType (typeof (NSObject), Name = "GMSOpeningHours")]
+	interface OpeningHours {
+		// @property (readonly, nonatomic, strong) NSArray<GMSPeriod *> * _Nullable periods;
+		[NullAllowed]
+		[Export ("periods", ArgumentSemantic.Strong)]
+		Period [] Periods { get; }
+
+		// @property (readonly, nonatomic, strong) NSArray<NSString *> * _Nullable weekdayText;
+		[NullAllowed]
+		[Export ("weekdayText", ArgumentSemantic.Strong)]
+		string [] WeekdayText { get; }
 	}
 
 	// @interface GMSPlace : NSObject
@@ -446,6 +526,7 @@ namespace Google.Places
 		CLLocationCoordinate2D Coordinate { get; }
 
 		// @property (readonly, nonatomic) GMSPlacesOpenNowStatus openNowStatus;
+		[Obsolete ("This property is currently not supported and should not be used.")]
 		[Export ("openNowStatus", ArgumentSemantic.Assign)]
 		PlacesOpenNowStatus OpenNowStatus { get; }
 
@@ -469,7 +550,6 @@ namespace Google.Places
 
 		// @property (readonly, copy, nonatomic) NSArray * types;
 		[BindAs (typeof (PlaceType []))]
-		[NullAllowed]
 		[Export ("types", ArgumentSemantic.Copy)]
 		NSString [] Types { get; }
 
@@ -492,6 +572,24 @@ namespace Google.Places
 		[NullAllowed]
 		[Export ("addressComponents", ArgumentSemantic.Copy)]
 		AddressComponent [] AddressComponents { get; }
+
+		// @property (readonly, nonatomic, strong) GMSPlusCode * _Nullable plusCode;
+		[NullAllowed]
+		[Export ("plusCode", ArgumentSemantic.Strong)]
+		PlusCode PlusCode { get; }
+
+		// @property (readonly, nonatomic, strong) GMSOpeningHours * _Nullable openingHours;
+		[NullAllowed]
+		[Export ("openingHours", ArgumentSemantic.Strong)]
+		OpeningHours OpeningHours { get; }
+
+		// @property (readonly, assign, nonatomic) NSUInteger userRatingsTotal;
+		[Export ("userRatingsTotal")]
+		nuint UserRatingsTotal { get; }
+
+		// @property (readonly, copy, nonatomic) NSArray<GMSPlacePhotoMetadata *> * _Nullable photos;
+		[NullAllowed, Export ("photos", ArgumentSemantic.Copy)]
+		PlacePhotoMetadata [] Photos { get; }
 	}
 
 	// @interface GMSPlaceLikelihood : NSObject <NSCopying>
@@ -555,6 +653,9 @@ namespace Google.Places
 	// typedef void (^GMSPlaceLikelihoodListCallback)(GMSPlaceLikelihoodList *NSError *);
 	delegate void PlaceLikelihoodListHandler ([NullAllowed] PlaceLikelihoodList likelihoodList, [NullAllowed] NSError error);
 
+	// typedef void (^GMSPlaceLikelihoodsCallback)(NSArray<GMSPlaceLikelihood *> * _Nullable, NSError * _Nullable);
+	delegate void PlaceLikelihoodsHandler ([NullAllowed] PlaceLikelihood [] likelihoods, [NullAllowed] NSError error);
+
 	// typedef void (^GMSAutocompletePredictionsCallback)(NSArray *NSError *);
 	delegate void AutocompletePredictionsHandler ([NullAllowed] AutocompletePrediction [] results, [NullAllowed] NSError error);
 
@@ -593,10 +694,6 @@ namespace Google.Places
 		[Export ("SDKVersion")]
 		string SdkVersion { get; }
 
-		// -(void)reportDeviceAtPlaceWithID:(NSString *)placeID;
-		[Export ("reportDeviceAtPlaceWithID:")]
-		void ReportDeviceAtPlace (string placeId);
-
 		// -(void)lookUpPlaceID:(NSString *)placeID callback:(GMSPlaceResultCallback)callback;
 		[Async]
 		[Export ("lookUpPlaceID:callback:")]
@@ -610,12 +707,12 @@ namespace Google.Places
 		// - (void)loadPlacePhoto:(GMSPlacePhotoMetadata *)photo callback:(GMSPlacePhotoImageResultCallback)callback;
 		[Async]
 		[Export ("loadPlacePhoto:callback:")]
-		void LoadPlacePhoto (PlacePhotoMetadata photo, PlacePhotoImageResultHandler callback);
+		void LoadPlacePhoto (PlacePhotoMetadata photoMetadata, PlacePhotoImageResultHandler callback);
 
 		// - (void)loadPlacePhoto:(GMSPlacePhotoMetadata *)photo constrainedToSize:(CGSize)maxSize scale:(CGFloat)scale callback:(GMSPlacePhotoImageResultCallback)callback;
 		[Async]
 		[Export ("loadPlacePhoto:constrainedToSize:scale:callback:")]
-		void LoadPlacePhoto (PlacePhotoMetadata photo, CGSize maxSize, nfloat scale, PlacePhotoImageResultHandler callback);
+		void LoadPlacePhoto (PlacePhotoMetadata photoMetadata, CGSize maxSize, nfloat scale, PlacePhotoImageResultHandler callback);
 
 		// -(void)currentPlaceWithCallback:(GMSPlaceLikelihoodListCallback)callback;
 		[Async]
@@ -632,632 +729,30 @@ namespace Google.Places
 		[Export("autocompleteQuery:bounds:boundsMode:filter:callback:")]
 		void Autocomplete(string query, [NullAllowed] CoordinateBounds bounds, AutocompleteBoundsMode boundsMode, [NullAllowed] AutocompleteFilter filter, AutocompletePredictionsHandler callback);
 
-		// -(void)addPlace:(GMSUserAddedPlace *)place callback:(GMSPlaceResultCallback)callback;
-		[Obsolete ("The Add Place feature is deprecated as of June 30, 2017. This feature will be turned down on June 30, 2018, and will no longer be available after that date.")]
-		[Export ("addPlace:callback:")]
-		void AddPlace (UserAddedPlace place, PlaceResultHandler callback);
+		// -(void)findAutocompletePredictionsFromQuery:(NSString * _Nonnull)query bounds:(GMSCoordinateBounds * _Nullable)bounds boundsMode:(GMSAutocompleteBoundsMode)boundsMode filter:(GMSAutocompleteFilter * _Nullable)filter sessionToken:(GMSAutocompleteSessionToken * _Nonnull)sessionToken callback:(GMSAutocompletePredictionsCallback _Nonnull)callback;
+		[Export ("findAutocompletePredictionsFromQuery:bounds:boundsMode:filter:sessionToken:callback:")]
+		void FindAutocompletePredictions (string query, [NullAllowed] CoordinateBounds bounds, AutocompleteBoundsMode boundsMode, [NullAllowed] AutocompleteFilter filter, AutocompleteSessionToken sessionToken, AutocompletePredictionsHandler callback);
+
+		// -(void)fetchPlaceFromPlaceID:(NSString * _Nonnull)placeID placeFields:(GMSPlaceField)placeFields sessionToken:(GMSAutocompleteSessionToken * _Nullable)sessionToken callback:(GMSPlaceResultCallback _Nonnull)callback;
+		[Export ("fetchPlaceFromPlaceID:placeFields:sessionToken:callback:")]
+		void FetchPlace (string placeId, PlaceField placeFields, [NullAllowed] AutocompleteSessionToken sessionToken, PlaceResultHandler callback);
+
+		// -(void)findPlaceLikelihoodsFromCurrentLocationWithPlaceFields:(GMSPlaceField)placeFields callback:(GMSPlaceLikelihoodsCallback _Nonnull)callback;
+		[Export ("findPlaceLikelihoodsFromCurrentLocationWithPlaceFields:callback:")]
+		void FindPlaceLikelihoodsFromCurrentLocation (PlaceField placeFields, PlaceLikelihoodsHandler callback);
 	}
 
-	[Obsolete ("Use the PlaceType enum instead. This will be removed in future versions.")]
-	[Static]
-	interface PlaceTypes
-	{
-		// -(NSString *)kGMSPlaceTypeAccountingExported;
-		[Field ("kGMSPlaceTypeAccounting", "__Internal")]
-		NSString Accounting { get; }
-
-		// -(NSString *)kGMSPlaceTypeAdministrativeAreaLevel1Exported;
-		[Field ("kGMSPlaceTypeAdministrativeAreaLevel1", "__Internal")]
-		NSString AdministrativeAreaLevel1 { get; }
-
-		// -(NSString *)kGMSPlaceTypeAdministrativeAreaLevel2Exported;
-		[Field ("kGMSPlaceTypeAdministrativeAreaLevel2", "__Internal")]
-		NSString AdministrativeAreaLevel2 { get; }
-
-		// -(NSString *)kGMSPlaceTypeAdministrativeAreaLevel3Exported;
-		[Field ("kGMSPlaceTypeAdministrativeAreaLevel3", "__Internal")]
-		NSString AdministrativeAreaLevel3 { get; }
-
-		// -(NSString *)kGMSPlaceTypeAirportExported;
-		[Field ("kGMSPlaceTypeAirport", "__Internal")]
-		NSString Airport { get; }
-
-		// -(NSString *)kGMSPlaceTypeAmusementParkExported;
-		[Field ("kGMSPlaceTypeAmusementPark", "__Internal")]
-		NSString AmusementPark { get; }
-
-		// -(NSString *)kGMSPlaceTypeAquariumExported;
-		[Field ("kGMSPlaceTypeAquarium", "__Internal")]
-		NSString Aquarium { get; }
-
-		// -(NSString *)kGMSPlaceTypeArtGalleryExported;
-		[Field ("kGMSPlaceTypeArtGallery", "__Internal")]
-		NSString ArtGallery { get; }
-
-		// -(NSString *)kGMSPlaceTypeAtmExported;
-		[Field ("kGMSPlaceTypeAtm", "__Internal")]
-		NSString Atm { get; }
-
-		// -(NSString *)kGMSPlaceTypeBakeryExported;
-		[Field ("kGMSPlaceTypeBakery", "__Internal")]
-		NSString Bakery { get; }
-
-		// -(NSString *)kGMSPlaceTypeBankExported;
-		[Field ("kGMSPlaceTypeBank", "__Internal")]
-		NSString Bank { get; }
-
-		// -(NSString *)kGMSPlaceTypeBarExported;
-		[Field ("kGMSPlaceTypeBar", "__Internal")]
-		NSString Bar { get; }
-
-		// -(NSString *)kGMSPlaceTypeBeautySalonExported;
-		[Field ("kGMSPlaceTypeBeautySalon", "__Internal")]
-		NSString BeautySalon { get; }
-
-		// -(NSString *)kGMSPlaceTypeBicycleStoreExported;
-		[Field ("kGMSPlaceTypeBicycleStore", "__Internal")]
-		NSString BicycleStore { get; }
-
-		// -(NSString *)kGMSPlaceTypeBookStoreExported;
-		[Field ("kGMSPlaceTypeBookStore", "__Internal")]
-		NSString BookStore { get; }
-
-		// -(NSString *)kGMSPlaceTypeBowlingAlleyExported;
-		[Field ("kGMSPlaceTypeBowlingAlley", "__Internal")]
-		NSString BowlingAlley { get; }
-
-		// -(NSString *)kGMSPlaceTypeBusStationExported;
-		[Field ("kGMSPlaceTypeBusStation", "__Internal")]
-		NSString BusStation { get; }
-
-		// -(NSString *)kGMSPlaceTypeCafeExported;
-		[Field ("kGMSPlaceTypeCafe", "__Internal")]
-		NSString Cafe { get; }
-
-		// -(NSString *)kGMSPlaceTypeCampgroundExported;
-		[Field ("kGMSPlaceTypeCampground", "__Internal")]
-		NSString Campground { get; }
-
-		// -(NSString *)kGMSPlaceTypeCarDealerExported;
-		[Field ("kGMSPlaceTypeCarDealer", "__Internal")]
-		NSString CarDealer { get; }
-
-		// -(NSString *)kGMSPlaceTypeCarRentalExported;
-		[Field ("kGMSPlaceTypeCarRental", "__Internal")]
-		NSString CarRental { get; }
-
-		// -(NSString *)kGMSPlaceTypeCarRepairExported;
-		[Field ("kGMSPlaceTypeCarRepair", "__Internal")]
-		NSString CarRepair { get; }
-
-		// -(NSString *)kGMSPlaceTypeCarWashExported;
-		[Field ("kGMSPlaceTypeCarWash", "__Internal")]
-		NSString CarWash { get; }
-
-		// -(NSString *)kGMSPlaceTypeCasinoExported;
-		[Field ("kGMSPlaceTypeCasino", "__Internal")]
-		NSString Casino { get; }
-
-		// -(NSString *)kGMSPlaceTypeCemeteryExported;
-		[Field ("kGMSPlaceTypeCemetery", "__Internal")]
-		NSString Cemetery { get; }
-
-		// -(NSString *)kGMSPlaceTypeChurchExported;
-		[Field ("kGMSPlaceTypeChurch", "__Internal")]
-		NSString Church { get; }
-
-		// -(NSString *)kGMSPlaceTypeCityHallExported;
-		[Field ("kGMSPlaceTypeCityHall", "__Internal")]
-		NSString CityHall { get; }
-
-		// -(NSString *)kGMSPlaceTypeClothingStoreExported;
-		[Field ("kGMSPlaceTypeClothingStore", "__Internal")]
-		NSString ClothingStore { get; }
-
-		// -(NSString *)kGMSPlaceTypeColloquialAreaExported;
-		[Field ("kGMSPlaceTypeColloquialArea", "__Internal")]
-		NSString ColloquialArea { get; }
-
-		// -(NSString *)kGMSPlaceTypeConvenienceStoreExported;
-		[Field ("kGMSPlaceTypeConvenienceStore", "__Internal")]
-		NSString ConvenienceStore { get; }
-
-		// -(NSString *)kGMSPlaceTypeCountryExported;
-		[Field ("kGMSPlaceTypeCountry", "__Internal")]
-		NSString Country { get; }
-
-		// -(NSString *)kGMSPlaceTypeCourthouseExported;
-		[Field ("kGMSPlaceTypeCourthouse", "__Internal")]
-		NSString Courthouse { get; }
-
-		// -(NSString *)kGMSPlaceTypeDentistExported;
-		[Field ("kGMSPlaceTypeDentist", "__Internal")]
-		NSString Dentist { get; }
-
-		// -(NSString *)kGMSPlaceTypeDepartmentStoreExported;
-		[Field ("kGMSPlaceTypeDepartmentStore", "__Internal")]
-		NSString DepartmentStore { get; }
-
-		// -(NSString *)kGMSPlaceTypeDoctorExported;
-		[Field ("kGMSPlaceTypeDoctor", "__Internal")]
-		NSString Doctor { get; }
-
-		// -(NSString *)kGMSPlaceTypeElectricianExported;
-		[Field ("kGMSPlaceTypeElectrician", "__Internal")]
-		NSString Electrician { get; }
-
-		// -(NSString *)kGMSPlaceTypeElectronicsStoreExported;
-		[Field ("kGMSPlaceTypeElectronicsStore", "__Internal")]
-		NSString ElectronicsStore { get; }
-
-		// -(NSString *)kGMSPlaceTypeEmbassyExported;
-		[Field ("kGMSPlaceTypeEmbassy", "__Internal")]
-		NSString Embassy { get; }
-
-		// -(NSString *)kGMSPlaceTypeEstablishmentExported;
-		[Field ("kGMSPlaceTypeEstablishment", "__Internal")]
-		NSString Establishment { get; }
-
-		// -(NSString *)kGMSPlaceTypeFinanceExported;
-		[Field ("kGMSPlaceTypeFinance", "__Internal")]
-		NSString Finance { get; }
-
-		// -(NSString *)kGMSPlaceTypeFireStationExported;
-		[Field ("kGMSPlaceTypeFireStation", "__Internal")]
-		NSString FireStation { get; }
-
-		// -(NSString *)kGMSPlaceTypeFloorExported;
-		[Field ("kGMSPlaceTypeFloor", "__Internal")]
-		NSString Floor { get; }
-
-		// -(NSString *)kGMSPlaceTypeFloristExported;
-		[Field ("kGMSPlaceTypeFlorist", "__Internal")]
-		NSString Florist { get; }
-
-		// -(NSString *)kGMSPlaceTypeFoodExported;
-		[Field ("kGMSPlaceTypeFood", "__Internal")]
-		NSString Food { get; }
-
-		// -(NSString *)kGMSPlaceTypeFuneralHomeExported;
-		[Field ("kGMSPlaceTypeFuneralHome", "__Internal")]
-		NSString FuneralHome { get; }
-
-		// -(NSString *)kGMSPlaceTypeFurnitureStoreExported;
-		[Field ("kGMSPlaceTypeFurnitureStore", "__Internal")]
-		NSString FurnitureStore { get; }
-
-		// -(NSString *)kGMSPlaceTypeGasStationExported;
-		[Field ("kGMSPlaceTypeGasStation", "__Internal")]
-		NSString GasStation { get; }
-
-		// -(NSString *)kGMSPlaceTypeGeneralContractorExported;
-		[Field ("kGMSPlaceTypeGeneralContractor", "__Internal")]
-		NSString GeneralContractor { get; }
-
-		// -(NSString *)kGMSPlaceTypeGeocodeExported;
-		[Field ("kGMSPlaceTypeGeocode", "__Internal")]
-		NSString Geocode { get; }
-
-		// -(NSString *)kGMSPlaceTypeGroceryOrSupermarketExported;
-		[Field ("kGMSPlaceTypeGroceryOrSupermarket", "__Internal")]
-		NSString GroceryOrSupermarket { get; }
-
-		// -(NSString *)kGMSPlaceTypeGymExported;
-		[Field ("kGMSPlaceTypeGym", "__Internal")]
-		NSString Gym { get; }
-
-		// -(NSString *)kGMSPlaceTypeHairCareExported;
-		[Field ("kGMSPlaceTypeHairCare", "__Internal")]
-		NSString HairCare { get; }
-
-		// -(NSString *)kGMSPlaceTypeHardwareStoreExported;
-		[Field ("kGMSPlaceTypeHardwareStore", "__Internal")]
-		NSString HardwareStore { get; }
-
-		// -(NSString *)kGMSPlaceTypeHealthExported;
-		[Field ("kGMSPlaceTypeHealth", "__Internal")]
-		NSString Health { get; }
-
-		// -(NSString *)kGMSPlaceTypeHinduTempleExported;
-		[Field ("kGMSPlaceTypeHinduTemple", "__Internal")]
-		NSString HinduTemple { get; }
-
-		// -(NSString *)kGMSPlaceTypeHomeGoodsStoreExported;
-		[Field ("kGMSPlaceTypeHomeGoodsStore", "__Internal")]
-		NSString HomeGoodsStore { get; }
-
-		// -(NSString *)kGMSPlaceTypeHospitalExported;
-		[Field ("kGMSPlaceTypeHospital", "__Internal")]
-		NSString Hospital { get; }
-
-		// -(NSString *)kGMSPlaceTypeInsuranceAgencyExported;
-		[Field ("kGMSPlaceTypeInsuranceAgency", "__Internal")]
-		NSString InsuranceAgency { get; }
-
-		// -(NSString *)kGMSPlaceTypeIntersectionExported;
-		[Field ("kGMSPlaceTypeIntersection", "__Internal")]
-		NSString Intersection { get; }
-
-		// -(NSString *)kGMSPlaceTypeJewelryStoreExported;
-		[Field ("kGMSPlaceTypeJewelryStore", "__Internal")]
-		NSString JewelryStore { get; }
-
-		// -(NSString *)kGMSPlaceTypeLaundryExported;
-		[Field ("kGMSPlaceTypeLaundry", "__Internal")]
-		NSString Laundry { get; }
-
-		// -(NSString *)kGMSPlaceTypeLawyerExported;
-		[Field ("kGMSPlaceTypeLawyer", "__Internal")]
-		NSString Lawyer { get; }
-
-		// -(NSString *)kGMSPlaceTypeLibraryExported;
-		[Field ("kGMSPlaceTypeLibrary", "__Internal")]
-		NSString Library { get; }
-
-		// -(NSString *)kGMSPlaceTypeLiquorStoreExported;
-		[Field ("kGMSPlaceTypeLiquorStore", "__Internal")]
-		NSString LiquorStore { get; }
-
-		// -(NSString *)kGMSPlaceTypeLocalGovernmentOfficeExported;
-		[Field ("kGMSPlaceTypeLocalGovernmentOffice", "__Internal")]
-		NSString LocalGovernmentOffice { get; }
-
-		// -(NSString *)kGMSPlaceTypeLocalityExported;
-		[Field ("kGMSPlaceTypeLocality", "__Internal")]
-		NSString Locality { get; }
-
-		// -(NSString *)kGMSPlaceTypeLocksmithExported;
-		[Field ("kGMSPlaceTypeLocksmith", "__Internal")]
-		NSString Locksmith { get; }
-
-		// -(NSString *)kGMSPlaceTypeLodgingExported;
-		[Field ("kGMSPlaceTypeLodging", "__Internal")]
-		NSString Lodging { get; }
-
-		// -(NSString *)kGMSPlaceTypeMealDeliveryExported;
-		[Field ("kGMSPlaceTypeMealDelivery", "__Internal")]
-		NSString MealDelivery { get; }
-
-		// -(NSString *)kGMSPlaceTypeMealTakeawayExported;
-		[Field ("kGMSPlaceTypeMealTakeaway", "__Internal")]
-		NSString MealTakeaway { get; }
-
-		// -(NSString *)kGMSPlaceTypeMosqueExported;
-		[Field ("kGMSPlaceTypeMosque", "__Internal")]
-		NSString Mosque { get; }
-
-		// -(NSString *)kGMSPlaceTypeMovieRentalExported;
-		[Field ("kGMSPlaceTypeMovieRental", "__Internal")]
-		NSString MovieRental { get; }
-
-		// -(NSString *)kGMSPlaceTypeMovieTheaterExported;
-		[Field ("kGMSPlaceTypeMovieTheater", "__Internal")]
-		NSString MovieTheater { get; }
-
-		// -(NSString *)kGMSPlaceTypeMovingCompanyExported;
-		[Field ("kGMSPlaceTypeMovingCompany", "__Internal")]
-		NSString MovingCompany { get; }
-
-		// -(NSString *)kGMSPlaceTypeMuseumExported;
-		[Field ("kGMSPlaceTypeMuseum", "__Internal")]
-		NSString Museum { get; }
-
-		// -(NSString *)kGMSPlaceTypeNaturalFeatureExported;
-		[Field ("kGMSPlaceTypeNaturalFeature", "__Internal")]
-		NSString NaturalFeature { get; }
-
-		// -(NSString *)kGMSPlaceTypeNeighborhoodExported;
-		[Field ("kGMSPlaceTypeNeighborhood", "__Internal")]
-		NSString Neighborhood { get; }
-
-		// -(NSString *)kGMSPlaceTypeNightClubExported;
-		[Field ("kGMSPlaceTypeNightClub", "__Internal")]
-		NSString NightClub { get; }
-
-		// -(NSString *)kGMSPlaceTypePainterExported;
-		[Field ("kGMSPlaceTypePainter", "__Internal")]
-		NSString Painter { get; }
-
-		// -(NSString *)kGMSPlaceTypeParkExported;
-		[Field ("kGMSPlaceTypePark", "__Internal")]
-		NSString Park { get; }
-
-		// -(NSString *)kGMSPlaceTypeParkingExported;
-		[Field ("kGMSPlaceTypeParking", "__Internal")]
-		NSString Parking { get; }
-
-		// -(NSString *)kGMSPlaceTypePetStoreExported;
-		[Field ("kGMSPlaceTypePetStore", "__Internal")]
-		NSString PetStore { get; }
-
-		// -(NSString *)kGMSPlaceTypePharmacyExported;
-		[Field ("kGMSPlaceTypePharmacy", "__Internal")]
-		NSString Pharmacy { get; }
-
-		// -(NSString *)kGMSPlaceTypePhysiotherapistExported;
-		[Field ("kGMSPlaceTypePhysiotherapist", "__Internal")]
-		NSString Physiotherapist { get; }
-
-		// -(NSString *)kGMSPlaceTypePlaceOfWorshipExported;
-		[Field ("kGMSPlaceTypePlaceOfWorship", "__Internal")]
-		NSString PlaceOfWorship { get; }
-
-		// -(NSString *)kGMSPlaceTypePlumberExported;
-		[Field ("kGMSPlaceTypePlumber", "__Internal")]
-		NSString Plumber { get; }
-
-		// -(NSString *)kGMSPlaceTypePointOfInterestExported;
-		[Field ("kGMSPlaceTypePointOfInterest", "__Internal")]
-		NSString PointOfInterest { get; }
-
-		// -(NSString *)kGMSPlaceTypePoliceExported;
-		[Field ("kGMSPlaceTypePolice", "__Internal")]
-		NSString Police { get; }
-
-		// -(NSString *)kGMSPlaceTypePoliticalExported;
-		[Field ("kGMSPlaceTypePolitical", "__Internal")]
-		NSString Political { get; }
-
-		// -(NSString *)kGMSPlaceTypePostBoxExported;
-		[Field ("kGMSPlaceTypePostBox", "__Internal")]
-		NSString PostBox { get; }
-
-		// -(NSString *)kGMSPlaceTypePostOfficeExported;
-		[Field ("kGMSPlaceTypePostOffice", "__Internal")]
-		NSString PostOffice { get; }
-
-		// -(NSString *)kGMSPlaceTypePostalCodeExported;
-		[Field ("kGMSPlaceTypePostalCode", "__Internal")]
-		NSString PostalCode { get; }
-
-		// -(NSString *)kGMSPlaceTypePostalCodePrefixExported;
-		[Field ("kGMSPlaceTypePostalCodePrefix", "__Internal")]
-		NSString PostalCodePrefix { get; }
-
-		// -(NSString *)kGMSPlaceTypePostalTownExported;
-		[Field ("kGMSPlaceTypePostalTown", "__Internal")]
-		NSString PostalTown { get; }
-
-		// -(NSString *)kGMSPlaceTypePremiseExported;
-		[Field ("kGMSPlaceTypePremise", "__Internal")]
-		NSString Premise { get; }
-
-		// -(NSString *)kGMSPlaceTypeRealEstateAgencyExported;
-		[Field ("kGMSPlaceTypeRealEstateAgency", "__Internal")]
-		NSString RealEstateAgency { get; }
-
-		// -(NSString *)kGMSPlaceTypeRestaurantExported;
-		[Field ("kGMSPlaceTypeRestaurant", "__Internal")]
-		NSString Restaurant { get; }
-
-		// -(NSString *)kGMSPlaceTypeRoofingContractorExported;
-		[Field ("kGMSPlaceTypeRoofingContractor", "__Internal")]
-		NSString RoofingContractor { get; }
-
-		// -(NSString *)kGMSPlaceTypeRoomExported;
-		[Field ("kGMSPlaceTypeRoom", "__Internal")]
-		NSString Room { get; }
-
-		// -(NSString *)kGMSPlaceTypeRouteExported;
-		[Field ("kGMSPlaceTypeRoute", "__Internal")]
-		NSString Route { get; }
-
-		// -(NSString *)kGMSPlaceTypeRvParkExported;
-		[Field ("kGMSPlaceTypeRvPark", "__Internal")]
-		NSString RvPark { get; }
-
-		// -(NSString *)kGMSPlaceTypeSchoolExported;
-		[Field ("kGMSPlaceTypeSchool", "__Internal")]
-		NSString School { get; }
-
-		// -(NSString *)kGMSPlaceTypeShoeStoreExported;
-		[Field ("kGMSPlaceTypeShoeStore", "__Internal")]
-		NSString ShoeStore { get; }
-
-		// -(NSString *)kGMSPlaceTypeShoppingMallExported;
-		[Field ("kGMSPlaceTypeShoppingMall", "__Internal")]
-		NSString ShoppingMall { get; }
-
-		// -(NSString *)kGMSPlaceTypeSpaExported;
-		[Field ("kGMSPlaceTypeSpa", "__Internal")]
-		NSString Spa { get; }
-
-		// -(NSString *)kGMSPlaceTypeStadiumExported;
-		[Field ("kGMSPlaceTypeStadium", "__Internal")]
-		NSString Stadium { get; }
-
-		// -(NSString *)kGMSPlaceTypeStorageExported;
-		[Field ("kGMSPlaceTypeStorage", "__Internal")]
-		NSString Storage { get; }
-
-		// -(NSString *)kGMSPlaceTypeStoreExported;
-		[Field ("kGMSPlaceTypeStore", "__Internal")]
-		NSString Store { get; }
-
-		// -(NSString *)kGMSPlaceTypeStreetAddressExported;
-		[Field ("kGMSPlaceTypeStreetAddress", "__Internal")]
-		NSString StreetAddress { get; }
-
-		// -(NSString *)kGMSPlaceTypeSublocalityExported;
-		[Field ("kGMSPlaceTypeSublocality", "__Internal")]
-		NSString Sublocality { get; }
-
-		// -(NSString *)kGMSPlaceTypeSublocalityLevel1Exported;
-		[Field ("kGMSPlaceTypeSublocalityLevel1", "__Internal")]
-		NSString SublocalityLevel1 { get; }
-
-		// -(NSString *)kGMSPlaceTypeSublocalityLevel2Exported;
-		[Field ("kGMSPlaceTypeSublocalityLevel2", "__Internal")]
-		NSString SublocalityLevel2 { get; }
-
-		// -(NSString *)kGMSPlaceTypeSublocalityLevel3Exported;
-		[Field ("kGMSPlaceTypeSublocalityLevel3", "__Internal")]
-		NSString SublocalityLevel3 { get; }
-
-		// -(NSString *)kGMSPlaceTypeSublocalityLevel4Exported;
-		[Field ("kGMSPlaceTypeSublocalityLevel4", "__Internal")]
-		NSString SublocalityLevel4 { get; }
-
-		// -(NSString *)kGMSPlaceTypeSublocalityLevel5Exported;
-		[Field ("kGMSPlaceTypeSublocalityLevel5", "__Internal")]
-		NSString SublocalityLevel5 { get; }
-
-		// -(NSString *)kGMSPlaceTypeSubpremiseExported;
-		[Field ("kGMSPlaceTypeSubpremise", "__Internal")]
-		NSString Subpremise { get; }
-
-		// -(NSString *)kGMSPlaceTypeSubwayStationExported;
-		[Field ("kGMSPlaceTypeSubwayStation", "__Internal")]
-		NSString SubwayStation { get; }
-
-		// -(NSString *)kGMSPlaceTypeSynagogueExported;
-		[Field ("kGMSPlaceTypeSynagogue", "__Internal")]
-		NSString Synagogue { get; }
-
-		// -(NSString *)kGMSPlaceTypeTaxiStandExported;
-		[Field ("kGMSPlaceTypeTaxiStand", "__Internal")]
-		NSString TaxiStand { get; }
-
-		// -(NSString *)kGMSPlaceTypeTrainStationExported;
-		[Field ("kGMSPlaceTypeTrainStation", "__Internal")]
-		NSString TrainStation { get; }
-
-		// -(NSString *)kGMSPlaceTypeTransitStationExported;
-		[Field ("kGMSPlaceTypeTransitStation", "__Internal")]
-		NSString TransitStation { get; }
-
-		// -(NSString *)kGMSPlaceTypeTravelAgencyExported;
-		[Field ("kGMSPlaceTypeTravelAgency", "__Internal")]
-		NSString TravelAgency { get; }
-
-		// -(NSString *)kGMSPlaceTypeUniversityExported;
-		[Field ("kGMSPlaceTypeUniversity", "__Internal")]
-		NSString University { get; }
-
-		// -(NSString *)kGMSPlaceTypeVeterinaryCareExported;
-		[Field ("kGMSPlaceTypeVeterinaryCare", "__Internal")]
-		NSString VeterinaryCare { get; }
-
-		// -(NSString *)kGMSPlaceTypeZooExported;
-		[Field ("kGMSPlaceTypeZoo", "__Internal")]
-		NSString Zoo { get; }
-	}
-
-	// @interface GMSUserAddedPlace : NSObject
-	[Obsolete ("The Add Place feature is deprecated as of June 30, 2017. This feature will be turned down on June 30, 2018, and will no longer be available after that date.")]
-	[BaseType (typeof (NSObject), Name = "GMSUserAddedPlace")]
-	interface UserAddedPlace
-	{
-		// @property (copy, nonatomic) NSString * name;
+	// @interface GMSPlusCode : NSObject
+	[BaseType (typeof (NSObject), Name = "GMSPlusCode")]
+	interface PlusCode {
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull globalCode;
+		[Export ("globalCode")]
+		string GlobalCode { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nullable compoundCode;
 		[NullAllowed]
-		[Export ("name", ArgumentSemantic.Copy)]
-		string Name { get; set; }
-
-		// @property (copy, nonatomic) NSString * address;
-		[NullAllowed]
-		[Export ("address", ArgumentSemantic.Copy)]
-		string Address { get; set; }
-
-		// @property (assign, nonatomic) CLLocationCoordinate2D coordinate;
-		[Export ("coordinate", ArgumentSemantic.Assign)]
-		CLLocationCoordinate2D Coordinate { get; set; }
-
-		// @property (copy, nonatomic) NSString * phoneNumber;
-		[NullAllowed]
-		[Export ("phoneNumber", ArgumentSemantic.Copy)]
-		string PhoneNumber { get; set; }
-
-		// @property (copy, nonatomic) NSArray * types;
-		[NullAllowed]
-		[Export ("types", ArgumentSemantic.Copy)]
-		string [] Types { get; set; }
-
-		// @property (copy, nonatomic) NSString * website;
-		[NullAllowed]
-		[Export ("website", ArgumentSemantic.Copy)]
-		string Website { get; set; }
+		[Export ("compoundCode")]
+		string CompoundCode { get; }
 	}
 }
 
-namespace Google.Places.Picker
-{
-	// @interface GMSPlacePicker : NSObject
-	[Obsolete ("Use PlacePickerViewController class instead.")]
-	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "GMSPlacePicker")]
-	interface PlacePicker
-	{
-		// @property (readonly, copy, nonatomic) GMSPlacePickerConfig * config;
-		[Export ("config", ArgumentSemantic.Copy)]
-		PlacePickerConfig Config { get; }
-
-		// -(instancetype)initWithConfig:(GMSPlacePickerConfig *)config;
-		[Export ("initWithConfig:")]
-		IntPtr Constructor (PlacePickerConfig config);
-
-		// -(void)pickPlaceWithCallback:(GMSPlaceResultCallback)callback;
-		[Export ("pickPlaceWithCallback:")]
-		void PickPlace (Google.Places.PlaceResultHandler callback);
-	}
-
-	// @interface GMSPlacePickerConfig : NSObject
-	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "GMSPlacePickerConfig")]
-	interface PlacePickerConfig
-	{
-		// @property (readonly, nonatomic, strong) GMSCoordinateBounds * viewport;
-		[NullAllowed]
-		[Export ("viewport", ArgumentSemantic.Strong)]
-		Google.Maps.CoordinateBounds Viewport { get; }
-
-		// -(instancetype)initWithViewport:(GMSCoordinateBounds *)viewport;
-		[Export ("initWithViewport:")]
-		IntPtr Constructor ([NullAllowed] Google.Maps.CoordinateBounds viewport);
-	}
-
-	interface IPlacePickerViewControllerDelegate { }
-
-	// @protocol GMSPlacePickerViewControllerDelegate <NSObject>
-	[Model (AutoGeneratedName = true)]
-	[Protocol]
-	[BaseType (typeof (NSObject), Name = "GMSPlacePickerViewControllerDelegate")]
-	interface PlacePickerViewControllerDelegate
-	{
-		// @required -(void)placePicker:(GMSPlacePickerViewController * _Nonnull)viewController didPickPlace:(GMSPlace * _Nonnull)place;
-		[Abstract]
-		[EventArgs ("PlacePickerViewControllerPlacePicked")]
-		[EventName ("PlacePicked")]
-		[Export ("placePicker:didPickPlace:")]
-		void DidPickPlace (PlacePickerViewController viewController, Google.Places.Place place);
-
-		// @optional -(void)placePicker:(GMSPlacePickerViewController * _Nonnull)viewController didFailWithError:(NSError * _Nonnull)error;
-		[EventArgs ("PlacePickerViewControllerFailed")]
-		[EventName ("Failed")]
-		[Export ("placePicker:didFailWithError:")]
-		void DidFail (PlacePickerViewController viewController, NSError error);
-
-		// @optional -(void)placePickerDidCancel:(GMSPlacePickerViewController * _Nonnull)viewController;
-		[EventArgs ("PlacePickerViewControllerCanceled")]
-		[EventName ("Canceled")]
-		[Export ("placePickerDidCancel:")]
-		void DidCancel (PlacePickerViewController viewController);
-	}
-
-	// @interface GMSPlacePickerViewController : UIViewController
-	[DisableDefaultCtor]
-	[BaseType (typeof (UIViewController),
-		   Name = "GMSPlacePickerViewController",
-		   Delegates = new string [] { "Delegate" },
-	           Events = new Type [] { typeof (PlacePickerViewControllerDelegate) })]
-	interface PlacePickerViewController
-	{
-		// @property (nonatomic, weak) id<GMSPlacePickerViewControllerDelegate> _Nullable delegate __attribute__((iboutlet));
-		[NullAllowed]
-		[Export ("delegate", ArgumentSemantic.Weak)]
-		IPlacePickerViewControllerDelegate Delegate { get; set; }
-
-		// -(instancetype _Nonnull)initWithConfig:(GMSPlacePickerConfig * _Nonnull)config;
-		[Export ("initWithConfig:")]
-		IntPtr Constructor (PlacePickerConfig config);
-	}
-}
