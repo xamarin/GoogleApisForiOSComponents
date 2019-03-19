@@ -154,6 +154,18 @@ namespace Google.Maps
 		[Export ("initWithTarget:zoom:bearing:viewingAngle:")]
 		IntPtr Constructor (CLLocationCoordinate2D target, float zoom, double bearing, double viewingAngle);
 
+		// -(instancetype _Nonnull)initWithTarget:(CLLocationCoordinate2D)target zoom:(float)zoom;
+		[Export ("initWithTarget:zoom:")]
+		IntPtr Constructor (CLLocationCoordinate2D target, float zoom);
+
+		// -(instancetype _Nonnull)initWithLatitude:(CLLocationDegrees)latitude longitude:(CLLocationDegrees)longitude zoom:(float)zoom;
+		[Export ("initWithLatitude:longitude:zoom:")]
+		IntPtr Constructor (double latitude, double longitude, float zoom);
+
+		// -(instancetype _Nonnull)initWithLatitude:(CLLocationDegrees)latitude longitude:(CLLocationDegrees)longitude zoom:(float)zoom bearing:(CLLocationDirection)bearing viewingAngle:(double)viewingAngle;
+		[Export ("initWithLatitude:longitude:zoom:bearing:viewingAngle:")]
+		IntPtr Constructor (double latitude, double longitude, float zoom, double bearing, double viewingAngle);
+
 		[Static, Export ("cameraWithTarget:zoom:")]
 		CameraPosition FromCamera (CLLocationCoordinate2D target, float zoom);
 
@@ -619,6 +631,10 @@ namespace Google.Maps
 		[NullAllowed]
 		[Export ("cameraTargetBounds", ArgumentSemantic.Strong)]
 		CoordinateBounds CameraTargetBounds { get; set; }
+
+		// -(instancetype _Nonnull)initWithFrame:(CGRect)frame camera:(GMSCameraPosition * _Nonnull)camera;
+		[Export ("initWithFrame:camera:")]
+		IntPtr Constructor (CGRect frame, CameraPosition camera);
 
 		[Static]
 		[Export ("mapWithFrame:camera:")]
@@ -1144,6 +1160,36 @@ namespace Google.Maps
 		[Static]
 		[Export ("polygonWithPath:")]
 		Polygon FromPath ([NullAllowed] Path path);
+	}
+
+	// @interface GMSPolygonLayer : GMSOverlayLayer
+	[BaseType (typeof (OverlayLayer), Name = "GMSPolygonLayer")]
+	interface PolygonLayer {
+		// extern NSString *const _Nonnull kGMSPolygonLayerStrokeWidth;
+		[Field ("kGMSPolygonLayerStrokeWidth", "__Internal")]
+		NSString StrokeWidthKey { get; }
+
+		// extern NSString *const _Nonnull kGMSPolygonLayerStrokeColor;
+		[Field ("kGMSPolygonLayerStrokeColor", "__Internal")]
+		NSString StrokeColorKey { get; }
+
+		// extern NSString *const _Nonnull kGMSPolygonLayerFillColor;
+		[Field ("kGMSPolygonLayerFillColor", "__Internal")]
+		NSString FillColorKey { get; }
+
+		// @property (assign, nonatomic) CGFloat strokeWidth;
+		[Export ("strokeWidth")]
+		nfloat StrokeWidth { get; set; }
+
+		// @property (assign, nonatomic) CGColorRef _Nullable strokeColor;
+		[NullAllowed]
+		[Export ("strokeColor", ArgumentSemantic.Assign)]
+		CGColor StrokeColor { get; set; }
+
+		// @property (assign, nonatomic) CGColorRef _Nullable fillColor;
+		[NullAllowed]
+		[Export ("fillColor", ArgumentSemantic.Assign)]
+		CGColor FillColor { get; set; }
 	}
 
 	[DisableDefaultCtor]

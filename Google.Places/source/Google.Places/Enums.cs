@@ -21,6 +21,24 @@ namespace Google.Places {
 	}
 
 	[Native]
+	public enum OpenNowStatus : long {
+		Yes,
+		No,
+		Unknown
+	}
+
+	[Native]
+	public enum DayOfWeek : ulong {
+		Sunday = 1,
+		Monday = 2,
+		Tuesday = 3,
+		Wednesday = 4,
+		Thursday = 5,
+		Friday = 6,
+		Saturday = 7
+	}
+
+	[Native]
 	public enum PlacesOpenNowStatus : long {
 		Yes,
 		No,
@@ -35,6 +53,26 @@ namespace Google.Places {
 		Medium = 2,
 		High = 3,
 		Expensive = 4
+	}
+
+	[Native]
+	public enum PlaceField : ulong {
+		Name = 1 << 0,
+		PlaceID = 1 << 1,
+		PlusCode = 1 << 2,
+		Coordinate = 1 << 3,
+		OpeningHours = 1 << 4,
+		PhoneNumber = 1 << 5,
+		FormattedAddress = 1 << 6,
+		Rating = 1 << 7,
+		PriceLevel = 1 << 8,
+		Types = 1 << 9,
+		Website = 1 << 10,
+		Viewport = 1 << 11,
+		AddressComponents = 1 << 12,
+		Photos = 1 << 13,
+		UserRatingsTotal = 1 << 14,
+		All = ulong.MaxValue
 	}
 
 	[Native]

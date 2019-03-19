@@ -29,16 +29,6 @@ namespace GooglePlacesSample
 			},
 			new [] {
 				new SampleInformation {
-					StoryboardId = nameof (PhotosViewController),
-					Title = "Photos"
-				},
-				new SampleInformation {
-					StoryboardId = nameof (MyPlacePickerViewController),
-					Title = "Place Picker Sample"
-				}
-			},
-			new [] {
-				new SampleInformation {
 					StoryboardId = nameof (GoogleOpenSourceViewController),
 					Title = "Google Maps License"
 				},

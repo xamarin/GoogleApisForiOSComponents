@@ -115,14 +115,6 @@
     <Compile Include="Samples\UISearchAutocompleteViewController.designer.cs">
       <DependentUpon>UISearchAutocompleteViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Samples\PhotosViewController.cs" />
-    <Compile Include="Samples\PhotosViewController.designer.cs">
-      <DependentUpon>PhotosViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Samples\MyPlacePickerViewController.cs" />
-    <Compile Include="Samples\MyPlacePickerViewController.designer.cs">
-      <DependentUpon>MyPlacePickerViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="MenuTableViewController.cs" />
     <Compile Include="MenuTableViewController.designer.cs">
       <DependentUpon>MenuTableViewController.cs</DependentUpon>
