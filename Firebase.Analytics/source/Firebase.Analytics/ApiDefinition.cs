@@ -58,6 +58,15 @@ namespace Firebase.Analytics
 		[Export ("setScreenName:screenClass:")]
 		void SetScreenNameAndClass ([NullAllowed] string screenName, [NullAllowed] string screenClassOverride);
 
+		// + (void)setAnalyticsCollectionEnabled:(BOOL)analyticsCollectionEnabled;
+		[Static]
+		[Export ("setAnalyticsCollectionEnabled:")]
+		void SetAnalyticsCollectionEnabled (bool analyticsCollectionEnabled);
+
+		// + (void) setSessionTimeoutInterval:(NSTimeInterval) sessionTimeoutInterval;
+		[Export ("setSessionTimeoutInterval:")]
+		void SetSessionTimeoutInterval (double sessionTimeoutInterval);
+
 		// + (NSString *)appInstanceID;
 		[Static]
 		[Export ("appInstanceID")]

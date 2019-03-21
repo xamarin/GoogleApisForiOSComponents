@@ -91,6 +91,7 @@ namespace Firebase.Analytics
 		public static NSString VirtualCurrencyName { get; } = new NSString ("virtual_currency_name");
 		public static NSString LevelName { get; } = new NSString ("level_name");
 		public static NSString Success { get; } = new NSString ("success");
+		public static NSString ExtendSession { get; } = new NSString ("extend_session");
 	}
 
 	public static class UserPropertyNamesConstants
