@@ -8,6 +8,7 @@ using CoreGraphics;
 namespace Firebase.Core
 {
 	//@interface FIRAnalyticsConfiguration : NSObject
+	[Obsolete ("Use these methods directly on the `Analytics` class.")]
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRAnalyticsConfiguration")]
 	interface AnalyticsConfiguration
@@ -98,6 +99,7 @@ namespace Firebase.Core
 		Configuration SharedInstance { get; }
 
 		// @property (readwrite, nonatomic) FIRAnalyticsConfiguration * analyticsConfiguration;
+		[Obsolete ("Use the methods available here directly on the `Analytics` class.")]
 		[Export ("analyticsConfiguration", ArgumentSemantic.Strong)]
 		AnalyticsConfiguration AnalyticsConfiguration { get; set; }
 

@@ -305,6 +305,9 @@ public abstract class Google
 		public override string NuGetId { 
 			get { return "Xamarin.Google.iOS.Maps"; }
 		}
+		public override string [] BaseOf  { 
+			get { return new [] { new Google.Places ().Name }; }
+		}
 	}
 
 	public class MobileAds : GoogleBase
