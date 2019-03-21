@@ -22,6 +22,10 @@ platform :ios, '8.0'
 install! 'cocoapods', :integrate_targets => false
 use_frameworks!
 
+=begin
+This override the static_framework flag to false,
+in order to be able to build dynamic frameworks.
+=end
 pre_install do |installer|
 	installer.pod_targets.each do |pod|
 		def pod.static_framework?;

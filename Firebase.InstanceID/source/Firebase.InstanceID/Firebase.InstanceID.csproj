@@ -45,13 +45,18 @@
     <ObjcBindingCoreSource Include="Structs.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Firebase.InstanceID.targets" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.csproj">
       <Project>{0AD1ED63-C008-41B3-8ADB-04696B4880E3}</Project>
       <Name>Firebase.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="..\..\externals\FirebaseInstanceID.framework">
+      <Kind>Framework</Kind>
+      <ForceLoad>True</ForceLoad>
+      <Frameworks>Security</Frameworks>
+      <LinkerFlags>-ObjC</LinkerFlags>
+    </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>

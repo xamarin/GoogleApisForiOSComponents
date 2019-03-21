@@ -1,26 +1,39 @@
 =begin
 Last run FirebaseInstanceID installed:
-* FirebaseCore (5.2.0)
-* FirebaseInstanceID (3.4.0)
-* GoogleUtilities (5.3.7)
+* FirebaseCore (5.4.0)
+* FirebaseInstanceID (3.8.0)
+* GoogleUtilities (5.5.0)
 
 Check if main version or subversion number has changed. 
 If yes, please, update *.targets file located in binding 
 project, also, update Podfile file if needed.
 
 In Firebase.InstanceID binding project, you can find the .targets file of:
-* FirebaseInstanceID (3.4.0)
+* FirebaseInstanceID (3.8.0)
 
 In Firebase.Core binding project, you can find the Native Reference of:
-* FirebaseCore (5.2.0)
-* GoogleUtilities (5.3.7)
+* FirebaseCore (5.4.0)
+* GoogleUtilities (5.5.0)
 =end
 
 source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '8.0'
 install! 'cocoapods', :integrate_targets => false
+use_frameworks!
+
+=begin
+This override the static_framework flag to false,
+in order to be able to build dynamic frameworks.
+=end
+pre_install do |installer|
+	installer.pod_targets.each do |pod|
+		def pod.static_framework?;
+			false
+		end
+	end
+end
 
 target 'FirebaseInstanceID' do
-	pod 'FirebaseInstanceID', '3.4.0'
+	pod 'FirebaseInstanceID', '3.8.0'
 end
