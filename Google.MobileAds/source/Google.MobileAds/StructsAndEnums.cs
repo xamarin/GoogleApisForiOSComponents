@@ -6,6 +6,20 @@ using CoreGraphics;
 
 namespace Google.MobileAds
 {
+	[Native]
+	public enum AdFormat : long {
+		Banner,
+		Interstitial,
+		Rewarded,
+		Native
+	}
+
+	[Native]
+	public enum AdapterInitializationState : long {
+		NotReady = 0,
+		Ready = 1
+	}
+
 	//GADRequest file
 	[Native]
 	public enum Gender : long
@@ -32,7 +46,8 @@ namespace Google.MobileAds
 		MediationInvalidAdSize,
 		InternalError,
 		InvalidArgument,
-		ReceivedInvalidResponse
+		ReceivedInvalidResponse,
+		RewardedAdAlreadyUsed
 	}
 
 	[Native]
@@ -102,5 +117,12 @@ namespace Google.MobileAds.Consent {
 		Disabled = 0,
 		Eea = 1,
 		NotEea = 2
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct GADVersionNumber {
+		public nint MajorVersion;
+		public nint MinorVersion;
+		public nint PatchVersion;
 	}
 }

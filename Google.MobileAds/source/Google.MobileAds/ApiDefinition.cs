@@ -181,6 +181,9 @@ namespace Google.MobileAds {
 		NSString BackgroundAsset { get; }
 	}
 
+	// typedef void (^GADInitializationCompletionHandler)(GADInitializationStatus * _Nonnull);
+	delegate void InitializationCompletionHandler (InitializationStatus status);
+
 	// @interface GADMobileAds : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GADMobileAds")]
@@ -189,11 +192,6 @@ namespace Google.MobileAds {
 		[Static]
 		[Export ("sharedInstance")]
 		MobileAds SharedInstance { get; }
-
-		// + (void)configureWithApplicationID:(NSString *)applicationID;
-		[Static]
-		[Export ("configureWithApplicationID:")]
-		void Configure (string applicationId);
 
 		// +(void)disableAutomatedInAppPurchaseReporting;
 		[Static]
@@ -217,13 +215,27 @@ namespace Google.MobileAds {
 		[Export ("audioVideoManager", ArgumentSemantic.Strong)]
 		AudioVideoManager AudioVideoManager { get; }
 
-		// @property(nonatomic, readonly, strong) GADRequestConfiguration *requestConfiguration;
+		// @property (readonly, nonatomic, strong) GADRequestConfiguration * _Nonnull requestConfiguration;
 		[Export ("requestConfiguration", ArgumentSemantic.Strong)]
 		RequestConfiguration RequestConfiguration { get; }
+
+		// @property (readonly, nonatomic) GADInitializationStatus * _Nonnull initializationStatus;
+		[Export ("initializationStatus")]
+		InitializationStatus InitializationStatus { get; }
 
 		// - (BOOL)isSDKVersionAtLeastMajor:(NSInteger)major minor:(NSInteger)minor patch:(NSInteger)patch;
 		[Export ("isSDKVersionAtLeastMajor:minor:patch:")]
 		void IsSDKVersionAtLeast (nint major, nint minor, nint patch);
+
+		// -(void)startWithCompletionHandler:(GADInitializationCompletionHandler _Nullable)completionHandler;
+		[Export ("startWithCompletionHandler:")]
+		void Start ([NullAllowed] InitializationCompletionHandler completionHandler);
+
+		// + (void)configureWithApplicationID:(NSString *)applicationID;
+		[Obsolete ("Use SharedInstance.Start method instead.")]
+		[Static]
+		[Export ("configureWithApplicationID:")]
+		void Configure (string applicationId);
 	}
 
 	// @interface GADMultipleAdsAdLoaderOptions : GADAdLoaderOptions
@@ -473,6 +485,11 @@ namespace Google.MobileAds {
 		// @property(nonatomic, readonly) CGFloat aspectRatio;
 		[Export ("aspectRatio")]
 		nfloat AspectRatio { get; }
+
+		// @property (nonatomic) UIImage * _Nullable mainImage;
+		[NullAllowed]
+		[Export ("mainImage", ArgumentSemantic.Assign)]
+		UIImage MainImage { get; set; }
 	}
 
 	[DisableDefaultCtor]
@@ -512,13 +529,6 @@ namespace Google.MobileAds {
 		[Export ("setLocationWithLatitude:longitude:accuracy:")]
 		void SetLocation (nfloat latitude, nfloat longitude, nfloat accuracyInMeters);
 
-		[Obsolete ("Use SetLocation (nfloat, nfloat, nfloat) overload method instead.")]
-		[Export ("setLocationWithDescription:")]
-		void SetLocation (string locationDescription);
-
-		[Export ("tagForChildDirectedTreatment:")]
-		void Tag (bool forChildDirectedTreatment);
-
 		[Obsolete ("Please, use Tag method instead. This will be removed in future versions.")]
 		[Wrap ("Tag (childDirectedTreatment)")]
 		void TagForChildDirectedTreatment (bool childDirectedTreatment);
@@ -539,6 +549,13 @@ namespace Google.MobileAds {
 		[Export ("setBirthdayWithMonth:day:year:")]
 		void SetBirthday (nint m, nint d, nint y);
 
+		[Obsolete ("Use SetLocation (nfloat, nfloat, nfloat) overload method instead.")]
+		[Export ("setLocationWithDescription:")]
+		void SetLocation (string locationDescription);
+
+		[Obsolete ("Use MobileAds.SharedInstance.RequestConfiguration.TagForChildDirectedTreatment method instead.")]
+		[Export ("tagForChildDirectedTreatment:")]
+		void Tag (bool forChildDirectedTreatment);
 	}
 
 	[DisableDefaultCtor]
@@ -579,6 +596,11 @@ namespace Google.MobileAds {
 		[NullAllowed]
 		[Export ("customRewardString")]
 		string CustomRewardString { get; set; }
+
+		// @property (readonly, nonatomic) NSDictionary<GADAdMetadataKey,id> * _Nullable adMetadata;
+		[NullAllowed]
+		[Export ("adMetadata")]
+		NSDictionary<NSString, NSObject> AdMetadata { get; }
 
 		// +(GADRewardBasedVideoAd *)sharedInstance;
 		[Static]
@@ -649,6 +671,114 @@ namespace Google.MobileAds {
 		[EventArgs ("RewardBasedVideoAd")]
 		[Export ("rewardBasedVideoAdWillLeaveApplication:")]
 		void WillLeaveApplication (RewardBasedVideoAd rewardBasedVideoAd);
+
+		// @optional -(void)rewardBasedVideoAdMetadataDidChange:(GADRewardBasedVideoAd * _Nonnull)rewardBasedVideoAd;
+		[EventArgs ("RewardBasedVideoAd")]
+		[EventName ("MetadataChanged")]
+		[Export ("rewardBasedVideoAdMetadataDidChange:")]
+		void MetadataDidChange (RewardBasedVideoAd rewardBasedVideoAd);
+	}
+
+	// typedef void (^GADRewardedAdLoadCompletionHandler)(GADRequestError * _Nullable);
+	delegate void RewardedAdLoadCompletionHandler ([NullAllowed] RequestError error);
+
+	// @interface GADRewardedAd : NSObject
+	[BaseType (typeof (NSObject),
+		Name = "GADRewardedAd",
+		Delegates = new [] { "AdMetadataDelegate" },
+		Events = new [] { typeof (RewardedAdMetadataDelegate) })]
+	interface RewardedAd {
+		// -(instancetype _Nonnull)initWithAdUnitID:(NSString * _Nonnull)adUnitID;
+		[Export ("initWithAdUnitID:")]
+		IntPtr Constructor (string adUnitId);
+
+		// -(void)loadRequest:(GADRequest * _Nullable)request completionHandler:(GADRewardedAdLoadCompletionHandler _Nullable)completionHandler;
+		[Export ("loadRequest:completionHandler:")]
+		void LoadRequest ([NullAllowed] Request request, [NullAllowed] RewardedAdLoadCompletionHandler completionHandler);
+
+		// @property (readonly, nonatomic) NSString * _Nonnull adUnitID;
+		[Export ("adUnitID")]
+		string AdUnitId { get; }
+
+		// @property (readonly, getter = isReady, nonatomic) BOOL ready;
+		[Export ("ready")]
+		bool Ready { [Bind ("isReady")] get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nullable adNetworkClassName;
+		[NullAllowed]
+		[Export ("adNetworkClassName")]
+		string AdNetworkClassName { get; }
+
+		// @property (readonly, nonatomic) GADAdReward * _Nullable reward;
+		[NullAllowed]
+		[Export ("reward")]
+		AdReward Reward { get; }
+
+		// @property (copy, nonatomic) GADServerSideVerificationOptions * _Nullable serverSideVerificationOptions;
+		[NullAllowed]
+		[Export ("serverSideVerificationOptions", ArgumentSemantic.Copy)]
+		ServerSideVerificationOptions ServerSideVerificationOptions { get; set; }
+
+		// @property (readonly, nonatomic) NSDictionary<GADAdMetadataKey,id> * _Nullable adMetadata;
+		[NullAllowed]
+		[Export ("adMetadata")]
+		NSDictionary<NSString, NSObject> AdMetadata { get; }
+
+		// @property (nonatomic, weak) id<GADRewardedAdMetadataDelegate> _Nullable adMetadataDelegate;
+		[NullAllowed]
+		[Export ("adMetadataDelegate", ArgumentSemantic.Weak)]
+		IRewardedAdMetadataDelegate AdMetadataDelegate { get; set; }
+
+		// -(void)presentFromRootViewController:(UIViewController * _Nonnull)viewController delegate:(id<GADRewardedAdDelegate> _Nonnull)delegate;
+		[Export ("presentFromRootViewController:delegate:")]
+		void PresentFromRootViewController (UIViewController viewController, IRewardedAdDelegate aDelegate);
+	}
+
+	interface IRewardedAdDelegate { }
+
+	// @protocol GADRewardedAdDelegate <NSObject>
+	[Model (AutoGeneratedName = true)]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "GADRewardedAdDelegate")]
+	interface RewardedAdDelegate {
+		// @required -(void)rewardedAd:(GADRewardedAd * _Nonnull)rewardedAd userDidEarnReward:(GADAdReward * _Nonnull)reward;
+		[Abstract]
+		[EventArgs ("RewardedAdUserRewardEarned")]
+		[EventName ("UserRewardEarned")]
+		[Export ("rewardedAd:userDidEarnReward:")]
+		void UserDidEarnReward (RewardedAd rewardedAd, AdReward reward);
+
+		// @optional -(void)rewardedAd:(GADRewardedAd * _Nonnull)rewardedAd didFailToPresentWithError:(NSError * _Nonnull)error;
+		[EventArgs ("RewardedAdPresentFailed")]
+		[EventName ("PresentFailed")]
+		[Export ("rewardedAd:didFailToPresentWithError:")]
+		void DidFailToPresent (RewardedAd rewardedAd, NSError error);
+
+		// @optional -(void)rewardedAdDidPresent:(GADRewardedAd * _Nonnull)rewardedAd;
+		[EventArgs ("RewardedAdPresented")]
+		[EventName ("Presented")]
+		[Export ("rewardedAdDidPresent:")]
+		void DidPresent (RewardedAd rewardedAd);
+
+		// @optional -(void)rewardedAdDidDismiss:(GADRewardedAd * _Nonnull)rewardedAd;
+		[EventArgs ("RewardedAdDismissed")]
+		[EventName ("Dismissed")]
+		[Export ("rewardedAdDidDismiss:")]
+		void DidDismiss (RewardedAd rewardedAd);
+	}
+
+	interface IRewardedAdMetadataDelegate { }
+
+	// @protocol GADRewardedAdMetadataDelegate <NSObject>
+	[Model (AutoGeneratedName = true)]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "GADRewardedAdMetadataDelegate")]
+	interface RewardedAdMetadataDelegate {
+		// @optional -(void)rewardedAdMetadataDidChange:(GADRewardedAd * _Nonnull)rewardedAd;
+		[EventArgs ("RewardedAdMetadataChanged")]
+		[EventName ("MetadataChanged")]
+		[Export ("rewardedAdMetadataDidChange:")]
+		void DidChange (RewardedAd rewardedAd);
 	}
 
 	interface IAdSizeDelegate {
@@ -740,6 +870,18 @@ namespace Google.MobileAds {
 		[EventName ("PlayingAudioStopped")]
 		[Export ("audioVideoManagerDidStopPlayingAudio:")]
 		void DidStopPlayingAudio (AudioVideoManager audioVideoManager);
+	}
+
+	// @interface GADServerSideVerificationOptions : NSObject <NSCopying>
+	[BaseType (typeof (NSObject), Name = "GADServerSideVerificationOptions")]
+	interface ServerSideVerificationOptions : INSCopying {
+		// @property (copy, nonatomic) NSString * _Nullable userIdentifier;
+		[NullAllowed, Export ("userIdentifier")]
+		string UserIdentifier { get; set; }
+
+		// @property (copy, nonatomic) NSString * _Nullable customRewardString;
+		[NullAllowed, Export ("customRewardString")]
+		string CustomRewardString { get; set; }
 	}
 
 	#region Search
@@ -1176,6 +1318,10 @@ namespace Google.MobileAds {
 		// - (void)pause;
 		[Export ("pause")]
 		void Pause ();
+
+		// -(void)stop;
+		[Export ("stop")]
+		void Stop ();
 
 		// - (BOOL)hasVideoContent;
 		[Export ("hasVideoContent")]
@@ -2087,7 +2233,7 @@ namespace Google.MobileAds {
 		// - (void)customEventNativeAd:(id<GADCustomEventNativeAd>)customEventNativeAd didReceiveMediatedUnifiedNativeAd:(id<GADMediatedUnifiedNativeAd>) mediatedUnifiedNativeAd;
 		[Abstract]
 		[Export ("customEventNativeAd:didReceiveMediatedUnifiedNativeAd:")]
-		void DidReceiveMediatedUnifiedNativeAd (ICustomEventNativeAd customEventNativeAd, Mediation.IMediatedUnifiedNativeAd mediatedUnifiedNativeAd);
+		void DidReceiveMediatedUnifiedNativeAd (ICustomEventNativeAd customEventNativeAd, IMediatedUnifiedNativeAd mediatedUnifiedNativeAd);
 	}
 
 	[BaseType (typeof (NSObject), Name = "GADCustomEventRequest")]
@@ -2395,6 +2541,30 @@ namespace Google.MobileAds {
 		void ShouldStartPurchase (string productID, nint quantity);
 	}
 
+	// @interface GADAdapterStatus : NSObject <NSCopying>
+	[BaseType (typeof (NSObject), Name = "GADAdapterStatus")]
+	interface AdapterStatus : INSCopying {
+		// @property (readonly, nonatomic) GADAdapterInitializationState state;
+		[Export ("state")]
+		AdapterInitializationState State { get; }
+
+		// @property (readonly, nonatomic) NSString * _Nonnull description;
+		[Export ("description")]
+		string Description { get; }
+
+		// @property (readonly, nonatomic) NSTimeInterval latency;
+		[Export ("latency")]
+		double Latency { get; }
+	}
+
+	// @interface GADInitializationStatus : NSObject <NSCopying>
+	[BaseType (typeof (NSObject), Name = "GADInitializationStatus")]
+	interface InitializationStatus : INSCopying {
+		// @property (readonly, nonatomic) NSDictionary<NSString *,GADAdapterStatus *> * _Nonnull adapterStatusesByClassName;
+		[Export ("adapterStatusesByClassName")]
+		NSDictionary<NSString, AdapterStatus> AdapterStatusesByClassName { get; }
+	}
+
 	interface IInAppPurchaseDelegate {
 
 	}
@@ -2636,6 +2806,511 @@ namespace Google.MobileAds {
 		bool HasVideoContent ();
 	}
 
+	interface IMediatedUnifiedNativeAd { }
+
+	// @protocol GADMediatedUnifiedNativeAd <NSObject>
+	[Model (AutoGeneratedName = true)]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "GADMediatedUnifiedNativeAd")]
+	interface MediatedUnifiedNativeAd {
+		// @required @property (readonly, copy, nonatomic) NSString * _Nullable headline;
+		[Abstract]
+		[NullAllowed]
+		[Export ("headline")]
+		string Headline { get; }
+
+		// @required @property (readonly, nonatomic) NSArray<GADNativeAdImage *> * _Nullable images;
+		[Abstract]
+		[NullAllowed]
+		[Export ("images")]
+		NativeAdImage [] Images { get; }
+
+		// @required @property (readonly, copy, nonatomic) NSString * _Nullable body;
+		[Abstract]
+		[NullAllowed]
+		[Export ("body")]
+		string Body { get; }
+
+		// @required @property (readonly, nonatomic) GADNativeAdImage * _Nullable icon;
+		[Abstract]
+		[NullAllowed]
+		[Export ("icon")]
+		NativeAdImage Icon { get; }
+
+		// @required @property (readonly, copy, nonatomic) NSString * _Nullable callToAction;
+		[Abstract]
+		[NullAllowed]
+		[Export ("callToAction")]
+		string CallToAction { get; }
+
+		// @required @property (readonly, copy, nonatomic) NSDecimalNumber * _Nullable starRating;
+		[Abstract]
+		[NullAllowed]
+		[Export ("starRating", ArgumentSemantic.Copy)]
+		NSDecimalNumber StarRating { get; }
+
+		// @required @property (readonly, copy, nonatomic) NSString * _Nullable store;
+		[Abstract]
+		[NullAllowed]
+		[Export ("store")]
+		string Store { get; }
+
+		// @required @property (readonly, copy, nonatomic) NSString * _Nullable price;
+		[Abstract]
+		[NullAllowed]
+		[Export ("price")]
+		string Price { get; }
+
+		// @required @property (readonly, copy, nonatomic) NSString * _Nullable advertiser;
+		[Abstract]
+		[NullAllowed]
+		[Export ("advertiser")]
+		string Advertiser { get; }
+
+		// @required @property (readonly, copy, nonatomic) NSDictionary<NSString *,id> * _Nullable extraAssets;
+		[Abstract]
+		[NullAllowed]
+		[Export ("extraAssets", ArgumentSemantic.Copy)]
+		NSDictionary<NSString, NSObject> ExtraAssets { get; }
+
+		// @optional @property (readonly, nonatomic) UIView * _Nullable adChoicesView;
+		[NullAllowed]
+		[Export ("adChoicesView")]
+		UIView GetAdChoicesView ();
+
+		// @optional @property (readonly, nonatomic) UIView * _Nullable mediaView;
+		[NullAllowed]
+		[Export ("mediaView")]
+		UIView GetMediaView ();
+
+		// @optional @property (readonly, assign, nonatomic) BOOL hasVideoContent;
+		[Export ("hasVideoContent")]
+		bool HasVideoContent ();
+
+		// @optional -(void)didRenderInView:(UIView * _Nonnull)view clickableAssetViews:(NSDictionary<GADUnifiedNativeAssetIdentifier,UIView *> * _Nonnull)clickableAssetViews nonclickableAssetViews:(NSDictionary<GADUnifiedNativeAssetIdentifier,UIView *> * _Nonnull)nonclickableAssetViews viewController:(UIViewController * _Nonnull)viewController;
+		[Export ("didRenderInView:clickableAssetViews:nonclickableAssetViews:viewController:")]
+		void DidRenderInView (UIView view, NSDictionary<NSString, UIView> clickableAssetViews, NSDictionary<NSString, UIView> nonclickableAssetViews, UIViewController viewController);
+
+		// @optional -(void)didRecordImpression;
+		[Export ("didRecordImpression")]
+		void DidRecordImpression ();
+
+		// @optional -(void)didRecordClickOnAssetWithName:(GADUnifiedNativeAssetIdentifier _Nonnull)assetName view:(UIView * _Nonnull)view viewController:(UIViewController * _Nonnull)viewController;
+		[Export ("didRecordClickOnAssetWithName:view:viewController:")]
+		void DidRecordClick (string assetName, UIView view, UIViewController viewController);
+
+		// @optional -(void)didUntrackView:(UIView * _Nullable)view;
+		[Export ("didUntrackView:")]
+		void DidUntrackView ([NullAllowed] UIView view);
+	}
+
+	// @interface GADMediatedUnifiedNativeAdNotificationSource : NSObject
+	[BaseType (typeof (NSObject), Name = "GADMediatedUnifiedNativeAdNotificationSource")]
+	interface MediatedUnifiedNativeAdNotificationSource {
+		// +(void)mediatedNativeAdDidRecordImpression:(id<GADMediatedUnifiedNativeAd> _Nonnull)mediatedNativeAd;
+		[Static]
+		[Export ("mediatedNativeAdDidRecordImpression:")]
+		void DidRecordImpression (IMediatedUnifiedNativeAd mediatedNativeAd);
+
+		// +(void)mediatedNativeAdDidRecordClick:(id<GADMediatedUnifiedNativeAd> _Nonnull)mediatedNativeAd;
+		[Static]
+		[Export ("mediatedNativeAdDidRecordClick:")]
+		void DidRecordClick (IMediatedUnifiedNativeAd mediatedNativeAd);
+
+		// +(void)mediatedNativeAdWillPresentScreen:(id<GADMediatedUnifiedNativeAd> _Nonnull)mediatedNativeAd;
+		[Static]
+		[Export ("mediatedNativeAdWillPresentScreen:")]
+		void WillPresentScreen (IMediatedUnifiedNativeAd mediatedNativeAd);
+
+		// +(void)mediatedNativeAdWillDismissScreen:(id<GADMediatedUnifiedNativeAd> _Nonnull)mediatedNativeAd;
+		[Static]
+		[Export ("mediatedNativeAdWillDismissScreen:")]
+		void WillDismissScreen (IMediatedUnifiedNativeAd mediatedNativeAd);
+
+		// +(void)mediatedNativeAdDidDismissScreen:(id<GADMediatedUnifiedNativeAd> _Nonnull)mediatedNativeAd;
+		[Static]
+		[Export ("mediatedNativeAdDidDismissScreen:")]
+		void DidDismissScreen (IMediatedUnifiedNativeAd mediatedNativeAd);
+
+		// +(void)mediatedNativeAdWillLeaveApplication:(id<GADMediatedUnifiedNativeAd> _Nonnull)mediatedNativeAd;
+		[Static]
+		[Export ("mediatedNativeAdWillLeaveApplication:")]
+		void WillLeaveApplication (IMediatedUnifiedNativeAd mediatedNativeAd);
+
+		// +(void)mediatedNativeAdDidPlayVideo:(id<GADMediatedUnifiedNativeAd> _Nonnull)mediatedNativeAd;
+		[Static]
+		[Export ("mediatedNativeAdDidPlayVideo:")]
+		void DidPlayVideo (IMediatedUnifiedNativeAd mediatedNativeAd);
+
+		// +(void)mediatedNativeAdDidPauseVideo:(id<GADMediatedUnifiedNativeAd> _Nonnull)mediatedNativeAd;
+		[Static]
+		[Export ("mediatedNativeAdDidPauseVideo:")]
+		void DidPauseVideo (IMediatedUnifiedNativeAd mediatedNativeAd);
+
+		// +(void)mediatedNativeAdDidEndVideoPlayback:(id<GADMediatedUnifiedNativeAd> _Nonnull)mediatedNativeAd;
+		[Static]
+		[Export ("mediatedNativeAdDidEndVideoPlayback:")]
+		void DidEndVideoPlayback (IMediatedUnifiedNativeAd mediatedNativeAd);
+	}
+
+	interface IMediationAd { }
+
+	// @protocol GADMediationAd <NSObject>
+	[Model (AutoGeneratedName = true)]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "GADMediationAd")]
+	interface MediationAd { }
+
+	// @interface GADMediationAdConfiguration : NSObject
+	[BaseType (typeof (NSObject), Name = "GADMediationAdConfiguration")]
+	interface MediationAdConfiguration {
+		// @property (readonly, nonatomic) NSString * _Nullable bidResponse;
+		[NullAllowed]
+		[Export ("bidResponse")]
+		string BidResponse { get; }
+
+		// @property (readonly, nonatomic) UIViewController * _Nullable topViewController;
+		[NullAllowed]
+		[Export ("topViewController")]
+		UIViewController TopViewController { get; }
+
+		// @property (readonly, nonatomic) GADMediationCredentials * _Nonnull credentials;
+		[Export ("credentials")]
+		MediationCredentials Credentials { get; }
+
+		// @property (readonly, nonatomic) NSData * _Nullable watermark;
+		[NullAllowed]
+		[Export ("watermark")]
+		NSData Watermark { get; }
+
+		// @property (readonly, nonatomic) id<GADAdNetworkExtras> _Nullable extras;
+		[NullAllowed]
+		[Export ("extras")]
+		AdNetworkExtras Extras { get; }
+
+		// @property (readonly, nonatomic) NSNumber * _Nullable childDirectedTreatment;
+		[NullAllowed]
+		[Export ("childDirectedTreatment")]
+		NSNumber ChildDirectedTreatment { get; }
+
+		// @property (readonly, nonatomic) BOOL isTestRequest;
+		[Export ("isTestRequest")]
+		bool IsTestRequest { get; }
+
+		// @property (readonly, nonatomic) BOOL hasUserLocation;
+		[Export ("hasUserLocation")]
+		bool HasUserLocation { get; }
+
+		// @property (readonly, nonatomic) CGFloat userLatitude;
+		[Export ("userLatitude")]
+		nfloat UserLatitude { get; }
+
+		// @property (readonly, nonatomic) CGFloat userLongitude;
+		[Export ("userLongitude")]
+		nfloat UserLongitude { get; }
+
+		// @property (readonly, nonatomic) CGFloat userLocationAccuracyInMeters;
+		[Export ("userLocationAccuracyInMeters")]
+		nfloat UserLocationAccuracyInMeters { get; }
+	}
+
+	interface IMediationAdEventDelegate { }
+
+	// @protocol GADMediationAdEventDelegate <NSObject>
+	[Model (AutoGeneratedName = true)]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "GADMediationAdEventDelegate")]
+	interface MediationAdEventDelegate {
+		// @required -(void)reportImpression;
+		[Abstract]
+		[Export ("reportImpression")]
+		void ReportImpression ();
+
+		// @required -(void)reportClick;
+		[Abstract]
+		[Export ("reportClick")]
+		void ReportClick ();
+
+		// @required -(void)willPresentFullScreenView;
+		[Abstract]
+		[Export ("willPresentFullScreenView")]
+		void WillPresentFullScreenView ();
+
+		// @required -(void)didFailToPresentWithError:(NSError * _Nonnull)error;
+		[Abstract]
+		[Export ("didFailToPresentWithError:")]
+		void DidFailToPresentWithError (NSError error);
+
+		// @required -(void)willDismissFullScreenView;
+		[Abstract]
+		[Export ("willDismissFullScreenView")]
+		void WillDismissFullScreenView ();
+
+		// @required -(void)didDismissFullScreenView;
+		[Abstract]
+		[Export ("didDismissFullScreenView")]
+		void DidDismissFullScreenView ();
+	}
+
+	interface IMediationAdRequest { }
+
+	// @protocol GADMediationAdRequest <NSObject>
+	[Model (AutoGeneratedName = true)]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "GADMediationAdRequest")]
+	interface MediationAdRequest {
+		// @required -(NSString *)publisherId;
+		[Abstract]
+		[Export ("publisherId")]
+		string PublisherId { get; }
+
+		// @required -(NSDictionary *)credentials;
+		[Abstract]
+		[Export ("credentials")]
+		NSDictionary Credentials { get; }
+
+		// @required -(BOOL)testMode;
+		[Abstract]
+		[Export ("testMode")]
+		bool TestMode { get; }
+
+		// @required -(id<GADAdNetworkExtras>)networkExtras;
+		[Abstract]
+		[Export ("networkExtras")]
+		AdNetworkExtras NetworkExtras { get; }
+
+		// @required -(NSNumber *)childDirectedTreatment;
+		[Abstract]
+		[Export ("childDirectedTreatment")]
+		NSNumber ChildDirectedTreatment { get; }
+
+		// @required -(GADMaxAdContentRating)maxAdContentRating;
+		[Abstract]
+		[Export ("maxAdContentRating")]
+		string MaxAdContentRating { get; }
+
+		// @required -(NSNumber *)underAgeOfConsent;
+		[Abstract]
+		[Export ("underAgeOfConsent")]
+		NSNumber UnderAgeOfConsent { get; }
+
+		// @required -(BOOL)userHasLocation;
+		[Abstract]
+		[Export ("userHasLocation")]
+		bool UserHasLocation { get; }
+
+		// @required -(CGFloat)userLatitude;
+		[Abstract]
+		[Export ("userLatitude")]
+		nfloat UserLatitude { get; }
+
+		// @required -(CGFloat)userLongitude;
+		[Abstract]
+		[Export ("userLongitude")]
+		nfloat UserLongitude { get; }
+
+		// @required -(CGFloat)userLocationAccuracyInMeters;
+		[Abstract]
+		[Export ("userLocationAccuracyInMeters")]
+		nfloat UserLocationAccuracyInMeters { get; }
+
+		// @required -(NSString *)userLocationDescription;
+		[Abstract]
+		[Export ("userLocationDescription")]
+		string UserLocationDescription { get; }
+
+		// @required -(NSArray *)userKeywords;
+		[Abstract]
+		[Export ("userKeywords")]
+		NSObject [] UserKeywords { get; }
+	}
+
+	interface IMediationBannerAdEventDelegate{ }
+
+	// @protocol GADMediationBannerAdEventDelegate <GADMediationAdEventDelegate>
+	[Model (AutoGeneratedName = true)]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "GADMediationBannerAdEventDelegate")]
+	interface MediationBannerAdEventDelegate : MediationAdEventDelegate {
+		// @required -(void)willBackgroundApplication;
+		[Abstract]
+		[Export ("willBackgroundApplication")]
+		void WillBackgroundApplication ();
+	}
+
+	interface IMediationInterstitialAdEventDelegate { }
+
+	// @protocol GADMediationInterstitialAdEventDelegate <GADMediationAdEventDelegate>
+	[Model (AutoGeneratedName = true)]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "GADMediationInterstitialAdEventDelegate")]
+	interface MediationInterstitialAdEventDelegate : MediationAdEventDelegate {
+		// @required -(void)willBackgroundApplication;
+		[Abstract]
+		[Export ("willBackgroundApplication")]
+		void WillBackgroundApplication ();
+	}
+
+	interface IMediationNativeAdEventDelegate { }
+
+	// @protocol GADMediationNativeAdEventDelegate <GADMediationAdEventDelegate>
+	[Model (AutoGeneratedName = true)]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "GADMediationNativeAdEventDelegate")]
+	interface MediationNativeAdEventDelegate : MediationAdEventDelegate {
+		// @required -(void)didPlayVideo;
+		[Abstract]
+		[Export ("didPlayVideo")]
+		void DidPlayVideo ();
+
+		// @required -(void)didPauseVideo;
+		[Abstract]
+		[Export ("didPauseVideo")]
+		void DidPauseVideo ();
+
+		// @required -(void)didEndVideo;
+		[Abstract]
+		[Export ("didEndVideo")]
+		void DidEndVideo ();
+
+		// @required -(void)didMuteVideo;
+		[Abstract]
+		[Export ("didMuteVideo")]
+		void DidMuteVideo ();
+
+		// @required -(void)didUnmuteVideo;
+		[Abstract]
+		[Export ("didUnmuteVideo")]
+		void DidUnmuteVideo ();
+
+		// @required -(void)willBackgroundApplication;
+		[Abstract]
+		[Export ("willBackgroundApplication")]
+		void WillBackgroundApplication ();
+	}
+
+	interface IMediationRewardedAdEventDelegate { }
+
+	// @protocol GADMediationRewardedAdEventDelegate <GADMediationAdEventDelegate>
+	[Model (AutoGeneratedName = true)]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "GADMediationRewardedAdEventDelegate")]
+	interface MediationRewardedAdEventDelegate : MediationAdEventDelegate {
+		// @required -(void)didRewardUserWithReward:(GADAdReward * _Nonnull)reward;
+		[Abstract]
+		[Export ("didRewardUserWithReward:")]
+		void DidRewardUserWithReward (AdReward reward);
+
+		// @required -(void)didStartVideo;
+		[Abstract]
+		[Export ("didStartVideo")]
+		void DidStartVideo ();
+
+		// @required -(void)didEndVideo;
+		[Abstract]
+		[Export ("didEndVideo")]
+		void DidEndVideo ();
+	}
+
+	interface IMediationBannerAd { }
+
+	// @protocol GADMediationBannerAd <GADMediationAd>
+	[Model (AutoGeneratedName = true)]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "GADMediationBannerAd")]
+	interface MediationBannerAd : MediationAd {
+		// @required @property (readonly, nonatomic) UIView * _Nonnull view;
+		[Abstract]
+		[Export ("view")]
+		UIView View { get; }
+
+		// @optional -(void)changeAdSizeTo:(GADAdSize)adSize;
+		[Export ("changeAdSizeTo:")]
+		void ChangeAdSizeTo (AdSize adSize);
+	}
+
+	// @interface GADMediationBannerAdConfiguration : GADMediationAdConfiguration
+	[BaseType (typeof (MediationAdConfiguration), Name = "GADMediationBannerAdConfiguration")]
+	interface MediationBannerAdConfiguration {
+		// @property (readonly, nonatomic) GADAdSize adSize;
+		[Export ("adSize")]
+		AdSize AdSize { get; }
+	}
+
+	interface IMediationInterstitialAd { }
+
+	// @protocol GADMediationInterstitialAd <GADMediationAd>
+	[Model (AutoGeneratedName = true)]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "GADMediationInterstitialAd")]
+	interface MediationInterstitialAd : MediationAd {
+		// @required -(void)presentFromViewController:(UIViewController * _Nonnull)viewController;
+		[Abstract]
+		[Export ("presentFromViewController:")]
+		void PresentFromViewController (UIViewController viewController);
+	}
+
+	interface IMediationNativeAd { }
+
+	// @protocol GADMediationNativeAd <GADMediationAd, GADMediatedUnifiedNativeAd>
+	[Model (AutoGeneratedName = true)]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "GADMediationNativeAd")]
+	interface MediationNativeAd : MediationAd, MediatedUnifiedNativeAd {
+		// @optional -(BOOL)handlesUserClicks;
+		[Export ("handlesUserClicks")]
+		bool HandlesUserClicks ();
+
+		// @optional -(BOOL)handlesUserImpressions;
+		[Export ("handlesUserImpressions")]
+		bool HandlesUserImpressions ();
+	}
+
+	// @interface GADMediationNativeAdConfiguration : GADMediationAdConfiguration
+	[BaseType (typeof (MediationAdConfiguration), Name = "GADMediationNativeAdConfiguration")]
+	interface MediationNativeAdConfiguration {
+		// @property (readonly, nonatomic) NSArray<GADAdLoaderOptions *> * _Nonnull options;
+		[Export ("options")]
+		AdLoaderOptions [] Options { get; }
+	}
+
+	interface IMediationRewardedAd { }
+
+	// @protocol GADMediationRewardedAd <GADMediationAd>
+	[Model (AutoGeneratedName = true)]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "GADMediationRewardedAd")]
+	interface MediationRewardedAd : MediationAd {
+		// @required -(void)presentFromViewController:(UIViewController * _Nonnull)viewController;
+		[Abstract]
+		[Export ("presentFromViewController:")]
+		void PresentFromViewController (UIViewController viewController);
+	}
+
+	// @interface GADMediationRewardedAdConfiguration : GADMediationAdConfiguration
+	[BaseType (typeof (MediationAdConfiguration), Name = "GADMediationRewardedAdConfiguration")]
+	interface MediationRewardedAdConfiguration { }
+
+	// @interface GADMediationCredentials : NSObject
+	[BaseType (typeof (NSObject), Name = "GADMediationCredentials")]
+	interface MediationCredentials {
+		// @property (readonly, nonatomic) NSDictionary<NSString *,id> * _Nonnull settings;
+		[Export ("settings")]
+		NSDictionary<NSString, NSObject> Settings { get; }
+
+		// @property (readonly, nonatomic) GADAdFormat format;
+		[Export ("format")]
+		AdFormat Format { get; }
+	}
+
+	// @interface GADMediationServerConfiguration : NSObject
+	[BaseType (typeof (NSObject), Name = "GADMediationServerConfiguration")]
+	interface MediationServerConfiguration {
+		// @property (readonly, nonatomic) NSArray<GADMediationCredentials *> * _Nonnull credentials;
+		[Export ("credentials")]
+		MediationCredentials [] Credentials { get; }
+	}
+
 	// @interface GADMuteThisAdReason : NSObject
 	[BaseType (typeof (NSObject), Name = "GADMuteThisAdReason")]
 	interface MuteThisAdReason {
@@ -2687,12 +3362,16 @@ namespace Google.MobileAds {
 	interface RequestConfiguration {
 		// @property(nonatomic, strong, nullable) GADMaxAdContentRating maxAdContentRating;
 		[NullAllowed]
-		[Export ("maxAdContentRating", ArgumentSemantic.Strong)]
+		[Export ("maxAdContentRating")]
 		string MaxAdContentRating { get; set; }
 
 		// - (void)tagForUnderAgeOfConsent:(BOOL)underAgeOfConsent;
 		[Export ("tagForUnderAgeOfConsent:")]
 		void TagForUnderAgeOfConsent (bool underAgeOfConsent);
+
+		// -(void)tagForChildDirectedTreatment:(BOOL)childDirectedTreatment;
+		[Export ("tagForChildDirectedTreatment:")]
+		void TagForChildDirectedTreatment (bool childDirectedTreatment);
 	}
 }
 
@@ -2908,106 +3587,6 @@ namespace Google.MobileAds.DoubleClick {
 	}
 
 	#endregion
-}
-
-namespace Google.MobileAds.Mediation {
-	interface IMediatedUnifiedNativeAd { }
-
-	// @protocol GADMediatedUnifiedNativeAd <NSObject>
-	[Model (AutoGeneratedName = true)]
-	[Protocol]
-	[BaseType (typeof (NSObject), Name = "GADMediatedUnifiedNativeAd")]
-	interface MediatedUnifiedNativeAd {
-		// @required @property (readonly, copy, nonatomic) NSString * _Nullable headline;
-		[Abstract]
-		[NullAllowed]
-		[Export ("headline")]
-		string Headline { get; }
-
-		// @required @property (readonly, nonatomic) NSArray<GADNativeAdImage *> * _Nullable images;
-		[Abstract]
-		[NullAllowed]
-		[Export ("images")]
-		NativeAdImage [] Images { get; }
-
-		// @required @property (readonly, copy, nonatomic) NSString * _Nullable body;
-		[Abstract]
-		[NullAllowed]
-		[Export ("body")]
-		string Body { get; }
-
-		// @required @property (readonly, nonatomic) GADNativeAdImage * _Nullable icon;
-		[Abstract]
-		[NullAllowed]
-		[Export ("icon")]
-		NativeAdImage Icon { get; }
-
-		// @required @property (readonly, copy, nonatomic) NSString * _Nullable callToAction;
-		[Abstract]
-		[NullAllowed]
-		[Export ("callToAction")]
-		string CallToAction { get; }
-
-		// @required @property (readonly, copy, nonatomic) NSDecimalNumber * _Nullable starRating;
-		[Abstract]
-		[NullAllowed]
-		[Export ("starRating", ArgumentSemantic.Copy)]
-		NSDecimalNumber StarRating { get; }
-
-		// @required @property (readonly, copy, nonatomic) NSString * _Nullable store;
-		[Abstract]
-		[NullAllowed]
-		[Export ("store")]
-		string Store { get; }
-
-		// @required @property (readonly, copy, nonatomic) NSString * _Nullable price;
-		[Abstract]
-		[NullAllowed]
-		[Export ("price")]
-		string Price { get; }
-
-		// @required @property (readonly, copy, nonatomic) NSString * _Nullable advertiser;
-		[Abstract]
-		[NullAllowed]
-		[Export ("advertiser")]
-		string Advertiser { get; }
-
-		// @required @property (readonly, copy, nonatomic) NSDictionary<NSString *,id> * _Nullable extraAssets;
-		[Abstract]
-		[NullAllowed]
-		[Export ("extraAssets", ArgumentSemantic.Copy)]
-		NSDictionary<NSString, NSObject> ExtraAssets { get; }
-
-		// @optional @property (readonly, nonatomic) UIView * _Nullable adChoicesView;
-		[NullAllowed]
-		[Export ("adChoicesView")]
-		UIView GetAdChoicesView ();
-
-		// @optional @property (readonly, nonatomic) UIView * _Nullable mediaView;
-		[NullAllowed]
-		[Export ("mediaView")]
-		UIView GetMediaView ();
-
-		// @optional @property (readonly, assign, nonatomic) BOOL hasVideoContent;
-		[Export ("hasVideoContent")]
-		bool HasVideoContent ();
-
-		// @optional -(void)didRenderInView:(UIView * _Nonnull)view clickableAssetViews:(NSDictionary<GADUnifiedNativeAssetIdentifier,UIView *> * _Nonnull)clickableAssetViews nonclickableAssetViews:(NSDictionary<GADUnifiedNativeAssetIdentifier,UIView *> * _Nonnull)nonclickableAssetViews viewController:(UIViewController * _Nonnull)viewController;
-		[Export ("didRenderInView:clickableAssetViews:nonclickableAssetViews:viewController:")]
-		void DidRenderInView (UIView view, NSDictionary<NSString, UIView> clickableAssetViews, NSDictionary<NSString, UIView> nonclickableAssetViews, UIViewController viewController);
-
-		// @optional -(void)didRecordImpression;
-		[Export ("didRecordImpression")]
-		void DidRecordImpression ();
-
-		// @optional -(void)didRecordClickOnAssetWithName:(GADUnifiedNativeAssetIdentifier _Nonnull)assetName view:(UIView * _Nonnull)view viewController:(UIViewController * _Nonnull)viewController;
-		[Export ("didRecordClickOnAssetWithName:view:viewController:")]
-		void DidRecordClick (string assetName, UIView view, UIViewController viewController);
-
-		// @optional -(void)didUntrackView:(UIView * _Nullable)view;
-		[Export ("didUntrackView:")]
-		void DidUntrackView ([NullAllowed] UIView view);
-	}
 }
 
 namespace Google.MobileAds.Consent {
