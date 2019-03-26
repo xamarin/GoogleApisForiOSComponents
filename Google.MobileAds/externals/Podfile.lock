@@ -1,15 +1,15 @@
 PODS:
-  - Google-Mobile-Ads-SDK (7.38.0)
+  - Google-Mobile-Ads-SDK (7.41.0)
   - PersonalizedAdConsent (1.0.3)
 
 DEPENDENCIES:
-  - Google-Mobile-Ads-SDK (= 7.38.0)
+  - Google-Mobile-Ads-SDK (= 7.41.0)
   - PersonalizedAdConsent (= 1.0.3)
 
 SPEC CHECKSUMS:
-  Google-Mobile-Ads-SDK: fec4a72b71a81302d3fd75454df3417c03c50ed5
+  Google-Mobile-Ads-SDK: 101ce89b94fdf60ec64ba7b6e9b9d812dc765936
   PersonalizedAdConsent: b50a8a5d6065b6db23121e8fcc0dce2ae983f6ea
 
-PODFILE CHECKSUM: 56fd968d174a0bb307d80bbe20500e62c7103550
+PODFILE CHECKSUM: 37d475a84df5f9ee5b3754b49526213e6bbb6bf7
 
 COCOAPODS: 1.4.0

@@ -44,9 +44,6 @@
     <ObjcBindingCoreSource Include="Structs.cs" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Firebase.DynamicLinks.targets" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\..\Firebase.Analytics\source\Firebase.Analytics\Firebase.Analytics.csproj">
       <Project>{87BB564C-85A8-4EC1-AD16-EC0A1ACCEE56}</Project>
       <Name>Firebase.Analytics</Name>
@@ -59,6 +56,15 @@
       <Project>{0AD1ED63-C008-41B3-8ADB-04696B4880E3}</Project>
       <Name>Firebase.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="..\..\externals\FirebaseDynamicLinks.framework">
+      <Kind>Framework</Kind>
+      <ForceLoad>True</ForceLoad>
+      <LinkerFlags>-ObjC -lsqlite3 -lz</LinkerFlags>
+      <Frameworks>AssetsLibrary CoreMotion MessageUI QuartzCore Security StoreKit SystemConfiguration UIKit</Frameworks>
+      <WeakFrameworks>WebKit</WeakFrameworks>
+    </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>

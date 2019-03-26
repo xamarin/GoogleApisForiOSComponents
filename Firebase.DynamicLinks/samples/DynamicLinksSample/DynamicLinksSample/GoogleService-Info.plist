@@ -7,11 +7,11 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>542613023302-a9gj9dv7mr4mg5jt22il26jrf67nrotk.apps.googleusercontent.com</string>
+	<string>542613023302-a6h9v7gi6llso1enq2f4i5foaj9p8pm7.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.542613023302-a9gj9dv7mr4mg5jt22il26jrf67nrotk</string>
+	<string>com.googleusercontent.apps.542613023302-a6h9v7gi6llso1enq2f4i5foaj9p8pm7</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDP7sQtUz3YAQbu2B6bXyN6Z2u8ZMhWavg</string>
+	<string>AIzaSyD36zdfPJDkRValUgcv2JKxM0TShl6a1go</string>
 	<key>GCM_SENDER_ID</key>
 	<string>542613023302</string>
 	<key>PLIST_VERSION</key>
@@ -23,15 +23,15 @@
 	<key>STORAGE_BUCKET</key>
 	<string>xamarinfirebase-67094.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:542613023302:ios:9ffecdd1bcb8573d</string>
 	<key>DATABASE_URL</key>

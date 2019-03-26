@@ -42,7 +42,7 @@
 				<string>com.xamarin.firebase.ios.dynamiclinkssample</string>
 			</array>
 			<key>CFBundleURLName</key>
-			<string>Bundle ID</string>
+			<string>com.xamarin.firebase.ios.dynamiclinkssample</string>
 			<key>CFBundleURLTypes</key>
 			<string>Editor</string>
 		</dict>

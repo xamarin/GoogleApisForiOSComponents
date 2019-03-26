@@ -83,7 +83,7 @@ namespace DynamicLinksSample
 				(Window.RootViewController as UINavigationController).PushViewController (new MenuViewController (), true);
 			} else {
 				var imageViewController = Window.RootViewController.Storyboard.InstantiateViewController ("ImageViewControllerId") as ImageViewController;
-				imageViewController.CompanyLogo = path == "platform" ? CompanyLogo.Xamarin : CompanyLogo.Firebase;
+				imageViewController.CompanyLogo = path == "xamarin" ? CompanyLogo.Xamarin : CompanyLogo.Firebase;
 				(Window.RootViewController as UINavigationController).PushViewController (imageViewController, true);
 			}
 		}
