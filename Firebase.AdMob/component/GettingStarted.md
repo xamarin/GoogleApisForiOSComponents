@@ -122,7 +122,7 @@ AdMob uses the Google Mobile Ads SDK. The Google Mobile Ads SDK helps app develo
 
 ## Use Google Mobile Ads SDK without Firebase
 
-If you don't plan to include Firebase in your app, you can use Google Mobile Ads SDK as standalone. To do so, just jump to [Initialize the Google Mobile Ads SDK section](#Initialize-the-Google-Mobile-Ads-SDK) directly.
+If you don't plan to include Firebase in your app, you can use Google Mobile Ads SDK as standalone. To do so, just install the `Xamarin.Google.iOS.MobileAds` NuGet and jump to [Initialize the Google Mobile Ads SDK section](#Initialize-the-Google-Mobile-Ads-SDK) directly.
 
 ## Add Firebase to your app
 
