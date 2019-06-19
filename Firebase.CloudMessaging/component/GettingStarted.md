@@ -91,7 +91,7 @@ Once you have your `GoogleService-Info.plist` file downloaded in your computer, 
 4. Add the following line of code somewhere in your app, typically in your AppDelegate's `FinishedLaunching` method (don't forget to import `Firebase.Core` namespace):
 
 ```csharp
-App.Configure ();
+Firebase.Core.App.Configure();
 ```
 
 ### Register for remote notifications
