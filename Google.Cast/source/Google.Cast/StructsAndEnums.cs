@@ -56,6 +56,22 @@ namespace Google.Cast
 		Busy = 1,
 	}
 
+	[Flags]
+	[Native]
+	public enum DeviceCapabilities : long {
+		VideoOut = 1 << 0,
+		VideoIn = 1 << 1,
+		AudioOut = 1 << 2,
+		AudioIn = 1 << 3,
+		MultizoneGroup = 1 << 5,
+		DynamicGroup = 1 << 6,
+		MasterOrFixedVolume = 1 << 11,
+		AttenuationOrFixedVolume = 1 << 12,
+		DynamicGroupingSupported = 1 << 16
+	}
+
+	[Obsolete ("Use DeviceCapabilities enum instead.")]
+	[Flags]
 	[Native]
 	public enum DeviceCapability : long
 	{
@@ -64,8 +80,10 @@ namespace Google.Cast
 		AudioOut = 1 << 2,
 		AudioIn = 1 << 3,
 		MultizoneGroup = 1 << 5,
+		DynamicGroup = 1 << 6,
 		MasterOrFixedVolume = 1 << 11,
-		AttenuationOrFixedVolume = 1 << 12
+		AttenuationOrFixedVolume = 1 << 12,
+		DynamicGroupingSupported = 1 << 16
 	}
 
 	[Native]
@@ -115,9 +133,13 @@ namespace Google.Cast
 		SocketAlreadyConnected = 24,
 		SocketInvalidAddress = 25,
 		SocketInvalidParameter = 26,
+		InvalidResponse = 27,
+		FailedSessionUpdate = 28,
 		MediaLoadFailed = 30,
 		InvalidMediaPlayerState = 31,
 		NoMediaSession = 32,
+		NotCastSession = 33,
+		MediaError = 34,
 		AuthenticationErrorReceived = 40,
 		MalformedClientCertificate = 41,
 		NotX509Certificate = 42,
@@ -198,7 +220,28 @@ namespace Google.Cast
 		TvShow = 2,
 		MusicTrack = 3,
 		Photo = 4,
+		AudioBookChapter = 5,
 		User = 100
+	}
+
+	[Native]
+	public enum MediaQueueContainerType : long {
+		Generic = 0,
+		AudioBook = 1
+	}
+
+	[Native]
+	public enum MediaQueueType : long {
+		Generic = 0,
+		Album = 1,
+		Playlist = 2,
+		AudioBook = 3,
+		RadioStation = 4,
+		PodcastSeries = 5,
+		TVSeries = 6,
+		VideoPlayList = 7,
+		LiveTV = 8,
+		Movie = 9
 	}
 
 	[Native]

@@ -71,6 +71,7 @@ namespace Google.Cast
 
 	public enum MediaInformationBuilderParameterType
 	{
+		[Obsolete ("Use the Constructor (NSUrl) or the Constructor (string, MediaInformationBuilderParameterType.IsEntity) constructors instead.")]
 		IsContentId,
 		IsEntity
 	}
@@ -93,6 +94,39 @@ namespace Google.Cast
 
 	public partial class MediaLoadOptions
 	{
+		public nuint [] ActiveTrackIds {
+			get {
+				NSArray activeTracksIdsArray = _ActiveTrackIds;
+
+				nuint [] activeTracksIds = null;
+
+				if (activeTracksIdsArray != null)
+					activeTracksIds = Helper.GetNUintArray (activeTracksIdsArray);
+
+				return activeTracksIds;
+			}
+			set {
+				_ActiveTrackIds = value != null ? NSArray.FromNSObjects ((arg) => NSNumber.FromNUInt (arg), value) : null;
+			}
+		}
+	}
+
+	public partial class MediaLoadRequestData {
+		public nuint [] ActiveTrackIds {
+			get {
+				NSArray activeTracksIdsArray = _ActiveTrackIds;
+
+				nuint [] activeTracksIds = null;
+
+				if (activeTracksIdsArray != null)
+					activeTracksIds = Helper.GetNUintArray (activeTracksIdsArray);
+
+				return activeTracksIds;
+			}
+		}
+	}
+
+	public partial class MediaLoadRequestDataBuilder {
 		public nuint [] ActiveTrackIds {
 			get {
 				NSArray activeTracksIdsArray = _ActiveTrackIds;
@@ -182,7 +216,7 @@ namespace Google.Cast
 
 	public partial class RemoteMediaClient
 	{
-		[Obsolete ("Use LoadMedia (MediaInformation, MediaLoadOptions) overloaded method instead.")]
+		[Obsolete ("Use LoadMedia (MediaLoadRequestData) overloaded method instead.")]
 		public Request LoadMedia (MediaInformation mediaInfo, bool autoplay, double playPosition, nuint [] activeTrackIds)
 		{
 			if (mediaInfo == null)
