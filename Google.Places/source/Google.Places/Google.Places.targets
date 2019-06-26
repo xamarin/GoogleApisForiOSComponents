@@ -3,13 +3,13 @@
 
     <PropertyGroup>
         <_GooglePlacesAssemblyName>Google.Places, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GooglePlacesAssemblyName>
-        <_GooglePlacesItemsFolder>GPlcs-3.0.3</_GooglePlacesItemsFolder>
+        <_GooglePlacesItemsFolder>GPlcs-3.1.0</_GooglePlacesItemsFolder>
 		<_GooglePlacesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GooglePlacesItemsFolder)\Frameworks\</_GooglePlacesSDKBaseFolder>
     </PropertyGroup>
 
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GooglePlacesItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/7859fc497bd34749/GooglePlaces-3.0.3.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/bf9e64756ecb3c98/GooglePlaces-3.1.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework">
@@ -166,10 +166,6 @@
 				<LogicalName>__monotouch_content_GooglePlaces.bundle_fit.lproj_fGooglePlaces.strings</LogicalName>
 				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\iw.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GooglePlaces.bundle_fiw.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\ja.lproj\GooglePlaces.strings">
 				<LogicalName>__monotouch_content_GooglePlaces.bundle_fja.lproj_fGooglePlaces.strings</LogicalName>
 				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
@@ -196,10 +192,6 @@
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\nl.lproj\GooglePlaces.strings">
 				<LogicalName>__monotouch_content_GooglePlaces.bundle_fnl.lproj_fGooglePlaces.strings</LogicalName>
-				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\no.lproj\GooglePlaces.strings">
-				<LogicalName>__monotouch_content_GooglePlaces.bundle_fno.lproj_fGooglePlaces.strings</LogicalName>
 				<AssemblyName>$(_GooglePlacesAssemblyName)</AssemblyName>
 			</RestoreAssemblyResource>
 			<RestoreAssemblyResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\pl.lproj\GooglePlaces.strings">
