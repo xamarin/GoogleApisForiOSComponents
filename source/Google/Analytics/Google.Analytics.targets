@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+		<_GoogleAnalyticsAssemblyName>Google.Analytics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleAnalyticsAssemblyName>
+		<_GoogleAnalyticsItemsFolder>GAnlytcs-3.17</_GoogleAnalyticsItemsFolder>
+	</PropertyGroup>
+
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+		<XamarinBuildDownload Include="$(_GoogleAnalyticsItemsFolder)">
+			<Url>https://www.gstatic.com/cpdc/5cd71dd2f756bb01/GoogleAnalytics-3.17.0.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildRestoreResources Include="_GoogleAnalyticsItems"/>
+	</ItemGroup>
+
+	<Target Name="_GoogleAnalyticsItems">
+
+		<PropertyGroup>
+			<_GoogleAnalyticsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleAnalyticsItemsFolder)\Libraries\</_GoogleAnalyticsSDKBaseFolder>
+		</PropertyGroup>
+		
+		<ItemGroup>
+			<RestoreAssemblyResource Include="$(_GoogleAnalyticsSDKBaseFolder)libGoogleAnalytics.a">
+				<LogicalName>libGoogleAnalytics.a</LogicalName>
+				<AssemblyName>$(_GoogleAnalyticsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+		</ItemGroup>
+		
+	</Target>
+</Project>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<_GoogleMobileAdsAssemblyName>Google.MobileAds, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleMobileAdsAssemblyName>
+		<_GoogleMobileAdsId>FAdM-7.38.0</_GoogleMobileAdsId>
+		<_GoogleMobileAdsConsentId>GCnsnt-1.0.3</_GoogleMobileAdsConsentId>
+		<_GoogleMobileAdsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleMobileAdsId)\</_GoogleMobileAdsSDKBaseFolder>
+		<_GoogleMobileAdsFrameworkFolder>$(_GoogleMobileAdsSDKBaseFolder)Frameworks\frameworks\</_GoogleMobileAdsFrameworkFolder>
+		<_GoogleMobileAdsLibraryFolder>$(_GoogleMobileAdsSDKBaseFolder)Libraries\</_GoogleMobileAdsLibraryFolder>
+		<_GoogleMobileAdsConsentSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleMobileAdsConsentId)\googleads-consent-sdk-ios-1.0.3\PersonalizedAdConsent\PersonalizedAdConsent\</_GoogleMobileAdsConsentSDKBaseFolder>
+		<_GoogleMobileAdsCopyConsentFormMasterBeforeTargets>_CodesignNativeLibraries</_GoogleMobileAdsCopyConsentFormMasterBeforeTargets>
+		<_GoogleMobileAdsCopyConsentFormMasterDependsOnTargets>_GoogleMobileAdsCopyConsentForm</_GoogleMobileAdsCopyConsentFormMasterDependsOnTargets>
+	</PropertyGroup>
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+		<XamarinBuildDownload Include="$(_GoogleMobileAdsId)">
+			<Url>https://dl.google.com/dl/cpdc/b8745d3de2e626d7/Google-Mobile-Ads-SDK-7.38.0.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<NativeReference Include="$(_GoogleMobileAdsFrameworkFolder)GoogleMobileAds.framework">
+			<Kind>Framework</Kind>
+			<ForceLoad>True</ForceLoad>
+			<LinkerFlags>-ObjC -lz -lsqlite3</LinkerFlags>
+			<Frameworks>AudioToolbox AVFoundation CFNetwork CoreGraphics CoreMedia CoreMotion CoreTelephony CoreVideo GLKit MediaPlayer MessageUI MobileCoreServices OpenGLES QuartzCore Security StoreKit SystemConfiguration</Frameworks>
+			<WeakFrameworks>AdSupport JavaScriptCore SafariServices WebKit</WeakFrameworks>
+		</NativeReference>
+		
+		<XamarinBuildDownload Include="$(_GoogleMobileAdsConsentId)">
+			<Url>https://github.com/googleads/googleads-consent-sdk-ios/archive/v1.0.3.zip</Url>
+			<Kind>Zip</Kind>
+		</XamarinBuildDownload>
+		<GoogleMobileAdsCopyResources Include="$(_GoogleMobileAdsConsentSDKBaseFolder)PersonalizedAdConsent.bundle\consentform.html" />
+		
+		<XamarinBuildRestoreResources Include="_GoogleMobileAdsItems" />
+	</ItemGroup>
+	
+	<Target Name="_GoogleMobileAdsItems">
+		<ItemGroup>
+			<RestoreAssemblyResource Include="$(_GoogleMobileAdsLibraryFolder)libGoogleMobileAds.a">
+				<LogicalName>libGoogleMobileAds.a</LogicalName>
+				<AssemblyName>$(_GoogleMobileAdsAssemblyName)</AssemblyName>
+			</RestoreAssemblyResource>
+		</ItemGroup>
+	</Target>
+	
+	<Target Name="_GoogleMobileAdsCopyConsentFormMasterTargets"
+			Condition="'$(_GoogleMobileAdsCopyConsentFormMasterDependsOnTargets)'!=''"
+			BeforeTargets="$(_GoogleMobileAdsCopyConsentFormMasterBeforeTargets)"
+			DependsOnTargets="$(_GoogleMobileAdsCopyConsentFormMasterDependsOnTargets)" />
+	
+	<Target Name="_GoogleMobileAdsCopyConsentForm">
+		<Copy SourceFiles="@(GoogleMobileAdsCopyResources)" DestinationFolder="$(_AppBundlePath)Frameworks\PersonalizedAdConsent.framework\PersonalizedAdConsent.bundle" />  
+	</Target>
+</Project>
