@@ -87,507 +87,524 @@ namespace Google.Places {
 		DeviceRateLimitExceeded = -8,
 		AccessNotConfigured = -9,
 		IncorrectBundleIdentifier = -10,
-		LocationError = -11
+		LocationError = -11,
+		InvalidRequest = -12
 	}
 
 	public enum PlaceType {
-		// -(NSString *)kGMSPlaceTypeAccountingExported;
+		// extern NSString *const kGMSPlaceTypeAccounting;
 		[Field ("kGMSPlaceTypeAccounting", "__Internal")]
 		Accounting,
 
-		// -(NSString *)kGMSPlaceTypeAdministrativeAreaLevel1Exported;
+		// extern NSString *const kGMSPlaceTypeAdministrativeAreaLevel1;
 		[Field ("kGMSPlaceTypeAdministrativeAreaLevel1", "__Internal")]
 		AdministrativeAreaLevel1,
 
-		// -(NSString *)kGMSPlaceTypeAdministrativeAreaLevel2Exported;
+		// extern NSString *const kGMSPlaceTypeAdministrativeAreaLevel2;
 		[Field ("kGMSPlaceTypeAdministrativeAreaLevel2", "__Internal")]
 		AdministrativeAreaLevel2,
 
-		// -(NSString *)kGMSPlaceTypeAdministrativeAreaLevel3Exported;
+		// extern NSString *const kGMSPlaceTypeAdministrativeAreaLevel3;
 		[Field ("kGMSPlaceTypeAdministrativeAreaLevel3", "__Internal")]
 		AdministrativeAreaLevel3,
 
-		// -(NSString *)kGMSPlaceTypeAirportExported;
+		// extern NSString *const kGMSPlaceTypeAdministrativeAreaLevel4;
+		[Field ("kGMSPlaceTypeAdministrativeAreaLevel4", "__Internal")]
+		AdministrativeAreaLevel4,
+
+		// extern NSString *const kGMSPlaceTypeAdministrativeAreaLevel5;
+		[Field ("kGMSPlaceTypeAdministrativeAreaLevel5", "__Internal")]
+		AdministrativeAreaLevel5,
+
+		// extern NSString *const kGMSPlaceTypeAirport;
 		[Field ("kGMSPlaceTypeAirport", "__Internal")]
 		Airport,
 
-		// -(NSString *)kGMSPlaceTypeAmusementParkExported;
+		// extern NSString *const kGMSPlaceTypeAmusementPark;
 		[Field ("kGMSPlaceTypeAmusementPark", "__Internal")]
 		AmusementPark,
 
-		// -(NSString *)kGMSPlaceTypeAquariumExported;
+		// extern NSString *const kGMSPlaceTypeAquarium;
 		[Field ("kGMSPlaceTypeAquarium", "__Internal")]
 		Aquarium,
 
-		// -(NSString *)kGMSPlaceTypeArtGalleryExported;
+		// extern NSString *const kGMSPlaceTypeArtGallery;
 		[Field ("kGMSPlaceTypeArtGallery", "__Internal")]
 		ArtGallery,
 
-		// -(NSString *)kGMSPlaceTypeAtmExported;
+		// extern NSString *const kGMSPlaceTypeAtm;
 		[Field ("kGMSPlaceTypeAtm", "__Internal")]
 		Atm,
 
-		// -(NSString *)kGMSPlaceTypeBakeryExported;
+		// extern NSString *const kGMSPlaceTypeBakery;
 		[Field ("kGMSPlaceTypeBakery", "__Internal")]
 		Bakery,
 
-		// -(NSString *)kGMSPlaceTypeBankExported;
+		// extern NSString *const kGMSPlaceTypeBank;
 		[Field ("kGMSPlaceTypeBank", "__Internal")]
 		Bank,
 
-		// -(NSString *)kGMSPlaceTypeBarExported;
+		// extern NSString *const kGMSPlaceTypeBar;
 		[Field ("kGMSPlaceTypeBar", "__Internal")]
 		Bar,
 
-		// -(NSString *)kGMSPlaceTypeBeautySalonExported;
+		// extern NSString *const kGMSPlaceTypeBeautySalon;
 		[Field ("kGMSPlaceTypeBeautySalon", "__Internal")]
 		BeautySalon,
 
-		// -(NSString *)kGMSPlaceTypeBicycleStoreExported;
+		// extern NSString *const kGMSPlaceTypeBicycleStore;
 		[Field ("kGMSPlaceTypeBicycleStore", "__Internal")]
 		BicycleStore,
 
-		// -(NSString *)kGMSPlaceTypeBookStoreExported;
+		// extern NSString *const kGMSPlaceTypeBookStore;
 		[Field ("kGMSPlaceTypeBookStore", "__Internal")]
 		BookStore,
 
-		// -(NSString *)kGMSPlaceTypeBowlingAlleyExported;
+		// extern NSString *const kGMSPlaceTypeBowlingAlley;
 		[Field ("kGMSPlaceTypeBowlingAlley", "__Internal")]
 		BowlingAlley,
 
-		// -(NSString *)kGMSPlaceTypeBusStationExported;
+		// extern NSString *const kGMSPlaceTypeBusStation;
 		[Field ("kGMSPlaceTypeBusStation", "__Internal")]
 		BusStation,
 
-		// -(NSString *)kGMSPlaceTypeCafeExported;
+		// extern NSString *const kGMSPlaceTypeCafe;
 		[Field ("kGMSPlaceTypeCafe", "__Internal")]
 		Cafe,
 
-		// -(NSString *)kGMSPlaceTypeCampgroundExported;
+		// extern NSString *const kGMSPlaceTypeCampground;
 		[Field ("kGMSPlaceTypeCampground", "__Internal")]
 		Campground,
 
-		// -(NSString *)kGMSPlaceTypeCarDealerExported;
+		// extern NSString *const kGMSPlaceTypeCarDealer;
 		[Field ("kGMSPlaceTypeCarDealer", "__Internal")]
 		CarDealer,
 
-		// -(NSString *)kGMSPlaceTypeCarRentalExported;
+		// extern NSString *const kGMSPlaceTypeCarRental;
 		[Field ("kGMSPlaceTypeCarRental", "__Internal")]
 		CarRental,
 
-		// -(NSString *)kGMSPlaceTypeCarRepairExported;
+		// extern NSString *const kGMSPlaceTypeCarRepair;
 		[Field ("kGMSPlaceTypeCarRepair", "__Internal")]
 		CarRepair,
 
-		// -(NSString *)kGMSPlaceTypeCarWashExported;
+		// extern NSString *const kGMSPlaceTypeCarWash;
 		[Field ("kGMSPlaceTypeCarWash", "__Internal")]
 		CarWash,
 
-		// -(NSString *)kGMSPlaceTypeCasinoExported;
+		// extern NSString *const kGMSPlaceTypeCasino;
 		[Field ("kGMSPlaceTypeCasino", "__Internal")]
 		Casino,
 
-		// -(NSString *)kGMSPlaceTypeCemeteryExported;
+		// extern NSString *const kGMSPlaceTypeCemetery;
 		[Field ("kGMSPlaceTypeCemetery", "__Internal")]
 		Cemetery,
 
-		// -(NSString *)kGMSPlaceTypeChurchExported;
+		// extern NSString *const kGMSPlaceTypeChurch;
 		[Field ("kGMSPlaceTypeChurch", "__Internal")]
 		Church,
 
-		// -(NSString *)kGMSPlaceTypeCityHallExported;
+		// extern NSString *const kGMSPlaceTypeCityHall;
 		[Field ("kGMSPlaceTypeCityHall", "__Internal")]
 		CityHall,
 
-		// -(NSString *)kGMSPlaceTypeClothingStoreExported;
+		// extern NSString *const kGMSPlaceTypeClothingStore;
 		[Field ("kGMSPlaceTypeClothingStore", "__Internal")]
 		ClothingStore,
 
-		// -(NSString *)kGMSPlaceTypeColloquialAreaExported;
+		// extern NSString *const kGMSPlaceTypeColloquialArea;
 		[Field ("kGMSPlaceTypeColloquialArea", "__Internal")]
 		ColloquialArea,
 
-		// -(NSString *)kGMSPlaceTypeConvenienceStoreExported;
+		// extern NSString *const kGMSPlaceTypeConvenienceStore;
 		[Field ("kGMSPlaceTypeConvenienceStore", "__Internal")]
 		ConvenienceStore,
 
-		// -(NSString *)kGMSPlaceTypeCountryExported;
+		// extern NSString *const kGMSPlaceTypeCountry;
 		[Field ("kGMSPlaceTypeCountry", "__Internal")]
 		Country,
 
-		// -(NSString *)kGMSPlaceTypeCourthouseExported;
+		// extern NSString *const kGMSPlaceTypeCourthouse;
 		[Field ("kGMSPlaceTypeCourthouse", "__Internal")]
 		Courthouse,
 
-		// -(NSString *)kGMSPlaceTypeDentistExported;
+		// extern NSString *const kGMSPlaceTypeDentist;
 		[Field ("kGMSPlaceTypeDentist", "__Internal")]
 		Dentist,
 
-		// -(NSString *)kGMSPlaceTypeDepartmentStoreExported;
+		// extern NSString *const kGMSPlaceTypeDepartmentStore;
 		[Field ("kGMSPlaceTypeDepartmentStore", "__Internal")]
 		DepartmentStore,
 
-		// -(NSString *)kGMSPlaceTypeDoctorExported;
+		// extern NSString *const kGMSPlaceTypeDoctor;
 		[Field ("kGMSPlaceTypeDoctor", "__Internal")]
 		Doctor,
 
-		// -(NSString *)kGMSPlaceTypeElectricianExported;
+		// extern NSString *const kGMSPlaceTypeElectrician;
 		[Field ("kGMSPlaceTypeElectrician", "__Internal")]
 		Electrician,
 
-		// -(NSString *)kGMSPlaceTypeElectronicsStoreExported;
+		// extern NSString *const kGMSPlaceTypeElectronicsStore;
 		[Field ("kGMSPlaceTypeElectronicsStore", "__Internal")]
 		ElectronicsStore,
 
-		// -(NSString *)kGMSPlaceTypeEmbassyExported;
+		// extern NSString *const kGMSPlaceTypeEmbassy;
 		[Field ("kGMSPlaceTypeEmbassy", "__Internal")]
 		Embassy,
 
-		// -(NSString *)kGMSPlaceTypeEstablishmentExported;
+		// extern NSString *const kGMSPlaceTypeEstablishment;
 		[Field ("kGMSPlaceTypeEstablishment", "__Internal")]
 		Establishment,
 
-		// -(NSString *)kGMSPlaceTypeFinanceExported;
+		// extern NSString *const kGMSPlaceTypeFinance;
 		[Field ("kGMSPlaceTypeFinance", "__Internal")]
 		Finance,
 
-		// -(NSString *)kGMSPlaceTypeFireStationExported;
+		// extern NSString *const kGMSPlaceTypeFireStation;
 		[Field ("kGMSPlaceTypeFireStation", "__Internal")]
 		FireStation,
 
-		// -(NSString *)kGMSPlaceTypeFloorExported;
+		// extern NSString *const kGMSPlaceTypeFloor;
 		[Field ("kGMSPlaceTypeFloor", "__Internal")]
 		Floor,
 
-		// -(NSString *)kGMSPlaceTypeFloristExported;
+		// extern NSString *const kGMSPlaceTypeFlorist;
 		[Field ("kGMSPlaceTypeFlorist", "__Internal")]
 		Florist,
 
-		// -(NSString *)kGMSPlaceTypeFoodExported;
+		// extern NSString *const kGMSPlaceTypeFood;
 		[Field ("kGMSPlaceTypeFood", "__Internal")]
 		Food,
 
-		// -(NSString *)kGMSPlaceTypeFuneralHomeExported;
+		// extern NSString *const kGMSPlaceTypeFuneralHome;
 		[Field ("kGMSPlaceTypeFuneralHome", "__Internal")]
 		FuneralHome,
 
-		// -(NSString *)kGMSPlaceTypeFurnitureStoreExported;
+		// extern NSString *const kGMSPlaceTypeFurnitureStore;
 		[Field ("kGMSPlaceTypeFurnitureStore", "__Internal")]
 		FurnitureStore,
 
-		// -(NSString *)kGMSPlaceTypeGasStationExported;
+		// extern NSString *const kGMSPlaceTypeGasStation;
 		[Field ("kGMSPlaceTypeGasStation", "__Internal")]
 		GasStation,
 
-		// -(NSString *)kGMSPlaceTypeGeneralContractorExported;
+		// extern NSString *const kGMSPlaceTypeGeneralContractor;
 		[Field ("kGMSPlaceTypeGeneralContractor", "__Internal")]
 		GeneralContractor,
 
-		// -(NSString *)kGMSPlaceTypeGeocodeExported;
+		// extern NSString *const kGMSPlaceTypeGeocode;
 		[Field ("kGMSPlaceTypeGeocode", "__Internal")]
 		Geocode,
 
-		// -(NSString *)kGMSPlaceTypeGroceryOrSupermarketExported;
+		// extern NSString *const kGMSPlaceTypeGroceryOrSupermarket;
 		[Field ("kGMSPlaceTypeGroceryOrSupermarket", "__Internal")]
 		GroceryOrSupermarket,
 
-		// -(NSString *)kGMSPlaceTypeGymExported;
+		// extern NSString *const kGMSPlaceTypeGym;
 		[Field ("kGMSPlaceTypeGym", "__Internal")]
 		Gym,
 
-		// -(NSString *)kGMSPlaceTypeHairCareExported;
+		// extern NSString *const kGMSPlaceTypeHairCare;
 		[Field ("kGMSPlaceTypeHairCare", "__Internal")]
 		HairCare,
 
-		// -(NSString *)kGMSPlaceTypeHardwareStoreExported;
+		// extern NSString *const kGMSPlaceTypeHardwareStore;
 		[Field ("kGMSPlaceTypeHardwareStore", "__Internal")]
 		HardwareStore,
 
-		// -(NSString *)kGMSPlaceTypeHealthExported;
+		// extern NSString *const kGMSPlaceTypeHealth;
 		[Field ("kGMSPlaceTypeHealth", "__Internal")]
 		Health,
 
-		// -(NSString *)kGMSPlaceTypeHinduTempleExported;
+		// extern NSString *const kGMSPlaceTypeHinduTemple;
 		[Field ("kGMSPlaceTypeHinduTemple", "__Internal")]
 		HinduTemple,
 
-		// -(NSString *)kGMSPlaceTypeHomeGoodsStoreExported;
+		// extern NSString *const kGMSPlaceTypeHomeGoodsStore;
 		[Field ("kGMSPlaceTypeHomeGoodsStore", "__Internal")]
 		HomeGoodsStore,
 
-		// -(NSString *)kGMSPlaceTypeHospitalExported;
+		// extern NSString *const kGMSPlaceTypeHospital;
 		[Field ("kGMSPlaceTypeHospital", "__Internal")]
 		Hospital,
 
-		// -(NSString *)kGMSPlaceTypeInsuranceAgencyExported;
+		// extern NSString *const kGMSPlaceTypeInsuranceAgency;
 		[Field ("kGMSPlaceTypeInsuranceAgency", "__Internal")]
 		InsuranceAgency,
 
-		// -(NSString *)kGMSPlaceTypeIntersectionExported;
+		// extern NSString *const kGMSPlaceTypeIntersection;
 		[Field ("kGMSPlaceTypeIntersection", "__Internal")]
 		Intersection,
 
-		// -(NSString *)kGMSPlaceTypeJewelryStoreExported;
+		// extern NSString *const kGMSPlaceTypeJewelryStore;
 		[Field ("kGMSPlaceTypeJewelryStore", "__Internal")]
 		JewelryStore,
 
-		// -(NSString *)kGMSPlaceTypeLaundryExported;
+		// extern NSString *const kGMSPlaceTypeLaundry;
 		[Field ("kGMSPlaceTypeLaundry", "__Internal")]
 		Laundry,
 
-		// -(NSString *)kGMSPlaceTypeLawyerExported;
+		// extern NSString *const kGMSPlaceTypeLawyer;
 		[Field ("kGMSPlaceTypeLawyer", "__Internal")]
 		Lawyer,
 
-		// -(NSString *)kGMSPlaceTypeLibraryExported;
+		// extern NSString *const kGMSPlaceTypeLibrary;
 		[Field ("kGMSPlaceTypeLibrary", "__Internal")]
 		Library,
 
-		// -(NSString *)kGMSPlaceTypeLiquorStoreExported;
+		// extern NSString *const kGMSPlaceTypeLiquorStore;
 		[Field ("kGMSPlaceTypeLiquorStore", "__Internal")]
 		LiquorStore,
 
-		// -(NSString *)kGMSPlaceTypeLocalGovernmentOfficeExported;
+		// extern NSString *const kGMSPlaceTypeLocalGovernmentOffice;
 		[Field ("kGMSPlaceTypeLocalGovernmentOffice", "__Internal")]
 		LocalGovernmentOffice,
 
-		// -(NSString *)kGMSPlaceTypeLocalityExported;
+		// extern NSString *const kGMSPlaceTypeLocality;
 		[Field ("kGMSPlaceTypeLocality", "__Internal")]
 		Locality,
 
-		// -(NSString *)kGMSPlaceTypeLocksmithExported;
+		// extern NSString *const kGMSPlaceTypeLocksmith;
 		[Field ("kGMSPlaceTypeLocksmith", "__Internal")]
 		Locksmith,
 
-		// -(NSString *)kGMSPlaceTypeLodgingExported;
+		// extern NSString *const kGMSPlaceTypeLodging;
 		[Field ("kGMSPlaceTypeLodging", "__Internal")]
 		Lodging,
 
-		// -(NSString *)kGMSPlaceTypeMealDeliveryExported;
+		// extern NSString *const kGMSPlaceTypeMealDelivery;
 		[Field ("kGMSPlaceTypeMealDelivery", "__Internal")]
 		MealDelivery,
 
-		// -(NSString *)kGMSPlaceTypeMealTakeawayExported;
+		// extern NSString *const kGMSPlaceTypeMealTakeaway;
 		[Field ("kGMSPlaceTypeMealTakeaway", "__Internal")]
 		MealTakeaway,
 
-		// -(NSString *)kGMSPlaceTypeMosqueExported;
+		// extern NSString *const kGMSPlaceTypeMosque;
 		[Field ("kGMSPlaceTypeMosque", "__Internal")]
 		Mosque,
 
-		// -(NSString *)kGMSPlaceTypeMovieRentalExported;
+		// extern NSString *const kGMSPlaceTypeMovieRental;
 		[Field ("kGMSPlaceTypeMovieRental", "__Internal")]
 		MovieRental,
 
-		// -(NSString *)kGMSPlaceTypeMovieTheaterExported;
+		// extern NSString *const kGMSPlaceTypeMovieTheater;
 		[Field ("kGMSPlaceTypeMovieTheater", "__Internal")]
 		MovieTheater,
 
-		// -(NSString *)kGMSPlaceTypeMovingCompanyExported;
+		// extern NSString *const kGMSPlaceTypeMovingCompany;
 		[Field ("kGMSPlaceTypeMovingCompany", "__Internal")]
 		MovingCompany,
 
-		// -(NSString *)kGMSPlaceTypeMuseumExported;
+		// extern NSString *const kGMSPlaceTypeMuseum;
 		[Field ("kGMSPlaceTypeMuseum", "__Internal")]
 		Museum,
 
-		// -(NSString *)kGMSPlaceTypeNaturalFeatureExported;
+		// extern NSString *const kGMSPlaceTypeNaturalFeature;
 		[Field ("kGMSPlaceTypeNaturalFeature", "__Internal")]
 		NaturalFeature,
 
-		// -(NSString *)kGMSPlaceTypeNeighborhoodExported;
+		// extern NSString *const kGMSPlaceTypeNeighborhood;
 		[Field ("kGMSPlaceTypeNeighborhood", "__Internal")]
 		Neighborhood,
 
-		// -(NSString *)kGMSPlaceTypeNightClubExported;
+		// extern NSString *const kGMSPlaceTypeNightClub;
 		[Field ("kGMSPlaceTypeNightClub", "__Internal")]
 		NightClub,
 
-		// -(NSString *)kGMSPlaceTypePainterExported;
+		// extern NSString *const kGMSPlaceTypePainter;
 		[Field ("kGMSPlaceTypePainter", "__Internal")]
 		Painter,
 
-		// -(NSString *)kGMSPlaceTypeParkExported;
+		// extern NSString *const kGMSPlaceTypePark;
 		[Field ("kGMSPlaceTypePark", "__Internal")]
 		Park,
 
-		// -(NSString *)kGMSPlaceTypeParkingExported;
+		// extern NSString *const kGMSPlaceTypeParking;
 		[Field ("kGMSPlaceTypeParking", "__Internal")]
 		Parking,
 
-		// -(NSString *)kGMSPlaceTypePetStoreExported;
+		// extern NSString *const kGMSPlaceTypePetStore;
 		[Field ("kGMSPlaceTypePetStore", "__Internal")]
 		PetStore,
 
-		// -(NSString *)kGMSPlaceTypePharmacyExported;
+		// extern NSString *const kGMSPlaceTypePharmacy;
 		[Field ("kGMSPlaceTypePharmacy", "__Internal")]
 		Pharmacy,
 
-		// -(NSString *)kGMSPlaceTypePhysiotherapistExported;
+		// extern NSString *const kGMSPlaceTypePhysiotherapist;
 		[Field ("kGMSPlaceTypePhysiotherapist", "__Internal")]
 		Physiotherapist,
 
-		// -(NSString *)kGMSPlaceTypePlaceOfWorshipExported;
+		// extern NSString *const kGMSPlaceTypePlaceOfWorship;
 		[Field ("kGMSPlaceTypePlaceOfWorship", "__Internal")]
 		PlaceOfWorship,
 
-		// -(NSString *)kGMSPlaceTypePlumberExported;
+		// extern NSString *const kGMSPlaceTypePlumber;
 		[Field ("kGMSPlaceTypePlumber", "__Internal")]
 		Plumber,
 
-		// -(NSString *)kGMSPlaceTypePointOfInterestExported;
+		// extern NSString *const kGMSPlaceTypePointOfInterest;
 		[Field ("kGMSPlaceTypePointOfInterest", "__Internal")]
 		PointOfInterest,
 
-		// -(NSString *)kGMSPlaceTypePoliceExported;
+		// extern NSString *const kGMSPlaceTypePolice;
 		[Field ("kGMSPlaceTypePolice", "__Internal")]
 		Police,
 
-		// -(NSString *)kGMSPlaceTypePoliticalExported;
+		// extern NSString *const kGMSPlaceTypePolitical;
 		[Field ("kGMSPlaceTypePolitical", "__Internal")]
 		Political,
 
-		// -(NSString *)kGMSPlaceTypePostBoxExported;
+		// extern NSString *const kGMSPlaceTypePostBox;
 		[Field ("kGMSPlaceTypePostBox", "__Internal")]
 		PostBox,
 
-		// -(NSString *)kGMSPlaceTypePostOfficeExported;
+		// extern NSString *const kGMSPlaceTypePostOffice;
 		[Field ("kGMSPlaceTypePostOffice", "__Internal")]
 		PostOffice,
 
-		// -(NSString *)kGMSPlaceTypePostalCodeExported;
+		// extern NSString *const kGMSPlaceTypePostalCode;
 		[Field ("kGMSPlaceTypePostalCode", "__Internal")]
 		PostalCode,
 
-		// -(NSString *)kGMSPlaceTypePostalCodePrefixExported;
+		// extern NSString *const kGMSPlaceTypePostalCodePrefix;
 		[Field ("kGMSPlaceTypePostalCodePrefix", "__Internal")]
 		PostalCodePrefix,
 
-		// -(NSString *)kGMSPlaceTypePostalTownExported;
+		// extern NSString *const kGMSPlaceTypePostalCodeSuffix;
+		[Field ("kGMSPlaceTypePostalCodeSuffix", "__Internal")]
+		PostalCodeSuffix,
+
+		// extern NSString *const kGMSPlaceTypePostalTown;
 		[Field ("kGMSPlaceTypePostalTown", "__Internal")]
 		PostalTown,
 
-		// -(NSString *)kGMSPlaceTypePremiseExported;
+		// extern NSString *const kGMSPlaceTypePremise;
 		[Field ("kGMSPlaceTypePremise", "__Internal")]
 		Premise,
 
-		// -(NSString *)kGMSPlaceTypeRealEstateAgencyExported;
+		// extern NSString *const kGMSPlaceTypeRealEstateAgency;
 		[Field ("kGMSPlaceTypeRealEstateAgency", "__Internal")]
 		RealEstateAgency,
 
-		// -(NSString *)kGMSPlaceTypeRestaurantExported;
+		// extern NSString *const kGMSPlaceTypeRestaurant;
 		[Field ("kGMSPlaceTypeRestaurant", "__Internal")]
 		Restaurant,
 
-		// -(NSString *)kGMSPlaceTypeRoofingContractorExported;
+		// extern NSString *const kGMSPlaceTypeRoofingContractor;
 		[Field ("kGMSPlaceTypeRoofingContractor", "__Internal")]
 		RoofingContractor,
 
-		// -(NSString *)kGMSPlaceTypeRoomExported;
+		// extern NSString *const kGMSPlaceTypeRoom;
 		[Field ("kGMSPlaceTypeRoom", "__Internal")]
 		Room,
 
-		// -(NSString *)kGMSPlaceTypeRouteExported;
+		// extern NSString *const kGMSPlaceTypeRoute;
 		[Field ("kGMSPlaceTypeRoute", "__Internal")]
 		Route,
 
-		// -(NSString *)kGMSPlaceTypeRvParkExported;
+		// extern NSString *const kGMSPlaceTypeRvPark;
 		[Field ("kGMSPlaceTypeRvPark", "__Internal")]
 		RvPark,
 
-		// -(NSString *)kGMSPlaceTypeSchoolExported;
+		// extern NSString *const kGMSPlaceTypeSchool;
 		[Field ("kGMSPlaceTypeSchool", "__Internal")]
 		School,
 
-		// -(NSString *)kGMSPlaceTypeShoeStoreExported;
+		// extern NSString *const kGMSPlaceTypeShoeStore;
 		[Field ("kGMSPlaceTypeShoeStore", "__Internal")]
 		ShoeStore,
 
-		// -(NSString *)kGMSPlaceTypeShoppingMallExported;
+		// extern NSString *const kGMSPlaceTypeShoppingMall;
 		[Field ("kGMSPlaceTypeShoppingMall", "__Internal")]
 		ShoppingMall,
 
-		// -(NSString *)kGMSPlaceTypeSpaExported;
+		// extern NSString *const kGMSPlaceTypeSpa;
 		[Field ("kGMSPlaceTypeSpa", "__Internal")]
 		Spa,
 
-		// -(NSString *)kGMSPlaceTypeStadiumExported;
+		// extern NSString *const kGMSPlaceTypeStadium;
 		[Field ("kGMSPlaceTypeStadium", "__Internal")]
 		Stadium,
 
-		// -(NSString *)kGMSPlaceTypeStorageExported;
+		// extern NSString *const kGMSPlaceTypeStorage;
 		[Field ("kGMSPlaceTypeStorage", "__Internal")]
 		Storage,
 
-		// -(NSString *)kGMSPlaceTypeStoreExported;
+		// extern NSString *const kGMSPlaceTypeStore;
 		[Field ("kGMSPlaceTypeStore", "__Internal")]
 		Store,
 
-		// -(NSString *)kGMSPlaceTypeStreetAddressExported;
+		// extern NSString *const kGMSPlaceTypeStreetAddress;
 		[Field ("kGMSPlaceTypeStreetAddress", "__Internal")]
 		StreetAddress,
 
-		// -(NSString *)kGMSPlaceTypeSublocalityExported;
+		// extern NSString *const kGMSPlaceTypeStreetNumber;
+		[Field ("kGMSPlaceTypeStreetNumber", "__Internal")]
+		StreetNumber,
+
+		// extern NSString *const kGMSPlaceTypeSublocality;
 		[Field ("kGMSPlaceTypeSublocality", "__Internal")]
 		Sublocality,
 
-		// -(NSString *)kGMSPlaceTypeSublocalityLevel1Exported;
+		// extern NSString *const kGMSPlaceTypeSublocalityLevel1;
 		[Field ("kGMSPlaceTypeSublocalityLevel1", "__Internal")]
 		SublocalityLevel1,
 
-		// -(NSString *)kGMSPlaceTypeSublocalityLevel2Exported;
+		// extern NSString *const kGMSPlaceTypeSublocalityLevel2;
 		[Field ("kGMSPlaceTypeSublocalityLevel2", "__Internal")]
 		SublocalityLevel2,
 
-		// -(NSString *)kGMSPlaceTypeSublocalityLevel3Exported;
+		// extern NSString *const kGMSPlaceTypeSublocalityLevel3;
 		[Field ("kGMSPlaceTypeSublocalityLevel3", "__Internal")]
 		SublocalityLevel3,
 
-		// -(NSString *)kGMSPlaceTypeSublocalityLevel4Exported;
+		// extern NSString *const kGMSPlaceTypeSublocalityLevel4;
 		[Field ("kGMSPlaceTypeSublocalityLevel4", "__Internal")]
 		SublocalityLevel4,
 
-		// -(NSString *)kGMSPlaceTypeSublocalityLevel5Exported;
+		// extern NSString *const kGMSPlaceTypeSublocalityLevel5;
 		[Field ("kGMSPlaceTypeSublocalityLevel5", "__Internal")]
 		SublocalityLevel5,
 
-		// -(NSString *)kGMSPlaceTypeSubpremiseExported;
+		// extern NSString *const kGMSPlaceTypeSubpremise;
 		[Field ("kGMSPlaceTypeSubpremise", "__Internal")]
 		Subpremise,
 
-		// -(NSString *)kGMSPlaceTypeSubwayStationExported;
+		// extern NSString *const kGMSPlaceTypeSubwayStation;
 		[Field ("kGMSPlaceTypeSubwayStation", "__Internal")]
 		SubwayStation,
 
-		// -(NSString *)kGMSPlaceTypeSynagogueExported;
+		// extern NSString *const kGMSPlaceTypeSynagogue;
 		[Field ("kGMSPlaceTypeSynagogue", "__Internal")]
 		Synagogue,
 
-		// -(NSString *)kGMSPlaceTypeTaxiStandExported;
+		// extern NSString *const kGMSPlaceTypeTaxiStand;
 		[Field ("kGMSPlaceTypeTaxiStand", "__Internal")]
 		TaxiStand,
 
-		// -(NSString *)kGMSPlaceTypeTrainStationExported;
+		// extern NSString *const kGMSPlaceTypeTrainStation;
 		[Field ("kGMSPlaceTypeTrainStation", "__Internal")]
 		TrainStation,
 
-		// -(NSString *)kGMSPlaceTypeTransitStationExported;
+		// extern NSString *const kGMSPlaceTypeTransitStation;
 		[Field ("kGMSPlaceTypeTransitStation", "__Internal")]
 		TransitStation,
 
-		// -(NSString *)kGMSPlaceTypeTravelAgencyExported;
+		// extern NSString *const kGMSPlaceTypeTravelAgency;
 		[Field ("kGMSPlaceTypeTravelAgency", "__Internal")]
 		TravelAgency,
 
-		// -(NSString *)kGMSPlaceTypeUniversityExported;
+		// extern NSString *const kGMSPlaceTypeUniversity;
 		[Field ("kGMSPlaceTypeUniversity", "__Internal")]
 		University,
 
-		// -(NSString *)kGMSPlaceTypeVeterinaryCareExported;
+		// extern NSString *const kGMSPlaceTypeVeterinaryCare;
 		[Field ("kGMSPlaceTypeVeterinaryCare", "__Internal")]
 		VeterinaryCare,
 
-		// -(NSString *)kGMSPlaceTypeZooExported;
+		// extern NSString *const kGMSPlaceTypeZoo;
 		[Field ("kGMSPlaceTypeZoo", "__Internal")]
 		Zoo
 	}

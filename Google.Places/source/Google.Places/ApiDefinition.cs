@@ -14,16 +14,23 @@ namespace Google.Places
 	interface AddressComponent
 	{
 		// @property(nonatomic, readonly, copy) NSString *type;
+		[Obsolete ("Type property is deprecated in favor of Types.")]
 		[BindAs (typeof (PlaceType))]
 		[Export ("type")]
 		NSString Type { get; }
+
+		// @property (readonly, nonatomic, strong) NSArray<NSString *> * _Nonnull types;
+		[BindAs (typeof (PlaceType []))]
+		[Export ("types", ArgumentSemantic.Strong)]
+		NSString [] Types { get; }
 
 		// @property(nonatomic, readonly, copy) NSString *name;
 		[Export ("name")]
 		string Name { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * _Nullable shortName;
-		[NullAllowed, Export ("shortName")]
+		[NullAllowed]
+		[Export ("shortName")]
 		string ShortName { get; }
 	}
 
