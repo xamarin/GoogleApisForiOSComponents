@@ -44,6 +44,8 @@ Once you have your `GoogleService-Info.plist` file downloaded in your computer, 
 App.Configure ();
 ```
 
+> ![note_icon] **_Note:** If you're tracking in-app purchases, you must initialize your transaction observer in [UIApplicationDelegate.FinishedLaunching](https://docs.microsoft.com/en-us/dotnet/api/uikit.uiapplicationdelegate.finishedlaunching?view=xamarin-ios-sdk-12) before initializing Firebase, or your observer may not receive all purchase notifications. See [Apple's In-App Purchase Best Practices](https://developer.apple.com/library/archive/technotes/tn2387/_index.html) for more information.
+
 ---
 
 # Log events
