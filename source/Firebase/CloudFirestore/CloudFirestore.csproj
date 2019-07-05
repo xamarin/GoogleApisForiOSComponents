@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
+    <IsBindingProject>true</IsBindingProject>
+    <RootNamespace>Firebase.CloudFirestore</RootNamespace>
+    <AssemblyName>Firebase.CloudFirestore</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>0.13.3</FileVersion>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Xamarin.Firebase.iOS.CloudFirestore</PackageId>
+    <Title>Firebase APIs Cloud Firestore iOS Library</Title>
+    <Summary>C# bindings for Firebase APIs Cloud Firestore iOS Library</Summary>
+    <Description>C# bindings for Firebase APIs Cloud Firestore iOS Library</Description>
+    <Authors>Microsoft</Authors>
+    <Owners>Microsoft</Owners>
+    <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
+    <PackageIconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseioscloudfirestore_128x128.png</PackageIconUrl>
+    <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2030883</PackageProjectUrl>
+    <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=2030782</PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageVersion>0.13.3</PackageVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="..\..\..\externals\FirebaseFirestore.framework">
+      <Link>FirebaseFirestore.framework</Link>
+    </None>
+    <None Include="..\..\..\externals\grpc.framework">
+      <Link>grpc.framework</Link>
+    </None>
+    <None Include="..\..\..\externals\GRPCClient.framework">
+      <Link>GRPCClient.framework</Link>
+    </None>
+    <None Include="..\..\..\externals\openssl.framework">
+      <Link>openssl.framework</Link>
+    </None>
+    <None Include="..\..\..\externals\ProtoRPC.framework">
+      <Link>ProtoRPC.framework</Link>
+    </None>
+    <None Include="..\..\..\externals\RxLibrary.framework">
+      <Link>RxLibrary.framework</Link>
+    </None>
+    <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <NativeReference Include="..\..\..\externals\FirebaseFirestore.framework">
+      <Kind>Framework</Kind>
+      <Frameworks>MobileCoreServices</Frameworks>
+      <ForceLoad>True</ForceLoad>
+      <LinkerFlags>-ObjC -lc++</LinkerFlags>
+    </NativeReference>
+    <NativeReference Include="..\..\..\externals\grpc.framework">
+      <Kind>Framework</Kind>
+      <ForceLoad>True</ForceLoad>
+      <LinkerFlags>-lc++ -lz</LinkerFlags>
+    </NativeReference>
+    <NativeReference Include="..\..\..\externals\GRPCClient.framework">
+      <Kind>Framework</Kind>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+    <NativeReference Include="..\..\..\externals\openssl.framework">
+      <Kind>Framework</Kind>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+    <NativeReference Include="..\..\..\externals\ProtoRPC.framework">
+      <Kind>Framework</Kind>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+    <NativeReference Include="..\..\..\externals\RxLibrary.framework">
+      <Kind>Framework</Kind>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Enums.cs" />
+    <Compile Remove="ApiDefinition.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="Enums.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" />
+    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.4.0" PrivateAssets="All" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
+  </ItemGroup>
+
+  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+
+<!-- We are embedding a framework using NativeReference tag but, on Windows with .NET Core project, 
+     this tags means another thing. On windows, if a NativeReference exists it creates a file named
+     Native.$(AssemblyName).manifest which on macOS is not being generated. This is just to satisfy
+     the MSBuild packing process as it's looking for it. It seems not to be packed in the end. -->
+  <Target Name="_TouchNativeManifestWorkaround" BeforeTargets="GenerateNuspec" Condition="!Exists('$(OutputPath)$(TargetFrameworks)\Native.$(AssemblyName).manifest')">
+    <Touch Files="$(OutputPath)$(TargetFrameworks)\Native.$(AssemblyName).manifest" AlwaysCreate="True" />
+  </Target>
+</Project>

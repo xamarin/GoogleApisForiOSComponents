@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
+    <IsBindingProject>true</IsBindingProject>
+    <RootNamespace>Firebase.Database</RootNamespace>
+    <AssemblyName>Firebase.Database</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>5.0.3</FileVersion>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Xamarin.Firebase.iOS.Database</PackageId>
+    <Title>Firebase APIs Database iOS Library</Title>
+    <Summary>C# bindings for Firebase APIs Database iOS Library</Summary>
+    <Description>C# bindings for Firebase APIs Database iOS Library</Description>
+    <Authors>Microsoft</Authors>
+    <Owners>Microsoft</Owners>
+    <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
+    <PackageIconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseiosdatabase_128x128.png</PackageIconUrl>
+    <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865568</PackageProjectUrl>
+    <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=865571</PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageVersion>5.0.3</PackageVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="..\..\..\externals\FirebaseDatabase.framework\FirebaseDatabase">
+      <Link>FirebaseDatabase.framework</Link>
+    </None>
+    <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <NativeReference Include="..\..\externals\FirebaseDatabase.framework">
+      <Kind>Framework</Kind>
+      <LinkerFlags>-ObjC -lc++ -licucore</LinkerFlags>
+      <Frameworks>CFNetwork Security SystemConfiguration</Frameworks>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Enums.cs" />
+    <Compile Remove="ApiDefinition.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="Enums.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" />
+    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.4.0" PrivateAssets="All" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
+  </ItemGroup>
+
+  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+
+<!-- We are embedding a framework using NativeReference tag but, on Windows with .NET Core project, 
+     this tags means another thing. On windows, if a NativeReference exists it creates a file named
+     Native.$(AssemblyName).manifest which on macOS is not being generated. This is just to satisfy
+     the MSBuild packing process as it's looking for it. It seems not to be packed in the end. -->
+  <Target Name="_TouchNativeManifestWorkaround" BeforeTargets="GenerateNuspec" Condition="!Exists('$(OutputPath)$(TargetFrameworks)\Native.$(AssemblyName).manifest')">
+    <Touch Files="$(OutputPath)$(TargetFrameworks)\Native.$(AssemblyName).manifest" AlwaysCreate="True" />
+  </Target>
+</Project>

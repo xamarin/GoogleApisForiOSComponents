@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
+    <IsBindingProject>true</IsBindingProject>
+    <RootNamespace>Firebase.InstanceID</RootNamespace>
+    <AssemblyName>Firebase.InstanceID</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>3.4.0</FileVersion>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Xamarin.Firebase.iOS.InstanceID</PackageId>
+    <Title>Firebase APIs Instance ID iOS Library</Title>
+    <Summary>C# bindings for Firebase APIs Instance ID iOS Library</Summary>
+    <Description>C# bindings for Firebase APIs Instance ID iOS Library</Description>
+    <Authors>Microsoft</Authors>
+    <Owners>Microsoft</Owners>
+    <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
+    <PackageIconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseiosinstanceid_128x128.png</PackageIconUrl>
+    <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865551</PackageProjectUrl>
+    <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=865555</PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageVersion>3.4.0</PackageVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="InstanceID.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.InstanceID.targets" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Enums.cs" />
+    <Compile Remove="ApiDefinition.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="Enums.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" />
+    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.4.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
+  </ItemGroup>
+  
+  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+</Project>

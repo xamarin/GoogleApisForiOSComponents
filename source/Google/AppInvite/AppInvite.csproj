@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
+    <IsBindingProject>true</IsBindingProject>
+    <RootNamespace>Google.AppInvite</RootNamespace>
+    <AssemblyName>Google.AppInvite</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.2.4</FileVersion>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Xamarin.Google.iOS.AppInvite</PackageId>
+    <Title>Google APIs App Invite iOS Library</Title>
+    <Summary>C# bindings for Google APIs App Invite iOS Library</Summary>
+    <Description>C# bindings for Google APIs App Invite iOS Library</Description>
+    <Authors>Microsoft</Authors>
+    <Owners>Microsoft</Owners>
+    <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
+    <PackageIconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/googleiosappinvite_128x128.png</PackageIconUrl>
+    <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865569</PackageProjectUrl>
+    <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=865573</PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageVersion>1.0.2.4</PackageVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="AppInvite.targets" Pack="True" PackagePath="build/Xamarin.Google.iOS.AppInvite.targets" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Enums.cs" />
+    <Compile Remove="ApiDefinition.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="Enums.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" />
+    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.4.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\SignIn\SignIn.csproj" />
+  </ItemGroup>
+  
+  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+</Project>
