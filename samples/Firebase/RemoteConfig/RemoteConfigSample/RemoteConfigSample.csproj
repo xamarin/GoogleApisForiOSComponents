@@ -119,35 +119,35 @@
     <Compile Include="RemoteConfigViewController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Firebase.Analytics\source\Firebase.Analytics\Firebase.Analytics.csproj">
-      <Project>{87BB564C-85A8-4EC1-AD16-EC0A1ACCEE56}</Project>
-      <Name>Firebase.Analytics</Name>
+    <ProjectReference Include="..\..\..\..\source\Firebase\ABTesting\ABTesting.csproj">
+      <Project>{1EDD7A0C-29DB-4A6B-B12F-4CA1791FE575}</Project>
+      <Name>ABTesting</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\Firebase.InstanceID.csproj">
-      <Project>{D6AA184C-DA45-4BBB-988A-451B20C7B804}</Project>
-      <Name>Firebase.InstanceID</Name>
+    <ProjectReference Include="..\..\..\..\source\Firebase\Analytics\Analytics.csproj">
+      <Project>{25783B8D-1423-4CC2-B629-7E7F36A1CF4B}</Project>
+      <Name>Analytics</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\source\Firebase.RemoteConfig\Firebase.RemoteConfig.csproj">
-      <Project>{C5B2256A-D3E4-4419-9486-1020885EE738}</Project>
-      <Name>Firebase.RemoteConfig</Name>
+    <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj">
+      <Project>{9335A59B-3B54-4ED5-8201-B68CFD05CAFB}</Project>
+      <Name>Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.csproj">
-      <Project>{0AD1ED63-C008-41B3-8ADB-04696B4880E3}</Project>
-      <Name>Firebase.Core</Name>
+    <ProjectReference Include="..\..\..\..\source\Firebase\InstanceID\InstanceID.csproj">
+      <Project>{754D8F56-C3DB-4E33-91D5-45445AB286EF}</Project>
+      <Name>InstanceID</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Firebase.ABTesting\source\Firebase.ABTesting\Firebase.ABTesting.csproj">
-      <Project>{DC604F3B-B755-4697-AB9A-CAFF451D2CB7}</Project>
-      <Name>Firebase.ABTesting</Name>
+    <ProjectReference Include="..\..\..\..\source\Firebase\RemoteConfig\RemoteConfig.csproj">
+      <Project>{2FC178FA-114D-4A51-A3DF-5EA10E2C71C4}</Project>
+      <Name>RemoteConfig</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="GoogleService-Info.plist" />
     <BundleResource Include="RemoteConfigDefaults.plist" />
   </ItemGroup>
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\Firebase.InstanceID.targets" />
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.Analytics\source\Firebase.Analytics\Firebase.Analytics.targets" />
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.ABTesting\source\Firebase.ABTesting\Firebase.ABTesting.targets" />
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\source\Firebase.RemoteConfig\Firebase.RemoteConfig.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\InstanceID\InstanceID.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Analytics\Analytics.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\ABTesting\ABTesting.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\RemoteConfig\RemoteConfig.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets')" />
 </Project>

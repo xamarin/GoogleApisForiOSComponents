@@ -121,19 +121,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\source\Firebase.Crashlytics\Firebase.Crashlytics.csproj">
-      <Project>{6D907852-5442-4CCF-BDD5-8941194D6AD6}</Project>
-      <Name>Firebase.Crashlytics</Name>
+    <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj">
+      <Project>{9335A59B-3B54-4ED5-8201-B68CFD05CAFB}</Project>
+      <Name>Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.csproj">
-      <Project>{0AD1ED63-C008-41B3-8ADB-04696B4880E3}</Project>
-      <Name>Firebase.Core</Name>
+    <ProjectReference Include="..\..\..\..\source\Firebase\Crashlytics\Crashlytics.csproj">
+      <Project>{E1558CDF-C9CE-4A78-AA96-9EA75A39D266}</Project>
+      <Name>Crashlytics</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="GoogleService-Info.plist" />
   </ItemGroup>
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\source\Firebase.Crashlytics\Firebase.Crashlytics.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Crashlytics\Crashlytics.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets')" />
 </Project>

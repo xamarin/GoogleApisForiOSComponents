@@ -125,35 +125,35 @@
     <Compile Include="UserPropertyViewController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Firebase.Analytics\source\Firebase.Analytics\Firebase.Analytics.csproj">
-      <Project>{87BB564C-85A8-4EC1-AD16-EC0A1ACCEE56}</Project>
-      <Name>Firebase.Analytics</Name>
+    <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj">
+      <Project>{9335A59B-3B54-4ED5-8201-B68CFD05CAFB}</Project>
+      <Name>Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\Firebase.InstanceID.csproj">
-      <Project>{D6AA184C-DA45-4BBB-988A-451B20C7B804}</Project>
-      <Name>Firebase.InstanceID</Name>
+    <ProjectReference Include="..\..\..\..\source\Firebase\InstanceID\InstanceID.csproj">
+      <Project>{754D8F56-C3DB-4E33-91D5-45445AB286EF}</Project>
+      <Name>InstanceID</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Google.Analytics\source\Google.Analytics\Google.Analytics.csproj">
-      <Project>{EA3C7951-A91C-437E-9626-F16E31214A0F}</Project>
-      <Name>Google.Analytics</Name>
+    <ProjectReference Include="..\..\..\..\source\Google\TagManager\TagManager.csproj">
+      <Project>{3FCDD0B5-F60C-49F7-AAD7-497D02285A38}</Project>
+      <Name>TagManager</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\source\Google.TagManager\Google.TagManager.csproj">
-      <Project>{9B44B6D4-926F-4E0C-AF0B-0F31EBDBC6AF}</Project>
-      <Name>Google.TagManager</Name>
+    <ProjectReference Include="..\..\..\..\source\Google\Analytics\Analytics.csproj">
+      <Project>{36FD3346-EA1E-41A3-91D2-1C380E97BA34}</Project>
+      <Name>Analytics</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.csproj">
-      <Project>{0AD1ED63-C008-41B3-8ADB-04696B4880E3}</Project>
-      <Name>Firebase.Core</Name>
+    <ProjectReference Include="..\..\..\..\source\Firebase\Analytics\Analytics.csproj">
+      <Project>{25783B8D-1423-4CC2-B629-7E7F36A1CF4B}</Project>
+      <Name>Analytics</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="GoogleService-Info.plist" />
     <BundleResource Include="Resources\container\GTM-NB7LRB.json" />
   </ItemGroup>
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.InstanceID\source\Firebase.InstanceID\Firebase.InstanceID.targets" />
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.Analytics\source\Firebase.Analytics\Firebase.Analytics.targets" />
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Google.Analytics\source\Google.Analytics\Google.Analytics.targets" />
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\source\Google.TagManager\Google.TagManager.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\InstanceID\InstanceID.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Analytics\Analytics.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Google\Analytics\Analytics.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Google\TagManager\TagManager.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets')" />
 </Project>

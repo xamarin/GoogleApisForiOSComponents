@@ -153,17 +153,17 @@
     <Compile Include="PhoneNumberAuth\VerificationCodeViewController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\source\Firebase.Auth\Firebase.Auth.csproj">
-      <Project>{B6D38028-B1CF-4351-B53B-B5D35F19FC4A}</Project>
-      <Name>Firebase.Auth</Name>
+    <ProjectReference Include="..\..\..\..\source\Firebase\Auth\Auth.csproj">
+      <Project>{1BF6B7AD-47B3-49F5-918C-8E405309C934}</Project>
+      <Name>Auth</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.csproj">
-      <Project>{0AD1ED63-C008-41B3-8ADB-04696B4880E3}</Project>
-      <Name>Firebase.Core</Name>
+    <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj">
+      <Project>{9335A59B-3B54-4ED5-8201-B68CFD05CAFB}</Project>
+      <Name>Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Google.SignIn\source\Google.SignIn\Google.SignIn.csproj">
-      <Project>{3C142652-0DF6-4919-9F58-0FD8FA3A9F6D}</Project>
-      <Name>Google.SignIn</Name>
+    <ProjectReference Include="..\..\..\..\source\Google\SignIn\SignIn.csproj">
+      <Project>{CF20170E-821A-4706-BFCE-5650F3D1B3F0}</Project>
+      <Name>SignIn</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -173,7 +173,7 @@
     <BundleResource Include="Resources\CountryNames.json" />
     <BundleResource Include="Resources\CountryFlags.json" />
   </ItemGroup>
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Google.SignIn\source\Google.SignIn\Google.SignIn.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Google\SignIn\SignIn.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets')" />
 </Project>

@@ -137,17 +137,17 @@
     <Compile Include="Models\Model.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.csproj">
-      <Project>{0AD1ED63-C008-41B3-8ADB-04696B4880E3}</Project>
-      <Name>Firebase.Core</Name>
+    <ProjectReference Include="..\..\..\..\source\Firebase\MLKit.Common\MLKit.Common.csproj">
+      <Project>{90DDF7C4-5223-4863-9687-6211BC5D56E5}</Project>
+      <Name>MLKit.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\source\Firebase.MLKit\Firebase.MLKit.csproj">
-      <Project>{52E4C180-C6CB-4819-A5FD-0BE805FEEE33}</Project>
-      <Name>Firebase.MLKit</Name>
+    <ProjectReference Include="..\..\..\..\source\Firebase\MLKit\MLKit.csproj">
+      <Project>{B0D91D94-300F-4DEB-A0A7-11DCBDF6FD64}</Project>
+      <Name>MLKit</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Firebase.MLKit.Common\source\Firebase.MLKit.Common\Firebase.MLKit.Common.csproj">
-      <Project>{43A3F6C8-A2D8-414E-8509-F824D0B3B838}</Project>
-      <Name>Firebase.MLKit.Common</Name>
+    <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj">
+      <Project>{9335A59B-3B54-4ED5-8201-B68CFD05CAFB}</Project>
+      <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -158,8 +158,8 @@
     <BundleResource Include="Resources\ImageLabeling.png" />
     <BundleResource Include="Resources\LandmarkRecognition.png" />
   </ItemGroup>
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Firebase.MLKit.Common\source\Firebase.MLKit.Common\Firebase.MLKit.Common.targets" />
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\source\Firebase.MLKit\Firebase.MLKit.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\MLKit\MLKit.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\MLKit.Common\MLKit.Common.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets')" />
 </Project>

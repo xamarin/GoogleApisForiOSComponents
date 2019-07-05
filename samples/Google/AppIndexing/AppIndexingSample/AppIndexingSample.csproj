@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.props" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
@@ -107,18 +108,17 @@
     <Compile Include="Gizmos.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\source\Google.AppIndexing\Google.AppIndexing.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Google\AppIndexing\AppIndexing.targets" />
   <Import Project="..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets')" />
-  <Import Project="..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.props" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.props')" />
   <ItemGroup>
     <BundleResource Include="Resources\appbg.png" />
     <BundleResource Include="Resources\Icon%402x.png" />
     <BundleResource Include="Entitlements.plist" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\source\Google.AppIndexing\Google.AppIndexing.csproj">
-      <Project>{C8E09679-DA94-4E62-B2C3-94ED7DBA56B3}</Project>
-      <Name>Google.AppIndexing</Name>
+    <ProjectReference Include="..\..\..\..\source\Google\AppIndexing\AppIndexing.csproj">
+      <Project>{8AD7D708-4672-4EBB-9DDC-1482B1B72A70}</Project>
+      <Name>AppIndexing</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

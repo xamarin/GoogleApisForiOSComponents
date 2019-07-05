@@ -141,17 +141,17 @@
     <Compile Include="Note.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\source\Firebase.Database\Firebase.Database.csproj">
-      <Project>{7C28F952-273E-4888-A9D7-61057B5361C3}</Project>
-      <Name>Firebase.Database</Name>
+    <ProjectReference Include="..\..\..\..\source\Firebase\Auth\Auth.csproj">
+      <Project>{1BF6B7AD-47B3-49F5-918C-8E405309C934}</Project>
+      <Name>Auth</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Firebase.Auth\source\Firebase.Auth\Firebase.Auth.csproj">
-      <Project>{B6D38028-B1CF-4351-B53B-B5D35F19FC4A}</Project>
-      <Name>Firebase.Auth</Name>
+    <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj">
+      <Project>{9335A59B-3B54-4ED5-8201-B68CFD05CAFB}</Project>
+      <Name>Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.csproj">
-      <Project>{0AD1ED63-C008-41B3-8ADB-04696B4880E3}</Project>
-      <Name>Firebase.Core</Name>
+    <ProjectReference Include="..\..\..\..\source\Firebase\Database\Database.csproj">
+      <Project>{5013B41D-804C-499D-B0E5-E8D14859044F}</Project>
+      <Name>Database</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

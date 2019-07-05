@@ -128,7 +128,7 @@
     <Compile Include="Samples\Overlay Demos\TileLayerViewController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\source\Google.Maps\Google.Maps.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Google\Maps\Maps.targets" />
   <ItemGroup>
     <BundleResource Include="Resources\arrow.png" />
     <BundleResource Include="Resources\arrow%402x.png" />
@@ -147,9 +147,9 @@
     <BundleResource Include="Resources\newark_nj_1922.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\source\Google.Maps\Google.Maps.csproj">
-      <Project>{EB77B0C1-AC2F-483C-8587-6F0FE5ECBE5B}</Project>
-      <Name>Google.Maps</Name>
+    <ProjectReference Include="..\..\..\..\source\Google\Maps\Maps.csproj">
+      <Project>{2D4887E5-F5E4-4C2B-9F35-EAE5E562E43B}</Project>
+      <Name>Maps</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

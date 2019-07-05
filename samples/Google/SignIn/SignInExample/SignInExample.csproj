@@ -87,16 +87,16 @@
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\source\Google.SignIn\Google.SignIn.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Google\SignIn\SignIn.targets" />
   <Import Project="..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets')" />
   <ItemGroup>
-    <ProjectReference Include="..\..\..\source\Google.SignIn\Google.SignIn.csproj">
-      <Project>{3C142652-0DF6-4919-9F58-0FD8FA3A9F6D}</Project>
-      <Name>Google.SignIn</Name>
+    <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj">
+      <Project>{9335A59B-3B54-4ED5-8201-B68CFD05CAFB}</Project>
+      <Name>Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Firebase.Core\source\Firebase.Core\Firebase.Core.csproj">
-      <Project>{0AD1ED63-C008-41B3-8ADB-04696B4880E3}</Project>
-      <Name>Firebase.Core</Name>
+    <ProjectReference Include="..\..\..\..\source\Google\SignIn\SignIn.csproj">
+      <Project>{CF20170E-821A-4706-BFCE-5650F3D1B3F0}</Project>
+      <Name>SignIn</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
