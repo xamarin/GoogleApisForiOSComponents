@@ -67,7 +67,7 @@ namespace Firebase.Core
 		// +(NSDictionary * _Nullable)allApps;
 		[Static]
 		[return: NullAllowed]
-		[NullAllowed, Export ("allApps")]
+		[Export ("allApps")]
 		NSDictionary<NSString, App> GetAll ();
 
 		// -(void)deleteApp:(FIRAppVoidBoolCallback _Nonnull)completion;
