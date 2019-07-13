@@ -1,0 +1,272 @@
+{
+	"Registrations": [
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseABTesting",
+					"version": "2.0.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/c0e282822215a254/FirebaseABTesting-2.0.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseAnalytics",
+					"version": "5.5.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/5b53263819f02844/FirebaseAnalytics-5.5.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"commitHash": "1e8fc1ac130eef9d8ee351637436ac6d65129b96"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"commitHash": "3fd239124995e1f4321c185eed0141981341349f"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "Crashlytics",
+					"version": "3.10.9",
+					"downloadUrl": "https://kit-downloads.fabric.io/cocoapods/crashlytics/3.10.9/crashlytics.zip"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseDynamicLinks",
+					"version": "3.0.2",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/6871a0e263543a67/FirebaseDynamicLinks-3.0.2.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseInstanceID",
+					"version": "3.4.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/cd1d9b33d9b1540a/FirebaseInstanceID-3.4.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseInvites",
+					"version": "3.0.1",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/b3cf7389ab5b3cab/FirebaseInvites-3.0.1.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseMLVision",
+					"version": "0.13.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/54f807345bb50c1b/FirebaseMLVision-0.13.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseMLVisionBarcodeModel",
+					"version": "0.13.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/0ca944b28ab85a18/FirebaseMLVisionBarcodeModel-0.13.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseMLVisionFaceModel",
+					"version": "0.13.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/c8c70f4432a51411/FirebaseMLVisionFaceModel-0.13.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseMLVisionLabelModel",
+					"version": "0.13.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/bb0c0641e5b3886e/FirebaseMLVisionLabelModel-0.13.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseMLVisionTextModel",
+					"version": "0.13.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/28b6267e50cfb395/FirebaseMLVisionTextModel-0.13.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseMLCommon",
+					"version": "0.13.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/73b3ba874bff8364/FirebaseMLCommon-0.13.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseMLModelInterpreter",
+					"version": "0.13.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/4c8e4fae417fa860/FirebaseMLModelInterpreter-0.13.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebasePerformance",
+					"version": "2.1.2",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/2f7f4117327dd94d/FirebasePerformance-2.1.1.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseRemoteConfig",
+					"version": "3.0.1",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/75f333bf7d842bed/FirebaseRemoteConfig-3.0.1.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "GoogleAnalytics",
+					"version": "3.17.0",
+					"downloadUrl": "https://www.gstatic.com/cpdc/5cd71dd2f756bb01/GoogleAnalytics-3.17.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "GoogleAppIndexing",
+					"version": "2.0.3",
+					"downloadUrl": "https://www.gstatic.com/cpdc/ff375df7e304b800-GoogleAppIndexing-2.0.3.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "google-cast-sdk",
+					"version": "4.3.2",
+					"downloadUrl": "https://developers.google.com/cast/downloads/GoogleCastSDK-ios-4.3.2_dynamic.zip"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "GGLInstanceID",
+					"version": "1.2.1",
+					"downloadUrl": "https://www.gstatic.com/cpdc/170d1b170ae1d063-GGLInstanceID-1.2.1.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "GoogleMaps",
+					"version": "3.1.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/d308af63f78a5a1a/GoogleMaps-3.1.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "Google-Mobile-Ads-SDK",
+					"version": "7.38.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/b8745d3de2e626d7/Google-Mobile-Ads-SDK-7.38.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "GooglePlaces",
+					"version": "3.1.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/bf9e64756ecb3c98/GooglePlaces-3.1.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "GoogleSignIn",
+					"version": "4.4.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/c871e7177be06010/GoogleSignIn-4.4.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "GoogleTagManager",
+					"version": "7.1.1",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/e9738e57da97d43a/GoogleTagManager-7.1.1.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"repositoryUrl": "https://github.com/facebook/facebook-objc-sdk.git",
+					"commitHash": "2dc842def59ee9a94a0640f5fef809005bbfb93e"
+				}
+			}
+		}
+	],
+	"version": 1
+}
