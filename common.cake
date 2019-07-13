@@ -1,73 +1,212 @@
-#tool nuget:?package=XamarinComponent&version=1.1.0.65
+#load "poco.cake"
 
-#addin nuget:?package=Cake.XCode&version=4.0.0
-#addin nuget:?package=Cake.Xamarin.Build&version=4.0.1
-#addin nuget:?package=Cake.Xamarin&version=3.0.0
-#addin nuget:?package=Cake.FileHelpers&version=3.0.0
-
-BuildSpec buildSpec = null;
-
-void InvokeOtherGoogleModules (string [] otherPaths, string target)
+void AddArtifactDependencies (List<Artifact> list, Artifact [] dependencies)
 {
-	if (otherPaths == null)
+	if (dependencies == null)
 		return;
+	
+	list.AddRange (dependencies);
 
-	var cakeSettings = new CakeSettings { 
-			ToolPath = GetCakeToolPath (),
-			Arguments = new Dictionary<string, string> { { "target", target } },
-		};
-
-	// Run the script from the subfolder
-	foreach (var module in otherPaths)
-		CakeExecuteScript ("../" + module + "/build.cake", cakeSettings);
+	foreach (var dependency in dependencies)
+		AddArtifactDependencies (list, dependency.Dependencies);
 }
 
-string [] MyDependencies = null;
-
-Task ("externals")
-	.Does (() => 
+void UpdateVersionInCsproj (Artifact artifact) 
 {
-	if (DirectoryExists ("./externals/Pods/"))
-		return;
+	var componentGroup = artifact.ComponentGroup.ToString ();
+	var csprojPath = $"./source/{componentGroup}/{artifact.CsprojName}/{artifact.CsprojName}.csproj";
+	XmlPoke(csprojPath, "/Project/PropertyGroup/FileVersion", artifact.NugetVersion);
+	XmlPoke(csprojPath, "/Project/PropertyGroup/PackageVersion", artifact.NugetVersion);
+}
 
-	InvokeOtherGoogleModules (MyDependencies, "externals");
-	RunMake ("./externals/", "all");
-});
-
-Task ("tmp-nuget").IsDependentOn ("libs").Does (() => 
+void CreateAndInstallPodfile (Artifact artifact)
 {
-	InvokeOtherGoogleModules (MyDependencies, "tmp-nuget");
-
-	if (buildSpec.NuGets == null || buildSpec.NuGets.Length == 0)
+	if (artifact.PodSpecs?.Length == 0)
 		return;
+	
+	var podfile = new List<string> ();
+	var podfileBegin = new List<string> (PODFILE_BEGIN);
+	
+	podfileBegin [0] = string.Format (podfileBegin [0], artifact.MinimunSupportedVersion);
+	podfile.AddRange (podfileBegin);
 
-	var newList = new List<NuGetInfo> ();
+	foreach (var podSpec in artifact.PodSpecs) {
+		if (podSpec.FrameworkSource != FrameworkSource.Pods)
+			continue;
 
-	foreach (var nuget in buildSpec.NuGets) {
-		newList.Add (new NuGetInfo {
-			BuildsOn = nuget.BuildsOn,
-			NuSpec = nuget.NuSpec,
-			RequireLicenseAcceptance = nuget.RequireLicenseAcceptance,
-			Version = nuget.Version,
-			OutputDirectory = "../tmp-nugets",
-		});
+		if (podSpec.SubSpecs == null) {
+			podfile.Add ($"\tpod '{podSpec.Name}', '{podSpec.Version}'");
+			continue;
+		}
+
+		if (podSpec.UseDefaultSubspecs)
+			podfile.Add ($"\tpod '{podSpec.Name}', '{podSpec.Version}'");
+
+		foreach (var subSpec in podSpec.SubSpecs)
+			podfile.Add ($"\tpod '{podSpec.Name}/{subSpec}', '{podSpec.Version}'");
 	}
 
-	PackNuGets (newList.ToArray ());
-});
+	if (podfile.Count == PODFILE_BEGIN.Length)
+		return;
 
-Task ("component").IsDependentOn ("nuget").IsDependentOn ("tmp-nuget").IsDependentOn ("component-base");
+	podfile.AddRange (PODFILE_END);
 
-FilePath GetCakeToolPath ()
-{
-	var possibleExe = GetFiles ("../**/tools/Cake/Cake.exe").FirstOrDefault ();
+	var podfilePath = $"./externals/{artifact.Id}";
+	EnsureDirectoryExists (podfilePath);
 
-	if (possibleExe != null)
-		return possibleExe;
-		
-	var p = System.Diagnostics.Process.GetCurrentProcess ();  
-	return new FilePath (p.Modules[0].FileName);
+	FileWriteLines ($"{podfilePath}/Podfile", podfile.ToArray ());
+	CocoaPodInstall (podfilePath);
 }
 
+void BuildSdkOnPodfile (Artifact artifact)
+{
+	if (artifact.PodSpecs?.Length == 0)
+		return;
 
+	var platforms = new [] { Platform.iOSArm64, Platform.iOSArmV7, Platform.iOSSimulator64, Platform.iOSSimulator };
+	var podsProject = "./Pods/Pods.xcodeproj";
+	var workingDirectory = (DirectoryPath)$"./externals/{artifact.Id}";
 
+	foreach (var podSpec in artifact.PodSpecs)
+	{
+		if (podSpec.FrameworkSource != FrameworkSource.Pods || !podSpec.CanBeBuild)
+			continue;
+
+		var framework = $"{podSpec.FrameworkName}.framework";
+		var paths = GetDirectories($"{workingDirectory}/Pods/**/{framework}");
+		
+		if (paths?.Count <= 0) {
+			BuildXcodeFatFramework (podsProject, podSpec.TargetName, platforms, libraryTitle: podSpec.FrameworkName, workingDirectory: workingDirectory);
+			CopyDirectory ($"{workingDirectory}/{framework}", $"./externals/{framework}");
+		} else {
+			foreach (var path in paths)
+				CopyDirectory (path, $"./externals/{framework}");
+		}
+	}
+}
+
+void CleanVisualStudioSolution ()
+{
+	MSBuild(SOLUTION_PATH, c => {
+		c.Configuration = "Release";
+		c.Restore = true;
+		c.MaxCpuCount = 0;
+		c.Targets.Add("Clean");
+	});
+
+	var deleteDirectorySettings = new DeleteDirectorySettings {
+		Recursive = true,
+		Force = true
+	};
+
+	var bins = GetDirectories("./**/bin");
+	DeleteDirectories (bins, deleteDirectorySettings);
+
+	var objs = GetDirectories("./**/obj");
+	DeleteDirectories (objs, deleteDirectorySettings);
+}
+
+void BuildXcodeFatLibrary (FilePath xcodeProject, string target, Platform [] platforms, string libraryTitle = null, string librarySuffix = null, DirectoryPath workingDirectory = null)
+{
+	if (!IsRunningOnUnix())
+	{
+		Warning("{0} is not available on the current platform.", "xcodebuild");
+		return;
+	}
+
+	libraryTitle = libraryTitle ?? target;
+	workingDirectory = workingDirectory ?? Directory("./externals/");
+	var libraryFile = (FilePath)(librarySuffix != null ? $"{libraryTitle}.{librarySuffix}" : $"{libraryTitle}");
+	var archsFiles = new List<FilePath> ();
+
+	var buildArch = new Action<string, string, FilePath>((sdk, arch, dest) => {
+		if (FileExists(dest))
+			return;
+
+		XCodeBuild(new XCodeBuildSettings
+		{
+			Project = workingDirectory.CombineWithFilePath(xcodeProject).ToString(),
+			Target = target,
+			Sdk = sdk,
+			Arch = arch,
+			Configuration = "Release",
+		});
+
+		var outputPath = workingDirectory.Combine("build").Combine($"Release-{sdk}").Combine (target).CombineWithFilePath($"lib{libraryTitle}.a");
+		CopyFile(outputPath, dest);
+	});
+
+	foreach (var platform in platforms) {
+		var archFile = $"{libraryTitle}-{platform.Arch}";
+		archsFiles.Add (archFile);
+		buildArch (platform.Sdk, platform.Arch, workingDirectory.CombineWithFilePath (archFile));
+	}
+	
+	RunLipoCreate (workingDirectory, libraryTitle, archsFiles.ToArray ());
+}
+
+void BuildXcodeFatFramework (FilePath xcodeProject, string target, Platform [] platforms, string libraryTitle = null, string librarySuffix = null, DirectoryPath workingDirectory = null)
+{
+	if (!IsRunningOnUnix ()) {
+		Warning("{0} is not available on the current platform.", "xcodebuild");
+		return;
+	}
+
+	libraryTitle = libraryTitle ?? target;
+	workingDirectory = workingDirectory ?? Directory("./externals/");
+	var libraryFile = (FilePath)(librarySuffix != null ? $"{libraryTitle}.{librarySuffix}" : $"{libraryTitle}");
+	var fatFramework = (DirectoryPath)$"{libraryTitle}.framework";
+	var fatFrameworkPath = workingDirectory.Combine (fatFramework);
+	var archsPaths = new List<FilePath> ();
+
+	var buildArch = new Action<string, string, DirectoryPath> ((sdk, arch, dest) => {
+		if (DirectoryExists (dest))
+			return;
+
+		XCodeBuild (new XCodeBuildSettings {
+			Project = workingDirectory.CombineWithFilePath (xcodeProject).ToString (),
+			Target = target,
+			Sdk = sdk,
+			Arch = arch,
+			Configuration = "Release",
+		});
+
+		var outputPath = workingDirectory.Combine ("build").Combine ($"Release-{sdk}").Combine (target).Combine (fatFramework);
+		CopyDirectory (outputPath, dest);
+	});
+
+	foreach (var platform in platforms) {
+		var archPath = (DirectoryPath)$"{libraryTitle}-{platform.Arch}.framework";
+		archsPaths.Add (archPath.CombineWithFilePath (libraryTitle));
+		buildArch (platform.Sdk, platform.Arch, workingDirectory.Combine (archPath));
+
+		if (!DirectoryExists (fatFrameworkPath))
+			CopyDirectory (workingDirectory.Combine (archPath), fatFrameworkPath);
+	}
+	
+	RunLipoCreate (workingDirectory, fatFramework.CombineWithFilePath (libraryFile), archsPaths.ToArray ());
+
+	if (libraryTitle != target && FileExists (fatFrameworkPath.CombineWithFilePath (target)))
+		DeleteFile (fatFrameworkPath.CombineWithFilePath (target));
+}
+
+bool TargetExistsInXcodeProject (FilePath xcodeProject, string target, DirectoryPath workingDirectory = null)
+{
+	workingDirectory = workingDirectory ?? Directory("./externals/");
+
+	var processSettings = new ProcessSettings { 
+		Arguments = $"-project {workingDirectory.CombineWithFilePath (xcodeProject)} -list",
+		RedirectStandardOutput = true
+	};
+
+	using(var process = StartAndReturnProcess("xcodebuild", processSettings))
+	{
+		process.WaitForExit();
+
+		foreach (var line in process.GetStandardOutput ())
+			if (line.Contains (target))
+				return true;
+
+		return false;
+	}
+}
