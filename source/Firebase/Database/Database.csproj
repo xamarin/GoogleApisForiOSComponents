@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
@@ -42,7 +42,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <NativeReference Include="..\..\externals\FirebaseDatabase.framework">
+    <NativeReference Include="..\..\..\externals\FirebaseDatabase.framework">
       <Kind>Framework</Kind>
       <LinkerFlags>-ObjC -lc++ -licucore</LinkerFlags>
       <Frameworks>CFNetwork Security SystemConfiguration</Frameworks>
