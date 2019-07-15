@@ -10,3 +10,5 @@ Pods/
 build
 .vs/
 *.framework
+_._
+externals
