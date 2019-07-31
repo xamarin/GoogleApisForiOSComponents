@@ -1,7 +1,7 @@
 // Firebase artifacts available to be built. These artifacts generate NuGets.
 Artifact FIREBASE_AB_TESTING_ARTIFACT              = new Artifact ("Firebase.ABTesting",              "2.0.0.2",  "8.0", ComponentGroup.Firebase, csprojName: "ABTesting");
 Artifact FIREBASE_AD_MOB_ARTIFACT                  = new Artifact ("Firebase.AdMob",                  "7.38.0",   "8.0", ComponentGroup.Firebase, csprojName: "AdMob");
-Artifact FIREBASE_ANALYTICS_ARTIFACT               = new Artifact ("Firebase.Analytics",              "5.5.0",    "8.0", ComponentGroup.Firebase, csprojName: "Analytics");
+Artifact FIREBASE_ANALYTICS_ARTIFACT               = new Artifact ("Firebase.Analytics",              "6.0.4",    "8.0", ComponentGroup.Firebase, csprojName: "Analytics");
 Artifact FIREBASE_AUTH_ARTIFACT                    = new Artifact ("Firebase.Auth",                   "5.0.4.1",  "8.0", ComponentGroup.Firebase, csprojName: "Auth");
 Artifact FIREBASE_CLOUD_FIRESTORE_ARTIFACT         = new Artifact ("Firebase.CloudFirestore",         "0.13.3",   "8.0", ComponentGroup.Firebase, csprojName: "CloudFirestore");
 Artifact FIREBASE_CLOUD_MESSAGING_ARTIFACT         = new Artifact ("Firebase.CloudMessaging",         "3.1.2",    "8.0", ComponentGroup.Firebase, csprojName: "CloudMessaging");
@@ -105,8 +105,8 @@ void SetArtifactsPodSpecs ()
 		new PodSpec ("Firebase", "5.16.0", subSpecs: new [] { "AdMob" })
 	};
 	FIREBASE_ANALYTICS_ARTIFACT.PodSpecs = new [] {
-		new PodSpec ("Firebase",             "5.16.0", subSpecs: new [] { "Analytics" }),
-		new PodSpec ("GoogleAppMeasurement", "5.5.0")
+		new PodSpec ("Firebase",             "6.5.0", subSpecs: new [] { "Analytics" }),
+		new PodSpec ("GoogleAppMeasurement", "6.0.4")
 	};
 	FIREBASE_AUTH_ARTIFACT.PodSpecs = new [] {
 		new PodSpec ("Firebase", "5.8.1", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseAuth", targetName: "FirebaseAuth", subSpecs: new [] { "Auth" })

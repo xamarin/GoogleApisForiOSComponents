@@ -8,11 +8,11 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 |------------------------------------------------------------------------------|----------------------------------------------|
 | [Xamarin.Firebase.iOS.ABTesting][F.ABTesting.Name]                           | [2.0.0.1][F.ABTesting.Package]               |
 | [Xamarin.Firebase.iOS.AdMob][F.AdMob.Name]                                   | [7.38.0.0][F.AdMob.Package]                  |
-| [Xamarin.Firebase.iOS.Analytics][F.Analytics.Name]                           | [5.5.0.0][F.Analytics.Package]               |
+| [Xamarin.Firebase.iOS.Analytics][F.Analytics.Name]                           | [6.0.4.0][F.Analytics.Package]               |
 | [Xamarin.Firebase.iOS.Auth][F.Auth.Name]                                     | [5.0.4.1][F.Auth.Package]                    |
 | [Xamarin.Firebase.iOS.CloudFirestore][F.CloudFirestore.Name]                 | [0.13.3.0][F.CloudFirestore.Package]         |
 | [Xamarin.Firebase.iOS.CloudMessaging][F.CloudMessaging.Name]                 | [3.1.2.0][F.CloudMessaging.Package]          |
-| [Xamarin.Firebase.iOS.Core][F.Core.Name]                                     | [5.2.0.0][F.Core.Package]                    |
+| [Xamarin.Firebase.iOS.Core][F.Core.Name]                                     | [6.1.0.0][F.Core.Package]                    |
 | [Xamarin.Firebase.iOS.Crashlytics][F.Crashlytics.Name]                       | [3.10.3.1][F.Crashlytics.Package]            |
 | [Xamarin.Firebase.iOS.Database][F.Database.Name]                             | [5.0.3.0][F.Database.Package]                |
 | [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                     | [3.0.2.0][F.DynamicLinks.Package]            |
@@ -52,14 +52,14 @@ Here's a table that shows in which global version is located each component of F
 |----------------------------------|:-----------------:|:--------------:|
 | Firebase A/B Testing             | **2.0.0.1**       | **5.8.1**      |
 | Firebase AdMob                   | **7.38.0.0**      | **5.16.0**     |
-| Firebase Analytics               | **5.5.0.0**       | **5.16.0**     |
+| Firebase Analytics               | **6.0.4.0**       | **6.5.0**      |
 | Firebase Auth                    | **5.0.4.1**       | **5.8.1**      |
 | Firebase Cloud Firestore         | **0.13.3.0**      | **5.8.1**      |
 | Firebase Cloud Messaging         | **3.1.2.0**       | **5.8.1**      |
-| Firebase Core                    | **5.2.0.0**       | **5.16.0**     |
+| Firebase Core                    | **6.1.0.0**       | **6.5.0**      |
 | Firebase Database                | **5.0.3.0**       | **5.8.1**      |
 | Firebase Dynamic Links           | **3.0.2.0**       | **5.8.1**      |
-| Firebase Instance ID             | **3.4.0.0**       | **5.16.0**     |
+| Firebase Instance ID             | **4.2.1.0**       | **6.5.0**      |
 | Firebase Invites                 | **3.0.1.1**       | **5.8.1**      |
 | Firebase MLKit                   | **0.13.0.1**      | **5.13.0*      |
 | Firebase MLKit Common            | **0.13.0.0**      | **5.13.0*      |
