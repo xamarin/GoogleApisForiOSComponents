@@ -7,28 +7,28 @@ using CoreGraphics;
 
 namespace Firebase.Core
 {
-	//@interface FIRAnalyticsConfiguration : NSObject
-	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FIRAnalyticsConfiguration")]
-	interface AnalyticsConfiguration
-	{
-		// +(FIRAnalyticsConfiguration *)sharedInstance;
-		[Static]
-		[Export ("sharedInstance")]
-		AnalyticsConfiguration SharedInstance { get; }
+	////@interface FIRAnalyticsConfiguration : NSObject
+	//[DisableDefaultCtor]
+	//[BaseType (typeof (NSObject), Name = "FIRAnalyticsConfiguration")]
+	//interface AnalyticsConfiguration
+	//{
+	//	// +(FIRAnalyticsConfiguration *)sharedInstance;
+	//	[Static]
+	//	[Export ("sharedInstance")]
+	//	AnalyticsConfiguration SharedInstance { get; }
 
-		// -(void)setMinimumSessionInterval:(NSTimeInterval)minimumSessionInterval;
-		[Export ("setMinimumSessionInterval:")]
-		void SetMinimumSessionInterval (double minimumSessionInterval);
+	//	// -(void)setMinimumSessionInterval:(NSTimeInterval)minimumSessionInterval;
+	//	[Export ("setMinimumSessionInterval:")]
+	//	void SetMinimumSessionInterval (double minimumSessionInterval);
 
-		// -(void)setSessionTimeoutInterval:(NSTimeInterval)sessionTimeoutInterval;
-		[Export ("setSessionTimeoutInterval:")]
-		void SetSessionTimeoutInterval (double sessionTimeoutInterval);
+	//	// -(void)setSessionTimeoutInterval:(NSTimeInterval)sessionTimeoutInterval;
+	//	[Export ("setSessionTimeoutInterval:")]
+	//	void SetSessionTimeoutInterval (double sessionTimeoutInterval);
 
-		// -(void)setAnalyticsCollectionEnabled:(BOOL)analyticsCollectionEnabled;
-		[Export ("setAnalyticsCollectionEnabled:")]
-		void SetAnalyticsCollectionEnabled (bool analyticsCollectionEnabled);
-	}
+	//	// -(void)setAnalyticsCollectionEnabled:(BOOL)analyticsCollectionEnabled;
+	//	[Export ("setAnalyticsCollectionEnabled:")]
+	//	void SetAnalyticsCollectionEnabled (bool analyticsCollectionEnabled);
+	//}
 
 	// typedef void (^FIRAppVoidBoolCallback)(BOOL);
 	delegate void AppVoidBoolHandler (bool success);
@@ -96,10 +96,6 @@ namespace Firebase.Core
 		[Static]
 		[Export ("sharedInstance")]
 		Configuration SharedInstance { get; }
-
-		// @property (readwrite, nonatomic) FIRAnalyticsConfiguration * analyticsConfiguration;
-		[Export ("analyticsConfiguration", ArgumentSemantic.Strong)]
-		AnalyticsConfiguration AnalyticsConfiguration { get; set; }
 
 		// - (void)setLoggerLevel:(FIRLoggerLevel)loggerLevel;
 		[Export ("setLoggerLevel:")]
@@ -169,6 +165,11 @@ namespace Firebase.Core
 		[NullAllowed]
 		[Export ("storageBucket")]
 		string StorageBucket { get; set; }
+
+		// @property(nonatomic, copy, nullable) NSString *appGroupID;
+		[NullAllowed]
+		[Export ("appGroupID")]
+		string AppGroupId { get; set; }
 
 		// - (instancetype)initWithContentsOfFile:(NSString *)plistPath;
 		[Export ("initWithContentsOfFile:")]

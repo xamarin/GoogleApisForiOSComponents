@@ -5,7 +5,7 @@ Artifact FIREBASE_ANALYTICS_ARTIFACT               = new Artifact ("Firebase.Ana
 Artifact FIREBASE_AUTH_ARTIFACT                    = new Artifact ("Firebase.Auth",                   "5.0.4.1",  "8.0", ComponentGroup.Firebase, csprojName: "Auth");
 Artifact FIREBASE_CLOUD_FIRESTORE_ARTIFACT         = new Artifact ("Firebase.CloudFirestore",         "0.13.3",   "8.0", ComponentGroup.Firebase, csprojName: "CloudFirestore");
 Artifact FIREBASE_CLOUD_MESSAGING_ARTIFACT         = new Artifact ("Firebase.CloudMessaging",         "3.1.2",    "8.0", ComponentGroup.Firebase, csprojName: "CloudMessaging");
-Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Core",                   "5.2.0",    "8.0", ComponentGroup.Firebase, csprojName: "Core");
+Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Core",                   "6.1.0",    "8.0", ComponentGroup.Firebase, csprojName: "Core");
 Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Crashlytics",            "3.10.9",   "8.0", ComponentGroup.Firebase, csprojName: "Crashlytics");
 Artifact FIREBASE_DATABASE_ARTIFACT                = new Artifact ("Firebase.Database",               "5.0.3",    "8.0", ComponentGroup.Firebase, csprojName: "Database");
 Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.DynamicLinks",           "3.0.2.1",  "8.0", ComponentGroup.Firebase, csprojName: "DynamicLinks");
@@ -124,9 +124,9 @@ void SetArtifactsPodSpecs ()
 		new PodSpec ("Firebase", "5.8.1", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseMessaging", targetName: "FirebaseMessaging", subSpecs: new [] { "Messaging" })
 	};
 	FIREBASE_CORE_ARTIFACT.PodSpecs = new [] {
-		new PodSpec ("Firebase",               "5.16.0",  frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCore", targetName: "FirebaseCore", subSpecs: new [] { "CoreOnly" }),
+		new PodSpec ("Firebase",               "6.5.0",   frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCore", targetName: "FirebaseCore", subSpecs: new [] { "CoreOnly" }),
 		new PodSpec ("FirebaseAuthInterop",    "1.0.0",   frameworkSource: FrameworkSource.Pods, canBeBuild: false),
-		new PodSpec ("GoogleUtilities",        "5.3.7",   frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "AppDelegateSwizzler", "Environment", "ISASwizzler", "Logger", "MethodSwizzler", "Network", "NSData+zlib", "Reachability", "UserDefaults" }),
+		new PodSpec ("GoogleUtilities",        "6.2.3",   frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "AppDelegateSwizzler", "Environment", "ISASwizzler", "Logger", "MethodSwizzler", "Network", "NSData+zlib", "Reachability", "UserDefaults" }),
 		new PodSpec ("GoogleToolboxForMac",    "2.1.4",   frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "NSData+zlib", "NSDictionary+URLArguments", "Logger", "StringEncoding", "URLBuilder" }),
 		new PodSpec ("GoogleAPIClientForREST", "1.3.7",   frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Vision" }, useDefaultSubspecs: true),
 		new PodSpec ("GTMSessionFetcher",      "1.2.1",   frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Full" }),
@@ -206,6 +206,25 @@ void SetArtifactsPodSpecs ()
 	};
 }
 
+void SetArtifactsExtraPodfileLines ()
+{
+	var staticFrameworkLines = new [] {	
+		"=begin",
+		"This override the static_framework flag to false,",
+		"in order to be able to build dynamic frameworks.",
+		"=end",
+		"pre_install do |installer|",
+		"\tinstaller.pod_targets.each do |pod|",
+		"\t\tdef pod.static_framework?;",
+		"\t\t\tfalse",
+		"\t\tend",
+		"\tend",
+		"end",
+	};
+
+	FIREBASE_CORE_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
+}
+
 void SetArtifactsSamples ()
 {
 	// Firebase components
@@ -240,3 +259,4 @@ void SetArtifactsSamples ()
 	GOOGLE_SIGN_IN_ARTIFACT.Samples                   = new [] { "SignInExample" };
 	GOOGLE_TAG_MANAGER_ARTIFACT.Samples               = new [] { "TagManagerSample" };
 }
+

@@ -1,5 +1,18 @@
 #load "poco.cake"
 
+// Podfile basic structure
+var PODFILE_BEGIN = new [] {
+	"platform :ios, '{0}'",
+	"install! 'cocoapods', :integrate_targets => false",
+	"use_frameworks!",
+};
+var PODFILE_TARGET = new [] {
+	"target 'XamarinGoogle' do",
+};
+var PODFILE_END = new [] {
+	"end",
+};
+
 void AddArtifactDependencies (List<Artifact> list, Artifact [] dependencies)
 {
 	if (dependencies == null)
@@ -30,6 +43,11 @@ void CreateAndInstallPodfile (Artifact artifact)
 	podfileBegin [0] = string.Format (podfileBegin [0], artifact.MinimunSupportedVersion);
 	podfile.AddRange (podfileBegin);
 
+	if (artifact.ExtraPodfileLines != null)
+		podfile.AddRange (artifact.ExtraPodfileLines);
+
+	podfile.AddRange (PODFILE_TARGET);
+
 	foreach (var podSpec in artifact.PodSpecs) {
 		if (podSpec.FrameworkSource != FrameworkSource.Pods)
 			continue;
@@ -46,7 +64,7 @@ void CreateAndInstallPodfile (Artifact artifact)
 			podfile.Add ($"\tpod '{podSpec.Name}/{subSpec}', '{podSpec.Version}'");
 	}
 
-	if (podfile.Count == PODFILE_BEGIN.Length)
+	if (podfile.Count == PODFILE_BEGIN.Length + PODFILE_TARGET.Length)
 		return;
 
 	podfile.AddRange (PODFILE_END);

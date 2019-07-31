@@ -20,17 +20,6 @@ var ARTIFACTS_TO_BUILD = new List<Artifact> ();
 var SOURCES_TARGETS = new List<string> ();
 var SAMPLES_TARGETS = new List<string> ();
 
-// Podfile basic structure
-var PODFILE_BEGIN = new [] {
-	"platform :ios, '{0}'",
-	"install! 'cocoapods', :integrate_targets => false",
-	"use_frameworks!",
-	"target 'XamarinGoogle' do",
-};
-var PODFILE_END = new [] {
-	"end",
-};
-
 FilePath GetCakeToolPath ()
 {
 	var possibleExe = GetFiles ("./**/tools/Cake/Cake.exe").FirstOrDefault ();
@@ -79,6 +68,7 @@ Task("prepare-artifacts")
 {
 	SetArtifactsDependencies ();
 	SetArtifactsPodSpecs ();
+	SetArtifactsExtraPodfileLines ();
 	SetArtifactsSamples ();
 
 	var orderedArtifactsForBuild = new List<Artifact> ();
@@ -144,6 +134,8 @@ Task ("externals")
 
 	// Call here custom methods created at custom_externals_download.cake file
 	// to download frameworks and/or bundles for the artifact
+	// if (ARTIFACTS_TO_BUILD.Contains (FIREBASE_CORE_ARTIFACT))
+	// 	FirebaseCoreDownload ();
 });
 
 Task ("libs")
