@@ -153,7 +153,6 @@
     <BundleResource Include="Resources\FirebaseLogo.png" />
     <BundleResource Include="Resources\XamarinLogo.png" />
   </ItemGroup>
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\InstanceID\InstanceID.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Analytics\Analytics.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\DynamicLinks\DynamicLinks.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

@@ -140,7 +140,6 @@
       <Name>MLKit.ModelInterpreter</Name>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\InstanceID\InstanceID.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\MLKit.Common\MLKit.Common.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\MLKit.ModelInterpreter\MLKit.ModelInterpreter.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

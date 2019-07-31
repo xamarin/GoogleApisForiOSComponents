@@ -9,7 +9,7 @@ Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Cor
 Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Crashlytics",            "3.10.9",   "8.0", ComponentGroup.Firebase, csprojName: "Crashlytics");
 Artifact FIREBASE_DATABASE_ARTIFACT                = new Artifact ("Firebase.Database",               "5.0.3",    "8.0", ComponentGroup.Firebase, csprojName: "Database");
 Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.DynamicLinks",           "3.0.2.1",  "8.0", ComponentGroup.Firebase, csprojName: "DynamicLinks");
-Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.InstanceID",             "3.4.0",    "8.0", ComponentGroup.Firebase, csprojName: "InstanceID");
+Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.InstanceID",             "4.2.1",    "8.0", ComponentGroup.Firebase, csprojName: "InstanceID");
 Artifact FIREBASE_INVITES_ARTIFACT                 = new Artifact ("Firebase.Invites",                "3.0.1.2",  "8.0", ComponentGroup.Firebase, csprojName: "Invites");
 Artifact FIREBASE_MLKIT_ARTIFACT                   = new Artifact ("Firebase.MLKit",                  "0.13.0.1", "9.0", ComponentGroup.Firebase, csprojName: "MLKit");
 Artifact FIREBASE_MLKIT_COMMON_ARTIFACT            = new Artifact ("Firebase.MLKit.Common",           "0.13.0",   "9.0", ComponentGroup.Firebase, csprojName: "MLKit.Common");
@@ -145,7 +145,7 @@ void SetArtifactsPodSpecs ()
 		new PodSpec ("Firebase", "5.8.1", subSpecs: new [] { "DynamicLinks" })
 	};
 	FIREBASE_INSTANCE_ID_ARTIFACT.PodSpecs = new [] {
-		new PodSpec ("FirebaseInstanceID", "3.4.0")
+		new PodSpec ("FirebaseInstanceID", "4.2.1", frameworkSource: FrameworkSource.Pods)
 	};
 	FIREBASE_INVITES_ARTIFACT.PodSpecs = new [] {
 		new PodSpec ("Firebase", "5.8.1", subSpecs: new [] { "Invites" })
@@ -223,6 +223,7 @@ void SetArtifactsExtraPodfileLines ()
 	};
 
 	FIREBASE_CORE_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
+	FIREBASE_INSTANCE_ID_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
 }
 
 void SetArtifactsSamples ()
