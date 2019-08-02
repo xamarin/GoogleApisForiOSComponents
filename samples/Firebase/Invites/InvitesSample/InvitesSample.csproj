@@ -154,6 +154,7 @@
   <ItemGroup>
     <BundleResource Include="GoogleService-Info.plist" />
   </ItemGroup>
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Core\Core.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Analytics\Analytics.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\DynamicLinks\DynamicLinks.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Google\SignIn\SignIn.targets" />

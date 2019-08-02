@@ -5,8 +5,6 @@
 		<_FirebaseAnalyticsAssemblyName>Firebase.Analytics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseAnalyticsAssemblyName>
 		<_FirebaseAnalyticsItemsFolder>FAnlytcs-6.0.4</_FirebaseAnalyticsItemsFolder>
 		<_FirebaseAnalyticsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseAnalyticsItemsFolder)\Frameworks\</_FirebaseAnalyticsSDKBaseFolder>
-		<_GoogleAppMeasurementItemsFolder>GAppM-6.0.4</_GoogleAppMeasurementItemsFolder>
-		<_GoogleAppMeasurementSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleAppMeasurementItemsFolder)\Frameworks\</_GoogleAppMeasurementSDKBaseFolder>
 	</PropertyGroup>
 
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
@@ -27,17 +25,6 @@
 		<NativeReference Include="$(_FirebaseAnalyticsSDKBaseFolder)FIRAnalyticsConnector.framework">
 			<Kind>Framework</Kind>
 			<ForceLoad>True</ForceLoad>
-		</NativeReference>
-		
-		<XamarinBuildDownload Include="$(_GoogleAppMeasurementItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/e025a69c2394726b/GoogleAppMeasurement-6.0.4.tar.gz</Url>
-			<Kind>Tgz</Kind>
-		</XamarinBuildDownload>
-		<NativeReference Include="$(_GoogleAppMeasurementSDKBaseFolder)GoogleAppMeasurement.framework">
-			<Kind>Framework</Kind>
-			<ForceLoad>True</ForceLoad>
-			<LinkerFlags>-ObjC -lc++ -lsqlite3 -lz</LinkerFlags>
-			<Frameworks>Security StoreKit SystemConfiguration UIKit</Frameworks>
 		</NativeReference>
 	</ItemGroup>
 </Project>

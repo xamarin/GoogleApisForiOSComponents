@@ -13,6 +13,7 @@ var IS_LOCAL_BUILD = true;
 var BACKSLASH = string.Empty;
 
 var SOLUTION_PATH = "./Xamarin.Google.sln";
+var EXTERNALS_PATH = new DirectoryPath ("./externals");
 
 // Artifacts that need to be built from pods or be copied from pods
 var ARTIFACTS_TO_BUILD = new List<Artifact> ();
@@ -110,10 +111,10 @@ Task("prepare-artifacts")
 });
 
 Task ("externals")
-	.WithCriteria (!DirectoryExists ("./externals/"))
+	.WithCriteria (!DirectoryExists (EXTERNALS_PATH) || !string.IsNullOrWhiteSpace (SDKS))
 	.Does (() => 
 {
-	EnsureDirectoryExists ("./externals/");
+	EnsureDirectoryExists (EXTERNALS_PATH);
 
 	Information ("////////////////////////////////////////");
 	Information ("// Pods Repo Update Started           //");
@@ -126,10 +127,25 @@ Task ("externals")
 	Information ("// Pods Repo Update Ended             //");
 	Information ("////////////////////////////////////////");
 
-	foreach (var artifact in ARTIFACTS_TO_BUILD) {
-		UpdateVersionInCsproj (artifact);
-		CreateAndInstallPodfile (artifact);
-		BuildSdkOnPodfile (artifact);
+	if (string.IsNullOrWhiteSpace (SDKS)) {
+		foreach (var artifact in ARTIFACTS_TO_BUILD) {
+			UpdateVersionInCsproj (artifact);
+			CreateAndInstallPodfile (artifact);
+			BuildSdkOnPodfile (artifact);
+		}
+	} else {
+		foreach (var artifact in ARTIFACTS_TO_BUILD)
+			foreach (var podSpec in artifact.PodSpecs) {
+				if (podSpec.FrameworkSource != FrameworkSource.Pods)
+					continue;
+				
+				if (DirectoryExists (EXTERNALS_PATH.Combine ($"{podSpec.FrameworkName}.framework")))
+					break;
+
+				UpdateVersionInCsproj (artifact);
+				CreateAndInstallPodfile (artifact);
+				BuildSdkOnPodfile (artifact);
+			}
 	}
 
 	// Call here custom methods created at custom_externals_download.cake file

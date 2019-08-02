@@ -173,6 +173,7 @@
     <BundleResource Include="Resources\error.png" />
     <BundleResource Include="RemoteConfigDefaults.plist" />
   </ItemGroup>
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Core\Core.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Analytics\Analytics.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\RemoteConfig\RemoteConfig.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\ABTesting\ABTesting.targets" />

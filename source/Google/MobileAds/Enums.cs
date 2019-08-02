@@ -1,11 +1,43 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-using ObjCRuntime;
 using CoreGraphics;
+using Foundation;
+using ObjCRuntime;
 
 namespace Google.MobileAds
 {
+	[Native]
+	public enum AdFormat : long {
+		Banner,
+		Interstitial,
+		Rewarded,
+		Native
+	}
+
+	public enum AdLoaderAdType
+	{
+		// extern NSString *const kGADAdLoaderAdTypeNativeAppInstall;
+		[Field ("kGADAdLoaderAdTypeNativeAppInstall", "__Internal")]
+		NativeAppInstall,
+
+		// extern NSString *const kGADAdLoaderAdTypeNativeContent;
+		[Field ("kGADAdLoaderAdTypeNativeContent", "__Internal")]
+		NativeContent,
+
+		// extern NSString *const kGADAdLoaderAdTypeNativeCustomTemplate;
+		[Field ("kGADAdLoaderAdTypeNativeCustomTemplate", "__Internal")]
+		NativeCustomTemplate,
+
+		// extern NSString *const kGADAdLoaderAdTypeDFPBanner;
+		[Field ("kGADAdLoaderAdTypeDFPBanner", "__Internal")]
+		DfpBanner,
+
+		// AD_EXTERN GADAdLoaderAdType const kGADAdLoaderAdTypeUnifiedNative;
+		[Field ("kGADAdLoaderAdTypeUnifiedNative", "__Internal")]
+		UnifiedNative
+	}
+
 	//GADRequest file
 	[Native]
 	public enum Gender : long
@@ -32,7 +64,8 @@ namespace Google.MobileAds
 		MediationInvalidAdSize,
 		InternalError,
 		InvalidArgument,
-		ReceivedInvalidResponse
+		ReceivedInvalidResponse,
+		RewardedAdAlreadyUsed
 	}
 
 	[Native]
@@ -60,6 +93,21 @@ namespace Google.MobileAds
 		Successful = 1,
 		Cancel = 2,
 		InvalidProduct = 3
+	}
+
+	[Native]
+	public enum MediaAspectRatio : long {
+		Unknown = 0,
+		Any = 1,
+		Landscape = 2,
+		Portrait = 3,
+		Square = 4
+	}
+
+	[Native]
+	public enum AdapterInitializationState : long {
+		NotReady = 0,
+		Ready = 1
 	}
 
 	[Native]

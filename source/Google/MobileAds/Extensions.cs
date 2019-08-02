@@ -8,11 +8,22 @@ using UIKit;
 
 namespace Google.MobileAds
 {
-	public partial class AdSizeCons
+	public partial class AdLoader : NSObject
 	{
-		public static string GetString (AdSize size)
+		public AdLoader (string adUnitId, UIViewController rootViewController, AdLoaderAdType [] adTypes, AdLoaderOptions [] options) : this (adUnitId, rootViewController, CastAdTypes (adTypes), options)
 		{
-			return GetNSString (size);
+		}
+
+		static NSString [] CastAdTypes (AdLoaderAdType [] adTypes)
+		{
+			if (adTypes == null)
+				return null;
+
+			var adLoaderAdTypes = new NSString [adTypes.Length];
+			for (int i = 0; i < adTypes.Length; i++)
+				adLoaderAdTypes [i] = adTypes [i].GetConstant ();
+
+			return adLoaderAdTypes;
 		}
 	}
 
@@ -268,6 +279,11 @@ namespace Google.MobileAds
 
 				return invalid.Value;
 			}
+		}
+
+		public static string GetString (AdSize size)
+		{
+			return GetNSString (size);
 		}
 	}
 
