@@ -2,12 +2,12 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_FirebasePerformanceMonitoringAssemblyName>Firebase.PerformanceMonitoring, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebasePerformanceMonitoringAssemblyName>
-		<_FirebasePerformanceMonitoringItemsFolder>FPrfrmncM-2.1.2</_FirebasePerformanceMonitoringItemsFolder>
+		<_FirebasePerformanceMonitoringItemsFolder>FPrfrmncM-2.2.2</_FirebasePerformanceMonitoringItemsFolder>
 		<_FirebasePerformanceMonitoringSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebasePerformanceMonitoringItemsFolder)\Frameworks\</_FirebasePerformanceMonitoringSDKBaseFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_FirebasePerformanceMonitoringItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/2f7f4117327dd94d/FirebasePerformance-2.1.1.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/997246e3de153efe/FirebasePerformance-2.2.2.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_FirebasePerformanceMonitoringSDKBaseFolder)FirebasePerformance.framework">

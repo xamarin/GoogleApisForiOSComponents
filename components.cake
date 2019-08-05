@@ -14,8 +14,8 @@ Artifact FIREBASE_INVITES_ARTIFACT                 = new Artifact ("Firebase.Inv
 Artifact FIREBASE_MLKIT_ARTIFACT                   = new Artifact ("Firebase.MLKit",                  "0.13.0.1", "9.0", ComponentGroup.Firebase, csprojName: "MLKit");
 Artifact FIREBASE_MLKIT_COMMON_ARTIFACT            = new Artifact ("Firebase.MLKit.Common",           "0.13.0",   "9.0", ComponentGroup.Firebase, csprojName: "MLKit.Common");
 Artifact FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT = new Artifact ("Firebase.MLKit.ModelInterpreter", "0.13.0",   "9.0", ComponentGroup.Firebase, csprojName: "MLKit.ModelInterpreter");
-Artifact FIREBASE_PERFORMANCE_MONITORING_ARTIFACT  = new Artifact ("Firebase.PerformanceMonitoring",  "2.1.2.1",  "8.0", ComponentGroup.Firebase, csprojName: "PerformanceMonitoring");
-Artifact FIREBASE_REMOTE_CONFIG_ARTIFACT           = new Artifact ("Firebase.RemoteConfig",           "3.0.1.1",  "8.0", ComponentGroup.Firebase, csprojName: "RemoteConfig");
+Artifact FIREBASE_PERFORMANCE_MONITORING_ARTIFACT  = new Artifact ("Firebase.PerformanceMonitoring",  "2.2.2",    "8.0", ComponentGroup.Firebase, csprojName: "PerformanceMonitoring");
+Artifact FIREBASE_REMOTE_CONFIG_ARTIFACT           = new Artifact ("Firebase.RemoteConfig",           "3.1.0",    "8.0", ComponentGroup.Firebase, csprojName: "RemoteConfig");
 Artifact FIREBASE_STORAGE_ARTIFACT                 = new Artifact ("Firebase.Storage",                "3.0.2",    "8.0", ComponentGroup.Firebase, csprojName: "Storage");
 
 // Google artifacts available to be built. These artifacts generate NuGets.
@@ -162,10 +162,10 @@ void SetArtifactsPodSpecs ()
 		new PodSpec ("TensorFlowLite", "1.10.1")
 	};
 	FIREBASE_PERFORMANCE_MONITORING_ARTIFACT.PodSpecs = new [] {
-		new PodSpec ("Firebase", "5.8.1", subSpecs: new [] { "Performance" })
+		new PodSpec ("Firebase", "5.16.0", subSpecs: new [] { "Performance" })
 	};
 	FIREBASE_REMOTE_CONFIG_ARTIFACT.PodSpecs = new [] {
-		new PodSpec ("Firebase", "5.8.1", subSpecs: new [] { "RemoteConfig" })
+		new PodSpec ("Firebase", "5.16.0", subSpecs: new [] { "RemoteConfig" })
 	};
 	FIREBASE_STORAGE_ARTIFACT.PodSpecs = new [] {
 		new PodSpec ("Firebase", "5.8.1", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseStorage", targetName: "FirebaseStorage", subSpecs: new [] { "Storage" })
