@@ -19,32 +19,7 @@ var SOLUTION_PATH = "./Xamarin.Google.sln";
 var ARTIFACTS_TO_BUILD = new List<Artifact> ();
 
 var SOURCES_TARGETS = new List<string> ();
-var SAMPLES_TARGETS = new List<string> {
-	@"Firebase\\AdMobSample",
-	@"Firebase\\AnalyticsSample",
-	@"Firebase\\AuthSample",
-	@"Firebase\\CloudFirestoreSample",
-	@"Firebase\\CloudMessagingSample",
-	@"Firebase\\CrashlyticsSample",
-	@"Firebase\\DatabaseSample",
-	@"Firebase\\DynamicLinksSample",
-	@"Firebase\\InvitesSample",
-	@"Firebase\\ModelInterpreterSample",
-	@"Firebase\\MLKitSample",
-	@"Firebase\\PerformanceMonitoringSample",
-	@"Firebase\\RemoteConfigSample",
-	@"Firebase\\StorageSample",
-	@"Google\\CuteAnimalsiOS",
-	@"Google\\AppIndexingSample",
-	@"Google\\CastSample",
-	@"Google\\InstanceIDSample",
-	@"Google\\GoogleMapsAdvSample",
-	@"Google\\GoogleMapsSample",
-	@"Google\\MobileAdsExample",
-	@"Google\\GooglePlacesSample",
-	@"Google\\SignInExample",
-	@"Google\\TagManagerSample"
-};
+var SAMPLES_TARGETS = new List<string> ();
 
 // Podfile basic structure
 var PODFILE_BEGIN = new [] {
@@ -98,6 +73,7 @@ Task("prepare-artifacts")
 {
 	SetArtifactsDependencies ();
 	SetArtifactsPodSpecs ();
+	SetArtifactsSamples ();
 
 	var orderedArtifactsForBuild = new List<Artifact> ();
 
@@ -123,6 +99,11 @@ Task("prepare-artifacts")
 
 	foreach (var artifact in ARTIFACTS_TO_BUILD) {
 		SOURCES_TARGETS.Add($@"{artifact.ComponentGroup}\\{artifact.CsprojName.Replace ('.', '_')}");
+		
+		if (artifact.Samples != null)
+			foreach (var sample in artifact.Samples)
+				SAMPLES_TARGETS.Add($@"{artifact.ComponentGroup}\\{sample.Replace ('.', '_')}");
+
 		Information (artifact.Id);
 	}
 });

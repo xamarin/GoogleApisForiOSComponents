@@ -115,8 +115,10 @@ class Artifact : IEquatable<Artifact>
 	public int BuildOrder { get => Dependencies?.Length + 1 ?? 1; }
 	// The specs used in the Podfile.
 	public PodSpec [] PodSpecs { get; set; }
+	// The samples created to test the component.
+	public string [] Samples { get; set; }
 
-	public Artifact (string id, string nugetVersion, string minimunSupportedVersion, ComponentGroup componentType, string csprojName = null, Artifact [] dependencies = null, PodSpec [] podSpecs = null)
+	public Artifact (string id, string nugetVersion, string minimunSupportedVersion, ComponentGroup componentType, string csprojName = null, Artifact [] dependencies = null, PodSpec [] podSpecs = null, string [] samples = null)
 	{
 		Id = id;
 		NugetVersion = nugetVersion;
@@ -125,6 +127,7 @@ class Artifact : IEquatable<Artifact>
 		CsprojName = csprojName ?? id;
 		Dependencies = dependencies;
 		PodSpecs = podSpecs;
+		Samples = samples;
 	}
 
 	public bool Equals (Artifact other)

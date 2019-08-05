@@ -21,7 +21,7 @@ Artifact FIREBASE_STORAGE_ARTIFACT                 = new Artifact ("Firebase.Sto
 // Google artifacts available to be built. These artifacts generate NuGets.
 Artifact GOOGLE_ANALYTICS_ARTIFACT    = new Artifact ("Google.Analytics",   "3.17.0.3", "5.0", ComponentGroup.Google, csprojName: "Analytics");
 Artifact GOOGLE_APP_INDEXING_ARTIFACT = new Artifact ("Google.AppIndexing", "2.0.3.5",  "7.0", ComponentGroup.Google, csprojName: "AppIndexing");
-Artifact GOOGLE_CAST_ARTIFACT         = new Artifact ("Google.Casr",        "4.4.2",    "8.0", ComponentGroup.Google, csprojName: "Cast");
+Artifact GOOGLE_CAST_ARTIFACT         = new Artifact ("Google.Cast",        "4.4.2",    "8.0", ComponentGroup.Google, csprojName: "Cast");
 Artifact GOOGLE_CORE_ARTIFACT         = new Artifact ("Google.Core",        "3.1.0.1",  "7.0", ComponentGroup.Google, csprojName: "Core");
 Artifact GOOGLE_INSTANCE_ID_ARTIFACT  = new Artifact ("Google.InstanceID",  "1.2.1.15", "7.0", ComponentGroup.Google, csprojName: "InstanceID");
 Artifact GOOGLE_MAPS_ARTIFACT         = new Artifact ("Google.Maps",        "3.1.0",    "9.0", ComponentGroup.Google, csprojName: "Maps");
@@ -204,4 +204,39 @@ void SetArtifactsPodSpecs ()
 	GOOGLE_TAG_MANAGER_ARTIFACT.PodSpecs = new [] {
 		new PodSpec ("GoogleTagManager", "7.1.1")
 	};
+}
+
+void SetArtifactsSamples ()
+{
+	// Firebase components
+	FIREBASE_AB_TESTING_ARTIFACT.Samples              = null;
+	FIREBASE_AD_MOB_ARTIFACT.Samples                  = new [] { "AdMobSample" };
+	FIREBASE_ANALYTICS_ARTIFACT.Samples               = new [] { "AnalyticsSample" };
+	FIREBASE_AUTH_ARTIFACT.Samples                    = new [] { "AuthSample" };
+	FIREBASE_CLOUD_FIRESTORE_ARTIFACT.Samples         = new [] { "CloudFirestoreSample" };
+	FIREBASE_CLOUD_MESSAGING_ARTIFACT.Samples         = new [] { "CloudMessagingSample" };
+	FIREBASE_CORE_ARTIFACT.Samples                    = null;
+	FIREBASE_CRASHLYTICS_ARTIFACT.Samples             = new [] { "CrashlyticsSample" };
+	FIREBASE_DATABASE_ARTIFACT.Samples                = new [] { "DatabaseSample" };
+	FIREBASE_DYNAMIC_LINKS_ARTIFACT.Samples           = new [] { "DynamicLinksSample" };
+	FIREBASE_INSTANCE_ID_ARTIFACT.Samples             = null;
+	FIREBASE_INVITES_ARTIFACT.Samples                 = new [] { "InvitesSample" };
+	FIREBASE_MLKIT_ARTIFACT.Samples                   = new [] { "MLKitSample" };
+	FIREBASE_MLKIT_COMMON_ARTIFACT.Samples            = null;
+	FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT.Samples = new [] { "ModelInterpreterSample" };
+	FIREBASE_PERFORMANCE_MONITORING_ARTIFACT.Samples  = new [] { "PerformanceMonitoringSample" };
+	FIREBASE_REMOTE_CONFIG_ARTIFACT.Samples           = new [] { "RemoteConfigSample" };
+	FIREBASE_STORAGE_ARTIFACT.Samples                 = new [] { "StorageSample" };
+
+	// Google components
+	GOOGLE_ANALYTICS_ARTIFACT.Samples                 = new [] { "CuteAnimalsiOS" };
+	GOOGLE_APP_INDEXING_ARTIFACT.Samples              = new [] { "AppIndexingSample" };
+	GOOGLE_CAST_ARTIFACT.Samples                      = new [] { "CastSample" };
+	GOOGLE_CORE_ARTIFACT.Samples                      = null;
+	GOOGLE_INSTANCE_ID_ARTIFACT.Samples               = new [] { "InstanceIDSample" };
+	GOOGLE_MAPS_ARTIFACT.Samples                      = new [] { "GoogleMapsAdvSample", "GoogleMapsSample" };
+	GOOGLE_MOBILE_ADS_ARTIFACT.Samples                = new [] { "MobileAdsExample" };
+	GOOGLE_PLACES_ARTIFACT.Samples                    = new [] { "GooglePlacesSample" };
+	GOOGLE_SIGN_IN_ARTIFACT.Samples                   = new [] { "SignInExample" };
+	GOOGLE_TAG_MANAGER_ARTIFACT.Samples               = new [] { "TagManagerSample" };
 }
