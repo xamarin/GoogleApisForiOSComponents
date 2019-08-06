@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.DynamicLinks</RootNamespace>
     <AssemblyName>Firebase.DynamicLinks</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>3.0.2.1</FileVersion>
+    <FileVersion>4.0.1</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865537</PackageProjectUrl>
     <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=865541</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>3.0.2.1</PackageVersion>
+    <PackageVersion>4.0.1</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -33,9 +33,22 @@
   <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
-  
+
   <ItemGroup>
-    <None Include="DynamicLinks.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.DynamicLinks.targets" />
+    <None Include="..\..\..\externals\FirebaseDynamicLinks.framework\FirebaseDynamicLinks">
+      <Link>FirebaseDynamicLinks.framework</Link>
+    </None>
+    <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <NativeReference Include="..\..\..\externals\FirebaseDynamicLinks.framework">
+      <Kind>Framework</Kind>
+      <ForceLoad>True</ForceLoad>
+      <LinkerFlags>-ObjC -lsqlite3 -lz</LinkerFlags>
+      <Frameworks>AssetsLibrary CoreMotion MessageUI QuartzCore Security StoreKit SystemConfiguration UIKit</Frameworks>
+      <WeakFrameworks>WebKit</WeakFrameworks>
+    </NativeReference>
   </ItemGroup>
 
   <ItemGroup>
@@ -58,9 +71,15 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
-    <ProjectReference Include="..\InstanceID\InstanceID.csproj" />
-    <ProjectReference Include="..\Analytics\Analytics.csproj" />
   </ItemGroup>
   
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+
+  <!-- We are embedding a framework using NativeReference tag but, on Windows with .NET Core project, 
+     this tags means another thing. On windows, if a NativeReference exists it creates a file named
+     Native.$(AssemblyName).manifest which on macOS is not being generated. This is just to satisfy
+     the MSBuild packing process as it's looking for it. It seems not to be packed in the end. -->
+  <Target Name="_TouchNativeManifestWorkaround" BeforeTargets="GenerateNuspec" Condition="!Exists('$(OutputPath)$(TargetFrameworks)\Native.$(AssemblyName).manifest')">
+    <Touch Files="$(OutputPath)$(TargetFrameworks)\Native.$(AssemblyName).manifest" AlwaysCreate="True" />
+  </Target>
 </Project>

@@ -277,14 +277,21 @@ namespace Firebase.DynamicLinks
 		[Export ("url")]
 		NSUrl Url { get; }
 
-		// +(instancetype _Nonnull)componentsWithLink:(NSURL * _Nonnull)link domain:(NSString * _Nonnull)domain;
+		// +(instancetype _Nullable)componentsWithLink:(NSURL * _Nonnull)link domainURIPrefix:(NSString * _Nonnull)domainURIPrefix __attribute__((availability(swift, unavailable)));
 		[Static]
-		[Export ("componentsWithLink:domain:")]
-		DynamicLinkComponents FromLink (NSUrl link, string domain);
+		[return: NullAllowed]
+		[Export ("componentsWithLink:domainURIPrefix:")]
+		DynamicLinkComponents Create (NSUrl link, string domainUriPrefix);
+
+		[Obsolete("Use the Create static method instead. This will be removed in future versions.")]
+		[Static]
+		[return: NullAllowed]
+		[Wrap ("Create (link, domainUriPrefix)")]
+		DynamicLinkComponents FromLink (NSUrl link, string domainUriPrefix);
 
 		// -(instancetype _Nonnull)initWithLink:(NSURL * _Nonnull)link domain:(NSString * _Nonnull)domain;
-		[Export ("initWithLink:domain:")]
-		IntPtr Constructor (NSUrl link, string domain);
+		[Export ("initWithLink:domainURIPrefix:")]
+		IntPtr Constructor (NSUrl link, string domainUriPrefix);
 
 		// +(void)shortenURL:(NSURL * _Nonnull)url options:(FIRDynamicLinkComponentsOptions * _Nullable)options completion:(FIRDynamicLinkShortenerCompletion _Nonnull)completion;
 		[Static]

@@ -8,7 +8,7 @@ Artifact FIREBASE_CLOUD_MESSAGING_ARTIFACT         = new Artifact ("Firebase.Clo
 Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Core",                   "6.1.0",    "8.0", ComponentGroup.Firebase, csprojName: "Core");
 Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Crashlytics",            "3.10.9",   "8.0", ComponentGroup.Firebase, csprojName: "Crashlytics");
 Artifact FIREBASE_DATABASE_ARTIFACT                = new Artifact ("Firebase.Database",               "5.0.3",    "8.0", ComponentGroup.Firebase, csprojName: "Database");
-Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.DynamicLinks",           "3.0.2.1",  "8.0", ComponentGroup.Firebase, csprojName: "DynamicLinks");
+Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.DynamicLinks",           "4.0.1",    "8.0", ComponentGroup.Firebase, csprojName: "DynamicLinks");
 Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.InstanceID",             "4.2.1",    "8.0", ComponentGroup.Firebase, csprojName: "InstanceID");
 Artifact FIREBASE_INVITES_ARTIFACT                 = new Artifact ("Firebase.Invites",                "3.0.1.2",  "8.0", ComponentGroup.Firebase, csprojName: "Invites");
 Artifact FIREBASE_MLKIT_ARTIFACT                   = new Artifact ("Firebase.MLKit",                  "0.13.0.1", "9.0", ComponentGroup.Firebase, csprojName: "MLKit");
@@ -73,7 +73,7 @@ void SetArtifactsDependencies ()
 	FIREBASE_CORE_ARTIFACT.Dependencies                    = null;
 	FIREBASE_CRASHLYTICS_ARTIFACT.Dependencies             = null;
 	FIREBASE_DATABASE_ARTIFACT.Dependencies                = new [] { FIREBASE_CORE_ARTIFACT };
-	FIREBASE_DYNAMIC_LINKS_ARTIFACT.Dependencies           = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_ANALYTICS_ARTIFACT };
+	FIREBASE_DYNAMIC_LINKS_ARTIFACT.Dependencies           = new [] { FIREBASE_CORE_ARTIFACT };
 	FIREBASE_INSTANCE_ID_ARTIFACT.Dependencies             = new [] { FIREBASE_CORE_ARTIFACT };
 	FIREBASE_INVITES_ARTIFACT.Dependencies                 = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_ANALYTICS_ARTIFACT, FIREBASE_DYNAMIC_LINKS_ARTIFACT, GOOGLE_SIGN_IN_ARTIFACT };
 	FIREBASE_MLKIT_ARTIFACT.Dependencies                   = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_MLKIT_COMMON_ARTIFACT };
@@ -123,16 +123,17 @@ void SetArtifactsPodSpecs ()
 		new PodSpec ("Firebase", "5.8.1", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseMessaging", targetName: "FirebaseMessaging", subSpecs: new [] { "Messaging" })
 	};
 	FIREBASE_CORE_ARTIFACT.PodSpecs = new [] {
-		new PodSpec ("Firebase",               "6.5.0",   frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCore", targetName: "FirebaseCore", subSpecs: new [] { "CoreOnly" }),
-		new PodSpec ("FirebaseAuthInterop",    "1.0.0",   frameworkSource: FrameworkSource.Pods, canBeBuild: false),
-		new PodSpec ("GoogleUtilities",        "6.2.3",   frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "AppDelegateSwizzler", "Environment", "ISASwizzler", "Logger", "MethodSwizzler", "Network", "NSData+zlib", "Reachability", "UserDefaults" }),
-		new PodSpec ("GoogleToolboxForMac",    "2.1.4",   frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "NSData+zlib", "NSDictionary+URLArguments", "Logger", "StringEncoding", "URLBuilder" }),
-		new PodSpec ("GoogleAPIClientForREST", "1.3.7",   frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Vision" }, useDefaultSubspecs: true),
-		new PodSpec ("GTMSessionFetcher",      "1.2.1",   frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Full" }),
-		new PodSpec ("leveldb-library",        "1.20.0",  frameworkSource: FrameworkSource.Pods, frameworkName: "leveldb"),
-		new PodSpec ("nanopb",                 "0.3.901", frameworkSource: FrameworkSource.Pods),
-		new PodSpec ("Protobuf",               "3.6.1",   frameworkSource: FrameworkSource.Pods),
-		new PodSpec ("GoogleAppMeasurement",   "6.0.4")
+		new PodSpec ("Firebase",                 "6.5.0",   frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCore", targetName: "FirebaseCore", subSpecs: new [] { "CoreOnly" }),
+		new PodSpec ("FirebaseAuthInterop",      "1.0.0",   frameworkSource: FrameworkSource.Pods, canBeBuild: false),
+		new PodSpec ("FirebaseAnalyticsInterop", "1.2.0",   frameworkSource: FrameworkSource.Pods, canBeBuild: false),
+		new PodSpec ("GoogleUtilities",          "6.2.3",   frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "AppDelegateSwizzler", "Environment", "ISASwizzler", "Logger", "MethodSwizzler", "Network", "NSData+zlib", "Reachability", "UserDefaults" }),
+		new PodSpec ("GoogleToolboxForMac",      "2.1.4",   frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "NSData+zlib", "NSDictionary+URLArguments", "Logger", "StringEncoding", "URLBuilder" }),
+		new PodSpec ("GoogleAPIClientForREST",   "1.3.7",   frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Vision" }, useDefaultSubspecs: true),
+		new PodSpec ("GTMSessionFetcher",        "1.2.1",   frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Full" }),
+		new PodSpec ("leveldb-library",          "1.20.0",  frameworkSource: FrameworkSource.Pods, frameworkName: "leveldb"),
+		new PodSpec ("nanopb",                   "0.3.901", frameworkSource: FrameworkSource.Pods),
+		new PodSpec ("Protobuf",                 "3.6.1",   frameworkSource: FrameworkSource.Pods),
+		new PodSpec ("GoogleAppMeasurement",     "6.0.4")
 	};
 	FIREBASE_CRASHLYTICS_ARTIFACT.PodSpecs = new [] {
 		new PodSpec ("Crashlytics", "3.10.9"),
@@ -142,7 +143,7 @@ void SetArtifactsPodSpecs ()
 		new PodSpec ("Firebase", "5.8.1", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseDatabase", targetName: "FirebaseDatabase", subSpecs: new [] { "Database" })
 	};
 	FIREBASE_DYNAMIC_LINKS_ARTIFACT.PodSpecs = new [] {
-		new PodSpec ("Firebase", "5.8.1", subSpecs: new [] { "DynamicLinks" })
+		new PodSpec ("Firebase", "6.5.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseDynamicLinks", targetName: "FirebaseDynamicLinks", subSpecs: new [] { "DynamicLinks" })
 	};
 	FIREBASE_INSTANCE_ID_ARTIFACT.PodSpecs = new [] {
 		new PodSpec ("FirebaseInstanceID", "4.2.1", frameworkSource: FrameworkSource.Pods)
@@ -223,6 +224,7 @@ void SetArtifactsExtraPodfileLines ()
 	};
 
 	FIREBASE_CORE_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
+	FIREBASE_DYNAMIC_LINKS_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
 	FIREBASE_INSTANCE_ID_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
 }
 
