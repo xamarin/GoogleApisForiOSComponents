@@ -76,9 +76,11 @@ Task("prepare-artifacts")
 	SetArtifactsSamples ();
 
 	var orderedArtifactsForBuild = new List<Artifact> ();
+	var orderedArtifactsForSamples = new List<Artifact> ();
 
-	if (string.IsNullOrWhiteSpace (SDKS) || TARGET == "samples") {
+	if (string.IsNullOrWhiteSpace (SDKS)) {
 		orderedArtifactsForBuild.AddRange (ARTIFACTS.Values);
+		orderedArtifactsForSamples.AddRange (ARTIFACTS.Values);
 	} else {
 		var sdks = SDKS.Split (',');
 		foreach (var sdk in sdks) {
@@ -87,25 +89,28 @@ Task("prepare-artifacts")
 			
 			orderedArtifactsForBuild.Add (artifact);
 			AddArtifactDependencies (orderedArtifactsForBuild, artifact.Dependencies);
+			orderedArtifactsForSamples.Add (artifact);
 		}
 
 		orderedArtifactsForBuild = orderedArtifactsForBuild.Distinct ().ToList ();
+		orderedArtifactsForSamples = orderedArtifactsForSamples.Distinct ().ToList ();
 	}
 
 	orderedArtifactsForBuild.Sort ((f, s) => s.BuildOrder.CompareTo (f.BuildOrder));
+	orderedArtifactsForSamples.Sort ((f, s) => s.BuildOrder.CompareTo (f.BuildOrder));
 	ARTIFACTS_TO_BUILD.AddRange (orderedArtifactsForBuild);
 
 	Information ("Build order:");
 
 	foreach (var artifact in ARTIFACTS_TO_BUILD) {
 		SOURCES_TARGETS.Add($@"{artifact.ComponentGroup}\\{artifact.CsprojName.Replace ('.', '_')}");
-		
+		Information (artifact.Id);
+	}
+
+	foreach (var artifact in orderedArtifactsForSamples)
 		if (artifact.Samples != null)
 			foreach (var sample in artifact.Samples)
 				SAMPLES_TARGETS.Add($@"{artifact.ComponentGroup}\\{sample.Replace ('.', '_')}");
-
-		Information (artifact.Id);
-	}
 });
 
 Task ("externals")
@@ -195,8 +200,8 @@ Task ("clean")
 		Force = true
 	};
 
-	if (DirectoryExists ("./externals/"))
-		DeleteDirectory ("./externals", deleteDirectorySettings);
+	// if (DirectoryExists ("./externals/"))
+	// 	DeleteDirectory ("./externals", deleteDirectorySettings);
 
 	if (DirectoryExists ("./output/"))
 		DeleteDirectory ("./output", deleteDirectorySettings);
