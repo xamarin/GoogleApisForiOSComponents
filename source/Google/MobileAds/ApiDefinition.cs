@@ -1701,7 +1701,7 @@ namespace Google.MobileAds {
 	}
 
 	// @interface GADNativeAdMediaAdLoaderOptions : GADAdLoaderOptions
-	[BaseType (typeof (AdLoaderOptions), Name = "GADNativeAdMediaAdLoaderOptions ")]
+	[BaseType (typeof (AdLoaderOptions), Name = "GADNativeAdMediaAdLoaderOptions")]
 	interface NativeAdMediaAdLoaderOptions {
 		// @property (assign, nonatomic) GADMediaAspectRatio mediaAspectRatio;
 		[Export ("mediaAspectRatio", ArgumentSemantic.Assign)]

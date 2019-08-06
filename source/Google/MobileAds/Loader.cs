@@ -11,6 +11,7 @@ namespace Google.MobileAds // was Google.MobileAds changing back to keep sample 
 
 		public static void ForceLoad ()
 		{
+			Firebase.Core.Loader.ForceLoad ();
 		}
 	}
 }

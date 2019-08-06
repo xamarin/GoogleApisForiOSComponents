@@ -121,5 +121,9 @@
       <Project>{1C9DFB3E-FDA5-478B-B063-CF646AA892DB}</Project>
       <Name>MobileAds</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj">
+      <Project>{9335A59B-3B54-4ED5-8201-B68CFD05CAFB}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
