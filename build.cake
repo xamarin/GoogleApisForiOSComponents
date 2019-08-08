@@ -19,32 +19,7 @@ var SOLUTION_PATH = "./Xamarin.Google.sln";
 var ARTIFACTS_TO_BUILD = new List<Artifact> ();
 
 var SOURCES_TARGETS = new List<string> ();
-var SAMPLES_TARGETS = new List<string> {
-	@"Firebase\\AdMobSample",
-	@"Firebase\\AnalyticsSample",
-	@"Firebase\\AuthSample",
-	@"Firebase\\CloudFirestoreSample",
-	@"Firebase\\CloudMessagingSample",
-	@"Firebase\\CrashlyticsSample",
-	@"Firebase\\DatabaseSample",
-	@"Firebase\\DynamicLinksSample",
-	@"Firebase\\InvitesSample",
-	@"Firebase\\ModelInterpreterSample",
-	@"Firebase\\MLKitSample",
-	@"Firebase\\PerformanceMonitoringSample",
-	@"Firebase\\RemoteConfigSample",
-	@"Firebase\\StorageSample",
-	@"Google\\CuteAnimalsiOS",
-	@"Google\\AppIndexingSample",
-	@"Google\\CastSample",
-	@"Google\\InstanceIDSample",
-	@"Google\\GoogleMapsAdvSample",
-	@"Google\\GoogleMapsSample",
-	@"Google\\MobileAdsExample",
-	@"Google\\GooglePlacesSample",
-	@"Google\\SignInExample",
-	@"Google\\TagManagerSample"
-};
+var SAMPLES_TARGETS = new List<string> ();
 
 // Podfile basic structure
 var PODFILE_BEGIN = new [] {
@@ -98,11 +73,14 @@ Task("prepare-artifacts")
 {
 	SetArtifactsDependencies ();
 	SetArtifactsPodSpecs ();
+	SetArtifactsSamples ();
 
 	var orderedArtifactsForBuild = new List<Artifact> ();
+	var orderedArtifactsForSamples = new List<Artifact> ();
 
-	if (string.IsNullOrWhiteSpace (SDKS) || TARGET == "samples") {
+	if (string.IsNullOrWhiteSpace (SDKS)) {
 		orderedArtifactsForBuild.AddRange (ARTIFACTS.Values);
+		orderedArtifactsForSamples.AddRange (ARTIFACTS.Values);
 	} else {
 		var sdks = SDKS.Split (',');
 		foreach (var sdk in sdks) {
@@ -111,12 +89,15 @@ Task("prepare-artifacts")
 			
 			orderedArtifactsForBuild.Add (artifact);
 			AddArtifactDependencies (orderedArtifactsForBuild, artifact.Dependencies);
+			orderedArtifactsForSamples.Add (artifact);
 		}
 
 		orderedArtifactsForBuild = orderedArtifactsForBuild.Distinct ().ToList ();
+		orderedArtifactsForSamples = orderedArtifactsForSamples.Distinct ().ToList ();
 	}
 
 	orderedArtifactsForBuild.Sort ((f, s) => s.BuildOrder.CompareTo (f.BuildOrder));
+	orderedArtifactsForSamples.Sort ((f, s) => s.BuildOrder.CompareTo (f.BuildOrder));
 	ARTIFACTS_TO_BUILD.AddRange (orderedArtifactsForBuild);
 
 	Information ("Build order:");
@@ -125,6 +106,11 @@ Task("prepare-artifacts")
 		SOURCES_TARGETS.Add($@"{artifact.ComponentGroup}\\{artifact.CsprojName.Replace ('.', '_')}");
 		Information (artifact.Id);
 	}
+
+	foreach (var artifact in orderedArtifactsForSamples)
+		if (artifact.Samples != null)
+			foreach (var sample in artifact.Samples)
+				SAMPLES_TARGETS.Add($@"{artifact.ComponentGroup}\\{sample.Replace ('.', '_')}");
 });
 
 Task ("externals")
@@ -159,12 +145,12 @@ Task ("libs")
 	.Does(() =>
 {
 	CleanVisualStudioSolution ();
+	RestoreVisualStudioSolution ();
 
 	var targets = $@"source\\{string.Join (@";source\\", SOURCES_TARGETS)}";
 
 	MSBuild(SOLUTION_PATH, c => {
 		c.Configuration = "Release";
-		c.Restore = true;
 		c.MaxCpuCount = 0;
 		c.Targets.Clear();
 		c.Targets.Add(targets);
@@ -175,15 +161,13 @@ Task ("samples")
 	.IsDependentOn("libs")
 	.Does(() =>
 {
-	var targets = $@"samples\\{string.Join (@";samples\\", SAMPLES_TARGETS)}";
-
-	MSBuild(SOLUTION_PATH, c => {
-		c.Configuration = "Release";
-		c.Restore = true;
-		c.MaxCpuCount = 0;
-		c.Targets.Clear();
-		c.Targets.Add(targets);
-	});
+	foreach (var target in SAMPLES_TARGETS)
+		MSBuild(SOLUTION_PATH, c => {
+			c.Configuration = "Release";
+			c.MaxCpuCount = 0;
+			c.Targets.Clear();
+			c.Targets.Add($@"samples\\{target}");
+		});
 });
 
 Task ("nuget")
