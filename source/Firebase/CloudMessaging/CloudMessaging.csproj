@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.CloudMessaging</RootNamespace>
     <AssemblyName>Firebase.CloudMessaging</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>3.1.2</FileVersion>
+    <FileVersion>4.1.1</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865576</PackageProjectUrl>
     <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=865577</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>3.1.2</PackageVersion>
+    <PackageVersion>4.1.1</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -45,6 +45,7 @@
     <NativeReference Include="..\..\..\externals\FirebaseMessaging.framework">
       <Kind>Framework</Kind>
       <Frameworks>SystemConfiguration</Frameworks>
+      <WeakFrameworks>UserNotifications</WeakFrameworks>
       <ForceLoad>True</ForceLoad>
       <LinkerFlags>-lsqlite3</LinkerFlags>
     </NativeReference>

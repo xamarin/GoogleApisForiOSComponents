@@ -46,7 +46,7 @@
 				"git": {
 					"name": "FirebaseMessaging",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
-					"commitHash": "1e8fc1ac130eef9d8ee351637436ac6d65129b96"
+					"commitHash": "bac26882e0f36f87fbe651b38333289de8842e69"
 				}
 			}
 		},

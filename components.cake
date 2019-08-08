@@ -4,7 +4,7 @@ Artifact FIREBASE_AD_MOB_ARTIFACT                  = new Artifact ("Firebase.AdM
 Artifact FIREBASE_ANALYTICS_ARTIFACT               = new Artifact ("Firebase.Analytics",              "6.0.4",    "8.0", ComponentGroup.Firebase, csprojName: "Analytics");
 Artifact FIREBASE_AUTH_ARTIFACT                    = new Artifact ("Firebase.Auth",                   "5.0.4.1",  "8.0", ComponentGroup.Firebase, csprojName: "Auth");
 Artifact FIREBASE_CLOUD_FIRESTORE_ARTIFACT         = new Artifact ("Firebase.CloudFirestore",         "0.13.3",   "8.0", ComponentGroup.Firebase, csprojName: "CloudFirestore");
-Artifact FIREBASE_CLOUD_MESSAGING_ARTIFACT         = new Artifact ("Firebase.CloudMessaging",         "3.1.2",    "8.0", ComponentGroup.Firebase, csprojName: "CloudMessaging");
+Artifact FIREBASE_CLOUD_MESSAGING_ARTIFACT         = new Artifact ("Firebase.CloudMessaging",         "4.1.1",    "8.0", ComponentGroup.Firebase, csprojName: "CloudMessaging");
 Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Core",                   "6.1.0",    "8.0", ComponentGroup.Firebase, csprojName: "Core");
 Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Crashlytics",            "3.10.9",   "8.0", ComponentGroup.Firebase, csprojName: "Crashlytics");
 Artifact FIREBASE_DATABASE_ARTIFACT                = new Artifact ("Firebase.Database",               "5.0.3",    "8.0", ComponentGroup.Firebase, csprojName: "Database");
@@ -69,7 +69,7 @@ void SetArtifactsDependencies ()
 	FIREBASE_ANALYTICS_ARTIFACT.Dependencies               = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT };
 	FIREBASE_AUTH_ARTIFACT.Dependencies                    = new [] { FIREBASE_CORE_ARTIFACT };
 	FIREBASE_CLOUD_FIRESTORE_ARTIFACT.Dependencies         = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT };
-	FIREBASE_CLOUD_MESSAGING_ARTIFACT.Dependencies         = new [] { FIREBASE_CORE_ARTIFACT };
+	FIREBASE_CLOUD_MESSAGING_ARTIFACT.Dependencies         = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT };
 	FIREBASE_CORE_ARTIFACT.Dependencies                    = null;
 	FIREBASE_CRASHLYTICS_ARTIFACT.Dependencies             = null;
 	FIREBASE_DATABASE_ARTIFACT.Dependencies                = new [] { FIREBASE_CORE_ARTIFACT };
@@ -105,7 +105,7 @@ void SetArtifactsPodSpecs ()
 		new PodSpec ("Firebase", "6.5.0", subSpecs: new [] { "AdMob" })
 	};
 	FIREBASE_ANALYTICS_ARTIFACT.PodSpecs = new [] {
-		new PodSpec ("Firebase",             "6.5.0", subSpecs: new [] { "Analytics" })
+		new PodSpec ("Firebase", "6.5.0", subSpecs: new [] { "Analytics" })
 	};
 	FIREBASE_AUTH_ARTIFACT.PodSpecs = new [] {
 		new PodSpec ("Firebase", "5.8.1", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseAuth", targetName: "FirebaseAuth", subSpecs: new [] { "Auth" })
@@ -120,7 +120,7 @@ void SetArtifactsPodSpecs ()
 		new PodSpec ("gRPC-C++",       "0.0.3",  frameworkSource: FrameworkSource.Pods, frameworkName: "grpcpp"),
 	};
 	FIREBASE_CLOUD_MESSAGING_ARTIFACT.PodSpecs = new [] {
-		new PodSpec ("Firebase", "5.8.1", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseMessaging", targetName: "FirebaseMessaging", subSpecs: new [] { "Messaging" })
+		new PodSpec ("Firebase", "6.5.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseMessaging", targetName: "FirebaseMessaging", subSpecs: new [] { "Messaging" })
 	};
 	FIREBASE_CORE_ARTIFACT.PodSpecs = new [] {
 		new PodSpec ("Firebase",                 "6.5.0",   frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCore", targetName: "FirebaseCore", subSpecs: new [] { "CoreOnly" }),
@@ -132,7 +132,7 @@ void SetArtifactsPodSpecs ()
 		new PodSpec ("GTMSessionFetcher",        "1.2.1",   frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Full" }),
 		new PodSpec ("leveldb-library",          "1.20.0",  frameworkSource: FrameworkSource.Pods, frameworkName: "leveldb"),
 		new PodSpec ("nanopb",                   "0.3.901", frameworkSource: FrameworkSource.Pods),
-		new PodSpec ("Protobuf",                 "3.6.1",   frameworkSource: FrameworkSource.Pods),
+		new PodSpec ("Protobuf",                 "3.8.0",   frameworkSource: FrameworkSource.Pods),
 		new PodSpec ("GoogleAppMeasurement",     "6.0.4")
 	};
 	FIREBASE_CRASHLYTICS_ARTIFACT.PodSpecs = new [] {
@@ -223,6 +223,7 @@ void SetArtifactsExtraPodfileLines ()
 		"end",
 	};
 
+	FIREBASE_CLOUD_MESSAGING_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
 	FIREBASE_CORE_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
 	FIREBASE_DYNAMIC_LINKS_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
 	FIREBASE_INSTANCE_ID_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
