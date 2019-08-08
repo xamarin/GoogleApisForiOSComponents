@@ -106,6 +106,16 @@ void CleanVisualStudioSolution ()
 	DeleteDirectories (objs, deleteDirectorySettings);
 }
 
+void RestoreVisualStudioSolution ()
+{
+	MSBuild(SOLUTION_PATH, c => {
+		c.Restore = true;
+		c.MaxCpuCount = 0;
+		c.Targets.Clear();
+		c.Targets.Add("Restore");
+	});
+}
+
 void BuildXcodeFatLibrary (FilePath xcodeProject, string target, Platform [] platforms, string libraryTitle = null, string librarySuffix = null, DirectoryPath workingDirectory = null)
 {
 	if (!IsRunningOnUnix())

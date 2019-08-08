@@ -145,12 +145,12 @@ Task ("libs")
 	.Does(() =>
 {
 	CleanVisualStudioSolution ();
+	RestoreVisualStudioSolution ();
 
 	var targets = $@"source\\{string.Join (@";source\\", SOURCES_TARGETS)}";
 
 	MSBuild(SOLUTION_PATH, c => {
 		c.Configuration = "Release";
-		c.Restore = true;
 		c.MaxCpuCount = 0;
 		c.Targets.Clear();
 		c.Targets.Add(targets);
@@ -161,15 +161,13 @@ Task ("samples")
 	.IsDependentOn("libs")
 	.Does(() =>
 {
-	var targets = $@"samples\\{string.Join (@";samples\\", SAMPLES_TARGETS)}";
-
-	MSBuild(SOLUTION_PATH, c => {
-		c.Configuration = "Release";
-		c.Restore = true;
-		c.MaxCpuCount = 0;
-		c.Targets.Clear();
-		c.Targets.Add(targets);
-	});
+	foreach (var target in SAMPLES_TARGETS)
+		MSBuild(SOLUTION_PATH, c => {
+			c.Configuration = "Release";
+			c.MaxCpuCount = 0;
+			c.Targets.Clear();
+			c.Targets.Add($@"samples\\{target}");
+		});
 });
 
 Task ("nuget")
@@ -200,8 +198,8 @@ Task ("clean")
 		Force = true
 	};
 
-	// if (DirectoryExists ("./externals/"))
-	// 	DeleteDirectory ("./externals", deleteDirectorySettings);
+	if (DirectoryExists ("./externals/"))
+		DeleteDirectory ("./externals", deleteDirectorySettings);
 
 	if (DirectoryExists ("./output/"))
 		DeleteDirectory ("./output", deleteDirectorySettings);
