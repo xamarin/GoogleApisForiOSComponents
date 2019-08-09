@@ -140,6 +140,7 @@ void BuildXcodeFatLibrary (FilePath xcodeProject, string target, Platform [] pla
 			Sdk = sdk,
 			Arch = arch,
 			Configuration = "Release",
+			Verbose = true
 		});
 
 		var outputPath = workingDirectory.Combine("build").Combine($"Release-{sdk}").Combine (target).CombineWithFilePath($"lib{libraryTitle}.a");
@@ -179,6 +180,7 @@ void BuildXcodeFatFramework (FilePath xcodeProject, string target, Platform [] p
 			Sdk = sdk,
 			Arch = arch,
 			Configuration = "Release",
+			Verbose = true
 		});
 
 		var outputPath = workingDirectory.Combine ("build").Combine ($"Release-{sdk}").Combine (target).Combine (fatFramework);
