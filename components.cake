@@ -2,7 +2,7 @@
 Artifact FIREBASE_AB_TESTING_ARTIFACT              = new Artifact ("Firebase.ABTesting",              "2.0.0.2",  "8.0", ComponentGroup.Firebase, csprojName: "ABTesting");
 Artifact FIREBASE_AD_MOB_ARTIFACT                  = new Artifact ("Firebase.AdMob",                  "7.47.0",   "8.0", ComponentGroup.Firebase, csprojName: "AdMob");
 Artifact FIREBASE_ANALYTICS_ARTIFACT               = new Artifact ("Firebase.Analytics",              "6.0.4",    "8.0", ComponentGroup.Firebase, csprojName: "Analytics");
-Artifact FIREBASE_AUTH_ARTIFACT                    = new Artifact ("Firebase.Auth",                   "5.0.4.1",  "8.0", ComponentGroup.Firebase, csprojName: "Auth");
+Artifact FIREBASE_AUTH_ARTIFACT                    = new Artifact ("Firebase.Auth",                   "6.2.1",    "8.0", ComponentGroup.Firebase, csprojName: "Auth");
 Artifact FIREBASE_CLOUD_FIRESTORE_ARTIFACT         = new Artifact ("Firebase.CloudFirestore",         "0.13.3",   "8.0", ComponentGroup.Firebase, csprojName: "CloudFirestore");
 Artifact FIREBASE_CLOUD_MESSAGING_ARTIFACT         = new Artifact ("Firebase.CloudMessaging",         "4.1.1",    "8.0", ComponentGroup.Firebase, csprojName: "CloudMessaging");
 Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Core",                   "6.1.0",    "8.0", ComponentGroup.Firebase, csprojName: "Core");
@@ -108,7 +108,7 @@ void SetArtifactsPodSpecs ()
 		new PodSpec ("Firebase", "6.5.0", subSpecs: new [] { "Analytics" })
 	};
 	FIREBASE_AUTH_ARTIFACT.PodSpecs = new [] {
-		new PodSpec ("Firebase", "5.8.1", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseAuth", targetName: "FirebaseAuth", subSpecs: new [] { "Auth" })
+		new PodSpec ("Firebase", "6.5.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseAuth", targetName: "FirebaseAuth", subSpecs: new [] { "Auth" })
 	};
 	FIREBASE_CLOUD_FIRESTORE_ARTIFACT.PodSpecs = new [] {
 		new PodSpec ("Firebase",       "5.8.1",  frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseFirestore", targetName: "FirebaseFirestore", subSpecs: new [] { "Firestore" }),
@@ -129,7 +129,7 @@ void SetArtifactsPodSpecs ()
 		new PodSpec ("GoogleUtilities",          "6.2.3",   frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "AppDelegateSwizzler", "Environment", "ISASwizzler", "Logger", "MethodSwizzler", "Network", "NSData+zlib", "Reachability", "UserDefaults" }),
 		new PodSpec ("GoogleToolboxForMac",      "2.1.4",   frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "NSData+zlib", "NSDictionary+URLArguments", "Logger", "StringEncoding", "URLBuilder" }),
 		new PodSpec ("GoogleAPIClientForREST",   "1.3.7",   frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Vision" }, useDefaultSubspecs: true),
-		new PodSpec ("GTMSessionFetcher",        "1.2.1",   frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Full" }),
+		new PodSpec ("GTMSessionFetcher",        "1.2.2",   frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Full" }),
 		new PodSpec ("leveldb-library",          "1.20.0",  frameworkSource: FrameworkSource.Pods, frameworkName: "leveldb"),
 		new PodSpec ("nanopb",                   "0.3.901", frameworkSource: FrameworkSource.Pods),
 		new PodSpec ("Protobuf",                 "3.8.0",   frameworkSource: FrameworkSource.Pods),
@@ -223,6 +223,7 @@ void SetArtifactsExtraPodfileLines ()
 		"end",
 	};
 
+	FIREBASE_AUTH_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
 	FIREBASE_CLOUD_MESSAGING_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
 	FIREBASE_CORE_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
 	FIREBASE_DYNAMIC_LINKS_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
