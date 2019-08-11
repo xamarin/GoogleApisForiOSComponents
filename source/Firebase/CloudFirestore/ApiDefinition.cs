@@ -18,7 +18,7 @@ namespace Firebase.CloudFirestore
 		// @property (readonly, nonatomic, strong) NSString * _Nonnull collectionID;
 		[Export ("collectionID", ArgumentSemantic.Strong)]
 		string Id { get; }
-
+		
 		// @property (readonly, nonatomic, strong) FIRDocumentReference * _Nullable parent;
 		[NullAllowed]
 		[Export ("parent", ArgumentSemantic.Strong)]
@@ -325,6 +325,17 @@ namespace Firebase.CloudFirestore
 		[Static]
 		[Export ("fieldValueForArrayRemove:")]
 		FieldValue FromArrayRemove (NSObject [] elements);
+
+		// +(instancetype _Nonnull)fieldValueForDoubleIncrement:(double)d __attribute__((swift_name("increment(_:)")));
+		[Static]
+		[Export ("fieldValueForDoubleIncrement:")]
+		FieldValue FromDoubleIncrement (double d);
+
+		// +(instancetype _Nonnull)fieldValueForIntegerIncrement:(int64_t)l __attribute__((swift_name("increment(_:)")));
+		[Static]
+		[Export ("fieldValueForIntegerIncrement:")]
+		FieldValue FromIntegerIncrement (long l);
+
 	}
 
 	// void (^)(id _Nullable result, NSError *_Nullable error)
@@ -365,6 +376,10 @@ namespace Firebase.CloudFirestore
 		[Export ("documentWithPath:")]
 		DocumentReference GetDocument (string documentPath);
 
+		// -(FIRQuery * _Nonnull)collectionGroupWithID:(NSString * _Nonnull)collectionID __attribute__((swift_name("collectionGroup(_:)")));
+		[Export ("collectionGroupWithID:")]
+		Query GetCollectionGroup (string collectionId);
+
 		// -(void)runTransactionWithBlock:(id  _Nullable (^ _Nonnull)(FIRTransaction * _Nonnull, NSError * _Nullable * _Nullable))updateBlock completion:(void (^ _Nonnull)(id _Nullable, NSError * _Nullable))completion;
 		[Internal]
 		[Export ("runTransactionWithBlock:completion:")]
@@ -374,8 +389,6 @@ namespace Firebase.CloudFirestore
 		[Export ("batch")]
 		WriteBatch CreateBatch ();
 
-		// +(void)enableLogging:(BOOL)logging __attribute__((deprecated("Use FIRSetLoggerLevel(FIRLoggerLevelDebug) to enable logging")));
-		[Obsolete ("Use -FIRDebugEnabled and -FIRDebugDisabled flags or use Firebase.Core.Configure.SetLoggerLevel method.")]
 		[Static]
 		[Export ("enableLogging:")]
 		void EnableLogging (bool logging);
@@ -389,12 +402,20 @@ namespace Firebase.CloudFirestore
 		[Async]
 		[Export ("disableNetworkWithCompletion:")]
 		void DisableNetwork ([NullAllowed] Action<NSError> completion);
+
+		// -(void)clearPersistenceWithCompletion:(void (^ _Nullable)(NSError * _Nullable))completion;
+		[Export ("clearPersistenceWithCompletion:")]
+		void ClearPersistence ([NullAllowed] Action<NSError> completion);
 	}
 
 	// @interface FIRFirestoreSettings : NSObject <NSCopying>
 	[BaseType (typeof (NSObject), Name = "FIRFirestoreSettings")]
 	interface FirestoreSettings : INSCopying
 	{
+		// extern const int64_t kFIRFirestoreCacheSizeUnlimited __attribute__((swift_name("FirestoreCacheSizeUnlimited")));
+		[Field ("kFIRFirestoreCacheSizeUnlimited", "__Internal")]
+		long CacheSizeUnlimited { get; }
+
 		// @property (copy, nonatomic) NSString * _Nonnull host;
 		[Export ("host")]
 		string Host { get; set; }
@@ -412,8 +433,13 @@ namespace Firebase.CloudFirestore
 		bool PersistenceEnabled { [Bind ("isPersistenceEnabled")] get; set; }
 
 		// @property (getter = areTimestampsInSnapshotsEnabled, nonatomic) BOOL timestampsInSnapshotsEnabled;
+		[Obsolete ("This setting now defaults to true and will be removed in a future release.")]
 		[Export ("timestampsInSnapshotsEnabled")]
 		bool TimestampsInSnapshotsEnabled { [Bind ("areTimestampsInSnapshotsEnabled")] get; set; }
+
+		// @property (assign, nonatomic) int64_t cacheSizeBytes;
+		[Export ("cacheSizeBytes")]
+		long CacheSizeBytes { get; set; }
 	}
 
 	// @interface FIRGeoPoint : NSObject <NSCopying>
