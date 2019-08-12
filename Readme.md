@@ -17,7 +17,6 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.Database][F.Database.Name]                             | [6.0.0.0][F.Database.Package]                |
 | [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                     | [4.0.1.0][F.DynamicLinks.Package]            |
 | [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                         | [3.4.0.0][F.InstanceID.Package]              |
-| [Xamarin.Firebase.iOS.Invites][F.Invites.Name]                               | [3.0.1.1][F.Invites.Package]                 |
 | [Xamarin.Firebase.iOS.MLKit][F.MLKit.Name]                                   | [0.13.0.1][F.MLKit.Package]                  |
 | [Xamarin.Firebase.iOS.MLKit.Common][F.MLKit.Common.Name]                     | [0.13.0.0][F.MLKit.Common.Package]           |
 | [Xamarin.Firebase.iOS.MLKit.ModelInterpreter][F.MLKit.ModelInterpreter.Name] | [0.13.0.0][F.MLKit.ModelInterpreter.Package] |
@@ -39,10 +38,11 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 
 | Package Id                                                                 | NuGet                                      |
 |----------------------------------------------------------------------------|--------------------------------------------|
+| [Xamarin.Firebase.iOS.CrashReporting][F.CrashReporting.Name]               | [2.0.0.6][F.CrashReporting.Package]        |
+| [Xamarin.Firebase.iOS.Invites][F.Invites.Name]                             | [3.0.1.1][F.Invites.Package]               |
 | [Xamarin.Google.iOS.AppInvite][G.AppInvite.Name]                           | [1.0.2.4][G.AppInvite.Package]             |
 | [Xamarin.Google.iOS.Core][G.Core.Name]                                     | [3.1.0.1][G.Core.Package]                  |
 | [Xamarin.Google.iOS.GoogleCloudMessaging][G.GoogleCloudMessaging.Name]     | [1.2.0.1][G.GoogleCloudMessaging.Package]  |
-| [Xamarin.Firebase.iOS.CrashReporting][F.CrashReporting.Name]               | [2.0.0.6][F.CrashReporting.Package]        |
 
 ## Firebase APIs for iOS current global version
 
@@ -60,7 +60,6 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Database                | **6.0.0.0**       | **6.5.0**      |
 | Firebase Dynamic Links           | **4.0.1.0**       | **6.5.0**      |
 | Firebase Instance ID             | **4.2.1.0**       | **6.5.0**      |
-| Firebase Invites                 | **3.0.1.1**       | **5.8.1**      |
 | Firebase MLKit                   | **0.13.0.1**      | **5.13.0*      |
 | Firebase MLKit Common            | **0.13.0.0**      | **5.13.0*      |
 | Firebase MLKit Model Interpreter | **0.13.0.0**      | **5.13.0*      |
@@ -125,7 +124,6 @@ This project is part of the [.NET Foundation][104]
 [F.Database.Name]: Firebase.Database
 [F.DynamicLinks.Name]: Firebase.DynamicLinks
 [F.InstanceID.Name]: Firebase.InstanceID
-[F.Invites.Name]: Firebase.Invites
 [F.MLKit.Name]: Firebase.MLKit
 [F.MLKit.Common.Name]: Firebase.MLKit.Common
 [F.MLKit.ModelInterpreter.Name]: Firebase.MLKit.ModelInterpreter
@@ -146,7 +144,6 @@ This project is part of the [.NET Foundation][104]
 [F.Database.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Database/
 [F.DynamicLinks.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.DynamicLinks/
 [F.InstanceID.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.InstanceID/
-[F.Invites.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Invites/
 [F.MLKit.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.MLKit/
 [F.MLKit.Common.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.MLKit.Common/
 [F.MLKit.ModelInterpreter.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.MLKit.ModelInterpreter/
@@ -185,11 +182,12 @@ This project is part of the [.NET Foundation][104]
 [comment]: # (Path for deprecated Firebase component folders)
 
 [F.CrashReporting.Name]: Firebase.CrashReporting
+[F.Invites.Name]: Firebase.Invites
 
 [comment]: # (URL for deprecated Firebase component NuGets)
 
 [F.CrashReporting.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.CrashReporting/
-
+[F.Invites.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Invites/
 
 [comment]: # (Path for deprecated Google component folders)
 

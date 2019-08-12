@@ -10,7 +10,6 @@ Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Cra
 Artifact FIREBASE_DATABASE_ARTIFACT                = new Artifact ("Firebase.Database",               "6.0.0",    "8.0", ComponentGroup.Firebase, csprojName: "Database");
 Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.DynamicLinks",           "4.0.1",    "8.0", ComponentGroup.Firebase, csprojName: "DynamicLinks");
 Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.InstanceID",             "4.2.1",    "8.0", ComponentGroup.Firebase, csprojName: "InstanceID");
-Artifact FIREBASE_INVITES_ARTIFACT                 = new Artifact ("Firebase.Invites",                "3.0.1.2",  "8.0", ComponentGroup.Firebase, csprojName: "Invites");
 Artifact FIREBASE_MLKIT_ARTIFACT                   = new Artifact ("Firebase.MLKit",                  "0.13.0.1", "9.0", ComponentGroup.Firebase, csprojName: "MLKit");
 Artifact FIREBASE_MLKIT_COMMON_ARTIFACT            = new Artifact ("Firebase.MLKit.Common",           "0.13.0",   "9.0", ComponentGroup.Firebase, csprojName: "MLKit.Common");
 Artifact FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT = new Artifact ("Firebase.MLKit.ModelInterpreter", "0.13.0",   "9.0", ComponentGroup.Firebase, csprojName: "MLKit.ModelInterpreter");
@@ -42,7 +41,6 @@ var ARTIFACTS = new Dictionary<string, Artifact> {
 	{ "Firebase.Database",               FIREBASE_DATABASE_ARTIFACT },
 	{ "Firebase.DynamicLinks",           FIREBASE_DYNAMIC_LINKS_ARTIFACT },
 	{ "Firebase.InstanceID",             FIREBASE_INSTANCE_ID_ARTIFACT },
-	{ "Firebase.Invites",                FIREBASE_INVITES_ARTIFACT },
 	{ "Firebase.MLKit",                  FIREBASE_MLKIT_ARTIFACT },
 	{ "Firebase.MLKit.Common",           FIREBASE_MLKIT_COMMON_ARTIFACT },
 	{ "Firebase.MLKit.ModelInterpreter", FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT },
@@ -75,7 +73,6 @@ void SetArtifactsDependencies ()
 	FIREBASE_DATABASE_ARTIFACT.Dependencies                = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_AUTH_ARTIFACT };
 	FIREBASE_DYNAMIC_LINKS_ARTIFACT.Dependencies           = new [] { FIREBASE_CORE_ARTIFACT };
 	FIREBASE_INSTANCE_ID_ARTIFACT.Dependencies             = new [] { FIREBASE_CORE_ARTIFACT };
-	FIREBASE_INVITES_ARTIFACT.Dependencies                 = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_ANALYTICS_ARTIFACT, FIREBASE_DYNAMIC_LINKS_ARTIFACT, GOOGLE_SIGN_IN_ARTIFACT };
 	FIREBASE_MLKIT_ARTIFACT.Dependencies                   = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_MLKIT_COMMON_ARTIFACT };
 	FIREBASE_MLKIT_COMMON_ARTIFACT.Dependencies            = new [] { FIREBASE_CORE_ARTIFACT };
 	FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT.Dependencies = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_MLKIT_COMMON_ARTIFACT };
@@ -144,9 +141,6 @@ void SetArtifactsPodSpecs ()
 	};
 	FIREBASE_INSTANCE_ID_ARTIFACT.PodSpecs = new [] {
 		new PodSpec ("FirebaseInstanceID", "4.2.1", frameworkSource: FrameworkSource.Pods)
-	};
-	FIREBASE_INVITES_ARTIFACT.PodSpecs = new [] {
-		new PodSpec ("Firebase", "5.8.1", subSpecs: new [] { "Invites" })
 	};
 	FIREBASE_MLKIT_ARTIFACT.PodSpecs = new [] {
 		new PodSpec ("Firebase",           "5.13.0", subSpecs: new [] { "MLVision", "MLVisionBarcodeModel", "MLVisionFaceModel", "MLVisionLabelModel", "MLVisionTextModel" }),
