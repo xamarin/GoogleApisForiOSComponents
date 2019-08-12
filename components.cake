@@ -7,7 +7,7 @@ Artifact FIREBASE_CLOUD_FIRESTORE_ARTIFACT         = new Artifact ("Firebase.Clo
 Artifact FIREBASE_CLOUD_MESSAGING_ARTIFACT         = new Artifact ("Firebase.CloudMessaging",         "4.1.1",    "8.0", ComponentGroup.Firebase, csprojName: "CloudMessaging");
 Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Core",                   "6.1.0",    "8.0", ComponentGroup.Firebase, csprojName: "Core");
 Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Crashlytics",            "3.10.9",   "8.0", ComponentGroup.Firebase, csprojName: "Crashlytics");
-Artifact FIREBASE_DATABASE_ARTIFACT                = new Artifact ("Firebase.Database",               "5.0.3",    "8.0", ComponentGroup.Firebase, csprojName: "Database");
+Artifact FIREBASE_DATABASE_ARTIFACT                = new Artifact ("Firebase.Database",               "6.0.0",    "8.0", ComponentGroup.Firebase, csprojName: "Database");
 Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.DynamicLinks",           "4.0.1",    "8.0", ComponentGroup.Firebase, csprojName: "DynamicLinks");
 Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.InstanceID",             "4.2.1",    "8.0", ComponentGroup.Firebase, csprojName: "InstanceID");
 Artifact FIREBASE_INVITES_ARTIFACT                 = new Artifact ("Firebase.Invites",                "3.0.1.2",  "8.0", ComponentGroup.Firebase, csprojName: "Invites");
@@ -72,7 +72,7 @@ void SetArtifactsDependencies ()
 	FIREBASE_CLOUD_MESSAGING_ARTIFACT.Dependencies         = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT };
 	FIREBASE_CORE_ARTIFACT.Dependencies                    = null;
 	FIREBASE_CRASHLYTICS_ARTIFACT.Dependencies             = null;
-	FIREBASE_DATABASE_ARTIFACT.Dependencies                = new [] { FIREBASE_CORE_ARTIFACT };
+	FIREBASE_DATABASE_ARTIFACT.Dependencies                = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_AUTH_ARTIFACT };
 	FIREBASE_DYNAMIC_LINKS_ARTIFACT.Dependencies           = new [] { FIREBASE_CORE_ARTIFACT };
 	FIREBASE_INSTANCE_ID_ARTIFACT.Dependencies             = new [] { FIREBASE_CORE_ARTIFACT };
 	FIREBASE_INVITES_ARTIFACT.Dependencies                 = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_ANALYTICS_ARTIFACT, FIREBASE_DYNAMIC_LINKS_ARTIFACT, GOOGLE_SIGN_IN_ARTIFACT };
@@ -137,7 +137,7 @@ void SetArtifactsPodSpecs ()
 		new PodSpec ("Fabric",      "1.7.13")
 	};
 	FIREBASE_DATABASE_ARTIFACT.PodSpecs = new [] {
-		new PodSpec ("Firebase", "5.8.1", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseDatabase", targetName: "FirebaseDatabase", subSpecs: new [] { "Database" })
+		new PodSpec ("Firebase", "6.5.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseDatabase", targetName: "FirebaseDatabase", subSpecs: new [] { "Database" })
 	};
 	FIREBASE_DYNAMIC_LINKS_ARTIFACT.PodSpecs = new [] {
 		new PodSpec ("Firebase", "6.5.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseDynamicLinks", targetName: "FirebaseDynamicLinks", subSpecs: new [] { "DynamicLinks" })
@@ -224,6 +224,7 @@ void SetArtifactsExtraPodfileLines ()
 	FIREBASE_CLOUD_FIRESTORE_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
 	FIREBASE_CLOUD_MESSAGING_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
 	FIREBASE_CORE_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
+	FIREBASE_DATABASE_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
 	FIREBASE_DYNAMIC_LINKS_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
 	FIREBASE_INSTANCE_ID_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
 }
