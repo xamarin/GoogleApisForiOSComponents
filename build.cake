@@ -134,7 +134,9 @@ Task ("externals")
 			BuildSdkOnPodfile (artifact);
 		}
 	} else {
-		foreach (var artifact in ARTIFACTS_TO_BUILD)
+		foreach (var artifact in ARTIFACTS_TO_BUILD) {
+			UpdateVersionInCsproj (artifact);
+
 			foreach (var podSpec in artifact.PodSpecs) {
 				if (podSpec.FrameworkSource != FrameworkSource.Pods)
 					continue;
@@ -142,10 +144,10 @@ Task ("externals")
 				if (DirectoryExists (EXTERNALS_PATH.Combine ($"{podSpec.FrameworkName}.framework")))
 					break;
 
-				UpdateVersionInCsproj (artifact);
 				CreateAndInstallPodfile (artifact);
 				BuildSdkOnPodfile (artifact);
 			}
+		}
 	}
 
 	// Call here custom methods created at custom_externals_download.cake file
