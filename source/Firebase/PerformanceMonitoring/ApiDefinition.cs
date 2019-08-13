@@ -114,16 +114,6 @@ namespace Firebase.PerformanceMonitoring
 		[Export ("stop")]
 		void Stop ();
 
-		// -(void)incrementCounterNamed:(NSString * _Nonnull)counterName __attribute__((deprecated("Please use -incrementMetric:byInt: instead.")));
-		[Obsolete ("Please, use IncrementMetric method instead.")]
-		[Export ("incrementCounterNamed:")]
-		void IncrementCounter (string counterName);
-
-		// -(void)incrementCounterNamed:(NSString * _Nonnull)counterName by:(NSInteger)incrementValue __attribute__((deprecated("Please use -incrementMetric:byInt: instead.")));
-		[Obsolete ("Please, use IncrementMetric method instead.")]
-		[Export ("incrementCounterNamed:by:")]
-		void IncrementCounter (string counterName, nint incrementValue);
-
 		// -(void)incrementMetric:(NSString * _Nonnull)metricName byInt:(int64_t)incrementValue;
 		[Export ("incrementMetric:byInt:")]
 		void IncrementMetric (string metricName, long incrementValue);

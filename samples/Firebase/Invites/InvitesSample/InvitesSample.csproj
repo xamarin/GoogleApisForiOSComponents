@@ -142,10 +142,6 @@
       <Project>{754D8F56-C3DB-4E33-91D5-45445AB286EF}</Project>
       <Name>InstanceID</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\source\Firebase\Invites\Invites.csproj">
-      <Project>{DC921458-BFFC-4E59-B9FA-2F3EF8DB9023}</Project>
-      <Name>Invites</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\..\source\Google\SignIn\SignIn.csproj">
       <Project>{CF20170E-821A-4706-BFCE-5650F3D1B3F0}</Project>
       <Name>SignIn</Name>
