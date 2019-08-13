@@ -81,6 +81,24 @@ namespace Firebase.Storage
 	{
 	}
 
+	// @interface FIRStorageListResult : NSObject <NSCopying>
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FIRStorageListResult")]
+	interface StorageListResult : INSCopying {
+		// @property (readonly, nonatomic) NSArray<FIRStorageReference *> * _Nonnull prefixes;
+		[Export ("prefixes")]
+		StorageReference [] Prefixes { get; }
+
+		// @property (readonly, nonatomic) NSArray<FIRStorageReference *> * _Nonnull items;
+		[Export ("items")]
+		StorageReference [] Items { get; }
+
+		// @property (readonly, nonatomic) NSString * _Nullable pageToken;
+		[NullAllowed]
+		[Export ("pageToken")]
+		string PageToken { get; }
+	}
+
 	// @interface FIRStorageMetadata : NSObject <NSCopying>
 	[BaseType (typeof (NSObject), Name = "FIRStorageMetadata")]
 	interface StorageMetadata : INSCopying
@@ -281,6 +299,18 @@ namespace Firebase.Storage
 		// -(FIRStorageDownloadTask * _Nonnull)writeToFile:(NSURL * _Nonnull)fileURL completion:(void (^ _Nullable)(NSURL * _Nullable, NSError * _Nullable))completion;
 		[Export ("writeToFile:completion:")]
 		StorageDownloadTask WriteToFile (NSUrl fileURL, [NullAllowed] StorageWriteToFileCompletionHandler completion);
+
+		// -(void)listAllWithCompletion:(void (^ _Nonnull)(FIRStorageListResult * _Nonnull, NSError * _Nullable))completion;
+		[Export ("listAllWithCompletion:")]
+		void ListAll (Action<StorageListResult, NSError> completion);
+
+		// -(void)listWithMaxResults:(int64_t)maxResults completion:(void (^ _Nonnull)(FIRStorageListResult * _Nonnull, NSError * _Nullable))completion;
+		[Export ("listWithMaxResults:completion:")]
+		void List (long maxResults, Action<StorageListResult, NSError> completion);
+
+		// -(void)listWithMaxResults:(int64_t)maxResults pageToken:(NSString * _Nonnull)pageToken completion:(void (^ _Nonnull)(FIRStorageListResult * _Nonnull, NSError * _Nullable))completion;
+		[Export ("listWithMaxResults:pageToken:completion:")]
+		void List (long maxResults, string pageToken, Action<StorageListResult, NSError> completion);
 
 		// -(void)metadataWithCompletion:(void (^ _Nonnull)(FIRStorageMetadata * _Nullable, NSError * _Nullable))completion;
 		[Async]
