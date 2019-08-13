@@ -58,8 +58,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
-    <ProjectReference Include="..\InstanceID\InstanceID.csproj" />
-    <ProjectReference Include="..\Analytics\Analytics.csproj" />
   </ItemGroup>
   
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
