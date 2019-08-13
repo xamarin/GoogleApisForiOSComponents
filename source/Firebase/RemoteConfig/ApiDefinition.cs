@@ -11,6 +11,15 @@ namespace Firebase.RemoteConfig
 	// typedef void (^FIRRemoteConfigFetchCompletion)(FIRRemoteConfigFetchStatus, NSError * _Nullable);
 	delegate void RemoteConfigFetchCompletionHandler (RemoteConfigFetchStatus status, [NullAllowed] NSError error);
 
+	// typedef void (^FIRRemoteConfigActivateCompletion)(NSError * _Nullable);
+	delegate void RemoteConfigActivateCompletionHandler ([NullAllowed] NSError error);
+
+	// typedef void (^FIRRemoteConfigInitializationCompletion)(NSError * _Nullable);
+	delegate void RemoteConfigInitializationCompletionHandler ([NullAllowed] NSError error);
+
+	// typedef void (^FIRRemoteConfigFetchAndActivateCompletion)(FIRRemoteConfigFetchAndActivateStatus, NSError * _Nullable);
+	delegate void RemoteConfigFetchAndActivateCompletionHandler (RemoteConfigFetchAndActivateStatus status, [NullAllowed] NSError error);
+
 	// @interface FIRRemoteConfigValue : NSObject <NSCopying>
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRRemoteConfigValue")]
@@ -34,22 +43,35 @@ namespace Firebase.RemoteConfig
 		[Export ("boolValue")]
 		bool BoolValue { get; }
 
+		// @property (readonly, nonatomic) id _Nullable JSONValue __attribute__((swift_name("jsonValue")));
+		[NullAllowed]
+		[Export ("JSONValue")]
+		NSObject JsonValue { get; }
+
 		// @property (readonly, nonatomic) FIRRemoteConfigSource source;
 		[Export ("source")]
 		RemoteConfigSource Source { get; }
 	}
 
 	// @interface FIRRemoteConfigSettings : NSObject
-	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRRemoteConfigSettings")]
 	interface RemoteConfigSettings
 	{
+		// @property (assign, nonatomic) NSTimeInterval minimumFetchInterval;
+		[Export ("minimumFetchInterval")]
+		double MinimumFetchInterval { get; set; }
+
+		// @property (assign, nonatomic) NSTimeInterval fetchTimeout;
+		[Export ("fetchTimeout")]
+		double FetchTimeout { get; set; }
+
 		// @property (readonly, nonatomic) BOOL isDeveloperModeEnabled;
+		[Obsolete ("This no longer needs to be set during development.")]
 		[Export ("isDeveloperModeEnabled")]
 		bool IsDeveloperModeEnabled { get; }
 
 		// -(FIRRemoteConfigSettings * _Nullable)initWithDeveloperModeEnabled:(BOOL)developerModeEnabled __attribute__((objc_designated_initializer));
-		[DesignatedInitializer]
+		[Obsolete ("This no longer needs to be set during development.")]
 		[Export ("initWithDeveloperModeEnabled:")]
 		IntPtr Constructor (bool developerModeEnabled);
 	}
@@ -74,7 +96,7 @@ namespace Firebase.RemoteConfig
 		// @property (readonly, nonatomic, strong) NSDate * _Nullable lastFetchTime;
 		[NullAllowed]
 		[Export ("lastFetchTime", ArgumentSemantic.Strong)]
-		NSDate LastFetchTime { get; }
+		NSDate LastFetchTime { get; set; }
 
 		// @property (readonly, assign, nonatomic) FIRRemoteConfigFetchStatus lastFetchStatus;
 		[Export ("lastFetchStatus", ArgumentSemantic.Assign)]
@@ -89,6 +111,16 @@ namespace Firebase.RemoteConfig
 		[Export ("remoteConfig")]
 		RemoteConfig SharedInstance { get; }
 
+		// +(FIRRemoteConfig * _Nonnull)remoteConfigWithApp:(FIRApp * _Nonnull)app __attribute__((swift_name("remoteConfig(app:)")));
+		[Static]
+		[Export ("remoteConfigWithApp:")]
+		RemoteConfig Create (Core.App app);
+
+		// -(void)ensureInitializedWithCompletionHandler:(FIRRemoteConfigInitializationCompletion _Nonnull)completionHandler;
+		[Async]
+		[Export ("ensureInitializedWithCompletionHandler:")]
+		void EnsureInitialized (RemoteConfigInitializationCompletionHandler completionHandler);
+
 		// -(void)fetchWithCompletionHandler:(FIRRemoteConfigFetchCompletion _Nullable)completionHandler;
 		[Async]
 		[Export ("fetchWithCompletionHandler:")]
@@ -99,7 +131,17 @@ namespace Firebase.RemoteConfig
 		[Export ("fetchWithExpirationDuration:completionHandler:")]
 		void Fetch (double expirationDuration, [NullAllowed] RemoteConfigFetchCompletionHandler completionHandler);
 
+		// -(void)fetchAndActivateWithCompletionHandler:(FIRRemoteConfigFetchAndActivateCompletion _Nullable)completionHandler;
+		[Async]
+		[Export ("fetchAndActivateWithCompletionHandler:")]
+		void FetchAndActivate ([NullAllowed] RemoteConfigFetchAndActivateCompletionHandler completionHandler);
+
+		// -(void)activateWithCompletionHandler:(FIRRemoteConfigActivateCompletion _Nullable)completionHandler;
+		[Export ("activateWithCompletionHandler:")]
+		void Activate ([NullAllowed] RemoteConfigActivateCompletionHandler completionHandler);
+
 		// -(BOOL)activateFetched;
+		[Obsolete ("Use the Activate method instead.")]
 		[Export ("activateFetched")]
 		bool ActivateFetched ();
 
@@ -107,15 +149,26 @@ namespace Firebase.RemoteConfig
 		[Export ("configValueForKey:")]
 		RemoteConfigValue GetConfigValue ([NullAllowed] string key);
 
-		// -(FIRRemoteConfigValue * _Nonnull)configValueForKey:(NSString * _Nullable)key namespace:(NSString * _Nullable)aNamespace;
+		// -(FIRRemoteConfigValue * _Nonnull)configValueForKey:(NSString * _Nullable)key namespace:(NSString * _Nullable)aNamespace __attribute__((deprecated("Use -[FIRRemoteConfig configValueForKey:] instead.")));
+		[Obsolete ("Use the GetConfigValue (string) overload method instead.")]
 		[Export ("configValueForKey:namespace:")]
 		RemoteConfigValue GetConfigValue ([NullAllowed] string key, [NullAllowed] string aNamespace);
 
-		// -(FIRRemoteConfigValue * _Nonnull)configValueForKey:(NSString * _Nullable)key namespace:(NSString * _Nullable)aNamespace source:(FIRRemoteConfigSource)source;
+		// -(FIRRemoteConfigValue * _Nonnull)configValueForKey:(NSString * _Nullable)key source:(FIRRemoteConfigSource)source;
+		[Export ("configValueForKey:source:")]
+		RemoteConfigValue GetConfigValue ([NullAllowed] string key, RemoteConfigSource source);
+
+		// -(FIRRemoteConfigValue * _Nonnull)configValueForKey:(NSString * _Nullable)key namespace:(NSString * _Nullable)aNamespace source:(FIRRemoteConfigSource)source __attribute__((deprecated("Use -[FIRRemoteConfig configValueForKey:source:] instead.")));
+		[Obsolete ("Use the GetConfigValue (string, RemoteConfigSource) overload method instead.")]
 		[Export ("configValueForKey:namespace:source:")]
 		RemoteConfigValue GetConfigValue ([NullAllowed] string key, [NullAllowed] string aNamespace, RemoteConfigSource source);
 
-		// -(NSArray<NSString *> * _Nonnull)allKeysFromSource:(FIRRemoteConfigSource)source namespace:(NSString * _Nullable)aNamespace;
+		// -(NSArray<NSString *> * _Nonnull)allKeysFromSource:(FIRRemoteConfigSource)source;
+		[Export ("allKeysFromSource:")]
+		string [] GetAllKeys (RemoteConfigSource source);
+
+		// -(NSArray<NSString *> * _Nonnull)allKeysFromSource:(FIRRemoteConfigSource)source namespace:(NSString * _Nullable)aNamespace __attribute__((deprecated("Use -[FIRRemoteConfig allKeysFromSource:] instead.")));
+		[Obsolete ("Use the GetAllKeys (RemoteConfigSource) overload method instead.")]
 		[Export ("allKeysFromSource:namespace:")]
 		string [] GetAllKeys (RemoteConfigSource source, [NullAllowed] string aNamespace);
 
@@ -124,6 +177,7 @@ namespace Firebase.RemoteConfig
 		NSSet<NSString> GetKeys ([NullAllowed] string prefix);
 
 		// -(NSSet<NSString *> * _Nonnull)keysWithPrefix:(NSString * _Nullable)prefix namespace:(NSString * _Nullable)aNamespace;
+		[Obsolete ("Use the GetKeys (string) overload method instead.")]
 		[Export ("keysWithPrefix:namespace:")]
 		NSSet<NSString> GetKeys ([NullAllowed] string prefix, [NullAllowed] string aNamespace);
 
@@ -135,9 +189,11 @@ namespace Firebase.RemoteConfig
 		void SetDefaults (Dictionary<object, object> defaults);
 
 		// -(void)setDefaults:(NSDictionary<NSString *,NSObject *> * _Nullable)defaultConfig namespace:(NSString * _Nullable)aNamespace;
+		[Obsolete ("Use the SetDefaults (NSDictionary) overload method instead.")]
 		[Export ("setDefaults:namespace:")]
 		void SetDefaults ([NullAllowed] NSDictionary nsDefaults, [NullAllowed] string aNamespace);
 
+		[Obsolete ("Use the SetDefaults (Dictionary) overload method instead.")]
 		[Wrap ("SetDefaults (defaults == null ? null : NSDictionary.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (defaults.Values), System.Linq.Enumerable.ToArray (defaults.Keys), defaults.Keys.Count), aNamespace)")]
 		void SetDefaults (Dictionary<object, object> defaults, string aNamespace);
 
@@ -146,10 +202,17 @@ namespace Firebase.RemoteConfig
 		void SetDefaults ([NullAllowed] string plistFileName);
 
 		// -(void)setDefaultsFromPlistFileName:(NSString * _Nullable)fileName namespace:(NSString * _Nullable)aNamespace;
+		[Obsolete ("Use the SetDefaults (string) overload method instead.")]
 		[Export ("setDefaultsFromPlistFileName:namespace:")]
 		void SetDefaults ([NullAllowed] string plistFileName, [NullAllowed] string aNamespace);
 
+		// -(FIRRemoteConfigValue * _Nullable)defaultValueForKey:(NSString * _Nullable)key;
+		[return: NullAllowed]
+		[Export ("defaultValueForKey:")]
+		RemoteConfigValue GetDefaultValue ([NullAllowed] string key);
+
 		// -(FIRRemoteConfigValue * _Nullable)defaultValueForKey:(NSString * _Nullable)key namespace:(NSString * _Nullable)aNamespace;
+		[Obsolete ("Use the GetDefaultValue (string) overload method instead.")]
 		[return: NullAllowed]
 		[Export ("defaultValueForKey:namespace:")]
 		RemoteConfigValue GetDefaultValue ([NullAllowed] string key, [NullAllowed] string aNamespace);

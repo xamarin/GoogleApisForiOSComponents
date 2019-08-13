@@ -13,6 +13,14 @@ namespace Firebase.RemoteConfig
 	}
 
 	[Native]
+	public enum RemoteConfigFetchAndActivateStatus : long
+	{
+		SuccessFetchedFromRemote,
+		SuccessUsingPreFetchedData,
+		Error
+	}
+
+	[Native]
 	public enum RemoteConfigError : long
 	{
 		Unknown = 8001,

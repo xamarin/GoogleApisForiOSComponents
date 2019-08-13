@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.ABTesting</RootNamespace>
     <AssemblyName>Firebase.ABTesting</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>2.0.0.2</FileVersion>
+    <FileVersion>3.0.0.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2004275</PackageProjectUrl>
     <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=2004700</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>2.0.0.2</PackageVersion>
+    <PackageVersion>3.0.0.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>

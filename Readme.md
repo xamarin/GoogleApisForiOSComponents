@@ -21,7 +21,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.MLKit.Common][F.MLKit.Common.Name]                     | [0.13.0.0][F.MLKit.Common.Package]           |
 | [Xamarin.Firebase.iOS.MLKit.ModelInterpreter][F.MLKit.ModelInterpreter.Name] | [0.13.0.0][F.MLKit.ModelInterpreter.Package] |
 | [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name]   | [2.2.2.0][F.PerformanceMonitoring.Package]   |
-| [Xamarin.Firebase.iOS.RemoteConfig][F.RemoteConfig.Name]                     | [3.1.0.0][F.RemoteConfig.Package]            |
+| [Xamarin.Firebase.iOS.RemoteConfig][F.RemoteConfig.Name]                     | [4.2.1.0][F.RemoteConfig.Package]            |
 | [Xamarin.Firebase.iOS.Storage][F.Storage.Name]                               | [3.4.0.0][F.Storage.Package]                 |
 | [Xamarin.Google.iOS.Analytics][G.Analytics.Name]                             | [3.17.0.3][G.Analytics.Package]              |
 | [Xamarin.Google.iOS.AppIndexing][G.AppIndexing.Name]                         | [2.0.3.5][G.AppIndexing.Package]             |
@@ -64,7 +64,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase MLKit Common            | **0.13.0.0**      | **5.13.0*      |
 | Firebase MLKit Model Interpreter | **0.13.0.0**      | **5.13.0*      |
 | Firebase Performance Monitoring  | **2.2.2.0**       | **5.16.0**     |
-| Firebase RemoteConfig            | **3.1.0.0**       | **5.16.0**     |
+| Firebase RemoteConfig            | **4.2.1.0**       | **6.5.0**      |
 | Firebase Storage                 | **3.4.0.0**       | **6.5.0**      |
 | Google Sign-In                   | **4.2.0.0**       | **5.8.1**      |
 | Google Tag Manager               | **7.1.1.0**       | **5.8.1**      |

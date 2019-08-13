@@ -123,10 +123,6 @@
       <Project>{1EDD7A0C-29DB-4A6B-B12F-4CA1791FE575}</Project>
       <Name>ABTesting</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\source\Firebase\Analytics\Analytics.csproj">
-      <Project>{25783B8D-1423-4CC2-B629-7E7F36A1CF4B}</Project>
-      <Name>Analytics</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj">
       <Project>{9335A59B-3B54-4ED5-8201-B68CFD05CAFB}</Project>
       <Name>Core</Name>
@@ -145,7 +141,6 @@
     <BundleResource Include="RemoteConfigDefaults.plist" />
   </ItemGroup>
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Core\Core.targets" />
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Analytics\Analytics.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\ABTesting\ABTesting.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\RemoteConfig\RemoteConfig.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

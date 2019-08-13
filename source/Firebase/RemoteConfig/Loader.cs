@@ -7,7 +7,6 @@ namespace Firebase.RemoteConfig
 		{
 			Firebase.Core.Loader.ForceLoad ();
 			Firebase.InstanceID.Loader.ForceLoad ();
-			Firebase.Analytics.Loader.ForceLoad ();
 			Firebase.ABTesting.Loader.ForceLoad ();
 		}
 
