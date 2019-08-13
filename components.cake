@@ -237,7 +237,6 @@ void SetArtifactsSamples ()
 	FIREBASE_DATABASE_ARTIFACT.Samples                = new [] { "DatabaseSample" };
 	FIREBASE_DYNAMIC_LINKS_ARTIFACT.Samples           = new [] { "DynamicLinksSample" };
 	FIREBASE_INSTANCE_ID_ARTIFACT.Samples             = null;
-	FIREBASE_INVITES_ARTIFACT.Samples                 = new [] { "InvitesSample" };
 	FIREBASE_MLKIT_ARTIFACT.Samples                   = new [] { "MLKitSample" };
 	FIREBASE_MLKIT_COMMON_ARTIFACT.Samples            = null;
 	FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT.Samples = new [] { "ModelInterpreterSample" };
