@@ -1,9 +1,6 @@
-#tool nuget:?package=XamarinComponent&version=1.1.0.65
-
-#addin nuget:?package=Cake.XCode&version=4.0.0
-#addin nuget:?package=Cake.Xamarin.Build&version=4.0.1
-#addin nuget:?package=Cake.Xamarin&version=3.0.0
-#addin nuget:?package=Cake.FileHelpers&version=3.0.0
+#addin nuget:?package=Cake.XCode&version=4.1.0
+#addin nuget:?package=Cake.Xamarin.Build&version=4.1.1
+#addin nuget:?package=Cake.FileHelpers&version=3.2.0
 
 #load "poco.cake"
 #load "components.cake"
@@ -174,7 +171,7 @@ Task ("nuget")
 	.IsDependentOn("libs")
 	.Does(() =>
 {
-	EnsureDirectoryExists("./output");
+	EnsureDirectoryExists("./artifacts");
 
 	var targets = $@"source\\{string.Join (@":Pack;source\\", SOURCES_TARGETS)}:Pack";
 
@@ -184,7 +181,7 @@ Task ("nuget")
 		c.MaxCpuCount = 0;
 		c.Targets.Clear();
 		c.Targets.Add(targets);
-		c.Properties.Add("PackageOutputPath", new [] { "../../../output/" });
+		c.Properties.Add("PackageOutputPath", new [] { "../../../artifacts/" });
 	});
 });
 
