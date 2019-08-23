@@ -52,7 +52,8 @@ void BuildCake (string target)
 }
 
 // From Cake.Xamarin.Build, dumps out versions of things
-LogSystemInfo ();
+// LogSystemInfo ();
+
 
 Task("build")
 	.Does(() =>
