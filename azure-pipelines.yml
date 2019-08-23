@@ -5,7 +5,7 @@ trigger:
 
 variables:
   MONO_VERSION: 5_18_1
-  XCODE_VERSION: 10.2.1
+  XCODE_VERSION: 10.3
   VERBOSITY: diagnostic
   DOTNET_CORE_VERSION: 2.2.401
   CAKE_VERSION: 0.34.1
@@ -71,17 +71,14 @@ jobs:
     displayName: 'Build'
     dependsOn: prepare
     pool:
-      name: 'Hosted Mac Internal Mojave'
+      name: 'Hosted macOS'
     steps:
       - bash: sudo $AGENT_HOMEDIRECTORY/scripts/select-xamarin-sdk.sh $(MONO_VERSION)
         displayName: 'Switch to the latest Xamarin SDK'
-        condition: eq(variables['System.JobName'], 'macos')
       - bash: echo '##vso[task.setvariable variable=MD_APPLE_SDK_ROOT;]'/Applications/Xcode_$(XCODE_VERSION).app;sudo xcode-select --switch /Applications/Xcode_$(XCODE_VERSION).app/Contents/Developer
         displayName: 'Switch to the latest Xcode'
-        condition: eq(variables['System.JobName'], 'macos')
       - bash: echo '##vso[task.setvariable variable=PATH;]'$PATH:$HOME/.dotnet/tools
         displayName: 'Add ~/.dotnet/tools to the PATH environment variable'
-        condition: eq(variables['System.JobName'], 'macos')
       - task: UseDotNet@2
         displayName: 'Use the correct version of the .NET Core SDK'
         inputs:
