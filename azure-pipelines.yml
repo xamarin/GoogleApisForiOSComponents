@@ -88,7 +88,7 @@ jobs:
           dotnet tool install -g cake.tool --version $(CAKE_VERSION)
         displayName: 'Install .NET Core global tools'
       - powershell: |
-          dotnet-cake --target=build --verbosity=$(VERBOSITY)
+          dotnet-cake --target=build --sdks=$(SdksNames) --verbosity=$(VERBOSITY)
         displayName: 'Run build'
       - powershell: |
           if (Get-ChildItem artifacts -Filter *.nupkg) {

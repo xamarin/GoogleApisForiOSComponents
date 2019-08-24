@@ -145,14 +145,13 @@ Task ("libs")
 	CleanVisualStudioSolution ();
 	RestoreVisualStudioSolution ();
 
-	var targets = $@"source\\{string.Join (@";source\\", SOURCES_TARGETS)}";
-
-	MSBuild(SOLUTION_PATH, c => {
-		c.Configuration = "Release";
-		c.MaxCpuCount = 0;
-		c.Targets.Clear();
-		c.Targets.Add(targets);
-	});
+	foreach (var target in SOURCES_TARGETS)
+		MSBuild(SOLUTION_PATH, c => {
+			c.Configuration = "Release";
+			c.MaxCpuCount = 0;
+			c.Targets.Clear();
+			c.Targets.Add($@"source\\{target}");
+		});
 });
 
 Task ("samples")
@@ -174,16 +173,14 @@ Task ("nuget")
 {
 	EnsureDirectoryExists("./artifacts");
 
-	var targets = $@"source\\{string.Join (@":Pack;source\\", SOURCES_TARGETS)}:Pack";
-
-	MSBuild(SOLUTION_PATH, c => {
-		c.Configuration = "Release";
-		c.Restore = true;
-		c.MaxCpuCount = 0;
-		c.Targets.Clear();
-		c.Targets.Add(targets);
-		c.Properties.Add("PackageOutputPath", new [] { "../../../artifacts/" });
-	});
+	foreach (var target in SOURCES_TARGETS)
+		MSBuild(SOLUTION_PATH, c => {
+			c.Configuration = "Release";
+			c.MaxCpuCount = 0;
+			c.Targets.Clear();
+			c.Targets.Add($@"source\\{target}:Pack");
+			c.Properties.Add("PackageOutputPath", new [] { "../../../artifacts/" });
+		});
 });
 
 Task ("clean")

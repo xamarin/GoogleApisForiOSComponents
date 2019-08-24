@@ -12,3 +12,4 @@ build
 *.framework
 _._
 externals
+artifacts
