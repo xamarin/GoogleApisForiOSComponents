@@ -10,6 +10,9 @@
 var TARGET = Argument ("t", Argument ("target", "build"));
 var SDKS = Argument ("sdks", "");
 
+var IS_LOCAL_BUILD = true;
+var BACKSLASH = string.Empty;
+
 var SOLUTION_PATH = "./Xamarin.Google.sln";
 
 // Artifacts that need to be built from pods or be copied from pods
@@ -54,6 +57,12 @@ void BuildCake (string target)
 // From Cake.Xamarin.Build, dumps out versions of things
 // LogSystemInfo ();
 
+Setup (context =>
+{
+	IS_LOCAL_BUILD = string.IsNullOrWhiteSpace (EnvironmentVariable ("AGENT_ID"));
+	Information ("Is a local build? {IS_LOCAL_BUILD}");
+	BACKSLASH = IS_LOCAL_BUILD ? @"\\" : @"\";
+});
 
 Task("build")
 	.Does(() =>
@@ -101,14 +110,14 @@ Task("prepare-artifacts")
 	Information ("Build order:");
 
 	foreach (var artifact in ARTIFACTS_TO_BUILD) {
-		SOURCES_TARGETS.Add($@"{artifact.ComponentGroup}\{artifact.CsprojName.Replace ('.', '_')}");
+		SOURCES_TARGETS.Add($@"{artifact.ComponentGroup}{BACKSLASH}{artifact.CsprojName.Replace ('.', '_')}");
 		Information (artifact.Id);
 	}
 
 	foreach (var artifact in orderedArtifactsForSamples)
 		if (artifact.Samples != null)
 			foreach (var sample in artifact.Samples)
-				SAMPLES_TARGETS.Add($@"{artifact.ComponentGroup}\{sample.Replace ('.', '_')}");
+				SAMPLES_TARGETS.Add($@"{artifact.ComponentGroup}{BACKSLASH}{sample.Replace ('.', '_')}");
 });
 
 Task ("externals")
@@ -150,7 +159,7 @@ Task ("libs")
 			c.Configuration = "Release";
 			c.MaxCpuCount = 0;
 			c.Targets.Clear();
-			c.Targets.Add($@"source\{target}");
+			c.Targets.Add($@"source{BACKSLASH}{target}");
 		});
 });
 
@@ -163,7 +172,7 @@ Task ("samples")
 			c.Configuration = "Release";
 			c.MaxCpuCount = 0;
 			c.Targets.Clear();
-			c.Targets.Add($@"samples\{target}");
+			c.Targets.Add($@"samples{BACKSLASH}{target}");
 		});
 });
 
@@ -178,7 +187,7 @@ Task ("nuget")
 			c.Configuration = "Release";
 			c.MaxCpuCount = 0;
 			c.Targets.Clear();
-			c.Targets.Add($@"source\{target}:Pack");
+			c.Targets.Add($@"source{BACKSLASH}{target}:Pack");
 			c.Properties.Add("PackageOutputPath", new [] { "../../../artifacts/" });
 		});
 });
