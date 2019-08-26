@@ -167,6 +167,8 @@ Task ("samples")
 	.IsDependentOn("libs")
 	.Does(() =>
 {
+	RestoreVisualStudioSolution ();
+
 	foreach (var target in SAMPLES_TARGETS)
 		MSBuild(SOLUTION_PATH, c => {
 			c.Configuration = "Release";
@@ -181,6 +183,7 @@ Task ("nuget")
 	.Does(() =>
 {
 	EnsureDirectoryExists("./artifacts");
+	RestoreVisualStudioSolution ();
 
 	foreach (var target in SOURCES_TARGETS)
 		MSBuild(SOLUTION_PATH, c => {
