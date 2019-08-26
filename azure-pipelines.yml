@@ -83,6 +83,16 @@ jobs:
         displayName: 'Use the correct version of the .NET Core SDK'
         inputs:
           version: $(DOTNET_CORE_VERSION)
+      - task: InstallAppleCertificate@2
+        inputs:
+          certSecureFile: 'Components iOS Certificate.p12'
+          keychain: 'temp'
+        displayName: 'Install an Apple certificate'
+      - task: InstallAppleProvisioningProfile@1
+        inputs:
+          provisioningProfileLocation: 'secureFiles'
+          provProfileSecureFile: 'Components iOS Provisioning.mobileprovision'
+        displayName: 'Install an Apple provisioning profile'
       - powershell: |
           dotnet tool install -g api-tools --version $(API_TOOLS_VERSION)
           dotnet tool install -g cake.tool --version $(CAKE_VERSION)
