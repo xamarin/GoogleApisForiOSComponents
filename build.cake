@@ -101,14 +101,14 @@ Task("prepare-artifacts")
 	Information ("Build order:");
 
 	foreach (var artifact in ARTIFACTS_TO_BUILD) {
-		SOURCES_TARGETS.Add($@"{artifact.ComponentGroup}\\{artifact.CsprojName.Replace ('.', '_')}");
+		SOURCES_TARGETS.Add($@"{artifact.ComponentGroup}\{artifact.CsprojName.Replace ('.', '_')}");
 		Information (artifact.Id);
 	}
 
 	foreach (var artifact in orderedArtifactsForSamples)
 		if (artifact.Samples != null)
 			foreach (var sample in artifact.Samples)
-				SAMPLES_TARGETS.Add($@"{artifact.ComponentGroup}\\{sample.Replace ('.', '_')}");
+				SAMPLES_TARGETS.Add($@"{artifact.ComponentGroup}\{sample.Replace ('.', '_')}");
 });
 
 Task ("externals")
@@ -150,7 +150,7 @@ Task ("libs")
 			c.Configuration = "Release";
 			c.MaxCpuCount = 0;
 			c.Targets.Clear();
-			c.Targets.Add($@"source\\{target}");
+			c.Targets.Add($@"source\{target}");
 		});
 });
 
@@ -163,7 +163,7 @@ Task ("samples")
 			c.Configuration = "Release";
 			c.MaxCpuCount = 0;
 			c.Targets.Clear();
-			c.Targets.Add($@"samples\\{target}");
+			c.Targets.Add($@"samples\{target}");
 		});
 });
 
@@ -178,7 +178,7 @@ Task ("nuget")
 			c.Configuration = "Release";
 			c.MaxCpuCount = 0;
 			c.Targets.Clear();
-			c.Targets.Add($@"source\\{target}:Pack");
+			c.Targets.Add($@"source\{target}:Pack");
 			c.Properties.Add("PackageOutputPath", new [] { "../../../artifacts/" });
 		});
 });
