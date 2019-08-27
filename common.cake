@@ -114,6 +114,7 @@ void RestoreVisualStudioSolution ()
 		c.Targets.Clear();
 		c.Targets.Add("Restore");
 	});
+	NuGetRestore (SOLUTION_PATH);
 }
 
 void BuildXcodeFatLibrary (FilePath xcodeProject, string target, Platform [] platforms, string libraryTitle = null, string librarySuffix = null, DirectoryPath workingDirectory = null)

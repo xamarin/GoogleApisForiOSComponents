@@ -8,7 +8,7 @@
 #load "custom_externals_download.cake"
 
 var TARGET = Argument ("t", Argument ("target", "build"));
-var SDKS = Argument ("sdks", "");
+var NAMES = Argument ("names", "");
 
 var IS_LOCAL_BUILD = true;
 var BACKSLASH = string.Empty;
@@ -46,7 +46,7 @@ void BuildCake (string target)
 {
 	var cakeSettings = new CakeSettings { 
 		ToolPath = GetCakeToolPath (),
-		Arguments = new Dictionary<string, string> { { "target", target }, { "sdks", SDKS } },
+		Arguments = new Dictionary<string, string> { { "target", target }, { "names", NAMES } },
 		Verbosity = Verbosity.Diagnostic
 	};
 
@@ -85,14 +85,14 @@ Task("prepare-artifacts")
 	var orderedArtifactsForBuild = new List<Artifact> ();
 	var orderedArtifactsForSamples = new List<Artifact> ();
 
-	if (string.IsNullOrWhiteSpace (SDKS)) {
+	if (string.IsNullOrWhiteSpace (NAMES)) {
 		orderedArtifactsForBuild.AddRange (ARTIFACTS.Values);
 		orderedArtifactsForSamples.AddRange (ARTIFACTS.Values);
 	} else {
-		var sdks = SDKS.Split (',');
-		foreach (var sdk in sdks) {
-			if (!(ARTIFACTS.ContainsKey (sdk) && ARTIFACTS [sdk] is Artifact artifact))
-				throw new Exception($"The {sdk} component does not exist.");
+		var names = NAMES.Split (',');
+		foreach (var name in names) {
+			if (!(ARTIFACTS.ContainsKey (name) && ARTIFACTS [name] is Artifact artifact))
+				throw new Exception($"The {name} component does not exist.");
 			
 			orderedArtifactsForBuild.Add (artifact);
 			AddArtifactDependencies (orderedArtifactsForBuild, artifact.Dependencies);
@@ -167,8 +167,6 @@ Task ("samples")
 	.IsDependentOn("libs")
 	.Does(() =>
 {
-	RestoreVisualStudioSolution ();
-
 	foreach (var target in SAMPLES_TARGETS)
 		MSBuild(SOLUTION_PATH, c => {
 			c.Configuration = "Release";
@@ -183,7 +181,6 @@ Task ("nuget")
 	.Does(() =>
 {
 	EnsureDirectoryExists("./artifacts");
-	RestoreVisualStudioSolution ();
 
 	foreach (var target in SOURCES_TARGETS)
 		MSBuild(SOLUTION_PATH, c => {
@@ -208,8 +205,8 @@ Task ("clean")
 	if (DirectoryExists ("./externals/"))
 		DeleteDirectory ("./externals", deleteDirectorySettings);
 
-	if (DirectoryExists ("./output/"))
-		DeleteDirectory ("./output", deleteDirectorySettings);
+	if (DirectoryExists ("./artifacts/"))
+		DeleteDirectory ("./artifacts", deleteDirectorySettings);
 });
 
 Teardown (context =>

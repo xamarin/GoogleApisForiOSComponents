@@ -96,7 +96,7 @@ jobs:
           provisioningProfileLocation: 'secureFiles'
           provProfileSecureFile: 'Components iOS Provisioning.mobileprovision'
       - bash: |
-          dotnet-cake --target=build --sdks=$(SdksNames) --verbosity=$(VERBOSITY)
+          dotnet-cake --target=build --names=$(SdksNames) --verbosity=$(VERBOSITY)
         displayName: 'Run build'
       - powershell: |
           if (Get-ChildItem artifacts -Filter *.nupkg) {
