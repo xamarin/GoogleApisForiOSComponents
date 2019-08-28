@@ -111,7 +111,7 @@ Task("prepare-artifacts")
 });
 
 Task ("externals")
-	.WithCriteria (!DirectoryExists (EXTERNALS_PATH) || !string.IsNullOrWhiteSpace (SDKS))
+	.WithCriteria (!DirectoryExists (EXTERNALS_PATH) || !string.IsNullOrWhiteSpace (NAMES))
 	.Does (() => 
 {
 	EnsureDirectoryExists (EXTERNALS_PATH);
@@ -127,7 +127,7 @@ Task ("externals")
 	Information ("// Pods Repo Update Ended             //");
 	Information ("////////////////////////////////////////");
 
-	if (string.IsNullOrWhiteSpace (SDKS)) {
+	if (string.IsNullOrWhiteSpace (NAMES)) {
 		foreach (var artifact in ARTIFACTS_TO_BUILD) {
 			UpdateVersionInCsproj (artifact);
 			CreateAndInstallPodfile (artifact);
