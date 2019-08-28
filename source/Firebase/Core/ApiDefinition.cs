@@ -7,29 +7,6 @@ using CoreGraphics;
 
 namespace Firebase.Core
 {
-	////@interface FIRAnalyticsConfiguration : NSObject
-	//[DisableDefaultCtor]
-	//[BaseType (typeof (NSObject), Name = "FIRAnalyticsConfiguration")]
-	//interface AnalyticsConfiguration
-	//{
-	//	// +(FIRAnalyticsConfiguration *)sharedInstance;
-	//	[Static]
-	//	[Export ("sharedInstance")]
-	//	AnalyticsConfiguration SharedInstance { get; }
-
-	//	// -(void)setMinimumSessionInterval:(NSTimeInterval)minimumSessionInterval;
-	//	[Export ("setMinimumSessionInterval:")]
-	//	void SetMinimumSessionInterval (double minimumSessionInterval);
-
-	//	// -(void)setSessionTimeoutInterval:(NSTimeInterval)sessionTimeoutInterval;
-	//	[Export ("setSessionTimeoutInterval:")]
-	//	void SetSessionTimeoutInterval (double sessionTimeoutInterval);
-
-	//	// -(void)setAnalyticsCollectionEnabled:(BOOL)analyticsCollectionEnabled;
-	//	[Export ("setAnalyticsCollectionEnabled:")]
-	//	void SetAnalyticsCollectionEnabled (bool analyticsCollectionEnabled);
-	//}
-
 	// typedef void (^FIRAppVoidBoolCallback)(BOOL);
 	delegate void AppVoidBoolHandler (bool success);
 
