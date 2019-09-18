@@ -5,7 +5,6 @@
 #load "poco.cake"
 #load "components.cake"
 #load "common.cake"
-#load "custom_externals_download.cake"
 
 var TARGET = Argument ("t", Argument ("target", "build"));
 var NAMES = Argument ("names", "");
