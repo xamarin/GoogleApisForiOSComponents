@@ -179,7 +179,7 @@ Task ("nuget")
 	.IsDependentOn("libs")
 	.Does(() =>
 {
-	EnsureDirectoryExists("./artifacts");
+	EnsureDirectoryExists("./output/");
 
 	foreach (var target in SOURCES_TARGETS)
 		MSBuild(SOLUTION_PATH, c => {
@@ -187,7 +187,7 @@ Task ("nuget")
 			c.MaxCpuCount = 0;
 			c.Targets.Clear();
 			c.Targets.Add($@"source{BACKSLASH}{target}:Pack");
-			c.Properties.Add("PackageOutputPath", new [] { "../../../artifacts/" });
+			c.Properties.Add("PackageOutputPath", new [] { "../../../output/" });
 		});
 });
 
@@ -204,8 +204,8 @@ Task ("clean")
 	if (DirectoryExists ("./externals/"))
 		DeleteDirectory ("./externals", deleteDirectorySettings);
 
-	if (DirectoryExists ("./artifacts/"))
-		DeleteDirectory ("./artifacts", deleteDirectorySettings);
+	if (DirectoryExists ("./output/"))
+		DeleteDirectory ("./output", deleteDirectorySettings);
 });
 
 Teardown (context =>
