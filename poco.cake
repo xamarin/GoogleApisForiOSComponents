@@ -137,13 +137,13 @@ class PodSpec
 		};
 	}
 
-	public static PodSpec Create (string name, string version, string targetName = null, string frameworkName = null, FrameworkSource frameworkSource = FrameworkSource.Pods, string [] subSpecs = null, bool useDefaultSubspecs = false, bool canBeBuild = true)
+	public static PodSpec Create (string name, string version, string targetName = null, string frameworkName = null, FrameworkSource frameworkSource = FrameworkSource.Targets, string [] subSpecs = null, bool useDefaultSubspecs = false, bool canBeBuild = true)
 		=> Create (name, version, null, null, targetName ?? name, frameworkName ?? name, frameworkSource, subSpecs, useDefaultSubspecs, canBeBuild, PodSource.PodVersion);
 
-	public static PodSpec Create (string name, FilePath localPath, string targetName = null, string frameworkName = null, FrameworkSource frameworkSource = FrameworkSource.Pods, string [] subSpecs = null, bool useDefaultSubspecs = false, bool canBeBuild = true)
+	public static PodSpec Create (string name, FilePath localPath, string targetName = null, string frameworkName = null, FrameworkSource frameworkSource = FrameworkSource.Targets, string [] subSpecs = null, bool useDefaultSubspecs = false, bool canBeBuild = true)
 		=> Create (name, null, localPath, null, targetName ?? name, frameworkName ?? name, frameworkSource, subSpecs, useDefaultSubspecs, canBeBuild, PodSource.LocalPath);
 
-	public static PodSpec Create (string name, Repository repository, string targetName = null, string frameworkName = null, FrameworkSource frameworkSource = FrameworkSource.Pods, string [] subSpecs = null, bool useDefaultSubspecs = false, bool canBeBuild = true)
+	public static PodSpec Create (string name, Repository repository, string targetName = null, string frameworkName = null, FrameworkSource frameworkSource = FrameworkSource.Targets, string [] subSpecs = null, bool useDefaultSubspecs = false, bool canBeBuild = true)
 		=> Create (name, null, null, repository, targetName ?? name, frameworkName ?? name, frameworkSource, subSpecs, useDefaultSubspecs, canBeBuild, PodSource.Repository);
 
 	public string [] BuildPodLines ()
