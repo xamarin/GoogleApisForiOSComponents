@@ -52,19 +52,10 @@ void CreateAndInstallPodfile (Artifact artifact)
 		if (podSpec.FrameworkSource != FrameworkSource.Pods)
 			continue;
 
-		if (podSpec.SubSpecs == null) {
-			podfile.Add ($"\tpod '{podSpec.Name}', '{podSpec.Version}'");
-			continue;
-		}
-
-		if (podSpec.UseDefaultSubspecs)
-			podfile.Add ($"\tpod '{podSpec.Name}', '{podSpec.Version}'");
-
-		foreach (var subSpec in podSpec.SubSpecs)
-			podfile.Add ($"\tpod '{podSpec.Name}/{subSpec}', '{podSpec.Version}'");
+		podfile.AddRange (podSpec.BuildPodLines ());
 	}
 
-	if (podfile.Count == PODFILE_BEGIN.Length + PODFILE_TARGET.Length)
+	if (podfile.Count == PODFILE_BEGIN.Length + PODFILE_TARGET.Length + (artifact.ExtraPodfileLines?.Length ?? 0))
 		return;
 
 	podfile.AddRange (PODFILE_END);
@@ -81,19 +72,23 @@ void BuildSdkOnPodfile (Artifact artifact)
 	if (artifact.PodSpecs?.Length == 0)
 		return;
 
-	var platforms = new [] { Platform.iOSArm64, Platform.iOSArmV7, Platform.iOSSimulator64, Platform.iOSSimulator };
+	var baseArch = Platform.iOSArmV7;
+	var platforms = new [] { baseArch, Platform.iOSArm64, Platform.iOSSimulator64, Platform.iOSSimulator };
 	var podsProject = "./Pods/Pods.xcodeproj";
 	var workingDirectory = (DirectoryPath)$"./externals/{artifact.Id}";
 
 	foreach (var podSpec in artifact.PodSpecs)
 	{
-		if (podSpec.FrameworkSource != FrameworkSource.Pods || !podSpec.CanBeBuild)
+		if (podSpec.FrameworkSource != FrameworkSource.Pods)
 			continue;
 
 		var framework = $"{podSpec.FrameworkName}.framework";
 		var paths = GetDirectories($"{workingDirectory}/Pods/**/{framework}");
 		
 		if (paths?.Count <= 0) {
+			if (!podSpec.CanBeBuild)
+				continue;
+
 			BuildXcodeFatFramework (podsProject, podSpec.TargetName, platforms, libraryTitle: podSpec.FrameworkName, workingDirectory: workingDirectory);
 			CopyDirectory ($"{workingDirectory}/{framework}", $"./externals/{framework}");
 		} else {
