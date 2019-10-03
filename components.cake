@@ -200,27 +200,35 @@ void SetArtifactsPodSpecs ()
 
 void SetArtifactsExtraPodfileLines ()
 {
-	var staticFrameworkLines = new [] {	
+	var dynamicFrameworkLines = new [] {	
 		"=begin",
 		"This override the static_framework flag to false,",
 		"in order to be able to build dynamic frameworks.",
 		"=end",
 		"pre_install do |installer|",
 		"\tinstaller.pod_targets.each do |pod|",
-		"\t\tdef pod.static_framework?;",
-		"\t\t\tfalse",
+		"\tputs \"Forcing a static_framework to false for #{pod.name}\"",
+		"\t\tif Pod::VERSION >= \"1.7.0\"",
+		"\t\t\tif pod.build_as_static?",
+		"\t\t\t\tdef pod.build_as_static?; false end",
+		"\t\t\t\tdef pod.build_as_static_framework?; false end",
+		"\t\t\t\tdef pod.build_as_dynamic?; true end",
+		"\t\t\t\tdef pod.build_as_dynamic_framework?; true end",
+		"\t\t\tend",
+		"\t\telse",
+		"\t\t\tdef pod.static_framework?; false end",
 		"\t\tend",
 		"\tend",
 		"end",
 	};
 
-	FIREBASE_AUTH_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
-	FIREBASE_CLOUD_FIRESTORE_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
-	FIREBASE_CLOUD_MESSAGING_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
-	FIREBASE_CORE_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
-	FIREBASE_DATABASE_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
-	FIREBASE_DYNAMIC_LINKS_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
-	FIREBASE_INSTANCE_ID_ARTIFACT.ExtraPodfileLines = staticFrameworkLines;
+	FIREBASE_AUTH_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
+	FIREBASE_CLOUD_FIRESTORE_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
+	FIREBASE_CLOUD_MESSAGING_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
+	FIREBASE_CORE_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
+	FIREBASE_DATABASE_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
+	FIREBASE_DYNAMIC_LINKS_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
+	FIREBASE_INSTANCE_ID_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
 }
 
 void SetArtifactsSamples ()
