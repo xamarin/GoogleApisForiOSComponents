@@ -50,7 +50,7 @@ Setup (context =>
 {
 	IS_LOCAL_BUILD = string.IsNullOrWhiteSpace (EnvironmentVariable ("AGENT_ID"));
 	Information ($"Is a local build? {IS_LOCAL_BUILD}");
-	BACKSLASH = IS_LOCAL_BUILD ? @"\\" : @"\";
+	BACKSLASH = IS_LOCAL_BUILD ? @"\" : @"\";
 });
 
 Task("build")

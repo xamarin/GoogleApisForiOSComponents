@@ -99,6 +99,7 @@
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Core\Core.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Analytics\Analytics.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Google\Core\Core.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Google\InstanceID\InstanceID.targets" />
