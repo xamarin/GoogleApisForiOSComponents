@@ -229,6 +229,7 @@ void SetArtifactsExtraPodfileLines ()
 	FIREBASE_DATABASE_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
 	FIREBASE_DYNAMIC_LINKS_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
 	FIREBASE_INSTANCE_ID_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
+	FIREBASE_STORAGE_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
 }
 
 void SetArtifactsSamples ()
