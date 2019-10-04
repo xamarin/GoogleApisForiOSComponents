@@ -20,6 +20,7 @@ namespace ModelInterpreterSample {
 
 			var t = typeof (Firebase.MLKit.ModelInterpreter.ModelInterpreter);
 			var t2 = Firebase.Core.Configuration.SharedInstance;
+			var t3 = Firebase.InstanceID.InstanceId.SharedInstance;
 
 			return true;
 		}
