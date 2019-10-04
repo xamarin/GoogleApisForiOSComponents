@@ -1223,8 +1223,8 @@ namespace Google.MobileAds {
 		[Export ("pause")]
 		void Pause ();
 
-		// - (BOOL)hasVideoContent;
-		[Export ("hasVideoContent")]
+		// - (void) stop;
+		[Export ("stop")]
 		void Stop ();
 
 		// - (BOOL)customControlsEnabled;
