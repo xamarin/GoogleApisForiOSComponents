@@ -12,7 +12,8 @@ namespace Firebase.CloudMessaging
 		Timeout = 3,
 		Network = 4,
 		OperationInProgress = 5,
-		InvalidRequest = 7
+		InvalidRequest = 7,
+		InvalidTopicName = 8
 	}
 
 	[Native]

@@ -1,5 +1,18 @@
 #load "poco.cake"
 
+// Podfile basic structure
+var PODFILE_BEGIN = new [] {
+	"platform :ios, '{0}'",
+	"install! 'cocoapods', :integrate_targets => false",
+	"use_frameworks!",
+};
+var PODFILE_TARGET = new [] {
+	"target 'XamarinGoogle' do",
+};
+var PODFILE_END = new [] {
+	"end",
+};
+
 void AddArtifactDependencies (List<Artifact> list, Artifact [] dependencies)
 {
 	if (dependencies == null)
@@ -30,23 +43,19 @@ void CreateAndInstallPodfile (Artifact artifact)
 	podfileBegin [0] = string.Format (podfileBegin [0], artifact.MinimunSupportedVersion);
 	podfile.AddRange (podfileBegin);
 
+	if (artifact.ExtraPodfileLines != null)
+		podfile.AddRange (artifact.ExtraPodfileLines);
+
+	podfile.AddRange (PODFILE_TARGET);
+
 	foreach (var podSpec in artifact.PodSpecs) {
 		if (podSpec.FrameworkSource != FrameworkSource.Pods)
 			continue;
 
-		if (podSpec.SubSpecs == null) {
-			podfile.Add ($"\tpod '{podSpec.Name}', '{podSpec.Version}'");
-			continue;
-		}
-
-		if (podSpec.UseDefaultSubspecs)
-			podfile.Add ($"\tpod '{podSpec.Name}', '{podSpec.Version}'");
-
-		foreach (var subSpec in podSpec.SubSpecs)
-			podfile.Add ($"\tpod '{podSpec.Name}/{subSpec}', '{podSpec.Version}'");
+		podfile.AddRange (podSpec.BuildPodLines ());
 	}
 
-	if (podfile.Count == PODFILE_BEGIN.Length)
+	if (podfile.Count == PODFILE_BEGIN.Length + PODFILE_TARGET.Length + (artifact.ExtraPodfileLines?.Length ?? 0))
 		return;
 
 	podfile.AddRange (PODFILE_END);
@@ -63,25 +72,39 @@ void BuildSdkOnPodfile (Artifact artifact)
 	if (artifact.PodSpecs?.Length == 0)
 		return;
 
-	var platforms = new [] { Platform.iOSArm64, Platform.iOSArmV7, Platform.iOSSimulator64, Platform.iOSSimulator };
+	var baseArch = Platform.iOSArmV7;
+	var platforms = new [] { baseArch, Platform.iOSArm64, Platform.iOSSimulator64, Platform.iOSSimulator };
 	var podsProject = "./Pods/Pods.xcodeproj";
 	var workingDirectory = (DirectoryPath)$"./externals/{artifact.Id}";
 
+	var podSpecsToBuild = new List<PodSpec> ();
+
 	foreach (var podSpec in artifact.PodSpecs)
 	{
-		if (podSpec.FrameworkSource != FrameworkSource.Pods || !podSpec.CanBeBuild)
+		if (podSpec.FrameworkSource != FrameworkSource.Pods)
 			continue;
 
 		var framework = $"{podSpec.FrameworkName}.framework";
 		var paths = GetDirectories($"{workingDirectory}/Pods/**/{framework}");
 		
 		if (paths?.Count <= 0) {
-			BuildXcodeFatFramework (podsProject, podSpec.TargetName, platforms, libraryTitle: podSpec.FrameworkName, workingDirectory: workingDirectory);
-			CopyDirectory ($"{workingDirectory}/{framework}", $"./externals/{framework}");
+			if (!podSpec.CanBeBuild)
+				continue;
+
+			podSpecsToBuild.Add (podSpec);
+			// BuildXcodeFatFramework (podsProject, podSpec.TargetName, platforms, libraryTitle: podSpec.FrameworkName, workingDirectory: workingDirectory);
+			// CopyDirectory ($"{workingDirectory}/{framework}", $"./externals/{framework}");
 		} else {
 			foreach (var path in paths)
 				CopyDirectory (path, $"./externals/{framework}");
 		}
+	}
+
+	BuildXcodeFatFramework (podsProject, podSpecsToBuild.ToArray (), platforms, workingDirectory: workingDirectory);
+
+	foreach (var podSpec in podSpecsToBuild) {
+		var framework = $"{podSpec.FrameworkName}.framework";
+		CopyDirectory ($"{workingDirectory}/{framework}", $"./externals/{framework}");
 	}
 }
 
@@ -201,6 +224,76 @@ void BuildXcodeFatFramework (FilePath xcodeProject, string target, Platform [] p
 
 	if (libraryTitle != target && FileExists (fatFrameworkPath.CombineWithFilePath (target)))
 		DeleteFile (fatFrameworkPath.CombineWithFilePath (target));
+}
+
+void BuildXcodeFatFramework (FilePath xcodeProject, PodSpec [] podSpecs, Platform [] platforms, DirectoryPath workingDirectory = null, Dictionary<string, string> buildSettings = null)
+{
+	if (!IsRunningOnUnix ()) {
+		Warning("{0} is not available on the current platform.", "xcodebuild");
+		return;
+	}
+	
+	workingDirectory = workingDirectory ?? Directory("./externals/");
+
+	foreach (var podSpec in podSpecs) {
+		var target = podSpec.TargetName;
+		var libraryTitle = podSpec.FrameworkName;
+		var fatFramework = (DirectoryPath)$"{libraryTitle}.framework";
+		
+		foreach (var platform in platforms) {
+			var sdk = platform.Sdk;
+			var arch = platform.Arch;
+
+			var platformFramework = (DirectoryPath)$"{libraryTitle}-{arch}.framework";
+			var platformFrameworkPath = workingDirectory.Combine (platformFramework);
+
+			if (DirectoryExists (platformFrameworkPath))
+				continue;
+
+			var buildPath = buildSettings != null && buildSettings.ContainsKey ("SYMROOT") ? 
+				Directory (buildSettings ["SYMROOT"]) : workingDirectory.Combine ("build");
+
+			XCodeBuild (new XCodeBuildSettings {
+				Project = workingDirectory.CombineWithFilePath (xcodeProject).ToString (),
+				Target = target,
+				Sdk = sdk,
+				Arch = arch,
+				Configuration = "Release",
+				Verbose = true,
+				BuildSettings = buildSettings
+			});
+
+			var releasePath = buildPath.Combine ($"Release-{sdk}");
+
+			foreach (var p in podSpecs) {
+				var outputPath = releasePath.Combine (p.TargetName);
+				var lt = p.FrameworkName;
+				var ff = (DirectoryPath)$"{lt}.framework";
+				var frameworkOutputPath = outputPath.Combine (ff);
+
+				if (!DirectoryExists (frameworkOutputPath))
+					continue;
+				
+				var fatFrameworkPath = workingDirectory.Combine (ff);
+
+				if (!DirectoryExists (fatFrameworkPath))
+					CopyDirectory (frameworkOutputPath, fatFrameworkPath);
+
+				var pf = (DirectoryPath)$"{lt}-{arch}.framework";
+				var pfp = workingDirectory.Combine (pf);
+
+				CopyDirectory (frameworkOutputPath, pfp);
+			}
+		}
+
+		var archPaths = new List<FilePath> ();
+		var paths = GetFiles ($"{workingDirectory}/{libraryTitle}-*/{libraryTitle}");
+
+		foreach (var path in paths)
+			archPaths.Add (path);
+
+		RunLipoCreate (workingDirectory, fatFramework.CombineWithFilePath (libraryTitle), archPaths.ToArray ());
+	}
 }
 
 bool TargetExistsInXcodeProject (FilePath xcodeProject, string target, DirectoryPath workingDirectory = null)

@@ -17,6 +17,21 @@ namespace Firebase.InstanceID
 	// typedef void (^FIRInstanceIDDeleteHandler)(NSError * _Nullable);
 	delegate void InstanceIdDeleteHandler ([NullAllowed] NSError error);
 
+	// typedef void (^FIRInstanceIDResultHandler)(FIRInstanceIDResult * _Nullable, NSError * _Nullable);
+	delegate void InstanceIdResultHandler ([NullAllowed] InstanceIdResult result, [NullAllowed] NSError error);
+
+	// @interface FIRInstanceIDResult : NSObject <NSCopying>
+	[BaseType (typeof (NSObject), Name = "FIRInstanceIDResult")]
+	interface InstanceIdResult : INSCopying {
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull instanceID;
+		[Export ("instanceID")]
+		string InstanceId { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull token;
+		[Export ("token")]
+		string Token { get; }
+	}
+
 	// @interface FIRInstanceID : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRInstanceID")]
@@ -36,9 +51,10 @@ namespace Firebase.InstanceID
 		[Export ("instanceID")]
 		InstanceId SharedInstance { get; }
 
-		// -(NSString * _Nullable)token;
-		[Export ("token")]
-		string Token { get; }
+		// -(void)instanceIDWithHandler:(FIRInstanceIDResultHandler _Nonnull)handler;
+		[Async]
+		[Export ("instanceIDWithHandler:")]
+		void GetInstanceId (InstanceIdResultHandler handler);
 
 		// -(void)tokenWithAuthorizedEntity:(NSString * _Nonnull)authorizedEntity scope:(NSString * _Nonnull)scope options:(NSDictionary * _Nullable)options handler:(FIRInstanceIDTokenHandler _Nonnull)handler;
 		[Async]

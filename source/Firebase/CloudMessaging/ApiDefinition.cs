@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using UIKit;
 using Foundation;
 using ObjCRuntime;
+using UserNotifications;
 
 namespace Firebase.CloudMessaging
 {
@@ -15,10 +15,6 @@ namespace Firebase.CloudMessaging
 
 	// typedef void (^FIRMessagingTopicOperationCompletion)(NSError *_Nullable error);
 	delegate void MessagingTopicOperationCompletionHandler ([NullAllowed] NSError error);
-
-	[Obsolete ("Please listen for the Messaging.ConnectionStateChangedNotification NSNotification instead.")]
-	// typedef void(^FIRMessagingConnectCompletion)(NSError* __nullable error);
-	delegate void ConnectCompletionHandler ([NullAllowed] NSError error);
 
 	// @interface FIRMessagingMessageInfo : NSObject
 	[BaseType (typeof (NSObject), Name = "FIRMessagingMessageInfo")]
@@ -34,6 +30,10 @@ namespace Firebase.CloudMessaging
 	[BaseType (typeof (NSObject), Name = "FIRMessagingRemoteMessage")]
 	interface RemoteMessage
 	{
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull messageID;
+		[Export ("messageID")]
+		string MessageId { get; }
+
 		// @property(nonatomic, readonly, strong, nonnull) NSDictionary *appData;
 		[Export ("appData", ArgumentSemantic.Strong)]
 		NSDictionary AppData { get; }
@@ -53,8 +53,7 @@ namespace Firebase.CloudMessaging
 		[Export ("messaging:didReceiveRegistrationToken:")]
 		void DidReceiveRegistrationToken (Messaging messaging, string fcmToken);
 
-		// - (void)messaging:(nonnull FIRMessaging *)messaging didReceiveMessage:(nonnull FIRMessagingRemoteMessage *)remoteMessage FIR_SWIFT_NAME(messaging(_:didReceive:) __IOS_AVAILABLE(10.0);
-		[Introduced (PlatformName.iOS, 10, 0, 0)]
+		// - (void)messaging:(nonnull FIRMessaging *)messaging didReceiveMessage:(nonnull FIRMessagingRemoteMessage *)remoteMessage FIR_SWIFT_NAME(messaging(_:didReceive:)
 		[Export("messaging:didReceiveMessage:")]
 		void DidReceiveMessage (Messaging messaging, RemoteMessage remoteMessage);
 	}
@@ -107,6 +106,12 @@ namespace Firebase.CloudMessaging
 		[Export ("messaging")]
 		Messaging SharedInstance { get; }
 
+		// +(FIRMessagingExtensionHelper * _Nonnull)extensionHelper __attribute__((swift_name("serviceExtension()"))) __attribute__((availability(ios, introduced=10.0)));
+		[Introduced (PlatformName.iOS, 10, 0, 0)]
+		[Static]
+		[Export ("extensionHelper")]
+		MessagingExtensionHelper ExtensionHelper { get; }
+
 		// @property(nonatomic, copy, nullable) NSData *APNSToken FIR_SWIFT_NAME(apnsToken);
 		[NullAllowed]
 		[Export("APNSToken", ArgumentSemantic.Copy)]
@@ -134,16 +139,6 @@ namespace Firebase.CloudMessaging
 		[Async]
 		[Export("deleteFCMTokenForSenderID:completion:")]
 		void DeleteFcmToken(string senderId, MessagingDeleteFcmTokenCompletionHandler completion);
-
-		// -(void)connectWithCompletion:(FIRMessagingConnectCompletion _Nonnull)handler;
-		[Obsolete ("Use the ShouldEstablishDirectChannel property instead.")]
-		[Export ("connectWithCompletion:")]
-		void Connect (ConnectCompletionHandler handler);
-
-		// -(void)disconnect;
-		[Obsolete("Use the ShouldEstablishDirectChannel property instead.")]
-		[Export ("disconnect")]
-		void Disconnect ();
 
 		// -(void)subscribeToTopic:(NSString * _Nonnull)topic;
 		[Export ("subscribeToTopic:")]
@@ -174,5 +169,13 @@ namespace Firebase.CloudMessaging
 		[Export ("appDidReceiveMessage:")]
 		MessageInfo AppDidReceiveMessage (NSDictionary message);
 	}
-}
 
+	// @interface FIRMessagingExtensionHelper : NSObject
+	[Introduced (PlatformName.iOS, 10, 0, 0)]
+	[BaseType (typeof (NSObject), Name = "FIRMessagingExtensionHelper")]
+	interface MessagingExtensionHelper {
+		// -(void)populateNotificationContent:(UNMutableNotificationContent * _Nonnull)content withContentHandler:(void (^ _Nonnull)(UNNotificationContent * _Nonnull))contentHandler;
+		[Export ("populateNotificationContent:withContentHandler:")]
+		void PopulateNotificationContent (UNMutableNotificationContent content, Action<UNNotificationContent> contentHandler);
+	}
+}

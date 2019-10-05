@@ -5,8 +5,8 @@
 				"type": "other",
 				"other": {
 					"name": "FirebaseABTesting",
-					"version": "2.0.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/c0e282822215a254/FirebaseABTesting-2.0.0.tar.gz"
+					"version": "3.0.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/796e1bc5676e4a0c/FirebaseABTesting-3.0.0.tar.gz"
 				}
 			}
 		},
@@ -15,8 +15,8 @@
 				"type": "other",
 				"other": {
 					"name": "FirebaseAnalytics",
-					"version": "5.5.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/5b53263819f02844/FirebaseAnalytics-5.5.0.tar.gz"
+					"version": "6.0.4",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/2717022184840456/FirebaseAnalytics-6.0.4.tar.gz"
 				}
 			}
 		},
@@ -24,8 +24,9 @@
 			"component": {
 				"type": "git",
 				"git": {
+					"name": "FirebaseAuth",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
-					"commitHash": "1e8fc1ac130eef9d8ee351637436ac6d65129b96"
+					"commitHash": "1e3edcc9463d1335968d4911fbcf2221f81cc9a7"
 				}
 			}
 		},
@@ -33,8 +34,29 @@
 			"component": {
 				"type": "git",
 				"git": {
+					"name": "FirebaseFirestore",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
-					"commitHash": "3fd239124995e1f4321c185eed0141981341349f"
+					"commitHash": "1e3edcc9463d1335968d4911fbcf2221f81cc9a7"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "FirebaseMessaging",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"commitHash": "bac26882e0f36f87fbe651b38333289de8842e69"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "FirebaseCore",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"commitHash": "1e3edcc9463d1335968d4911fbcf2221f81cc9a7"
 				}
 			}
 		},
@@ -50,31 +72,31 @@
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "git",
+				"git": {
+					"name": "FirebaseDatabase",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"commitHash": "948309c36428371f3387db18fc6764155775f561"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
 					"name": "FirebaseDynamicLinks",
-					"version": "3.0.2",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/6871a0e263543a67/FirebaseDynamicLinks-3.0.2.tar.gz"
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"commitHash": "1e3edcc9463d1335968d4911fbcf2221f81cc9a7"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "git",
+				"git": {
 					"name": "FirebaseInstanceID",
-					"version": "3.4.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/cd1d9b33d9b1540a/FirebaseInstanceID-3.4.0.tar.gz"
-				}
-			}
-		},
-		{
-			"component": {
-				"type": "other",
-				"other": {
-					"name": "FirebaseInvites",
-					"version": "3.0.1",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/b3cf7389ab5b3cab/FirebaseInvites-3.0.1.tar.gz"
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"commitHash": "bac26882e0f36f87fbe651b38333289de8842e69"
 				}
 			}
 		},
@@ -153,8 +175,8 @@
 				"type": "other",
 				"other": {
 					"name": "FirebasePerformance",
-					"version": "2.2.2",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/997246e3de153efe/FirebasePerformance-2.2.2.tar.gz"
+					"version": "3.1.1",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/8397df6fcb790e44/FirebasePerformance-3.1.1.tar.gz"
 				}
 			}
 		},
@@ -163,8 +185,18 @@
 				"type": "other",
 				"other": {
 					"name": "FirebaseRemoteConfig",
-					"version": "3.1.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/eca384a2447d85d6/FirebaseRemoteConfig-3.1.0.tar.gz"
+					"version": "4.2.1",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/12beee1f0ac0f844/FirebaseRemoteConfig-4.2.1.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "FirebaseStorage",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"commitHash": "1e3edcc9463d1335968d4911fbcf2221f81cc9a7"
 				}
 			}
 		},

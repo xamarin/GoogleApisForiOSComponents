@@ -27,6 +27,7 @@ namespace Firebase.Storage
 		RetryLimitExceeded = -13030,
 		NonMatchingChecksum = -13031,
 		DownloadSizeExceeded = -13032,
-		Cancelled = -13040
+		Cancelled = -13040,
+		InvalidArgument = -13050
 	}
 }

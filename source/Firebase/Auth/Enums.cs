@@ -56,14 +56,8 @@ namespace Firebase.Auth
 		ExpiredActionCode = 17029,
 		InvalidActionCode = 17030,
 		InvalidMessagePayload = 17031,
-		[Obsolete ("Use InvalidMessagePayload instead, this will be removed in future versions.")]
-		MessagePayload = InvalidMessagePayload,
 		InvalidSender = 17032,
-		[Obsolete ("Use InvalidSender instead, this will be removed in future versions.")]
-		Sender = InvalidSender,
 		InvalidRecipientEmail = 17033,
-		[Obsolete ("Use InvalidRecipientEmail instead, this will be removed in future versions.")]
-		RecipientEmail = InvalidRecipientEmail,
 		MissingEmail = 17034,
 		MissingIosBundleID = 17036,
 		MissingAndroidPackageName = 17037,
@@ -90,7 +84,13 @@ namespace Firebase.Auth
 		InvalidClientId = 17060,
 		WebNetworkRequestFailed = 17061,
 		WebInternalError = 17062,
+		WebSignInUserInteractionFailure = 17063,
+		LocalPlayerNotAuthenticated = 17066,
 		NullUser = 17067,
+		InvalidProviderId = 17071,
+		InvalidDynamicLinkDomain = 17074,
+		GameKitNotLinked = 17076,
+		MissingClientIdentifier = 17993,
 		KeychainError = 17995,
 		InternalError = 17999,
 		MalformedJwt = 18000

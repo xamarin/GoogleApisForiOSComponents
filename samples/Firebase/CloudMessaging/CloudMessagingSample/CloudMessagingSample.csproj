@@ -138,7 +138,7 @@
   <ItemGroup>
     <BundleResource Include="GoogleService-Info.plist" />
   </ItemGroup>
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\InstanceID\InstanceID.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Core\Core.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\..\..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets" Condition="Exists('..\..\..\..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets')" />
 </Project>

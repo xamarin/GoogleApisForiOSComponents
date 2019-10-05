@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.CloudFirestore</RootNamespace>
     <AssemblyName>Firebase.CloudFirestore</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>0.13.3</FileVersion>
+    <FileVersion>1.4.2</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2030883</PackageProjectUrl>
     <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=2030782</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>0.13.3</PackageVersion>
+    <PackageVersion>1.4.2</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -41,17 +41,11 @@
     <None Include="..\..\..\externals\grpc.framework">
       <Link>grpc.framework</Link>
     </None>
-    <None Include="..\..\..\externals\GRPCClient.framework">
-      <Link>GRPCClient.framework</Link>
+    <None Include="..\..\..\externals\grpcpp.framework">
+      <Link>grpcpp.framework</Link>
     </None>
-    <None Include="..\..\..\externals\openssl.framework">
-      <Link>openssl.framework</Link>
-    </None>
-    <None Include="..\..\..\externals\ProtoRPC.framework">
-      <Link>ProtoRPC.framework</Link>
-    </None>
-    <None Include="..\..\..\externals\RxLibrary.framework">
-      <Link>RxLibrary.framework</Link>
+    <None Include="..\..\..\externals\openssl_grpc.framework">
+      <Link>openssl_grpc.framework</Link>
     </None>
     <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
   </ItemGroup>
@@ -59,7 +53,7 @@
   <ItemGroup>
     <NativeReference Include="..\..\..\externals\FirebaseFirestore.framework">
       <Kind>Framework</Kind>
-      <Frameworks>MobileCoreServices</Frameworks>
+      <Frameworks>MobileCoreServices SystemConfiguration</Frameworks>
       <ForceLoad>True</ForceLoad>
       <LinkerFlags>-ObjC -lc++</LinkerFlags>
     </NativeReference>
@@ -68,19 +62,11 @@
       <ForceLoad>True</ForceLoad>
       <LinkerFlags>-lc++ -lz</LinkerFlags>
     </NativeReference>
-    <NativeReference Include="..\..\..\externals\GRPCClient.framework">
+    <NativeReference Include="..\..\..\externals\grpcpp.framework">
       <Kind>Framework</Kind>
       <ForceLoad>True</ForceLoad>
     </NativeReference>
-    <NativeReference Include="..\..\..\externals\openssl.framework">
-      <Kind>Framework</Kind>
-      <ForceLoad>True</ForceLoad>
-    </NativeReference>
-    <NativeReference Include="..\..\..\externals\ProtoRPC.framework">
-      <Kind>Framework</Kind>
-      <ForceLoad>True</ForceLoad>
-    </NativeReference>
-    <NativeReference Include="..\..\..\externals\RxLibrary.framework">
+    <NativeReference Include="..\..\..\externals\openssl_grpc.framework">
       <Kind>Framework</Kind>
       <ForceLoad>True</ForceLoad>
     </NativeReference>

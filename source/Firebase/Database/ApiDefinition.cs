@@ -201,11 +201,6 @@ namespace Firebase.Database
 		[Export ("child:")]
 		DatabaseReference GetChild (string pathString);
 
-		// -(FIRDatabaseReference * _Nonnull)childByAppendingPath:(NSString * _Nonnull)pathString __attribute__((deprecated("use child: instead")));
-		[Obsolete ("use GetChild method instead.")]
-		[Export ("childByAppendingPath:")]
-		DatabaseReference GetChildByAppendingPath (string pathString);
-
 		// -(FIRDatabaseReference * _Nonnull)childByAutoId;
 		[Export ("childByAutoId")]
 		DatabaseReference GetChildByAutoId ();

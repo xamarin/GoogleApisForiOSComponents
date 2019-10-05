@@ -7,8 +7,6 @@ namespace Firebase.ABTesting
 		static Loader ()
 		{
 			Firebase.Core.Loader.ForceLoad ();
-			Firebase.InstanceID.Loader.ForceLoad ();
-			Firebase.Analytics.Loader.ForceLoad ();
 		}
 
 		public static void ForceLoad () { }

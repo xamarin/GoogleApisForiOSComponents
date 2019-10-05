@@ -150,7 +150,7 @@
     <BundleResource Include="GoogleService-Info.plist" />
     <BundleResource Include="Resources\container\GTM-NB7LRB.json" />
   </ItemGroup>
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\InstanceID\InstanceID.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Core\Core.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Analytics\Analytics.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Google\Analytics\Analytics.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Google\TagManager\TagManager.targets" />
