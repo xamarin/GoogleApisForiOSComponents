@@ -69,33 +69,87 @@ Here's a table that shows in which global version is located each component of F
 | Google Sign-In                   | **4.2.0.0**       | **5.8.1**      |
 | Google Tag Manager               | **7.1.1.0**       | **5.8.1**      |
 
-## Building
+## Building 
 
-Before building you will need to have [CocoaPods][101] installed on your OS X system.
+### Prerequisites
 
-The build script for this project uses [Cake][102].  To run the build, you can use the bootstrapper file for OS X:
+Before building the libraries and samples in this repository, you will need to install [.NET Core][30] and the [Cake .NET Core Tool][32]:
 
-**Mac**:
-
-```
-cd Firebase.Core
-sh ../build.sh --target=libs
+```sh
+dotnet tool install -g cake.tool
 ```
 
-The bootstrapper script will automatically download Cake.exe and all the required tools and files into the `./tools/` folder.
+When building on macOS, you may also need to install [CocoaPods][31]:
 
-The following targets can be specified:
+```sh
+# Homebrew
+brew install cocoapods
+
+# Ruby Gems
+gem install cocoapods
+```
+
+### Compiling
+
+You can either build all the libraries and samples in the repository from the root:
+
+```sh
+dotnet cake
+```
+
+Or, you can specify the components and its dependencies to be build by using the `--names=Key1,Key2,...`:
+
+```sh
+// Firebase keys
+Firebase.ABTesting
+Firebase.AdMob
+Firebase.Analytics
+Firebase.Auth
+Firebase.CloudFirestore
+Firebase.CloudMessaging
+Firebase.Core
+Firebase.Crashlytics
+Firebase.Database
+Firebase.DynamicLinks
+Firebase.InstanceID
+Firebase.MLKit
+Firebase.MLKit.Common
+Firebase.MLKit.ModelInterpreter
+Firebase.PerformanceMonitoring
+Firebase.RemoteConfig
+Firebase.Storage
+
+// Google keys
+Google.Analytics
+Google.Appindexing
+Google.Cast
+Google.Core
+Google.InstanceID
+Google.Maps
+Google.MobileAds
+Google.Places
+Google.SignIn
+Google.TagManager
+```
+
+The following targets can be specified using the `--target=<target-name>`:
 
  - `libs` builds the class library bindings (depends on `externals`)
  - `externals` downloads and builds the external dependencies
  - `samples` builds all of the samples (depends on `libs`)
  - `nuget` builds the nuget packages (depends on `libs`)
- - `component` builds the xamarin components (depends on `samples` and `nuget`)
  - `clean` cleans up everything
+
 
 ### Working in Visual Studio
 
-Before the `.sln` files will compile in Visual Studio, the external dependencies need to be downloaded.  This can be done by running the `build.sh` or `build.ps1` with the target `externals`.  After the externals are setup, the `.sln` files should compile in an IDE.
+Before the `.sln` files will compile in the IDEs, the external dependencies need to be downloaded. This can be done by running the `externals` target:
+
+```sh
+dotnet cake --target=externals
+```
+
+After the externals are downloaded and built, the `.sln` files should compile in your IDE.
 
 ## License
 
@@ -206,3 +260,9 @@ This project is part of the [.NET Foundation][104]
 [102]: http://cakebuild.net
 [103]: https://cla2.dotnetfoundation.org/
 [104]: http://www.dotnetfoundation.org/projects
+
+[30]: https://dotnet.microsoft.com/download
+[31]: https://cocoapods.org/
+[32]: http://cakebuild.net
+[33]: https://cla2.dotnetfoundation.org/
+[34]: http://www.dotnetfoundation.org/projects
