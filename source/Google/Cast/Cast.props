@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<!--
+		This value defines if we should embbed the Google Cast framework that uses Bluetooth framework or not.
+		For more info, visit the following doc https://developers.google.com/cast/docs/ios_sender/#cocoapods_setup
+		-->
+		<GoogleCastBluetoothEnabled Condition="'$(GoogleCastBluetoothEnabled)'==''">True</GoogleCastBluetoothEnabled>
+	</PropertyGroup>
+</Project>

@@ -135,6 +135,7 @@ namespace Google.Cast
 		SocketInvalidParameter = 26,
 		InvalidResponse = 27,
 		FailedSessionUpdate = 28,
+		SessionIsNotActive = 29,
 		MediaLoadFailed = 30,
 		InvalidMediaPlayerState = 31,
 		NoMediaSession = 32,
@@ -171,6 +172,9 @@ namespace Google.Cast
 		Disconnected = 92,
 		UnsupportedFeature = 93,
 		Unknown = 99,
+		DeviceAuthenticationMessageParseFailure = 100,
+		DeviceAuthenticationMessageChallengeReceivedFailure = 101,
+		DeviceAuthenticationTimeoutFailure = 102
 	}
 
 	[Native]
