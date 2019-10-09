@@ -19,7 +19,7 @@ namespace Google.Cast {
 		[Field ("kGCKInvalidRequestID", "__Internal")]
 		nint InvalidRequestId { get; }
 	}
-
+	
 	// @interface GCKAdBreakClipVastAdsRequest : NSObject <NSCopying, NSSecureCoding>
 	[Obsolete ("Use the VASTAdsRequest class instead.")]
 	[BaseType (typeof (NSObject), Name = "GCKAdBreakClipVastAdsRequest")]
@@ -239,6 +239,10 @@ namespace Google.Cast {
 		// @property (readonly, assign, nonatomic) NSTimeInterval currentAdBreakClipTime;
 		[Export ("currentAdBreakClipTime")]
 		double CurrentAdBreakClipTime { get; }
+
+		// @property (readonly, assign, nonatomic) NSTimeInterval whenSkippable;
+		[Export("whenSkippable")]
+		double WhenSkippable { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull adBreakID;
 		[Export ("adBreakID", ArgumentSemantic.Strong)]
@@ -1000,9 +1004,17 @@ namespace Google.Cast {
 		[Field ("kGCKErrorCustomDataKey", "__Internal")]
 		NSString CustomDataKey { get; }
 
+		// extern NSString *const _Nonnull kGCKErrorDetailedCodeKey __attribute__((visibility("default")));
+		[Field("kGCKErrorDetailedCodeKey", "__Internal")]
+		NSString DetailedCodeKey { get; }
+
 		// extern NSString *const _Nonnull kGCKErrorExtraInfoKey __attribute__((visibility("default")));
 		[Field ("kGCKErrorExtraInfoKey", "__Internal")]
 		NSString ExtraInfoKey { get; }
+
+		// extern NSString *const _Nonnull kGCKErrorReasonKey __attribute__((visibility("default")));
+		[Field("kGCKErrorReasonKey", "__Internal")]
+		NSString ReasonKey { get; }
 
 		[Field ("kGCKErrorDomain", "__Internal")]
 		NSString ErrorDomain { get; }
@@ -2216,6 +2228,54 @@ namespace Google.Cast {
 
 		[Field ("kGCKMediaCommandQueuePrevious", "__Internal")]
 		nint QueuePrevious { get; }
+
+		// extern const NSInteger kGCKMediaCommandQueueShuffle __attribute__((visibility("default")));
+		[Field("kGCKMediaCommandQueueShuffle", "__Internal")]
+		nint QueueShuffle { get; }
+
+		// extern const NSInteger kGCKMediaCommandSkipAd __attribute__((visibility("default")));
+		[Field("kGCKMediaCommandSkipAd", "__Internal")]
+		nint SkipAd { get; }
+
+		// extern const NSInteger kGCKMediaCommandQueueRepeatAll __attribute__((visibility("default")));
+		[Field("kGCKMediaCommandQueueRepeatAll", "__Internal")]
+		nint QueueRepeatAll { get; }
+
+		// extern const NSInteger kGCKMediaCommandQueueRepeatOne __attribute__((visibility("default")));
+		[Field("kGCKMediaCommandQueueRepeatOne", "__Internal")]
+		nint QueueRepeatOne { get; }
+
+		// extern const NSInteger kGCKMediaCommandQueueRepeat __attribute__((visibility("default")));
+		[Field("kGCKMediaCommandQueueRepeat", "__Internal")]
+		nint QueueRepeat { get; }
+
+		// extern const NSInteger kGCKMediaCommandEditTracks __attribute__((visibility("default")));
+		[Field("kGCKMediaCommandEditTracks", "__Internal")]
+		nint EditTracks { get; }
+
+		// extern const NSInteger kGCKMediaCommandSetPlaybackRate __attribute__((visibility("default")));
+		[Field("kGCKMediaCommandSetPlaybackRate", "__Internal")]
+		nint SetPlaybackRate { get; }
+
+		// extern const NSInteger kGCKMediaCommandLike __attribute__((visibility("default")));
+		[Field("kGCKMediaCommandLike", "__Internal")]
+		nint Like { get; }
+
+		// extern const NSInteger kGCKMediaCommandDislike __attribute__((visibility("default")));
+		[Field("kGCKMediaCommandDislike", "__Internal")]
+		nint Dislike { get; }
+
+		// extern const NSInteger kGCKMediaCommandFollow __attribute__((visibility("default")));
+		[Field("kGCKMediaCommandFollow", "__Internal")]
+		nint Follow { get; }
+
+		// extern const NSInteger kGCKMediaCommandUnfollow __attribute__((visibility("default")));
+		[Field("kGCKMediaCommandUnfollow", "__Internal")]
+		nint Unfollow { get; }
+
+		// extern const NSInteger kGCKMediaCommandStreamTransfer __attribute__((visibility("default")));
+		[Field("kGCKMediaCommandStreamTransfer", "__Internal")]
+		nint StreamTransfer { get; }
 	}
 
 	[BaseType (typeof (NSObject), Name = "GCKMediaStatus")]

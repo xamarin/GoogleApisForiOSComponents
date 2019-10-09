@@ -6,6 +6,7 @@ namespace Google.Cast
 	{
 		static Loader ()
 		{
+			Firebase.Core.Loader.ForceLoad ();
 		}
 
 		public static void ForceLoad () {}

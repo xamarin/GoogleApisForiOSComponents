@@ -34,5 +34,12 @@
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>CastSample uses Bluetooth to discover nearby Cast devices.</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>CastSample uses Bluetooth to discover nearby Cast devices.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>CastSample uses microphone access to listen for ultrasonic tokens
+when pairing with nearby Cast devices.</string>
 </dict>
 </plist>
