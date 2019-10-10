@@ -339,10 +339,10 @@ namespace Google.Maps
 	interface GroundOverlay
 	{
 
-		[Export ("position", ArgumentSemantic.Assign)]
+		[Export ("position")]
 		CLLocationCoordinate2D Position { get; set; }
 
-		[Export ("anchor", ArgumentSemantic.Assign)]
+		[Export ("anchor")]
 		CGPoint Anchor { get; set; }
 
 		[NullAllowed]
@@ -350,10 +350,10 @@ namespace Google.Maps
 		UIImage Icon { get; set; }
 
 		// @property(nonatomic, assign) float opacity;
-		[Export ("opacity", ArgumentSemantic.Assign)]
+		[Export ("opacity")]
 		float Opacity { get; set; }
 
-		[Export ("bearing", ArgumentSemantic.Assign)]
+		[Export ("bearing")]
 		double Bearing { get; set; }
 
 		[NullAllowed]
@@ -409,11 +409,11 @@ namespace Google.Maps
 		IIndoorDisplayDelegate Delegate { get; set; }
 
 		[NullAllowed]
-		[Export ("activeBuilding", ArgumentSemantic.Retain)]
+		[Export ("activeBuilding")]
 		IndoorBuilding ActiveBuilding { get; }
 
 		[NullAllowed]
-		[Export ("activeLevel", ArgumentSemantic.Retain)]
+		[Export ("activeLevel")]
 		IndoorLevel ActiveLevel { get; }
 	}
 
@@ -435,19 +435,19 @@ namespace Google.Maps
 	interface MapLayer
 	{
 
-		[Export ("cameraLatitude", ArgumentSemantic.Assign)]
+		[Export ("cameraLatitude")]
 		double CameraLatitude { get; set; }
 
-		[Export ("cameraLongitude", ArgumentSemantic.Assign)]
+		[Export ("cameraLongitude")]
 		double CameraLongitude { get; set; }
 
-		[Export ("cameraBearing", ArgumentSemantic.Assign)]
+		[Export ("cameraBearing")]
 		double CameraBearing { get; set; }
 
-		[Export ("cameraZoomLevel", ArgumentSemantic.Assign)]
+		[Export ("cameraZoomLevel")]
 		float CameraZoomLevel { get; set; }
 
-		[Export ("cameraViewingAngle", ArgumentSemantic.Assign)]
+		[Export ("cameraViewingAngle")]
 		double CameraViewingAngle { get; set; }
 	}
 
@@ -569,7 +569,7 @@ namespace Google.Maps
 		[Export ("projection")]
 		Projection Projection { get; }
 
-		[Export ("myLocationEnabled", ArgumentSemantic.Assign)]
+		[Export ("myLocationEnabled")]
 		bool MyLocationEnabled { [Bind ("isMyLocationEnabled")] get; set; }
 
 		[NullAllowed]
@@ -580,42 +580,42 @@ namespace Google.Maps
 		[Export ("selectedMarker")]
 		Marker SelectedMarker { get; set; }
 
-		[Export ("trafficEnabled", ArgumentSemantic.Assign)]
+		[Export ("trafficEnabled")]
 		bool TrafficEnabled { [Bind ("isTrafficEnabled")] get; set; }
 
-		[Export ("mapType", ArgumentSemantic.Assign)]
+		[Export ("mapType")]
 		MapViewType MapType { get; set; }
 
 		// @property(nonatomic, strong, nullable) GMSMapStyle *mapStyle;
 		[NullAllowed]
-		[Export ("mapStyle", ArgumentSemantic.Strong)]
+		[Export ("mapStyle")]
 		MapStyle MapStyle { get; set; }
 
-		[Export ("minZoom", ArgumentSemantic.Assign)]
+		[Export ("minZoom")]
 		float MinZoom { get; }
 
-		[Export ("maxZoom", ArgumentSemantic.Assign)]
+		[Export ("maxZoom")]
 		float MaxZoom { get; }
 
-		[Export ("buildingsEnabled", ArgumentSemantic.Assign)]
+		[Export ("buildingsEnabled")]
 		bool BuildingsEnabled { [Bind ("isBuildingsEnabled")] get; set; }
 
-		[Export ("indoorEnabled", ArgumentSemantic.Assign)]
+		[Export ("indoorEnabled")]
 		bool IndoorEnabled { [Bind ("isIndoorEnabled")] get; set; }
 
-		[Export ("indoorDisplay", ArgumentSemantic.Retain)]
+		[Export ("indoorDisplay")]
 		IndoorDisplay IndoorDisplay { get; }
 
 		[Export ("settings")]
 		UISettings Settings { get; }
 
-		[Export ("padding", ArgumentSemantic.Assign)]
+		[Export ("padding")]
 		UIEdgeInsets Padding { get; set; }
 
-		[Export("paddingAdjustmentBehavior", ArgumentSemantic.Assign)]
+		[Export ("paddingAdjustmentBehavior")]
 		MapViewPaddingAdjustmentBehavior PaddingAdjustmentBehavior { get; set; }
 
-		[Export ("accessibilityElementsHidden", ArgumentSemantic.Assign)]
+		[Export ("accessibilityElementsHidden")]
 		[New]
 		bool AccessibilityElementsHidden { get; set; }
 
@@ -624,12 +624,12 @@ namespace Google.Maps
 		MapLayer Layer { get; }
 
 		// @property(nonatomic, assign) GMSFrameRate preferredFrameRate;
-		[Export ("preferredFrameRate", ArgumentSemantic.Assign)]
+		[Export ("preferredFrameRate")]
 		FrameRate PreferredFrameRate { get; set; }
 
 		// @property(nonatomic, nullable) GMSCoordinateBounds *cameraTargetBounds;
 		[NullAllowed]
-		[Export ("cameraTargetBounds", ArgumentSemantic.Strong)]
+		[Export ("cameraTargetBounds")]
 		CoordinateBounds CameraTargetBounds { get; set; }
 
 		// -(instancetype _Nonnull)initWithFrame:(CGRect)frame camera:(GMSCameraPosition * _Nonnull)camera;
@@ -694,7 +694,7 @@ namespace Google.Maps
 	interface Marker
 	{
 
-		[Export ("position", ArgumentSemantic.Assign)]
+		[Export ("position")]
 		CLLocationCoordinate2D Position { get; set; }
 
 		[NullAllowed]
@@ -702,49 +702,44 @@ namespace Google.Maps
 		string Snippet { get; set; }
 
 		[NullAllowed]
-		[Export ("icon", ArgumentSemantic.Strong)]
+		[Export ("icon")]
 		UIImage Icon { get; set; }
 
 		// @property(nonatomic, strong) UIView *iconView;
 		[NullAllowed]
-		[Export ("iconView", ArgumentSemantic.Strong)]
+		[Export ("iconView")]
 		UIView IconView { get; set; }
 
 		// @property(nonatomic, assign) BOOL tracksViewChanges;
-		[Export ("tracksViewChanges", ArgumentSemantic.Assign)]
+		[Export ("tracksViewChanges")]
 		bool TracksViewChanges { get; set; }
 
 		// @property(nonatomic, assign) BOOL tracksInfoWindowChanges;
-		[Export ("tracksInfoWindowChanges", ArgumentSemantic.Assign)]
+		[Export ("tracksInfoWindowChanges")]
 		bool TracksInfoWindowChanges { get; set; }
 
-		[Export ("groundAnchor", ArgumentSemantic.Assign)]
+		[Export ("groundAnchor")]
 		CGPoint GroundAnchor { get; set; }
 
-		[Export ("infoWindowAnchor", ArgumentSemantic.Assign)]
+		[Export ("infoWindowAnchor")]
 		CGPoint InfoWindowAnchor { get; set; }
 
-		[Export ("appearAnimation", ArgumentSemantic.Assign)]
+		[Export ("appearAnimation")]
 		MarkerAnimation AppearAnimation { get; set; }
 
-		[Export ("draggable", ArgumentSemantic.Assign)]
+		[Export ("draggable")]
 		bool Draggable { [Bind ("isDraggable")] get; set; }
 
-		[Export ("flat", ArgumentSemantic.Assign)]
+		[Export ("flat")]
 		bool Flat { [Bind ("isFlat")] get; set; }
 
-		[Export ("rotation", ArgumentSemantic.Assign)]
+		[Export ("rotation")]
 		double Rotation { get; set; }
 
-		[Export ("opacity", ArgumentSemantic.Assign)]
+		[Export ("opacity")]
 		float Opacity { get; set; }
 
-		[New]
-		[NullAllowed]
-		[Export ("userData", ArgumentSemantic.Strong)]
-		NSObject UserData { get; set; }
-
-		[Export ("layer", ArgumentSemantic.Strong)]
+		[Export ("layer")]
 		MarkerLayer Layer { get; }
 
 		[NullAllowed]
@@ -765,17 +760,17 @@ namespace Google.Maps
 	interface MarkerLayer
 	{
 
-		[Export ("latitude", ArgumentSemantic.Assign)]
+		[Export ("latitude")]
 		double Latitude { get; set; }
 
-		[Export ("longitude", ArgumentSemantic.Assign)]
+		[Export ("longitude")]
 		double Longitude { get; set; }
 
-		[Export ("rotation", ArgumentSemantic.Assign)]
+		[Export ("rotation")]
 		double Rotation { get; set; }
 
 		[New]
-		[Export ("opacity", ArgumentSemantic.Assign)]
+		[Export ("opacity")]
 		float Opacity { get; set; }
 	}
 
@@ -817,15 +812,15 @@ namespace Google.Maps
 		[Export ("map")]
 		MapView Map { get; set; }
 
-		[Export ("tappable", ArgumentSemantic.Assign)]
+		[Export ("tappable")]
 		bool Tappable { [Bind ("isTappable")] get; set; }
 
-		[Export ("zIndex", ArgumentSemantic.Assign)]
+		[Export ("zIndex")]
 		int ZIndex { get; set; }
 
 		// @property(nonatomic, strong, nullable) id userData;
 		[NullAllowed]
-		[Export ("userData", ArgumentSemantic.Strong)]
+		[Export ("userData")]
 		NSObject UserData { get; set; }
 	}
 
@@ -843,6 +838,10 @@ namespace Google.Maps
 		CLLocationCoordinate2D Coordinate { get; }
 
 		[Export ("panoramaID")]
+		string PanoramaId { get; }
+
+		[Obsolete ("Use PanoramaId property instead. This will be removed in future versions.")]
+		[Wrap ("PanoramaId")]
 		string PanoramaID { get; }
 
 		[Export ("links", ArgumentSemantic.Copy)]
@@ -872,13 +871,13 @@ namespace Google.Maps
 		[Export ("cameraWithHeading:pitch:zoom:FOV:")]
 		PanoramaCamera FromHeading (double heading, double pitch, float zoom, double fov);
 
-		[Export ("FOV", ArgumentSemantic.Assign)]
+		[Export ("FOV")]
 		double Fov { get; }
 
-		[Export ("zoom", ArgumentSemantic.Assign)]
+		[Export ("zoom")]
 		float Zoom { get; }
 
-		[Export ("orientation", ArgumentSemantic.Assign)]
+		[Export ("orientation")]
 		Orientation Orientation { get; }
 	}
 
@@ -909,16 +908,16 @@ namespace Google.Maps
 	interface PanoramaLayer
 	{
 
-		[Export ("cameraHeading", ArgumentSemantic.Assign)]
+		[Export ("cameraHeading")]
 		double CameraHeading { get; set; }
 
-		[Export ("cameraPitch", ArgumentSemantic.Assign)]
+		[Export ("cameraPitch")]
 		double CameraPitch { get; set; }
 
-		[Export ("cameraZoom", ArgumentSemantic.Assign)]
+		[Export ("cameraZoom")]
 		float CameraZoom { get; set; }
 
-		[Export ("cameraFOV", ArgumentSemantic.Assign)]
+		[Export ("cameraFOV")]
 		double CameraFOV { get; set; }
 	}
 
@@ -926,10 +925,14 @@ namespace Google.Maps
 	interface PanoramaLink
 	{
 
-		[Export ("heading", ArgumentSemantic.Assign)]
+		[Export ("heading")]
 		nfloat Heading { get; set; }
 
 		[Export ("panoramaID", ArgumentSemantic.Copy)]
+		string PanoramaId { get; set; }
+
+		[Obsolete ("Use PanoramaId property instead. This will be removed in future versions.")]
+		[Wrap ("PanoramaId")]
 		string PanoramaID { get; set; }
 	}
 
@@ -958,7 +961,7 @@ namespace Google.Maps
 
 		[Async]
 		[Export ("requestPanoramaWithID:callback:")]
-		void RequestPanorama (string panoramaID, PanoramaCallback callback);
+		void RequestPanorama (string panoramaId, PanoramaCallback callback);
 	}
 
 	interface IPanoramaViewDelegate
@@ -973,7 +976,7 @@ namespace Google.Maps
 	{
 
 		[Export ("panoramaView:willMoveToPanoramaID:"), EventArgs ("GMSPanoramaWillMove")]
-		void WillMoveToPanoramaId (PanoramaView view, string panoramaID);
+		void WillMoveToPanoramaId (PanoramaView view, string panoramaId);
 
 		[Export ("panoramaView:didMoveToPanorama:"), EventArgs ("GMSPanoramaDidMoveToPanorama")]
 		void DidMoveToPanorama (PanoramaView view, [NullAllowed] Panorama panorama);
@@ -1015,32 +1018,32 @@ namespace Google.Maps
 		IntPtr Constructor (CGRect frame);
 
 		[NullAllowed]
-		[Export ("panorama", ArgumentSemantic.Retain)]
+		[Export ("panorama")]
 		Panorama Panorama { get; set; }
 
 		[NullAllowed]
-		[Export ("delegate", ArgumentSemantic.Assign)]
+		[Export ("delegate")]
 		IPanoramaViewDelegate Delegate { get; set; }
 
 		[Export ("setAllGesturesEnabled:")]
 		void SetAllGesturesEnabled (bool enabled);
 
-		[Export ("orientationGestures", ArgumentSemantic.Assign)]
+		[Export ("orientationGestures")]
 		bool OrientationGestures { get; set; }
 
-		[Export ("zoomGestures", ArgumentSemantic.Assign)]
+		[Export ("zoomGestures")]
 		bool ZoomGestures { get; set; }
 
-		[Export ("navigationGestures", ArgumentSemantic.Assign)]
+		[Export ("navigationGestures")]
 		bool NavigationGestures { get; set; }
 
-		[Export ("navigationLinksHidden", ArgumentSemantic.Assign)]
+		[Export ("navigationLinksHidden")]
 		bool NavigationLinksHidden { get; set; }
 
-		[Export ("streetNamesHidden", ArgumentSemantic.Assign)]
+		[Export ("streetNamesHidden")]
 		bool StreetNamesHidden { get; set; }
 
-		[Export ("camera", ArgumentSemantic.Strong)]
+		[Export ("camera")]
 		PanoramaCamera Camera { get; set; }
 
 		[Export ("layer", ArgumentSemantic.Retain)]
@@ -1143,7 +1146,7 @@ namespace Google.Maps
 		[Export ("holes", ArgumentSemantic.Copy)]
 		Path [] Holes { get; set; }
 
-		[Export ("strokeWidth", ArgumentSemantic.Assign)]
+		[Export ("strokeWidth")]
 		nfloat StrokeWidth { get; set; }
 
 		[NullAllowed]
@@ -1154,7 +1157,7 @@ namespace Google.Maps
 		[Export ("fillColor")]
 		UIColor FillColor { get; set; }
 
-		[Export ("geodesic", ArgumentSemantic.Assign)]
+		[Export ("geodesic")]
 		bool Geodesic { get; set; }
 
 		[Static]
@@ -1183,55 +1186,13 @@ namespace Google.Maps
 
 		// @property (assign, nonatomic) CGColorRef _Nullable strokeColor;
 		[NullAllowed]
-		[Export ("strokeColor", ArgumentSemantic.Assign)]
+		[Export ("strokeColor")]
 		CGColor StrokeColor { get; set; }
 
 		// @property (assign, nonatomic) CGColorRef _Nullable fillColor;
 		[NullAllowed]
 		[Export ("fillColor", ArgumentSemantic.Assign)]
 		CGColor FillColor { get; set; }
-	}
-
-	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "GMSStrokeStyle")]
-	interface StrokeStyle
-	{
-
-		[Static]
-		[Export ("solidColor:")]
-		StrokeStyle GetSolidColor (UIColor color);
-
-		[Static]
-		[Export ("gradientFromColor:toColor:")]
-		StrokeStyle GetGradient (UIColor fromColor, UIColor toColor);
-	}
-
-	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "GMSStyleSpan")]
-	interface StyleSpan
-	{
-
-		[Static]
-		[Export ("spanWithColor:")]
-		StyleSpan FromSolidColor (UIColor color);
-
-		[Static]
-		[Export ("spanWithColor:segments:")]
-		StyleSpan FromSolidColor (UIColor color, double segments);
-
-		[Static]
-		[Export ("spanWithStyle:")]
-		StyleSpan FromStyle (StrokeStyle style);
-
-		[Static]
-		[Export ("spanWithStyle:segments:")]
-		StyleSpan FromStyle (StrokeStyle style, double segments);
-
-		[Export ("style")]
-		StrokeStyle Style { get; }
-
-		[Export ("segments")]
-		double Segments { get; }
 	}
 
 	[BaseType (typeof (Overlay), Name = "GMSPolyline")]
@@ -1241,13 +1202,13 @@ namespace Google.Maps
 		[Export ("path", ArgumentSemantic.Copy)]
 		Path Path { get; set; }
 
-		[Export ("strokeWidth", ArgumentSemantic.Assign)]
+		[Export ("strokeWidth")]
 		nfloat StrokeWidth { get; set; }
 
 		[Export ("strokeColor")]
 		UIColor StrokeColor { get; set; }
 
-		[Export ("geodesic", ArgumentSemantic.Assign)]
+		[Export ("geodesic")]
 		bool Geodesic { get; set; }
 
 		[Static, Export ("polylineWithPath:")]
@@ -1289,6 +1250,11 @@ namespace Google.Maps
 
 		[Static]
 		[Export ("provideAPIKey:")]
+		bool ProvideApiKey (string apiKey);
+
+		[Obsolete ("Use ProvideApiKey static method instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("ProvideApiKey (APIKey)")]
 		bool ProvideAPIKey (string APIKey);
 
 		// +(BOOL)provideAPIOptions:(NSArray<NSString *> * _Nonnull)APIOptions;
@@ -1302,7 +1268,59 @@ namespace Google.Maps
 
 		[Static]
 		[Export ("SDKVersion")]
+		string SdkVersion { get; }
+
+		[Obsolete ("Use SdkVersion static property instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("SdkVersion")]
 		string SDKVersion { get; }
+
+		// +(NSString * _Nonnull)SDKLongVersion;
+		[Static]
+		[Export ("SDKLongVersion")]
+		string SdkLongVersion { get; }
+	}
+
+	[DisableDefaultCtor]
+	[BaseType(typeof(NSObject), Name = "GMSStrokeStyle")]
+	interface StrokeStyle
+	{
+
+		[Static]
+		[Export ("solidColor:")]
+		StrokeStyle GetSolidColor (UIColor color);
+
+		[Static]
+		[Export ("gradientFromColor:toColor:")]
+		StrokeStyle GetGradient (UIColor fromColor, UIColor toColor);
+	}
+
+	[DisableDefaultCtor]
+	[BaseType(typeof(NSObject), Name = "GMSStyleSpan")]
+	interface StyleSpan
+	{
+
+		[Static]
+		[Export ("spanWithColor:")]
+		StyleSpan FromSolidColor (UIColor color);
+
+		[Static]
+		[Export ("spanWithColor:segments:")]
+		StyleSpan FromSolidColor (UIColor color, double segments);
+
+		[Static]
+		[Export ("spanWithStyle:")]
+		StyleSpan FromStyle (StrokeStyle style);
+
+		[Static]
+		[Export ("spanWithStyle:segments:")]
+		StyleSpan FromStyle (StrokeStyle style, double segments);
+
+		[Export ("style")]
+		StrokeStyle Style { get; }
+
+		[Export ("segments")]
+		double Segments { get; }
 	}
 
 	[BaseType (typeof (TileLayer), Name = "GMSSyncTileLayer")]
@@ -1343,16 +1361,16 @@ namespace Google.Maps
 		[Export ("map", ArgumentSemantic.Weak)]
 		MapView Map { get; set; }
 
-		[Export ("zIndex", ArgumentSemantic.Assign)]
+		[Export ("zIndex")]
 		int ZIndex { get; set; }
 
-		[Export ("tileSize", ArgumentSemantic.Assign)]
+		[Export ("tileSize")]
 		nint TileSize { get; set; }
 
-		[Export ("opacity", ArgumentSemantic.Assign)]
+		[Export ("opacity")]
 		float Opacity { get; set; }
 
-		[Export ("fadeIn", ArgumentSemantic.Assign)]
+		[Export ("fadeIn")]
 		bool FadeIn { get; set; }
 	}
 
@@ -1363,32 +1381,32 @@ namespace Google.Maps
 		[Export ("setAllGesturesEnabled:")]
 		void SetAllGesturesEnabled (bool enabled);
 
-		[Export ("scrollGestures", ArgumentSemantic.Assign)]
+		[Export ("scrollGestures")]
 		bool ScrollGestures { get; set; }
 
-		[Export ("zoomGestures", ArgumentSemantic.Assign)]
+		[Export ("zoomGestures")]
 		bool ZoomGestures { get; set; }
 
-		[Export ("tiltGestures", ArgumentSemantic.Assign)]
+		[Export ("tiltGestures")]
 		bool TiltGestures { get; set; }
 
-		[Export ("rotateGestures", ArgumentSemantic.Assign)]
+		[Export ("rotateGestures")]
 		bool RotateGestures { get; set; }
 
-		[Export ("consumesGesturesInView", ArgumentSemantic.Assign)]
+		[Export ("consumesGesturesInView")]
 		bool ConsumesGesturesInView { get; set; }
 
-		[Export ("compassButton", ArgumentSemantic.Assign)]
+		[Export ("compassButton")]
 		bool CompassButton { get; set; }
 
-		[Export ("myLocationButton", ArgumentSemantic.Assign)]
+		[Export ("myLocationButton")]
 		bool MyLocationButton { get; set; }
 
-		[Export ("indoorPicker", ArgumentSemantic.Assign)]
+		[Export ("indoorPicker")]
 		bool IndoorPicker { get; set; }
 
 		// @property (assign, nonatomic) BOOL allowScrollGesturesDuringRotateOrZoom;
-		[Export ("allowScrollGesturesDuringRotateOrZoom", ArgumentSemantic.Assign)]
+		[Export ("allowScrollGesturesDuringRotateOrZoom")]
 		bool AllowScrollGesturesDuringRotateOrZoom { get; set; }
 	}
 

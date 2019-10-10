@@ -245,8 +245,8 @@
 				"type": "other",
 				"other": {
 					"name": "GoogleMaps",
-					"version": "3.1.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/d308af63f78a5a1a/GoogleMaps-3.1.0.tar.gz"
+					"version": "3.5.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/828459b9d7d1bde9/GoogleMaps-3.5.0.tar.gz"
 				}
 			}
 		},
