@@ -265,8 +265,8 @@
 				"type": "other",
 				"other": {
 					"name": "GooglePlaces",
-					"version": "3.1.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/bf9e64756ecb3c98/GooglePlaces-3.1.0.tar.gz"
+					"version": "3.5.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/00b161ce89d5920d/GooglePlaces-3.5.0.tar.gz"
 				}
 			}
 		},

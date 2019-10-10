@@ -11,7 +11,6 @@ namespace GooglePlacesSample
 		 * https://developers.google.com/places/ios-api/start#get-key
 		 */
 
-		//public static string Key { get; } = null;
-		public static string Key { get; } = "AIzaSyDb2YqtATCTmvXxGCblczGo5kF-7yqsn4Q";
+		public static string Key { get; } = null;
 	}
 }
