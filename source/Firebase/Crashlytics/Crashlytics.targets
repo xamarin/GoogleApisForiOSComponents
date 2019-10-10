@@ -2,11 +2,14 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_FirebaseCrashlyticsAssemblyName>Firebase.Crashlytics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseCrashlyticsAssemblyName>
-		<_FirebaseCrashlyticsItemsFolder>FCrshlytcs-3.10.9</_FirebaseCrashlyticsItemsFolder>
+		<_FirebaseCrashlyticsItemsFolder>FCrshlytcs-3.14.0</_FirebaseCrashlyticsItemsFolder>
 		<_FirebaseCrashlyticsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseCrashlyticsItemsFolder)\iOS\</_FirebaseCrashlyticsSDKBaseFolder>
-		<_FabricItemsFolder>Fbrc-1.7.13</_FabricItemsFolder>
+		<_FabricItemsFolder>Fbrc-1.10.2</_FabricItemsFolder>
 		<_FabricSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FabricItemsFolder)\iOS\</_FabricSDKBaseFolder>
 		<_FabricScriptName>upload-symbols</_FabricScriptName>
+		
+		<_FirebaseCrashlyticsUploadSymbolsContinueOnError Condition="'$(FirebaseCrashlyticsUploadSymbolsContinueOnError)'=='True'">True</_FirebaseCrashlyticsUploadSymbolsContinueOnError>
+		<_FirebaseCrashlyticsUploadSymbolsContinueOnError Condition="'$(FirebaseCrashlyticsUploadSymbolsContinueOnError)'!='True'">False</_FirebaseCrashlyticsUploadSymbolsContinueOnError>
 
 		<!-- Properties used to upload dSYM symbols to Firebase when using Visual Studio for Mac -->
 		<_FirebaseCrashlyticsUploadDSymToFirebaseMasterAfterTargets Condition="'$(OS)'=='Unix'">Build</_FirebaseCrashlyticsUploadDSymToFirebaseMasterAfterTargets>
@@ -20,11 +23,7 @@
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_FirebaseCrashlyticsItemsFolder)">
-			<Url>https://kit-downloads.fabric.io/cocoapods/crashlytics/3.10.9/crashlytics.zip</Url>
-			<Kind>Zip</Kind>
-		</XamarinBuildDownload>
-		<XamarinBuildDownload Include="$(_FabricItemsFolder)">
-			<Url>https://kit-downloads.fabric.io/cocoapods/fabric/1.7.13/fabric.zip</Url>
+			<Url>https://kit-downloads.fabric.io/cocoapods/crashlytics/3.14.0/crashlytics.zip</Url>
 			<Kind>Zip</Kind>
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_FirebaseCrashlyticsSDKBaseFolder)Crashlytics.framework">
@@ -33,6 +32,11 @@
 			<LinkerFlags>-ObjC -lc++ -lz</LinkerFlags>
 			<Frameworks>Security SystemConfiguration</Frameworks>
 		</NativeReference>
+		
+		<XamarinBuildDownload Include="$(_FabricItemsFolder)">
+			<Url>https://kit-downloads.fabric.io/cocoapods/fabric/1.10.2/fabric.zip</Url>
+			<Kind>Zip</Kind>
+		</XamarinBuildDownload>
 		<NativeReference Include="$(_FabricSDKBaseFolder)Fabric.framework">
 			<Kind>Framework</Kind>
 			<ForceLoad>True</ForceLoad>
@@ -42,20 +46,20 @@
 	</ItemGroup>
 	
 	<Target Name="_FirebaseCrashlyticsUploadDSymToFirebaseMasterTarget"
-			Condition="'$(_FirebaseCrashlyticsUploadDSymToFirebaseMasterDependsOnTargets)'!='' AND '$(_SdkIsSimulator)'=='False'"
-			AfterTargets="$(_FirebaseCrashlyticsUploadDSymToFirebaseMasterAfterTargets)"
-			BeforeTargets="$(_FirebaseCrashlyticsUploadDSymToFirebaseMasterBeforeTargets)"
-			DependsOnTargets="$(_FirebaseCrashlyticsUploadDSymToFirebaseMasterDependsOnTargets)" />
+		Condition="'$(_FirebaseCrashlyticsUploadDSymToFirebaseMasterDependsOnTargets)'!='' AND '$(_SdkIsSimulator)'=='False' AND '$(FirebaseCrashlyticsUploadSymbolsEnabled)'=='True'"
+		AfterTargets="$(_FirebaseCrashlyticsUploadDSymToFirebaseMasterAfterTargets)"
+		BeforeTargets="$(_FirebaseCrashlyticsUploadDSymToFirebaseMasterBeforeTargets)"
+		DependsOnTargets="$(_FirebaseCrashlyticsUploadDSymToFirebaseMasterDependsOnTargets)" />
 	
 	<!-- Target to upload dSYM symbols to Firebase when using Visual Studio for Mac -->
 	<Target Name="_FirebaseCrashlyticsUploadDSymToFirebaseOnMac" >
 		<Message Text="Uploading dSYM to Firebase using Fabric $(_FabricScriptName) script located at $(XamarinBuildDownloadDir)$(_FabricItemsFolder)" />
-		<Exec Command="'$(XamarinBuildDownloadDir)$(_FabricItemsFolder)\$(_FabricScriptName)' -gsp '$(MSBuildProjectDirectory)\GoogleService-Info.plist' -p ios '$(DeviceSpecificOutputPath)\$(AssemblyName).app.dSYM'"/>
+		<Exec Command="'$(XamarinBuildDownloadDir)$(_FabricItemsFolder)\$(_FabricScriptName)' -gsp '$(MSBuildProjectDirectory)\GoogleService-Info.plist' -p ios '$(DeviceSpecificOutputPath)\$(AssemblyName).app.dSYM'"
+			ContinueOnError="$(_FirebaseCrashlyticsUploadSymbolsContinueOnError)" />
 	</Target>
 
 	<!-- Target to upload dSYM symbols to Firebase when using Visual Studio for Windows -->
 	<Target Name="_FirebaseCrashlyticsUploadDSymToFirebaseOnWindows" Condition="'$(IsMacEnabled)'=='true'" >
-		
 		<ItemGroup>
 			<_CopyFilesToMacOutput Include="$(XamarinBuildDownloadDir)$(_FabricItemsFolder)\$(_FabricScriptName)">
 				<TargetPath>$(_FabricScriptName)</TargetPath>
@@ -67,6 +71,6 @@
 		<Exec SessionId="$(BuildSessionId)" Command="chmod +x $(_FabricScriptName)" ContinueOnError="true" />
 		
 		<Message Text="Uploading dSYM to Firebase using Fabric $(_FabricScriptName) script" />
-		<Exec SessionId="$(BuildSessionId)" Command="'./$(_FabricScriptName)' -gsp './GoogleService-Info.plist' -p ios './$(DeviceSpecificOutputPath)\$(AssemblyName).app.dSYM'" ContinueOnError="true" />
+		<Exec SessionId="$(BuildSessionId)" Command="'./$(_FabricScriptName)' -gsp './GoogleService-Info.plist' -p ios './$(DeviceSpecificOutputPath)\$(AssemblyName).app.dSYM'" ContinueOnError="$(_FirebaseCrashlyticsUploadSymbolsContinueOnError)" />
 	</Target>
 </Project>

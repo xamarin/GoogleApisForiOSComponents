@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.Crashlytics</RootNamespace>
     <AssemblyName>Firebase.Crashlytics</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>3.10.9</FileVersion>
+    <FileVersion>3.14.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=873305</PackageProjectUrl>
     <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=873306</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>3.10.9</PackageVersion>
+    <PackageVersion>3.14.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -36,6 +36,8 @@
   
   <ItemGroup>
     <None Include="Crashlytics.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.Crashlytics.targets" />
+    <None Include="Crashlytics.props" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.Crashlytics.props" />
+    <None Include="readme.txt" Pack="True" PackagePath="readme.txt" />
   </ItemGroup>
 
   <ItemGroup>
