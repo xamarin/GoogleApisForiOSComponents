@@ -13,7 +13,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.CloudFirestore][F.CloudFirestore.Name]                 | [1.4.2.0][F.CloudFirestore.Package]          |
 | [Xamarin.Firebase.iOS.CloudMessaging][F.CloudMessaging.Name]                 | [4.1.1.0][F.CloudMessaging.Package]          |
 | [Xamarin.Firebase.iOS.Core][F.Core.Name]                                     | [6.1.0.0][F.Core.Package]                    |
-| [Xamarin.Firebase.iOS.Crashlytics][F.Crashlytics.Name]                       | [3.10.3.1][F.Crashlytics.Package]            |
+| [Xamarin.Firebase.iOS.Crashlytics][F.Crashlytics.Name]                       | [3.14.0.0][F.Crashlytics.Package]            |
 | [Xamarin.Firebase.iOS.Database][F.Database.Name]                             | [6.0.0.0][F.Database.Package]                |
 | [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                     | [4.0.1.0][F.DynamicLinks.Package]            |
 | [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                         | [3.4.0.0][F.InstanceID.Package]              |
