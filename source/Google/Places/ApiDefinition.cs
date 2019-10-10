@@ -84,7 +84,7 @@ namespace Google.Places
 
 		// -(void)provideSessionToken:(GMSAutocompleteSessionToken * _Nonnull)sessionToken;
 		[Export ("provideSessionToken:")]
-		void ProvideSessionToken (AutocompleteSessionToken sessionToken);
+		void ProvideSessionToken ([NullAllowed] AutocompleteSessionToken sessionToken);
 
 		// - (void)sourceTextHasChanged:(NSString *)text;
 		[Export ("sourceTextHasChanged:")]
@@ -247,6 +247,10 @@ namespace Google.Places
 		// @property (assign, nonatomic) GMSPlaceField placeFields;
 		[Export ("placeFields", ArgumentSemantic.Assign)]
 		PlaceField PlaceFields { get; set; }
+
+		// -(void)setAutocompleteBoundsUsingNorthEastCorner:(CLLocationCoordinate2D)NorthEastCorner SouthWestCorner:(CLLocationCoordinate2D)SouthWestCorner;
+		[Export ("setAutocompleteBoundsUsingNorthEastCorner:SouthWestCorner:")]
+		void SetAutocompleteBoundsUsingNorthEastCorner (CLLocationCoordinate2D NorthEastCorner, CLLocationCoordinate2D SouthWestCorner);
 	}
 
 	// @interface GMSAutocompleteSessionToken : NSObject
@@ -358,6 +362,10 @@ namespace Google.Places
 		// -(void)clearResults;
 		[Export ("clearResults")]
 		void ClearResults ();
+
+		// -(void)setAutocompleteBoundsUsingNorthEastCorner:(CLLocationCoordinate2D)NorthEastCorner SouthWestCorner:(CLLocationCoordinate2D)SouthWestCorner;
+		[Export ("setAutocompleteBoundsUsingNorthEastCorner:SouthWestCorner:")]
+		void SetAutocompleteBoundsUsingNorthEastCorner (CLLocationCoordinate2D NorthEastCorner, CLLocationCoordinate2D SouthWestCorner);
 	}
 
 	interface IAutocompleteViewControllerDelegate
@@ -462,6 +470,10 @@ namespace Google.Places
 		// @property (assign, nonatomic) GMSPlaceField placeFields;
 		[Export ("placeFields", ArgumentSemantic.Assign)]
 		PlaceField PlaceFields { get; set; }
+
+		// -(void)setAutocompleteBoundsUsingNorthEastCorner:(CLLocationCoordinate2D)NorthEastCorner SouthWestCorner:(CLLocationCoordinate2D)SouthWestCorner;
+		[Export ("setAutocompleteBoundsUsingNorthEastCorner:SouthWestCorner:")]
+		void SetAutocompleteBoundsUsingNorthEastCorner (CLLocationCoordinate2D NorthEastCorner, CLLocationCoordinate2D SouthWestCorner);
 	}
 
 	// @interface GMSTime : NSObject
@@ -595,8 +607,22 @@ namespace Google.Places
 		nuint UserRatingsTotal { get; }
 
 		// @property (readonly, copy, nonatomic) NSArray<GMSPlacePhotoMetadata *> * _Nullable photos;
-		[NullAllowed, Export ("photos", ArgumentSemantic.Copy)]
+		[NullAllowed]
+		[Export ("photos", ArgumentSemantic.Copy)]
 		PlacePhotoMetadata [] Photos { get; }
+
+		// @property (readonly, nonatomic) NSNumber * _Nullable UTCOffsetMinutes;
+		[NullAllowed]
+		[Export("UTCOffsetMinutes")]
+		NSNumber UtcOffsetMinutes { get; }
+
+		// -(GMSPlaceOpenStatus)isOpenAtDate:(NSDate * _Nonnull)date;
+		[Export("isOpenAtDate:")]
+		PlaceOpenStatus IsOpen (NSDate date);
+
+		// -(GMSPlaceOpenStatus)isOpen;
+		[Export("isOpen")]
+		PlaceOpenStatus IsOpen ();
 	}
 
 	// @interface GMSPlaceLikelihood : NSObject <NSCopying>
@@ -613,6 +639,7 @@ namespace Google.Places
 		double Likelihood { get; }
 
 		// -(instancetype)initWithPlace:(GMSPlace *)place likelihood:(double)likelihood;
+		[DesignatedInitializer]
 		[Export ("initWithPlace:likelihood:")]
 		IntPtr Constructor (Place place, double likelihood);
 	}
@@ -632,6 +659,7 @@ namespace Google.Places
 	}
 
 	// @interface GMSPlacePhotoMetadata : NSObject
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GMSPlacePhotoMetadata")]
 	interface PlacePhotoMetadata
 	{
@@ -701,6 +729,11 @@ namespace Google.Places
 		[Export ("SDKVersion")]
 		string SdkVersion { get; }
 
+		// +(NSString * _Nonnull)SDKLongVersion;
+		[Static]
+		[Export("SDKLongVersion")]
+		string SdkLongVersion { get; }
+
 		// -(void)lookUpPlaceID:(NSString *)placeID callback:(GMSPlaceResultCallback)callback;
 		[Async]
 		[Export ("lookUpPlaceID:callback:")]
@@ -738,7 +771,7 @@ namespace Google.Places
 
 		// -(void)findAutocompletePredictionsFromQuery:(NSString * _Nonnull)query bounds:(GMSCoordinateBounds * _Nullable)bounds boundsMode:(GMSAutocompleteBoundsMode)boundsMode filter:(GMSAutocompleteFilter * _Nullable)filter sessionToken:(GMSAutocompleteSessionToken * _Nonnull)sessionToken callback:(GMSAutocompletePredictionsCallback _Nonnull)callback;
 		[Export ("findAutocompletePredictionsFromQuery:bounds:boundsMode:filter:sessionToken:callback:")]
-		void FindAutocompletePredictions (string query, [NullAllowed] CoordinateBounds bounds, AutocompleteBoundsMode boundsMode, [NullAllowed] AutocompleteFilter filter, AutocompleteSessionToken sessionToken, AutocompletePredictionsHandler callback);
+		void FindAutocompletePredictions (string query, [NullAllowed] CoordinateBounds bounds, AutocompleteBoundsMode boundsMode, [NullAllowed] AutocompleteFilter filter, [NullAllowed] AutocompleteSessionToken sessionToken, AutocompletePredictionsHandler callback);
 
 		// -(void)fetchPlaceFromPlaceID:(NSString * _Nonnull)placeID placeFields:(GMSPlaceField)placeFields sessionToken:(GMSAutocompleteSessionToken * _Nullable)sessionToken callback:(GMSPlaceResultCallback _Nonnull)callback;
 		[Export ("fetchPlaceFromPlaceID:placeFields:sessionToken:callback:")]

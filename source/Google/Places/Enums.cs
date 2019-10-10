@@ -38,6 +38,7 @@ namespace Google.Places {
 		Saturday = 7
 	}
 
+	[Obsolete ("This enum is currently not supported and should not be used. Use PlaceOpenStatus enum instead.")]
 	[Native]
 	public enum PlacesOpenNowStatus : long {
 		Yes,
@@ -56,9 +57,19 @@ namespace Google.Places {
 	}
 
 	[Native]
+	public enum PlaceOpenStatus : long {
+		Unknown,
+		Open,
+		Closed
+	}
+
+	[Flags]
+	[Native]
 	public enum PlaceField : ulong {
 		Name = 1 << 0,
-		PlaceID = 1 << 1,
+		PlaceId = 1 << 1,
+		[Obsolete ("Use PlaceId value instead. This will be removed in future verions.")]
+		PlaceID = PlaceId,
 		PlusCode = 1 << 2,
 		Coordinate = 1 << 3,
 		OpeningHours = 1 << 4,
@@ -72,6 +83,7 @@ namespace Google.Places {
 		AddressComponents = 1 << 12,
 		Photos = 1 << 13,
 		UserRatingsTotal = 1 << 14,
+		UtcOffsetMinutes = 1 << 15,
 		All = ulong.MaxValue
 	}
 
@@ -607,15 +619,5 @@ namespace Google.Places {
 		// extern NSString *const kGMSPlaceTypeZoo;
 		[Field ("kGMSPlaceTypeZoo", "__Internal")]
 		Zoo
-	}
-}
-
-namespace Google.Places.Picker {
-	[Native]
-	public enum PlacePickerErrorCode : long {
-		UnknownError = -1,
-		InternalError = -2,
-		InvalidConfig = -3,
-		OverlappingCalls = -4
 	}
 }
