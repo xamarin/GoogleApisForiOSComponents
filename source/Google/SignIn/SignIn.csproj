@@ -6,7 +6,7 @@
     <RootNamespace>Google.SignIn</RootNamespace>
     <AssemblyName>Google.SignIn</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>4.4.0</FileVersion>
+    <FileVersion>5.0.1</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865554</PackageProjectUrl>
     <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=865558</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>4.4.0</PackageVersion>
+    <PackageVersion>5.0.1</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -36,6 +36,30 @@
   
   <ItemGroup>
     <None Include="SignIn.targets" Pack="True" PackagePath="build/Xamarin.Google.iOS.SignIn.targets" />
+    <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\externals\AppAuth.framework\AppAuth">
+      <Link>AppAuth.framework</Link>
+    </None>
+    <None Include="..\..\..\externals\GTMAppAuth.framework\GTMAppAuth">
+      <Link>GTMAppAuth.framework</Link>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <NativeReference Include="..\..\..\externals\AppAuth.framework">
+      <Kind>Framework</Kind>
+      <Frameworks>SafariServices</Frameworks>
+      <WeakFrameworks>AuthenticationServices</WeakFrameworks>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+    <NativeReference Include="..\..\..\externals\GTMAppAuth.framework">
+      <Kind>Framework</Kind>
+      <Frameworks>Security SystemConfiguration SafariServices</Frameworks>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
   </ItemGroup>
 
   <ItemGroup>
@@ -61,4 +85,12 @@
   </ItemGroup>
 
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+
+  <!-- We are embedding a framework using NativeReference tag but, on Windows with .NET Core project, 
+     this tags means another thing. On windows, if a NativeReference exists it creates a file named
+     Native.$(AssemblyName).manifest which on macOS is not being generated. This is just to satisfy
+     the MSBuild packing process as it's looking for it. It seems not to be packed in the end. -->
+  <Target Name="_TouchNativeManifestWorkaround" BeforeTargets="GenerateNuspec" Condition="!Exists('$(OutputPath)$(TargetFrameworks)\Native.$(AssemblyName).manifest')">
+    <Touch Files="$(OutputPath)$(TargetFrameworks)\Native.$(AssemblyName).manifest" AlwaysCreate="True" />
+  </Target>
 </Project>

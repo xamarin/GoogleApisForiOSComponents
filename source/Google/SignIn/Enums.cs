@@ -9,7 +9,6 @@ namespace Google.SignIn
 	{
 		Unknown = -1,
 		Keychain = -2,
-		NoSignInHandlersInstalled = -3,
 		HasNoAuthInKeychain = -4,
 		Canceled = -5,
 		Emm = -6

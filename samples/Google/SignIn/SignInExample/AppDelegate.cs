@@ -21,7 +21,7 @@ namespace SignInExample
 		{
 			// You can get the GoogleService-Info.plist file at https://developers.google.com/mobile/add
 			var googleServiceDictionary = NSDictionary.FromFile ("GoogleService-Info.plist");
-			SignIn.SharedInstance.ClientID = googleServiceDictionary ["CLIENT_ID"].ToString ();
+			SignIn.SharedInstance.ClientId = googleServiceDictionary ["CLIENT_ID"].ToString ();
 
 			return true;
 		}
@@ -30,13 +30,13 @@ namespace SignInExample
 		public override bool OpenUrl (UIApplication app, NSUrl url, NSDictionary options)
 		{
 			var openUrlOptions = new UIApplicationOpenUrlOptions (options);
-			return SignIn.SharedInstance.HandleUrl (url, openUrlOptions.SourceApplication, openUrlOptions.Annotation);
+			return SignIn.SharedInstance.HandleUrl (url);
 		}
 
 		// For iOS 8 and older
 		public override bool OpenUrl (UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
 		{
-			return SignIn.SharedInstance.HandleUrl (url, sourceApplication, annotation);
+			return SignIn.SharedInstance.HandleUrl (url);
 		}
 	}
 }
