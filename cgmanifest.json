@@ -275,8 +275,8 @@
 				"type": "other",
 				"other": {
 					"name": "GoogleSignIn",
-					"version": "4.4.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/c871e7177be06010/GoogleSignIn-4.4.0.tar.gz"
+					"version": "5.0.1",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/fd4c1a60ce184799/GoogleSignIn-5.0.1.tar.gz"
 				}
 			}
 		},

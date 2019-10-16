@@ -8,7 +8,7 @@ using Google.SignIn;
 
 namespace SignInExample
 {
-	public partial class ViewController : UIViewController, ISignInUIDelegate
+	public partial class ViewController : UIViewController
 	{
 		public ViewController (IntPtr handle) : base (handle)
 		{
@@ -18,9 +18,7 @@ namespace SignInExample
 		{
 			base.ViewDidLoad ();
 
-			// TODO(developer) Configure the sign-in button look/feel
-			SignIn.SharedInstance.UIDelegate = this;
-
+			SignIn.SharedInstance.PresentingViewController = this;
 			SignIn.SharedInstance.SignedIn += (sender, e) => {
 				// Perform any operations on signed in user here.
 				if (e.User != null && e.Error == null) {
@@ -36,7 +34,8 @@ namespace SignInExample
 			};
 
 			// Automatically sign in the user.
-			SignIn.SharedInstance.SignInUserSilently ();
+			if (SignIn.SharedInstance.HasPreviousSignIn)
+				SignIn.SharedInstance.RestorePreviousSignIn ();
 			ToggleAuthUI ();
 
 			statusText.Text = "Google Sign in\niOS Demo";
@@ -63,6 +62,7 @@ namespace SignInExample
 				disconnectButton.Hidden = true;
 			} else {
 				// Signed in
+				statusText.Text = string.Format ("Signed in user: {0}", SignIn.SharedInstance.CurrentUser.Profile.Name);
 				signInButton.Hidden = true;
 				signOutButton.Hidden = false;
 				disconnectButton.Hidden = false;

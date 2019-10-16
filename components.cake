@@ -26,7 +26,7 @@ Artifact GOOGLE_INSTANCE_ID_ARTIFACT  = new Artifact ("Google.InstanceID",  "1.2
 Artifact GOOGLE_MAPS_ARTIFACT         = new Artifact ("Google.Maps",        "3.5.0",    "9.0", ComponentGroup.Google, csprojName: "Maps");
 Artifact GOOGLE_MOBILE_ADS_ARTIFACT   = new Artifact ("Google.MobileAds",   "7.47.0",   "8.0", ComponentGroup.Google, csprojName: "MobileAds");
 Artifact GOOGLE_PLACES_ARTIFACT       = new Artifact ("Google.Places",      "3.5.0",    "9.0", ComponentGroup.Google, csprojName: "Places");
-Artifact GOOGLE_SIGN_IN_ARTIFACT      = new Artifact ("Google.SignIn",      "4.4.0",    "8.0", ComponentGroup.Google, csprojName: "SignIn");
+Artifact GOOGLE_SIGN_IN_ARTIFACT      = new Artifact ("Google.SignIn",      "5.0.1",    "8.0", ComponentGroup.Google, csprojName: "SignIn");
 Artifact GOOGLE_TAG_MANAGER_ARTIFACT  = new Artifact ("Google.TagManager",  "7.1.2.0",  "8.0", ComponentGroup.Google, csprojName: "TagManager");
 
 var ARTIFACTS = new Dictionary<string, Artifact> {
@@ -191,7 +191,9 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("GooglePlaces", "3.5.0")
 	};
 	GOOGLE_SIGN_IN_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("GoogleSignIn", "4.4.0")
+		PodSpec.Create ("GoogleSignIn", "5.0.1"),
+		PodSpec.Create ("AppAuth",      "1.2.0", frameworkSource: FrameworkSource.Pods),
+		PodSpec.Create ("GTMAppAuth",   "1.0.0", frameworkSource: FrameworkSource.Pods),
 	};
 	GOOGLE_TAG_MANAGER_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("GoogleTagManager", "7.1.2")
