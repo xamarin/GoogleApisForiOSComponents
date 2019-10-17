@@ -3,7 +3,7 @@
 
 	<PropertyGroup>
 		<_GoogleTagManagerAssemblyName>Google.TagManager, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleTagManagerAssemblyName>
-		<_GoogleTagManagerItemsFolder>GTagM-7.1.1</_GoogleTagManagerItemsFolder>
+		<_GoogleTagManagerItemsFolder>GTagM-7.1.2</_GoogleTagManagerItemsFolder>
 		<_GoogleTagManagerSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleTagManagerItemsFolder)\</_GoogleTagManagerSDKBaseFolder>
 		<_GoogleUtilitiesLegacyItemsFolder>GUtltsL-1.3.2</_GoogleUtilitiesLegacyItemsFolder>
 		<_GoogleUtilitiesLegacySDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleUtilitiesLegacyItemsFolder)\Frameworks\frameworks\</_GoogleUtilitiesLegacySDKBaseFolder>
@@ -13,7 +13,7 @@
 
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GoogleTagManagerItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/e9738e57da97d43a/GoogleTagManager-7.1.1.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/e0b99b8644b80573/GoogleTagManager-7.1.2.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildDownload Include="$(_GoogleUtilitiesLegacyItemsFolder)">
