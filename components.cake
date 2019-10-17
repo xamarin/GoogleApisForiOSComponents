@@ -27,7 +27,7 @@ Artifact GOOGLE_MAPS_ARTIFACT         = new Artifact ("Google.Maps",        "3.1
 Artifact GOOGLE_MOBILE_ADS_ARTIFACT   = new Artifact ("Google.MobileAds",   "7.47.0",   "8.0", ComponentGroup.Google, csprojName: "MobileAds");
 Artifact GOOGLE_PLACES_ARTIFACT       = new Artifact ("Google.Places",      "3.1.0",    "9.0", ComponentGroup.Google, csprojName: "Places");
 Artifact GOOGLE_SIGN_IN_ARTIFACT      = new Artifact ("Google.SignIn",      "4.4.0",    "8.0", ComponentGroup.Google, csprojName: "SignIn");
-Artifact GOOGLE_TAG_MANAGER_ARTIFACT  = new Artifact ("Google.TagManager",  "7.1.1.2",  "8.0", ComponentGroup.Google, csprojName: "TagManager");
+Artifact GOOGLE_TAG_MANAGER_ARTIFACT  = new Artifact ("Google.TagManager",  "7.1.2.0",  "8.0", ComponentGroup.Google, csprojName: "TagManager");
 
 var ARTIFACTS = new Dictionary<string, Artifact> {
 	{ "Firebase.ABTesting",              FIREBASE_AB_TESTING_ARTIFACT },
@@ -194,7 +194,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("GoogleSignIn", "4.4.0")
 	};
 	GOOGLE_TAG_MANAGER_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("GoogleTagManager", "7.1.1")
+		PodSpec.Create ("GoogleTagManager", "7.1.2")
 	};
 }
 

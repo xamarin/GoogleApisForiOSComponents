@@ -285,17 +285,8 @@
 				"type": "other",
 				"other": {
 					"name": "GoogleTagManager",
-					"version": "7.1.1",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/e9738e57da97d43a/GoogleTagManager-7.1.1.tar.gz"
-				}
-			}
-		},
-		{
-			"component": {
-				"type": "git",
-				"git": {
-					"repositoryUrl": "https://github.com/facebook/facebook-objc-sdk.git",
-					"commitHash": "2dc842def59ee9a94a0640f5fef809005bbfb93e"
+					"version": "7.1.2",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/e0b99b8644b80573/GoogleTagManager-7.1.2.tar.gz"
 				}
 			}
 		}
