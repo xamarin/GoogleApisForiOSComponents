@@ -56,7 +56,7 @@ namespace AuthSample
 		public override bool OpenUrl (UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
 		{
 			// Handle Sign In
-			var result = SignIn.SharedInstance.HandleUrl (url, sourceApplication, annotation);
+			var result = SignIn.SharedInstance.HandleUrl (url);
 
 			if (result)
 				return result;

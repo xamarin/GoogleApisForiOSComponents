@@ -8,7 +8,7 @@ using Firebase.Auth;
 
 namespace AuthSample
 {
-	public partial class SignInLoginViewController : UIViewController, ISignInDelegate, ISignInUIDelegate
+	public partial class SignInLoginViewController : UIViewController, ISignInDelegate
 	{
 		public SignInLoginViewController (IntPtr handle) : base (handle)
 		{
@@ -20,10 +20,14 @@ namespace AuthSample
 			// Perform any additional setup after loading the view, typically from a nib.
 
 			BtnSignIn.Enabled = false;
-			SignIn.SharedInstance.ClientID = App.DefaultInstance.Options.ClientId;
+			SignIn.SharedInstance.PresentingViewController = this;
+			SignIn.SharedInstance.ClientId = App.DefaultInstance.Options.ClientId;
 			SignIn.SharedInstance.Delegate = this;
-			SignIn.SharedInstance.UIDelegate = this;
-			SignIn.SharedInstance.SignInUserSilently ();
+
+			if (SignIn.SharedInstance.HasPreviousSignIn)
+				SignIn.SharedInstance.RestorePreviousSignIn ();
+			else
+				BtnSignIn.Enabled = true;
 		}
 
 		public override void DidReceiveMemoryWarning ()
