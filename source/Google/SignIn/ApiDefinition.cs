@@ -218,14 +218,26 @@ namespace Google.SignIn
 		// -(BOOL)handleURL:(NSURL *)url;
 		[Export ("handleURL:")]
 		bool HandleUrl (NSUrl url);
+		
+		[Obsolete ("Use the HandleUrl (NSUrl) overload method instead. This will be removed in future versions.")]
+		[Wrap ("HandleUrl (url)")]
+		bool HandleUrl (NSUrl url, string sourceApplication, [NullAllowed] NSObject annotation);
 
 		// -(BOOL)hasPreviousSignIn;
 		[Export ("hasPreviousSignIn")]
 		bool HasPreviousSignIn { get; }
 
+		[Obsolete ("Use the HasPreviousSignIn property instead. This will be removed in future versions.")]
+		[Wrap ("HasPreviousSignIn")]
+		bool HasAuthInKeychain { get; }
+
 		// -(void)restorePreviousSignIn;
 		[Export ("restorePreviousSignIn")]
 		void RestorePreviousSignIn ();
+
+		[Obsolete ("Use the RestorePreviousSignIn method instead. This will be removed in future versions.")]
+		[Wrap ("RestorePreviousSignIn ()")]
+		void SignInUserSilently ();
 
 		// -(void)signIn;
 		[Export ("signIn")]
