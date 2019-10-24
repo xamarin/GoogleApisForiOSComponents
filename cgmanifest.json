@@ -155,8 +155,8 @@
 				"type": "other",
 				"other": {
 					"name": "FirebaseMLCommon",
-					"version": "0.13.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/73b3ba874bff8364/FirebaseMLCommon-0.13.0.tar.gz"
+					"version": "0.17.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/b3585d54f4d9224f/FirebaseMLCommon-0.17.0.tar.gz"
 				}
 			}
 		},

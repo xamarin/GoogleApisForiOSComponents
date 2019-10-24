@@ -17,9 +17,9 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.Database][F.Database.Name]                             | [6.0.0.0][F.Database.Package]                |
 | [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                     | [4.0.1.0][F.DynamicLinks.Package]            |
 | [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                         | [3.4.0.0][F.InstanceID.Package]              |
-| [Xamarin.Firebase.iOS.MLKit][F.MLKit.Name]                                   | [0.13.0.1][F.MLKit.Package]                  |
-| [Xamarin.Firebase.iOS.MLKit.Common][F.MLKit.Common.Name]                     | [0.13.0.0][F.MLKit.Common.Package]           |
-| [Xamarin.Firebase.iOS.MLKit.ModelInterpreter][F.MLKit.ModelInterpreter.Name] | [0.13.0.0][F.MLKit.ModelInterpreter.Package] |
+| [Xamarin.Firebase.iOS.MLKit][F.MLKit.Name]                                   | [0.17.0.0][F.MLKit.Package]                  |
+| [Xamarin.Firebase.iOS.MLKit.Common][F.MLKit.Common.Name]                     | [0.17.0.0][F.MLKit.Common.Package]           |
+| [Xamarin.Firebase.iOS.MLKit.ModelInterpreter][F.MLKit.ModelInterpreter.Name] | [0.17.0.0][F.MLKit.ModelInterpreter.Package] |
 | [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name]   | [3.1.1.0][F.PerformanceMonitoring.Package]   |
 | [Xamarin.Firebase.iOS.RemoteConfig][F.RemoteConfig.Name]                     | [4.2.1.0][F.RemoteConfig.Package]            |
 | [Xamarin.Firebase.iOS.Storage][F.Storage.Name]                               | [3.4.0.0][F.Storage.Package]                 |
@@ -60,9 +60,9 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Database                | **6.0.0.0**       | **6.5.0**      |
 | Firebase Dynamic Links           | **4.0.1.0**       | **6.5.0**      |
 | Firebase Instance ID             | **4.2.1.0**       | **6.5.0**      |
-| Firebase MLKit                   | **0.13.0.1**      | **5.13.0*      |
-| Firebase MLKit Common            | **0.13.0.0**      | **5.13.0*      |
-| Firebase MLKit Model Interpreter | **0.13.0.0**      | **5.13.0*      |
+| Firebase MLKit                   | **0.17.0.0**      | **6.5.0**      |
+| Firebase MLKit Common            | **0.17.0.0**      | **6.5.0**      |
+| Firebase MLKit Model Interpreter | **0.17.0.0**      | **6.5.0**      |
 | Firebase Performance Monitoring  | **3.1.1.0**       | **6.5.0**      |
 | Firebase RemoteConfig            | **4.2.1.0**       | **6.5.0**      |
 | Firebase Storage                 | **3.4.0.0**       | **6.5.0**      |
