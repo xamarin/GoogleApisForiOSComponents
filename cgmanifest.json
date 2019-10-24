@@ -165,8 +165,8 @@
 				"type": "other",
 				"other": {
 					"name": "FirebaseMLModelInterpreter",
-					"version": "0.13.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/4c8e4fae417fa860/FirebaseMLModelInterpreter-0.13.0.tar.gz"
+					"version": "0.17.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/48e78c429d2df3cd/FirebaseMLModelInterpreter-0.17.0.tar.gz"
 				}
 			}
 		},

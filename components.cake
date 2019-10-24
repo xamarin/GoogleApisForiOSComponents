@@ -147,11 +147,11 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("GoogleMobileVision", "1.5.0")
 	};
 	FIREBASE_MLKIT_COMMON_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "5.13.0", subSpecs: new [] { "MLCommon" })
+		PodSpec.Create ("Firebase", "6.5.0", subSpecs: new [] { "MLCommon" })
 	};
 	FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase",       "5.13.0", subSpecs: new [] { "MLModelInterpreter" }),
-		PodSpec.Create ("TensorFlowLite", "1.10.1")
+		PodSpec.Create ("Firebase",       "6.5.0", subSpecs: new [] { "MLModelInterpreter" }),
+		PodSpec.Create ("TensorFlowLite", "1.13.1")
 	};
 	FIREBASE_PERFORMANCE_MONITORING_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.5.0", subSpecs: new [] { "Performance" })
