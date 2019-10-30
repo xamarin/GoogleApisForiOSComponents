@@ -174,6 +174,46 @@
 			"component": {
 				"type": "other",
 				"other": {
+					"name": "FirebaseMLNaturalLanguage",
+					"version": "0.16.3",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/ef4c16bba4cd2765/FirebaseMLNaturalLanguage-0.16.3.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseMLNLLanguageID",
+					"version": "0.16.3",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/871f283f3de2e37b/FirebaseMLNLLanguageID-0.16.3.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseMLNLSmartReply",
+					"version": "0.16.3",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/7d3fa69c061b1370/FirebaseMLNLSmartReply-0.16.3.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseMLNLTranslate",
+					"version": "0.16.3",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/ee627a903e191d0f/FirebaseMLNLTranslate-0.16.3.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
 					"name": "FirebasePerformance",
 					"version": "3.1.1",
 					"downloadUrl": "https://dl.google.com/dl/cpdc/8397df6fcb790e44/FirebasePerformance-3.1.1.tar.gz"

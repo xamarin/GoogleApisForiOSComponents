@@ -20,6 +20,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.MLKit][F.MLKit.Name]                                   | [0.17.0.0][F.MLKit.Package]                  |
 | [Xamarin.Firebase.iOS.MLKit.Common][F.MLKit.Common.Name]                     | [0.17.0.0][F.MLKit.Common.Package]           |
 | [Xamarin.Firebase.iOS.MLKit.ModelInterpreter][F.MLKit.ModelInterpreter.Name] | [0.17.0.0][F.MLKit.ModelInterpreter.Package] |
+| [Xamarin.Firebase.iOS.MLKit.NaturalLanguage][F.MLKit.NaturalLanguage.Name]   | [0.16.3.0][F.MLKit.NaturalLanguage.Package]  |
 | [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name]   | [3.1.1.0][F.PerformanceMonitoring.Package]   |
 | [Xamarin.Firebase.iOS.RemoteConfig][F.RemoteConfig.Name]                     | [4.2.1.0][F.RemoteConfig.Package]            |
 | [Xamarin.Firebase.iOS.Storage][F.Storage.Name]                               | [3.4.0.0][F.Storage.Package]                 |
@@ -63,6 +64,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase MLKit                   | **0.17.0.0**      | **6.5.0**      |
 | Firebase MLKit Common            | **0.17.0.0**      | **6.5.0**      |
 | Firebase MLKit Model Interpreter | **0.17.0.0**      | **6.5.0**      |
+| Firebase MLKit Natural Language  | **0.16.3.0**      | **6.5.0**      |
 | Firebase Performance Monitoring  | **3.1.1.0**       | **6.5.0**      |
 | Firebase RemoteConfig            | **4.2.1.0**       | **6.5.0**      |
 | Firebase Storage                 | **3.4.0.0**       | **6.5.0**      |
@@ -115,6 +117,7 @@ Firebase.InstanceID
 Firebase.MLKit
 Firebase.MLKit.Common
 Firebase.MLKit.ModelInterpreter
+Firebase.MLKit.NaturalLanguage
 Firebase.PerformanceMonitoring
 Firebase.RemoteConfig
 Firebase.Storage
@@ -167,23 +170,24 @@ This project is part of the [.NET Foundation][104]
 
 [comment]: # (Path for active Firebase component folders)
 
-[F.ABTesting.Name]: Firebase.ABTesting
-[F.AdMob.Name]: Firebase.AdMob
-[F.Analytics.Name]: Firebase.Analytics
-[F.Auth.Name]: Firebase.Auth
-[F.CloudFirestore.Name]: Firebase.CloudFirestore
-[F.CloudMessaging.Name]: Firebase.CloudMessaging
-[F.Core.Name]: Firebase.Core
-[F.Crashlytics.Name]: Firebase.Crashlytics
-[F.Database.Name]: Firebase.Database
-[F.DynamicLinks.Name]: Firebase.DynamicLinks
-[F.InstanceID.Name]: Firebase.InstanceID
-[F.MLKit.Name]: Firebase.MLKit
-[F.MLKit.Common.Name]: Firebase.MLKit.Common
-[F.MLKit.ModelInterpreter.Name]: Firebase.MLKit.ModelInterpreter
-[F.PerformanceMonitoring.Name]: Firebase.PerformanceMonitoring
-[F.RemoteConfig.Name]: Firebase.RemoteConfig
-[F.Storage.Name]: Firebase.Storage
+[F.ABTesting.Name]: source/Firebase/ABTesting
+[F.AdMob.Name]: source/Firebase/AdMob
+[F.Analytics.Name]: source/Firebase/Analytics
+[F.Auth.Name]: source/Firebase/Auth
+[F.CloudFirestore.Name]: source/Firebase/CloudFirestore
+[F.CloudMessaging.Name]: source/Firebase/CloudMessaging
+[F.Core.Name]: source/Firebase/Core
+[F.Crashlytics.Name]: source/Firebase/Crashlytics
+[F.Database.Name]: source/Firebase/Database
+[F.DynamicLinks.Name]: source/Firebase/DynamicLinks
+[F.InstanceID.Name]: source/Firebase/InstanceID
+[F.MLKit.Name]: source/Firebase/MLKit
+[F.MLKit.Common.Name]: source/Firebase/MLKit.Common
+[F.MLKit.ModelInterpreter.Name]: source/Firebase/MLKit.ModelInterpreter
+[F.MLKit.NaturalLanguage.Name]: source/Firebase/MLKit.NaturalLanguage
+[F.PerformanceMonitoring.Name]: source/Firebase/PerformanceMonitoring
+[F.RemoteConfig.Name]: source/Firebase/RemoteConfig
+[F.Storage.Name]: source/Firebase/Storage
 
 [comment]: # (URL for active Firebase component NuGets)
 
@@ -201,6 +205,7 @@ This project is part of the [.NET Foundation][104]
 [F.MLKit.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.MLKit/
 [F.MLKit.Common.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.MLKit.Common/
 [F.MLKit.ModelInterpreter.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.MLKit.ModelInterpreter/
+[F.MLKit.NaturalLanguage.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.MLKit.NaturalLanguage/
 [F.PerformanceMonitoring.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.PerformanceMonitoring/
 [F.RemoteConfig.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.RemoteConfig/
 [F.Storage.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Storage/
@@ -208,16 +213,16 @@ This project is part of the [.NET Foundation][104]
 
 [comment]: # (Path for active Google component folders)
 
-[G.Analytics.Name]: Google.Analytics
-[G.AppIndexing.Name]: Google.AppIndexing
-[G.Cast.Name]: Google.Cast
-[G.InstanceID.Name]: Google.InstanceID
-[G.Maps.Name]: Google.Maps
-[G.MobileAds.Name]: Google.MobileAds
-[G.Places.Name]: Google.Places
-[G.PlayGames.Name]: Google.PlayGames
-[G.SignIn.Name]: Google.SignIn
-[G.TagManager.Name]: Google.TagManager
+[G.Analytics.Name]: source/Google/Analytics
+[G.AppIndexing.Name]: source/Google/AppIndexing
+[G.Cast.Name]: source/Google/Cast
+[G.InstanceID.Name]: source/Google/InstanceID
+[G.Maps.Name]: source/Google/Maps
+[G.MobileAds.Name]: source/Google/MobileAds
+[G.Places.Name]: source/Google/Places
+[G.PlayGames.Name]: source/Google/PlayGames
+[G.SignIn.Name]: source/Google/SignIn
+[G.TagManager.Name]: source/Google/TagManager
 
 [comment]: # (URL for active Google component NuGets)
 
@@ -235,8 +240,8 @@ This project is part of the [.NET Foundation][104]
 
 [comment]: # (Path for deprecated Firebase component folders)
 
-[F.CrashReporting.Name]: Firebase.CrashReporting
-[F.Invites.Name]: Firebase.Invites
+[F.CrashReporting.Name]: source/Firebase/CrashReporting
+[F.Invites.Name]: source/Firebase/Invites
 
 [comment]: # (URL for deprecated Firebase component NuGets)
 
@@ -245,9 +250,9 @@ This project is part of the [.NET Foundation][104]
 
 [comment]: # (Path for deprecated Google component folders)
 
-[G.AppInvite.Name]: Google.AppInvite
-[G.Core.Name]: Google.Core
-[G.GoogleCloudMessaging.Name]: Google.GoogleCloudMessaging
+[G.AppInvite.Name]: source/Google/AppInvite
+[G.Core.Name]: source/Google/Core
+[G.GoogleCloudMessaging.Name]: source/Google/GoogleCloudMessaging
 
 [comment]: # (URL for deprecated Google component NuGets)
 
