@@ -59,9 +59,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
     <ProjectReference Include="..\InstanceID\InstanceID.csproj" />
-    <ProjectReference Include="..\MLKit.Common\MLKit.Common.csproj" />
     <ProjectReference Include="..\ABTesting\ABTesting.csproj" />
     <ProjectReference Include="..\RemoteConfig\RemoteConfig.csproj" />
+    <ProjectReference Include="..\MLKit.Common\MLKit.Common.csproj" />
   </ItemGroup>
   
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />

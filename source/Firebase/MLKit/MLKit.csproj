@@ -56,6 +56,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
+	<ProjectReference Include="..\InstanceID\InstanceID.csproj" />
     <ProjectReference Include="..\MLKit.Common\MLKit.Common.csproj" />
   </ItemGroup>
   

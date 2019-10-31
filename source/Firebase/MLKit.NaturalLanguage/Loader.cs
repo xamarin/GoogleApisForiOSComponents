@@ -7,9 +7,9 @@ namespace Firebase.MLKit.NaturalLanguage
 		{
 			Firebase.Core.Loader.ForceLoad ();
 			Firebase.InstanceID.Loader.ForceLoad ();
-			Firebase.MLKit.Common.Loader.ForceLoad ();
 			Firebase.ABTesting.Loader.ForceLoad ();
 			Firebase.RemoteConfig.Loader.ForceLoad ();
+			Firebase.MLKit.Common.Loader.ForceLoad ();
 		}
 
 		public static void ForceLoad () { }

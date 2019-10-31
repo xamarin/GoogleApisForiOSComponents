@@ -258,7 +258,7 @@ void SetArtifactsSamples ()
 	FIREBASE_MLKIT_ARTIFACT.Samples                   = new [] { "MLKitSample" };
 	FIREBASE_MLKIT_COMMON_ARTIFACT.Samples            = null;
 	FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT.Samples = new [] { "ModelInterpreterSample" };
-	FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT.Samples  = new [] { "NaturalLanguageSample" };
+	FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT.Samples  = new [] { "LanguageIDSample" };
 	FIREBASE_PERFORMANCE_MONITORING_ARTIFACT.Samples  = new [] { "PerformanceMonitoringSample" };
 	FIREBASE_REMOTE_CONFIG_ARTIFACT.Samples           = new [] { "RemoteConfigSample" };
 	FIREBASE_STORAGE_ARTIFACT.Samples                 = new [] { "StorageSample" };
