@@ -12,7 +12,7 @@ namespace Firebase.MLKit.NaturalLanguage
 	// @interface FIRNaturalLanguage : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof(NSObject), Name = "FIRNaturalLanguage")]
-	interface NaturalLanguage
+	interface NaturalLanguageApi
 	{
 		// @property (getter = isStatsCollectionEnabled, nonatomic) BOOL statsCollectionEnabled;
 		[Export ("statsCollectionEnabled")]
@@ -21,12 +21,12 @@ namespace Firebase.MLKit.NaturalLanguage
 		// +(instancetype _Nonnull)naturalLanguage __attribute__((swift_name("naturalLanguage()")));
 		[Static]
 		[Export("naturalLanguage")]
-		NaturalLanguage DefaultInstance { get; }
+		NaturalLanguageApi DefaultInstance { get; }
 
 		// +(instancetype _Nonnull)naturalLanguageForApp:(FIRApp * _Nonnull)app __attribute__((swift_name("naturalLanguage(app:)")));
 		[Static]
 		[Export ("naturalLanguageForApp:")]
-		NaturalLanguage From (Core.App app);
+		NaturalLanguageApi From (Core.App app);
 
 		/// 
 		/// From FIRNaturalLanguage (LanguageID) category
