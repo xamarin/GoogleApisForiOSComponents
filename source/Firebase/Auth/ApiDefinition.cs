@@ -240,10 +240,10 @@ namespace Firebase.Auth
 		[Export ("signInAndRetrieveDataWithCredential:completion:")]
 		void SignInAndRetrieveDataWithCredential (AuthCredential credential, [NullAllowed] AuthDataResultHandler completion);
 
-		// -(void)signInWithCredential:(FIRAuthCredential * _Nonnull)credential completion:(FIRAuthResultCallback _Nullable)completion;
+		// - (void) signInWithCredential:(FIRAuthCredential*) credential completion:(nullable FIRAuthDataResultCallback) completion;
 		[Async]
 		[Export ("signInWithCredential:completion:")]
-		void SignInWithCredential (AuthCredential credential, [NullAllowed] AuthResultHandler completion);
+		void SignInWithCredential (AuthCredential credential, [NullAllowed] AuthDataResultHandler completion);
 
 		// -(void)signInAnonymouslyWithCompletion:(FIRAuthResultCallback _Nullable)completion;
 		[Async]
