@@ -36,7 +36,9 @@
   
   <ItemGroup>
     <None Include="Crashlytics.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.Crashlytics.targets" />
+    <None Include="Crashlytics.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.Crashlytics.targets" />
     <None Include="Crashlytics.props" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.Crashlytics.props" />
+    <None Include="Crashlytics.props" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.Crashlytics.props" />
     <None Include="readme.txt" Pack="True" PackagePath="readme.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseioscrashlytics_128x128.png" Pack="True" PackagePath="firebaseioscrashlytics_128x128.png" />
@@ -56,7 +58,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" PrivateAssets="None" />
   </ItemGroup>
   
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />

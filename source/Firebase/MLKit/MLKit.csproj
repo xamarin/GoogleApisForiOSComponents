@@ -37,6 +37,7 @@
   
   <ItemGroup>
     <None Include="MLKit.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.MLKit.targets" />
+    <None Include="MLKit.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.MLKit.targets" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseiosmlkit_128x128.png" Pack="True" PackagePath="firebaseiosmlkit_128x128.png" />
   </ItemGroup>
@@ -52,12 +53,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" PrivateAssets="None" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj" />
-    <ProjectReference Include="..\MLKit.Common\MLKit.Common.csproj" />
+    <ProjectReference Include="..\Core\Core.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\MLKit.Common\MLKit.Common.csproj" PrivateAssets="None" />
   </ItemGroup>
   
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />

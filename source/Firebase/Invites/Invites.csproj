@@ -36,6 +36,7 @@
   
   <ItemGroup>
     <None Include="Invites.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.Invites.targets" />
+    <None Include="Invites.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.Invites.targets" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseiosinvites_128x128.png" Pack="True" PackagePath="firebaseiosinvites_128x128.png" />
   </ItemGroup>
@@ -54,15 +55,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" PrivateAssets="None" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj" />
-    <ProjectReference Include="..\InstanceID\InstanceID.csproj" />
-    <ProjectReference Include="..\Analytics\Analytics.csproj" />
-    <ProjectReference Include="..\DynamicLinks\DynamicLinks.csproj" />
-    <ProjectReference Include="..\..\Google\SignIn\SignIn.csproj" />
+    <ProjectReference Include="..\Core\Core.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\InstanceID\InstanceID.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\Analytics\Analytics.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\DynamicLinks\DynamicLinks.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\..\Google\SignIn\SignIn.csproj" PrivateAssets="None" />
   </ItemGroup>
   
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />

@@ -36,6 +36,7 @@
   
   <ItemGroup>
     <None Include="Analytics.targets" Pack="True" PackagePath="build/Xamarin.Google.iOS.Analytics.targets" />
+    <None Include="Analytics.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Google.iOS.Analytics.targets" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/googleiosanalytics_128x128.png" Pack="True" PackagePath="googleiosanalytics_128x128.png" />
   </ItemGroup>
@@ -54,7 +55,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" PrivateAssets="None" />
   </ItemGroup>
   
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
