@@ -21,7 +21,7 @@
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
     <PackageIconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseiosremoteconfig_128x128.png</PackageIconUrl>
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865532</PackageProjectUrl>
-    <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=865536</PackageLicenseUrl>
+    <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageVersion>4.2.1.1</PackageVersion>
   </PropertyGroup>
@@ -36,6 +36,7 @@
   
   <ItemGroup>
     <None Include="RemoteConfig.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.RemoteConfig.targets" />
+    <None Include="License.md" Pack="True" PackagePath="License.md" />
   </ItemGroup>
 
   <ItemGroup>

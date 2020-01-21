@@ -21,7 +21,7 @@
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
     <PackageIconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/googleiosgcm_128x128.png</PackageIconUrl>
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865561</PackageProjectUrl>
-    <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=865565</PackageLicenseUrl>
+    <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageVersion>1.2.0.1</PackageVersion>
   </PropertyGroup>
@@ -36,6 +36,7 @@
   
   <ItemGroup>
     <None Include="GoogleCloudMessaging.targets" Pack="True" PackagePath="build/Xamarin.Google.iOS.GoogleCloudMessaging.targets" />
+    <None Include="License.md" Pack="True" PackagePath="License.md" />
   </ItemGroup>
 
   <ItemGroup>

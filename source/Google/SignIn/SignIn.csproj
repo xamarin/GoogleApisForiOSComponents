@@ -21,7 +21,7 @@
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
     <PackageIconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/googleiossignin_128x128.png</PackageIconUrl>
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865554</PackageProjectUrl>
-    <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=865558</PackageLicenseUrl>
+    <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageVersion>5.0.1.1</PackageVersion>
   </PropertyGroup>
@@ -37,6 +37,7 @@
   <ItemGroup>
     <None Include="SignIn.targets" Pack="True" PackagePath="build/Xamarin.Google.iOS.SignIn.targets" />
     <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
+    <None Include="License.md" Pack="True" PackagePath="License.md" />
   </ItemGroup>
 
   <ItemGroup>

@@ -22,7 +22,7 @@
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
     <PackageIconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/googleiosmobileads_128x128.png</PackageIconUrl>
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865562</PackageProjectUrl>
-    <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=865566</PackageLicenseUrl>
+    <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageVersion>7.47.0.1</PackageVersion>
   </PropertyGroup>
@@ -41,6 +41,7 @@
     </None>
     <None Include="MobileAds.targets" Pack="True" PackagePath="build/Xamarin.Google.iOS.MobileAds.targets" />
     <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
+    <None Include="License.md" Pack="True" PackagePath="License.md" />
   </ItemGroup>
 
   <ItemGroup>

@@ -21,7 +21,7 @@
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
     <PackageIconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/googleioscast_128x128.png</PackageIconUrl>
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865570</PackageProjectUrl>
-    <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=865574</PackageLicenseUrl>
+    <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageVersion>4.4.5.1</PackageVersion>
   </PropertyGroup>
@@ -38,6 +38,7 @@
     <None Include="Cast.targets" Pack="True" PackagePath="build/Xamarin.Google.iOS.Cast.targets" />
     <None Include="Cast.props" Pack="True" PackagePath="build/Xamarin.Google.iOS.Cast.props" />
     <None Include="readme.txt" Pack="True" PackagePath="readme.txt" />
+    <None Include="License.md" Pack="True" PackagePath="License.md" />
   </ItemGroup>
 
   <ItemGroup>
