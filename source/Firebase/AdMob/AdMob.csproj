@@ -20,7 +20,7 @@
     <Authors>Microsoft</Authors>
     <Owners>Microsoft</Owners>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
-    <PackageIconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseiosadmob_128x128.png</PackageIconUrl>
+    <PackageIcon>firebaseiosadmob_128x128.png</PackageIcon>
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865546</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
@@ -37,6 +37,7 @@
 
   <ItemGroup>
     <None Include="License.md" Pack="True" PackagePath="License.md" />
+    <None Include="../../../icons/firebaseiosadmob_128x128.png" Pack="True" PackagePath="firebaseiosadmob_128x128.png" />
   </ItemGroup>
 
   <ItemGroup>

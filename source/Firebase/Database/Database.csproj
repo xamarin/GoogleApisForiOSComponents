@@ -19,7 +19,7 @@
     <Authors>Microsoft</Authors>
     <Owners>Microsoft</Owners>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
-    <PackageIconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseiosdatabase_128x128.png</PackageIconUrl>
+    <PackageIcon>firebaseiosdatabase_128x128.png</PackageIcon>
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865568</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
@@ -40,6 +40,7 @@
     </None>
     <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
+    <None Include="../../../icons/firebaseiosdatabase_128x128.png" Pack="True" PackagePath="firebaseiosdatabase_128x128.png" />
   </ItemGroup>
 
   <ItemGroup>

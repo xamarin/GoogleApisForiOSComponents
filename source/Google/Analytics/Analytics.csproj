@@ -19,7 +19,7 @@
     <Authors>Microsoft</Authors>
     <Owners>Microsoft</Owners>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
-    <PackageIconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/googleiosanalytics_128x128.png</PackageIconUrl>
+    <PackageIcon>googleiosanalytics_128x128.png</PackageIcon>
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865535</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
@@ -37,6 +37,7 @@
   <ItemGroup>
     <None Include="Analytics.targets" Pack="True" PackagePath="build/Xamarin.Google.iOS.Analytics.targets" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
+    <None Include="../../../icons/googleiosanalytics_128x128.png" Pack="True" PackagePath="googleiosanalytics_128x128.png" />
   </ItemGroup>
 
   <ItemGroup>
