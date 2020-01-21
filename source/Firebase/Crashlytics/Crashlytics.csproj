@@ -21,7 +21,7 @@
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
     <PackageIconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseioscrashlytics_128x128.png</PackageIconUrl>
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=873305</PackageProjectUrl>
-    <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=873306</PackageLicenseUrl>
+    <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageVersion>3.14.0.1</PackageVersion>
   </PropertyGroup>
@@ -38,6 +38,7 @@
     <None Include="Crashlytics.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.Crashlytics.targets" />
     <None Include="Crashlytics.props" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.Crashlytics.props" />
     <None Include="readme.txt" Pack="True" PackagePath="readme.txt" />
+    <None Include="License.md" Pack="True" PackagePath="License.md" />
   </ItemGroup>
 
   <ItemGroup>
