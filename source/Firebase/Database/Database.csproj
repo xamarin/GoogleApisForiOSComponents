@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.Database</RootNamespace>
     <AssemblyName>Firebase.Database</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>6.0.0</FileVersion>
+    <FileVersion>6.0.0.1</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865568</PackageProjectUrl>
     <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=865571</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>6.0.0</PackageVersion>
+    <PackageVersion>6.0.0.1</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>

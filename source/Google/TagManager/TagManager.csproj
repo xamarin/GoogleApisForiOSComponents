@@ -6,7 +6,7 @@
     <RootNamespace>Google.TagManager</RootNamespace>
     <AssemblyName>Google.TagManager</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>7.1.2.0</FileVersion>
+    <FileVersion>7.1.2.1</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865539</PackageProjectUrl>
     <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=865544</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>7.1.2.0</PackageVersion>
+    <PackageVersion>7.1.2.1</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>

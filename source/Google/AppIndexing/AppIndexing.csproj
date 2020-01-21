@@ -6,7 +6,7 @@
     <RootNamespace>Google.AppIndexing</RootNamespace>
     <AssemblyName>Google.AppIndexing</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>2.0.3.5</FileVersion>
+    <FileVersion>2.0.3.6</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865556</PackageProjectUrl>
     <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=865560</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>2.0.3.5</PackageVersion>
+    <PackageVersion>2.0.3.6</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>

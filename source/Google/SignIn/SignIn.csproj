@@ -6,7 +6,7 @@
     <RootNamespace>Google.SignIn</RootNamespace>
     <AssemblyName>Google.SignIn</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>5.0.1</FileVersion>
+    <FileVersion>5.0.1.1</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865554</PackageProjectUrl>
     <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=865558</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>5.0.1</PackageVersion>
+    <PackageVersion>5.0.1.1</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
