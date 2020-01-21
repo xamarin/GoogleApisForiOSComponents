@@ -20,7 +20,7 @@
     <Authors>Microsoft</Authors>
     <Owners>Microsoft</Owners>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
-    <PackageIconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/googleiosplaces_128x128.png</PackageIconUrl>
+    <PackageIcon>googleiosplaces_128x128.png</PackageIcon>
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865542</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
@@ -38,6 +38,7 @@
   <ItemGroup>
     <None Include="Places.targets" Pack="True" PackagePath="build/Xamarin.Google.iOS.Places.targets" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
+    <None Include="../../../icons/googleiosplaces_128x128.png" Pack="True" PackagePath="googleiosplaces_128x128.png" />
   </ItemGroup>
 
   <ItemGroup>

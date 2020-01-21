@@ -19,7 +19,7 @@
     <Authors>Microsoft</Authors>
     <Owners>Microsoft</Owners>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
-    <PackageIconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseioscrashreporting_128x128.png</PackageIconUrl>
+    <PackageIcon>firebaseioscrashreporting_128x128.png</PackageIcon>
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865578</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
@@ -38,6 +38,7 @@
     <None Include="CrashReporting.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.CrashReporting.targets" />
     <None Include="xamarin_upload_symbols.sh" Pack="True" PackagePath="content/xamarin_upload_symbols.sh" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
+    <None Include="../../../icons/firebaseioscrashreporting_128x128.png" Pack="True" PackagePath="firebaseioscrashreporting_128x128.png" />
   </ItemGroup>
 
   <ItemGroup>
