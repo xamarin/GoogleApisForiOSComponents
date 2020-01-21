@@ -54,14 +54,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" PrivateAssets="None" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj" />
-    <ProjectReference Include="..\InstanceID\InstanceID.csproj" />
-    <ProjectReference Include="..\Analytics\Analytics.csproj" />
-    <ProjectReference Include="..\..\Google\MobileAds\MobileAds.csproj" />
+    <ProjectReference Include="..\Core\Core.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\InstanceID\InstanceID.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\Analytics\Analytics.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\..\Google\MobileAds\MobileAds.csproj" PrivateAssets="None" />
   </ItemGroup>
   
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />

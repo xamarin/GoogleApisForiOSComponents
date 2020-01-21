@@ -37,6 +37,7 @@
   
   <ItemGroup>
     <None Include="Places.targets" Pack="True" PackagePath="build/Xamarin.Google.iOS.Places.targets" />
+    <None Include="Places.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Google.iOS.Places.targets" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/googleiosplaces_128x128.png" Pack="True" PackagePath="googleiosplaces_128x128.png" />
   </ItemGroup>
@@ -52,11 +53,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" PrivateAssets="None" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Maps\Maps.csproj" />
+    <ProjectReference Include="..\Maps\Maps.csproj" PrivateAssets="None" />
   </ItemGroup>
   
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />

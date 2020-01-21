@@ -33,10 +33,6 @@
   <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Core.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.Core.targets" />
-  </ItemGroup>
   
   <ItemGroup>
     <None Include="..\..\..\externals\FirebaseCore.framework\FirebaseCore">
@@ -63,6 +59,8 @@
     <None Include="..\..\..\externals\GoogleAPIClientForREST.framework\GoogleAPIClientForREST">
       <Link>GoogleAPIClientForREST.framework</Link>
     </None>
+    <None Include="Core.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.Core.targets" />
+    <None Include="Core.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.Core.targets" />
     <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseioscore_128x128.png" Pack="True" PackagePath="firebaseioscore_128x128.png" />
@@ -123,7 +121,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" PrivateAssets="None" />
   </ItemGroup>
   
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />

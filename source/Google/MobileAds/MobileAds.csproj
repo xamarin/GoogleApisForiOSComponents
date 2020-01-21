@@ -40,6 +40,7 @@
       <Link>PersonalizedAdConsent.framework</Link>
     </None>
     <None Include="MobileAds.targets" Pack="True" PackagePath="build/Xamarin.Google.iOS.MobileAds.targets" />
+    <None Include="MobileAds.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Google.iOS.MobileAds.targets" />
     <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/googleiosmobileads_128x128.png" Pack="True" PackagePath="googleiosmobileads_128x128.png" />
@@ -69,11 +70,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" PrivateAssets="None" />
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\..\Firebase\Core\Core.csproj" />
+    <ProjectReference Include="..\..\Firebase\Core\Core.csproj" PrivateAssets="None" />
   </ItemGroup>
 
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
