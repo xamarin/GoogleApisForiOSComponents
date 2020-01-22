@@ -40,20 +40,19 @@ void CreateAndInstallPodfile (Artifact artifact)
 	var podfile = new List<string> ();
 	var podfileBegin = new List<string> (PODFILE_BEGIN);
 	
-	podfileBegin [0] = string.Format (podfileBegin [0], artifact.MinimunSupportedVersion);
+	var minimunSupportedVersion = GetMinimunSupportedVersion (artifact);
+	podfileBegin [0] = string.Format (podfileBegin [0], minimunSupportedVersion);
 	podfile.AddRange (podfileBegin);
 
 	if (artifact.ExtraPodfileLines != null)
 		podfile.AddRange (artifact.ExtraPodfileLines);
 
 	podfile.AddRange (PODFILE_TARGET);
+	podfile.AddRange (GetPodfileLines (artifact));
 
-	foreach (var podSpec in artifact.PodSpecs) {
-		if (podSpec.FrameworkSource != FrameworkSource.Pods)
-			continue;
-
-		podfile.AddRange (podSpec.BuildPodLines ());
-	}
+	if (artifact.Dependencies != null)
+		foreach (var dependency in artifact.Dependencies)
+			podfile.AddRange (GetPodfileLines (dependency));
 
 	if (podfile.Count == PODFILE_BEGIN.Length + PODFILE_TARGET.Length + (artifact.ExtraPodfileLines?.Length ?? 0))
 		return;
@@ -65,6 +64,34 @@ void CreateAndInstallPodfile (Artifact artifact)
 
 	FileWriteLines ($"{podfilePath}/Podfile", podfile.ToArray ());
 	CocoaPodInstall (podfilePath);
+}
+
+string GetMinimunSupportedVersion (Artifact artifact)
+{
+	var version = artifact.MinimunSupportedVersion;
+
+	if (artifact.Dependencies == null)
+		return version;
+
+	foreach (var dependency in artifact.Dependencies)
+		if (string.Compare (version, dependency.MinimunSupportedVersion) == -1)
+			version = dependency.MinimunSupportedVersion;
+
+	return version;
+}
+
+List<string> GetPodfileLines (Artifact artifact)
+{
+	var podfileLines = new List<string> ();
+
+	foreach (var podSpec in artifact.PodSpecs) {
+		if (podSpec.FrameworkSource != FrameworkSource.Pods)
+			continue;
+
+		podfileLines.AddRange (podSpec.BuildPodLines ());
+	}
+
+	return podfileLines;
 }
 
 void BuildSdkOnPodfile (Artifact artifact)

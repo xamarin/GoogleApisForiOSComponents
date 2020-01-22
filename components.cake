@@ -111,12 +111,10 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("Firebase",       "6.5.0",  frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseFirestore", targetName: "FirebaseFirestore", subSpecs: new [] { "Firestore" }),
 		PodSpec.Create ("BoringSSL-GRPC", "0.0.3",  frameworkSource: FrameworkSource.Pods, frameworkName: "openssl_grpc"),
 		PodSpec.Create ("gRPC-Core",      "1.21.0", frameworkSource: FrameworkSource.Pods, frameworkName: "grpc"),
-		PodSpec.Create ("gRPC-C++",       "0.0.9",  frameworkSource: FrameworkSource.Pods, frameworkName: "grpcpp"),
-		PodSpec.Create ("Protobuf",       "3.8.0",  frameworkSource: FrameworkSource.Pods, canBeBuild: false),
+		PodSpec.Create ("gRPC-C++",       "0.0.9",  frameworkSource: FrameworkSource.Pods, frameworkName: "grpcpp")
 	};
 	FIREBASE_CLOUD_MESSAGING_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.5.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseMessaging", targetName: "FirebaseMessaging", subSpecs: new [] { "Messaging" }),
-		PodSpec.Create ("Protobuf", "3.8.0", frameworkSource: FrameworkSource.Pods, canBeBuild: false),
+		PodSpec.Create ("Firebase", "6.5.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseMessaging", targetName: "FirebaseMessaging", subSpecs: new [] { "Messaging" })
 	};
 	FIREBASE_CORE_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase",                 "6.5.0",   frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCore", targetName: "FirebaseCore", subSpecs: new [] { "CoreOnly" }),
