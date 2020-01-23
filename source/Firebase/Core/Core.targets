@@ -3,13 +3,13 @@
 
 	<PropertyGroup>
 		<_FirebaseCoreAssemblyName>Firebase.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseCoreAssemblyName>
-		<_GoogleAppMeasurementItemsFolder>GAppM-6.0.4</_GoogleAppMeasurementItemsFolder>
+		<_GoogleAppMeasurementItemsFolder>GAppM-6.2.1</_GoogleAppMeasurementItemsFolder>
 		<_GoogleAppMeasurementSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleAppMeasurementItemsFolder)\Frameworks\</_GoogleAppMeasurementSDKBaseFolder>
 	</PropertyGroup>
 
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GoogleAppMeasurementItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/e025a69c2394726b/GoogleAppMeasurement-6.0.4.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/c11da63e58724a77/GoogleAppMeasurement-6.2.1.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_GoogleAppMeasurementSDKBaseFolder)GoogleAppMeasurement.framework">
