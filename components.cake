@@ -9,7 +9,7 @@ Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Cor
 Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Crashlytics",            "3.14.0.1", "8.0", ComponentGroup.Firebase, csprojName: "Crashlytics");
 Artifact FIREBASE_DATABASE_ARTIFACT                = new Artifact ("Firebase.Database",               "6.0.0.1",  "8.0", ComponentGroup.Firebase, csprojName: "Database");
 Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.DynamicLinks",           "4.0.1.1",  "8.0", ComponentGroup.Firebase, csprojName: "DynamicLinks");
-Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.InstanceID",             "4.2.1.1",  "8.0", ComponentGroup.Firebase, csprojName: "InstanceID");
+Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.InstanceID",             "4.3.0",    "8.0", ComponentGroup.Firebase, csprojName: "InstanceID");
 Artifact FIREBASE_MLKIT_ARTIFACT                   = new Artifact ("Firebase.MLKit",                  "0.13.0.2", "9.0", ComponentGroup.Firebase, csprojName: "MLKit");
 Artifact FIREBASE_MLKIT_COMMON_ARTIFACT            = new Artifact ("Firebase.MLKit.Common",           "0.13.0.1", "9.0", ComponentGroup.Firebase, csprojName: "MLKit.Common");
 Artifact FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT = new Artifact ("Firebase.MLKit.ModelInterpreter", "0.13.0.1", "9.0", ComponentGroup.Firebase, csprojName: "MLKit.ModelInterpreter");
@@ -144,7 +144,9 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("Firebase", "6.5.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseDynamicLinks", targetName: "FirebaseDynamicLinks", subSpecs: new [] { "DynamicLinks" })
 	};
 	FIREBASE_INSTANCE_ID_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("FirebaseInstanceID", "4.2.1", frameworkSource: FrameworkSource.Pods)
+		PodSpec.Create ("FirebaseInstanceID",    "4.3.0", frameworkSource: FrameworkSource.Pods),
+		PodSpec.Create ("FirebaseInstallations", "1.1.0", frameworkSource: FrameworkSource.Pods),
+		PodSpec.Create ("PromisesObjC",          "1.2.8", frameworkSource: FrameworkSource.Pods, frameworkName: "FBLPromises", targetName: "PromisesObjC")
 	};
 	FIREBASE_MLKIT_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase",           "5.13.0", subSpecs: new [] { "MLVision", "MLVisionBarcodeModel", "MLVisionFaceModel", "MLVisionLabelModel", "MLVisionTextModel" }),
