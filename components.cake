@@ -26,7 +26,7 @@ Artifact GOOGLE_INSTANCE_ID_ARTIFACT  = new Artifact ("Google.InstanceID",  "1.2
 Artifact GOOGLE_MAPS_ARTIFACT         = new Artifact ("Google.Maps",        "3.5.0.1",  "9.0", ComponentGroup.Google, csprojName: "Maps");
 Artifact GOOGLE_MOBILE_ADS_ARTIFACT   = new Artifact ("Google.MobileAds",   "7.53.1",   "8.0", ComponentGroup.Google, csprojName: "MobileAds");
 Artifact GOOGLE_PLACES_ARTIFACT       = new Artifact ("Google.Places",      "3.5.0.1",  "9.0", ComponentGroup.Google, csprojName: "Places");
-Artifact GOOGLE_SIGN_IN_ARTIFACT      = new Artifact ("Google.SignIn",      "5.0.1.1",  "8.0", ComponentGroup.Google, csprojName: "SignIn");
+Artifact GOOGLE_SIGN_IN_ARTIFACT      = new Artifact ("Google.SignIn",      "5.0.2",    "8.0", ComponentGroup.Google, csprojName: "SignIn");
 Artifact GOOGLE_TAG_MANAGER_ARTIFACT  = new Artifact ("Google.TagManager",  "7.1.2.1",  "8.0", ComponentGroup.Google, csprojName: "TagManager");
 
 var ARTIFACTS = new Dictionary<string, Artifact> {
@@ -128,7 +128,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("GoogleDataTransportCCTSupport",  "1.3.0",    frameworkSource: FrameworkSource.Pods),
 		PodSpec.Create ("GoogleToolboxForMac",            "2.2.0",    frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "NSData+zlib", "NSDictionary+URLArguments", "Logger", "StringEncoding", "URLBuilder" }),
 		PodSpec.Create ("GoogleUtilities",                "6.5.0",    frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "AppDelegateSwizzler", "Environment", "ISASwizzler", "Logger", "MethodSwizzler", "Network", "NSData+zlib", "Reachability", "UserDefaults" }),
-		PodSpec.Create ("GTMSessionFetcher",              "1.2.2",    frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Full" }),
+		PodSpec.Create ("GTMSessionFetcher",              "1.3.1",    frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Full" }),
 		PodSpec.Create ("leveldb-library",                "1.20.0",   frameworkSource: FrameworkSource.Pods, frameworkName: "leveldb"),
 		PodSpec.Create ("nanopb",                         "0.3.9011", frameworkSource: FrameworkSource.Pods),
 		PodSpec.Create ("Protobuf",                       "3.8.0",    frameworkSource: FrameworkSource.Pods)
@@ -197,8 +197,8 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("GooglePlaces", "3.5.0")
 	};
 	GOOGLE_SIGN_IN_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("GoogleSignIn", "5.0.1"),
-		PodSpec.Create ("AppAuth",      "1.2.0", frameworkSource: FrameworkSource.Pods),
+		PodSpec.Create ("GoogleSignIn", "5.0.2"),
+		PodSpec.Create ("AppAuth",      "1.3.0", frameworkSource: FrameworkSource.Pods),
 		PodSpec.Create ("GTMAppAuth",   "1.0.0", frameworkSource: FrameworkSource.Pods),
 	};
 	GOOGLE_TAG_MANAGER_ARTIFACT.PodSpecs = new [] {
