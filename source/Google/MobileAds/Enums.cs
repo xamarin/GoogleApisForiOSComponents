@@ -38,6 +38,15 @@ namespace Google.MobileAds
 		UnifiedNative
 	}
 
+	[Native]
+	public enum PresentationErrorCode : long
+	{
+		AdNotReady = 15,
+		AdTooLarge = 16,
+		Internal = 17,
+		AdAlreadyUsed = 18
+	}
+
 	//GADRequest file
 	[Native]
 	public enum Gender : long
@@ -51,38 +60,26 @@ namespace Google.MobileAds
 	[Native]
 	public enum ErrorCode : long
 	{
-		InvalidRequest,
-		NoFill,
-		NetworkError,
-		ServerError,
-		OSVersionTooLow,
-		Timeout,
-		InterstitialAlreadyUsed,
-		MediationDataError,
-		MediationAdapterError,
-		MediationNoFill,
-		MediationInvalidAdSize,
-		InternalError,
-		InvalidArgument,
-		ReceivedInvalidResponse,
-		RewardedAdAlreadyUsed
-	}
-
-	[Native]
-	public enum SearchBorderType : ulong
-	{
-		None,
-		Dashed,
-		Dotted,
-		Solid
-	}
-
-	[Native]
-	public enum SearchCallButtonColor : ulong
-	{
-		Light,
-		Medium,
-		Dark
+		InvalidRequest = 0,
+		NoFill = 1,
+		NetworkError = 2,
+		ServerError = 3,
+		OSVersionTooLow = 4,
+		Timeout = 5,
+		[Obsolete ("Use AdAlreadyUsed enum value instead.")]
+		InterstitialAlreadyUsed = 6,
+		MediationDataError = 7,
+		MediationAdapterError = 8,
+		MediationInvalidAdSize = 10,
+		InternalError = 11,
+		InvalidArgument = 12,
+		ReceivedInvalidResponse = 13,
+		[Obsolete("Use AdAlreadyUsed enum value instead.")]
+		RewardedAdAlreadyUsed = 14,
+		[Obsolete("Use NoFill enum value instead.")]
+		MediationNoFill = 9,
+		AdAlreadyUsed = 19,
+		ApplicationIdentifierMissing = 20
 	}
 
 	[Obsolete]
