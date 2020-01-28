@@ -86,6 +86,18 @@ namespace Google.MobileAds
 		[Obsolete ("Use ADAdSizeCons.Skyscraper Instead")]
 		public static readonly CGSize GAD_SIZE_120x600 = AdSizeCons.Skyscraper.Size;
 
+		//GAD_EXTERN GADAdSize GADPortraitAnchoredAdaptiveBannerAdSizeWithWidth (CGFloat width);
+		[DllImport ("__Internal", EntryPoint = "GADPortraitAnchoredAdaptiveBannerAdSizeWithWidth")]
+		public static extern AdSize GetPortraitAnchoredAdaptiveBannerAdSize (CGSize size);
+
+		//GAD_EXTERN GADAdSize GADLandscapeAnchoredAdaptiveBannerAdSizeWithWidth (CGFloat width);
+		[DllImport ("__Internal", EntryPoint = "GADLandscapeAnchoredAdaptiveBannerAdSizeWithWidth")]
+		public static extern AdSize GetLandscapeAnchoredAdaptiveBannerAdSize (CGSize size);
+
+		//GAD_EXTERN GADAdSize GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth (CGFloat width);
+		[DllImport ("__Internal", EntryPoint = "GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth")]
+		public static extern AdSize GetCurrentOrientationAnchoredAdaptiveBannerAdSize (CGSize size);
+
 		// GADAdSize GADAdSizeFromCGSize(CGSize size);
 		[DllImport ("__Internal", EntryPoint = "GADAdSizeFromCGSize")]
 		public static extern AdSize GetFromCGSize (CGSize size);
