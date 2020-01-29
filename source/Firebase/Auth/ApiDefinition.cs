@@ -601,13 +601,23 @@ namespace Firebase.Auth
 
 		// +(FIROAuthCredential * _Nonnull)credentialWithProviderID:(NSString * _Nonnull)providerID IDToken:(NSString * _Nonnull)IDToken accessToken:(NSString * _Nullable)accessToken;
 		[Static]
-		[Export ("credentialWithProviderID:IDToken:accessToken:")]
+		[Export("credentialWithProviderID:IDToken:accessToken:")]
 		OAuthCredential GetCredential (string providerId, string IdToken, [NullAllowed] string accessToken);
 
 		// +(FIROAuthCredential * _Nonnull)credentialWithProviderID:(NSString * _Nonnull)providerID accessToken:(NSString * _Nonnull)accessToken;
 		[Static]
 		[Export ("credentialWithProviderID:accessToken:")]
 		OAuthCredential GetCredential (string providerId, string accessToken);
+
+		// +(FIROAuthCredential * _Nonnull)credentialWithProviderID:(NSString * _Nonnull)providerID IDToken:(NSString * _Nonnull)IDToken rawNonce:(NSString * _Nullable)rawNonce accessToken:(NSString * _Nullable)accessToken;
+		[Static]
+		[Export ("credentialWithProviderID:IDToken:rawNonce:accessToken:")]
+		OAuthCredential GetCredential (string providerId, string IdToken, [NullAllowed] string rawNonce, [NullAllowed] string accessToken);
+
+		// +(FIROAuthCredential * _Nonnull)credentialWithProviderID:(NSString * _Nonnull)providerID IDToken:(NSString * _Nonnull)IDToken rawNonce:(NSString * _Nullable)rawNonce;
+		[Static]
+		[Export ("credentialWithProviderID:IDToken:rawNonce:")]
+		OAuthCredential GetCredentialWithRawNonce (string providerId, string IdToken, [NullAllowed] string rawNonce);
 	}
 
 	// @interface FIRPhoneAuthCredential : FIRAuthCredential
@@ -748,6 +758,12 @@ namespace Firebase.Auth
 		[Export ("reauthenticateAndRetrieveDataWithCredential:completion:")]
 		void ReauthenticateAndRetrieveData (AuthCredential credential, [NullAllowed] AuthDataResultHandler completion);
 
+		// -(void)reauthenticateWithProvider:(id<FIRFederatedAuthProvider> _Nonnull)provider UIDelegate:(id<FIRAuthUIDelegate> _Nullable)UIDelegate completion:(FIRAuthDataResultCallback _Nullable)completion __attribute__((swift_name("reauthenticate(with:uiDelegate:completion:)"))) __attribute__((availability(ios, introduced=8.0)));
+		[iOS (8,0)]
+		[Async]
+		[Export ("reauthenticateWithProvider:UIDelegate:completion:")]
+		void Reauthenticate (FederatedAuthProvider provider, [NullAllowed] AuthUIDelegate UIDelegate, [NullAllowed] AuthDataResultHandler completion);
+
 		// -(void)getIDTokenResultWithCompletion:(FIRAuthTokenResultCallback _Nullable)completion;
 		[Async]
 		[Export ("getIDTokenResultWithCompletion:")]
@@ -778,6 +794,12 @@ namespace Firebase.Auth
 		[Async]
 		[Export ("linkWithCredential:completion:")]
 		void Link (AuthCredential credential, [NullAllowed] AuthDataResultHandler completion);
+
+		// -(void)linkWithProvider:(id<FIRFederatedAuthProvider> _Nonnull)provider UIDelegate:(id<FIRAuthUIDelegate> _Nullable)UIDelegate completion:(FIRAuthDataResultCallback _Nullable)completion __attribute__((swift_name("link(with:uiDelegate:completion:)"))) __attribute__((availability(ios, introduced=8.0)));
+		[iOS (8,0)]
+		[Async]
+		[Export ("linkWithProvider:UIDelegate:completion:")]
+		void Link (FederatedAuthProvider provider, [NullAllowed] AuthUIDelegate UIDelegate, [NullAllowed] AuthDataResultHandler completion);
 
 		// -(void)unlinkFromProvider:(NSString * _Nonnull)provider completion:(FIRAuthResultCallback _Nullable)completion;
 		[Async]

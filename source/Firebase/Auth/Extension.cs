@@ -3,8 +3,7 @@ using System.Runtime.InteropServices;
 using ObjCRuntime;
 namespace Firebase.Auth
 {
-	public partial class Auth
-	{
+	public partial class Auth {
 		static string currentVersion;
 		public static string CurrentVersion { 
 			get {
