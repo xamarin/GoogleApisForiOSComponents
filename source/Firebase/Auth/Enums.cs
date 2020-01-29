@@ -87,10 +87,13 @@ namespace Firebase.Auth
 		WebSignInUserInteractionFailure = 17063,
 		LocalPlayerNotAuthenticated = 17066,
 		NullUser = 17067,
+		DynamicLinkNotActivated = 17068,
 		InvalidProviderId = 17071,
 		InvalidDynamicLinkDomain = 17074,
+		RejectedCredential = 17075,
 		GameKitNotLinked = 17076,
 		MissingClientIdentifier = 17993,
+		MissingOrInvalidNonce = 17094,
 		KeychainError = 17995,
 		InternalError = 17999,
 		MalformedJwt = 18000
