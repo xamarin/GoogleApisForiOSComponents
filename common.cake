@@ -261,6 +261,7 @@ void BuildXcodeFatFramework (FilePath xcodeProject, PodSpec [] podSpecs, Platfor
 	}
 	
 	workingDirectory = workingDirectory ?? Directory("./externals/");
+	buildSettings = buildSettings ?? new Dictionary<string, string> ();
 
 	foreach (var podSpec in podSpecs) {
 		var target = podSpec.TargetName;
@@ -277,8 +278,12 @@ void BuildXcodeFatFramework (FilePath xcodeProject, PodSpec [] podSpecs, Platfor
 			if (DirectoryExists (platformFrameworkPath))
 				continue;
 
-			var buildPath = buildSettings != null && buildSettings.ContainsKey ("SYMROOT") ? 
-				Directory (buildSettings ["SYMROOT"]) : workingDirectory.Combine ("build");
+			var buildSettingsCopy = new Dictionary<string, string> (buildSettings);
+
+			if (!buildSettingsCopy.ContainsKey ("SYMROOT"))
+				buildSettingsCopy ["SYMROOT"] = MakeAbsolute (workingDirectory.Combine ($"build-{arch}")).FullPath;
+
+			var buildPath = Directory (buildSettingsCopy ["SYMROOT"]).Path;
 
 			XCodeBuild (new XCodeBuildSettings {
 				Project = workingDirectory.CombineWithFilePath (xcodeProject).ToString (),
@@ -287,7 +292,7 @@ void BuildXcodeFatFramework (FilePath xcodeProject, PodSpec [] podSpecs, Platfor
 				Arch = arch,
 				Configuration = "Release",
 				Verbose = true,
-				BuildSettings = buildSettings
+				BuildSettings = buildSettingsCopy
 			});
 
 			var releasePath = buildPath.Combine ($"Release-{sdk}");
