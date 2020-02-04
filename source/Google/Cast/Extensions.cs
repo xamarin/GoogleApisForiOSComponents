@@ -200,7 +200,7 @@ namespace Google.Cast
 
 	public partial class MediaStatus
 	{
-		nuint [] ActiveTrackIds {
+		public nuint [] ActiveTrackIds {
 			get {
 				NSArray activeTracksIdsArray = _ActiveTrackIds;
 
