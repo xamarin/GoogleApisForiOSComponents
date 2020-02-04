@@ -2,12 +2,12 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_GoogleCastAssemblyName>Google.Cast, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleCastAssemblyName>
-		<_GoogleCastItemsFolder Condition="'$(GoogleCastBluetoothEnabled)'=='True'">GCst-4.4.5</_GoogleCastItemsFolder>
-		<_GoogleCastItemsFolder Condition="'$(GoogleCastBluetoothEnabled)'!='True'">GCstNB-4.4.5</_GoogleCastItemsFolder>
+		<_GoogleCastItemsFolder Condition="'$(GoogleCastBluetoothEnabled)'=='True'">GCst-4.4.6</_GoogleCastItemsFolder>
+		<_GoogleCastItemsFolder Condition="'$(GoogleCastBluetoothEnabled)'!='True'">GCstNB-4.4.6</_GoogleCastItemsFolder>
 		<_GoogleCastFrameworks Condition="'$(GoogleCastBluetoothEnabled)'=='True'">Accelerate AudioToolbox AVFoundation CFNetwork CoreBluetooth CoreData CoreGraphics CoreMedia CoreText Foundation MediaAccessibility MediaPlayer QuartzCore Security SystemConfiguration UIKit</_GoogleCastFrameworks>
 		<_GoogleCastFrameworks Condition="'$(GoogleCastBluetoothEnabled)'!='True'">Accelerate AudioToolbox AVFoundation CFNetwork CoreData CoreGraphics CoreMedia CoreText Foundation MediaAccessibility MediaPlayer QuartzCore Security SystemConfiguration UIKit</_GoogleCastFrameworks>
-		<_GoogleCastUrl Condition="'$(GoogleCastBluetoothEnabled)'=='True'">https://dl.google.com/dl/chromecast/sdk/ios/GoogleCastSDK-ios-4.4.5_dynamic.zip</_GoogleCastUrl>		
-		<_GoogleCastUrl Condition="'$(GoogleCastBluetoothEnabled)'!='True'">https://dl.google.com/dl/chromecast/sdk/ios/GoogleCastSDK-ios-no-bluetooth-4.4.5_dynamic.zip</_GoogleCastUrl>		
+		<_GoogleCastUrl Condition="'$(GoogleCastBluetoothEnabled)'=='True'">https://dl.google.com/dl/chromecast/sdk/ios/GoogleCastSDK-ios-4.4.6_dynamic.zip</_GoogleCastUrl>		
+		<_GoogleCastUrl Condition="'$(GoogleCastBluetoothEnabled)'!='True'">https://dl.google.com/dl/chromecast/sdk/ios/GoogleCastSDK-ios-no-bluetooth-4.4.6_dynamic.zip</_GoogleCastUrl>		
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GoogleCastItemsFolder)">
