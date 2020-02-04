@@ -46,7 +46,7 @@
 	</ItemGroup>
 	
 	<Target Name="_FirebaseCrashlyticsUploadDSymToFirebaseMasterTarget"
-		Condition="'$(_FirebaseCrashlyticsUploadDSymToFirebaseMasterDependsOnTargets)'!='' AND '$(_SdkIsSimulator)'=='False' AND '$(FirebaseCrashlyticsUploadSymbolsEnabled)'=='True'"
+		Condition="'$(_FirebaseCrashlyticsUploadDSymToFirebaseMasterDependsOnTargets)'!='' AND '$(FirebaseCrashlyticsUploadSymbolsEnabled)'=='True'"
 		AfterTargets="$(_FirebaseCrashlyticsUploadDSymToFirebaseMasterAfterTargets)"
 		BeforeTargets="$(_FirebaseCrashlyticsUploadDSymToFirebaseMasterBeforeTargets)"
 		DependsOnTargets="$(_FirebaseCrashlyticsUploadDSymToFirebaseMasterDependsOnTargets)" />
