@@ -12,6 +12,7 @@
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_FirebaseMLCommonSDKBaseFolder)FirebaseMLCommon.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC -lc++ -lsqlite3 -lz</LinkerFlags>
 			<Frameworks>Foundation LocalAuthentication QuartzCore Security</Frameworks>

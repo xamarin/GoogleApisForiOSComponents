@@ -14,6 +14,7 @@
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC</LinkerFlags>
 		</NativeReference>

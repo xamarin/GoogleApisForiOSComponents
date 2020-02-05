@@ -28,6 +28,7 @@
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_FirebaseCrashlyticsSDKBaseFolder)Crashlytics.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC -lc++ -lz</LinkerFlags>
 			<Frameworks>Security SystemConfiguration</Frameworks>
@@ -39,6 +40,7 @@
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_FabricSDKBaseFolder)Fabric.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC</LinkerFlags>
 			<Frameworks>UIKit</Frameworks>

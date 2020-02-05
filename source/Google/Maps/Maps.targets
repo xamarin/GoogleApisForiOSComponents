@@ -15,17 +15,20 @@
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC</LinkerFlags>
 			<Frameworks>Accelerate CoreImage CoreTelephony CoreText GLKit ImageIO OpenGLES QuartzCore Security</Frameworks>
 		</NativeReference>
 		<NativeReference Include="$(_GoogleMapsSDKBaseFolder)GoogleMapsCore.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC</LinkerFlags>
 		</NativeReference>
 		<NativeReference Include="$(_GoogleMapsBaseSDKBaseFolder)GoogleMapsBase.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC -lc++ -lz</LinkerFlags>
 			<Frameworks>CoreData CoreGraphics CoreLocation QuartzCore SystemConfiguration UIKit</Frameworks>

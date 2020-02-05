@@ -29,6 +29,7 @@
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_FirebaseMLVisionSDKBaseFolder)FirebaseMLVision.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC</LinkerFlags>
 			<Frameworks>CoreGraphics CoreMedia Foundation UIKit</Frameworks>
@@ -40,6 +41,7 @@
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_FirebaseMLVisionBarcodeModelSDKBaseFolder)FirebaseMLVisionBarcodeModel.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC</LinkerFlags>
 			<Frameworks>Foundation</Frameworks>
@@ -51,6 +53,7 @@
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)FirebaseMLVisionFaceModel.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC</LinkerFlags>
 			<Frameworks>Foundation</Frameworks>
@@ -62,6 +65,7 @@
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_FirebaseMLVisionLabelModelSDKBaseFolder)FirebaseMLVisionLabelModel.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC</LinkerFlags>
 			<Frameworks>Foundation</Frameworks>
@@ -73,6 +77,7 @@
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_FirebaseMLVisionTextModelSDKBaseFolder)FirebaseMLVisionTextModel.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC</LinkerFlags>
 			<Frameworks>CoreGraphics CoreMedia Foundation UIKit</Frameworks>
@@ -84,30 +89,35 @@
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_GoogleMobileVisionSDKBaseFolder)Detector\Frameworks\GoogleMobileVision.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC</LinkerFlags>
 			<Frameworks>Accelerate AVFoundation CoreImage CoreGraphics CoreMedia CoreVideo Foundation LocalAuthentication UIKit</Frameworks>
 		</NativeReference>
 		<NativeReference Include="$(_GoogleMobileVisionSDKBaseFolder)BarcodeDetector\Frameworks\BarcodeDetector.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC -lc++</LinkerFlags>
 			<Frameworks>Accelerate CoreImage CoreGraphics CoreMedia CoreVideo Foundation LocalAuthentication UIKit</Frameworks>
 		</NativeReference>
 		<NativeReference Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Frameworks\FaceDetector.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC -lc++</LinkerFlags>
 			<Frameworks>Accelerate CoreImage CoreGraphics CoreMedia CoreVideo Foundation LocalAuthentication UIKit</Frameworks>
 		</NativeReference>
 		<NativeReference Include="$(_GoogleMobileVisionSDKBaseFolder)LabelDetector\Frameworks\LabelDetector.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC -lc++</LinkerFlags>
 			<Frameworks>Accelerate CoreImage CoreGraphics CoreMedia CoreVideo Foundation LocalAuthentication UIKit</Frameworks>
 		</NativeReference>
 		<NativeReference Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Frameworks\TextDetector.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC -lc++</LinkerFlags>
 			<Frameworks>Accelerate CoreImage CoreGraphics CoreMedia CoreVideo Foundation LocalAuthentication UIKit</Frameworks>

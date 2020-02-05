@@ -26,18 +26,21 @@
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_GoogleTagManagerSDKBaseFolder)Frameworks\GoogleTagManager.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC -lsqlite3 -lz</LinkerFlags>
 			<Frameworks>AdSupport CoreTelephony JavaScriptCore SystemConfiguration UIKit</Frameworks>
 		</NativeReference>
 		<NativeReference Include="$(_GoogleUtilitiesLegacySDKBaseFolder)GoogleUtilitiesLegacy.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC -lz</LinkerFlags>
 			<Frameworks>AddressBook CoreGraphics</Frameworks>
 		</NativeReference>
 		<NativeReference Include="$(_GoogleSymbolUtilitiesSDKBaseFolder)GoogleSymbolUtilities.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC</LinkerFlags>
 		</NativeReference>

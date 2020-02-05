@@ -12,6 +12,7 @@
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_FirebasePerformanceMonitoringSDKBaseFolder)FirebasePerformance.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC -lc++</LinkerFlags>
 			<Frameworks>CoreTelephony QuartzCore SystemConfiguration</Frameworks>
