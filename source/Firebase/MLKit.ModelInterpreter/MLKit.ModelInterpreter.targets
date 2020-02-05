@@ -15,6 +15,7 @@
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_FirebaseMLModelInterpreterSDKBaseFolder)FirebaseMLModelInterpreter.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC</LinkerFlags>
 			<Frameworks>CoreGraphics Foundation QuartzCore</Frameworks>
@@ -26,6 +27,7 @@
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_TensorFlowLiteSDKBaseFolder)tensorflow_lite.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC -lc++</LinkerFlags>
 			<Frameworks>Accelerate</Frameworks>

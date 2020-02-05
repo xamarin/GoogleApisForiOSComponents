@@ -12,6 +12,7 @@
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_FirebaseInvitesSDKBaseFolder)Frameworks\FirebaseInvites.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC -lc++</LinkerFlags>
 			<Frameworks>AddressBook AssetsLibrary CoreMotion MessageUI QuartzCore CoreGraphics Security SystemConfiguration</Frameworks>

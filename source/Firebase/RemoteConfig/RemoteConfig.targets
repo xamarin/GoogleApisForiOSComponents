@@ -12,6 +12,7 @@
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_FirebaseRemoteConfigSDKBaseFolder)FirebaseRemoteConfig.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC -lsqlite3 -lz</LinkerFlags>
 			<Frameworks>Security StoreKit SystemConfiguration</Frameworks>

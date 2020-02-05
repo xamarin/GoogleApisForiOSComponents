@@ -16,6 +16,7 @@
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_GoogleMobileAdsSDKBaseFolder)GoogleMobileAds.framework">
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC -lz -lsqlite3</LinkerFlags>
 			<Frameworks>AudioToolbox AVFoundation CFNetwork CoreGraphics CoreMedia CoreTelephony CoreVideo MediaPlayer MessageUI MobileCoreServices QuartzCore Security StoreKit SystemConfiguration</Frameworks>
