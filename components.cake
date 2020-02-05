@@ -13,7 +13,7 @@ Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.Ins
 Artifact FIREBASE_MLKIT_ARTIFACT                   = new Artifact ("Firebase.MLKit",                  "0.13.0.2", "9.0", ComponentGroup.Firebase, csprojName: "MLKit");
 Artifact FIREBASE_MLKIT_COMMON_ARTIFACT            = new Artifact ("Firebase.MLKit.Common",           "0.13.0.1", "9.0", ComponentGroup.Firebase, csprojName: "MLKit.Common");
 Artifact FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT = new Artifact ("Firebase.MLKit.ModelInterpreter", "0.13.0.1", "9.0", ComponentGroup.Firebase, csprojName: "MLKit.ModelInterpreter");
-Artifact FIREBASE_PERFORMANCE_MONITORING_ARTIFACT  = new Artifact ("Firebase.PerformanceMonitoring",  "3.1.1.1",  "8.0", ComponentGroup.Firebase, csprojName: "PerformanceMonitoring");
+Artifact FIREBASE_PERFORMANCE_MONITORING_ARTIFACT  = new Artifact ("Firebase.PerformanceMonitoring",  "3.1.9",    "8.0", ComponentGroup.Firebase, csprojName: "PerformanceMonitoring");
 Artifact FIREBASE_REMOTE_CONFIG_ARTIFACT           = new Artifact ("Firebase.RemoteConfig",           "4.4.6",    "8.0", ComponentGroup.Firebase, csprojName: "RemoteConfig");
 Artifact FIREBASE_STORAGE_ARTIFACT                 = new Artifact ("Firebase.Storage",                "3.4.0.1",  "8.0", ComponentGroup.Firebase, csprojName: "Storage");
 
