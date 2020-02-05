@@ -29,7 +29,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Google.iOS.InstanceID][G.InstanceID.Name]                           | [1.2.1.16][G.InstanceID.Package]             |
 | [Xamarin.Google.iOS.Maps][G.Maps.Name]                                       | [3.7.0.0][G.Maps.Package]                    |
 | [Xamarin.Google.iOS.MobileAds][G.MobileAds.Name]                             | [7.53.1.0][G.MobileAds.Package]              |
-| [Xamarin.Google.iOS.Places][G.Places.Name]                                   | [3.5.0.1][G.Places.Package]                  |
+| [Xamarin.Google.iOS.Places][G.Places.Name]                                   | [3.7.0.0][G.Places.Package]                  |
 | [Xamarin.Google.iOS.PlayGames][G.PlayGames.Name]                             | [5.1.1.10][G.PlayGames.Package]              |
 | [Xamarin.Google.iOS.SignIn][G.SignIn.Name]                                   | [5.0.2.0][G.SignIn.Package]                  |
 | [Xamarin.Google.iOS.TagManager][G.TagManager.Name]                           | [7.1.2.1][G.TagManager.Package]              |
