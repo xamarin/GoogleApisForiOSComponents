@@ -46,9 +46,10 @@
   <ItemGroup>
     <NativeReference Include="..\..\..\externals\FirebaseAuth.framework">
       <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
       <Frameworks>Security SafariServices</Frameworks>
       <LinkerFlags>-ObjC -lc++ -lsqlite3 -lz</LinkerFlags>
-      <ForceLoad>True</ForceLoad>
     </NativeReference>
   </ItemGroup>
 
