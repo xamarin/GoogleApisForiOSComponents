@@ -103,6 +103,11 @@ namespace Google.Places
 		[NullAllowed]
 		[Export ("country", ArgumentSemantic.Copy)]
 		string Country { get; set; }
+
+		// @property (nonatomic) CLLocation * _Nullable origin;
+		[NullAllowed]
+		[Export ("origin", ArgumentSemantic.Assign)]
+		CLLocation Origin { get; set; }
 	}
 
 	// @interface GMSAutocompleteMatchFragment : NSObject
@@ -148,6 +153,11 @@ namespace Google.Places
 		[BindAs (typeof (PlaceType []))]
 		[Export ("types", ArgumentSemantic.Copy)]
 		NSString [] Types { get; }
+
+		// @property (readonly, nonatomic) NSNumber * _Nullable distanceMeters;
+		[NullAllowed]
+		[Export ("distanceMeters")]
+		NSNumber DistanceMeters { get; }
 	}
 
 	interface IAutocompleteResultsViewControllerDelegate
