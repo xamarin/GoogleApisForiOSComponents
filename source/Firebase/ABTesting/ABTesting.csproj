@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.ABTesting</RootNamespace>
     <AssemblyName>Firebase.ABTesting</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>3.0.0.1</FileVersion>
+    <FileVersion>3.1.2</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2004275</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>3.0.0.1</PackageVersion>
+    <PackageVersion>3.1.2</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -35,10 +35,22 @@
   </ItemGroup>
   
   <ItemGroup>
-    <None Include="ABTesting.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.ABTesting.targets" />
-    <None Include="ABTesting.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.ABTesting.targets" />
+    <None Include="..\..\..\externals\FirebaseABTesting.framework\FirebaseABTesting">
+      <Link>FirebaseABTesting.framework</Link>
+    </None>
+    <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseiosabtesting_128x128.png" Pack="True" PackagePath="firebaseiosabtesting_128x128.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <NativeReference Include="..\..\..\externals\FirebaseABTesting.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+			<ForceLoad>True</ForceLoad>
+			<LinkerFlags>-ObjC -lz</LinkerFlags>
+			<Frameworks>Security SystemConfiguration</Frameworks>
+    </NativeReference>
   </ItemGroup>
 
   <ItemGroup>
