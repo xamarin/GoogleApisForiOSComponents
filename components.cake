@@ -3,19 +3,19 @@ Artifact FIREBASE_AB_TESTING_ARTIFACT              = new Artifact ("Firebase.ABT
 Artifact FIREBASE_AD_MOB_ARTIFACT                  = new Artifact ("Firebase.AdMob",                  "7.53.1",   "8.0", ComponentGroup.Firebase, csprojName: "AdMob");
 Artifact FIREBASE_ANALYTICS_ARTIFACT               = new Artifact ("Firebase.Analytics",              "6.2.1",    "8.0", ComponentGroup.Firebase, csprojName: "Analytics");
 Artifact FIREBASE_AUTH_ARTIFACT                    = new Artifact ("Firebase.Auth",                   "6.4.2",    "8.0", ComponentGroup.Firebase, csprojName: "Auth");
-Artifact FIREBASE_CLOUD_FIRESTORE_ARTIFACT         = new Artifact ("Firebase.CloudFirestore",         "1.4.2.2",  "8.0", ComponentGroup.Firebase, csprojName: "CloudFirestore");
-Artifact FIREBASE_CLOUD_MESSAGING_ARTIFACT         = new Artifact ("Firebase.CloudMessaging",         "4.1.1.2",  "8.0", ComponentGroup.Firebase, csprojName: "CloudMessaging");
+Artifact FIREBASE_CLOUD_FIRESTORE_ARTIFACT         = new Artifact ("Firebase.CloudFirestore",         "1.4.2.2",  "8.0", ComponentGroup.Firebase, csprojName: "CloudFirestore", ignore: true);
+Artifact FIREBASE_CLOUD_MESSAGING_ARTIFACT         = new Artifact ("Firebase.CloudMessaging",         "4.1.1.2",  "8.0", ComponentGroup.Firebase, csprojName: "CloudMessaging", ignore: true);
 Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Core",                   "6.6.0",    "8.0", ComponentGroup.Firebase, csprojName: "Core");
 Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Crashlytics",            "3.14.0.2", "8.0", ComponentGroup.Firebase, csprojName: "Crashlytics");
-Artifact FIREBASE_DATABASE_ARTIFACT                = new Artifact ("Firebase.Database",               "6.0.0.1",  "8.0", ComponentGroup.Firebase, csprojName: "Database");
-Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.DynamicLinks",           "4.0.1.1",  "8.0", ComponentGroup.Firebase, csprojName: "DynamicLinks");
+Artifact FIREBASE_DATABASE_ARTIFACT                = new Artifact ("Firebase.Database",               "6.0.0.1",  "8.0", ComponentGroup.Firebase, csprojName: "Database", ignore: true);
+Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.DynamicLinks",           "4.0.1.1",  "8.0", ComponentGroup.Firebase, csprojName: "DynamicLinks", ignore: true);
 Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.InstanceID",             "4.3.0",    "8.0", ComponentGroup.Firebase, csprojName: "InstanceID");
-Artifact FIREBASE_MLKIT_ARTIFACT                   = new Artifact ("Firebase.MLKit",                  "0.13.0.2", "9.0", ComponentGroup.Firebase, csprojName: "MLKit");
-Artifact FIREBASE_MLKIT_COMMON_ARTIFACT            = new Artifact ("Firebase.MLKit.Common",           "0.13.0.1", "9.0", ComponentGroup.Firebase, csprojName: "MLKit.Common");
-Artifact FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT = new Artifact ("Firebase.MLKit.ModelInterpreter", "0.13.0.1", "9.0", ComponentGroup.Firebase, csprojName: "MLKit.ModelInterpreter");
+Artifact FIREBASE_MLKIT_ARTIFACT                   = new Artifact ("Firebase.MLKit",                  "0.13.0.2", "9.0", ComponentGroup.Firebase, csprojName: "MLKit", ignore: true);
+Artifact FIREBASE_MLKIT_COMMON_ARTIFACT            = new Artifact ("Firebase.MLKit.Common",           "0.13.0.1", "9.0", ComponentGroup.Firebase, csprojName: "MLKit.Common", ignore: true);
+Artifact FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT = new Artifact ("Firebase.MLKit.ModelInterpreter", "0.13.0.1", "9.0", ComponentGroup.Firebase, csprojName: "MLKit.ModelInterpreter", ignore: true);
 Artifact FIREBASE_PERFORMANCE_MONITORING_ARTIFACT  = new Artifact ("Firebase.PerformanceMonitoring",  "3.1.9",    "8.0", ComponentGroup.Firebase, csprojName: "PerformanceMonitoring");
 Artifact FIREBASE_REMOTE_CONFIG_ARTIFACT           = new Artifact ("Firebase.RemoteConfig",           "4.4.6",    "8.0", ComponentGroup.Firebase, csprojName: "RemoteConfig");
-Artifact FIREBASE_STORAGE_ARTIFACT                 = new Artifact ("Firebase.Storage",                "3.4.0.1",  "8.0", ComponentGroup.Firebase, csprojName: "Storage");
+Artifact FIREBASE_STORAGE_ARTIFACT                 = new Artifact ("Firebase.Storage",                "3.4.0.1",  "8.0", ComponentGroup.Firebase, csprojName: "Storage", ignore: true);
 
 // Google artifacts available to be built. These artifacts generate NuGets.
 Artifact GOOGLE_ANALYTICS_ARTIFACT    = new Artifact ("Google.Analytics",   "3.17.0.4", "5.0", ComponentGroup.Google, csprojName: "Analytics");

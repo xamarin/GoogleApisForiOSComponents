@@ -76,14 +76,18 @@ Task("prepare-artifacts")
 	var orderedArtifactsForSamples = new List<Artifact> ();
 
 	if (string.IsNullOrWhiteSpace (NAMES)) {
-		orderedArtifactsForBuild.AddRange (ARTIFACTS.Values);
-		orderedArtifactsForSamples.AddRange (ARTIFACTS.Values);
+		var artifacts = ARTIFACTS.Values.Where (a => !a.Ignore);
+		orderedArtifactsForBuild.AddRange (artifacts);
+		orderedArtifactsForSamples.AddRange (artifacts);
 	} else {
 		var names = NAMES.Split (',');
 		foreach (var name in names) {
 			if (!(ARTIFACTS.ContainsKey (name) && ARTIFACTS [name] is Artifact artifact))
 				throw new Exception($"The {name} component does not exist.");
 			
+			if (artifact.Ignore)
+				continue;
+
 			orderedArtifactsForBuild.Add (artifact);
 			AddArtifactDependencies (orderedArtifactsForBuild, artifact.Dependencies);
 			orderedArtifactsForSamples.Add (artifact);
