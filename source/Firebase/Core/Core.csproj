@@ -65,8 +65,8 @@
     <None Include="..\..\..\externals\nanopb.framework\nanopb">
       <Link>nanopb.framework</Link>
     </None>
-    <None Include="..\..\..\externals\Protobuf.framework\Protobuf">
-      <Link>Protobuf.framework</Link>
+    <None Include="..\..\..\externals\protobuf.framework\protobuf">
+      <Link>protobuf.framework</Link>
     </None>
     <None Include="Core.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.Core.targets" />
     <None Include="Core.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.Core.targets" />
@@ -134,7 +134,7 @@
       <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>
     </NativeReference>
-    <NativeReference Include="..\..\..\externals\Protobuf.framework">
+    <NativeReference Include="..\..\..\externals\protobuf.framework">
       <Kind>Framework</Kind>
       <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>
