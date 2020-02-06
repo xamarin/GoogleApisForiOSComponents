@@ -39,6 +39,15 @@ namespace Google.MobileAds
 	}
 
 	[Native]
+	public enum AdValuePrecision : long
+	{
+		Unknown = 0,
+		Estimated = 1,
+		PublisherProvided = 2,
+		Precise = 3
+	}
+
+	[Native]
 	public enum PresentationErrorCode : long
 	{
 		AdNotReady = 15,
