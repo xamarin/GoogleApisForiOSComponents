@@ -206,12 +206,15 @@ class Artifact : IEquatable<Artifact>
 	public int BuildOrder { get => Dependencies?.Length + 1 ?? 1; }
 	// The specs used in the Podfile.
 	public PodSpec [] PodSpecs { get; set; }
-	// Extra code to be added to Podfile
+	// Extra code to be added to Podfile.
 	public string [] ExtraPodfileLines { get; set; }
 	// The samples created to test the component.
 	public string [] Samples { get; set; }
+	// If true, this is ignored by the build.
+	// false by default.
+	public bool Ignore { get; set; }
 
-	public Artifact (string id, string nugetVersion, string minimunSupportedVersion, ComponentGroup componentType, string csprojName = null, Artifact [] dependencies = null, PodSpec [] podSpecs = null, string [] extraPodfileLines = null, string [] samples = null)
+	public Artifact (string id, string nugetVersion, string minimunSupportedVersion, ComponentGroup componentType, string csprojName = null, Artifact [] dependencies = null, PodSpec [] podSpecs = null, string [] extraPodfileLines = null, string [] samples = null, bool ignore = false)
 	{
 		Id = id;
 		NugetVersion = nugetVersion;
@@ -222,6 +225,7 @@ class Artifact : IEquatable<Artifact>
 		PodSpecs = podSpecs;
 		ExtraPodfileLines = extraPodfileLines;
 		Samples = samples;
+		Ignore = ignore;
 	}
 
 	public bool Equals (Artifact other)
