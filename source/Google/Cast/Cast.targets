@@ -2,19 +2,20 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_GoogleCastAssemblyName>Google.Cast, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleCastAssemblyName>
-		<_GoogleCastItemsFolder Condition="'$(GoogleCastBluetoothEnabled)'=='True'">GCst-4.4.6</_GoogleCastItemsFolder>
-		<_GoogleCastItemsFolder Condition="'$(GoogleCastBluetoothEnabled)'!='True'">GCstNB-4.4.6</_GoogleCastItemsFolder>
+		<_GoogleCastVersion>4.4.6</_GoogleCastVersion>
+		<_GoogleCastItemsFolder Condition="'$(GoogleCastBluetoothEnabled)'=='True'">GCst-$(_GoogleCastVersion)</_GoogleCastItemsFolder>
+		<_GoogleCastItemsFolder Condition="'$(GoogleCastBluetoothEnabled)'!='True'">GCstNB-$(_GoogleCastVersion)</_GoogleCastItemsFolder>
 		<_GoogleCastFrameworks Condition="'$(GoogleCastBluetoothEnabled)'=='True'">Accelerate AudioToolbox AVFoundation CFNetwork CoreBluetooth CoreData CoreGraphics CoreMedia CoreText Foundation MediaAccessibility MediaPlayer QuartzCore Security SystemConfiguration UIKit</_GoogleCastFrameworks>
 		<_GoogleCastFrameworks Condition="'$(GoogleCastBluetoothEnabled)'!='True'">Accelerate AudioToolbox AVFoundation CFNetwork CoreData CoreGraphics CoreMedia CoreText Foundation MediaAccessibility MediaPlayer QuartzCore Security SystemConfiguration UIKit</_GoogleCastFrameworks>
-		<_GoogleCastUrl Condition="'$(GoogleCastBluetoothEnabled)'=='True'">https://dl.google.com/dl/chromecast/sdk/ios/GoogleCastSDK-ios-4.4.6_dynamic.zip</_GoogleCastUrl>		
-		<_GoogleCastUrl Condition="'$(GoogleCastBluetoothEnabled)'!='True'">https://dl.google.com/dl/chromecast/sdk/ios/GoogleCastSDK-ios-no-bluetooth-4.4.6_dynamic.zip</_GoogleCastUrl>		
+		<_GoogleCastUrl Condition="'$(GoogleCastBluetoothEnabled)'=='True'">https://dl.google.com/dl/chromecast/sdk/ios/GoogleCastSDK-ios-$(_GoogleCastVersion)_dynamic.zip</_GoogleCastUrl>		
+		<_GoogleCastUrl Condition="'$(GoogleCastBluetoothEnabled)'!='True'">https://dl.google.com/dl/chromecast/sdk/ios/GoogleCastSDK-ios-no-bluetooth-$(_GoogleCastVersion)_dynamic.zip</_GoogleCastUrl>		
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GoogleCastItemsFolder)">
 			<Url>$(_GoogleCastUrl)</Url>
 			<Kind>Zip</Kind>
 		</XamarinBuildDownload>
-		<NativeReference Include="$(XamarinBuildDownloadDir)$(_GoogleCastItemsFolder)\GoogleCastSDK-ios-4.4.5_dynamic\GoogleCast.framework">
+		<NativeReference Include="$(XamarinBuildDownloadDir)$(_GoogleCastItemsFolder)\GoogleCastSDK-ios-$(_GoogleCastVersion)_dynamic\GoogleCast.framework">
 			<IsCxx>False</IsCxx>
 			<LinkerFlags>-lc++</LinkerFlags>
 			<Frameworks>$(_GoogleCastFrameworks)</Frameworks>
