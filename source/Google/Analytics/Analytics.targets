@@ -4,6 +4,7 @@
 	<PropertyGroup>
 		<_GoogleAnalyticsAssemblyName>Google.Analytics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleAnalyticsAssemblyName>
 		<_GoogleAnalyticsItemsFolder>GAnlytcs-3.17</_GoogleAnalyticsItemsFolder>
+		<_GoogleAnalyticsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleAnalyticsItemsFolder)\Libraries\</_GoogleAnalyticsSDKBaseFolder>
 	</PropertyGroup>
 
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
@@ -11,21 +12,13 @@
 			<Url>https://www.gstatic.com/cpdc/5cd71dd2f756bb01/GoogleAnalytics-3.17.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
-		<XamarinBuildRestoreResources Include="_GoogleAnalyticsItems"/>
+		<NativeReference Include="$(_GoogleAnalyticsSDKBaseFolder)libGoogleAnalytics.a">
+			<Kind>Static</Kind>
+			<SmartLink>True</SmartLink>
+			<ForceLoad>True</ForceLoad>
+			<IsCxx>True</IsCxx>
+			<LinkerFlags>-ObjC -lz -lsqlite3</LinkerFlags>
+			<Frameworks>CoreData SystemConfiguration</Frameworks>
+		</NativeReference>
 	</ItemGroup>
-
-	<Target Name="_GoogleAnalyticsItems">
-
-		<PropertyGroup>
-			<_GoogleAnalyticsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleAnalyticsItemsFolder)\Libraries\</_GoogleAnalyticsSDKBaseFolder>
-		</PropertyGroup>
-		
-		<ItemGroup>
-			<RestoreAssemblyResource Include="$(_GoogleAnalyticsSDKBaseFolder)libGoogleAnalytics.a">
-				<LogicalName>libGoogleAnalytics.a</LogicalName>
-				<AssemblyName>$(_GoogleAnalyticsAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-		</ItemGroup>
-		
-	</Target>
 </Project>
