@@ -3,164 +3,129 @@
 	<PropertyGroup>
 		<_GoogleAppIndexingAssemblyName>Google.AppIndexing, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleAppIndexingAssemblyName>
 		<_GoogleAppIndexingItemsFolder>GAppIndxng-2.0.3</_GoogleAppIndexingItemsFolder>
+		<_GoogleAppIndexingSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\</_GoogleAppIndexingSDKBaseFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GoogleAppIndexingItemsFolder)">
 			<Url>https://www.gstatic.com/cpdc/ff375df7e304b800-GoogleAppIndexing-2.0.3.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
-		<XamarinBuildRestoreResources Include="_GoogleAppIndexingItems" />
+		<NativeReference Include="$(_GoogleAppIndexingSDKBaseFolder)Frameworks\GoogleAppIndexing.framework">
+			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
+			<ForceLoad>True</ForceLoad>
+			<LinkerFlags>-ObjC</LinkerFlags>
+			<Frameworks>CoreText</Frameworks>
+			<WeakFrameworks>SafariServices</WeakFrameworks>
+		</NativeReference>
+
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\Info.plist">
+			<LogicalName>GoogleAppIndexingResources.bundle\Info.plist</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\Roboto-Regular.ttf">
+			<LogicalName>GoogleAppIndexingResources.bundle\Roboto-Regular.ttf</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\ar.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\ar.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\ca.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\ca.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\cs.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\cs.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\da.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\da.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\de.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\de.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\el.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\el.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\en-GB.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\en-GB.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\en.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\en.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\es.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\es.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\fi.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\fi.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\fr.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\fr.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\hr.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\hr.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\hu.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\hu.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\id.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\id.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\it.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\it.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\iw.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\iw.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\ja.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\ja.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\ko.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\ko.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\ms.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\ms.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\nl.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\nl.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\no.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\no.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\pl.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\pl.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\pt-BR.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\pt-BR.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\pt-PT.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\pt-PT.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\ro.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\ro.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\ru.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\ru.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\sk.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\sk.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\sv.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\sv.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\th.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\th.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\tr.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\tr.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\uk.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\uk.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\vi.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\vi.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\zh-CN.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\zh-CN.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\zh-TW.lproj\Localizable.strings">
+			<LogicalName>GoogleAppIndexingResources.bundle\zh-TW.lproj\Localizable.strings</LogicalName>
+		</BundleResource>
 	</ItemGroup>
-	<Target Name="_GoogleAppIndexingItems">
-		<ItemGroup>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Frameworks\GoogleAppIndexing.framework\GoogleAppIndexing">
-				<LogicalName>GoogleAppIndexing</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\Info.plist">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fInfo.plist</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\Roboto-Regular.ttf">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fRoboto-Regular.ttf</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\ar.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_far.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\ca.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fca.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\cs.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fcs.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\da.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fda.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\de.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fde.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\el.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fel.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\en-GB.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fen-GB.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\en.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fen.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\es.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fes.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\fi.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_ffi.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\fr.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_ffr.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\hr.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fhr.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\hu.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fhu.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\id.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fid.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\it.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fit.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\iw.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fiw.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\ja.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fja.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\ko.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fko.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\ms.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fms.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\nl.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fnl.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\no.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fno.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\pl.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fpl.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\pt-BR.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fpt-BR.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\pt-PT.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fpt-PT.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\ro.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fro.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\ru.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fru.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\sk.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fsk.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\sv.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fsv.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\th.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fth.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\tr.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_ftr.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\uk.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fuk.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\vi.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fvi.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\zh-CN.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fzh-CN.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleAppIndexingItemsFolder)\Resources\GoogleAppIndexingResources.bundle\zh-TW.lproj\Localizable.strings">
-				<LogicalName>__monotouch_content_GoogleAppIndexingResources.bundle_fzh-TW.lproj_fLocalizable.strings</LogicalName>
-				<AssemblyName>$(_GoogleAppIndexingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-		</ItemGroup>
-	</Target>
 </Project>

@@ -3,6 +3,7 @@
 	<PropertyGroup>
 		<_FirebaseCrashReportingAssemblyName>Firebase.CrashReporting, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseCrashReportingAssemblyName>
 		<_FirebaseCrashReportingItemsFolder>FCrshR-2.0.0</_FirebaseCrashReportingItemsFolder>
+		<_FirebaseCrashReportingSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseCrashReportingItemsFolder)\Frameworks\</_FirebaseCrashReportingSDKBaseFolder>
 		<_FirebaseCrashReportingScriptsMasterAfterTargets>_XamarinBuildDownloadMasterTarget</_FirebaseCrashReportingScriptsMasterAfterTargets>
 		<_FirebaseCrashReportingScriptsMasterDependsOnTargets>_FirebaseCrashReportingCreateScriptsDirectory;_FirebaseCrashReportingCopyScripts</_FirebaseCrashReportingScriptsMasterDependsOnTargets>
 		<_FirebaseCrashReportingScriptsFolder>scripts/FirebaseCrashReporting/</_FirebaseCrashReportingScriptsFolder>
@@ -12,28 +13,21 @@
 			<Url>https://dl.google.com/dl/cpdc/101d1f8b49dc2f45/FirebaseCrash-2.0.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
+		<NativeReference Include="$(_FirebaseCrashReportingSDKBaseFolder)FirebaseCrash.framework">
+			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
+			<ForceLoad>True</ForceLoad>
+			<LinkerFlags>-ObjC -lc++</LinkerFlags>
+			<Frameworks>CoreTelephony SystemConfiguration</Frameworks>
+		</NativeReference>
+
 		<XamarinBuildCopyResources 
 				Include="$(XamarinBuildDownloadDir)$(_FirebaseCrashReportingItemsFolder)/*;
 					$(MSBuildThisFileDirectory)../**/xamarin_upload_symbols.sh;"
 				Exclude="$(XamarinBuildDownloadDir)$(_FirebaseCrashReportingItemsFolder)/README.md;
 					$(XamarinBuildDownloadDir)$(_FirebaseCrashReportingItemsFolder)/upload-sym;
 					$(XamarinBuildDownloadDir)$(_FirebaseCrashReportingItemsFolder)/upload-sym.sh;"/>
-		<XamarinBuildRestoreResources Include="_FirebaseCrashReportingItems" />
 	</ItemGroup>
-	<Target Name="_FirebaseCrashReportingItems">
-
-		<PropertyGroup>
-			<_FirebaseCrashReportingSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseCrashReportingItemsFolder)\Frameworks\</_FirebaseCrashReportingSDKBaseFolder>
-		</PropertyGroup>
-
-		<ItemGroup>
-			<RestoreAssemblyResource Include="$(_FirebaseCrashReportingSDKBaseFolder)FirebaseCrash.framework\FirebaseCrash">
-				<LogicalName>FirebaseCrash</LogicalName>
-				<AssemblyName>$(_FirebaseCrashReportingAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-		</ItemGroup>
-
-	</Target>
 	<Target Name="_FirebaseCrashReportingScriptsMasterTarget"
 			Condition="'$(_FirebaseCrashReportingScriptsMasterDependsOnTargets)'!=''"
 			AfterTargets="$(_FirebaseCrashReportingScriptsMasterAfterTargets)"

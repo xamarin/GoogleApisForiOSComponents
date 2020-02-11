@@ -123,96 +123,69 @@
 			<Frameworks>Accelerate CoreImage CoreGraphics CoreMedia CoreVideo Foundation LocalAuthentication UIKit</Frameworks>
 		</NativeReference>
 		
-		<XamarinBuildRestoreResources Include="_FirebaseMLKitItems"/>
+		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\BCLjoy_200.emd">
+			<LogicalName>GoogleMVFaceDetectorResources.bundle\BCLjoy_200.emd</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\BCLlefteyeclosed_200.emd">
+			<LogicalName>GoogleMVFaceDetectorResources.bundle\BCLlefteyeclosed_200.emd</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\BCLrighteyeclosed_200.emd">
+			<LogicalName>GoogleMVFaceDetectorResources.bundle\BCLrighteyeclosed_200.emd</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\blazeface.tfl">
+			<LogicalName>GoogleMVFaceDetectorResources.bundle\blazeface.tfl</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\contours.tfl">
+			<LogicalName>GoogleMVFaceDetectorResources.bundle\contours.tfl</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\fssd_25_8bit_gray_v1.tflite">
+			<LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_25_8bit_gray_v1.tflite</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\fssd_25_8bit_v1.tflite">
+			<LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_25_8bit_v1.tflite</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\fssd_100_8bit_gray_v1.tflite">
+			<LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_100_8bit_gray_v1.tflite</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\fssd_100_8bit_v1.tflite">
+			<LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_100_8bit_v1.tflite</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\LMprec_600.emd">
+			<LogicalName>GoogleMVFaceDetectorResources.bundle\LMprec_600.emd</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\MFT_fssd_accgray.pb">
+			<LogicalName>GoogleMVFaceDetectorResources.bundle\MFT_fssd_accgray.pb</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\MFT_fssd_fastgray.pb">
+			<LogicalName>GoogleMVFaceDetectorResources.bundle\MFT_fssd_fastgray.pb</LogicalName>
+		</BundleResource>
+		
+		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\assist_recognizer_0.2.bincfg">
+			<LogicalName>GoogleMVTextDetectorResources.bundle\assist_recognizer_0.2.bincfg</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\nugget_stats_1.0.dat">
+			<LogicalName>GoogleMVTextDetectorResources.bundle\nugget_stats_1.0.dat</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\region_proposal_text_detector_tfmini_gray_quantized.bincfg">
+			<LogicalName>GoogleMVTextDetectorResources.bundle\region_proposal_text_detector_tfmini_gray_quantized.bincfg</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\rpn_lstm_engine_tfmini.bincfg">
+			<LogicalName>GoogleMVTextDetectorResources.bundle\rpn_lstm_engine_tfmini.bincfg</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\seastar_lstm_recognizer_latin_0.2.class_lst">
+			<LogicalName>GoogleMVTextDetectorResources.bundle\seastar_lstm_recognizer_latin_0.2.class_lst</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\tfmini_latin_conv_model.data_fp16">
+			<LogicalName>GoogleMVTextDetectorResources.bundle\tfmini_latin_conv_model.data_fp16</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\tfmini_latin_lstm_model.data_fp16">
+			<LogicalName>GoogleMVTextDetectorResources.bundle\tfmini_latin_lstm_model.data_fp16</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\tfmini_lstm_recognizer_latin_0.2_batch24.bincfg">
+			<LogicalName>GoogleMVTextDetectorResources.bundle\tfmini_lstm_recognizer_latin_0.2_batch24.bincfg</LogicalName>
+		</BundleResource>
+		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\tfmini_rpn_detector_space_to_depth_gray_quantized_v2_model.data">
+			<LogicalName>GoogleMVTextDetectorResources.bundle\tfmini_rpn_detector_space_to_depth_gray_quantized_v2_model.data</LogicalName>
+		</BundleResource>
 	</ItemGroup>
-	
-	<Target Name="_FirebaseMLKitItems">
-		<ItemGroup>
-			<RestoreAssemblyResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\BCLjoy_200.emd">
-				<LogicalName>__monotouch_content_GoogleMVFaceDetectorResources.bundle_fBCLjoy__200.emd</LogicalName>
-				<AssemblyName>$(_FirebaseMLKitAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\BCLlefteyeclosed_200.emd">
-				<LogicalName>__monotouch_content_GoogleMVFaceDetectorResources.bundle_fBCLlefteyeclosed__200.emd</LogicalName>
-				<AssemblyName>$(_FirebaseMLKitAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\BCLrighteyeclosed_200.emd">
-				<LogicalName>__monotouch_content_GoogleMVFaceDetectorResources.bundle_fBCLrighteyeclosed__200.emd</LogicalName>
-				<AssemblyName>$(_FirebaseMLKitAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\blazeface.tfl">
-				<LogicalName>__monotouch_content_GoogleMVFaceDetectorResources.bundle_fblazeface.tfl</LogicalName>
-				<AssemblyName>$(_FirebaseMLKitAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\contours.tfl">
-				<LogicalName>__monotouch_content_GoogleMVFaceDetectorResources.bundle_fcontours.tfl</LogicalName>
-				<AssemblyName>$(_FirebaseMLKitAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\fssd_25_8bit_gray_v1.tflite">
-				<LogicalName>__monotouch_content_GoogleMVFaceDetectorResources.bundle_ffssd__25__8bit__gray__v1.tflite</LogicalName>
-				<AssemblyName>$(_FirebaseMLKitAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\fssd_25_8bit_v1.tflite">
-				<LogicalName>__monotouch_content_GoogleMVFaceDetectorResources.bundle_ffssd__25__8bit__v1.tflite</LogicalName>
-				<AssemblyName>$(_FirebaseMLKitAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\fssd_100_8bit_gray_v1.tflite">
-				<LogicalName>__monotouch_content_GoogleMVFaceDetectorResources.bundle_ffssd__100__8bit__gray__v1.tflite</LogicalName>
-				<AssemblyName>$(_FirebaseMLKitAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\fssd_100_8bit_v1.tflite">
-				<LogicalName>__monotouch_content_GoogleMVFaceDetectorResources.bundle_ffssd__100__8bit__v1.tflite</LogicalName>
-				<AssemblyName>$(_FirebaseMLKitAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\LMprec_600.emd">
-				<LogicalName>__monotouch_content_GoogleMVFaceDetectorResources.bundle_fLMprec__600.emd</LogicalName>
-				<AssemblyName>$(_FirebaseMLKitAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\MFT_fssd_accgray.pb">
-				<LogicalName>__monotouch_content_GoogleMVFaceDetectorResources.bundle_fMFT__fssd__accgray.pb</LogicalName>
-				<AssemblyName>$(_FirebaseMLKitAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\MFT_fssd_fastgray.pb">
-				<LogicalName>__monotouch_content_GoogleMVFaceDetectorResources.bundle_fMFT__fssd__fastgray.pb</LogicalName>
-				<AssemblyName>$(_FirebaseMLKitAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			
-			<RestoreAssemblyResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\assist_recognizer_0.2.bincfg">
-				<LogicalName>__monotouch_content_GoogleMVTextDetectorResources.bundle_fassist__recognizer__0.2.bincfg</LogicalName>
-				<AssemblyName>$(_FirebaseMLKitAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\nugget_stats_1.0.dat">
-				<LogicalName>__monotouch_content_GoogleMVTextDetectorResources.bundle_fnugget__stats__1.0.dat</LogicalName>
-				<AssemblyName>$(_FirebaseMLKitAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\region_proposal_text_detector_tfmini_gray_quantized.bincfg">
-				<LogicalName>__monotouch_content_GoogleMVTextDetectorResources.bundle_fregion__proposal__text__detector__tfmini__gray__quantized.bincfg</LogicalName>
-				<AssemblyName>$(_FirebaseMLKitAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\rpn_lstm_engine_tfmini.bincfg">
-				<LogicalName>__monotouch_content_GoogleMVTextDetectorResources.bundle_frpn__lstm__engine__tfmini.bincfg</LogicalName>
-				<AssemblyName>$(_FirebaseMLKitAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\seastar_lstm_recognizer_latin_0.2.class_lst">
-				<LogicalName>__monotouch_content_GoogleMVTextDetectorResources.bundle_fseastar__lstm__recognizer__latin__0.2.class__lst</LogicalName>
-				<AssemblyName>$(_FirebaseMLKitAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\tfmini_latin_conv_model.data_fp16">
-				<LogicalName>__monotouch_content_GoogleMVTextDetectorResources.bundle_ftfmini__latin__conv__model.data__fp16</LogicalName>
-				<AssemblyName>$(_FirebaseMLKitAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\tfmini_latin_lstm_model.data_fp16">
-				<LogicalName>__monotouch_content_GoogleMVTextDetectorResources.bundle_ftfmini__latin__lstm__model.data__fp16</LogicalName>
-				<AssemblyName>$(_FirebaseMLKitAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\tfmini_lstm_recognizer_latin_0.2_batch24.bincfg">
-				<LogicalName>__monotouch_content_GoogleMVTextDetectorResources.bundle_ftfmini__lstm__recognizer__latin__0.2__batch24.bincfg</LogicalName>
-				<AssemblyName>$(_FirebaseMLKitAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\tfmini_rpn_detector_space_to_depth_gray_quantized_v2_model.data">
-				<LogicalName>__monotouch_content_GoogleMVTextDetectorResources.bundle_ftfmini__rpn__detector__space__to__depth__gray__quantized__v2__model.data</LogicalName>
-				<AssemblyName>$(_FirebaseMLKitAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-		</ItemGroup>
-	</Target>
 </Project>

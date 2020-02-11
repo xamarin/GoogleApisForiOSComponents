@@ -2,30 +2,33 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_GoogleInstanceIDAssemblyName>Google.InstanceID, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleInstanceIDAssemblyName>
-		<_GGLInstanceIDId>GGLInstncID-1.2.1</_GGLInstanceIDId>
-		<_GoogleIIDIPhoneUtilitiesId>GIPhnU-1.2.0</_GoogleIIDIPhoneUtilitiesId>
+		<_GGLInstanceIDItemsFolder>GGLInstncID-1.2.1</_GGLInstanceIDItemsFolder>
+		<_GoogleIIDIPhoneUtilitiesItemsFolder>GIPhnU-1.2.0</_GoogleIIDIPhoneUtilitiesItemsFolder>
+		<_GGLInstanceIDSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GGLInstanceIDItemsFolder)\Libraries\</_GGLInstanceIDSDKBaseFolder>
+		<_GoogleIIDIPhoneUtilitiesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleIIDIPhoneUtilitiesItemsFolder)\Libraries\</_GoogleIIDIPhoneUtilitiesSDKBaseFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
-		<XamarinBuildRestoreResources Include="_GoogleInstanceIDItems" />
-		<XamarinBuildDownload Include="$(_GGLInstanceIDId)">
+		<XamarinBuildDownload Include="$(_GGLInstanceIDItemsFolder)">
 			<Url>https://www.gstatic.com/cpdc/170d1b170ae1d063-GGLInstanceID-1.2.1.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
-		<XamarinBuildDownload Include="$(_GoogleIIDIPhoneUtilitiesId)">
+		<NativeReference Include="$(_GGLInstanceIDSDKBaseFolder)libGGLInstanceIDLib.a">
+			<Kind>Static</Kind>
+			<SmartLink>True</SmartLink>
+			<ForceLoad>True</ForceLoad>
+			<LinkerFlags>-ObjC -lsqlite3</LinkerFlags>
+			<Frameworks>AddressBook Foundation</Frameworks>
+		</NativeReference>
+
+		<XamarinBuildDownload Include="$(_GoogleIIDIPhoneUtilitiesItemsFolder)">
 			<Url>https://www.gstatic.com/cpdc/4730cbb3191ed1e7-GoogleIPhoneUtilities-1.2.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
+		<NativeReference Include="$(_GoogleIIDIPhoneUtilitiesSDKBaseFolder)libGIP_Locale.a">
+			<Kind>Static</Kind>
+			<SmartLink>True</SmartLink>
+			<ForceLoad>True</ForceLoad>
+			<LinkerFlags>-ObjC</LinkerFlags>
+		</NativeReference>
 	</ItemGroup>
-	<Target Name="_GoogleInstanceIDItems">
-		<ItemGroup>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GGLInstanceIDId)\Libraries\libGGLInstanceIDLib.a">
-				<LogicalName>libGGLInstanceIDLib.a</LogicalName>
-				<AssemblyName>$(_GoogleInstanceIDAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-			<RestoreAssemblyResource Include="$(XamarinBuildDownloadDir)$(_GoogleIIDIPhoneUtilitiesId)\Libraries\libGIP_Locale.a">
-				<LogicalName>libGIP_Locale.a</LogicalName>
-				<AssemblyName>$(_GoogleInstanceIDAssemblyName)</AssemblyName>
-			</RestoreAssemblyResource>
-		</ItemGroup>
-	</Target>
 </Project>
