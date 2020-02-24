@@ -122,70 +122,74 @@
 			<LinkerFlags>-ObjC -lc++</LinkerFlags>
 			<Frameworks>Accelerate CoreImage CoreGraphics CoreMedia CoreVideo Foundation LocalAuthentication UIKit</Frameworks>
 		</NativeReference>
-		
-		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\BCLjoy_200.emd">
-			<LogicalName>GoogleMVFaceDetectorResources.bundle\BCLjoy_200.emd</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\BCLlefteyeclosed_200.emd">
-			<LogicalName>GoogleMVFaceDetectorResources.bundle\BCLlefteyeclosed_200.emd</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\BCLrighteyeclosed_200.emd">
-			<LogicalName>GoogleMVFaceDetectorResources.bundle\BCLrighteyeclosed_200.emd</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\blazeface.tfl">
-			<LogicalName>GoogleMVFaceDetectorResources.bundle\blazeface.tfl</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\contours.tfl">
-			<LogicalName>GoogleMVFaceDetectorResources.bundle\contours.tfl</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\fssd_25_8bit_gray_v1.tflite">
-			<LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_25_8bit_gray_v1.tflite</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\fssd_25_8bit_v1.tflite">
-			<LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_25_8bit_v1.tflite</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\fssd_100_8bit_gray_v1.tflite">
-			<LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_100_8bit_gray_v1.tflite</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\fssd_100_8bit_v1.tflite">
-			<LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_100_8bit_v1.tflite</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\LMprec_600.emd">
-			<LogicalName>GoogleMVFaceDetectorResources.bundle\LMprec_600.emd</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\MFT_fssd_accgray.pb">
-			<LogicalName>GoogleMVFaceDetectorResources.bundle\MFT_fssd_accgray.pb</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\MFT_fssd_fastgray.pb">
-			<LogicalName>GoogleMVFaceDetectorResources.bundle\MFT_fssd_fastgray.pb</LogicalName>
-		</BundleResource>
-		
-		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\assist_recognizer_0.2.bincfg">
-			<LogicalName>GoogleMVTextDetectorResources.bundle\assist_recognizer_0.2.bincfg</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\nugget_stats_1.0.dat">
-			<LogicalName>GoogleMVTextDetectorResources.bundle\nugget_stats_1.0.dat</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\region_proposal_text_detector_tfmini_gray_quantized.bincfg">
-			<LogicalName>GoogleMVTextDetectorResources.bundle\region_proposal_text_detector_tfmini_gray_quantized.bincfg</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\rpn_lstm_engine_tfmini.bincfg">
-			<LogicalName>GoogleMVTextDetectorResources.bundle\rpn_lstm_engine_tfmini.bincfg</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\seastar_lstm_recognizer_latin_0.2.class_lst">
-			<LogicalName>GoogleMVTextDetectorResources.bundle\seastar_lstm_recognizer_latin_0.2.class_lst</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\tfmini_latin_conv_model.data_fp16">
-			<LogicalName>GoogleMVTextDetectorResources.bundle\tfmini_latin_conv_model.data_fp16</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\tfmini_latin_lstm_model.data_fp16">
-			<LogicalName>GoogleMVTextDetectorResources.bundle\tfmini_latin_lstm_model.data_fp16</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\tfmini_lstm_recognizer_latin_0.2_batch24.bincfg">
-			<LogicalName>GoogleMVTextDetectorResources.bundle\tfmini_lstm_recognizer_latin_0.2_batch24.bincfg</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\tfmini_rpn_detector_space_to_depth_gray_quantized_v2_model.data">
-			<LogicalName>GoogleMVTextDetectorResources.bundle\tfmini_rpn_detector_space_to_depth_gray_quantized_v2_model.data</LogicalName>
-		</BundleResource>
+		<XamarinBuildRestoreResources Include="_FMLVsnDownloadedItems" />
 	</ItemGroup>
+	<Target Name="_FMLVsnDownloadedItems">
+		<ItemGroup>
+			<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\BCLjoy_200.emd">
+				<LogicalName>GoogleMVFaceDetectorResources.bundle\BCLjoy_200.emd</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\BCLlefteyeclosed_200.emd">
+				<LogicalName>GoogleMVFaceDetectorResources.bundle\BCLlefteyeclosed_200.emd</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\BCLrighteyeclosed_200.emd">
+				<LogicalName>GoogleMVFaceDetectorResources.bundle\BCLrighteyeclosed_200.emd</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\blazeface.tfl">
+				<LogicalName>GoogleMVFaceDetectorResources.bundle\blazeface.tfl</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\contours.tfl">
+				<LogicalName>GoogleMVFaceDetectorResources.bundle\contours.tfl</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\fssd_25_8bit_gray_v1.tflite">
+				<LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_25_8bit_gray_v1.tflite</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\fssd_25_8bit_v1.tflite">
+				<LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_25_8bit_v1.tflite</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\fssd_100_8bit_gray_v1.tflite">
+				<LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_100_8bit_gray_v1.tflite</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\fssd_100_8bit_v1.tflite">
+				<LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_100_8bit_v1.tflite</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\LMprec_600.emd">
+				<LogicalName>GoogleMVFaceDetectorResources.bundle\LMprec_600.emd</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\MFT_fssd_accgray.pb">
+				<LogicalName>GoogleMVFaceDetectorResources.bundle\MFT_fssd_accgray.pb</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)FaceDetector\Resources\GoogleMVFaceDetectorResources\MFT_fssd_fastgray.pb">
+				<LogicalName>GoogleMVFaceDetectorResources.bundle\MFT_fssd_fastgray.pb</LogicalName>
+			</BundleResource>
+			
+			<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\assist_recognizer_0.2.bincfg">
+				<LogicalName>GoogleMVTextDetectorResources.bundle\assist_recognizer_0.2.bincfg</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\nugget_stats_1.0.dat">
+				<LogicalName>GoogleMVTextDetectorResources.bundle\nugget_stats_1.0.dat</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\region_proposal_text_detector_tfmini_gray_quantized.bincfg">
+				<LogicalName>GoogleMVTextDetectorResources.bundle\region_proposal_text_detector_tfmini_gray_quantized.bincfg</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\rpn_lstm_engine_tfmini.bincfg">
+				<LogicalName>GoogleMVTextDetectorResources.bundle\rpn_lstm_engine_tfmini.bincfg</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\seastar_lstm_recognizer_latin_0.2.class_lst">
+				<LogicalName>GoogleMVTextDetectorResources.bundle\seastar_lstm_recognizer_latin_0.2.class_lst</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\tfmini_latin_conv_model.data_fp16">
+				<LogicalName>GoogleMVTextDetectorResources.bundle\tfmini_latin_conv_model.data_fp16</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\tfmini_latin_lstm_model.data_fp16">
+				<LogicalName>GoogleMVTextDetectorResources.bundle\tfmini_latin_lstm_model.data_fp16</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\tfmini_lstm_recognizer_latin_0.2_batch24.bincfg">
+				<LogicalName>GoogleMVTextDetectorResources.bundle\tfmini_lstm_recognizer_latin_0.2_batch24.bincfg</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMobileVisionSDKBaseFolder)TextDetector\Resources\GoogleMVTextDetectorResources\tfmini_rpn_detector_space_to_depth_gray_quantized_v2_model.data">
+				<LogicalName>GoogleMVTextDetectorResources.bundle\tfmini_rpn_detector_space_to_depth_gray_quantized_v2_model.data</LogicalName>
+			</BundleResource>
+		</ItemGroup>
+	</Target>
 </Project>

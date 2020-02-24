@@ -18,180 +18,196 @@
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC</LinkerFlags>
 		</NativeReference>
-
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\Info.plist">
-			<LogicalName>GooglePlaces.bundle\Info.plist</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\oss_licenses_places.txt.gz">
-			<LogicalName>GooglePlaces.bundle\oss_licenses_places.txt.gz</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\build-with-google-black.png">
-			<LogicalName>GooglePlaces.bundle\build-with-google-black.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\build-with-google-black%402x.png">
-			<LogicalName>GooglePlaces.bundle\build-with-google-black%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\build-with-google-black%403x.png">
-			<LogicalName>GooglePlaces.bundle\build-with-google-black%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\build-with-google-white.png">
-			<LogicalName>GooglePlaces.bundle\build-with-google-white.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\build-with-google-white%402x.png">
-			<LogicalName>GooglePlaces.bundle\build-with-google-white%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\build-with-google-white%403x.png">
-			<LogicalName>GooglePlaces.bundle\build-with-google-white%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud.png">
-			<LogicalName>GooglePlaces.bundle\sad_cloud.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud%402x.png">
-			<LogicalName>GooglePlaces.bundle\sad_cloud%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud%403x.png">
-			<LogicalName>GooglePlaces.bundle\sad_cloud%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud_dark.png">
-			<LogicalName>GooglePlaces.bundle\sad_cloud_dark.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud_dark%402x.png">
-			<LogicalName>GooglePlaces.bundle\sad_cloud_dark%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud_dark%403x.png">
-			<LogicalName>GooglePlaces.bundle\sad_cloud_dark%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\ar.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\ar.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\ca.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\ca.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\cs.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\cs.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\da.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\da.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\de.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\de.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\el.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\el.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\en.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\en.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\en_AU.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\en_AU.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\en_GB.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\en_GB.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\en_IN.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\en_IN.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\es.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\es.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\es_419.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\es_419.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\es_MX.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\es_MX.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\fi.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\fi.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\fr.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\fr.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\fr_CA.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\fr_CA.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\he.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\he.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\hi.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\hi.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\hr.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\hr.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\hu.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\hu.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\id.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\id.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\it.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\it.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\ja.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\ja.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\ko.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\ko.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\lt.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\lt.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\lv.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\lv.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\ms.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\ms.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\nb.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\nb.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\nl.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\nl.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\pl.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\pl.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\pt.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\pt.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\pt_BR.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\pt_BR.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\pt_PT.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\pt_PT.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\ro.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\ro.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\ru.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\ru.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sk.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\sk.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sv.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\sv.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\th.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\th.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\tr.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\tr.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\uk.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\uk.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\vi.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\vi.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\zh_CN.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\zh_CN.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\zh_HK.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\zh_HK.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\zh_TW.lproj\GooglePlaces.strings">
-			<LogicalName>GooglePlaces.bundle\zh_TW.lproj\GooglePlaces.strings</LogicalName>
-		</BundleResource>
+		<XamarinBuildRestoreResources Include="_GPlcsDownloadedItems" />
 	</ItemGroup>
+	<Target Name="_GPlcsDownloadedItems">
+		<ItemGroup>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\Info.plist">
+				<LogicalName>GooglePlaces.bundle\Info.plist</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\oss_licenses_places.txt.gz">
+				<LogicalName>GooglePlaces.bundle\oss_licenses_places.txt.gz</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\build-with-google-black.png">
+				<LogicalName>GooglePlaces.bundle\build-with-google-black.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\build-with-google-black%402x.png">
+				<LogicalName>GooglePlaces.bundle\build-with-google-black%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\build-with-google-black%403x.png">
+				<LogicalName>GooglePlaces.bundle\build-with-google-black%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\build-with-google-white.png">
+				<LogicalName>GooglePlaces.bundle\build-with-google-white.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\build-with-google-white%402x.png">
+				<LogicalName>GooglePlaces.bundle\build-with-google-white%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\build-with-google-white%403x.png">
+				<LogicalName>GooglePlaces.bundle\build-with-google-white%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud.png">
+				<LogicalName>GooglePlaces.bundle\sad_cloud.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud%402x.png">
+				<LogicalName>GooglePlaces.bundle\sad_cloud%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud%403x.png">
+				<LogicalName>GooglePlaces.bundle\sad_cloud%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud_dark.png">
+				<LogicalName>GooglePlaces.bundle\sad_cloud_dark.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud_dark%402x.png">
+				<LogicalName>GooglePlaces.bundle\sad_cloud_dark%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud_dark%403x.png">
+				<LogicalName>GooglePlaces.bundle\sad_cloud_dark%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\ar.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\ar.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\ca.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\ca.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\cs.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\cs.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\da.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\da.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\de.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\de.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\el.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\el.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\en.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\en.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\en_AU.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\en_AU.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\en_GB.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\en_GB.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\en_IN.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\en_IN.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\es.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\es.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\es_419.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\es_419.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\es_MX.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\es_MX.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\fi.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\fi.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\fr.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\fr.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\fr_CA.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\fr_CA.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\he.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\he.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\hi.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\hi.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\hr.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\hr.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\hu.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\hu.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\id.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\id.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\it.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\it.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\ja.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\ja.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\ko.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\ko.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\lt.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\lt.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\lv.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\lv.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\ms.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\ms.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\nb.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\nb.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\nl.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\nl.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\pl.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\pl.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\pt.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\pt.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\pt_BR.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\pt_BR.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\pt_PT.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\pt_PT.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\ro.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\ro.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\ru.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\ru.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sk.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\sk.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sv.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\sv.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\th.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\th.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\tr.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\tr.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\uk.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\uk.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\vi.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\vi.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\zh_CN.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\zh_CN.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\zh_HK.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\zh_HK.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\zh_TW.lproj\GooglePlaces.strings">
+				<LogicalName>GooglePlaces.bundle\zh_TW.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+		</ItemGroup>
+	</Target>
 </Project>
