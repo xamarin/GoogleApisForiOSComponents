@@ -6,7 +6,7 @@
     <RootNamespace>Google.InstanceID</RootNamespace>
     <AssemblyName>Google.InstanceID</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.2.1.16</FileVersion>
+    <FileVersion>1.2.1.17</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865553</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>1.2.1.16</PackageVersion>
+    <PackageVersion>1.2.1.17</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
