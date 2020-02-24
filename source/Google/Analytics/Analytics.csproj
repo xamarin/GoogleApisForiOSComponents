@@ -6,7 +6,7 @@
     <RootNamespace>Google.Analytics</RootNamespace>
     <AssemblyName>Google.Analytics</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>3.17.0.4</FileVersion>
+    <FileVersion>3.17.0.5</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865535</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>3.17.0.4</PackageVersion>
+    <PackageVersion>3.17.0.5</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
