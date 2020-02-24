@@ -17,678 +17,772 @@
 			<LinkerFlags>-ObjC -lc++</LinkerFlags>
 			<Frameworks>AddressBook AssetsLibrary CoreMotion MessageUI QuartzCore CoreGraphics Security SystemConfiguration</Frameworks>
 		</NativeReference>
-
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteACLCollectionTableViewCell.nib">
-			<LogicalName>GINInviteResources.bundle\GINInviteACLCollectionTableViewCell.nib</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteACLCollectionViewCell.nib">
-			<LogicalName>GINInviteResources.bundle\GINInviteACLCollectionViewCell.nib</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteACLTableViewCell.nib">
-			<LogicalName>GINInviteResources.bundle\GINInviteACLTableViewCell.nib</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteACLTableViewHeaderCell.nib">
-			<LogicalName>GINInviteResources.bundle\GINInviteACLTableViewHeaderCell.nib</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteMessageView.nib">
-			<LogicalName>GINInviteResources.bundle\GINInviteMessageView.nib</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteToastView.nib">
-			<LogicalName>GINInviteResources.bundle\GINInviteToastView.nib</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\Info.plist">
-			<LogicalName>GINInviteResources.bundle\Info.plist</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_arrow_back_white_24.png">
-			<LogicalName>GINInviteResources.bundle\ic_arrow_back_white_24.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_arrow_back_white_24%402x.png">
-			<LogicalName>GINInviteResources.bundle\ic_arrow_back_white_24%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_arrow_back_white_24%403x.png">
-			<LogicalName>GINInviteResources.bundle\ic_arrow_back_white_24%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_check_white_24.png">
-			<LogicalName>GINInviteResources.bundle\ic_check_white_24.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_check_white_24%402x.png">
-			<LogicalName>GINInviteResources.bundle\ic_check_white_24%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_check_white_24%403x.png">
-			<LogicalName>GINInviteResources.bundle\ic_check_white_24%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_close_24.png">
-			<LogicalName>GINInviteResources.bundle\ic_close_24.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_close_24%402x.png">
-			<LogicalName>GINInviteResources.bundle\ic_close_24%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_close_24%403x.png">
-			<LogicalName>GINInviteResources.bundle\ic_close_24%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_24.png">
-			<LogicalName>GINInviteResources.bundle\ic_email_24.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_24%402x.png">
-			<LogicalName>GINInviteResources.bundle\ic_email_24%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_24%403x.png">
-			<LogicalName>GINInviteResources.bundle\ic_email_24%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_white_24.png">
-			<LogicalName>GINInviteResources.bundle\ic_email_white_24.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_white_24%402x.png">
-			<LogicalName>GINInviteResources.bundle\ic_email_white_24%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_white_24%403x.png">
-			<LogicalName>GINInviteResources.bundle\ic_email_white_24%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_hide_keyboard_24.png">
-			<LogicalName>GINInviteResources.bundle\ic_hide_keyboard_24.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_hide_keyboard_24%402x.png">
-			<LogicalName>GINInviteResources.bundle\ic_hide_keyboard_24%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_hide_keyboard_24%403x.png">
-			<LogicalName>GINInviteResources.bundle\ic_hide_keyboard_24%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_24.png">
-			<LogicalName>GINInviteResources.bundle\ic_notifications_24.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_24%402x.png">
-			<LogicalName>GINInviteResources.bundle\ic_notifications_24%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_24%403x.png">
-			<LogicalName>GINInviteResources.bundle\ic_notifications_24%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_white_24.png">
-			<LogicalName>GINInviteResources.bundle\ic_notifications_white_24.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_white_24%402x.png">
-			<LogicalName>GINInviteResources.bundle\ic_notifications_white_24%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_white_24%403x.png">
-			<LogicalName>GINInviteResources.bundle\ic_notifications_white_24%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_remove_white_20.png">
-			<LogicalName>GINInviteResources.bundle\ic_remove_white_20.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_remove_white_20%402x.png">
-			<LogicalName>GINInviteResources.bundle\ic_remove_white_20%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_remove_white_20%403x.png">
-			<LogicalName>GINInviteResources.bundle\ic_remove_white_20%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_send_24.png">
-			<LogicalName>GINInviteResources.bundle\ic_send_24.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_send_24%402x.png">
-			<LogicalName>GINInviteResources.bundle\ic_send_24%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_send_24%403x.png">
-			<LogicalName>GINInviteResources.bundle\ic_send_24%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_24.png">
-			<LogicalName>GINInviteResources.bundle\ic_sms_24.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_24%402x.png">
-			<LogicalName>GINInviteResources.bundle\ic_sms_24%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_24%403x.png">
-			<LogicalName>GINInviteResources.bundle\ic_sms_24%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_white_24.png">
-			<LogicalName>GINInviteResources.bundle\ic_sms_white_24.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_white_24%402x.png">
-			<LogicalName>GINInviteResources.bundle\ic_sms_white_24%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_white_24%403x.png">
-			<LogicalName>GINInviteResources.bundle\ic_sms_white_24%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\Info.plist">
-			<LogicalName>GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\Info.plist</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\UCw-SV-umc-view-U1F-Z1-bjT.nib">
-			<LogicalName>GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\UCw-SV-umc-view-U1F-Z1-bjT.nib</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\UIViewController-UCw-SV-umc.nib">
-			<LogicalName>GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\UIViewController-UCw-SV-umc.nib</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\Info.plist">
-			<LogicalName>GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\Info.plist</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\UCw-SV-umc-view-U1F-Z1-bjT.nib">
-			<LogicalName>GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\UCw-SV-umc-view-U1F-Z1-bjT.nib</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\UIViewController-UCw-SV-umc.nib">
-			<LogicalName>GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\UIViewController-UCw-SV-umc.nib</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\af.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\af.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\am.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\am.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ar.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\ar.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\bg.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\bg.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\bn.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\bn.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ca.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\ca.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\cs.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\cs.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\da.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\da.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\de.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\de.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\el.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\el.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\en-AU.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\en-AU.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\en-GB.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\en-GB.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\en.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\en.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\en_US.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\en_US.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\es-419.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\es-419.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\es-MX.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\es-MX.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\es.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\es.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\es_MX.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\es_MX.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\et.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\et.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\eu.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\eu.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\fa.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\fa.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\fi.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\fi.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\fil.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\fil.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\fr-CA.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\fr-CA.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\fr.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\fr.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\gl.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\gl.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\gu.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\gu.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\he.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\he.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\hi.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\hi.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\hr.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\hr.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\hu.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\hu.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\id.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\id.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\in.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\in.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\is.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\is.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\it.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\it.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\iw.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\iw.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ja.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\ja.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\kn.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\kn.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ko.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\ko.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\lt.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\lt.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\lv.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\lv.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ml.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\ml.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\mr.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\mr.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ms.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\ms.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\nb.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\nb.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\nl.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\nl.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\no.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\no.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\pl.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\pl.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\pt-BR.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\pt-BR.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\pt-PT.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\pt-PT.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\pt.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\pt.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ro.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\ro.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ru.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\ru.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\sk.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\sk.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\sl.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\sl.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\sr.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\sr.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\sv.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\sv.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\sw.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\sw.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ta.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\ta.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\te.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\te.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\th.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\th.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\tr.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\tr.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\uk.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\uk.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ur.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\ur.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\vi.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\vi.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zh-CN.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\zh-CN.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zh-HK.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\zh-HK.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zh-Hans.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\zh-Hans.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zh-Hant.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\zh-Hant.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zh-TW.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\zh-TW.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zu.lproj\GooglePlus.strings">
-			<LogicalName>GINInviteResources.bundle\zu.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLCollectionTableViewCell.nib">
-			<LogicalName>GPPACLPickerResources.bundle\GPPACLCollectionTableViewCell.nib</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLDetailTableViewCell.nib">
-			<LogicalName>GPPACLPickerResources.bundle\GPPACLDetailTableViewCell.nib</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLSearchView.nib">
-			<LogicalName>GPPACLPickerResources.bundle\GPPACLSearchView.nib</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLTableViewCell.nib">
-			<LogicalName>GPPACLPickerResources.bundle\GPPACLTableViewCell.nib</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPDomainRestrictedTableViewCell.nib">
-			<LogicalName>GPPACLPickerResources.bundle\GPPDomainRestrictedTableViewCell.nib</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\Info.plist">
-			<LogicalName>GPPACLPickerResources.bundle\Info.plist</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\Roboto-Bold.ttf">
-			<LogicalName>GPPACLPickerResources.bundle\Roboto-Bold.ttf</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\Roboto-Medium.ttf">
-			<LogicalName>GPPACLPickerResources.bundle\Roboto-Medium.ttf</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\Roboto-Regular.ttf">
-			<LogicalName>GPPACLPickerResources.bundle\Roboto-Regular.ttf</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\circles.png">
-			<LogicalName>GPPACLPickerResources.bundle\circles.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\circles%402x.png">
-			<LogicalName>GPPACLPickerResources.bundle\circles%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\circles%403x.png">
-			<LogicalName>GPPACLPickerResources.bundle\circles%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\domain.png">
-			<LogicalName>GPPACLPickerResources.bundle\domain.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\domain%402x.png">
-			<LogicalName>GPPACLPickerResources.bundle\domain%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\domain%403x.png">
-			<LogicalName>GPPACLPickerResources.bundle\domain%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\extended.png">
-			<LogicalName>GPPACLPickerResources.bundle\extended.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\extended%402x.png">
-			<LogicalName>GPPACLPickerResources.bundle\extended%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\extended%403x.png">
-			<LogicalName>GPPACLPickerResources.bundle\extended%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_black_24.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_checkmark_black_24.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_black_24%402x.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_checkmark_black_24%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_black_24%403x.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_checkmark_black_24%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_green_24.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_checkmark_green_24.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_green_24%402x.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_checkmark_green_24%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_green_24%403x.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_checkmark_green_24%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_circles_black_16.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_circles_black_16.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_circles_black_16%402x.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_circles_black_16%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_circles_black_16%403x.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_circles_black_16%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_domain_16.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_domain_16.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_domain_16%402x.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_domain_16%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_domain_16%403x.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_domain_16%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_email_black_16.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_email_black_16.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_email_black_16%402x.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_email_black_16%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_email_black_16%403x.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_email_black_16%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_extended_circles_black_16.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_extended_circles_black_16.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_extended_circles_black_16%402x.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_extended_circles_black_16%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_extended_circles_black_16%403x.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_extended_circles_black_16%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_lock_closed_black_16.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_lock_closed_black_16.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_lock_closed_black_16%402x.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_lock_closed_black_16%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_lock_closed_black_16%403x.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_lock_closed_black_16%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_person_black_16.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_person_black_16.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_person_black_16%402x.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_person_black_16%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_person_black_16%403x.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_person_black_16%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_public_16.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_public_16.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_public_16%402x.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_public_16%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_public_16%403x.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_public_16%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_remove_black_16.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_remove_black_16.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_remove_black_16%402x.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_remove_black_16%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_remove_black_16%403x.png">
-			<LogicalName>GPPACLPickerResources.bundle\ic_remove_black_16%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect.png">
-			<LogicalName>GPPACLPickerResources.bundle\multiselect.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect%402x.png">
-			<LogicalName>GPPACLPickerResources.bundle\multiselect%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect%403x.png">
-			<LogicalName>GPPACLPickerResources.bundle\multiselect%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect_green.png">
-			<LogicalName>GPPACLPickerResources.bundle\multiselect_green.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect_green%402x.png">
-			<LogicalName>GPPACLPickerResources.bundle\multiselect_green%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect_green%403x.png">
-			<LogicalName>GPPACLPickerResources.bundle\multiselect_green%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\name_gradient.png">
-			<LogicalName>GPPACLPickerResources.bundle\name_gradient.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\name_gradient%402x.png">
-			<LogicalName>GPPACLPickerResources.bundle\name_gradient%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\name_gradient%403x.png">
-			<LogicalName>GPPACLPickerResources.bundle\name_gradient%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\person.png">
-			<LogicalName>GPPACLPickerResources.bundle\person.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\person%402x.png">
-			<LogicalName>GPPACLPickerResources.bundle\person%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\person%403x.png">
-			<LogicalName>GPPACLPickerResources.bundle\person%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\public.png">
-			<LogicalName>GPPACLPickerResources.bundle\public.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\public%402x.png">
-			<LogicalName>GPPACLPickerResources.bundle\public%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\public%403x.png">
-			<LogicalName>GPPACLPickerResources.bundle\public%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLCollectionViewCell.nib\objects-8.0+.nib">
-			<LogicalName>GPPACLPickerResources.bundle\GPPACLCollectionViewCell.nib\objects-8.0+.nib</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLCollectionViewCell.nib\runtime.nib">
-			<LogicalName>GPPACLPickerResources.bundle\GPPACLCollectionViewCell.nib\runtime.nib</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ar.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\ar.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ca.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\ca.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\cs.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\cs.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\da.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\da.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\de.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\de.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\el.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\el.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\en.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\en.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\en_GB.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\en_GB.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\en_US.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\en_US.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\es.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\es.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\es_MX.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\es_MX.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\fi.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\fi.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\fr.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\fr.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\he.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\he.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\hr.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\hr.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\hu.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\hu.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\id.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\id.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\in.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\in.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\it.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\it.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\iw.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\iw.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ja.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\ja.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ko.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\ko.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ms.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\ms.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\nb.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\nb.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\nl.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\nl.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\no.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\no.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\pl.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\pl.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\pt.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\pt.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\pt_PT.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\pt_PT.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ro.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\ro.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ru.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\ru.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\sk.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\sk.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\sv.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\sv.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\th.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\th.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\tr.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\tr.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\uk.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\uk.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\vi.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\vi.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\zh_CN.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\zh_CN.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\zh_TW.lproj\GooglePlus.strings">
-			<LogicalName>GPPACLPickerResources.bundle\zh_TW.lproj\GooglePlus.strings</LogicalName>
-		</BundleResource>
+		<XamarinBuildRestoreResources Include="_FInvtsDownloadedItems" />
 	</ItemGroup>
+	<Target Name="_FInvtsDownloadedItems">
+		<ItemGroup>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteACLCollectionTableViewCell.nib">
+				<LogicalName>GINInviteResources.bundle\GINInviteACLCollectionTableViewCell.nib</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteACLCollectionViewCell.nib">
+				<LogicalName>GINInviteResources.bundle\GINInviteACLCollectionViewCell.nib</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteACLTableViewCell.nib">
+				<LogicalName>GINInviteResources.bundle\GINInviteACLTableViewCell.nib</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteACLTableViewHeaderCell.nib">
+				<LogicalName>GINInviteResources.bundle\GINInviteACLTableViewHeaderCell.nib</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteMessageView.nib">
+				<LogicalName>GINInviteResources.bundle\GINInviteMessageView.nib</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteToastView.nib">
+				<LogicalName>GINInviteResources.bundle\GINInviteToastView.nib</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\Info.plist">
+				<LogicalName>GINInviteResources.bundle\Info.plist</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_arrow_back_white_24.png">
+				<LogicalName>GINInviteResources.bundle\ic_arrow_back_white_24.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_arrow_back_white_24%402x.png">
+				<LogicalName>GINInviteResources.bundle\ic_arrow_back_white_24%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_arrow_back_white_24%403x.png">
+				<LogicalName>GINInviteResources.bundle\ic_arrow_back_white_24%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_check_white_24.png">
+				<LogicalName>GINInviteResources.bundle\ic_check_white_24.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_check_white_24%402x.png">
+				<LogicalName>GINInviteResources.bundle\ic_check_white_24%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_check_white_24%403x.png">
+				<LogicalName>GINInviteResources.bundle\ic_check_white_24%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_close_24.png">
+				<LogicalName>GINInviteResources.bundle\ic_close_24.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_close_24%402x.png">
+				<LogicalName>GINInviteResources.bundle\ic_close_24%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_close_24%403x.png">
+				<LogicalName>GINInviteResources.bundle\ic_close_24%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_24.png">
+				<LogicalName>GINInviteResources.bundle\ic_email_24.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_24%402x.png">
+				<LogicalName>GINInviteResources.bundle\ic_email_24%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_24%403x.png">
+				<LogicalName>GINInviteResources.bundle\ic_email_24%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_white_24.png">
+				<LogicalName>GINInviteResources.bundle\ic_email_white_24.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_white_24%402x.png">
+				<LogicalName>GINInviteResources.bundle\ic_email_white_24%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_white_24%403x.png">
+				<LogicalName>GINInviteResources.bundle\ic_email_white_24%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_hide_keyboard_24.png">
+				<LogicalName>GINInviteResources.bundle\ic_hide_keyboard_24.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_hide_keyboard_24%402x.png">
+				<LogicalName>GINInviteResources.bundle\ic_hide_keyboard_24%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_hide_keyboard_24%403x.png">
+				<LogicalName>GINInviteResources.bundle\ic_hide_keyboard_24%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_24.png">
+				<LogicalName>GINInviteResources.bundle\ic_notifications_24.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_24%402x.png">
+				<LogicalName>GINInviteResources.bundle\ic_notifications_24%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_24%403x.png">
+				<LogicalName>GINInviteResources.bundle\ic_notifications_24%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_white_24.png">
+				<LogicalName>GINInviteResources.bundle\ic_notifications_white_24.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_white_24%402x.png">
+				<LogicalName>GINInviteResources.bundle\ic_notifications_white_24%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_white_24%403x.png">
+				<LogicalName>GINInviteResources.bundle\ic_notifications_white_24%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_remove_white_20.png">
+				<LogicalName>GINInviteResources.bundle\ic_remove_white_20.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_remove_white_20%402x.png">
+				<LogicalName>GINInviteResources.bundle\ic_remove_white_20%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_remove_white_20%403x.png">
+				<LogicalName>GINInviteResources.bundle\ic_remove_white_20%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_send_24.png">
+				<LogicalName>GINInviteResources.bundle\ic_send_24.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_send_24%402x.png">
+				<LogicalName>GINInviteResources.bundle\ic_send_24%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_send_24%403x.png">
+				<LogicalName>GINInviteResources.bundle\ic_send_24%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_24.png">
+				<LogicalName>GINInviteResources.bundle\ic_sms_24.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_24%402x.png">
+				<LogicalName>GINInviteResources.bundle\ic_sms_24%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_24%403x.png">
+				<LogicalName>GINInviteResources.bundle\ic_sms_24%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_white_24.png">
+				<LogicalName>GINInviteResources.bundle\ic_sms_white_24.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_white_24%402x.png">
+				<LogicalName>GINInviteResources.bundle\ic_sms_white_24%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_white_24%403x.png">
+				<LogicalName>GINInviteResources.bundle\ic_sms_white_24%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\Info.plist">
+				<LogicalName>GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\Info.plist</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\UCw-SV-umc-view-U1F-Z1-bjT.nib">
+				<LogicalName>GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\UCw-SV-umc-view-U1F-Z1-bjT.nib</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\UIViewController-UCw-SV-umc.nib">
+				<LogicalName>GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\UIViewController-UCw-SV-umc.nib</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\Info.plist">
+				<LogicalName>GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\Info.plist</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\UCw-SV-umc-view-U1F-Z1-bjT.nib">
+				<LogicalName>GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\UCw-SV-umc-view-U1F-Z1-bjT.nib</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\UIViewController-UCw-SV-umc.nib">
+				<LogicalName>GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\UIViewController-UCw-SV-umc.nib</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\af.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\af.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\am.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\am.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ar.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\ar.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\bg.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\bg.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\bn.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\bn.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ca.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\ca.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\cs.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\cs.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\da.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\da.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\de.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\de.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\el.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\el.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\en-AU.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\en-AU.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\en-GB.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\en-GB.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\en.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\en.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\en_US.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\en_US.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\es-419.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\es-419.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\es-MX.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\es-MX.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\es.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\es.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\es_MX.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\es_MX.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\et.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\et.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\eu.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\eu.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\fa.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\fa.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\fi.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\fi.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\fil.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\fil.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\fr-CA.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\fr-CA.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\fr.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\fr.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\gl.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\gl.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\gu.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\gu.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\he.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\he.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\hi.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\hi.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\hr.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\hr.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\hu.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\hu.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\id.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\id.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\in.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\in.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\is.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\is.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\it.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\it.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\iw.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\iw.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ja.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\ja.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\kn.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\kn.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ko.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\ko.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\lt.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\lt.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\lv.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\lv.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ml.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\ml.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\mr.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\mr.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ms.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\ms.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\nb.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\nb.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\nl.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\nl.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\no.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\no.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\pl.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\pl.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\pt-BR.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\pt-BR.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\pt-PT.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\pt-PT.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\pt.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\pt.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ro.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\ro.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ru.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\ru.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\sk.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\sk.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\sl.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\sl.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\sr.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\sr.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\sv.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\sv.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\sw.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\sw.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ta.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\ta.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\te.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\te.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\th.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\th.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\tr.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\tr.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\uk.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\uk.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ur.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\ur.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\vi.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\vi.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zh-CN.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\zh-CN.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zh-HK.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\zh-HK.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zh-Hans.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\zh-Hans.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zh-Hant.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\zh-Hant.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zh-TW.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\zh-TW.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zu.lproj\GooglePlus.strings">
+				<LogicalName>GINInviteResources.bundle\zu.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLCollectionTableViewCell.nib">
+				<LogicalName>GPPACLPickerResources.bundle\GPPACLCollectionTableViewCell.nib</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLDetailTableViewCell.nib">
+				<LogicalName>GPPACLPickerResources.bundle\GPPACLDetailTableViewCell.nib</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLSearchView.nib">
+				<LogicalName>GPPACLPickerResources.bundle\GPPACLSearchView.nib</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLTableViewCell.nib">
+				<LogicalName>GPPACLPickerResources.bundle\GPPACLTableViewCell.nib</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPDomainRestrictedTableViewCell.nib">
+				<LogicalName>GPPACLPickerResources.bundle\GPPDomainRestrictedTableViewCell.nib</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\Info.plist">
+				<LogicalName>GPPACLPickerResources.bundle\Info.plist</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\Roboto-Bold.ttf">
+				<LogicalName>GPPACLPickerResources.bundle\Roboto-Bold.ttf</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\Roboto-Medium.ttf">
+				<LogicalName>GPPACLPickerResources.bundle\Roboto-Medium.ttf</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\Roboto-Regular.ttf">
+				<LogicalName>GPPACLPickerResources.bundle\Roboto-Regular.ttf</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\circles.png">
+				<LogicalName>GPPACLPickerResources.bundle\circles.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\circles%402x.png">
+				<LogicalName>GPPACLPickerResources.bundle\circles%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\circles%403x.png">
+				<LogicalName>GPPACLPickerResources.bundle\circles%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\domain.png">
+				<LogicalName>GPPACLPickerResources.bundle\domain.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\domain%402x.png">
+				<LogicalName>GPPACLPickerResources.bundle\domain%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\domain%403x.png">
+				<LogicalName>GPPACLPickerResources.bundle\domain%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\extended.png">
+				<LogicalName>GPPACLPickerResources.bundle\extended.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\extended%402x.png">
+				<LogicalName>GPPACLPickerResources.bundle\extended%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\extended%403x.png">
+				<LogicalName>GPPACLPickerResources.bundle\extended%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_black_24.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_checkmark_black_24.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_black_24%402x.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_checkmark_black_24%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_black_24%403x.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_checkmark_black_24%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_green_24.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_checkmark_green_24.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_green_24%402x.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_checkmark_green_24%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_green_24%403x.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_checkmark_green_24%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_circles_black_16.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_circles_black_16.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_circles_black_16%402x.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_circles_black_16%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_circles_black_16%403x.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_circles_black_16%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_domain_16.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_domain_16.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_domain_16%402x.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_domain_16%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_domain_16%403x.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_domain_16%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_email_black_16.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_email_black_16.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_email_black_16%402x.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_email_black_16%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_email_black_16%403x.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_email_black_16%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_extended_circles_black_16.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_extended_circles_black_16.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_extended_circles_black_16%402x.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_extended_circles_black_16%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_extended_circles_black_16%403x.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_extended_circles_black_16%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_lock_closed_black_16.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_lock_closed_black_16.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_lock_closed_black_16%402x.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_lock_closed_black_16%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_lock_closed_black_16%403x.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_lock_closed_black_16%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_person_black_16.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_person_black_16.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_person_black_16%402x.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_person_black_16%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_person_black_16%403x.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_person_black_16%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_public_16.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_public_16.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_public_16%402x.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_public_16%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_public_16%403x.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_public_16%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_remove_black_16.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_remove_black_16.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_remove_black_16%402x.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_remove_black_16%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_remove_black_16%403x.png">
+				<LogicalName>GPPACLPickerResources.bundle\ic_remove_black_16%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect.png">
+				<LogicalName>GPPACLPickerResources.bundle\multiselect.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect%402x.png">
+				<LogicalName>GPPACLPickerResources.bundle\multiselect%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect%403x.png">
+				<LogicalName>GPPACLPickerResources.bundle\multiselect%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect_green.png">
+				<LogicalName>GPPACLPickerResources.bundle\multiselect_green.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect_green%402x.png">
+				<LogicalName>GPPACLPickerResources.bundle\multiselect_green%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect_green%403x.png">
+				<LogicalName>GPPACLPickerResources.bundle\multiselect_green%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\name_gradient.png">
+				<LogicalName>GPPACLPickerResources.bundle\name_gradient.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\name_gradient%402x.png">
+				<LogicalName>GPPACLPickerResources.bundle\name_gradient%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\name_gradient%403x.png">
+				<LogicalName>GPPACLPickerResources.bundle\name_gradient%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\person.png">
+				<LogicalName>GPPACLPickerResources.bundle\person.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\person%402x.png">
+				<LogicalName>GPPACLPickerResources.bundle\person%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\person%403x.png">
+				<LogicalName>GPPACLPickerResources.bundle\person%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\public.png">
+				<LogicalName>GPPACLPickerResources.bundle\public.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\public%402x.png">
+				<LogicalName>GPPACLPickerResources.bundle\public%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\public%403x.png">
+				<LogicalName>GPPACLPickerResources.bundle\public%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLCollectionViewCell.nib\objects-8.0+.nib">
+				<LogicalName>GPPACLPickerResources.bundle\GPPACLCollectionViewCell.nib\objects-8.0+.nib</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLCollectionViewCell.nib\runtime.nib">
+				<LogicalName>GPPACLPickerResources.bundle\GPPACLCollectionViewCell.nib\runtime.nib</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ar.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\ar.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ca.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\ca.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\cs.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\cs.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\da.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\da.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\de.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\de.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\el.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\el.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\en.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\en.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\en_GB.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\en_GB.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\en_US.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\en_US.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\es.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\es.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\es_MX.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\es_MX.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\fi.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\fi.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\fr.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\fr.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\he.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\he.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\hr.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\hr.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\hu.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\hu.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\id.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\id.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\in.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\in.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\it.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\it.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\iw.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\iw.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ja.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\ja.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ko.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\ko.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ms.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\ms.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\nb.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\nb.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\nl.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\nl.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\no.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\no.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\pl.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\pl.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\pt.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\pt.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\pt_PT.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\pt_PT.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ro.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\ro.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ru.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\ru.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\sk.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\sk.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\sv.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\sv.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\th.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\th.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\tr.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\tr.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\uk.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\uk.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\vi.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\vi.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\zh_CN.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\zh_CN.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseInvitesSDKBaseFolder)Resources\GPPACLPickerResources.bundle\zh_TW.lproj\GooglePlus.strings">
+				<LogicalName>GPPACLPickerResources.bundle\zh_TW.lproj\GooglePlus.strings</LogicalName>
+			</BundleResource>
+		</ItemGroup>
+	</Target>
 </Project>

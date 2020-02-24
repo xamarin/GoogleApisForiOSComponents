@@ -58,7 +58,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" PrivateAssets="None" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.9.0" PrivateAssets="None" />
   </ItemGroup>
   
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />

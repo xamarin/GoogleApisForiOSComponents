@@ -32,336 +32,396 @@
 			<LinkerFlags>-ObjC -lc++ -lz</LinkerFlags>
 			<Frameworks>CoreData CoreGraphics CoreLocation QuartzCore SystemConfiguration UIKit</Frameworks>
 		</NativeReference>
-
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\Info.plist" Visible="False">
-			<LogicalName>GoogleMaps.bundle\Info.plist</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\bubble_left.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\bubble_left.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\bubble_left%402x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\bubble_left%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\bubble_left%403x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\bubble_left%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\bubble_right.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\bubble_right.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\bubble_right%402x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\bubble_right%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\bubble_right%403x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\bubble_right%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\default_marker.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\default_marker.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\default_marker%402x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\default_marker%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\default_marker%403x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\default_marker%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\ic_error.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\ic_error.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\ic_error%402x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\ic_error%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\ic_error%403x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\ic_error%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\oss_licenses_maps.txt.gz" Visible="False">
-			<LogicalName>GoogleMaps.bundle\oss_licenses_maps.txt.gz</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCacheStorage.momd\Storage.mom" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCacheStorage.momd\Storage.mom</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCacheStorage.momd\StorageWithTileProto.mom" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCacheStorage.momd\StorageWithTileProto.mom</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCacheStorage.momd\StorageWithTileVersionID.mom" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCacheStorage.momd\StorageWithTileVersionID.mom</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCacheStorage.momd\VersionInfo.plist" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCacheStorage.momd\VersionInfo.plist</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\Assets.car" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\Assets.car</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\DroidSansMerged-Regular.ttf" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\DroidSansMerged-Regular.ttf</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavNightModeSprites-0-1x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavNightModeSprites-0-1x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavNightModeSprites-0-2x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavNightModeSprites-0-2x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavNightModeSprites-0-3x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavNightModeSprites-0-3x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavSprites-0-1x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavSprites-0-1x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavSprites-0-2x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavSprites-0-2x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavSprites-0-3x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavSprites-0-3x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSSprites-0-1x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\GMSSprites-0-1x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSSprites-0-2x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\GMSSprites-0-2x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSSprites-0-3x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\GMSSprites-0-3x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\Info.plist" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\Info.plist</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\Tharlon-Regular.ttf" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\Tharlon-Regular.ttf</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_background.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\button_background.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_background%402x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\button_background%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_background%403x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\button_background%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_compass.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\button_compass.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_compass%402x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\button_compass%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_compass_night.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\button_compass_night.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_compass_night%402x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\button_compass_night%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_my_location.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\button_my_location.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_my_location%402x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\button_my_location%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\dav_one_way_16_256.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\dav_one_way_16_256.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle_32pt.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle_32pt.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle_32pt%402x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle_32pt%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle_32pt%403x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle_32pt%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle%402x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle_large.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle_large.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle_large%402x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle_large%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle_large%403x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle_large%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_location_off.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_location_off.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_location_off%402x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_location_off%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_location_off%403x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_location_off%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_qu_direction_mylocation.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_qu_direction_mylocation.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_qu_direction_mylocation%402x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_qu_direction_mylocation%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_qu_direction_mylocation%403x.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_qu_direction_mylocation%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\polyline_colors_texture.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\polyline_colors_texture.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\polyline_colors_texture_dim.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\polyline_colors_texture_dim.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_1-1.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\road_1-1.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_128-32.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\road_128-32.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_16-4.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\road_16-4.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_2-1.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\road_2-1.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_256-64.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\road_256-64.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_32-8.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\road_32-8.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_4-1.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\road_4-1.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_64-16.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\road_64-16.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_8-2.png" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\road_8-2.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ar.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ar.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ca.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ca.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\cs.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\cs.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\da.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\da.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\de.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\de.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\el.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\el.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\en.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\en.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\en_AU.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\en_AU.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\en_GB.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\en_GB.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\en_IN.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\en_IN.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\es.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\es.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\es_419.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\es_419.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\es_MX.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\es_MX.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\fi.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\fi.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\fr.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\fr.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\fr_CA.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\fr_CA.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\he.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\he.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\hi.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\hi.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\hr.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\hr.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\hu.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\hu.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\id.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\id.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\it.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\it.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ja.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ja.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ko.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ko.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\lt.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\lt.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\lv.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\lv.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ms.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ms.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\nb.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\nb.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\nl.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\nl.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\pl.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\pl.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\pt.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\pt.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\pt_BR.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\pt_BR.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\pt_PT.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\pt_PT.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ro.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ro.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ru.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ru.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\sk.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\sk.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\sv.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\sv.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\th.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\th.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\tr.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\tr.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\uk.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\uk.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\vi.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\vi.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\zh_CN.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\zh_CN.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\zh_HK.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\zh_HK.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\zh_TW.lproj\GMSCore.strings" Visible="False">
-			<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\zh_TW.lproj\GMSCore.strings</LogicalName>
-		</BundleResource>
+		<XamarinBuildRestoreResources Include="_GMpsDownloadedItems" />
 	</ItemGroup>
+	<Target Name="_GMpsDownloadedItems">
+		<ItemGroup>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\Info.plist" Visible="False">
+				<LogicalName>GoogleMaps.bundle\Info.plist</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\bubble_left.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\bubble_left.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\bubble_left%402x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\bubble_left%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\bubble_left%403x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\bubble_left%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\bubble_right.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\bubble_right.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\bubble_right%402x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\bubble_right%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\bubble_right%403x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\bubble_right%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\default_marker.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\default_marker.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\default_marker%402x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\default_marker%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\default_marker%403x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\default_marker%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\ic_error.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\ic_error.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\ic_error%402x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\ic_error%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\ic_error%403x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\ic_error%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\oss_licenses_maps.txt.gz" Visible="False">
+				<LogicalName>GoogleMaps.bundle\oss_licenses_maps.txt.gz</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCacheStorage.momd\Storage.mom" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCacheStorage.momd\Storage.mom</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCacheStorage.momd\StorageWithTileProto.mom" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCacheStorage.momd\StorageWithTileProto.mom</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCacheStorage.momd\StorageWithTileVersionID.mom" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCacheStorage.momd\StorageWithTileVersionID.mom</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCacheStorage.momd\VersionInfo.plist" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCacheStorage.momd\VersionInfo.plist</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\Assets.car" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\Assets.car</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\DroidSansMerged-Regular.ttf" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\DroidSansMerged-Regular.ttf</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavNightModeSprites-0-1x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavNightModeSprites-0-1x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavNightModeSprites-0-2x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavNightModeSprites-0-2x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavNightModeSprites-0-3x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavNightModeSprites-0-3x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavSprites-0-1x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavSprites-0-1x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavSprites-0-2x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavSprites-0-2x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavSprites-0-3x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\GMSNavSprites-0-3x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSSprites-0-1x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\GMSSprites-0-1x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSSprites-0-2x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\GMSSprites-0-2x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\GMSSprites-0-3x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\GMSSprites-0-3x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\Info.plist" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\Info.plist</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\Tharlon-Regular.ttf" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\Tharlon-Regular.ttf</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_background.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\button_background.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_background%402x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\button_background%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_background%403x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\button_background%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_compass.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\button_compass.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_compass%402x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\button_compass%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_compass_night.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\button_compass_night.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_compass_night%402x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\button_compass_night%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_my_location.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\button_my_location.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\button_my_location%402x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\button_my_location%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\dav_one_way_16_256.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\dav_one_way_16_256.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle_32pt.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle_32pt.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle_32pt%402x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle_32pt%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle_32pt%403x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle_32pt%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle%402x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle_large.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle_large.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle_large%402x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle_large%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle_large%403x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_compass_needle_large%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_location_off.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_location_off.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_location_off%402x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_location_off%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_location_off%403x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_location_off%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_qu_direction_mylocation.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_qu_direction_mylocation.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_qu_direction_mylocation%402x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_qu_direction_mylocation%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ic_qu_direction_mylocation%403x.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ic_qu_direction_mylocation%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\polyline_colors_texture.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\polyline_colors_texture.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\polyline_colors_texture_dim.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\polyline_colors_texture_dim.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_1-1.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\road_1-1.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_128-32.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\road_128-32.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_16-4.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\road_16-4.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_2-1.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\road_2-1.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_256-64.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\road_256-64.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_32-8.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\road_32-8.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_4-1.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\road_4-1.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_64-16.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\road_64-16.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\road_8-2.png" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\road_8-2.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ar.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ar.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ca.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ca.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\cs.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\cs.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\da.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\da.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\de.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\de.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\el.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\el.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\en.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\en.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\en_AU.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\en_AU.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\en_GB.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\en_GB.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\en_IN.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\en_IN.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\es.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\es.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\es_419.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\es_419.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\es_MX.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\es_MX.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\fi.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\fi.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\fr.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\fr.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\fr_CA.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\fr_CA.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\he.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\he.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\hi.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\hi.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\hr.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\hr.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\hu.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\hu.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\id.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\id.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\it.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\it.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ja.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ja.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ko.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ko.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\lt.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\lt.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\lv.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\lv.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ms.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ms.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\nb.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\nb.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\nl.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\nl.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\pl.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\pl.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\pt.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\pt.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\pt_BR.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\pt_BR.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\pt_PT.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\pt_PT.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ro.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ro.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\ru.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\ru.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\sk.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\sk.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\sv.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\sv.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\th.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\th.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\tr.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\tr.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\uk.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\uk.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\vi.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\vi.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\zh_CN.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\zh_CN.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\zh_HK.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\zh_HK.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleMapsSDKBaseFolder)GoogleMaps.framework\Resources\GoogleMaps.bundle\GMSCoreResources.bundle\zh_TW.lproj\GMSCore.strings" Visible="False">
+				<LogicalName>GoogleMaps.bundle\GMSCoreResources.bundle\zh_TW.lproj\GMSCore.strings</LogicalName>
+			</BundleResource>
+		</ItemGroup>
+	</Target>
 </Project>

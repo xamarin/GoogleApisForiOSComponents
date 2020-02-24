@@ -33,973 +33,1258 @@
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC</LinkerFlags>
 		</NativeReference>
-
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\Assets.car">
-			<LogicalName>gpg.bundle\Assets.car</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\Info.plist">
-			<LogicalName>gpg.bundle\Info.plist</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\Roboto-Light.ttf">
-			<LogicalName>gpg.bundle\Roboto-Light.ttf</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\Roboto-Medium.ttf">
-			<LogicalName>gpg.bundle\Roboto-Medium.ttf</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\Roboto-Regular.ttf">
-			<LogicalName>gpg.bundle\Roboto-Regular.ttf</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\RobotoCondensed-Italic.ttf">
-			<LogicalName>gpg.bundle\RobotoCondensed-Italic.ttf</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievement_secret_noring_pad.png">
-			<LogicalName>gpg.bundle\achievement_secret_noring_pad.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievement_secret_noring_pad%402x.png">
-			<LogicalName>gpg.bundle\achievement_secret_noring_pad%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievement_secret_noring_pad%403x.png">
-			<LogicalName>gpg.bundle\achievement_secret_noring_pad%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievement_secret_noring_phone.png">
-			<LogicalName>gpg.bundle\achievement_secret_noring_phone.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievement_secret_noring_phone%402x.png">
-			<LogicalName>gpg.bundle\achievement_secret_noring_phone%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievement_secret_noring_phone%403x.png">
-			<LogicalName>gpg.bundle\achievement_secret_noring_phone%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievement_secret_pad.png">
-			<LogicalName>gpg.bundle\achievement_secret_pad.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievement_secret_pad%402x.png">
-			<LogicalName>gpg.bundle\achievement_secret_pad%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievement_secret_pad%403x.png">
-			<LogicalName>gpg.bundle\achievement_secret_pad%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievement_secret_phone.png">
-			<LogicalName>gpg.bundle\achievement_secret_phone.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievement_secret_phone%402x.png">
-			<LogicalName>gpg.bundle\achievement_secret_phone%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievement_secret_phone%403x.png">
-			<LogicalName>gpg.bundle\achievement_secret_phone%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievements_header.png">
-			<LogicalName>gpg.bundle\achievements_header.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievements_header%402x.png">
-			<LogicalName>gpg.bundle\achievements_header%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievements_header%403x.png">
-			<LogicalName>gpg.bundle\achievements_header%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\arrow.png">
-			<LogicalName>gpg.bundle\arrow.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\arrow%402x.png">
-			<LogicalName>gpg.bundle\arrow%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\arrow_bottom.png">
-			<LogicalName>gpg.bundle\arrow_bottom.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\arrow_bottom%402x.png">
-			<LogicalName>gpg.bundle\arrow_bottom%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\arrow_left.png">
-			<LogicalName>gpg.bundle\arrow_left.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\arrow_left%402x.png">
-			<LogicalName>gpg.bundle\arrow_left%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\arrow_right.png">
-			<LogicalName>gpg.bundle\arrow_right.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\arrow_right%402x.png">
-			<LogicalName>gpg.bundle\arrow_right%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\arrow_top.png">
-			<LogicalName>gpg.bundle\arrow_top.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\arrow_top%402x.png">
-			<LogicalName>gpg.bundle\arrow_top%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\avatar_auto_match.png">
-			<LogicalName>gpg.bundle\avatar_auto_match.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\avatar_auto_match%402x.png">
-			<LogicalName>gpg.bundle\avatar_auto_match%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\avatar_auto_match%403x.png">
-			<LogicalName>gpg.bundle\avatar_auto_match%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\avatar_unknown.png">
-			<LogicalName>gpg.bundle\avatar_unknown.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\avatar_unknown%402x.png">
-			<LogicalName>gpg.bundle\avatar_unknown%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\avatar_unknown%403x.png">
-			<LogicalName>gpg.bundle\avatar_unknown%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\background.png">
-			<LogicalName>gpg.bundle\background.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\background%402x.png">
-			<LogicalName>gpg.bundle\background%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\bg_banner_default.png">
-			<LogicalName>gpg.bundle\bg_banner_default.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\bg_banner_default%402x.png">
-			<LogicalName>gpg.bundle\bg_banner_default%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\bg_banner_default%403x.png">
-			<LogicalName>gpg.bundle\bg_banner_default%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\bottom.png">
-			<LogicalName>gpg.bundle\bottom.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\bottom%402x.png">
-			<LogicalName>gpg.bundle\bottom%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\btn-nav-white-pressed.png">
-			<LogicalName>gpg.bundle\btn-nav-white-pressed.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\btn-nav-white-pressed%402x.png">
-			<LogicalName>gpg.bundle\btn-nav-white-pressed%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\btn-nav-white-pressed%403x.png">
-			<LogicalName>gpg.bundle\btn-nav-white-pressed%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\btn-nav-white.png">
-			<LogicalName>gpg.bundle\btn-nav-white.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\btn-nav-white%402x.png">
-			<LogicalName>gpg.bundle\btn-nav-white%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\btn-nav-white%403x.png">
-			<LogicalName>gpg.bundle\btn-nav-white%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_blue.png">
-			<LogicalName>gpg.bundle\button_blue.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_blue%402x.png">
-			<LogicalName>gpg.bundle\button_blue%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_blue%403x.png">
-			<LogicalName>gpg.bundle\button_blue%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_blue_highlighted.png">
-			<LogicalName>gpg.bundle\button_blue_highlighted.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_blue_highlighted%402x.png">
-			<LogicalName>gpg.bundle\button_blue_highlighted%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_blue_highlighted%403x.png">
-			<LogicalName>gpg.bundle\button_blue_highlighted%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_dark.png">
-			<LogicalName>gpg.bundle\button_dark.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_dark%402x.png">
-			<LogicalName>gpg.bundle\button_dark%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_dark%403x.png">
-			<LogicalName>gpg.bundle\button_dark%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_dark_highlighted.png">
-			<LogicalName>gpg.bundle\button_dark_highlighted.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_dark_highlighted%402x.png">
-			<LogicalName>gpg.bundle\button_dark_highlighted%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_dark_highlighted%403x.png">
-			<LogicalName>gpg.bundle\button_dark_highlighted%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_light.png">
-			<LogicalName>gpg.bundle\button_light.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_light%402x.png">
-			<LogicalName>gpg.bundle\button_light%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_light%403x.png">
-			<LogicalName>gpg.bundle\button_light%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_light_highlighted.png">
-			<LogicalName>gpg.bundle\button_light_highlighted.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_light_highlighted%402x.png">
-			<LogicalName>gpg.bundle\button_light_highlighted%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_light_highlighted%403x.png">
-			<LogicalName>gpg.bundle\button_light_highlighted%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_red.png">
-			<LogicalName>gpg.bundle\button_red.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_red%402x.png">
-			<LogicalName>gpg.bundle\button_red%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_red%403x.png">
-			<LogicalName>gpg.bundle\button_red%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_red_highlighted.png">
-			<LogicalName>gpg.bundle\button_red_highlighted.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_red_highlighted%402x.png">
-			<LogicalName>gpg.bundle\button_red_highlighted%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_red_highlighted%403x.png">
-			<LogicalName>gpg.bundle\button_red_highlighted%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\cell_background_selected_dark.png">
-			<LogicalName>gpg.bundle\cell_background_selected_dark.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\cell_background_selected_dark%402x.png">
-			<LogicalName>gpg.bundle\cell_background_selected_dark%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\cell_disclosure_accessory.png">
-			<LogicalName>gpg.bundle\cell_disclosure_accessory.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\cell_disclosure_accessory%402x.png">
-			<LogicalName>gpg.bundle\cell_disclosure_accessory%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\cell_disclosure_accessory%403x.png">
-			<LogicalName>gpg.bundle\cell_disclosure_accessory%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\cell_divider.png">
-			<LogicalName>gpg.bundle\cell_divider.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\cell_divider%402x.png">
-			<LogicalName>gpg.bundle\cell_divider%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\check.png">
-			<LogicalName>gpg.bundle\check.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\check%402x.png">
-			<LogicalName>gpg.bundle\check%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\check%403x.png">
-			<LogicalName>gpg.bundle\check%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\check_green.png">
-			<LogicalName>gpg.bundle\check_green.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\check_green%402x.png">
-			<LogicalName>gpg.bundle\check_green%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\check_green%403x.png">
-			<LogicalName>gpg.bundle\check_green%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\checkbox.png">
-			<LogicalName>gpg.bundle\checkbox.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\checkbox%402x.png">
-			<LogicalName>gpg.bundle\checkbox%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\checkbox_checked.png">
-			<LogicalName>gpg.bundle\checkbox_checked.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\checkbox_checked%402x.png">
-			<LogicalName>gpg.bundle\checkbox_checked%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\checkmark.png">
-			<LogicalName>gpg.bundle\checkmark.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\checkmark%402x.png">
-			<LogicalName>gpg.bundle\checkmark%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\chip_close.png">
-			<LogicalName>gpg.bundle\chip_close.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\chip_close%402x.png">
-			<LogicalName>gpg.bundle\chip_close%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\chip_close%403x.png">
-			<LogicalName>gpg.bundle\chip_close%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\corner_bottom_left.png">
-			<LogicalName>gpg.bundle\corner_bottom_left.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\corner_bottom_left%402x.png">
-			<LogicalName>gpg.bundle\corner_bottom_left%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\corner_bottom_right.png">
-			<LogicalName>gpg.bundle\corner_bottom_right.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\corner_bottom_right%402x.png">
-			<LogicalName>gpg.bundle\corner_bottom_right%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\corner_top_left.png">
-			<LogicalName>gpg.bundle\corner_top_left.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\corner_top_left%402x.png">
-			<LogicalName>gpg.bundle\corner_top_left%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\corner_top_right.png">
-			<LogicalName>gpg.bundle\corner_top_right.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\corner_top_right%402x.png">
-			<LogicalName>gpg.bundle\corner_top_right%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\gpg_logo.png">
-			<LogicalName>gpg.bundle\gpg_logo.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\gpg_logo%402x.png">
-			<LogicalName>gpg.bundle\gpg_logo%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\gpg_logo%403x.png">
-			<LogicalName>gpg.bundle\gpg_logo%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\green_circle.png">
-			<LogicalName>gpg.bundle\green_circle.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\green_circle%402x.png">
-			<LogicalName>gpg.bundle\green_circle%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\green_circle%403x.png">
-			<LogicalName>gpg.bundle\green_circle%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_arrow_back.png">
-			<LogicalName>gpg.bundle\ic_arrow_back.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_arrow_back%402x.png">
-			<LogicalName>gpg.bundle\ic_arrow_back%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_arrow_back_24dp.png">
-			<LogicalName>gpg.bundle\ic_arrow_back_24dp.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_arrow_back_24dp%402x.png">
-			<LogicalName>gpg.bundle\ic_arrow_back_24dp%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_arrow_back_24dp%403x.png">
-			<LogicalName>gpg.bundle\ic_arrow_back_24dp%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_check.png">
-			<LogicalName>gpg.bundle\ic_check.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_check%402x.png">
-			<LogicalName>gpg.bundle\ic_check%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_check%403x.png">
-			<LogicalName>gpg.bundle\ic_check%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_chevron_left.png">
-			<LogicalName>gpg.bundle\ic_chevron_left.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_chevron_left%402x.png">
-			<LogicalName>gpg.bundle\ic_chevron_left%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_chevron_left%403x.png">
-			<LogicalName>gpg.bundle\ic_chevron_left%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_chevron_right.png">
-			<LogicalName>gpg.bundle\ic_chevron_right.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_chevron_right%402x.png">
-			<LogicalName>gpg.bundle\ic_chevron_right%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_chevron_right%403x.png">
-			<LogicalName>gpg.bundle\ic_chevron_right%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_claim_reward.png">
-			<LogicalName>gpg.bundle\ic_claim_reward.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_claim_reward%402x.png">
-			<LogicalName>gpg.bundle\ic_claim_reward%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_claim_reward%403x.png">
-			<LogicalName>gpg.bundle\ic_claim_reward%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_clear.png">
-			<LogicalName>gpg.bundle\ic_clear.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_clear%402x.png">
-			<LogicalName>gpg.bundle\ic_clear%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_close.png">
-			<LogicalName>gpg.bundle\ic_close.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_close%402x.png">
-			<LogicalName>gpg.bundle\ic_close%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_close%403x.png">
-			<LogicalName>gpg.bundle\ic_close%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_comment.png">
-			<LogicalName>gpg.bundle\ic_comment.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_comment%402x.png">
-			<LogicalName>gpg.bundle\ic_comment%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_comment%403x.png">
-			<LogicalName>gpg.bundle\ic_comment%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_delete.png">
-			<LogicalName>gpg.bundle\ic_delete.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_delete%402x.png">
-			<LogicalName>gpg.bundle\ic_delete%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_delete%403x.png">
-			<LogicalName>gpg.bundle\ic_delete%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_email.png">
-			<LogicalName>gpg.bundle\ic_email.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_email%402x.png">
-			<LogicalName>gpg.bundle\ic_email%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_email%403x.png">
-			<LogicalName>gpg.bundle\ic_email%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_file_download.png">
-			<LogicalName>gpg.bundle\ic_file_download.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_file_download%402x.png">
-			<LogicalName>gpg.bundle\ic_file_download%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_file_download%403x.png">
-			<LogicalName>gpg.bundle\ic_file_download%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_info.png">
-			<LogicalName>gpg.bundle\ic_info.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_info%402x.png">
-			<LogicalName>gpg.bundle\ic_info%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_info%403x.png">
-			<LogicalName>gpg.bundle\ic_info%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_link.png">
-			<LogicalName>gpg.bundle\ic_link.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_link%402x.png">
-			<LogicalName>gpg.bundle\ic_link%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_link%403x.png">
-			<LogicalName>gpg.bundle\ic_link%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_message.png">
-			<LogicalName>gpg.bundle\ic_message.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_message%402x.png">
-			<LogicalName>gpg.bundle\ic_message%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_message%403x.png">
-			<LogicalName>gpg.bundle\ic_message%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_mode_edit.png">
-			<LogicalName>gpg.bundle\ic_mode_edit.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_mode_edit%402x.png">
-			<LogicalName>gpg.bundle\ic_mode_edit%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_mode_edit%403x.png">
-			<LogicalName>gpg.bundle\ic_mode_edit%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_more_vert.png">
-			<LogicalName>gpg.bundle\ic_more_vert.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_more_vert%402x.png">
-			<LogicalName>gpg.bundle\ic_more_vert%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_more_vert%403x.png">
-			<LogicalName>gpg.bundle\ic_more_vert%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_open_in_browser.png">
-			<LogicalName>gpg.bundle\ic_open_in_browser.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_open_in_browser%402x.png">
-			<LogicalName>gpg.bundle\ic_open_in_browser%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_open_in_browser%403x.png">
-			<LogicalName>gpg.bundle\ic_open_in_browser%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_photo_camera.png">
-			<LogicalName>gpg.bundle\ic_photo_camera.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_photo_camera%402x.png">
-			<LogicalName>gpg.bundle\ic_photo_camera%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_photo_camera%403x.png">
-			<LogicalName>gpg.bundle\ic_photo_camera%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_photo_library.png">
-			<LogicalName>gpg.bundle\ic_photo_library.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_photo_library%402x.png">
-			<LogicalName>gpg.bundle\ic_photo_library%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_photo_library%403x.png">
-			<LogicalName>gpg.bundle\ic_photo_library%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_post_gplus.png">
-			<LogicalName>gpg.bundle\ic_post_gplus.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_post_gplus%402x.png">
-			<LogicalName>gpg.bundle\ic_post_gplus%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_post_gplus%403x.png">
-			<LogicalName>gpg.bundle\ic_post_gplus%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_print.png">
-			<LogicalName>gpg.bundle\ic_print.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_print%402x.png">
-			<LogicalName>gpg.bundle\ic_print%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_print%403x.png">
-			<LogicalName>gpg.bundle\ic_print%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_refresh.png">
-			<LogicalName>gpg.bundle\ic_refresh.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_refresh%402x.png">
-			<LogicalName>gpg.bundle\ic_refresh%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_refresh%403x.png">
-			<LogicalName>gpg.bundle\ic_refresh%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_report_problem.png">
-			<LogicalName>gpg.bundle\ic_report_problem.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_report_problem%402x.png">
-			<LogicalName>gpg.bundle\ic_report_problem%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_report_problem%403x.png">
-			<LogicalName>gpg.bundle\ic_report_problem%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_report_problem_red.png">
-			<LogicalName>gpg.bundle\ic_report_problem_red.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_report_problem_red%402x.png">
-			<LogicalName>gpg.bundle\ic_report_problem_red%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_report_problem_red%403x.png">
-			<LogicalName>gpg.bundle\ic_report_problem_red%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_settings.png">
-			<LogicalName>gpg.bundle\ic_settings.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_settings%402x.png">
-			<LogicalName>gpg.bundle\ic_settings%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\icn-googleplus.png">
-			<LogicalName>gpg.bundle\icn-googleplus.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\icn-googleplus%402x.png">
-			<LogicalName>gpg.bundle\icn-googleplus%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\icn-googleplus%403x.png">
-			<LogicalName>gpg.bundle\icn-googleplus%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\icn-lock.png">
-			<LogicalName>gpg.bundle\icn-lock.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\icn-lock%402x.png">
-			<LogicalName>gpg.bundle\icn-lock%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\icn-lock%403x.png">
-			<LogicalName>gpg.bundle\icn-lock%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\icn-outlink.png">
-			<LogicalName>gpg.bundle\icn-outlink.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\icn-outlink%402x.png">
-			<LogicalName>gpg.bundle\icn-outlink%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\icn-outlink%403x.png">
-			<LogicalName>gpg.bundle\icn-outlink%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_chip_bg_pad.png">
-			<LogicalName>gpg.bundle\leaderboard_chip_bg_pad.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_chip_bg_pad%402x.png">
-			<LogicalName>gpg.bundle\leaderboard_chip_bg_pad%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_chip_bg_pad%403x.png">
-			<LogicalName>gpg.bundle\leaderboard_chip_bg_pad%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_chip_bg_phone.png">
-			<LogicalName>gpg.bundle\leaderboard_chip_bg_phone.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_chip_bg_phone%402x.png">
-			<LogicalName>gpg.bundle\leaderboard_chip_bg_phone%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_chip_bg_phone%403x.png">
-			<LogicalName>gpg.bundle\leaderboard_chip_bg_phone%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_default_pad.png">
-			<LogicalName>gpg.bundle\leaderboard_default_pad.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_default_pad%402x.png">
-			<LogicalName>gpg.bundle\leaderboard_default_pad%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_default_phone.png">
-			<LogicalName>gpg.bundle\leaderboard_default_phone.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_default_phone%402x.png">
-			<LogicalName>gpg.bundle\leaderboard_default_phone%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_default_phone%403x.png">
-			<LogicalName>gpg.bundle\leaderboard_default_phone%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_header.png">
-			<LogicalName>gpg.bundle\leaderboard_header.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_header%402x.png">
-			<LogicalName>gpg.bundle\leaderboard_header%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_header%403x.png">
-			<LogicalName>gpg.bundle\leaderboard_header%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_nav_dropdown.png">
-			<LogicalName>gpg.bundle\leaderboard_nav_dropdown.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_nav_dropdown%402x.png">
-			<LogicalName>gpg.bundle\leaderboard_nav_dropdown%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_nav_dropdown%403x.png">
-			<LogicalName>gpg.bundle\leaderboard_nav_dropdown%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\left.png">
-			<LogicalName>gpg.bundle\left.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\left%402x.png">
-			<LogicalName>gpg.bundle\left%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_leaderboards_pad.png">
-			<LogicalName>gpg.bundle\null_leaderboards_pad.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_leaderboards_pad%402x.png">
-			<LogicalName>gpg.bundle\null_leaderboards_pad%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_leaderboards_pad%403x.png">
-			<LogicalName>gpg.bundle\null_leaderboards_pad%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_leaderboards_phone.png">
-			<LogicalName>gpg.bundle\null_leaderboards_phone.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_leaderboards_phone%402x.png">
-			<LogicalName>gpg.bundle\null_leaderboards_phone%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_leaderboards_phone%403x.png">
-			<LogicalName>gpg.bundle\null_leaderboards_phone%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_matches_pad.png">
-			<LogicalName>gpg.bundle\null_matches_pad.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_matches_pad%402x.png">
-			<LogicalName>gpg.bundle\null_matches_pad%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_matches_pad%403x.png">
-			<LogicalName>gpg.bundle\null_matches_pad%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_matches_phone.png">
-			<LogicalName>gpg.bundle\null_matches_phone.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_matches_phone%402x.png">
-			<LogicalName>gpg.bundle\null_matches_phone%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_matches_phone%403x.png">
-			<LogicalName>gpg.bundle\null_matches_phone%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_quests_pad.png">
-			<LogicalName>gpg.bundle\null_quests_pad.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_quests_pad%402x.png">
-			<LogicalName>gpg.bundle\null_quests_pad%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_quests_pad%403x.png">
-			<LogicalName>gpg.bundle\null_quests_pad%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_quests_phone.png">
-			<LogicalName>gpg.bundle\null_quests_phone.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_quests_phone%402x.png">
-			<LogicalName>gpg.bundle\null_quests_phone%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_quests_phone%403x.png">
-			<LogicalName>gpg.bundle\null_quests_phone%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_snapshots_pad.png">
-			<LogicalName>gpg.bundle\null_snapshots_pad.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_snapshots_pad%402x.png">
-			<LogicalName>gpg.bundle\null_snapshots_pad%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_snapshots_pad%403x.png">
-			<LogicalName>gpg.bundle\null_snapshots_pad%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_snapshots_phone.png">
-			<LogicalName>gpg.bundle\null_snapshots_phone.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_snapshots_phone%402x.png">
-			<LogicalName>gpg.bundle\null_snapshots_phone%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_snapshots_phone%403x.png">
-			<LogicalName>gpg.bundle\null_snapshots_phone%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\play_btn.png">
-			<LogicalName>gpg.bundle\play_btn.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\play_btn%402x.png">
-			<LogicalName>gpg.bundle\play_btn%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\play_btn%403x.png">
-			<LogicalName>gpg.bundle\play_btn%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\quest_default_pad.png">
-			<LogicalName>gpg.bundle\quest_default_pad.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\quest_default_pad%402x.png">
-			<LogicalName>gpg.bundle\quest_default_pad%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\quest_default_pad%403x.png">
-			<LogicalName>gpg.bundle\quest_default_pad%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\quest_default_phone.png">
-			<LogicalName>gpg.bundle\quest_default_phone.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\quest_default_phone%402x.png">
-			<LogicalName>gpg.bundle\quest_default_phone%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\quest_default_phone%403x.png">
-			<LogicalName>gpg.bundle\quest_default_phone%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\quest_header.png">
-			<LogicalName>gpg.bundle\quest_header.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\quest_header%402x.png">
-			<LogicalName>gpg.bundle\quest_header%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\quest_header%403x.png">
-			<LogicalName>gpg.bundle\quest_header%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\right.png">
-			<LogicalName>gpg.bundle\right.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\right%402x.png">
-			<LogicalName>gpg.bundle\right%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\sheet_shadow.png">
-			<LogicalName>gpg.bundle\sheet_shadow.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\sheet_shadow%402x.png">
-			<LogicalName>gpg.bundle\sheet_shadow%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\snapshot_default_pad.png">
-			<LogicalName>gpg.bundle\snapshot_default_pad.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\snapshot_default_pad%402x.png">
-			<LogicalName>gpg.bundle\snapshot_default_pad%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\snapshot_default_pad%403x.png">
-			<LogicalName>gpg.bundle\snapshot_default_pad%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\snapshot_default_phone.png">
-			<LogicalName>gpg.bundle\snapshot_default_phone.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\snapshot_default_phone%402x.png">
-			<LogicalName>gpg.bundle\snapshot_default_phone%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\snapshot_default_phone%403x.png">
-			<LogicalName>gpg.bundle\snapshot_default_phone%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\snapshot_header.png">
-			<LogicalName>gpg.bundle\snapshot_header.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\snapshot_header%402x.png">
-			<LogicalName>gpg.bundle\snapshot_header%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\snapshot_header%403x.png">
-			<LogicalName>gpg.bundle\snapshot_header%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\toast_achievements.png">
-			<LogicalName>gpg.bundle\toast_achievements.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\toast_achievements%402x.png">
-			<LogicalName>gpg.bundle\toast_achievements%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\toast_achievements%403x.png">
-			<LogicalName>gpg.bundle\toast_achievements%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\toast_icon_unknown.png">
-			<LogicalName>gpg.bundle\toast_icon_unknown.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\toast_icon_unknown%402x.png">
-			<LogicalName>gpg.bundle\toast_icon_unknown%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\toast_icon_unknown%403x.png">
-			<LogicalName>gpg.bundle\toast_icon_unknown%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\toast_logo.png">
-			<LogicalName>gpg.bundle\toast_logo.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\toast_logo%402x.png">
-			<LogicalName>gpg.bundle\toast_logo%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\toast_logo%403x.png">
-			<LogicalName>gpg.bundle\toast_logo%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\toast_quests.png">
-			<LogicalName>gpg.bundle\toast_quests.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\toast_quests%402x.png">
-			<LogicalName>gpg.bundle\toast_quests%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\toast_quests%403x.png">
-			<LogicalName>gpg.bundle\toast_quests%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\top.png">
-			<LogicalName>gpg.bundle\top.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\top%402x.png">
-			<LogicalName>gpg.bundle\top%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\vertical_divider.png">
-			<LogicalName>gpg.bundle\vertical_divider.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\vertical_divider%402x.png">
-			<LogicalName>gpg.bundle\vertical_divider%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\wreath_1.png">
-			<LogicalName>gpg.bundle\wreath_1.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\wreath_1%402x.png">
-			<LogicalName>gpg.bundle\wreath_1%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\wreath_1%403x.png">
-			<LogicalName>gpg.bundle\wreath_1%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\wreath_2.png">
-			<LogicalName>gpg.bundle\wreath_2.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\wreath_2%402x.png">
-			<LogicalName>gpg.bundle\wreath_2%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\wreath_2%403x.png">
-			<LogicalName>gpg.bundle\wreath_2%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\wreath_3.png">
-			<LogicalName>gpg.bundle\wreath_3.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\wreath_3%402x.png">
-			<LogicalName>gpg.bundle\wreath_3%402x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\wreath_3%403x.png">
-			<LogicalName>gpg.bundle\wreath_3%403x.png</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ar.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\ar.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ca.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\ca.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\cs.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\cs.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\da.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\da.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\de.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\de.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\el.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\el.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\en-GB.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\en-GB.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\en.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\en.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\es-MX.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\es-MX.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\es.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\es.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\fi.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\fi.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\fr.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\fr.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\he.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\he.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\hr.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\hr.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\hu.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\hu.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\id.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\id.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\it.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\it.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ja.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\ja.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ko.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\ko.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ms.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\ms.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\nb.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\nb.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\nl.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\nl.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\pl.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\pl.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\pt-PT.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\pt-PT.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\pt.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\pt.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ro.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\ro.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ru.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\ru.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\sk.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\sk.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\sv.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\sv.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\th.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\th.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\tr.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\tr.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\uk.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\uk.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\vi.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\vi.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\zh-Hans.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\zh-Hans.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
-		<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\zh-Hant.lproj\GamesSDK_v1.strings">
-			<LogicalName>gpg.bundle\zh-Hant.lproj\GamesSDK_v1.strings</LogicalName>
-		</BundleResource>
+		<XamarinBuildRestoreResources Include="_GPlyGamesDownloadedItems" />
 	</ItemGroup>
+	<Target Name="_GPlyGamesDownloadedItems">
+		<ItemGroup>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\Assets.car">
+				<LogicalName>gpg.bundle\Assets.car</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\Info.plist">
+				<LogicalName>gpg.bundle\Info.plist</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\Roboto-Light.ttf">
+				<LogicalName>gpg.bundle\Roboto-Light.ttf</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\Roboto-Medium.ttf">
+				<LogicalName>gpg.bundle\Roboto-Medium.ttf</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\Roboto-Regular.ttf">
+				<LogicalName>gpg.bundle\Roboto-Regular.ttf</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\RobotoCondensed-Italic.ttf">
+				<LogicalName>gpg.bundle\RobotoCondensed-Italic.ttf</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievement_secret_noring_pad.png">
+				<LogicalName>gpg.bundle\achievement_secret_noring_pad.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievement_secret_noring_pad%402x.png">
+				<LogicalName>gpg.bundle\achievement_secret_noring_pad%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievement_secret_noring_pad%403x.png">
+				<LogicalName>gpg.bundle\achievement_secret_noring_pad%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievement_secret_noring_phone.png">
+				<LogicalName>gpg.bundle\achievement_secret_noring_phone.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievement_secret_noring_phone%402x.png">
+				<LogicalName>gpg.bundle\achievement_secret_noring_phone%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievement_secret_noring_phone%403x.png">
+				<LogicalName>gpg.bundle\achievement_secret_noring_phone%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievement_secret_pad.png">
+				<LogicalName>gpg.bundle\achievement_secret_pad.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievement_secret_pad%402x.png">
+				<LogicalName>gpg.bundle\achievement_secret_pad%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievement_secret_pad%403x.png">
+				<LogicalName>gpg.bundle\achievement_secret_pad%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievement_secret_phone.png">
+				<LogicalName>gpg.bundle\achievement_secret_phone.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievement_secret_phone%402x.png">
+				<LogicalName>gpg.bundle\achievement_secret_phone%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievement_secret_phone%403x.png">
+				<LogicalName>gpg.bundle\achievement_secret_phone%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievements_header.png">
+				<LogicalName>gpg.bundle\achievements_header.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievements_header%402x.png">
+				<LogicalName>gpg.bundle\achievements_header%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\achievements_header%403x.png">
+				<LogicalName>gpg.bundle\achievements_header%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\arrow.png">
+				<LogicalName>gpg.bundle\arrow.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\arrow%402x.png">
+				<LogicalName>gpg.bundle\arrow%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\arrow_bottom.png">
+				<LogicalName>gpg.bundle\arrow_bottom.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\arrow_bottom%402x.png">
+				<LogicalName>gpg.bundle\arrow_bottom%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\arrow_left.png">
+				<LogicalName>gpg.bundle\arrow_left.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\arrow_left%402x.png">
+				<LogicalName>gpg.bundle\arrow_left%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\arrow_right.png">
+				<LogicalName>gpg.bundle\arrow_right.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\arrow_right%402x.png">
+				<LogicalName>gpg.bundle\arrow_right%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\arrow_top.png">
+				<LogicalName>gpg.bundle\arrow_top.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\arrow_top%402x.png">
+				<LogicalName>gpg.bundle\arrow_top%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\avatar_auto_match.png">
+				<LogicalName>gpg.bundle\avatar_auto_match.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\avatar_auto_match%402x.png">
+				<LogicalName>gpg.bundle\avatar_auto_match%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\avatar_auto_match%403x.png">
+				<LogicalName>gpg.bundle\avatar_auto_match%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\avatar_unknown.png">
+				<LogicalName>gpg.bundle\avatar_unknown.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\avatar_unknown%402x.png">
+				<LogicalName>gpg.bundle\avatar_unknown%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\avatar_unknown%403x.png">
+				<LogicalName>gpg.bundle\avatar_unknown%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\background.png">
+				<LogicalName>gpg.bundle\background.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\background%402x.png">
+				<LogicalName>gpg.bundle\background%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\bg_banner_default.png">
+				<LogicalName>gpg.bundle\bg_banner_default.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\bg_banner_default%402x.png">
+				<LogicalName>gpg.bundle\bg_banner_default%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\bg_banner_default%403x.png">
+				<LogicalName>gpg.bundle\bg_banner_default%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\bottom.png">
+				<LogicalName>gpg.bundle\bottom.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\bottom%402x.png">
+				<LogicalName>gpg.bundle\bottom%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\btn-nav-white-pressed.png">
+				<LogicalName>gpg.bundle\btn-nav-white-pressed.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\btn-nav-white-pressed%402x.png">
+				<LogicalName>gpg.bundle\btn-nav-white-pressed%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\btn-nav-white-pressed%403x.png">
+				<LogicalName>gpg.bundle\btn-nav-white-pressed%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\btn-nav-white.png">
+				<LogicalName>gpg.bundle\btn-nav-white.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\btn-nav-white%402x.png">
+				<LogicalName>gpg.bundle\btn-nav-white%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\btn-nav-white%403x.png">
+				<LogicalName>gpg.bundle\btn-nav-white%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_blue.png">
+				<LogicalName>gpg.bundle\button_blue.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_blue%402x.png">
+				<LogicalName>gpg.bundle\button_blue%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_blue%403x.png">
+				<LogicalName>gpg.bundle\button_blue%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_blue_highlighted.png">
+				<LogicalName>gpg.bundle\button_blue_highlighted.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_blue_highlighted%402x.png">
+				<LogicalName>gpg.bundle\button_blue_highlighted%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_blue_highlighted%403x.png">
+				<LogicalName>gpg.bundle\button_blue_highlighted%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_dark.png">
+				<LogicalName>gpg.bundle\button_dark.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_dark%402x.png">
+				<LogicalName>gpg.bundle\button_dark%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_dark%403x.png">
+				<LogicalName>gpg.bundle\button_dark%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_dark_highlighted.png">
+				<LogicalName>gpg.bundle\button_dark_highlighted.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_dark_highlighted%402x.png">
+				<LogicalName>gpg.bundle\button_dark_highlighted%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_dark_highlighted%403x.png">
+				<LogicalName>gpg.bundle\button_dark_highlighted%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_light.png">
+				<LogicalName>gpg.bundle\button_light.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_light%402x.png">
+				<LogicalName>gpg.bundle\button_light%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_light%403x.png">
+				<LogicalName>gpg.bundle\button_light%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_light_highlighted.png">
+				<LogicalName>gpg.bundle\button_light_highlighted.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_light_highlighted%402x.png">
+				<LogicalName>gpg.bundle\button_light_highlighted%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_light_highlighted%403x.png">
+				<LogicalName>gpg.bundle\button_light_highlighted%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_red.png">
+				<LogicalName>gpg.bundle\button_red.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_red%402x.png">
+				<LogicalName>gpg.bundle\button_red%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_red%403x.png">
+				<LogicalName>gpg.bundle\button_red%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_red_highlighted.png">
+				<LogicalName>gpg.bundle\button_red_highlighted.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_red_highlighted%402x.png">
+				<LogicalName>gpg.bundle\button_red_highlighted%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\button_red_highlighted%403x.png">
+				<LogicalName>gpg.bundle\button_red_highlighted%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\cell_background_selected_dark.png">
+				<LogicalName>gpg.bundle\cell_background_selected_dark.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\cell_background_selected_dark%402x.png">
+				<LogicalName>gpg.bundle\cell_background_selected_dark%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\cell_disclosure_accessory.png">
+				<LogicalName>gpg.bundle\cell_disclosure_accessory.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\cell_disclosure_accessory%402x.png">
+				<LogicalName>gpg.bundle\cell_disclosure_accessory%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\cell_disclosure_accessory%403x.png">
+				<LogicalName>gpg.bundle\cell_disclosure_accessory%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\cell_divider.png">
+				<LogicalName>gpg.bundle\cell_divider.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\cell_divider%402x.png">
+				<LogicalName>gpg.bundle\cell_divider%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\check.png">
+				<LogicalName>gpg.bundle\check.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\check%402x.png">
+				<LogicalName>gpg.bundle\check%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\check%403x.png">
+				<LogicalName>gpg.bundle\check%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\check_green.png">
+				<LogicalName>gpg.bundle\check_green.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\check_green%402x.png">
+				<LogicalName>gpg.bundle\check_green%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\check_green%403x.png">
+				<LogicalName>gpg.bundle\check_green%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\checkbox.png">
+				<LogicalName>gpg.bundle\checkbox.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\checkbox%402x.png">
+				<LogicalName>gpg.bundle\checkbox%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\checkbox_checked.png">
+				<LogicalName>gpg.bundle\checkbox_checked.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\checkbox_checked%402x.png">
+				<LogicalName>gpg.bundle\checkbox_checked%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\checkmark.png">
+				<LogicalName>gpg.bundle\checkmark.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\checkmark%402x.png">
+				<LogicalName>gpg.bundle\checkmark%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\chip_close.png">
+				<LogicalName>gpg.bundle\chip_close.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\chip_close%402x.png">
+				<LogicalName>gpg.bundle\chip_close%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\chip_close%403x.png">
+				<LogicalName>gpg.bundle\chip_close%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\corner_bottom_left.png">
+				<LogicalName>gpg.bundle\corner_bottom_left.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\corner_bottom_left%402x.png">
+				<LogicalName>gpg.bundle\corner_bottom_left%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\corner_bottom_right.png">
+				<LogicalName>gpg.bundle\corner_bottom_right.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\corner_bottom_right%402x.png">
+				<LogicalName>gpg.bundle\corner_bottom_right%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\corner_top_left.png">
+				<LogicalName>gpg.bundle\corner_top_left.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\corner_top_left%402x.png">
+				<LogicalName>gpg.bundle\corner_top_left%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\corner_top_right.png">
+				<LogicalName>gpg.bundle\corner_top_right.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\corner_top_right%402x.png">
+				<LogicalName>gpg.bundle\corner_top_right%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\gpg_logo.png">
+				<LogicalName>gpg.bundle\gpg_logo.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\gpg_logo%402x.png">
+				<LogicalName>gpg.bundle\gpg_logo%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\gpg_logo%403x.png">
+				<LogicalName>gpg.bundle\gpg_logo%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\green_circle.png">
+				<LogicalName>gpg.bundle\green_circle.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\green_circle%402x.png">
+				<LogicalName>gpg.bundle\green_circle%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\green_circle%403x.png">
+				<LogicalName>gpg.bundle\green_circle%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_arrow_back.png">
+				<LogicalName>gpg.bundle\ic_arrow_back.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_arrow_back%402x.png">
+				<LogicalName>gpg.bundle\ic_arrow_back%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_arrow_back_24dp.png">
+				<LogicalName>gpg.bundle\ic_arrow_back_24dp.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_arrow_back_24dp%402x.png">
+				<LogicalName>gpg.bundle\ic_arrow_back_24dp%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_arrow_back_24dp%403x.png">
+				<LogicalName>gpg.bundle\ic_arrow_back_24dp%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_check.png">
+				<LogicalName>gpg.bundle\ic_check.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_check%402x.png">
+				<LogicalName>gpg.bundle\ic_check%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_check%403x.png">
+				<LogicalName>gpg.bundle\ic_check%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_chevron_left.png">
+				<LogicalName>gpg.bundle\ic_chevron_left.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_chevron_left%402x.png">
+				<LogicalName>gpg.bundle\ic_chevron_left%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_chevron_left%403x.png">
+				<LogicalName>gpg.bundle\ic_chevron_left%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_chevron_right.png">
+				<LogicalName>gpg.bundle\ic_chevron_right.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_chevron_right%402x.png">
+				<LogicalName>gpg.bundle\ic_chevron_right%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_chevron_right%403x.png">
+				<LogicalName>gpg.bundle\ic_chevron_right%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_claim_reward.png">
+				<LogicalName>gpg.bundle\ic_claim_reward.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_claim_reward%402x.png">
+				<LogicalName>gpg.bundle\ic_claim_reward%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_claim_reward%403x.png">
+				<LogicalName>gpg.bundle\ic_claim_reward%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_clear.png">
+				<LogicalName>gpg.bundle\ic_clear.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_clear%402x.png">
+				<LogicalName>gpg.bundle\ic_clear%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_close.png">
+				<LogicalName>gpg.bundle\ic_close.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_close%402x.png">
+				<LogicalName>gpg.bundle\ic_close%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_close%403x.png">
+				<LogicalName>gpg.bundle\ic_close%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_comment.png">
+				<LogicalName>gpg.bundle\ic_comment.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_comment%402x.png">
+				<LogicalName>gpg.bundle\ic_comment%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_comment%403x.png">
+				<LogicalName>gpg.bundle\ic_comment%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_delete.png">
+				<LogicalName>gpg.bundle\ic_delete.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_delete%402x.png">
+				<LogicalName>gpg.bundle\ic_delete%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_delete%403x.png">
+				<LogicalName>gpg.bundle\ic_delete%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_email.png">
+				<LogicalName>gpg.bundle\ic_email.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_email%402x.png">
+				<LogicalName>gpg.bundle\ic_email%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_email%403x.png">
+				<LogicalName>gpg.bundle\ic_email%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_file_download.png">
+				<LogicalName>gpg.bundle\ic_file_download.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_file_download%402x.png">
+				<LogicalName>gpg.bundle\ic_file_download%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_file_download%403x.png">
+				<LogicalName>gpg.bundle\ic_file_download%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_info.png">
+				<LogicalName>gpg.bundle\ic_info.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_info%402x.png">
+				<LogicalName>gpg.bundle\ic_info%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_info%403x.png">
+				<LogicalName>gpg.bundle\ic_info%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_link.png">
+				<LogicalName>gpg.bundle\ic_link.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_link%402x.png">
+				<LogicalName>gpg.bundle\ic_link%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_link%403x.png">
+				<LogicalName>gpg.bundle\ic_link%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_message.png">
+				<LogicalName>gpg.bundle\ic_message.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_message%402x.png">
+				<LogicalName>gpg.bundle\ic_message%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_message%403x.png">
+				<LogicalName>gpg.bundle\ic_message%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_mode_edit.png">
+				<LogicalName>gpg.bundle\ic_mode_edit.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_mode_edit%402x.png">
+				<LogicalName>gpg.bundle\ic_mode_edit%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_mode_edit%403x.png">
+				<LogicalName>gpg.bundle\ic_mode_edit%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_more_vert.png">
+				<LogicalName>gpg.bundle\ic_more_vert.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_more_vert%402x.png">
+				<LogicalName>gpg.bundle\ic_more_vert%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_more_vert%403x.png">
+				<LogicalName>gpg.bundle\ic_more_vert%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_open_in_browser.png">
+				<LogicalName>gpg.bundle\ic_open_in_browser.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_open_in_browser%402x.png">
+				<LogicalName>gpg.bundle\ic_open_in_browser%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_open_in_browser%403x.png">
+				<LogicalName>gpg.bundle\ic_open_in_browser%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_photo_camera.png">
+				<LogicalName>gpg.bundle\ic_photo_camera.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_photo_camera%402x.png">
+				<LogicalName>gpg.bundle\ic_photo_camera%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_photo_camera%403x.png">
+				<LogicalName>gpg.bundle\ic_photo_camera%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_photo_library.png">
+				<LogicalName>gpg.bundle\ic_photo_library.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_photo_library%402x.png">
+				<LogicalName>gpg.bundle\ic_photo_library%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_photo_library%403x.png">
+				<LogicalName>gpg.bundle\ic_photo_library%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_post_gplus.png">
+				<LogicalName>gpg.bundle\ic_post_gplus.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_post_gplus%402x.png">
+				<LogicalName>gpg.bundle\ic_post_gplus%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_post_gplus%403x.png">
+				<LogicalName>gpg.bundle\ic_post_gplus%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_print.png">
+				<LogicalName>gpg.bundle\ic_print.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_print%402x.png">
+				<LogicalName>gpg.bundle\ic_print%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_print%403x.png">
+				<LogicalName>gpg.bundle\ic_print%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_refresh.png">
+				<LogicalName>gpg.bundle\ic_refresh.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_refresh%402x.png">
+				<LogicalName>gpg.bundle\ic_refresh%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_refresh%403x.png">
+				<LogicalName>gpg.bundle\ic_refresh%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_report_problem.png">
+				<LogicalName>gpg.bundle\ic_report_problem.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_report_problem%402x.png">
+				<LogicalName>gpg.bundle\ic_report_problem%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_report_problem%403x.png">
+				<LogicalName>gpg.bundle\ic_report_problem%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_report_problem_red.png">
+				<LogicalName>gpg.bundle\ic_report_problem_red.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_report_problem_red%402x.png">
+				<LogicalName>gpg.bundle\ic_report_problem_red%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_report_problem_red%403x.png">
+				<LogicalName>gpg.bundle\ic_report_problem_red%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_settings.png">
+				<LogicalName>gpg.bundle\ic_settings.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ic_settings%402x.png">
+				<LogicalName>gpg.bundle\ic_settings%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\icn-googleplus.png">
+				<LogicalName>gpg.bundle\icn-googleplus.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\icn-googleplus%402x.png">
+				<LogicalName>gpg.bundle\icn-googleplus%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\icn-googleplus%403x.png">
+				<LogicalName>gpg.bundle\icn-googleplus%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\icn-lock.png">
+				<LogicalName>gpg.bundle\icn-lock.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\icn-lock%402x.png">
+				<LogicalName>gpg.bundle\icn-lock%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\icn-lock%403x.png">
+				<LogicalName>gpg.bundle\icn-lock%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\icn-outlink.png">
+				<LogicalName>gpg.bundle\icn-outlink.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\icn-outlink%402x.png">
+				<LogicalName>gpg.bundle\icn-outlink%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\icn-outlink%403x.png">
+				<LogicalName>gpg.bundle\icn-outlink%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_chip_bg_pad.png">
+				<LogicalName>gpg.bundle\leaderboard_chip_bg_pad.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_chip_bg_pad%402x.png">
+				<LogicalName>gpg.bundle\leaderboard_chip_bg_pad%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_chip_bg_pad%403x.png">
+				<LogicalName>gpg.bundle\leaderboard_chip_bg_pad%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_chip_bg_phone.png">
+				<LogicalName>gpg.bundle\leaderboard_chip_bg_phone.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_chip_bg_phone%402x.png">
+				<LogicalName>gpg.bundle\leaderboard_chip_bg_phone%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_chip_bg_phone%403x.png">
+				<LogicalName>gpg.bundle\leaderboard_chip_bg_phone%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_default_pad.png">
+				<LogicalName>gpg.bundle\leaderboard_default_pad.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_default_pad%402x.png">
+				<LogicalName>gpg.bundle\leaderboard_default_pad%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_default_phone.png">
+				<LogicalName>gpg.bundle\leaderboard_default_phone.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_default_phone%402x.png">
+				<LogicalName>gpg.bundle\leaderboard_default_phone%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_default_phone%403x.png">
+				<LogicalName>gpg.bundle\leaderboard_default_phone%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_header.png">
+				<LogicalName>gpg.bundle\leaderboard_header.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_header%402x.png">
+				<LogicalName>gpg.bundle\leaderboard_header%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_header%403x.png">
+				<LogicalName>gpg.bundle\leaderboard_header%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_nav_dropdown.png">
+				<LogicalName>gpg.bundle\leaderboard_nav_dropdown.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_nav_dropdown%402x.png">
+				<LogicalName>gpg.bundle\leaderboard_nav_dropdown%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\leaderboard_nav_dropdown%403x.png">
+				<LogicalName>gpg.bundle\leaderboard_nav_dropdown%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\left.png">
+				<LogicalName>gpg.bundle\left.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\left%402x.png">
+				<LogicalName>gpg.bundle\left%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_leaderboards_pad.png">
+				<LogicalName>gpg.bundle\null_leaderboards_pad.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_leaderboards_pad%402x.png">
+				<LogicalName>gpg.bundle\null_leaderboards_pad%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_leaderboards_pad%403x.png">
+				<LogicalName>gpg.bundle\null_leaderboards_pad%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_leaderboards_phone.png">
+				<LogicalName>gpg.bundle\null_leaderboards_phone.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_leaderboards_phone%402x.png">
+				<LogicalName>gpg.bundle\null_leaderboards_phone%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_leaderboards_phone%403x.png">
+				<LogicalName>gpg.bundle\null_leaderboards_phone%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_matches_pad.png">
+				<LogicalName>gpg.bundle\null_matches_pad.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_matches_pad%402x.png">
+				<LogicalName>gpg.bundle\null_matches_pad%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_matches_pad%403x.png">
+				<LogicalName>gpg.bundle\null_matches_pad%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_matches_phone.png">
+				<LogicalName>gpg.bundle\null_matches_phone.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_matches_phone%402x.png">
+				<LogicalName>gpg.bundle\null_matches_phone%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_matches_phone%403x.png">
+				<LogicalName>gpg.bundle\null_matches_phone%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_quests_pad.png">
+				<LogicalName>gpg.bundle\null_quests_pad.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_quests_pad%402x.png">
+				<LogicalName>gpg.bundle\null_quests_pad%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_quests_pad%403x.png">
+				<LogicalName>gpg.bundle\null_quests_pad%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_quests_phone.png">
+				<LogicalName>gpg.bundle\null_quests_phone.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_quests_phone%402x.png">
+				<LogicalName>gpg.bundle\null_quests_phone%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_quests_phone%403x.png">
+				<LogicalName>gpg.bundle\null_quests_phone%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_snapshots_pad.png">
+				<LogicalName>gpg.bundle\null_snapshots_pad.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_snapshots_pad%402x.png">
+				<LogicalName>gpg.bundle\null_snapshots_pad%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_snapshots_pad%403x.png">
+				<LogicalName>gpg.bundle\null_snapshots_pad%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_snapshots_phone.png">
+				<LogicalName>gpg.bundle\null_snapshots_phone.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_snapshots_phone%402x.png">
+				<LogicalName>gpg.bundle\null_snapshots_phone%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\null_snapshots_phone%403x.png">
+				<LogicalName>gpg.bundle\null_snapshots_phone%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\play_btn.png">
+				<LogicalName>gpg.bundle\play_btn.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\play_btn%402x.png">
+				<LogicalName>gpg.bundle\play_btn%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\play_btn%403x.png">
+				<LogicalName>gpg.bundle\play_btn%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\quest_default_pad.png">
+				<LogicalName>gpg.bundle\quest_default_pad.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\quest_default_pad%402x.png">
+				<LogicalName>gpg.bundle\quest_default_pad%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\quest_default_pad%403x.png">
+				<LogicalName>gpg.bundle\quest_default_pad%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\quest_default_phone.png">
+				<LogicalName>gpg.bundle\quest_default_phone.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\quest_default_phone%402x.png">
+				<LogicalName>gpg.bundle\quest_default_phone%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\quest_default_phone%403x.png">
+				<LogicalName>gpg.bundle\quest_default_phone%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\quest_header.png">
+				<LogicalName>gpg.bundle\quest_header.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\quest_header%402x.png">
+				<LogicalName>gpg.bundle\quest_header%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\quest_header%403x.png">
+				<LogicalName>gpg.bundle\quest_header%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\right.png">
+				<LogicalName>gpg.bundle\right.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\right%402x.png">
+				<LogicalName>gpg.bundle\right%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\sheet_shadow.png">
+				<LogicalName>gpg.bundle\sheet_shadow.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\sheet_shadow%402x.png">
+				<LogicalName>gpg.bundle\sheet_shadow%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\snapshot_default_pad.png">
+				<LogicalName>gpg.bundle\snapshot_default_pad.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\snapshot_default_pad%402x.png">
+				<LogicalName>gpg.bundle\snapshot_default_pad%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\snapshot_default_pad%403x.png">
+				<LogicalName>gpg.bundle\snapshot_default_pad%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\snapshot_default_phone.png">
+				<LogicalName>gpg.bundle\snapshot_default_phone.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\snapshot_default_phone%402x.png">
+				<LogicalName>gpg.bundle\snapshot_default_phone%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\snapshot_default_phone%403x.png">
+				<LogicalName>gpg.bundle\snapshot_default_phone%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\snapshot_header.png">
+				<LogicalName>gpg.bundle\snapshot_header.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\snapshot_header%402x.png">
+				<LogicalName>gpg.bundle\snapshot_header%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\snapshot_header%403x.png">
+				<LogicalName>gpg.bundle\snapshot_header%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\toast_achievements.png">
+				<LogicalName>gpg.bundle\toast_achievements.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\toast_achievements%402x.png">
+				<LogicalName>gpg.bundle\toast_achievements%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\toast_achievements%403x.png">
+				<LogicalName>gpg.bundle\toast_achievements%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\toast_icon_unknown.png">
+				<LogicalName>gpg.bundle\toast_icon_unknown.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\toast_icon_unknown%402x.png">
+				<LogicalName>gpg.bundle\toast_icon_unknown%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\toast_icon_unknown%403x.png">
+				<LogicalName>gpg.bundle\toast_icon_unknown%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\toast_logo.png">
+				<LogicalName>gpg.bundle\toast_logo.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\toast_logo%402x.png">
+				<LogicalName>gpg.bundle\toast_logo%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\toast_logo%403x.png">
+				<LogicalName>gpg.bundle\toast_logo%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\toast_quests.png">
+				<LogicalName>gpg.bundle\toast_quests.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\toast_quests%402x.png">
+				<LogicalName>gpg.bundle\toast_quests%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\toast_quests%403x.png">
+				<LogicalName>gpg.bundle\toast_quests%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\top.png">
+				<LogicalName>gpg.bundle\top.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\top%402x.png">
+				<LogicalName>gpg.bundle\top%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\vertical_divider.png">
+				<LogicalName>gpg.bundle\vertical_divider.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\vertical_divider%402x.png">
+				<LogicalName>gpg.bundle\vertical_divider%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\wreath_1.png">
+				<LogicalName>gpg.bundle\wreath_1.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\wreath_1%402x.png">
+				<LogicalName>gpg.bundle\wreath_1%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\wreath_1%403x.png">
+				<LogicalName>gpg.bundle\wreath_1%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\wreath_2.png">
+				<LogicalName>gpg.bundle\wreath_2.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\wreath_2%402x.png">
+				<LogicalName>gpg.bundle\wreath_2%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\wreath_2%403x.png">
+				<LogicalName>gpg.bundle\wreath_2%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\wreath_3.png">
+				<LogicalName>gpg.bundle\wreath_3.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\wreath_3%402x.png">
+				<LogicalName>gpg.bundle\wreath_3%402x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\wreath_3%403x.png">
+				<LogicalName>gpg.bundle\wreath_3%403x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ar.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\ar.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ca.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\ca.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\cs.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\cs.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\da.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\da.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\de.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\de.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\el.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\el.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\en-GB.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\en-GB.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\en.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\en.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\es-MX.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\es-MX.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\es.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\es.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\fi.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\fi.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\fr.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\fr.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\he.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\he.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\hr.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\hr.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\hu.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\hu.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\id.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\id.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\it.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\it.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ja.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\ja.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ko.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\ko.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ms.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\ms.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\nb.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\nb.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\nl.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\nl.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\pl.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\pl.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\pt-PT.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\pt-PT.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\pt.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\pt.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ro.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\ro.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\ru.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\ru.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\sk.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\sk.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\sv.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\sv.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\th.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\th.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\tr.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\tr.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\uk.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\uk.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\vi.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\vi.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\zh-Hans.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\zh-Hans.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlayGamesSDKBaseFolder)gpg.bundle\zh-Hant.lproj\GamesSDK_v1.strings">
+				<LogicalName>gpg.bundle\zh-Hant.lproj\GamesSDK_v1.strings</LogicalName>
+			</BundleResource>
+		</ItemGroup>
+	</Target>
 </Project>
 

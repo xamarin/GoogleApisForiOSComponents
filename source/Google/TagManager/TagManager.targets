@@ -46,9 +46,13 @@
 			<ForceLoad>True</ForceLoad>
 			<LinkerFlags>-ObjC</LinkerFlags>
 		</NativeReference>
-
-		<BundleResource Include="$(_GoogleTagManagerSDKBaseFolder)Resources\TagManagerResources\TAGRuntime.js.dat">
-			<LogicalName>TagManagerResources.bundle\TAGRuntime.js.dat</LogicalName>
-		</BundleResource>
+		<XamarinBuildRestoreResources Include="_GTagMDownloadedItems" />
 	</ItemGroup>
+	<Target Name="_GTagMDownloadedItems">
+		<ItemGroup>
+			<BundleResource Include="$(_GoogleTagManagerSDKBaseFolder)Resources\TagManagerResources\TAGRuntime.js.dat">
+				<LogicalName>TagManagerResources.bundle\TAGRuntime.js.dat</LogicalName>
+			</BundleResource>
+		</ItemGroup>
+	</Target>
 </Project>
