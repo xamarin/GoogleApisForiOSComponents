@@ -12,17 +12,24 @@
 			<Url>https://dl.google.com/dl/cpdc/5045ea4a49257568/FirebaseAnalytics-6.3.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
-		<NativeReference Include="$(_FirebaseAnalyticsSDKBaseFolder)FirebaseAnalytics.framework">
-			<Kind>Framework</Kind>
-			<SmartLink>True</SmartLink>
-			<ForceLoad>True</ForceLoad>
-			<LinkerFlags>-ObjC -lc++ -lsqlite3 -lz</LinkerFlags>
-			<Frameworks>AddressBook AdSupport CoreGraphics StoreKit SystemConfiguration</Frameworks>
-		</NativeReference>
-		<NativeReference Include="$(_FirebaseAnalyticsSDKBaseFolder)FIRAnalyticsConnector.framework">
-			<Kind>Framework</Kind>
-			<SmartLink>True</SmartLink>
-			<ForceLoad>True</ForceLoad>
-		</NativeReference>
+		
+		<XamarinBuildRestoreResources Include="_FAnlytcsDownloadedItems" />
 	</ItemGroup>
+	<Target Name="_FAnlytcsDownloadedItems">
+		<ItemGroup>
+			<!-- From https://dl.google.com/dl/cpdc/5045ea4a49257568/FirebaseAnalytics-6.3.0.tar.gz -->
+			<NativeReference Include="$(_FirebaseAnalyticsSDKBaseFolder)FirebaseAnalytics.framework">
+				<Kind>Framework</Kind>
+				<SmartLink>True</SmartLink>
+				<ForceLoad>True</ForceLoad>
+				<LinkerFlags>-ObjC -lc++ -lsqlite3 -lz</LinkerFlags>
+				<Frameworks>AddressBook AdSupport CoreGraphics StoreKit SystemConfiguration</Frameworks>
+			</NativeReference>
+			<NativeReference Include="$(_FirebaseAnalyticsSDKBaseFolder)FIRAnalyticsConnector.framework">
+				<Kind>Framework</Kind>
+				<SmartLink>True</SmartLink>
+				<ForceLoad>True</ForceLoad>
+			</NativeReference>
+		</ItemGroup>
+	</Target>
 </Project>

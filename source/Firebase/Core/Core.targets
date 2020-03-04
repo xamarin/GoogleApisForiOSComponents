@@ -12,12 +12,18 @@
 			<Url>https://dl.google.com/dl/cpdc/72fa94ca4c00aa99/GoogleAppMeasurement-6.3.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
-		<NativeReference Include="$(_GoogleAppMeasurementSDKBaseFolder)GoogleAppMeasurement.framework">
-			<Kind>Framework</Kind>
-			<SmartLink>True</SmartLink>
-			<ForceLoad>True</ForceLoad>
-			<LinkerFlags>-ObjC -lc++ -lsqlite3 -lz</LinkerFlags>
-			<Frameworks>Security StoreKit SystemConfiguration UIKit</Frameworks>
-		</NativeReference>
+		<XamarinBuildRestoreResources Include="_FCrDownloadedItems" />
 	</ItemGroup>
+	<Target Name="_FCrDownloadedItems">
+		<ItemGroup>
+			<!-- From https://dl.google.com/dl/cpdc/72fa94ca4c00aa99/GoogleAppMeasurement-6.3.0.tar.gz -->
+			<NativeReference Include="$(_GoogleAppMeasurementSDKBaseFolder)GoogleAppMeasurement.framework">
+				<Kind>Framework</Kind>
+				<SmartLink>True</SmartLink>
+				<ForceLoad>True</ForceLoad>
+				<LinkerFlags>-ObjC -lc++ -lsqlite3 -lz</LinkerFlags>
+				<Frameworks>Security StoreKit SystemConfiguration UIKit</Frameworks>
+			</NativeReference>
+		</ItemGroup>
+	</Target>
 </Project>
