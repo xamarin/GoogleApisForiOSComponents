@@ -9,7 +9,7 @@ Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Cor
 Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Crashlytics",            "3.14.0.3", "8.0", ComponentGroup.Firebase, csprojName: "Crashlytics");
 Artifact FIREBASE_DATABASE_ARTIFACT                = new Artifact ("Firebase.Database",               "6.0.0.2",  "8.0", ComponentGroup.Firebase, csprojName: "Database", ignore: true);
 Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.DynamicLinks",           "4.0.1.2",  "8.0", ComponentGroup.Firebase, csprojName: "DynamicLinks", ignore: true);
-Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.InstanceID",             "4.3.0",    "8.0", ComponentGroup.Firebase, csprojName: "InstanceID");
+Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.InstanceID",             "4.3.2",    "8.0", ComponentGroup.Firebase, csprojName: "InstanceID");
 Artifact FIREBASE_MLKIT_ARTIFACT                   = new Artifact ("Firebase.MLKit",                  "0.13.0.3", "9.0", ComponentGroup.Firebase, csprojName: "MLKit", ignore: true);
 Artifact FIREBASE_MLKIT_COMMON_ARTIFACT            = new Artifact ("Firebase.MLKit.Common",           "0.13.0.2", "9.0", ComponentGroup.Firebase, csprojName: "MLKit.Common", ignore: true);
 Artifact FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT = new Artifact ("Firebase.MLKit.ModelInterpreter", "0.13.0.2", "9.0", ComponentGroup.Firebase, csprojName: "MLKit.ModelInterpreter", ignore: true);
@@ -144,7 +144,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("Firebase", "6.5.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseDynamicLinks", targetName: "FirebaseDynamicLinks", subSpecs: new [] { "DynamicLinks" })
 	};
 	FIREBASE_INSTANCE_ID_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("FirebaseInstanceID",    "4.3.0", frameworkSource: FrameworkSource.Pods),
+		PodSpec.Create ("FirebaseInstanceID",    "4.3.2", frameworkSource: FrameworkSource.Pods),
 		PodSpec.Create ("FirebaseInstallations", "1.1.0", frameworkSource: FrameworkSource.Pods),
 		PodSpec.Create ("PromisesObjC",          "1.2.8", frameworkSource: FrameworkSource.Pods, frameworkName: "FBLPromises", targetName: "PromisesObjC")
 	};
