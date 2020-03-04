@@ -5,7 +5,7 @@ Artifact FIREBASE_ANALYTICS_ARTIFACT               = new Artifact ("Firebase.Ana
 Artifact FIREBASE_AUTH_ARTIFACT                    = new Artifact ("Firebase.Auth",                   "6.4.2",    "8.0", ComponentGroup.Firebase, csprojName: "Auth");
 Artifact FIREBASE_CLOUD_FIRESTORE_ARTIFACT         = new Artifact ("Firebase.CloudFirestore",         "1.4.2.3",  "8.0", ComponentGroup.Firebase, csprojName: "CloudFirestore", ignore: true);
 Artifact FIREBASE_CLOUD_MESSAGING_ARTIFACT         = new Artifact ("Firebase.CloudMessaging",         "4.1.1.3",  "8.0", ComponentGroup.Firebase, csprojName: "CloudMessaging", ignore: true);
-Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Core",                   "6.6.0",    "8.0", ComponentGroup.Firebase, csprojName: "Core");
+Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Core",                   "6.6.3",    "8.0", ComponentGroup.Firebase, csprojName: "Core");
 Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Crashlytics",            "3.14.0.3", "8.0", ComponentGroup.Firebase, csprojName: "Crashlytics");
 Artifact FIREBASE_DATABASE_ARTIFACT                = new Artifact ("Firebase.Database",               "6.0.0.2",  "8.0", ComponentGroup.Firebase, csprojName: "Database", ignore: true);
 Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.DynamicLinks",           "4.0.1.2",  "8.0", ComponentGroup.Firebase, csprojName: "DynamicLinks", ignore: true);
@@ -117,17 +117,17 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("Firebase", "6.5.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseMessaging", targetName: "FirebaseMessaging", subSpecs: new [] { "Messaging" })
 	};
 	FIREBASE_CORE_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase",                       "6.15.0",   frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCore", targetName: "FirebaseCore", subSpecs: new [] { "CoreOnly" }),
+		PodSpec.Create ("Firebase",                       "6.18.0",   frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCore", targetName: "FirebaseCore", subSpecs: new [] { "CoreOnly" }),
 		PodSpec.Create ("FirebaseAuthInterop",            "1.0.0",    frameworkSource: FrameworkSource.Pods, canBeBuild: false),
 		PodSpec.Create ("FirebaseAnalyticsInterop",       "1.5.0",    frameworkSource: FrameworkSource.Pods, canBeBuild: false),
-		PodSpec.Create ("FirebaseCoreDiagnostics",        "1.2.0",    frameworkSource: FrameworkSource.Pods),
+		PodSpec.Create ("FirebaseCoreDiagnostics",        "1.2.1",    frameworkSource: FrameworkSource.Pods),
 		PodSpec.Create ("FirebaseCoreDiagnosticsInterop", "1.2.0",    frameworkSource: FrameworkSource.Pods, canBeBuild: false),
 		PodSpec.Create ("GoogleAPIClientForREST",         "1.3.7",    frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Vision" }, useDefaultSubspecs: true),
 		PodSpec.Create ("GoogleAppMeasurement",           "6.2.1"),
-		PodSpec.Create ("GoogleDataTransport",            "3.3.0",    frameworkSource: FrameworkSource.Pods),
-		PodSpec.Create ("GoogleDataTransportCCTSupport",  "1.3.0",    frameworkSource: FrameworkSource.Pods),
+		PodSpec.Create ("GoogleDataTransport",            "4.0.1",    frameworkSource: FrameworkSource.Pods),
+		PodSpec.Create ("GoogleDataTransportCCTSupport",  "1.4.1",    frameworkSource: FrameworkSource.Pods),
 		PodSpec.Create ("GoogleToolboxForMac",            "2.2.0",    frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "NSData+zlib", "NSDictionary+URLArguments", "Logger", "StringEncoding", "URLBuilder" }),
-		PodSpec.Create ("GoogleUtilities",                "6.5.0",    frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "AppDelegateSwizzler", "Environment", "ISASwizzler", "Logger", "MethodSwizzler", "Network", "NSData+zlib", "Reachability", "UserDefaults" }),
+		PodSpec.Create ("GoogleUtilities",                "6.5.1",    frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "AppDelegateSwizzler", "Environment", "ISASwizzler", "Logger", "MethodSwizzler", "Network", "NSData+zlib", "Reachability", "UserDefaults" }),
 		PodSpec.Create ("GTMSessionFetcher",              "1.3.1",    frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Full" }),
 		PodSpec.Create ("leveldb-library",                "1.20.0",   frameworkSource: FrameworkSource.Pods, frameworkName: "leveldb"),
 		PodSpec.Create ("nanopb",                         "0.3.9011", frameworkSource: FrameworkSource.Pods),
