@@ -67,16 +67,6 @@ namespace Google.MobileAds {
 		[Export ("sharedInstance")]
 		MobileAds SharedInstance { get; }
 
-		// +(void)disableAutomatedInAppPurchaseReporting;
-		[Static]
-		[Export ("disableAutomatedInAppPurchaseReporting")]
-		void DisableAutomatedInAppPurchaseReporting ();
-
-		// +(void)disableSDKCrashReporting;
-		[Static]
-		[Export ("disableSDKCrashReporting")]
-		void DisableSDKCrashReporting ();
-
 		// @property(nonatomic, assign) float applicationVolume;
 		[Export ("applicationVolume", ArgumentSemantic.Assign)]
 		float ApplicationVolume { get; set; }
@@ -99,17 +89,49 @@ namespace Google.MobileAds {
 
 		// - (BOOL)isSDKVersionAtLeastMajor:(NSInteger)major minor:(NSInteger)minor patch:(NSInteger)patch;
 		[Export ("isSDKVersionAtLeastMajor:minor:patch:")]
-		void IsSDKVersionAtLeast (nint major, nint minor, nint patch);
+		bool IsSdkVersionAtLeast (nint major, nint minor, nint patch);
+
+		[Obsolete ("Use IsSdkVersionAtLeast method instead. This will be removed in future versions.")]
+		[Wrap ("IsSdkVersionAtLeast (major, minor, patch)")]
+		bool IsSDKVersionAtLeast (nint major, nint minor, nint patch);
 
 		// -(void)startWithCompletionHandler:(GADInitializationCompletionHandler _Nullable)completionHandler;
 		[Export ("startWithCompletionHandler:")]
 		void Start ([NullAllowed] InitializationCompletionHandler completionHandler);
+
+		// -(void)disableAutomatedInAppPurchaseReporting;
+		[Export ("disableAutomatedInAppPurchaseReporting")]
+		void DisableTheAutomatedInAppPurchaseReporting ();
+
+		// -(void)enableAutomatedInAppPurchaseReporting;
+		[Export ("enableAutomatedInAppPurchaseReporting")]
+		void EnableTheAutomatedInAppPurchaseReporting();
+
+		// -(void)disableSDKCrashReporting;
+		[Export ("disableSDKCrashReporting")]
+		void DisableSdkCrashReporting ();
+
+		// -(void)disableMediationInitialization;
+		[Export ("disableMediationInitialization")]
+		void DisableMediationInitialization ();
 
 		// + (void)configureWithApplicationID:(NSString *)applicationID;
 		[Obsolete ("Use MobileAds.SharedInstance.Start method instead.")]
 		[Static]
 		[Export ("configureWithApplicationID:")]
 		void Configure (string applicationId);
+
+		// +(void)disableAutomatedInAppPurchaseReporting;
+		[Obsolete ("Use MobileAds.SharedInstance.DisableTheAutomatedInAppPurchaseReporting method instead.")]
+		[Static]
+		[Export ("disableAutomatedInAppPurchaseReporting")]
+		void DisableAutomatedInAppPurchaseReporting ();
+
+		// +(void)disableSDKCrashReporting;
+		[Obsolete("Use MobileAds.SharedInstance.DisableSdkCrashReporting method instead.")]
+		[Static]
+		[Export ("disableSDKCrashReporting")]
+		void DisableSDKCrashReporting ();
 	}
 
 	// @interface GADMultipleAdsAdLoaderOptions : GADAdLoaderOptions
@@ -540,12 +562,17 @@ namespace Google.MobileAds {
 		[Field ("GADCustomEventAdNetworkClassName", "__Internal")]
 		NSString CustomEventAdNetworkClassName { get; }
 
+		// extern NSString * _Nonnull GADErrorUserInfoKeyResponseInfo;
+		[Field ("GADErrorUserInfoKeyResponseInfo", "__Internal")]
+		NSString ErrorUserInfoKey { get; }
+
 		// @property (readonly, nonatomic) NSString * _Nullable responseIdentifier;
 		[NullAllowed]
 		[Export ("responseIdentifier")]
 		string ResponseIdentifier { get; }
 
-		// @property (readonly, nonatomic) NSString * _Nonnull adNetworkClassName;
+		// @property (nonatomic, readonly, nullable) NSString *adNetworkClassName;
+		[NullAllowed]
 		[Export ("adNetworkClassName")]
 		string AdNetworkClassName { get; }
 	}

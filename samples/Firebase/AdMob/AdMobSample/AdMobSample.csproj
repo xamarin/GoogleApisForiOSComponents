@@ -124,14 +124,6 @@
     <Compile Include="AdMobConstants.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\source\Firebase\Analytics\Analytics.csproj">
-      <Project>{25783B8D-1423-4CC2-B629-7E7F36A1CF4B}</Project>
-      <Name>Analytics</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\source\Firebase\InstanceID\InstanceID.csproj">
-      <Project>{754D8F56-C3DB-4E33-91D5-45445AB286EF}</Project>
-      <Name>InstanceID</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\..\source\Google\MobileAds\MobileAds.csproj">
       <Project>{1C9DFB3E-FDA5-478B-B063-CF646AA892DB}</Project>
       <Name>MobileAds</Name>
@@ -145,7 +137,6 @@
     <BundleResource Include="GoogleService-Info.plist" />
   </ItemGroup>
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Core\Core.targets" />
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Analytics\Analytics.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Google\MobileAds\MobileAds.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\..\..\packages\Xamarin.Build.Download.0.9.0\build\Xamarin.Build.Download.targets" Condition="Exists('..\..\..\..\packages\Xamarin.Build.Download.0.9.0\build\Xamarin.Build.Download.targets')" />

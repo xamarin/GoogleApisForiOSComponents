@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.AdMob</RootNamespace>
     <AssemblyName>Firebase.AdMob</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>7.53.1</FileVersion>
+    <FileVersion>7.56.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <IncludeBuildOutput>false</IncludeBuildOutput>
@@ -24,7 +24,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865546</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>7.53.1</PackageVersion>
+    <PackageVersion>7.56.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -59,8 +59,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" PrivateAssets="None" />
-    <ProjectReference Include="..\InstanceID\InstanceID.csproj" PrivateAssets="None" />
-    <ProjectReference Include="..\Analytics\Analytics.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\..\Google\MobileAds\MobileAds.csproj" PrivateAssets="None" />
   </ItemGroup>
   

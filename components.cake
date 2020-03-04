@@ -1,6 +1,6 @@
 // Firebase artifacts available to be built. These artifacts generate NuGets.
 Artifact FIREBASE_AB_TESTING_ARTIFACT              = new Artifact ("Firebase.ABTesting",              "3.1.2",    "8.0", ComponentGroup.Firebase, csprojName: "ABTesting");
-Artifact FIREBASE_AD_MOB_ARTIFACT                  = new Artifact ("Firebase.AdMob",                  "7.53.1",   "8.0", ComponentGroup.Firebase, csprojName: "AdMob");
+Artifact FIREBASE_AD_MOB_ARTIFACT                  = new Artifact ("Firebase.AdMob",                  "7.56.0",   "8.0", ComponentGroup.Firebase, csprojName: "AdMob");
 Artifact FIREBASE_ANALYTICS_ARTIFACT               = new Artifact ("Firebase.Analytics",              "6.3.0",    "8.0", ComponentGroup.Firebase, csprojName: "Analytics");
 Artifact FIREBASE_AUTH_ARTIFACT                    = new Artifact ("Firebase.Auth",                   "6.4.2",    "8.0", ComponentGroup.Firebase, csprojName: "Auth");
 Artifact FIREBASE_CLOUD_FIRESTORE_ARTIFACT         = new Artifact ("Firebase.CloudFirestore",         "1.4.2.3",  "8.0", ComponentGroup.Firebase, csprojName: "CloudFirestore", ignore: true);
@@ -24,7 +24,7 @@ Artifact GOOGLE_CAST_ARTIFACT         = new Artifact ("Google.Cast",        "4.4
 Artifact GOOGLE_CORE_ARTIFACT         = new Artifact ("Google.Core",        "3.1.0.3",  "7.0", ComponentGroup.Google, csprojName: "Core");
 Artifact GOOGLE_INSTANCE_ID_ARTIFACT  = new Artifact ("Google.InstanceID",  "1.2.1.17", "7.0", ComponentGroup.Google, csprojName: "InstanceID");
 Artifact GOOGLE_MAPS_ARTIFACT         = new Artifact ("Google.Maps",        "3.7.0",    "9.0", ComponentGroup.Google, csprojName: "Maps");
-Artifact GOOGLE_MOBILE_ADS_ARTIFACT   = new Artifact ("Google.MobileAds",   "7.53.1",   "8.0", ComponentGroup.Google, csprojName: "MobileAds");
+Artifact GOOGLE_MOBILE_ADS_ARTIFACT   = new Artifact ("Google.MobileAds",   "7.56.0",   "8.0", ComponentGroup.Google, csprojName: "MobileAds");
 Artifact GOOGLE_PLACES_ARTIFACT       = new Artifact ("Google.Places",      "3.7.0",    "9.0", ComponentGroup.Google, csprojName: "Places");
 Artifact GOOGLE_SIGN_IN_ARTIFACT      = new Artifact ("Google.SignIn",      "5.0.2",    "8.0", ComponentGroup.Google, csprojName: "SignIn");
 Artifact GOOGLE_TAG_MANAGER_ARTIFACT  = new Artifact ("Google.TagManager",  "7.1.2.2",  "8.0", ComponentGroup.Google, csprojName: "TagManager");
@@ -99,7 +99,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("Firebase", "6.15.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseABTesting", targetName: "FirebaseABTesting", subSpecs: new [] { "ABTesting" })
 	};
 	FIREBASE_AD_MOB_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.5.0", subSpecs: new [] { "AdMob" })
+		PodSpec.Create ("Firebase", "6.18.0", subSpecs: new [] { "AdMob" })
 	};
 	FIREBASE_ANALYTICS_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.18.0", subSpecs: new [] { "Analytics" })
@@ -190,8 +190,8 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("GoogleMaps", "3.7.0")
 	};
 	GOOGLE_MOBILE_ADS_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Google-Mobile-Ads-SDK", "7.47.0"),
-		PodSpec.Create ("PersonalizedAdConsent", "1.0.3", frameworkSource: FrameworkSource.Pods)
+		PodSpec.Create ("Google-Mobile-Ads-SDK", "7.56.0"),
+		PodSpec.Create ("PersonalizedAdConsent", "1.0.5", frameworkSource: FrameworkSource.Pods)
 	};
 	GOOGLE_PLACES_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("GooglePlaces", "3.7.0")
