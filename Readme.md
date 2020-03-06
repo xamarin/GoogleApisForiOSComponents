@@ -6,33 +6,33 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 
 | Package Id                                                                   | NuGet                                        |
 |------------------------------------------------------------------------------|----------------------------------------------|
-| [Xamarin.Firebase.iOS.ABTesting][F.ABTesting.Name]                           | [3.1.2.0][F.ABTesting.Package]               |
+| [Xamarin.Firebase.iOS.ABTesting][F.ABTesting.Name]                           | [3.1.2.1][F.ABTesting.Package]               |
 | [Xamarin.Firebase.iOS.AdMob][F.AdMob.Name]                                   | [7.56.0.0][F.AdMob.Package]                  |
 | [Xamarin.Firebase.iOS.Analytics][F.Analytics.Name]                           | [6.3.0.0][F.Analytics.Package]               |
-| [Xamarin.Firebase.iOS.Auth][F.Auth.Name]                                     | [6.4.2.0][F.Auth.Package]                    |
-| [Xamarin.Firebase.iOS.CloudFirestore][F.CloudFirestore.Name]                 | [1.4.2.3][F.CloudFirestore.Package]          |
-| [Xamarin.Firebase.iOS.CloudMessaging][F.CloudMessaging.Name]                 | [4.1.1.3][F.CloudMessaging.Package]          |
+| [Xamarin.Firebase.iOS.Auth][F.Auth.Name]                                     | [6.4.2.1][F.Auth.Package]                    |
+| [Xamarin.Firebase.iOS.CloudFirestore][F.CloudFirestore.Name]                 | [1.4.2.4][F.CloudFirestore.Package]          |
+| [Xamarin.Firebase.iOS.CloudMessaging][F.CloudMessaging.Name]                 | [4.1.1.4][F.CloudMessaging.Package]          |
 | [Xamarin.Firebase.iOS.Core][F.Core.Name]                                     | [6.6.3.0][F.Core.Package]                    |
-| [Xamarin.Firebase.iOS.Crashlytics][F.Crashlytics.Name]                       | [3.14.0.3][F.Crashlytics.Package]            |
-| [Xamarin.Firebase.iOS.Database][F.Database.Name]                             | [6.0.0.2][F.Database.Package]                |
-| [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                     | [4.0.1.2][F.DynamicLinks.Package]            |
+| [Xamarin.Firebase.iOS.Crashlytics][F.Crashlytics.Name]                       | [3.14.0.4][F.Crashlytics.Package]            |
+| [Xamarin.Firebase.iOS.Database][F.Database.Name]                             | [6.0.0.3][F.Database.Package]                |
+| [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                     | [4.0.1.3][F.DynamicLinks.Package]            |
 | [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                         | [4.3.2.0][F.InstanceID.Package]              |
-| [Xamarin.Firebase.iOS.MLKit][F.MLKit.Name]                                   | [0.13.0.3][F.MLKit.Package]                  |
-| [Xamarin.Firebase.iOS.MLKit.Common][F.MLKit.Common.Name]                     | [0.13.0.2][F.MLKit.Common.Package]           |
-| [Xamarin.Firebase.iOS.MLKit.ModelInterpreter][F.MLKit.ModelInterpreter.Name] | [0.13.0.2][F.MLKit.ModelInterpreter.Package] |
-| [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name]   | [3.1.9.0][F.PerformanceMonitoring.Package]   |
-| [Xamarin.Firebase.iOS.RemoteConfig][F.RemoteConfig.Name]                     | [4.4.6.0][F.RemoteConfig.Package]            |
-| [Xamarin.Firebase.iOS.Storage][F.Storage.Name]                               | [3.4.0.2][F.Storage.Package]                 |
-| [Xamarin.Google.iOS.Analytics][G.Analytics.Name]                             | [3.17.0.5][G.Analytics.Package]              |
-| [Xamarin.Google.iOS.AppIndexing][G.AppIndexing.Name]                         | [2.0.3.7][G.AppIndexing.Package]             |
-| [Xamarin.Google.iOS.Cast][G.Cast.Name]                                       | [4.4.6.0][G.Cast.Package]                    |
-| [Xamarin.Google.iOS.InstanceID][G.InstanceID.Name]                           | [1.2.1.17][G.InstanceID.Package]             |
-| [Xamarin.Google.iOS.Maps][G.Maps.Name]                                       | [3.7.0.0][G.Maps.Package]                    |
+| [Xamarin.Firebase.iOS.MLKit][F.MLKit.Name]                                   | [0.13.0.4][F.MLKit.Package]                  |
+| [Xamarin.Firebase.iOS.MLKit.Common][F.MLKit.Common.Name]                     | [0.13.0.3][F.MLKit.Common.Package]           |
+| [Xamarin.Firebase.iOS.MLKit.ModelInterpreter][F.MLKit.ModelInterpreter.Name] | [0.13.0.3][F.MLKit.ModelInterpreter.Package] |
+| [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name]   | [3.1.9.1][F.PerformanceMonitoring.Package]   |
+| [Xamarin.Firebase.iOS.RemoteConfig][F.RemoteConfig.Name]                     | [4.4.6.1][F.RemoteConfig.Package]            |
+| [Xamarin.Firebase.iOS.Storage][F.Storage.Name]                               | [3.4.0.3][F.Storage.Package]                 |
+| [Xamarin.Google.iOS.Analytics][G.Analytics.Name]                             | [3.17.0.6][G.Analytics.Package]              |
+| [Xamarin.Google.iOS.AppIndexing][G.AppIndexing.Name]                         | [2.0.3.8][G.AppIndexing.Package]             |
+| [Xamarin.Google.iOS.Cast][G.Cast.Name]                                       | [4.4.6.1][G.Cast.Package]                    |
+| [Xamarin.Google.iOS.InstanceID][G.InstanceID.Name]                           | [1.2.1.18][G.InstanceID.Package]             |
+| [Xamarin.Google.iOS.Maps][G.Maps.Name]                                       | [3.7.0.1][G.Maps.Package]                    |
 | [Xamarin.Google.iOS.MobileAds][G.MobileAds.Name]                             | [7.56.0.0][G.MobileAds.Package]              |
-| [Xamarin.Google.iOS.Places][G.Places.Name]                                   | [3.7.0.0][G.Places.Package]                  |
+| [Xamarin.Google.iOS.Places][G.Places.Name]                                   | [3.7.0.1][G.Places.Package]                  |
 | [Xamarin.Google.iOS.PlayGames][G.PlayGames.Name]                             | [5.1.1.11][G.PlayGames.Package]              |
-| [Xamarin.Google.iOS.SignIn][G.SignIn.Name]                                   | [5.0.2.0][G.SignIn.Package]                  |
-| [Xamarin.Google.iOS.TagManager][G.TagManager.Name]                           | [7.1.2.2][G.TagManager.Package]              |
+| [Xamarin.Google.iOS.SignIn][G.SignIn.Name]                                   | [5.0.2.1][G.SignIn.Package]                  |
+| [Xamarin.Google.iOS.TagManager][G.TagManager.Name]                           | [7.1.2.3][G.TagManager.Package]              |
 
 **Deprecated Libraries**
 
@@ -50,24 +50,24 @@ Here's a table that shows in which global version is located each component of F
 
 | Component Name                   | Component Version | Global Version |
 |----------------------------------|:-----------------:|:--------------:|
-| Firebase A/B Testing             | **3.1.2.0**       | **6.15.0**     |
+| Firebase A/B Testing             | **3.1.2.1**       | **6.15.0**     |
 | Firebase AdMob                   | **7.56.0.0**      | **6.18.0**     |
 | Firebase Analytics               | **6.3.0.0**       | **6.18.0**     |
-| Firebase Auth                    | **6.4.2.0**       | **6.15.0**     |
-| Firebase Cloud Firestore         | **1.4.2.3**       | **6.5.0**      |
-| Firebase Cloud Messaging         | **4.1.1.3**       | **6.5.0**      |
+| Firebase Auth                    | **6.4.2.1**       | **6.15.0**     |
+| Firebase Cloud Firestore         | **1.4.2.4**       | **6.5.0**      |
+| Firebase Cloud Messaging         | **4.1.1.4**       | **6.5.0**      |
 | Firebase Core                    | **6.6.3.0**       | **6.18.0**     |
-| Firebase Database                | **6.0.0.2**       | **6.5.0**      |
-| Firebase Dynamic Links           | **4.0.1.2**       | **6.5.0**      |
+| Firebase Database                | **6.0.0.3**       | **6.5.0**      |
+| Firebase Dynamic Links           | **4.0.1.3**       | **6.5.0**      |
 | Firebase Instance ID             | **4.3.2.0**       | **6.18.0**     |
-| Firebase MLKit                   | **0.13.0.3**      | **5.13.0*      |
-| Firebase MLKit Common            | **0.13.0.2**      | **5.13.0*      |
-| Firebase MLKit Model Interpreter | **0.13.0.2**      | **5.13.0*      |
-| Firebase Performance Monitoring  | **3.1.9.0**       | **6.15.0**     |
-| Firebase RemoteConfig            | **4.4.6.0**       | **6.15.0**     |
-| Firebase Storage                 | **3.4.0.2**       | **6.5.0**      |
-| Google Sign-In                   | **5.0.2.0**       | **6.15.0**     |
-| Google Tag Manager               | **7.1.2.2**       | **6.5.0**      |
+| Firebase MLKit                   | **0.13.0.4**      | **5.13.0*      |
+| Firebase MLKit Common            | **0.13.0.3**      | **5.13.0*      |
+| Firebase MLKit Model Interpreter | **0.13.0.3**      | **5.13.0*      |
+| Firebase Performance Monitoring  | **3.1.9.1**       | **6.15.0**     |
+| Firebase RemoteConfig            | **4.4.6.1**       | **6.15.0**     |
+| Firebase Storage                 | **3.4.0.3**       | **6.5.0**      |
+| Google Sign-In                   | **5.0.2.1**       | **6.15.0**     |
+| Google Tag Manager               | **7.1.2.3**       | **6.5.0**      |
 
 ## Building 
 
