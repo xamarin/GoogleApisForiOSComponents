@@ -59,7 +59,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Core                    | **6.6.4.0**       | **6.19.0**     |
 | Firebase Database                | **6.0.0.3**       | **6.5.0**      |
 | Firebase Dynamic Links           | **4.0.1.3**       | **6.5.0**      |
-| Firebase Instance ID             | **4.3.2.0**       | **6.18.0**     |
+| Firebase Instance ID             | **4.3.2.0**       | **6.19.0**     |
 | Firebase MLKit                   | **0.13.0.4**      | **5.13.0*      |
 | Firebase MLKit Common            | **0.13.0.3**      | **5.13.0*      |
 | Firebase MLKit Model Interpreter | **0.13.0.3**      | **5.13.0*      |
