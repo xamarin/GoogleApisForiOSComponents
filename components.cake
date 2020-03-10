@@ -118,7 +118,7 @@ void SetArtifactsPodSpecs ()
 	};
 	FIREBASE_CORE_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase",                       "6.19.0",   frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCore", targetName: "FirebaseCore", subSpecs: new [] { "CoreOnly" }),
-		PodSpec.Create ("FirebaseAuthInterop",            "1.0.0",    frameworkSource: FrameworkSource.Pods, canBeBuild: false),
+		PodSpec.Create ("FirebaseAuthInterop",            "1.1.0",    frameworkSource: FrameworkSource.Pods, canBeBuild: false),
 		PodSpec.Create ("FirebaseAnalyticsInterop",       "1.5.0",    frameworkSource: FrameworkSource.Pods, canBeBuild: false),
 		PodSpec.Create ("FirebaseCoreDiagnostics",        "1.2.2",    frameworkSource: FrameworkSource.Pods),
 		PodSpec.Create ("FirebaseCoreDiagnosticsInterop", "1.2.0",    frameworkSource: FrameworkSource.Pods, canBeBuild: false),
