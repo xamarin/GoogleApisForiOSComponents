@@ -96,6 +96,7 @@ namespace Google.MobileAds {
 		bool IsSDKVersionAtLeast (nint major, nint minor, nint patch);
 
 		// -(void)startWithCompletionHandler:(GADInitializationCompletionHandler _Nullable)completionHandler;
+		[Async]
 		[Export ("startWithCompletionHandler:")]
 		void Start ([NullAllowed] InitializationCompletionHandler completionHandler);
 

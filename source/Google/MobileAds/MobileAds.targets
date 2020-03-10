@@ -19,7 +19,6 @@
 			<Kind>Zip</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildRestoreResources Include="_FAdMDownloadedItems" />
-		<GoogleMobileAdsCopyResources Include="$(_GoogleMobileAdsConsentSDKBaseFolder)PersonalizedAdConsent.bundle\consentform.html" />
 	</ItemGroup>
 	<Target Name="_FAdMDownloadedItems">
 		<ItemGroup>
@@ -35,10 +34,21 @@
 		</ItemGroup>
 	</Target>
 	<Target Name="_GoogleMobileAdsCopyConsentFormMasterTargets"
-			Condition="'$(_GoogleMobileAdsCopyConsentFormMasterDependsOnTargets)'!=''"
-			BeforeTargets="$(_GoogleMobileAdsCopyConsentFormMasterBeforeTargets)"
-			DependsOnTargets="$(_GoogleMobileAdsCopyConsentFormMasterDependsOnTargets)" />
+		Condition="'$(_GoogleMobileAdsCopyConsentFormMasterDependsOnTargets)'!=''"
+		BeforeTargets="$(_GoogleMobileAdsCopyConsentFormMasterBeforeTargets)"
+		DependsOnTargets="$(_GoogleMobileAdsCopyConsentFormMasterDependsOnTargets)" />
 	<Target Name="_GoogleMobileAdsCopyConsentForm">
-		<Copy SourceFiles="@(GoogleMobileAdsCopyResources)" DestinationFolder="$(_AppBundlePath)Frameworks\PersonalizedAdConsent.framework\PersonalizedAdConsent.bundle" />  
+		<ItemGroup>
+			<GoogleMobileAdsCopyResources Include="$(_GoogleMobileAdsConsentSDKBaseFolder)PersonalizedAdConsent.bundle\consentform.html">
+				<TargetPath>$(AppBundleDir)\Frameworks\PersonalizedAdConsent.framework\PersonalizedAdConsent.bundle\consentform.html</TargetPath>
+			</GoogleMobileAdsCopyResources>
+		</ItemGroup>
+
+		<Copy Condition="'$(OS)'=='Unix'"
+		      SourceFiles="@(GoogleMobileAdsCopyResources)"
+		      DestinationFolder="$(AppBundleDir)\Frameworks\PersonalizedAdConsent.framework\PersonalizedAdConsent.bundle" />
+		<CopyFilesToBuildServer SessionId="$(BuildSessionId)"
+					Condition="'$(IsMacEnabled)'=='true' AND '$(OS)'!='Unix'"
+					Files="@(GoogleMobileAdsCopyResources)" />
 	</Target>
 </Project>
