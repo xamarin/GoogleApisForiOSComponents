@@ -64,7 +64,7 @@ namespace AuthSample
 			var verificationId = NSUserDefaults.StandardUserDefaults.StringForKey ("AuthVerificationID");
 			var credential = PhoneAuthProvider.DefaultInstance.GetCredential (verificationId, verificationCode);
 
-			Auth.DefaultInstance.SignInAndRetrieveDataWithCredential (credential, SignInOnCompletion);
+			Auth.DefaultInstance.SignInWithCredential (credential, SignInOnCompletion);
 		}
 
 		void SignInOnCompletion (AuthDataResult authResult, NSError error)

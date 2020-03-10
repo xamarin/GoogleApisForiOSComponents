@@ -44,7 +44,7 @@ namespace AuthSample
 				var credential = GoogleAuthProvider.GetCredential (authentication.IdToken, authentication.AccessToken);
 
 				// Authenticate with Firebase using the credential
-				Auth.DefaultInstance.SignInAndRetrieveDataWithCredential (credential, SignInOnCompletion);
+				Auth.DefaultInstance.SignInWithCredential (credential, SignInOnCompletion);
 			} else {
 				BtnSignIn.Enabled = true;
 				AppDelegate.ShowMessage ("Could not login!", error.LocalizedDescription, NavigationController);
