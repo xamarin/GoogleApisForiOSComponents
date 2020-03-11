@@ -47,6 +47,7 @@
     <NativeReference Include="..\..\..\externals\FirebaseStorage.framework">
       <Kind>Framework</Kind>
       <Frameworks>MobileCoreServices</Frameworks>
+      <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>
       <LinkerFlags>-ObjC</LinkerFlags>
     </NativeReference>

@@ -404,8 +404,24 @@ namespace Firebase.CloudFirestore
 		void DisableNetwork ([NullAllowed] Action<NSError> completion);
 
 		// -(void)clearPersistenceWithCompletion:(void (^ _Nullable)(NSError * _Nullable))completion;
+		[Async]
 		[Export ("clearPersistenceWithCompletion:")]
 		void ClearPersistence ([NullAllowed] Action<NSError> completion);
+
+		// -(void)waitForPendingWritesWithCompletion:(void (^ _Nonnull)(NSError * _Nullable))completion;
+		[Async]
+		[Export ("waitForPendingWritesWithCompletion:")]
+		void WaitForPendingWrites (Action<NSError> completion);
+
+		// -(id<FIRListenerRegistration> _Nonnull)addSnapshotsInSyncListener:(void (^ _Nonnull)(void))listener __attribute__((swift_name("addSnapshotsInSyncListener(_:)")));
+		[Async]
+		[Export ("addSnapshotsInSyncListener:")]
+		IListenerRegistration AddSnapshotsInSyncListener (Action listener);
+
+		// -(void)terminateWithCompletion:(void (^ _Nullable)(NSError * _Nullable))completion __attribute__((swift_name("terminate(completion:)")));
+		[Async]
+		[Export ("terminateWithCompletion:")]
+		void Terminate ([NullAllowed] Action<NSError> completion);
 	}
 
 	// @interface FIRFirestoreSettings : NSObject <NSCopying>
@@ -586,6 +602,34 @@ namespace Firebase.CloudFirestore
 		[Wrap ("WhereArrayContains (path, FromObject (value))")]
 		Query WhereArrayContains (FieldPath path, object value);
 
+		// -(FIRQuery * _Nonnull)queryWhereField:(NSString * _Nonnull)field arrayContainsAny:(NSArray<id> * _Nonnull)values __attribute__((swift_name("whereField(_:arrayContainsAny:)")));
+		[Export ("queryWhereField:arrayContainsAny:")]
+		Query WhereArrayContainsAny (string field, NSObject [] values);
+
+		[Wrap ("WhereArrayContainsAny (field, CloudFirestoreHelper.GetNSObjects (values))")]
+		Query WhereArrayContainsAny(string field, object [] values);
+
+		// -(FIRQuery * _Nonnull)queryWhereFieldPath:(FIRFieldPath * _Nonnull)path arrayContainsAny:(NSArray<id> * _Nonnull)values __attribute__((swift_name("whereField(_:arrayContainsAny:)")));
+		[Export ("queryWhereFieldPath:arrayContainsAny:")]
+		Query WhereArrayContainsAny(FieldPath path, NSObject [] values);
+
+		[Wrap ("WhereArrayContainsAny (path, CloudFirestoreHelper.GetNSObjects (values))")]
+		Query WhereArrayContainsAny(FieldPath path, object [] values);
+
+		// -(FIRQuery * _Nonnull)queryWhereField:(NSString * _Nonnull)field in:(NSArray<id> * _Nonnull)values __attribute__((swift_name("whereField(_:in:)")));
+		[Export ("queryWhereField:in:")]
+		Query WhereFieldIn (string field, NSObject [] values);
+
+		[Wrap ("WhereFieldIn (field, CloudFirestoreHelper.GetNSObjects (values))")]
+		Query WhereFieldIn (string field, object [] values);
+
+		// -(FIRQuery * _Nonnull)queryWhereFieldPath:(FIRFieldPath * _Nonnull)path in:(NSArray<id> * _Nonnull)values __attribute__((swift_name("whereField(_:in:)")));
+		[Export ("queryWhereFieldPath:in:")]
+		Query WhereFieldIn (FieldPath path, NSObject [] values);
+
+		[Wrap ("WhereFieldIn (path, CloudFirestoreHelper.GetNSObjects (values))")]
+		Query WhereFieldIn (FieldPath path, object [] values);
+
 		// -(FIRQuery * _Nonnull)queryFilteredUsingPredicate:(NSPredicate * _Nonnull)predicate;
 		[Export ("queryFilteredUsingPredicate:")]
 		Query FilteredBy (NSPredicate predicate);
@@ -609,6 +653,10 @@ namespace Firebase.CloudFirestore
 		// -(FIRQuery * _Nonnull)queryLimitedTo:(NSInteger)limit;
 		[Export ("queryLimitedTo:")]
 		Query LimitedTo (nint limit);
+
+		// -(FIRQuery * _Nonnull)queryLimitedToLast:(NSInteger)limit __attribute__((swift_name("limit(toLast:)")));
+		[Export ("queryLimitedToLast:")]
+		Query LimitedToLast (nint limit);
 
 		// -(FIRQuery * _Nonnull)queryStartingAtDocument:(FIRDocumentSnapshot * _Nonnull)document;
 		[Export ("queryStartingAtDocument:")]

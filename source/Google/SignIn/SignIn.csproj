@@ -56,11 +56,13 @@
       <Kind>Framework</Kind>
       <Frameworks>SafariServices</Frameworks>
       <WeakFrameworks>AuthenticationServices</WeakFrameworks>
+      <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>
     </NativeReference>
     <NativeReference Include="..\..\..\externals\GTMAppAuth.framework">
       <Kind>Framework</Kind>
       <Frameworks>Security SystemConfiguration SafariServices</Frameworks>
+      <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>
     </NativeReference>
   </ItemGroup>

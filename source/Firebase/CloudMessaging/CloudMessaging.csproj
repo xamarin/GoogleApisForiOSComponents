@@ -48,6 +48,7 @@
       <Kind>Framework</Kind>
       <Frameworks>SystemConfiguration</Frameworks>
       <WeakFrameworks>UserNotifications</WeakFrameworks>
+      <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>
       <LinkerFlags>-lsqlite3</LinkerFlags>
     </NativeReference>

@@ -3,7 +3,7 @@ Artifact FIREBASE_AB_TESTING_ARTIFACT              = new Artifact ("Firebase.ABT
 Artifact FIREBASE_AD_MOB_ARTIFACT                  = new Artifact ("Firebase.AdMob",                  "7.56.0",   "8.0", ComponentGroup.Firebase, csprojName: "AdMob");
 Artifact FIREBASE_ANALYTICS_ARTIFACT               = new Artifact ("Firebase.Analytics",              "6.3.1",    "8.0", ComponentGroup.Firebase, csprojName: "Analytics");
 Artifact FIREBASE_AUTH_ARTIFACT                    = new Artifact ("Firebase.Auth",                   "6.4.3",    "8.0", ComponentGroup.Firebase, csprojName: "Auth");
-Artifact FIREBASE_CLOUD_FIRESTORE_ARTIFACT         = new Artifact ("Firebase.CloudFirestore",         "1.4.2.4",  "8.0", ComponentGroup.Firebase, csprojName: "CloudFirestore");
+Artifact FIREBASE_CLOUD_FIRESTORE_ARTIFACT         = new Artifact ("Firebase.CloudFirestore",         "1.11.2",   "8.0", ComponentGroup.Firebase, csprojName: "CloudFirestore");
 Artifact FIREBASE_CLOUD_MESSAGING_ARTIFACT         = new Artifact ("Firebase.CloudMessaging",         "4.3.0",    "8.0", ComponentGroup.Firebase, csprojName: "CloudMessaging");
 Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Core",                   "6.6.4",    "8.0", ComponentGroup.Firebase, csprojName: "Core");
 Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Crashlytics",            "3.14.0.4", "8.0", ComponentGroup.Firebase, csprojName: "Crashlytics");
@@ -66,7 +66,7 @@ void SetArtifactsDependencies ()
 	FIREBASE_AD_MOB_ARTIFACT.Dependencies                  = new [] { FIREBASE_CORE_ARTIFACT, GOOGLE_MOBILE_ADS_ARTIFACT };
 	FIREBASE_ANALYTICS_ARTIFACT.Dependencies               = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT };
 	FIREBASE_AUTH_ARTIFACT.Dependencies                    = new [] { FIREBASE_CORE_ARTIFACT, /* Needed for sample */ GOOGLE_SIGN_IN_ARTIFACT };
-	FIREBASE_CLOUD_FIRESTORE_ARTIFACT.Dependencies         = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_AUTH_ARTIFACT };
+	FIREBASE_CLOUD_FIRESTORE_ARTIFACT.Dependencies         = new [] { FIREBASE_CORE_ARTIFACT, /* Needed for sample */ FIREBASE_AUTH_ARTIFACT };
 	FIREBASE_CLOUD_MESSAGING_ARTIFACT.Dependencies         = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT };
 	FIREBASE_CORE_ARTIFACT.Dependencies                    = null;
 	FIREBASE_CRASHLYTICS_ARTIFACT.Dependencies             = new [] { /* Needed for sample */ FIREBASE_CORE_ARTIFACT };
@@ -99,19 +99,20 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("Firebase", "6.15.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseABTesting", targetName: "FirebaseABTesting", subSpecs: new [] { "ABTesting" })
 	};
 	FIREBASE_AD_MOB_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.18.0", subSpecs: new [] { "AdMob" })
+		PodSpec.Create ("Firebase", "6.19.0", subSpecs: new [] { "AdMob" })
 	};
 	FIREBASE_ANALYTICS_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.19.0", subSpecs: new [] { "Analytics" })
 	};
 	FIREBASE_AUTH_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.18.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseAuth", targetName: "FirebaseAuth", subSpecs: new [] { "Auth" })
+		PodSpec.Create ("Firebase", "6.19.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseAuth", targetName: "FirebaseAuth", subSpecs: new [] { "Auth" })
 	};
 	FIREBASE_CLOUD_FIRESTORE_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase",       "6.5.0",  frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseFirestore", targetName: "FirebaseFirestore", subSpecs: new [] { "Firestore" }),
-		PodSpec.Create ("BoringSSL-GRPC", "0.0.3",  frameworkSource: FrameworkSource.Pods, frameworkName: "openssl_grpc"),
-		PodSpec.Create ("gRPC-Core",      "1.21.0", frameworkSource: FrameworkSource.Pods, frameworkName: "grpc"),
-		PodSpec.Create ("gRPC-C++",       "0.0.9",  frameworkSource: FrameworkSource.Pods, frameworkName: "grpcpp")
+		PodSpec.Create ("Firebase",       "6.19.0",      frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseFirestore", targetName: "FirebaseFirestore", subSpecs: new [] { "Firestore" }),
+		PodSpec.Create ("BoringSSL-GRPC", "0.0.3",       frameworkSource: FrameworkSource.Pods, frameworkName: "openssl_grpc"),
+		PodSpec.Create ("gRPC-Core",      "1.21.0",      frameworkSource: FrameworkSource.Pods, frameworkName: "grpc"),
+		PodSpec.Create ("gRPC-C++",       "0.0.9",       frameworkSource: FrameworkSource.Pods, frameworkName: "grpcpp"),
+		PodSpec.Create ("abseil",         "0.20190808",  frameworkSource: FrameworkSource.Pods, frameworkName: "absl", subSpecs: new [] { "algorithm", "base", "memory", "meta", "strings", "time", "types" })
 	};
 	FIREBASE_CLOUD_MESSAGING_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.19.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseMessaging", targetName: "FirebaseMessaging", subSpecs: new [] { "Messaging" })
@@ -129,7 +130,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("GoogleToolboxForMac",            "2.2.0",    frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "NSData+zlib", "NSDictionary+URLArguments", "Logger", "StringEncoding", "URLBuilder" }),
 		PodSpec.Create ("GoogleUtilities",                "6.5.1",    frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "AppDelegateSwizzler", "Environment", "ISASwizzler", "Logger", "MethodSwizzler", "Network", "NSData+zlib", "Reachability", "UserDefaults" }),
 		PodSpec.Create ("GTMSessionFetcher",              "1.3.1",    frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Full" }),
-		PodSpec.Create ("leveldb-library",                "1.20.0",   frameworkSource: FrameworkSource.Pods, frameworkName: "leveldb"),
+		PodSpec.Create ("leveldb-library",                "1.22.0",   frameworkSource: FrameworkSource.Pods, frameworkName: "leveldb"),
 		PodSpec.Create ("nanopb",                         "0.3.9011", frameworkSource: FrameworkSource.Pods),
 		PodSpec.Create ("Protobuf",                       "3.11.4",   frameworkSource: FrameworkSource.Pods, frameworkName: "protobuf")
 	};
