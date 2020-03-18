@@ -131,10 +131,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\source\Firebase\Analytics\Analytics.csproj">
-      <Project>{25783B8D-1423-4CC2-B629-7E7F36A1CF4B}</Project>
-      <Name>Analytics</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj">
       <Project>{9335A59B-3B54-4ED5-8201-B68CFD05CAFB}</Project>
       <Name>Core</Name>
@@ -143,10 +139,6 @@
       <Project>{4D102D0B-59D7-4902-913E-85CAA0DFE8A3}</Project>
       <Name>DynamicLinks</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\source\Firebase\InstanceID\InstanceID.csproj">
-      <Project>{754D8F56-C3DB-4E33-91D5-45445AB286EF}</Project>
-      <Name>InstanceID</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="GoogleService-Info.plist" />
@@ -154,7 +146,6 @@
     <BundleResource Include="Resources\XamarinLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Core\Core.targets" />
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Analytics\Analytics.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\..\..\packages\Xamarin.Build.Download.0.10.0\build\Xamarin.Build.Download.targets" Condition="Exists('..\..\..\..\packages\Xamarin.Build.Download.0.10.0\build\Xamarin.Build.Download.targets')" />
 </Project>
