@@ -11,18 +11,9 @@ namespace Firebase.MLKit.Common {
 	[BaseType (typeof(NSObject), Name = "FIRLocalModel")]
 	interface LocalModel
 	{
-		// @property (readonly, copy, nonatomic) NSString * _Nonnull name;
-		[Export ("name")]
-		string Name { get; }
-
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull path;
 		[Export ("path")]
 		string Path { get; }
-
-		// -(instancetype _Nonnull)initWithName:(NSString * _Nonnull)name path:(NSString * _Nonnull)path __attribute__((objc_designated_initializer)) __attribute__((swift_name("init(name:path:)")));
-		[DesignatedInitializer]
-		[Export ("initWithName:path:")]
-		IntPtr Constructor (string name, string path);
 	}
 
 	// @interface FIRModelDownloadConditions : NSObject <NSCopying>
@@ -86,31 +77,22 @@ namespace Firebase.MLKit.Common {
 		[Export ("modelManager")]
 		ModelManager DefaultInstance { get; }
 
-		// -(BOOL)registerRemoteModel:(FIRRemoteModel * _Nonnull)remoteModel;
-		[Export ("registerRemoteModel:")]
-		bool RegisterRemoteModel (RemoteModel remoteModel);
+		// +(instancetype _Nonnull)modelManagerForApp:(FIRApp * _Nonnull)app __attribute__((swift_name("modelManager(app:)")));
+		[Static]
+		[Export ("modelManagerForApp:")]
+		ModelManager From (Core.App app);
 
-		// -(BOOL)registerLocalModel:(FIRLocalModel * _Nonnull)localModel;
-		[Export ("registerLocalModel:")]
-		bool RegisterLocalModel (LocalModel localModel);
+		// -(BOOL)isModelDownloaded:(FIRRemoteModel * _Nonnull)remoteModel;
+		[Export ("isModelDownloaded:")]
+		bool IsModelDownloaded (RemoteModel remoteModel);
 
-		// -(FIRRemoteModel * _Nullable)remoteModelWithName:(NSString * _Nonnull)name;
-		[return: NullAllowed]
-		[Export ("remoteModelWithName:")]
-		RemoteModel GetRemoteModel (string name);
+		// -(NSProgress * _Nonnull)downloadModel:(FIRRemoteModel * _Nonnull)remoteModel conditions:(FIRModelDownloadConditions * _Nonnull)conditions __attribute__((swift_name("download(_:conditions:)")));
+		[Export ("downloadModel:conditions:")]
+		NSProgress DownloadModel (RemoteModel remoteModel, ModelDownloadConditions conditions);
 
-		// -(FIRLocalModel * _Nullable)localModelWithName:(NSString * _Nonnull)name;
-		[return: NullAllowed]
-		[Export ("localModelWithName:")]
-		LocalModel GetLocalModel (string name);
-
-		// -(BOOL)isRemoteModelDownloaded:(FIRRemoteModel * _Nonnull)remoteModel;
-		[Export ("isRemoteModelDownloaded:")]
-		bool IsRemoteModelDownloaded (RemoteModel remoteModel);
-
-		// -(NSProgress * _Nonnull)downloadRemoteModel:(FIRRemoteModel * _Nonnull)remoteModel __attribute__((swift_name("download(_:)")));
-		[Export ("downloadRemoteModel:")]
-		NSProgress DownloadRemoteModel (RemoteModel remoteModel);
+		// -(void)deleteDownloadedModel:(FIRRemoteModel * _Nonnull)remoteModel completion:(void (^ _Nonnull)(NSError * _Nullable))completion;
+		[Export ("deleteDownloadedModel:completion:")]
+		void DeleteDownloadedModel (RemoteModel remoteModel, Action<NSError> completion);
 	}
 
 	// @interface FIRRemoteModel : NSObject
@@ -121,21 +103,5 @@ namespace Firebase.MLKit.Common {
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull name;
 		[Export ("name")]
 		string Name { get; }
-
-		// @property (readonly, nonatomic) BOOL allowsModelUpdates;
-		[Export ("allowsModelUpdates")]
-		bool AllowsModelUpdates { get; }
-
-		// @property (readonly, nonatomic) FIRModelDownloadConditions * _Nonnull initialConditions;
-		[Export ("initialConditions")]
-		ModelDownloadConditions InitialConditions { get; }
-
-		// @property (readonly, nonatomic) FIRModelDownloadConditions * _Nonnull updateConditions;
-		[Export ("updateConditions")]
-		ModelDownloadConditions UpdateConditions { get; }
-
-		// -(instancetype _Nonnull)initWithName:(NSString * _Nonnull)name allowsModelUpdates:(BOOL)allowsModelUpdates initialConditions:(FIRModelDownloadConditions * _Nonnull)initialConditions updateConditions:(FIRModelDownloadConditions * _Nullable)updateConditions __attribute__((swift_name("init(name:allowsModelUpdates:initialConditions:updateConditions:)")));
-		[Export ("initWithName:allowsModelUpdates:initialConditions:updateConditions:")]
-		IntPtr Constructor (string name, bool allowsModelUpdates, ModelDownloadConditions initialConditions, [NullAllowed] ModelDownloadConditions updateConditions);
 	}
 }
