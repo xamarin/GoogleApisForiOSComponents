@@ -17,9 +17,10 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.Database][F.Database.Name]                             | [6.1.4.0][F.Database.Package]                |
 | [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                     | [4.0.7.0][F.DynamicLinks.Package]            |
 | [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                         | [4.3.2.0][F.InstanceID.Package]              |
-| [Xamarin.Firebase.iOS.MLKit][F.MLKit.Name]                                   | [0.13.0.4][F.MLKit.Package]                  |
-| [Xamarin.Firebase.iOS.MLKit.Common][F.MLKit.Common.Name]                     | [0.13.0.3][F.MLKit.Common.Package]           |
-| [Xamarin.Firebase.iOS.MLKit.ModelInterpreter][F.MLKit.ModelInterpreter.Name] | [0.13.0.3][F.MLKit.ModelInterpreter.Package] |
+| [Xamarin.Firebase.iOS.MLKit][F.MLKit.Name]                                   | [0.17.0.0][F.MLKit.Package]                  |
+| [Xamarin.Firebase.iOS.MLKit.Common][F.MLKit.Common.Name]                     | [0.17.0.0][F.MLKit.Common.Package]           |
+| [Xamarin.Firebase.iOS.MLKit.ModelInterpreter][F.MLKit.ModelInterpreter.Name] | [0.17.0.0][F.MLKit.ModelInterpreter.Package] |
+| [Xamarin.Firebase.iOS.MLKit.NaturalLanguage][F.MLKit.NaturalLanguage.Name]   | [0.16.3.0][F.MLKit.NaturalLanguage.Package]  |
 | [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name]   | [3.1.10.0][F.PerformanceMonitoring.Package]  |
 | [Xamarin.Firebase.iOS.RemoteConfig][F.RemoteConfig.Name]                     | [4.4.9.0][F.RemoteConfig.Package]            |
 | [Xamarin.Firebase.iOS.Storage][F.Storage.Name]                               | [3.6.0.0][F.Storage.Package]                 |
@@ -60,9 +61,10 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Database                | **6.1.4.0**       | **6.20.0**     |
 | Firebase Dynamic Links           | **4.0.7.0**       | **6.20.0**     |
 | Firebase Instance ID             | **4.3.2.0**       | **6.20.0**     |
-| Firebase MLKit                   | **0.13.0.4**      | **5.13.0**     |
-| Firebase MLKit Common            | **0.13.0.3**      | **5.13.0**     |
-| Firebase MLKit Model Interpreter | **0.13.0.3**      | **5.13.0**     |
+| Firebase MLKit                   | **0.17.0.0**      | **6.5.0**      |
+| Firebase MLKit Common            | **0.17.0.0**      | **6.5.0**      |
+| Firebase MLKit Model Interpreter | **0.17.0.0**      | **6.5.0**      |
+| Firebase MLKit Natural Language  | **0.16.3.0**      | **6.5.0**      |
 | Firebase Performance Monitoring  | **3.1.10.0**      | **6.20.0**     |
 | Firebase RemoteConfig            | **4.4.9.0**       | **6.20.0**     |
 | Firebase Storage                 | **3.6.0.0**       | **6.20.0**     |
@@ -115,6 +117,7 @@ Firebase.InstanceID
 Firebase.MLKit
 Firebase.MLKit.Common
 Firebase.MLKit.ModelInterpreter
+Firebase.MLKit.NaturalLanguage
 Firebase.PerformanceMonitoring
 Firebase.RemoteConfig
 Firebase.Storage
@@ -181,6 +184,7 @@ This project is part of the [.NET Foundation][104]
 [F.MLKit.Name]: source/Firebase/MLKit
 [F.MLKit.Common.Name]: source/Firebase/MLKit.Common
 [F.MLKit.ModelInterpreter.Name]: source/Firebase/MLKit.ModelInterpreter
+[F.MLKit.NaturalLanguage.Name]: source/Firebase/MLKit.NaturalLanguage
 [F.PerformanceMonitoring.Name]: source/Firebase/PerformanceMonitoring
 [F.RemoteConfig.Name]: source/Firebase/RemoteConfig
 [F.Storage.Name]: source/Firebase/Storage
@@ -201,6 +205,7 @@ This project is part of the [.NET Foundation][104]
 [F.MLKit.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.MLKit/
 [F.MLKit.Common.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.MLKit.Common/
 [F.MLKit.ModelInterpreter.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.MLKit.ModelInterpreter/
+[F.MLKit.NaturalLanguage.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.MLKit.NaturalLanguage/
 [F.PerformanceMonitoring.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.PerformanceMonitoring/
 [F.RemoteConfig.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.RemoteConfig/
 [F.Storage.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Storage/

@@ -57,8 +57,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj" PrivateAssets="None" />
-    <ProjectReference Include="..\MLKit.Common\MLKit.Common.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\Core\Core.csproj" />
+	  <ProjectReference Include="..\InstanceID\InstanceID.csproj" />
+    <ProjectReference Include="..\MLKit.Common\MLKit.Common.csproj" />
   </ItemGroup>
   
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />

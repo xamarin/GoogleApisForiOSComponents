@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Firebase.MLKit.Common
+namespace Firebase.MLKit.NaturalLanguage
 {
 	public class Loader
 	{
@@ -7,6 +7,9 @@ namespace Firebase.MLKit.Common
 		{
 			Firebase.Core.Loader.ForceLoad ();
 			Firebase.InstanceID.Loader.ForceLoad ();
+			Firebase.ABTesting.Loader.ForceLoad ();
+			Firebase.RemoteConfig.Loader.ForceLoad ();
+			Firebase.MLKit.Common.Loader.ForceLoad ();
 		}
 
 		public static void ForceLoad () { }
@@ -19,7 +22,7 @@ namespace ApiDefinition
 	{
 		static Messaging ()
 		{
-			Firebase.MLKit.Common.Loader.ForceLoad ();
+			Firebase.MLKit.NaturalLanguage.Loader.ForceLoad ();
 		}
 	}
 }

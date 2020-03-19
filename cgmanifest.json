@@ -155,8 +155,8 @@
 				"type": "other",
 				"other": {
 					"name": "FirebaseMLCommon",
-					"version": "0.13.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/73b3ba874bff8364/FirebaseMLCommon-0.13.0.tar.gz"
+					"version": "0.17.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/b3585d54f4d9224f/FirebaseMLCommon-0.17.0.tar.gz"
 				}
 			}
 		},
@@ -165,8 +165,48 @@
 				"type": "other",
 				"other": {
 					"name": "FirebaseMLModelInterpreter",
-					"version": "0.13.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/4c8e4fae417fa860/FirebaseMLModelInterpreter-0.13.0.tar.gz"
+					"version": "0.17.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/48e78c429d2df3cd/FirebaseMLModelInterpreter-0.17.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseMLNaturalLanguage",
+					"version": "0.16.3",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/ef4c16bba4cd2765/FirebaseMLNaturalLanguage-0.16.3.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseMLNLLanguageID",
+					"version": "0.16.3",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/871f283f3de2e37b/FirebaseMLNLLanguageID-0.16.3.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseMLNLSmartReply",
+					"version": "0.16.3",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/7d3fa69c061b1370/FirebaseMLNLSmartReply-0.16.3.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseMLNLTranslate",
+					"version": "0.16.3",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/ee627a903e191d0f/FirebaseMLNLTranslate-0.16.3.tar.gz"
 				}
 			}
 		},

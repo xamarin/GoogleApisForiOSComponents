@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
-		<_FirebaseMLKitAssemblyName>Firebase.MLKit.ModelInterpreter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseMLKitAssemblyName>
-		<_FirebaseMLModelInterpreterItemsFolder>FMLMdlI-0.13.0</_FirebaseMLModelInterpreterItemsFolder>
+		<_FirebaseMLKitModelInterpreterAssemblyName>Firebase.MLKit.ModelInterpreter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseMLKitModelInterpreterAssemblyName>
+		<_FirebaseMLModelInterpreterItemsFolder>FMLMdlI-0.17.0</_FirebaseMLModelInterpreterItemsFolder>
 		<_FirebaseMLModelInterpreterSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseMLModelInterpreterItemsFolder)\Frameworks\</_FirebaseMLModelInterpreterSDKBaseFolder>
 		
-		<_TensorFlowLiteItemsFolder>TnsrFlwLt-1.10.1</_TensorFlowLiteItemsFolder>
+		<_TensorFlowLiteItemsFolder>TnsrFlwLt-1.13.1</_TensorFlowLiteItemsFolder>
 		<_TensorFlowLiteSDKBaseFolder>$(XamarinBuildDownloadDir)$(_TensorFlowLiteItemsFolder)\Frameworks\</_TensorFlowLiteSDKBaseFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_FirebaseMLModelInterpreterItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/4c8e4fae417fa860/FirebaseMLModelInterpreter-0.13.0.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/48e78c429d2df3cd/FirebaseMLModelInterpreter-0.17.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_FirebaseMLModelInterpreterSDKBaseFolder)FirebaseMLModelInterpreter.framework">
@@ -22,7 +22,7 @@
 		</NativeReference>
 		
 		<XamarinBuildDownload Include="$(_TensorFlowLiteItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/e6952cad2114f061/TensorFlowLite-1.10.1.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/a3cc8a8fb2aec8f6/TensorFlowLite-1.13.1.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_TensorFlowLiteSDKBaseFolder)tensorflow_lite.framework">

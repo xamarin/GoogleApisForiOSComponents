@@ -3,26 +3,6 @@
 using Foundation;
 
 namespace Firebase.MLKit.ModelInterpreter {
-	public partial class ModelInputOutputOptions {
-		public bool SetInputFormat (nuint index, ModelElementType type, nuint [] dimensions, out NSError error)
-		{
-			if (dimensions == null)
-				throw new ArgumentNullException (nameof (dimensions));
-
-			var nsDimensions = NSArray.FromNSObjects ((d) => NSNumber.FromNUInt (d), dimensions);
-			return _SetInputFormat (index, type, nsDimensions, out error);
-		}
-
-		public bool SetOutputFormat (nuint index, ModelElementType type, nuint [] dimensions, out NSError error)
-		{
-			if (dimensions == null)
-				throw new ArgumentNullException (nameof (dimensions));
-
-			var nsDimensions = NSArray.FromNSObjects ((d) => NSNumber.FromNUInt (d), dimensions);
-			return _SetOutputFormat (index, type, nsDimensions, out error);
-		}
-	}
-
 	public partial class ModelInputs {
 		public bool AddInput (NSData input, out NSError error)
 		{
