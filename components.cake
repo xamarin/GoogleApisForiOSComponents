@@ -13,7 +13,7 @@ Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.Ins
 Artifact FIREBASE_MLKIT_ARTIFACT                   = new Artifact ("Firebase.MLKit",                  "0.13.0.4", "9.0", ComponentGroup.Firebase, csprojName: "MLKit");
 Artifact FIREBASE_MLKIT_COMMON_ARTIFACT            = new Artifact ("Firebase.MLKit.Common",           "0.13.0.3", "9.0", ComponentGroup.Firebase, csprojName: "MLKit.Common");
 Artifact FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT = new Artifact ("Firebase.MLKit.ModelInterpreter", "0.13.0.3", "9.0", ComponentGroup.Firebase, csprojName: "MLKit.ModelInterpreter");
-Artifact FIREBASE_PERFORMANCE_MONITORING_ARTIFACT  = new Artifact ("Firebase.PerformanceMonitoring",  "3.1.9.1",  "8.0", ComponentGroup.Firebase, csprojName: "PerformanceMonitoring");
+Artifact FIREBASE_PERFORMANCE_MONITORING_ARTIFACT  = new Artifact ("Firebase.PerformanceMonitoring",  "3.1.10",   "8.0", ComponentGroup.Firebase, csprojName: "PerformanceMonitoring");
 Artifact FIREBASE_REMOTE_CONFIG_ARTIFACT           = new Artifact ("Firebase.RemoteConfig",           "4.4.9",    "8.0", ComponentGroup.Firebase, csprojName: "RemoteConfig");
 Artifact FIREBASE_STORAGE_ARTIFACT                 = new Artifact ("Firebase.Storage",                "3.4.0.3",  "8.0", ComponentGroup.Firebase, csprojName: "Storage");
 
@@ -127,7 +127,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("GoogleAppMeasurement",           "6.3.1"),
 		PodSpec.Create ("GoogleDataTransport",            "5.0.0",    frameworkSource: FrameworkSource.Pods),
 		PodSpec.Create ("GoogleDataTransportCCTSupport",  "2.0.0",    frameworkSource: FrameworkSource.Pods),
-		PodSpec.Create ("GoogleToolboxForMac",            "2.2.0",    frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "NSData+zlib", "NSDictionary+URLArguments", "Logger", "StringEncoding", "URLBuilder" }),
+		PodSpec.Create ("GoogleToolboxForMac",            "2.2.2",    frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "NSData+zlib", "NSDictionary+URLArguments", "Logger", "StringEncoding", "URLBuilder" }),
 		PodSpec.Create ("GoogleUtilities",                "6.5.2",    frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "AppDelegateSwizzler", "Environment", "ISASwizzler", "Logger", "MethodSwizzler", "Network", "NSData+zlib", "Reachability", "UserDefaults" }),
 		PodSpec.Create ("GTMSessionFetcher",              "1.3.1",    frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Full" }),
 		PodSpec.Create ("leveldb-library",                "1.22.0",   frameworkSource: FrameworkSource.Pods, frameworkName: "leveldb"),
@@ -161,7 +161,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("TensorFlowLite", "1.10.1")
 	};
 	FIREBASE_PERFORMANCE_MONITORING_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.5.0", subSpecs: new [] { "Performance" })
+		PodSpec.Create ("Firebase", "6.20.0", subSpecs: new [] { "Performance" })
 	};
 	FIREBASE_REMOTE_CONFIG_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.20.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseRemoteConfig", targetName: "FirebaseRemoteConfig", subSpecs: new [] { "RemoteConfig" })

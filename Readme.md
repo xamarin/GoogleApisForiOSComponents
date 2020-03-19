@@ -20,7 +20,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.MLKit][F.MLKit.Name]                                   | [0.13.0.4][F.MLKit.Package]                  |
 | [Xamarin.Firebase.iOS.MLKit.Common][F.MLKit.Common.Name]                     | [0.13.0.3][F.MLKit.Common.Package]           |
 | [Xamarin.Firebase.iOS.MLKit.ModelInterpreter][F.MLKit.ModelInterpreter.Name] | [0.13.0.3][F.MLKit.ModelInterpreter.Package] |
-| [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name]   | [3.1.9.1][F.PerformanceMonitoring.Package]   |
+| [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name]   | [3.1.10.0][F.PerformanceMonitoring.Package]  |
 | [Xamarin.Firebase.iOS.RemoteConfig][F.RemoteConfig.Name]                     | [4.4.9.0][F.RemoteConfig.Package]            |
 | [Xamarin.Firebase.iOS.Storage][F.Storage.Name]                               | [3.4.0.3][F.Storage.Package]                 |
 | [Xamarin.Google.iOS.Analytics][G.Analytics.Name]                             | [3.17.0.6][G.Analytics.Package]              |
@@ -60,10 +60,10 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Database                | **6.1.4.0**       | **6.20.0**     |
 | Firebase Dynamic Links           | **4.0.7.0**       | **6.20.0**     |
 | Firebase Instance ID             | **4.3.2.0**       | **6.20.0**     |
-| Firebase MLKit                   | **0.13.0.4**      | **5.13.0*      |
-| Firebase MLKit Common            | **0.13.0.3**      | **5.13.0*      |
-| Firebase MLKit Model Interpreter | **0.13.0.3**      | **5.13.0*      |
-| Firebase Performance Monitoring  | **3.1.9.1**       | **6.15.0**     |
+| Firebase MLKit                   | **0.13.0.4**      | **5.13.0**     |
+| Firebase MLKit Common            | **0.13.0.3**      | **5.13.0**     |
+| Firebase MLKit Model Interpreter | **0.13.0.3**      | **5.13.0**     |
+| Firebase Performance Monitoring  | **3.1.10.0**      | **6.20.0**     |
 | Firebase RemoteConfig            | **4.4.9.0**       | **6.20.0**     |
 | Firebase Storage                 | **3.4.0.3**       | **6.5.0**      |
 | Google Sign-In                   | **5.0.2.1**       | **6.15.0**     |
