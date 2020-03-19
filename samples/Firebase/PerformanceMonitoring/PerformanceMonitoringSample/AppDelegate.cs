@@ -33,11 +33,6 @@ namespace PerformanceMonitoringSample
 
 			var remoteConfig = RemoteConfig.SharedInstance;
 
-			// You can change the "false" below to "true" to permit more fetches when validating
-			// your app, but you should change it back to "false" or remove this statement before
-			// distributing your app in production.
-			remoteConfig.ConfigSettings = new RemoteConfigSettings (true);
-
 			// You can set default parameter values using an NSDictionary object or a plist file.
 			var defaultPlist = NSBundle.MainBundle.PathForResource ("RemoteConfigDefaults", "plist");
 
