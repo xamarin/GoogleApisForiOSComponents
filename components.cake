@@ -12,7 +12,7 @@ Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.Dyn
 Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.InstanceID",             "4.3.2",    "8.0", ComponentGroup.Firebase, csprojName: "InstanceID");
 Artifact FIREBASE_MLKIT_ARTIFACT                   = new Artifact ("Firebase.MLKit",                  "0.17.0",   "9.0", ComponentGroup.Firebase, csprojName: "MLKit");
 Artifact FIREBASE_MLKIT_COMMON_ARTIFACT            = new Artifact ("Firebase.MLKit.Common",           "0.19.0",   "9.0", ComponentGroup.Firebase, csprojName: "MLKit.Common");
-Artifact FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT = new Artifact ("Firebase.MLKit.ModelInterpreter", "0.17.0",   "9.0", ComponentGroup.Firebase, csprojName: "MLKit.ModelInterpreter");
+Artifact FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT = new Artifact ("Firebase.MLKit.ModelInterpreter", "0.19.0",   "9.0", ComponentGroup.Firebase, csprojName: "MLKit.ModelInterpreter");
 Artifact FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT  = new Artifact ("Firebase.MLKit.NaturalLanguage",  "0.16.3",   "9.0", ComponentGroup.Firebase, csprojName: "MLKit.NaturalLanguage");
 Artifact FIREBASE_PERFORMANCE_MONITORING_ARTIFACT  = new Artifact ("Firebase.PerformanceMonitoring",  "3.1.10",   "8.0", ComponentGroup.Firebase, csprojName: "PerformanceMonitoring");
 Artifact FIREBASE_REMOTE_CONFIG_ARTIFACT           = new Artifact ("Firebase.RemoteConfig",           "4.4.9",    "8.0", ComponentGroup.Firebase, csprojName: "RemoteConfig");
@@ -160,8 +160,9 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("Firebase", "6.20.0", subSpecs: new [] { "MLCommon" })
 	};
 	FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase",       "6.5.0", subSpecs: new [] { "MLModelInterpreter" }),
-		PodSpec.Create ("TensorFlowLite", "1.13.1")
+		PodSpec.Create ("Firebase",           "6.20.0", subSpecs: new [] { "MLModelInterpreter" }),
+		PodSpec.Create ("TensorFlowLiteObjC", "1.14.0", frameworkSource: FrameworkSource.Pods, frameworkName: "TFLTensorFlowLite", targetName: "TensorFlowLiteObjC"),
+		PodSpec.Create ("TensorFlowLiteC",    "1.14.0")
 	};
 	FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.5.0", subSpecs: new [] { "MLNaturalLanguage", "MLNLLanguageID", "MLNLSmartReply", "MLNLTranslate" }),

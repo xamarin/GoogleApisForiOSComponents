@@ -4,6 +4,28 @@ using Foundation;
 using ObjCRuntime;
 
 namespace Firebase.MLKit.ModelInterpreter {
+	// @interface FIRCustomLocalModel : FIRLocalModel
+	[DisableDefaultCtor]
+	[BaseType (typeof(Common.LocalModel), Name = "FIRCustomLocalModel")]
+	interface CustomLocalModel
+	{
+		// -(instancetype _Nonnull)initWithModelPath:(NSString * _Nonnull)modelPath __attribute__((objc_designated_initializer));
+		[DesignatedInitializer]
+		[Export ("initWithModelPath:")]
+		IntPtr Constructor (string modelPath);
+	}
+
+	// @interface FIRCustomRemoteModel : FIRRemoteModel
+	[DisableDefaultCtor]
+	[BaseType (typeof(Common.RemoteModel), Name = "FIRCustomRemoteModel")]
+	interface CustomRemoteModel
+	{
+		// -(instancetype _Nonnull)initWithName:(NSString * _Nonnull)name __attribute__((objc_designated_initializer));
+		[DesignatedInitializer]
+		[Export ("initWithName:")]
+		IntPtr Constructor (string name);
+	}
+	
 	// @interface FIRModelInputOutputOptions : NSObject
 	[BaseType (typeof (NSObject), Name = "FIRModelInputOutputOptions")]
 	interface ModelInputOutputOptions {
@@ -39,10 +61,15 @@ namespace Firebase.MLKit.ModelInterpreter {
 		[Export ("statsCollectionEnabled")]
 		bool StatsCollectionEnabled { [Bind ("isStatsCollectionEnabled")] get; set; }
 
-		// +(instancetype _Nonnull)modelInterpreterWithOptions:(FIRModelOptions * _Nonnull)options;
+		// +(instancetype _Nonnull)modelInterpreterForLocalModel:(FIRCustomLocalModel * _Nonnull)localModel __attribute__((swift_name("modelInterpreter(localModel:)")));
 		[Static]
-		[Export ("modelInterpreterWithOptions:")]
-		ModelInterpreter Create (ModelOptions options);
+		[Export ("modelInterpreterForLocalModel:")]
+		ModelInterpreter Create (CustomLocalModel localModel);
+
+		// +(instancetype _Nonnull)modelInterpreterForRemoteModel:(FIRCustomRemoteModel * _Nonnull)remoteModel __attribute__((swift_name("modelInterpreter(remoteModel:)")));
+		[Static]
+		[Export ("modelInterpreterForRemoteModel:")]
+		ModelInterpreter Create (CustomRemoteModel remoteModel);
 
 		// -(void)runWithInputs:(FIRModelInputs * _Nonnull)inputs options:(FIRModelInputOutputOptions * _Nonnull)options completion:(FIRModelInterpreterRunCallback _Nonnull)completion;
 		[Async]
@@ -58,31 +85,6 @@ namespace Firebase.MLKit.ModelInterpreter {
 		[Async]
 		[Export ("outputIndexForOp:completion:")]
 		void OutputIndex (string opName, ModelInterpreterInputOutputOpIndexCallbackHandler completion);
-	}
-
-	// @interface FIRModelOptions : NSObject
-	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FIRModelOptions")]
-	interface ModelOptions {
-		// @property (readonly, copy, nonatomic) NSString * _Nullable remoteModelName;
-		[NullAllowed]
-		[Export ("remoteModelName")]
-		string RemoteModelName { get; }
-
-		[Obsolete ("Use the RemoteModelName property instead. This will be removed in future versions.")]
-		[NullAllowed]
-		[Wrap ("RemoteModelName")]
-		string CloudModelName { get; }
-
-		// @property (readonly, copy, nonatomic) NSString * _Nullable localModelName;
-		[NullAllowed]
-		[Export ("localModelName")]
-		string LocalModelName { get; }
-
-		// -(instancetype _Nonnull)initWithRemoteModelName:(NSString * _Nullable)remoteModelName localModelName:(NSString * _Nullable)localModelName __attribute__((objc_designated_initializer));
-		[DesignatedInitializer]
-		[Export("initWithRemoteModelName:localModelName:")]
-		IntPtr Constructor ([NullAllowed] string remoteModelName, [NullAllowed] string localModelName);
 	}
 
 	// @interface FIRModelOutputs : NSObject
