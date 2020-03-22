@@ -51,13 +51,13 @@ namespace Firebase.MLKit.Vision {
 		[Export ("faceDetector")]
 		VisionFaceDetector GetFaceDetector ();
 
-		// -(FIRVisionLabelDetector * _Nonnull)labelDetectorWithOptions:(FIRVisionLabelDetectorOptions * _Nonnull)options;
-		[Export ("labelDetectorWithOptions:")]
-		VisionLabelDetector GetLabelDetector (VisionLabelDetectorOptions options);
+		// -(FIRVisionImageLabeler * _Nonnull)onDeviceImageLabelerWithOptions:(FIRVisionOnDeviceImageLabelerOptions * _Nonnull)options __attribute__((swift_name("onDeviceImageLabeler(options:)")));
+		[Export ("onDeviceImageLabelerWithOptions:")]
+		VisionImageLabeler GetOnDeviceImageLabeler (VisionOnDeviceImageLabelerOptions options);
 
-		// -(FIRVisionLabelDetector * _Nonnull)labelDetector;
-		[Export ("labelDetector")]
-		VisionLabelDetector GetLabelDetector ();
+		// -(FIRVisionImageLabeler * _Nonnull)onDeviceImageLabeler;
+		[Export ("onDeviceImageLabeler")]
+		VisionImageLabeler GetOnDeviceImageLabeler ();
 
 		// -(FIRVisionTextRecognizer * _Nonnull)onDeviceTextRecognizer;
 		[Export ("onDeviceTextRecognizer")]
@@ -87,13 +87,13 @@ namespace Firebase.MLKit.Vision {
 		[Export ("cloudLandmarkDetector")]
 		VisionCloudLandmarkDetector GetCloudLandmarkDetector ();
 
-		// -(FIRVisionCloudLabelDetector * _Nonnull)cloudLabelDetectorWithOptions:(FIRVisionCloudDetectorOptions * _Nonnull)options;
-		[Export ("cloudLabelDetectorWithOptions:")]
-		VisionCloudLabelDetector GetCloudLabelDetector (VisionCloudDetectorOptions options);
+		// -(FIRVisionImageLabeler * _Nonnull)cloudImageLabelerWithOptions:(FIRVisionCloudImageLabelerOptions * _Nonnull)options __attribute__((swift_name("cloudImageLabeler(options:)")));
+		[Export ("cloudImageLabelerWithOptions:")]
+		VisionImageLabeler GetCloudImageLabeler (VisionCloudImageLabelerOptions options);
 
-		// -(FIRVisionCloudLabelDetector * _Nonnull)cloudLabelDetector;
-		[Export ("cloudLabelDetector")]
-		VisionCloudLabelDetector GetCloudLabelDetector ();
+		// -(FIRVisionImageLabeler * _Nonnull)cloudImageLabeler;
+		[Export ("cloudImageLabeler")]
+		VisionImageLabeler GetCloudImageLabeler ();
 	}
 
 	// @interface FIRVisionBarcodeAddress : NSObject
@@ -418,6 +418,11 @@ namespace Firebase.MLKit.Vision {
 		[Export ("rawValue")]
 		string RawValue { get; }
 
+		// @property (readonly, nonatomic) NSData * _Nullable rawData;
+		[NullAllowed]
+		[Export ("rawData")]
+		NSData RawData { get; }
+
 		// @property (readonly, nonatomic) NSString * _Nullable displayValue;
 		[NullAllowed]
 		[Export ("displayValue")]
@@ -539,38 +544,18 @@ namespace Firebase.MLKit.Vision {
 		string ApiKeyOverride { get; set; }
 	}
 
-	// @interface FIRVisionCloudLabel : NSObject
-	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FIRVisionCloudLabel")]
-	interface VisionCloudLabel {
-		// @property (readonly, copy, nonatomic) NSString * _Nullable entityId;
+	// @interface FIRVisionCloudImageLabelerOptions : NSObject
+	[BaseType (typeof(NSObject), Name = "FIRVisionCloudImageLabelerOptions")]
+	interface VisionCloudImageLabelerOptions
+	{
+		// @property (nonatomic) float confidenceThreshold;
+		[Export ("confidenceThreshold")]
+		float ConfidenceThreshold { get; set; }
+
+		// @property (copy, nonatomic) NSString * _Nullable APIKeyOverride;
 		[NullAllowed]
-		[Export ("entityId")]
-		string EntityId { get; }
-
-		// @property (readonly, copy, nonatomic) NSString * _Nullable label;
-		[NullAllowed]
-		[Export ("label")]
-		string Label { get; }
-
-		// @property (readonly, nonatomic) NSNumber * _Nullable confidence;
-		[BindAs (typeof (float?))]
-		[NullAllowed]
-		[Export ("confidence")]
-		NSNumber Confidence { get; }
-	}
-
-	// typedef void (^FIRVisionCloudLabelDetectionCompletion)(NSArray<FIRVisionCloudLabel *> * _Nullable, NSError * _Nullable);
-	delegate void VisionCloudLabelDetectionCompletionHandler ([NullAllowed] VisionCloudLabel [] labels, [NullAllowed] NSError error);
-
-	// @interface FIRVisionCloudLabelDetector : NSObject
-	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FIRVisionCloudLabelDetector")]
-	interface VisionCloudLabelDetector {
-		// -(void)detectInImage:(FIRVisionImage * _Nonnull)image completion:(FIRVisionCloudLabelDetectionCompletion _Nonnull)completion;
-		[Async]
-		[Export ("detectInImage:completion:")]
-		void Detect (VisionImage image, VisionCloudLabelDetectionCompletionHandler completion);
+		[Export ("APIKeyOverride")]
+		string ApiKeyOverride { get; set; }
 	}
 
 	// @interface FIRVisionCloudLandmark : NSObject
@@ -945,56 +930,51 @@ namespace Firebase.MLKit.Vision {
 		IntPtr Constructor (CMSampleBuffer sampleBuffer);
 	}
 
+	// @interface FIRVisionImageLabel : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof(NSObject), Name = "FIRVisionImageLabel")]
+	interface VisionImageLabel
+	{
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull text;
+		[Export ("text")]
+		string Text { get; }
+
+		// @property (readonly, nonatomic) NSNumber * _Nullable confidence;
+		[NullAllowed]
+		[BindAs (typeof (float))]
+		[Export ("confidence")]
+		NSNumber Confidence { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nullable entityID;
+		[NullAllowed]
+		[Export ("entityID")]
+		string EntityId { get; }
+	}
+
+	// typedef void (^FIRVisionImageLabelerCallback)(NSArray<FIRVisionImageLabel *> * _Nullable, NSError * _Nullable);
+	delegate void VisionImageLabelerCallbackHandler ([NullAllowed] VisionImageLabel [] labels, [NullAllowed] NSError error);
+
+	// @interface FIRVisionImageLabeler : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FIRVisionImageLabeler")]
+	interface VisionImageLabeler
+	{
+		// @property (readonly, nonatomic) FIRVisionImageLabelerType type;
+		[Export ("type")]
+		VisionImageLabelerType Type { get; }
+
+		// -(void)processImage:(FIRVisionImage * _Nonnull)image completion:(FIRVisionImageLabelerCallback _Nonnull)completion __attribute__((swift_name("process(_:completion:)")));
+		[Async]
+		[Export ("processImage:completion:")]
+		void ProcessImage (VisionImage image, VisionImageLabelerCallbackHandler completion);
+	}
+
 	// @interface FIRVisionImageMetadata : NSObject
 	[BaseType (typeof (NSObject), Name = "FIRVisionImageMetadata")]
 	interface VisionImageMetadata {
 		// @property (nonatomic) FIRVisionDetectorImageOrientation orientation;
 		[Export ("orientation", ArgumentSemantic.Assign)]
 		VisionDetectorImageOrientation Orientation { get; set; }
-	}
-
-	// @interface FIRVisionLabel : NSObject
-	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FIRVisionLabel")]
-	interface VisionLabel {
-		// @property (readonly, nonatomic) float confidence;
-		[Export ("confidence")]
-		float Confidence { get; }
-
-		// @property (readonly, copy, nonatomic) NSString * _Nonnull entityID;
-		[Export ("entityID")]
-		string EntityId { get; }
-
-		// @property (readonly, copy, nonatomic) NSString * _Nonnull label;
-		[Export ("label")]
-		string Label { get; }
-	}
-
-	// typedef void (^FIRVisionLabelDetectionCallback)(NSArray<FIRVisionLabel *> * _Nullable, NSError * _Nullable);
-	delegate void VisionLabelDetectionCallbackHandler ([NullAllowed] VisionLabel [] labels, [NullAllowed] NSError error);
-
-	// @interface FIRVisionLabelDetector : NSObject
-	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FIRVisionLabelDetector")]
-	interface VisionLabelDetector {
-		// -(void)detectInImage:(FIRVisionImage * _Nonnull)image completion:(FIRVisionLabelDetectionCallback _Nonnull)completion;
-		[Async]
-		[Export ("detectInImage:completion:")]
-		void Detect (VisionImage image, VisionLabelDetectionCallbackHandler completion);
-	}
-
-	// @interface FIRVisionLabelDetectorOptions : NSObject
-	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FIRVisionLabelDetectorOptions")]
-	interface VisionLabelDetectorOptions {
-		// @property (readonly, nonatomic) float confidenceThreshold;
-		[Export ("confidenceThreshold")]
-		float ConfidenceThreshold { get; }
-
-		// -(instancetype _Nonnull)initWithConfidenceThreshold:(float)confidenceThreshold __attribute__((objc_designated_initializer));
-		[Export ("initWithConfidenceThreshold:")]
-		[DesignatedInitializer]
-		IntPtr Constructor (float confidenceThreshold);
 	}
 
 	// @interface FIRVisionLatitudeLongitude : NSObject
@@ -1018,6 +998,15 @@ namespace Firebase.MLKit.Vision {
 		[DesignatedInitializer]
 		[Export ("initWithLatitude:longitude:")]
 		IntPtr _InitWithLatitudeAndLongitude ([NullAllowed] NSNumber latitude, [NullAllowed] NSNumber longitude);
+	}
+
+	// @interface FIRVisionOnDeviceImageLabelerOptions : NSObject
+	[BaseType (typeof(NSObject), Name = "FIRVisionOnDeviceImageLabelerOptions")]
+	interface VisionOnDeviceImageLabelerOptions
+	{
+		// @property (nonatomic) float confidenceThreshold;
+		[Export ("confidenceThreshold")]
+		float ConfidenceThreshold { get; set; }
 	}
 
 	// @interface FIRVisionPoint : NSObject
@@ -1184,721 +1173,132 @@ namespace Firebase.MLKit.Vision {
 	}
 }
 
-namespace Google.MobileVision {
-	// @interface GMVDetector : NSObject
-	[BaseType (typeof (NSObject), Name = "GMVDetector")]
-	interface Detector {
-		// extern const float kGMVDetectorLabelScoreThresholdDefaultValue;
-		[Field ("kGMVDetectorLabelScoreThresholdDefaultValue", "__Internal")]
-		float LabelScoreThresholdDefaultValue { get; }
-
-		// extern NSString *const GMVDetectorLabelScoreThreshold;
-		[Field ("GMVDetectorLabelScoreThreshold", "__Internal")]
-		NSString LabelScoreThreshold { get; }
-
-		// extern NSString *const GMVDetectorBarcodeFormats;
-		[Field ("GMVDetectorBarcodeFormats", "__Internal")]
-		NSString BarcodeFormats { get; }
-
-		// extern NSString *const GMVDetectorFaceMode;
-		[Field ("GMVDetectorFaceMode", "__Internal")]
-		NSString FaceMode { get; }
-
-		// extern NSString *const GMVDetectorFaceTrackingEnabled;
-		[Field ("GMVDetectorFaceTrackingEnabled", "__Internal")]
-		NSString FaceTrackingEnabled { get; }
-
-		// extern NSString *const GMVDetectorFaceMinSize;
-		[Field ("GMVDetectorFaceMinSize", "__Internal")]
-		NSString FaceMinSize { get; }
-
-		// extern NSString *const GMVDetectorFaceClassificationType;
-		[Field ("GMVDetectorFaceClassificationType", "__Internal")]
-		NSString FaceClassificationType { get; }
-
-		// extern NSString *const GMVDetectorFaceLandmarkType;
-		[Field ("GMVDetectorFaceLandmarkType", "__Internal")]
-		NSString FaceLandmarkType { get; }
-
-		// extern NSString *const GMVDetectorImageOrientation;
-		[Field ("GMVDetectorImageOrientation", "__Internal")]
-		NSString ImageOrientation { get; }
-
-		// +(GMVDetector *)detectorOfType:(NSString *)type options:(NSDictionary *)options;
-		[Static]
-		[return: NullAllowed]
-		[Export ("detectorOfType:options:")]
-		Detector Create ([BindAs (typeof (DetectorType))] NSString type, [NullAllowed] NSDictionary options);
-
-		[Static]
-		[return: NullAllowed]
-		[Wrap ("Create (type, options == null ? null : NSDictionary.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (options.Values), System.Linq.Enumerable.ToArray (options.Keys), options.Keys.Count))")]
-		Detector Create ([BindAs (typeof (DetectorType))] NSString type, [NullAllowed] Dictionary<object, object> options);
-
-		// -(NSArray<__kindof GMVFeature *> *)featuresInImage:(UIImage *)image options:(NSDictionary *)options;
-		[return: NullAllowed]
-		[Export ("featuresInImage:options:")]
-		Feature [] GetFeatures (UIImage image, [NullAllowed] NSDictionary nsOptions);
-
-		[return: NullAllowed]
-		[Wrap ("GetFeatures (image, options == null ? null : NSDictionary.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (options.Values), System.Linq.Enumerable.ToArray (options.Keys), options.Keys.Count))")]
-		Feature [] GetFeatures (UIImage image, [NullAllowed] Dictionary<object, object> options);
-
-		// -(NSArray<__kindof GMVFeature *> *)featuresInBuffer:(CMSampleBufferRef)sampleBuffer options:(NSDictionary *)options;
-		[return: NullAllowed]
-		[Export ("featuresInBuffer:options:")]
-		Feature [] GetFeatures (CMSampleBuffer sampleBuffer, [NullAllowed] NSDictionary options);
-
-		[return: NullAllowed]
-		[Wrap ("GetFeatures (sampleBuffer, options == null ? null : NSDictionary.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (options.Values), System.Linq.Enumerable.ToArray (options.Keys), options.Keys.Count))")]
-		Feature [] GetFeatures (CMSampleBuffer sampleBuffer, [NullAllowed] Dictionary<object, object> options);
-	}
-
-	// @interface GMVFeature : NSObject
-	[BaseType (typeof (NSObject), Name = "GMVFeature")]
-	interface Feature {
-		// @property (readonly, assign, atomic) CGRect bounds;
-		[Export ("bounds", ArgumentSemantic.Assign)]
-		CGRect Bounds { get; }
-
-		// @property (readonly, copy, atomic) NSString * type;
-		[BindAs (typeof (FeatureType))]
-		[Export ("type")]
-		NSString Type { get; }
-
-		// @property (readonly, assign, atomic) BOOL hasTrackingID;
-		[Export ("hasTrackingID")]
-		bool HasTrackingId { get; }
-
-		// @property (readonly, assign, atomic) NSUInteger trackingID;
-		[Export ("trackingID")]
-		nuint TrackingId { get; }
-	}
-
-	// @interface GMVBarcodeFeatureEmail : NSObject
-	[BaseType (typeof (NSObject), Name = "GMVBarcodeFeatureEmail")]
-	interface BarcodeFeatureEmail {
-		// @property (readonly, copy, atomic) NSString * address;
-		[Export ("address")]
-		string Address { get; }
-
-		// @property (readonly, copy, atomic) NSString * body;
-		[Export ("body")]
-		string Body { get; }
-
-		// @property (readonly, copy, atomic) NSString * subject;
-		[Export ("subject")]
-		string Subject { get; }
-
-		// @property (readonly, assign, atomic) GMVBarcodeFeatureEmailType type;
-		[Export ("type", ArgumentSemantic.Assign)]
-		BarcodeFeatureEmailType Type { get; }
-	}
-
-	// @interface GMVBarcodeFeaturePhone : NSObject
-	[BaseType (typeof (NSObject), Name = "GMVBarcodeFeaturePhone")]
-	interface BarcodeFeaturePhone {
-		// @property (readonly, copy, atomic) NSString * number;
-		[Export ("number")]
-		string Number { get; }
-
-		// @property (readonly, assign, atomic) GMVBarcodeFeaturePhoneType type;
-		[Export ("type", ArgumentSemantic.Assign)]
-		BarcodeFeaturePhoneType Type { get; }
-	}
-
-	// @interface GMVBarcodeFeatureSMS : NSObject
-	[BaseType (typeof (NSObject), Name = "GMVBarcodeFeatureSMS")]
-	interface BarcodeFeatureSms {
-		// @property (readonly, copy, atomic) NSString * message;
-		[Export ("message")]
-		string Message { get; }
-
-		// @property (readonly, copy, atomic) NSString * phoneNumber;
-		[Export ("phoneNumber")]
-		string PhoneNumber { get; }
-	}
-
-	// @interface GMVBarcodeFeatureURLBookmark : NSObject
-	[BaseType (typeof (NSObject), Name = "GMVBarcodeFeatureURLBookmark")]
-	interface BarcodeFeatureUrlBookmark {
-		// @property (readonly, copy, atomic) NSString * title;
-		[Export ("title")]
-		string Title { get; }
-
-		// @property (readonly, copy, atomic) NSString * url;
-		[Export ("url")]
-		string Url { get; }
-	}
-
-	// @interface GMVBarcodeFeatureWiFi : NSObject
-	[BaseType (typeof (NSObject), Name = "GMVBarcodeFeatureWiFi")]
-	interface BarcodeFeatureWiFi {
-		// @property (readonly, copy, atomic) NSString * ssid;
-		[Export ("ssid")]
-		string Ssid { get; }
-
-		// @property (readonly, copy, atomic) NSString * password;
-		[Export ("password")]
-		string Password { get; }
-
-		// @property (readonly, assign, atomic) GMVBarcodeFeatureWiFiEncryptionType type;
-		[Export ("type", ArgumentSemantic.Assign)]
-		BarcodeFeatureWiFiEncryptionType Type { get; }
-	}
-
-	// @interface GMVBarcodeFeatureGeoPoint : NSObject
-	[BaseType (typeof (NSObject), Name = "GMVBarcodeFeatureGeoPoint")]
-	interface BarcodeFeatureGeoPoint {
-		// @property (readonly, assign, atomic) double latitude;
-		[Export ("latitude")]
-		double Latitude { get; }
-
-		// @property (readonly, assign, atomic) double longitude;
-		[Export ("longitude")]
-		double Longitude { get; }
-	}
-
-	// @interface GMVBarcodeFeatureAddress : NSObject
-	[BaseType (typeof (NSObject), Name = "GMVBarcodeFeatureAddress")]
-	interface BarcodeFeatureAddress {
-		// @property (readonly, copy, atomic) NSArray<NSString *> * addressLines;
-		[Export ("addressLines", ArgumentSemantic.Copy)]
-		string [] AddressLines { get; }
-
-		// @property (readonly, assign, atomic) GMVBarcodeFeatureAddressType type;
-		[Export ("type", ArgumentSemantic.Assign)]
-		BarcodeFeatureAddressType Type { get; }
-	}
-
-	// @interface GMVBarcodeFeaturePersonName : NSObject
-	[BaseType (typeof (NSObject), Name = "GMVBarcodeFeaturePersonName")]
-	interface BarcodeFeaturePersonName {
-		// @property (readonly, copy, atomic) NSString * formattedName;
-		[Export ("formattedName")]
-		string FormattedName { get; }
-
-		// @property (readonly, copy, atomic) NSString * first;
-		[Export ("first")]
-		string First { get; }
-
-		// @property (readonly, copy, atomic) NSString * last;
-		[Export ("last")]
-		string Last { get; }
-
-		// @property (readonly, copy, atomic) NSString * middle;
-		[Export ("middle")]
-		string Middle { get; }
-
-		// @property (readonly, copy, atomic) NSString * prefix;
-		[Export ("prefix")]
-		string Prefix { get; }
-
-		// @property (readonly, copy, atomic) NSString * pronounciation;
-		[Export ("pronounciation")]
-		string Pronounciation { get; }
-
-		// @property (readonly, copy, atomic) NSString * suffix;
-		[Export ("suffix")]
-		string Suffix { get; }
-	}
-
-	// @interface GMVBarcodeFeatureContactInfo : NSObject
-	[BaseType (typeof (NSObject), Name = "GMVBarcodeFeatureContactInfo")]
-	interface BarcodeFeatureContactInfo {
-		// @property (readonly, copy, atomic) NSArray<GMVBarcodeFeatureAddress *> * addresses;
-		[Export ("addresses", ArgumentSemantic.Copy)]
-		BarcodeFeatureAddress [] Addresses { get; }
-
-		// @property (readonly, copy, atomic) NSArray<GMVBarcodeFeatureEmail *> * emails;
-		[Export ("emails", ArgumentSemantic.Copy)]
-		BarcodeFeatureEmail [] Emails { get; }
-
-		// @property (readonly, atomic, strong) GMVBarcodeFeaturePersonName * name;
-		[Export ("name", ArgumentSemantic.Strong)]
-		BarcodeFeaturePersonName Name { get; }
-
-		// @property (readonly, copy, atomic) NSArray<GMVBarcodeFeaturePhone *> * phones;
-		[Export ("phones", ArgumentSemantic.Copy)]
-		BarcodeFeaturePhone [] Phones { get; }
-
-		// @property (readonly, copy, atomic) NSArray<NSString *> * urls;
-		[Export ("urls", ArgumentSemantic.Copy)]
-		string [] Urls { get; }
-
-		// @property (readonly, copy, atomic) NSString * jobTitle;
-		[Export ("jobTitle")]
-		string JobTitle { get; }
-
-		// @property (readonly, copy, atomic) NSString * organization;
-		[Export ("organization")]
-		string Organization { get; }
-	}
-
-	// @interface GMVBarcodeFeatureCalendarEvent : NSObject
-	[BaseType (typeof (NSObject), Name = "GMVBarcodeFeatureCalendarEvent")]
-	interface BarcodeFeatureCalendarEvent {
-		// @property (readonly, copy, atomic) NSString * eventDescription;
-		[Export ("eventDescription")]
-		string EventDescription { get; }
-
-		// @property (readonly, copy, atomic) NSString * location;
-		[Export ("location")]
-		string Location { get; }
-
-		// @property (readonly, copy, atomic) NSString * organizer;
-		[Export ("organizer")]
-		string Organizer { get; }
-
-		// @property (readonly, copy, atomic) NSString * status;
-		[Export ("status")]
-		string Status { get; }
-
-		// @property (readonly, copy, atomic) NSString * summary;
-		[Export ("summary")]
-		string Summary { get; }
-
-		// @property (readonly, atomic, strong) NSDate * start;
-		[Export ("start", ArgumentSemantic.Strong)]
-		NSDate Start { get; }
-
-		// @property (readonly, atomic, strong) NSDate * end;
-		[Export ("end", ArgumentSemantic.Strong)]
-		NSDate End { get; }
-	}
-
-	// @interface GMVBarcodeFeatureDriverLicense : NSObject
-	[BaseType (typeof (NSObject), Name = "GMVBarcodeFeatureDriverLicense")]
-	interface BarcodeFeatureDriverLicense {
-		// @property (readonly, copy, atomic) NSString * firstName;
-		[Export ("firstName")]
-		string FirstName { get; }
-
-		// @property (readonly, copy, atomic) NSString * middleName;
-		[Export ("middleName")]
-		string MiddleName { get; }
-
-		// @property (readonly, copy, atomic) NSString * lastName;
-		[Export ("lastName")]
-		string LastName { get; }
-
-		// @property (readonly, copy, atomic) NSString * gender;
-		[Export ("gender")]
-		string Gender { get; }
-
-		// @property (readonly, copy, atomic) NSString * addressCity;
-		[Export ("addressCity")]
-		string AddressCity { get; }
-
-		// @property (readonly, copy, atomic) NSString * addressState;
-		[Export ("addressState")]
-		string AddressState { get; }
-
-		// @property (readonly, copy, atomic) NSString * addressStreet;
-		[Export ("addressStreet")]
-		string AddressStreet { get; }
-
-		// @property (readonly, copy, atomic) NSString * addressZip;
-		[Export ("addressZip")]
-		string AddressZip { get; }
-
-		// @property (readonly, copy, atomic) NSString * birthDate;
-		[Export ("birthDate")]
-		string BirthDate { get; }
-
-		// @property (readonly, copy, atomic) NSString * documentType;
-		[Export ("documentType")]
-		string DocumentType { get; }
-
-		// @property (readonly, copy, atomic) NSString * licenseNumber;
-		[Export ("licenseNumber")]
-		string LicenseNumber { get; }
-
-		// @property (readonly, copy, atomic) NSString * expiryDate;
-		[Export ("expiryDate")]
-		string ExpiryDate { get; }
-
-		// @property (readonly, copy, atomic) NSString * issuingDate;
-		[Export ("issuingDate")]
-		string IssuingDate { get; }
-
-		// @property (readonly, copy, atomic) NSString * issuingCountry;
-		[Export ("issuingCountry")]
-		string IssuingCountry { get; }
-	}
-
-	// @interface GMVBarcodeFeature : GMVFeature
-	[BaseType (typeof (Feature), Name = "GMVBarcodeFeature")]
-	interface BarcodeFeature {
-		// @property (readonly, copy, atomic) NSString * rawValue;
-		[Export ("rawValue")]
-		string RawValue { get; }
-
-		// @property (readonly, copy, atomic) NSString * displayValue;
-		[Export ("displayValue")]
-		string DisplayValue { get; }
-
-		// @property (readonly, assign, atomic) GMVDetectorBarcodeFormat format;
-		[Export ("format", ArgumentSemantic.Assign)]
-		DetectorBarcodeFormat Format { get; }
-
-		// @property (readonly, copy, atomic) NSArray<NSValue *> * cornerPoints;
-		[BindAs (typeof (CGPoint []))]
-		[Export ("cornerPoints", ArgumentSemantic.Copy)]
-		NSValue [] CornerPoints { get; }
-
-		// @property (readonly, assign, atomic) GMVDetectorBarcodeValueFormat valueFormat;
-		[Export ("valueFormat", ArgumentSemantic.Assign)]
-		DetectorBarcodeValueFormat ValueFormat { get; }
-
-		// @property (readonly, atomic, strong) GMVBarcodeFeatureEmail * email;
-		[Export ("email", ArgumentSemantic.Strong)]
-		BarcodeFeatureEmail Email { get; }
-
-		// @property (readonly, atomic, strong) GMVBarcodeFeaturePhone * phone;
-		[Export ("phone", ArgumentSemantic.Strong)]
-		BarcodeFeaturePhone Phone { get; }
-
-		// @property (readonly, atomic, strong) GMVBarcodeFeatureSMS * sms;
-		[Export ("sms", ArgumentSemantic.Strong)]
-		BarcodeFeatureSms Sms { get; }
-
-		// @property (readonly, atomic, strong) GMVBarcodeFeatureURLBookmark * url;
-		[Export ("url", ArgumentSemantic.Strong)]
-		BarcodeFeatureUrlBookmark Url { get; }
-
-		// @property (readonly, atomic, strong) GMVBarcodeFeatureWiFi * wifi;
-		[Export ("wifi", ArgumentSemantic.Strong)]
-		BarcodeFeatureWiFi Wifi { get; }
-
-		// @property (readonly, atomic, strong) GMVBarcodeFeatureGeoPoint * geoPoint;
-		[Export ("geoPoint", ArgumentSemantic.Strong)]
-		BarcodeFeatureGeoPoint GeoPoint { get; }
-
-		// @property (readonly, atomic, strong) GMVBarcodeFeatureContactInfo * contactInfo;
-		[Export ("contactInfo", ArgumentSemantic.Strong)]
-		BarcodeFeatureContactInfo ContactInfo { get; }
-
-		// @property (readonly, atomic, strong) GMVBarcodeFeatureCalendarEvent * calendarEvent;
-		[Export ("calendarEvent", ArgumentSemantic.Strong)]
-		BarcodeFeatureCalendarEvent CalendarEvent { get; }
-
-		// @property (readonly, atomic, strong) GMVBarcodeFeatureDriverLicense * driverLicense;
-		[Export ("driverLicense", ArgumentSemantic.Strong)]
-		BarcodeFeatureDriverLicense DriverLicense { get; }
-	}
-
-	// @interface GMVTextElementFeature : GMVFeature
-	[BaseType (typeof (Feature), Name = "GMVTextElementFeature")]
-	interface TextElementFeature {
-		// @property (readonly, copy, atomic) NSString * value;
-		[Export ("value")]
-		string Value { get; }
-
-		// @property (readonly, copy, atomic) NSArray<NSValue *> * cornerPoints;
-		[BindAs (typeof (CGPoint []))]
-		[Export ("cornerPoints", ArgumentSemantic.Copy)]
-		NSValue [] CornerPoints { get; }
-	}
-
-	// @interface GMVTextLineFeature : GMVFeature
-	[BaseType (typeof (Feature), Name = "GMVTextLineFeature")]
-	interface TextLineFeature {
-		// @property (readonly, copy, atomic) NSString * value;
-		[Export ("value")]
-		string Value { get; }
-
-		// @property (readonly, copy, atomic) NSString * language;
-		[Export ("language")]
-		string Language { get; }
-
-		// @property (readonly, copy, atomic) NSArray<NSValue *> * cornerPoints;
-		[BindAs (typeof (CGPoint []))]
-		[Export ("cornerPoints", ArgumentSemantic.Copy)]
-		NSValue [] CornerPoints { get; }
-
-		// @property (readonly, copy, atomic) NSArray<GMVTextElementFeature *> * elements;
-		[Export ("elements", ArgumentSemantic.Copy)]
-		TextElementFeature [] Elements { get; }
-	}
-
-	// @interface GMVTextBlockFeature : GMVFeature
-	[BaseType (typeof (Feature), Name = "GMVTextBlockFeature")]
-	interface TextBlockFeature {
-		// @property (readonly, copy, atomic) NSString * value;
-		[Export ("value")]
-		string Value { get; }
-
-		// @property (readonly, copy, atomic) NSString * language;
-		[Export ("language")]
-		string Language { get; }
-
-		// @property (readonly, copy, atomic) NSArray<NSValue *> * cornerPoints;
-		[BindAs (typeof (CGPoint []))]
-		[Export ("cornerPoints", ArgumentSemantic.Copy)]
-		NSValue [] CornerPoints { get; }
-
-		// @property (readonly, copy, atomic) NSArray<GMVTextLineFeature *> * lines;
-		[Export ("lines", ArgumentSemantic.Copy)]
-		TextLineFeature [] Lines { get; }
-	}
-
-	// @interface GMVFaceContour : NSObject
-	[BaseType (typeof (NSObject), Name = "GMVFaceContour")]
-	interface FacialContour {
-		// @property (readonly, copy, atomic) NSArray<NSValue *> * allPoints;
-		[BindAs (typeof (CGPoint []))]
-		[Export ("allPoints", ArgumentSemantic.Copy)]
-		NSValue [] AllPoints { get; }
-
-		// @property (readonly, copy, atomic) NSArray<NSValue *> * faceContour;
-		[BindAs (typeof (CGPoint []))]
-		[Export ("faceContour", ArgumentSemantic.Copy)]
-		NSValue [] FaceContour { get; }
-
-		// @property (readonly, copy, atomic) NSArray<NSValue *> * topLeftEyebrowContour;
-		[BindAs (typeof (CGPoint []))]
-		[Export ("topLeftEyebrowContour", ArgumentSemantic.Copy)]
-		NSValue [] TopLeftEyebrowContour { get; }
-
-		// @property (readonly, copy, atomic) NSArray<NSValue *> * bottomLeftEyebrowContour;
-		[BindAs (typeof (CGPoint []))]
-		[Export ("bottomLeftEyebrowContour", ArgumentSemantic.Copy)]
-		NSValue [] BottomLeftEyebrowContour { get; }
-
-		// @property (readonly, copy, atomic) NSArray<NSValue *> * topRightEyebrowContour;
-		[BindAs (typeof (CGPoint []))]
-		[Export ("topRightEyebrowContour", ArgumentSemantic.Copy)]
-		NSValue [] TopRightEyebrowContour { get; }
-
-		// @property (readonly, copy, atomic) NSArray<NSValue *> * bottomRightEyebrowContour;
-		[BindAs (typeof (CGPoint []))]
-		[Export ("bottomRightEyebrowContour", ArgumentSemantic.Copy)]
-		NSValue [] BottomRightEyebrowContour { get; }
-
-		// @property (readonly, copy, atomic) NSArray<NSValue *> * leftEyeContour;
-		[BindAs (typeof (CGPoint []))]
-		[Export ("leftEyeContour", ArgumentSemantic.Copy)]
-		NSValue [] LeftEyeContour { get; }
-
-		// @property (readonly, copy, atomic) NSArray<NSValue *> * rightEyeContour;
-		[BindAs (typeof (CGPoint []))]
-		[Export ("rightEyeContour", ArgumentSemantic.Copy)]
-		NSValue [] RightEyeContour { get; }
-
-		// @property (readonly, copy, atomic) NSArray<NSValue *> * topUpperLipContour;
-		[BindAs (typeof (CGPoint []))]
-		[Export ("topUpperLipContour", ArgumentSemantic.Copy)]
-		NSValue [] TopUpperLipContour { get; }
-
-		// @property (readonly, copy, atomic) NSArray<NSValue *> * bottomUpperLipContour;
-		[BindAs (typeof (CGPoint []))]
-		[Export ("bottomUpperLipContour", ArgumentSemantic.Copy)]
-		NSValue [] BottomUpperLipContour { get; }
-
-		// @property (readonly, copy, atomic) NSArray<NSValue *> * topLowerLipContour;
-		[BindAs (typeof (CGPoint []))]
-		[Export ("topLowerLipContour", ArgumentSemantic.Copy)]
-		NSValue [] TopLowerLipContour { get; }
-
-		// @property (readonly, copy, atomic) NSArray<NSValue *> * bottomLowerLipContour;
-		[BindAs (typeof (CGPoint []))]
-		[Export ("bottomLowerLipContour", ArgumentSemantic.Copy)]
-		NSValue [] BottomLowerLipContour { get; }
-
-		// @property (readonly, copy, atomic) NSArray<NSValue *> * noseBridgeContour;
-		[BindAs (typeof (CGPoint []))]
-		[Export ("noseBridgeContour", ArgumentSemantic.Copy)]
-		NSValue [] NoseBridgeContour { get; }
-
-		// @property (readonly, copy, atomic) NSArray<NSValue *> * bottomNoseContour;
-		[BindAs (typeof (CGPoint []))]
-		[Export ("bottomNoseContour", ArgumentSemantic.Copy)]
-		NSValue [] BottomNoseContour { get; }
-	}
-
-	// @interface GMVFaceFeature : GMVFeature
-	[BaseType (typeof (Feature), Name = "GMVFaceFeature")]
-	interface FaceFeature {
-		// @property (readonly, assign, atomic) BOOL hasHeadEulerAngleY;
-		[Export ("hasHeadEulerAngleY")]
-		bool HasHeadEulerAngleY { get; }
-
-		// @property (readonly, assign, atomic) CGFloat headEulerAngleY;
-		[Export ("headEulerAngleY")]
-		nfloat HeadEulerAngleY { get; }
-
-		// @property (readonly, assign, atomic) BOOL hasHeadEulerAngleZ;
-		[Export ("hasHeadEulerAngleZ")]
-		bool HasHeadEulerAngleZ { get; }
-
-		// @property (readonly, assign, atomic) CGFloat headEulerAngleZ;
-		[Export ("headEulerAngleZ")]
-		nfloat HeadEulerAngleZ { get; }
-
-		// @property (atomic, assign, readonly) BOOL hasHeadEulerAngleX;
-		[Export ("hasHeadEulerAngleX")]
-		bool HasHeadEulerAngleX { get; }
-
-		// @property (atomic, assign, readonly) CGFloat headEulerAngleX;
-		[Export ("headEulerAngleX")]
-		nfloat HeadEulerAngleX { get; }
-
-		// @property (readonly, assign, atomic) BOOL hasMouthPosition;
-		[Export ("hasMouthPosition")]
-		bool HasMouthPosition { get; }
-
-		// @property (readonly, assign, atomic) CGPoint mouthPosition;
-		[Export ("mouthPosition", ArgumentSemantic.Assign)]
-		CGPoint MouthPosition { get; }
-
-		// @property (readonly, assign, atomic) BOOL hasBottomMouthPosition;
-		[Export ("hasBottomMouthPosition")]
-		bool HasBottomMouthPosition { get; }
-
-		// @property (readonly, assign, atomic) CGPoint bottomMouthPosition;
-		[Export ("bottomMouthPosition", ArgumentSemantic.Assign)]
-		CGPoint BottomMouthPosition { get; }
-
-		// @property (readonly, assign, atomic) BOOL hasRightMouthPosition;
-		[Export ("hasRightMouthPosition")]
-		bool HasRightMouthPosition { get; }
-
-		// @property (readonly, assign, atomic) CGPoint rightMouthPosition;
-		[Export ("rightMouthPosition", ArgumentSemantic.Assign)]
-		CGPoint RightMouthPosition { get; }
-
-		// @property (readonly, assign, atomic) BOOL hasLeftMouthPosition;
-		[Export ("hasLeftMouthPosition")]
-		bool HasLeftMouthPosition { get; }
-
-		// @property (readonly, assign, atomic) CGPoint leftMouthPosition;
-		[Export ("leftMouthPosition", ArgumentSemantic.Assign)]
-		CGPoint LeftMouthPosition { get; }
-
-		// @property (readonly, assign, atomic) BOOL hasLeftEarPosition;
-		[Export ("hasLeftEarPosition")]
-		bool HasLeftEarPosition { get; }
-
-		// @property (readonly, assign, atomic) CGPoint leftEarPosition;
-		[Export ("leftEarPosition", ArgumentSemantic.Assign)]
-		CGPoint LeftEarPosition { get; }
-
-		// @property (readonly, assign, atomic) BOOL hasRightEarPosition;
-		[Export ("hasRightEarPosition")]
-		bool HasRightEarPosition { get; }
-
-		// @property (readonly, assign, atomic) CGPoint rightEarPosition;
-		[Export ("rightEarPosition", ArgumentSemantic.Assign)]
-		CGPoint RightEarPosition { get; }
-
-		// @property (readonly, assign, atomic) BOOL hasLeftEyePosition;
-		[Export ("hasLeftEyePosition")]
-		bool HasLeftEyePosition { get; }
-
-		// @property (readonly, assign, atomic) CGPoint leftEyePosition;
-		[Export ("leftEyePosition", ArgumentSemantic.Assign)]
-		CGPoint LeftEyePosition { get; }
-
-		// @property (readonly, assign, atomic) BOOL hasRightEyePosition;
-		[Export ("hasRightEyePosition")]
-		bool HasRightEyePosition { get; }
-
-		// @property (readonly, assign, atomic) CGPoint rightEyePosition;
-		[Export ("rightEyePosition", ArgumentSemantic.Assign)]
-		CGPoint RightEyePosition { get; }
-
-		// @property (readonly, assign, atomic) BOOL hasLeftCheekPosition;
-		[Export ("hasLeftCheekPosition")]
-		bool HasLeftCheekPosition { get; }
-
-		// @property (readonly, assign, atomic) CGPoint leftCheekPosition;
-		[Export ("leftCheekPosition", ArgumentSemantic.Assign)]
-		CGPoint LeftCheekPosition { get; }
-
-		// @property (readonly, assign, atomic) BOOL hasRightCheekPosition;
-		[Export ("hasRightCheekPosition")]
-		bool HasRightCheekPosition { get; }
-
-		// @property (readonly, assign, atomic) CGPoint rightCheekPosition;
-		[Export ("rightCheekPosition", ArgumentSemantic.Assign)]
-		CGPoint RightCheekPosition { get; }
-
-		// @property (readonly, assign, atomic) BOOL hasNoseBasePosition;
-		[Export ("hasNoseBasePosition")]
-		bool HasNoseBasePosition { get; }
-
-		// @property (readonly, assign, atomic) CGPoint noseBasePosition;
-		[Export ("noseBasePosition", ArgumentSemantic.Assign)]
-		CGPoint NoseBasePosition { get; }
-
-		// @property (readonly, assign, atomic) BOOL hasSmilingProbability;
-		[Export ("hasSmilingProbability")]
-		bool HasSmilingProbability { get; }
-
-		// @property (readonly, assign, atomic) CGFloat smilingProbability;
-		[Export ("smilingProbability")]
-		nfloat SmilingProbability { get; }
-
-		// @property (readonly, assign, atomic) BOOL hasLeftEyeOpenProbability;
-		[Export ("hasLeftEyeOpenProbability")]
-		bool HasLeftEyeOpenProbability { get; }
-
-		// @property (readonly, assign, atomic) CGFloat leftEyeOpenProbability;
-		[Export ("leftEyeOpenProbability")]
-		nfloat LeftEyeOpenProbability { get; }
-
-		// @property (readonly, assign, atomic) BOOL hasRightEyeOpenProbability;
-		[Export ("hasRightEyeOpenProbability")]
-		bool HasRightEyeOpenProbability { get; }
-
-		// @property (readonly, assign, atomic) CGFloat rightEyeOpenProbability;
-		[Export ("rightEyeOpenProbability")]
-		nfloat RightEyeOpenProbability { get; }
-
-		// @property (atomic, copy, readonly) GMVFaceContour* contour;
-		[Export ("contour", ArgumentSemantic.Copy)]
-		FacialContour Contour { get; }
-	}
-
-	// @interface GMVLabelFeature : GMVFeature
-	[BaseType (typeof (Feature), Name = "GMVLabelFeature")]
-	interface LabelFeature {
-		// @property (readonly, copy, atomic) NSString * MID;
-		[Export ("MID")]
-		string Mid { get; }
-
-		// @property (readonly, copy, atomic) NSString * labelDescription;
-		[Export ("labelDescription")]
-		string LabelDescription { get; }
-
-		// @property (readonly, assign, atomic) float score;
-		[Export ("score")]
-		float Score { get; }
-	}
-
-	// @interface GMVUtility : NSObject
+namespace Firebase.MLKit.Vision.AutoML {
+	// @interface FIRAutoMLLocalModel : FIRLocalModel
 	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "GMVUtility")]
-	interface Utility {
-		// +(UIImage *)sampleBufferTo32RGBA:(CMSampleBufferRef)sampleBuffer;
-		[Static]
-		[Export ("sampleBufferTo32RGBA:")]
-		UIImage ConvertSampleBufferTo32Rgba (CMSampleBuffer sampleBuffer);
+	[BaseType (typeof(Common.LocalModel), Name = "FIRAutoMLLocalModel")]
+	interface AutoMLLocalModel
+	{
+		// -(instancetype _Nonnull)initWithManifestPath:(NSString * _Nonnull)manifestPath __attribute__((objc_designated_initializer));
+		[DesignatedInitializer]
+		[Export ("initWithManifestPath:")]
+		IntPtr Constructor (string manifestPath);
+	}
 
-		// +(NSData *)anySampleBufferFormatTo32RGBA:(CMSampleBufferRef)sampleBuffer;
-		[Static]
-		[Export ("anySampleBufferFormatTo32RGBA:")]
-		NSData ConvertAnySampleBufferFormatTo32Rgba (CMSampleBuffer sampleBuffer);
+	// @interface FIRAutoMLRemoteModel : FIRRemoteModel
+	[DisableDefaultCtor]
+	[BaseType (typeof(Common.RemoteModel), Name = "FIRAutoMLRemoteModel")]
+	interface AutoMLRemoteModel
+	{
+		// -(instancetype _Nonnull)initWithName:(NSString * _Nonnull)name __attribute__((objc_designated_initializer));
+		[DesignatedInitializer]
+		[Export ("initWithName:")]
+		IntPtr Constructor (string name);
+	}
 
-		// +(GMVImageOrientation)imageOrientationFromOrientation:(UIDeviceOrientation)deviceOrientation withCaptureDevicePosition:(AVCaptureDevicePosition)position defaultDeviceOrientation:(UIDeviceOrientation)defaultOrientation;
-		[Static]
-		[Export ("imageOrientationFromOrientation:withCaptureDevicePosition:defaultDeviceOrientation:")]
-		ImageOrientation GetImageOrientation (UIDeviceOrientation deviceOrientation, AVCaptureDevicePosition position, UIDeviceOrientation defaultOrientation);
+	// @interface AutoML (FIRVision)
+	[Category]
+	[BaseType (typeof(VisionApi))]
+	interface Vision_AutoML
+	{
+		// -(FIRVisionImageLabeler * _Nonnull)onDeviceAutoMLImageLabelerWithOptions:(FIRVisionOnDeviceAutoMLImageLabelerOptions * _Nonnull)options __attribute__((swift_name("onDeviceAutoMLImageLabeler(options:)")));
+		[Export ("onDeviceAutoMLImageLabelerWithOptions:")]
+		VisionImageLabeler GetOnDeviceAutoMLImageLabeler (VisionOnDeviceAutoMLImageLabelerOptions options);
+	}
 
-		// +(UIImage *)imageFromData:(NSData *)data width:(size_t)width height:(size_t)height;
-		[Static]
-		[Export ("imageFromData:width:height:")]
-		UIImage GetImage (NSData data, nuint width, nuint height);
+	// @interface FIRVisionOnDeviceAutoMLImageLabelerOptions : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof(NSObject), Name = "FIRVisionOnDeviceAutoMLImageLabelerOptions")]
+	interface VisionOnDeviceAutoMLImageLabelerOptions
+	{
+		// @property (nonatomic) float confidenceThreshold;
+		[Export ("confidenceThreshold")]
+		float ConfidenceThreshold { get; set; }
+
+		// -(instancetype _Nonnull)initWithLocalModel:(FIRAutoMLLocalModel * _Nonnull)localModel;
+		[Export ("initWithLocalModel:")]
+		IntPtr Constructor (AutoMLLocalModel localModel);
+
+		// -(instancetype _Nonnull)initWithRemoteModel:(FIRAutoMLRemoteModel * _Nonnull)remoteModel;
+		[Export ("initWithRemoteModel:")]
+		IntPtr Constructor (AutoMLRemoteModel remoteModel);
+	}
+}
+
+namespace Firebase.MLKit.Vision.ObjectDetection {
+	// @interface ObjectDetection (FIRVision)
+	[Category]
+	[BaseType (typeof(VisionApi))]
+	interface VisionApi_ObjectDetection
+	{
+		// -(FIRVisionObjectDetector * _Nonnull)objectDetectorWithOptions:(FIRVisionObjectDetectorOptions * _Nonnull)options __attribute__((swift_name("objectDetector(options:)")));
+		[Export ("objectDetectorWithOptions:")]
+		VisionObjectDetector GetObjectDetector (VisionObjectDetectorOptions options);
+
+		// -(FIRVisionObjectDetector * _Nonnull)objectDetector;
+		[Export ("objectDetector")]
+		VisionObjectDetector GetObjectDetector ();
+	}
+
+	// @interface FIRVisionObject : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof(NSObject), Name = "FIRVisionObject")]
+	interface VisionObject
+	{
+		// @property (readonly, nonatomic) CGRect frame;
+		[Export ("frame")]
+		CGRect Frame { get; }
+
+		// @property (readonly, nonatomic) FIRVisionObjectCategory classificationCategory;
+		[Export ("classificationCategory")]
+		VisionObjectCategory ClassificationCategory { get; }
+
+		// @property (readonly, nonatomic) NSNumber * _Nullable trackingID;
+		[NullAllowed]
+		[BindAs (typeof (ulong?))]
+		[Export ("trackingID")]
+		NSNumber TrackingId { get; }
+
+		// @property (readonly, nonatomic) NSNumber * _Nullable confidence;
+		[NullAllowed]
+		[BindAs (typeof(float?))]
+		[Export ("confidence")]
+		NSNumber Confidence { get; }
+	}
+
+	// typedef void (^FIRVisionObjectDetectionCallback)(NSArray<FIRVisionObject *> * _Nullable, NSError * _Nullable);
+	delegate void VisionObjectDetectionCallbackHandler ([NullAllowed] VisionObject [] objects, [NullAllowed] NSError error);
+
+	// @interface FIRVisionObjectDetector : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof(NSObject), Name = "FIRVisionObjectDetector")]
+	interface VisionObjectDetector
+	{
+		// -(void)processImage:(FIRVisionImage * _Nonnull)image completion:(FIRVisionObjectDetectionCallback _Nonnull)completion __attribute__((swift_name("process(_:completion:)")));
+		[Async]
+		[Export ("processImage:completion:")]
+		void ProcessImage (VisionImage image, VisionObjectDetectionCallbackHandler completion);
+
+		// -(NSArray<FIRVisionObject *> * _Nullable)resultsInImage:(FIRVisionImage * _Nonnull)image error:(NSError * _Nullable * _Nullable)error;
+		[return: NullAllowed]
+		[Export ("resultsInImage:error:")]
+		VisionObject [] GetResultsInImage (VisionImage image, [NullAllowed] out NSError error);
+	}
+
+	// @interface FIRVisionObjectDetectorOptions : NSObject
+	[BaseType (typeof(NSObject), Name = "FIRVisionObjectDetectorOptions")]
+	interface VisionObjectDetectorOptions
+	{
+		// @property (nonatomic) BOOL shouldEnableClassification;
+		[Export ("shouldEnableClassification")]
+		bool ShouldEnableClassification { get; set; }
+
+		// @property (nonatomic) BOOL shouldEnableMultipleObjects;
+		[Export ("shouldEnableMultipleObjects")]
+		bool ShouldEnableMultipleObjects { get; set; }
+
+		// @property (nonatomic) FIRVisionObjectDetectorMode detectorMode;
+		[Export ("detectorMode", ArgumentSemantic.Assign)]
+		VisionObjectDetectorMode DetectorMode { get; set; }
 	}
 }

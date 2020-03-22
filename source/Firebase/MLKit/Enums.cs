@@ -218,6 +218,14 @@ namespace Firebase.MLKit.Vision {
 	}
 
 	[Native]
+	public enum VisionImageLabelerType : ulong
+	{
+		OnDevice,
+		Cloud,
+		OnDeviceAutoML
+	}
+
+	[Native]
 	public enum VisionDetectorImageOrientation : ulong {
 		TopLeft = 1,
 		TopRight,
@@ -246,149 +254,22 @@ namespace Firebase.MLKit.Vision {
 	}
 }
 
-namespace Google.MobileVision {
+namespace Firebase.MLKit.Vision.ObjectDetection {
 	[Native]
-	public enum DetectorError : long {
-		DetectorInvalidInput = -301
-	}
-
-	[Native]
-	public enum ImageOrientation : long {
-		TopLeft = 1,
-		TopRight = 2,
-		BottomRight = 3,
-		BottomLeft = 4,
-		LeftTop = 5,
-		RightTop = 6,
-		RightBottom = 7,
-		LeftBottom = 8
+	public enum VisionObjectCategory : long
+	{
+		Unknown,
+		HomeGoods,
+		FashionGoods,
+		Food,
+		Places,
+		Plants
 	}
 
 	[Native]
-	public enum DetectorFaceModeOption : long {
-		FastMode = 200,
-		AccurateMode = 201,
-		SelfieMode = 202
-	}
-
-	[Native]
-	public enum DetectorFaceLandmark : long {
-		None = 1 << 0,
-		All = 1 << 1,
-		Contour = 1 << 2
-	}
-
-	[Native]
-	public enum DetectorFaceClassification : long {
-		None = 1 << 0,
-		All = 1 << 1
-	}
-
-	[Native]
-	public enum BarcodeFeatureEmailType : long {
-		Unknown = 0,
-		Work = 1,
-		Home = 2
-	}
-
-	[Native]
-	public enum BarcodeFeaturePhoneType : long {
-		Unknown = 0,
-		Work = 1,
-		Home = 2,
-		Fax = 3,
-		Mobile = 4
-	}
-
-	[Native]
-	public enum BarcodeFeatureWiFiEncryptionType : long {
-		Unknown = 0,
-		Open = 1,
-		Wpa = 2,
-		Wep = 3
-	}
-
-	[Native]
-	public enum BarcodeFeatureAddressType : long {
-		Unknown = 0,
-		Work = 1,
-		Home = 2
-	}
-
-	[Native]
-	public enum DetectorBarcodeValueFormat : long {
-		ContactInfo = 1,
-		Email = 2,
-		Isbn = 3,
-		Phone = 4,
-		Product = 5,
-		Sms = 6,
-		Text = 7,
-		Url = 8,
-		WiFi = 9,
-		GeographicCoordinates = 10,
-		CalendarEvent = 11,
-		DriversLicense = 12
-	}
-
-	[Native]
-	public enum DetectorBarcodeFormat : long {
-		Code128 = 1,
-		Code39 = 2,
-		Code93 = 4,
-		CodaBar = 8,
-		DataMatrix = 16,
-		Ean13 = 32,
-		Ean8 = 64,
-		Itf = 128,
-		QRCode = 256,
-		Upca = 512,
-		Upce = 1024,
-		Pdf417 = 2048,
-		Aztec = 4096
-	}
-
-	public enum DetectorType {
-		// extern NSString *const GMVDetectorTypeFace;
-		[Field ("GMVDetectorTypeFace", "__Internal")]
-		Face,
-
-		// extern NSString *const GMVDetectorTypeBarcode;
-		[Field ("GMVDetectorTypeBarcode", "__Internal")]
-		Barcode,
-
-		// extern NSString *const GMVDetectorTypeText;
-		[Field ("GMVDetectorTypeText", "__Internal")]
-		Text,
-
-		// extern NSString *const GMVDetectorTypeLabel;
-		[Field ("GMVDetectorTypeLabel", "__Internal")]
-		Label
-	}
-
-	public enum FeatureType {
-		// extern NSString *const GMVFeatureTypeFace;
-		[Field ("GMVFeatureTypeFace", "__Internal")]
-		Face,
-
-		// extern NSString *const GMVFeatureTypeBarcode;
-		[Field ("GMVFeatureTypeBarcode", "__Internal")]
-		Barcode,
-
-		// extern NSString *const GMVFeatureTypeTextBlock;
-		[Field ("GMVFeatureTypeTextBlock", "__Internal")]
-		TextBlock,
-
-		// extern NSString *const GMVFeatureTypeTextLine;
-		[Field ("GMVFeatureTypeTextLine", "__Internal")]
-		TextLine,
-
-		// extern NSString *const GMVFeatureTypeTextElement;
-		[Field ("GMVFeatureTypeTextElement", "__Internal")]
-		TextElement,
-
-		// extern NSString *const GMVFeatureTypeLabel;
-		[Field ("GMVFeatureTypeLabel", "__Internal")]
-		Label
+	public enum VisionObjectDetectorMode : long
+	{
+		SingleImage,
+		Stream
 	}
 }

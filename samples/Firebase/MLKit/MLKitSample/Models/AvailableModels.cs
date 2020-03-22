@@ -4,13 +4,11 @@ namespace MLKitSample {
 		public static Model [] OnDevice => new [] {
 			Model.TextRecognition,
 			Model.FaceDetection,
-			Model.BarcodeScanning,
-			Model.ImageLabeling
+			Model.BarcodeScanning
 		};
 
 		public static Model [] OnCloud => new [] {
 			Model.TextRecognition,
-			Model.ImageLabeling,
 			Model.LandmarkRecognition
 		};
 	}

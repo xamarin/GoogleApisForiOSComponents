@@ -4,9 +4,6 @@
 		<_FirebaseMLKitModelInterpreterAssemblyName>Firebase.MLKit.ModelInterpreter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseMLKitModelInterpreterAssemblyName>
 		<_FirebaseMLModelInterpreterItemsFolder>FMLMdlI-0.19.0</_FirebaseMLModelInterpreterItemsFolder>
 		<_FirebaseMLModelInterpreterSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseMLModelInterpreterItemsFolder)\Frameworks\</_FirebaseMLModelInterpreterSDKBaseFolder>
-		
-		<_TensorFlowLiteCItemsFolder>TnsrFlwLtC-1.14.0</_TensorFlowLiteCItemsFolder>
-		<_TensorFlowLiteCSDKBaseFolder>$(XamarinBuildDownloadDir)$(_TensorFlowLiteCItemsFolder)\TensorFlowLiteC-1.14.0\Frameworks\</_TensorFlowLiteCSDKBaseFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_FirebaseMLModelInterpreterItemsFolder)">
@@ -28,14 +25,6 @@
 				<ForceLoad>True</ForceLoad>
 				<LinkerFlags>-ObjC</LinkerFlags>
 				<Frameworks>CoreGraphics Foundation QuartzCore</Frameworks>
-			</NativeReference>
-
-			<!-- From https://dl.google.com/dl/cpdc/0e27bc28472e2519/TensorFlowLiteC-1.14.0.tar.gz -->
-			<NativeReference Include="$(_TensorFlowLiteCSDKBaseFolder)TensorFlowLiteC.framework">
-				<Kind>Framework</Kind>
-				<SmartLink>True</SmartLink>
-				<ForceLoad>True</ForceLoad>
-				<LinkerFlags>-lc++</LinkerFlags>
 			</NativeReference>
 		</ItemGroup>
 	</Target>

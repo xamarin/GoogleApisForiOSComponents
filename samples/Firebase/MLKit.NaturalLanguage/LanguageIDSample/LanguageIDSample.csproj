@@ -68,9 +68,8 @@
         <Reference Include="System.Numerics.Vectors" />
     </ItemGroup>
     <ItemGroup>
-      <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
       <PackageReference Include="Xamarin.Build.Download">
-        <Version>0.4.11</Version>
+        <Version>0.10.0</Version>
       </PackageReference>
     </ItemGroup>
     <ItemGroup>
@@ -139,8 +138,6 @@
       <BundleResource Include="GoogleService-Info.plist" />
     </ItemGroup>
     <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Core\Core.targets" />
-    <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\ABTesting\ABTesting.targets" />
-    <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\RemoteConfig\RemoteConfig.targets" />
     <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\MLKit.Common\MLKit.Common.targets" />
     <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\MLKit.NaturalLanguage\MLKit.NaturalLanguage.targets" />
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

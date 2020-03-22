@@ -35,10 +35,22 @@
   </ItemGroup>
   
   <ItemGroup>
+    <None Include="..\..\..\externals\TFLTensorFlowLite.framework\TFLTensorFlowLite">
+      <Link>TFLTensorFlowLite.framework</Link>
+    </None>
     <None Include="MLKit.Common.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.MLKit.Common.targets" />
     <None Include="MLKit.Common.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.MLKit.Common.targets" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseiosmlkitcommon_128x128.png" Pack="True" PackagePath="firebaseiosmlkitcommon_128x128.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <NativeReference Include="..\..\..\externals\TFLTensorFlowLite.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
+      <Frameworks>Foundation UIKit</Frameworks>
+    </NativeReference>
   </ItemGroup>
 
   <ItemGroup>

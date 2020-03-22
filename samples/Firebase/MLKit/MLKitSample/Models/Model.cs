@@ -6,7 +6,6 @@ namespace MLKitSample {
 		public static Model TextRecognition { get; } = new Model ("TextRecognition");
 		public static Model FaceDetection { get; } = new Model ("FaceDetection");
 		public static Model BarcodeScanning { get; } = new Model ("BarcodeScanning");
-		public static Model ImageLabeling { get; } = new Model ("ImageLabeling");
 		public static Model LandmarkRecognition { get; } = new Model ("LandmarkRecognition");
 
 		Model (string model)

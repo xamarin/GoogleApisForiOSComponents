@@ -150,12 +150,6 @@ namespace MLKitSample {
 			case nameof (Model.BarcodeScanning):
 				UseBarcodeScanningModel ();
 				break;
-			case nameof (Model.ImageLabeling):
-				if (currentApiResource == ApiResource.OnDevice) 
-					UseImageLabelingModel ();
-				else
-					UseCloudImageLabelingModel ();
-				break;
 			case nameof (Model.LandmarkRecognition):
 				UseLandmarkRecognitionModel ();
 				break;
@@ -252,73 +246,6 @@ namespace MLKitSample {
 					stringBuilder.AppendLine ($"Display Value: {barcode.DisplayValue}");
 					stringBuilder.AppendLine ($"Format: {barcode.Format}");
 					stringBuilder.AppendLine ($"Value Type: {barcode.ValueType}");
-					stringBuilder.AppendLine ();
-				}
-
-				TxtData.Text = stringBuilder.ToString ();
-			}
-		}
-
-		void UseImageLabelingModel ()
-		{
-			var options = new VisionLabelDetectorOptions (.6f);
-			var labelDetector = vision.GetLabelDetector (options);
-			var image = new VisionImage (ImgSample.Image);
-			labelDetector.Detect (image, HandleVisionLabelDetectionCallback);
-
-			void HandleVisionLabelDetectionCallback (VisionLabel [] labels, NSError error)
-			{
-				if (error != null) {
-					TxtData.Text = error.Description;
-					return;
-				}
-
-				if (labels == null || labels.Length == 0) {
-					TxtData.Text = "No labels were found.";
-					return;
-				}
-
-				var stringBuilder = new StringBuilder ();
-
-				foreach (var label in labels) {
-					stringBuilder.AppendLine ($"Label: {label.Label}");
-					stringBuilder.AppendLine ($"Entity Id: {label.EntityId}");
-					stringBuilder.AppendLine ($"Confidence: {label.Confidence}");
-					stringBuilder.AppendLine ();
-				}
-
-				TxtData.Text = stringBuilder.ToString ();
-			}
-		}
-
-		void UseCloudImageLabelingModel ()
-		{
-			var options = new VisionCloudDetectorOptions {
-				ModelType = VisionCloudModelType.Latest,
-				MaxResults = 5
-			};
-			var labelDetector = vision.GetCloudLabelDetector (options);
-			var image = new VisionImage (ImgSample.Image);
-			labelDetector.Detect (image, HandleVisionCloudLabelDetectionCompletion);
-
-			void HandleVisionCloudLabelDetectionCompletion (VisionCloudLabel [] labels, NSError error)
-			{
-				if (error != null) {
-					TxtData.Text = error.Description;
-					return;
-				}
-
-				if (labels == null || labels.Length == 0) {
-					TxtData.Text = "No labels were found.";
-					return;
-				}
-
-				var stringBuilder = new StringBuilder ();
-
-				foreach (var label in labels) {
-					stringBuilder.AppendLine ($"Label: {label.Label}");
-					stringBuilder.AppendLine ($"Entity Id: {label.EntityId}");
-					stringBuilder.AppendLine ($"Confidence: {label.Confidence}");
 					stringBuilder.AppendLine ();
 				}
 
