@@ -1,7 +1,7 @@
-using Foundation;
+﻿using Foundation;
 using UIKit;
 
-namespace LanguageIDSample {
+namespace NaturalLanguageSample {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the
 	// User Interface of the application, as well as listening (and optionally responding) to application events from iOS.
 	[Register ("AppDelegate")]
@@ -15,9 +15,8 @@ namespace LanguageIDSample {
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
-
 			Firebase.Core.App.Configure ();
-			Firebase.InstanceID.Loader.ForceLoad ();
+			var t = typeof (Firebase.MLKit.NaturalLanguage.NaturalLanguageApi);
 
 			return true;
 		}

@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>LanguageIDSample</string>
+	<string>NaturalLanguageSample</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.xamarin.firebase.ios.languageidsample</string>
+	<string>com.xamarin.firebase.ios.naturallanguagesample</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -64,6 +64,6 @@
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>CFBundleName</key>
-	<string>LanguageIDSample</string>
+	<string>NaturalLanguageSample</string>
 </dict>
 </plist>

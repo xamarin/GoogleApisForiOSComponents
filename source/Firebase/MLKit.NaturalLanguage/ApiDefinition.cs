@@ -5,10 +5,6 @@ using ObjCRuntime;
 
 namespace Firebase.MLKit.NaturalLanguage
 {
-	/// 
-	/// FirebaseMLNaturalLanguage.framework
-	/// 
-
 	// @interface FIRNaturalLanguage : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof(NSObject), Name = "FIRNaturalLanguage")]
@@ -34,11 +30,11 @@ namespace Firebase.MLKit.NaturalLanguage
 
 		// -(FIRLanguageIdentification * _Nonnull)languageIdentification;
 		[Export ("languageIdentification")]
-		LanguageIdentification GetLanguageIdentification ();
+		LanguageId.LanguageIdentification GetLanguageIdentification ();
 
 		// -(FIRLanguageIdentification * _Nonnull)languageIdentificationWithOptions:(FIRLanguageIdentificationOptions * _Nonnull)options __attribute__((swift_name("languageIdentification(options:)")));
 		[Export ("languageIdentificationWithOptions:")]
-		LanguageIdentification GetLanguageIdentification (LanguageIdentificationOptions options);
+		LanguageId.LanguageIdentification GetLanguageIdentification (LanguageId.LanguageIdentificationOptions options);
 
 		/// 
 		/// From FIRNaturalLanguage (SmartReply) category
@@ -46,7 +42,7 @@ namespace Firebase.MLKit.NaturalLanguage
 
 		// -(FIRSmartReply * _Nonnull)smartReply;
 		[Export ("smartReply")]
-		SmartReply GetSmartReply ();
+		SmartReply.SmartReply GetSmartReply ();
 
 		/// 
 		/// From FIRNaturalLanguage (SmartReply) category
@@ -54,18 +50,12 @@ namespace Firebase.MLKit.NaturalLanguage
 
 		// -(FIRTranslator * _Nonnull)translatorWithOptions:(FIRTranslatorOptions * _Nonnull)options __attribute__((swift_name("translator(options:)")));
 		[Export ("translatorWithOptions:")]
-		Translator GetTranslator (TranslatorOptions options);
+		Translate.Translator GetTranslator (Translate.TranslatorOptions options);
 	}
+}
 
-	/// 
-	/// end - FirebaseMLNaturalLanguage.framework
-	///
-
-
-	/// 
-	/// FirebaseMLNLLanguageID.framework
-	/// 
-
+namespace Firebase.MLKit.NaturalLanguage.LanguageId
+{
 	// @interface FIRIdentifiedLanguage : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof(NSObject), Name = "FIRIdentifiedLanguage")]
@@ -128,16 +118,10 @@ namespace Firebase.MLKit.NaturalLanguage
 		[Export ("initWithConfidenceThreshold:")]
 		IntPtr Constructor (float confidenceThreshold);
 	}
+}
 
-	/// 
-	/// end - FirebaseMLNLLanguageID.framework
-	///
-
-
-	/// 
-	/// FirebaseMLNLSmartReply.framework
-	///
-
+namespace Firebase.MLKit.NaturalLanguage.SmartReply
+{
 	// typedef void (^FIRSmartReplyCallback)(FIRSmartReplySuggestionResult * _Nullable, NSError * _Nullable);
 	delegate void SmartReplyCallbackHandler ([NullAllowed] SmartReplySuggestionResult result, [NullAllowed] NSError error);
 
@@ -202,29 +186,18 @@ namespace Firebase.MLKit.NaturalLanguage
 		[Export ("initWithText:timestamp:userID:isLocalUser:")]
 		IntPtr Constructor (string text, double timestamp, string userId, bool isLocalUser);
 	}
+}
 
-	/// 
-	/// end - FirebaseMLNLSmartReply.framework
-	///
-
-
-	/// 
-	/// FirebaseMLNLTranslate.framework
-	///
-
+namespace Firebase.MLKit.NaturalLanguage.Translate
+{
 	// @interface Translate (FIRModelManager)
 	[Category]
 	[BaseType (typeof(Common.ModelManager))]
 	interface FIRModelManager_Translate
 	{
-		// -(void)deleteDownloadedTranslateModel:(FIRTranslateRemoteModel * _Nonnull)remoteModel completion:(void (^ _Nonnull)(NSError * _Nullable))completion __attribute__((swift_name("deleteDownloadedTranslateModel(_:completion:)")));
-		[Async]
-		[Export ("deleteDownloadedTranslateModel:completion:")]
-		void DeleteDownloadedTranslateModel (TranslateRemoteModel remoteModel, Action<NSError> completion);
-
-		// -(NSSet<FIRTranslateRemoteModel *> * _Nonnull)availableTranslateModelsWithApp:(FIRApp * _Nonnull)app __attribute__((swift_name("availableTranslateModels(app:)")));
-		[Export ("availableTranslateModelsWithApp:")]
-		NSSet GetAvailableTranslateModels (Core.App app);
+		// @property (readonly, nonatomic) NSSet<FIRTranslateRemoteModel *> * _Nonnull downloadedTranslateModels;
+		[Export ("downloadedTranslateModels")]
+		NSSet GetDownloadedTranslateModels ();
 	}
 
 	// @interface FIRTranslateRemoteModel : FIRRemoteModel
@@ -240,11 +213,6 @@ namespace Firebase.MLKit.NaturalLanguage
 		[Static]
 		[Export ("translateRemoteModelWithLanguage:")]
 		TranslateRemoteModel Create (TranslateLanguage language);
-
-		// +(FIRTranslateRemoteModel * _Nonnull)translateRemoteModelForApp:(FIRApp * _Nonnull)app language:(FIRTranslateLanguage)language conditions:(FIRModelDownloadConditions * _Nonnull)conditions __attribute__((swift_name("translateRemoteModel(app:language:conditions:)")));
-		[Static]
-		[Export ("translateRemoteModelForApp:language:conditions:")]
-		TranslateRemoteModel Create (Core.App app, TranslateLanguage language, Common.ModelDownloadConditions conditions);
 	}
 
 	// typedef void (^FIRTranslatorDownloadModelIfNeededCallback)(NSError * _Nullable);
@@ -292,8 +260,4 @@ namespace Firebase.MLKit.NaturalLanguage
 		[Export ("initWithSourceLanguage:targetLanguage:")]
 		IntPtr Constructor (TranslateLanguage sourceLanguage, TranslateLanguage targetLanguage);
 	}
-
-	/// 
-	/// end - FirebaseMLNLTranslate.framework
-	///
 }

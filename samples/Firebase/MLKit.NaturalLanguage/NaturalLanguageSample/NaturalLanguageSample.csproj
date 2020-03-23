@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <Import Project="..\..\..\..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.props" Condition="Exists('..\..\..\..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.props')" />
+    <Import Project="..\..\..\..\packages\Xamarin.Build.Download.0.10.0\build\Xamarin.Build.Download.props" Condition="Exists('..\..\..\..\packages\Xamarin.Build.Download.0.10.0\build\Xamarin.Build.Download.props')" />
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-        <ProjectGuid>{CABE4472-6D5F-4EB7-B5D8-A3467AF9F40D}</ProjectGuid>
+        <ProjectGuid>{6EB1DC55-1D8C-4D5C-AD5C-5C4E74B93FF7}</ProjectGuid>
         <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
         <TemplateGuid>{edc1b0fa-90cd-4038-8fad-98fe74adb368}</TemplateGuid>
         <OutputType>Exe</OutputType>
-        <RootNamespace>LanguageIDSample</RootNamespace>
-        <AssemblyName>LanguageIDSample</AssemblyName>
+        <RootNamespace>NaturalLanguageSample</RootNamespace>
+        <AssemblyName>NaturalLanguageSample</AssemblyName>
         <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
         <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
         <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
-        <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
         <DebugSymbols>true</DebugSymbols>
@@ -68,25 +67,48 @@
         <Reference Include="System.Numerics.Vectors" />
     </ItemGroup>
     <ItemGroup>
-      <PackageReference Include="Xamarin.Build.Download">
-        <Version>0.10.0</Version>
-      </PackageReference>
-    </ItemGroup>
-    <ItemGroup>
-        <ImageAsset Include="Assets.xcassets\Contents.json" />
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120.png" />
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\152.png" />
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\167.png" />
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180.png" />
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\20.png" />
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\29.png" />
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40.png" />
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58.png" />
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\60.png" />
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\76.png" />
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80.png" />
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87.png" />
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+            <Visible>false</Visible>
+        </ImageAsset>
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
+            <Visible>false</Visible>
+        </ImageAsset>
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
+            <Visible>false</Visible>
+        </ImageAsset>
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png">
+            <Visible>false</Visible>
+        </ImageAsset>
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
+            <Visible>false</Visible>
+        </ImageAsset>
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180.png">
+            <Visible>false</Visible>
+        </ImageAsset>
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
+            <Visible>false</Visible>
+        </ImageAsset>
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
+            <Visible>false</Visible>
+        </ImageAsset>
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
+            <Visible>false</Visible>
+        </ImageAsset>
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
+            <Visible>false</Visible>
+        </ImageAsset>
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png">
+            <Visible>false</Visible>
+        </ImageAsset>
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
+            <Visible>false</Visible>
+        </ImageAsset>
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
+            <Visible>false</Visible>
+        </ImageAsset>
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
+            <Visible>false</Visible>
+        </ImageAsset>
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Resources\" />
@@ -109,31 +131,31 @@
         </Compile>
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj">
-            <Project>{9335A59B-3B54-4ED5-8201-B68CFD05CAFB}</Project>
-            <Name>Core</Name>
-        </ProjectReference>
-        <ProjectReference Include="..\..\..\..\source\Firebase\InstanceID\InstanceID.csproj">
-            <Project>{754D8F56-C3DB-4E33-91D5-45445AB286EF}</Project>
-            <Name>InstanceID</Name>
-        </ProjectReference>
-        <ProjectReference Include="..\..\..\..\source\Firebase\ABTesting\ABTesting.csproj">
-            <Project>{1EDD7A0C-29DB-4A6B-B12F-4CA1791FE575}</Project>
-            <Name>ABTesting</Name>
-        </ProjectReference>
-        <ProjectReference Include="..\..\..\..\source\Firebase\RemoteConfig\RemoteConfig.csproj">
-            <Project>{2FC178FA-114D-4A51-A3DF-5EA10E2C71C4}</Project>
-            <Name>RemoteConfig</Name>
-        </ProjectReference>
-		<ProjectReference Include="..\..\..\..\source\Firebase\MLKit.Common\MLKit.Common.csproj">
-            <Project>{90DDF7C4-5223-4863-9687-6211BC5D56E5}</Project>
-            <Name>MLKit.Common</Name>
-        </ProjectReference>
-        <ProjectReference Include="..\..\..\..\source\Firebase\MLKit.NaturalLanguage\MLKit.NaturalLanguage.csproj">
-            <Project>{43F378EA-35C8-494E-9685-B00EBBA2A7A3}</Project>
-            <Name>MLKit.NaturalLanguage</Name>
-        </ProjectReference>
-    </ItemGroup>
+    <ProjectReference Include="..\..\..\..\source\Firebase\ABTesting\ABTesting.csproj">
+        <Project>{1EDD7A0C-29DB-4A6B-B12F-4CA1791FE575}</Project>
+        <Name>ABTesting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj">
+        <Project>{9335A59B-3B54-4ED5-8201-B68CFD05CAFB}</Project>
+        <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\source\Firebase\InstanceID\InstanceID.csproj">
+        <Project>{754D8F56-C3DB-4E33-91D5-45445AB286EF}</Project>
+        <Name>InstanceID</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\source\Firebase\MLKit.Common\MLKit.Common.csproj">
+        <Project>{90DDF7C4-5223-4863-9687-6211BC5D56E5}</Project>
+        <Name>MLKit.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\source\Firebase\MLKit.NaturalLanguage\MLKit.NaturalLanguage.csproj">
+        <Project>{B0D91D94-300F-4DEB-A0A7-11DCBDF6FD64}</Project>
+        <Name>MLKit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\source\Firebase\RemoteConfig\RemoteConfig.csproj">
+        <Project>{2FC178FA-114D-4A51-A3DF-5EA10E2C71C4}</Project>
+        <Name>RemoteConfig</Name>
+    </ProjectReference>
+  </ItemGroup>
     <ItemGroup>
       <BundleResource Include="GoogleService-Info.plist" />
     </ItemGroup>
@@ -141,4 +163,5 @@
     <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\MLKit.Common\MLKit.Common.targets" />
     <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\MLKit.NaturalLanguage\MLKit.NaturalLanguage.targets" />
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+    <Import Project="..\..\..\..\packages\Xamarin.Build.Download.0.10.0\build\Xamarin.Build.Download.targets" Condition="Exists('..\..\..\..\packages\Xamarin.Build.Download.0.10.0\build\Xamarin.Build.Download.targets')" />
 </Project>

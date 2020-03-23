@@ -2,7 +2,7 @@
 using System;
 using UIKit;
 
-namespace LanguageIDSample {
+namespace NaturalLanguageSample {
 	public partial class ViewController : UIViewController {
 		public ViewController (IntPtr handle) : base (handle)
 		{

@@ -13,7 +13,7 @@ Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.Ins
 Artifact FIREBASE_MLKIT_ARTIFACT                   = new Artifact ("Firebase.MLKit",                  "0.19.0",   "9.0", ComponentGroup.Firebase, csprojName: "MLKit");
 Artifact FIREBASE_MLKIT_COMMON_ARTIFACT            = new Artifact ("Firebase.MLKit.Common",           "0.19.0",   "9.0", ComponentGroup.Firebase, csprojName: "MLKit.Common");
 Artifact FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT = new Artifact ("Firebase.MLKit.ModelInterpreter", "0.19.0",   "9.0", ComponentGroup.Firebase, csprojName: "MLKit.ModelInterpreter");
-Artifact FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT  = new Artifact ("Firebase.MLKit.NaturalLanguage",  "0.16.3",   "9.0", ComponentGroup.Firebase, csprojName: "MLKit.NaturalLanguage");
+Artifact FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT  = new Artifact ("Firebase.MLKit.NaturalLanguage",  "0.17.0",   "9.0", ComponentGroup.Firebase, csprojName: "MLKit.NaturalLanguage");
 Artifact FIREBASE_PERFORMANCE_MONITORING_ARTIFACT  = new Artifact ("Firebase.PerformanceMonitoring",  "3.1.10",   "8.0", ComponentGroup.Firebase, csprojName: "PerformanceMonitoring");
 Artifact FIREBASE_REMOTE_CONFIG_ARTIFACT           = new Artifact ("Firebase.RemoteConfig",           "4.4.9",    "8.0", ComponentGroup.Firebase, csprojName: "RemoteConfig");
 Artifact FIREBASE_STORAGE_ARTIFACT                 = new Artifact ("Firebase.Storage",                "3.6.0",    "8.0", ComponentGroup.Firebase, csprojName: "Storage");
@@ -164,8 +164,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("Firebase",           "6.20.0", subSpecs: new [] { "MLModelInterpreter" })
 	};
 	FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.5.0", subSpecs: new [] { "MLNaturalLanguage", "MLNLLanguageID", "MLNLSmartReply", "MLNLTranslate" }),
-		PodSpec.Create ("Protobuf", "3.8.0", frameworkSource: FrameworkSource.Pods, canBeBuild: false),
+		PodSpec.Create ("Firebase", "6.20.0", subSpecs: new [] { "MLNaturalLanguage", "MLNLLanguageID", "MLNLSmartReply", "MLNLTranslate" })
 	};
 	FIREBASE_PERFORMANCE_MONITORING_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.20.0", subSpecs: new [] { "Performance" })

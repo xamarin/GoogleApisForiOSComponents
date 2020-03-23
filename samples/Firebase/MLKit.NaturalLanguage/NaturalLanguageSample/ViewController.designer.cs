@@ -9,7 +9,7 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace LanguageIDSample {
+namespace NaturalLanguageSample {
 	[Register ("ViewController")]
 	partial class ViewController {
 	}
