@@ -93,40 +93,40 @@
 				<LinkerFlags>-ObjC -lc++</LinkerFlags>
 				<Frameworks>Accelerate Foundation</Frameworks>
 			</NativeReference>
-			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\BCLjoy_200.emd">
+			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\BCLjoy_200.emd" Visible="False">
 				<LogicalName>GoogleMVFaceDetectorResources.bundle\BCLjoy_200.emd</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\BCLlefteyeclosed_200.emd">
+			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\BCLlefteyeclosed_200.emd" Visible="False">
 				<LogicalName>GoogleMVFaceDetectorResources.bundle\BCLlefteyeclosed_200.emd</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\BCLrighteyeclosed_200.emd">
+			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\BCLrighteyeclosed_200.emd" Visible="False">
 				<LogicalName>GoogleMVFaceDetectorResources.bundle\BCLrighteyeclosed_200.emd</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\blazeface.tfl">
+			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\blazeface.tfl" Visible="False">
 				<LogicalName>GoogleMVFaceDetectorResources.bundle\blazeface.tfl</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\contours.tfl">
+			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\contours.tfl" Visible="False">
 				<LogicalName>GoogleMVFaceDetectorResources.bundle\contours.tfl</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\fssd_25_8bit_gray_v1.tflite">
+			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\fssd_25_8bit_gray_v1.tflite" Visible="False">
 				<LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_25_8bit_gray_v1.tflite</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\fssd_25_8bit_v1.tflite">
+			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\fssd_25_8bit_v1.tflite" Visible="False">
 				<LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_25_8bit_v1.tflite</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\fssd_100_8bit_gray_v1.tflite">
+			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\fssd_100_8bit_gray_v1.tflite" Visible="False">
 				<LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_100_8bit_gray_v1.tflite</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\fssd_100_8bit_v1.tflite">
+			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\fssd_100_8bit_v1.tflite" Visible="False">
 				<LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_100_8bit_v1.tflite</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\LMprec_600.emd">
+			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\LMprec_600.emd" Visible="False">
 				<LogicalName>GoogleMVFaceDetectorResources.bundle\LMprec_600.emd</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\MFT_fssd_accgray.pb">
+			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\MFT_fssd_accgray.pb" Visible="False">
 				<LogicalName>GoogleMVFaceDetectorResources.bundle\MFT_fssd_accgray.pb</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\MFT_fssd_fastgray.pb">
+			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\MFT_fssd_fastgray.pb" Visible="False">
 				<LogicalName>GoogleMVFaceDetectorResources.bundle\MFT_fssd_fastgray.pb</LogicalName>
 			</BundleResource>
 
@@ -147,25 +147,25 @@
 				<LinkerFlags>-ObjC -lc++</LinkerFlags>
 				<Frameworks>Accelerate CoreImage CoreGraphics CoreMedia CoreVideo Foundation UIKit</Frameworks>
 			</NativeReference>
-			<BundleResource Include="$(_FirebaseMLVisionTextModelSDKBaseFolder)Resources\GoogleMVTextDetectorResources\tflite_lstm_recognizer_latin_0.3.lstm_model">
+			<BundleResource Include="$(_FirebaseMLVisionTextModelSDKBaseFolder)Resources\GoogleMVTextDetectorResources\tflite_lstm_recognizer_latin_0.3.lstm_model" Visible="False">
 				<LogicalName>GoogleMVTextDetectorResources.bundle\tflite_lstm_recognizer_latin_0.3.lstm_model</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_FirebaseMLVisionTextModelSDKBaseFolder)Resources\GoogleMVTextDetectorResources\region_proposal_text_detector_tflite_gray_quantized.bincfg">
+			<BundleResource Include="$(_FirebaseMLVisionTextModelSDKBaseFolder)Resources\GoogleMVTextDetectorResources\region_proposal_text_detector_tflite_gray_quantized.bincfg" Visible="False">
 				<LogicalName>GoogleMVTextDetectorResources.bundle\region_proposal_text_detector_tflite_gray_quantized.bincfg</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_FirebaseMLVisionTextModelSDKBaseFolder)Resources\GoogleMVTextDetectorResources\rpn_lstm_engine_tflite_latin.bincfg">
+			<BundleResource Include="$(_FirebaseMLVisionTextModelSDKBaseFolder)Resources\GoogleMVTextDetectorResources\rpn_lstm_engine_tflite_latin.bincfg" Visible="False">
 				<LogicalName>GoogleMVTextDetectorResources.bundle\rpn_lstm_engine_tflite_latin.bincfg</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_FirebaseMLVisionTextModelSDKBaseFolder)Resources\GoogleMVTextDetectorResources\rpn_text_detector_mobile_space_to_depth_quantized_v2.tflite">
+			<BundleResource Include="$(_FirebaseMLVisionTextModelSDKBaseFolder)Resources\GoogleMVTextDetectorResources\rpn_text_detector_mobile_space_to_depth_quantized_v2.tflite" Visible="False">
 				<LogicalName>GoogleMVTextDetectorResources.bundle\rpn_text_detector_mobile_space_to_depth_quantized_v2.tflite</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_FirebaseMLVisionTextModelSDKBaseFolder)Resources\GoogleMVTextDetectorResources\tflite_lstm_recognizer_latin_0.3.bincfg">
+			<BundleResource Include="$(_FirebaseMLVisionTextModelSDKBaseFolder)Resources\GoogleMVTextDetectorResources\tflite_lstm_recognizer_latin_0.3.bincfg" Visible="False">
 				<LogicalName>GoogleMVTextDetectorResources.bundle\tflite_lstm_recognizer_latin_0.3.bincfg</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_FirebaseMLVisionTextModelSDKBaseFolder)Resources\GoogleMVTextDetectorResources\tflite_lstm_recognizer_latin_0.3.class_lst">
+			<BundleResource Include="$(_FirebaseMLVisionTextModelSDKBaseFolder)Resources\GoogleMVTextDetectorResources\tflite_lstm_recognizer_latin_0.3.class_lst" Visible="False">
 				<LogicalName>GoogleMVTextDetectorResources.bundle\tflite_lstm_recognizer_latin_0.3.class_lst</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_FirebaseMLVisionTextModelSDKBaseFolder)Resources\GoogleMVTextDetectorResources\tflite_lstm_recognizer_latin_0.3.conv_model">
+			<BundleResource Include="$(_FirebaseMLVisionTextModelSDKBaseFolder)Resources\GoogleMVTextDetectorResources\tflite_lstm_recognizer_latin_0.3.conv_model" Visible="False">
 				<LogicalName>GoogleMVTextDetectorResources.bundle\tflite_lstm_recognizer_latin_0.3.conv_model</LogicalName>
 			</BundleResource>
 

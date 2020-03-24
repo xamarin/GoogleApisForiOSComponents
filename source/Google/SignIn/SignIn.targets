@@ -22,136 +22,136 @@
 	</ItemGroup>
 	<Target Name="_GSgnIDownloadedItems">
 		<ItemGroup>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\Info.plist">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\Info.plist" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\Info.plist</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\Roboto-Bold.ttf">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\Roboto-Bold.ttf" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\Roboto-Bold.ttf</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\google.png">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\google.png" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\google.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\google%402x.png">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\google%402x.png" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\google%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\google%403x.png">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\google%403x.png" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\google%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\ar.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\ar.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\ar.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\ca.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\ca.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\ca.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\cs.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\cs.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\cs.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\da.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\da.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\da.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\de.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\de.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\de.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\el.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\el.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\el.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\en.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\en.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\en.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\en_GB.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\en_GB.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\en_GB.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\es.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\es.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\es.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\es_MX.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\es_MX.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\es_MX.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\fi.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\fi.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\fi.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\fr_CA.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\fr_CA.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\fr_CA.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\fr.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\fr.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\fr.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\he.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\he.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\he.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\hi.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\hi.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\hi.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\hr.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\hr.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\hr.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\hu.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\hu.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\hu.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\id.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\id.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\id.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\it.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\it.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\it.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\ja.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\ja.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\ja.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\ko.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\ko.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\ko.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\ms.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\ms.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\ms.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\nb.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\nb.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\nb.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\nl.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\nl.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\nl.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\pl.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\pl.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\pl.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\pt.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\pt.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\pt.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\pt_BR.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\pt_BR.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\pt_BR.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\pt_PT.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\pt_PT.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\pt_PT.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\ro.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\ro.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\ro.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\ru.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\ru.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\ru.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\sk.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\sk.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\sk.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\sv.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\sv.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\sv.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\th.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\th.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\th.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\tr.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\tr.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\tr.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\uk.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\uk.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\uk.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\vi.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\vi.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\vi.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\zh_CN.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\zh_CN.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\zh_CN.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\zh_TW.lproj\GoogleSignIn.strings">
+			<BundleResource Include="$(_GoogleSignInSDKBaseFolder)Resources\GoogleSignIn.bundle\zh_TW.lproj\GoogleSignIn.strings" Visible="False">
 				<LogicalName>GoogleSignIn.bundle\zh_TW.lproj\GoogleSignIn.strings</LogicalName>
 			</BundleResource>
 		</ItemGroup>
