@@ -10,6 +10,7 @@ Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Cra
 Artifact FIREBASE_DATABASE_ARTIFACT                = new Artifact ("Firebase.Database",               "6.1.4",    "8.0", ComponentGroup.Firebase, csprojName: "Database");
 Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.DynamicLinks",           "4.0.7",    "8.0", ComponentGroup.Firebase, csprojName: "DynamicLinks");
 Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.InstanceID",             "4.3.2",    "8.0", ComponentGroup.Firebase, csprojName: "InstanceID");
+Artifact FIREBASE_MLKIT_ARTIFACT                   = new Artifact ("Firebase.MLKit",                  "0.19.0",   "9.0", ComponentGroup.Firebase, csprojName: "MLKit");
 Artifact FIREBASE_MLKIT_COMMON_ARTIFACT            = new Artifact ("Firebase.MLKit.Common",           "0.19.0",   "9.0", ComponentGroup.Firebase, csprojName: "MLKit.Common");
 Artifact FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT = new Artifact ("Firebase.MLKit.ModelInterpreter", "0.19.0",   "9.0", ComponentGroup.Firebase, csprojName: "MLKit.ModelInterpreter");
 Artifact FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT  = new Artifact ("Firebase.MLKit.NaturalLanguage",  "0.17.0",   "9.0", ComponentGroup.Firebase, csprojName: "MLKit.NaturalLanguage");
@@ -42,6 +43,7 @@ var ARTIFACTS = new Dictionary<string, Artifact> {
 	{ "Firebase.Database",               FIREBASE_DATABASE_ARTIFACT },
 	{ "Firebase.DynamicLinks",           FIREBASE_DYNAMIC_LINKS_ARTIFACT },
 	{ "Firebase.InstanceID",             FIREBASE_INSTANCE_ID_ARTIFACT },
+	{ "Firebase.MLKit",                  FIREBASE_MLKIT_ARTIFACT },
 	{ "Firebase.MLKit.Common",           FIREBASE_MLKIT_COMMON_ARTIFACT },
 	{ "Firebase.MLKit.ModelInterpreter", FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT },
 	{ "Firebase.MLKit.NaturalLanguage",  FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT },
@@ -75,6 +77,7 @@ void SetArtifactsDependencies ()
 	FIREBASE_DATABASE_ARTIFACT.Dependencies                = new [] { FIREBASE_CORE_ARTIFACT, /* Needed for sample */ FIREBASE_AUTH_ARTIFACT };
 	FIREBASE_DYNAMIC_LINKS_ARTIFACT.Dependencies           = new [] { FIREBASE_CORE_ARTIFACT };
 	FIREBASE_INSTANCE_ID_ARTIFACT.Dependencies             = new [] { FIREBASE_CORE_ARTIFACT };
+	FIREBASE_MLKIT_ARTIFACT.Dependencies                   = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_AB_TESTING_ARTIFACT, FIREBASE_REMOTE_CONFIG_ARTIFACT, FIREBASE_MLKIT_COMMON_ARTIFACT,FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT, FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT, FIREBASE_MLKIT_VISION_ARTIFACT };
 	FIREBASE_MLKIT_COMMON_ARTIFACT.Dependencies            = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT };
 	FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT.Dependencies = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_MLKIT_COMMON_ARTIFACT };
 	FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT.Dependencies  = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_MLKIT_COMMON_ARTIFACT, FIREBASE_AB_TESTING_ARTIFACT, FIREBASE_REMOTE_CONFIG_ARTIFACT };
@@ -151,6 +154,9 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("FirebaseInstanceID",    "4.3.2", frameworkSource: FrameworkSource.Pods),
 		PodSpec.Create ("FirebaseInstallations", "1.1.0", frameworkSource: FrameworkSource.Pods),
 		PodSpec.Create ("PromisesObjC",          "1.2.8", frameworkSource: FrameworkSource.Pods, frameworkName: "FBLPromises", targetName: "PromisesObjC")
+	};
+	FIREBASE_MLKIT_ARTIFACT.PodSpecs = new [] {
+		PodSpec.Create ("Firebase", "6.20.0", subSpecs: new [] { "MLCommon", "MLModelInterpreter", "MLNaturalLanguage", "MLVision" })
 	};
 	FIREBASE_MLKIT_COMMON_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.20.0", subSpecs: new [] { "MLCommon" }),
@@ -263,6 +269,7 @@ void SetArtifactsSamples ()
 	FIREBASE_DATABASE_ARTIFACT.Samples                = new [] { "DatabaseSample" };
 	FIREBASE_DYNAMIC_LINKS_ARTIFACT.Samples           = new [] { "DynamicLinksSample" };
 	FIREBASE_INSTANCE_ID_ARTIFACT.Samples             = null;
+	FIREBASE_MLKIT_ARTIFACT.Samples                   = new [] { "MLKitSample" };
 	FIREBASE_MLKIT_COMMON_ARTIFACT.Samples            = null;
 	FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT.Samples = new [] { "ModelInterpreterSample" };
 	FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT.Samples  = new [] { "NaturalLanguageSample" };
@@ -283,4 +290,3 @@ void SetArtifactsSamples ()
 	GOOGLE_SIGN_IN_ARTIFACT.Samples                   = new [] { "SignInExample" };
 	GOOGLE_TAG_MANAGER_ARTIFACT.Samples               = new [] { "TagManagerSample" };
 }
-

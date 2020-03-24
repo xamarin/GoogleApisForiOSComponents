@@ -137,14 +137,6 @@
     <Compile Include="Models\Model.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\source\Firebase\MLKit.Common\MLKit.Common.csproj">
-      <Project>{90DDF7C4-5223-4863-9687-6211BC5D56E5}</Project>
-      <Name>MLKit.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\source\Firebase\MLKit\MLKit.csproj">
-      <Project>{B0D91D94-300F-4DEB-A0A7-11DCBDF6FD64}</Project>
-      <Name>MLKit.Vision</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\..\source\Firebase\InstanceID\InstanceID.csproj">
       <Project>{754D8F56-C3DB-4E33-91D5-45445AB286EF}</Project>
       <Name>InstanceID</Name>
@@ -152,6 +144,14 @@
     <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj">
       <Project>{9335A59B-3B54-4ED5-8201-B68CFD05CAFB}</Project>
       <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\source\Firebase\MLKit.Common\MLKit.Common.csproj">
+      <Project>{90DDF7C4-5223-4863-9687-6211BC5D56E5}</Project>
+      <Name>MLKit.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\source\Firebase\MLKit.Vision\MLKit.Vision.csproj">
+      <Project>{B0D91D94-300F-4DEB-A0A7-11DCBDF6FD64}</Project>
+      <Name>MLKit.Vision</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

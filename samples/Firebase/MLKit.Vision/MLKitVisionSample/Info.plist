@@ -41,7 +41,7 @@
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.xamarin.firebase.ios.MLKitSample</string>
+	<string>com.xamarin.firebase.ios.MLKitVisionSample</string>
 	<key>Custom Property</key>
 	<string></string>
 </dict>

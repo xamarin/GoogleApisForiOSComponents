@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
+  <PropertyGroup>
+    <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
+    <IsBindingProject>true</IsBindingProject>
+    <RootNamespace>Firebase.MLKit</RootNamespace>
+    <AssemblyName>Firebase.MLKit</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>0.19.0</FileVersion>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Xamarin.Firebase.iOS.MLKit</PackageId>
+    <Title>Firebase APIs MLKit iOS Library</Title>
+    <Summary>C# bindings for Firebase APIs MLKit iOS Library</Summary>
+    <Description>
+      C# bindings for Firebase APIs MLKit iOS Library.
+
+      This NuGet references:
+      * Xamarin.Firebase.iOS.MLKit.ModelInterpreter
+      * Xamarin.Firebase.iOS.MLKit.NaturalLanguge
+      * Xamarin.Firebase.iOS.MLKit.Vision
+
+      If you don't need all MLKit, please, uninstall this NuGet and install just the one you need.
+    </Description>
+    <Authors>Microsoft</Authors>
+    <Owners>Microsoft</Owners>
+    <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
+    <PackageIcon>firebaseiosmlkit_128x128.png</PackageIcon>
+    <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2027941</PackageProjectUrl>
+    <PackageLicenseFile>License.md</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageVersion>0.19.0</PackageVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="License.md" Pack="True" PackagePath="License.md" />
+    <None Include="../../../icons/firebaseiosmlkit_128x128.png" Pack="True" PackagePath="firebaseiosmlkit_128x128.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Enums.cs" />
+    <Compile Remove="ApiDefinition.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="Enums.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Build.Download" Version="0.10.0" PrivateAssets="None" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\InstanceID\InstanceID.csproj" />
+    <ProjectReference Include="..\ABTesting\ABTesting.csproj" />
+    <ProjectReference Include="..\RemoteConfig\RemoteConfig.csproj" />
+    <ProjectReference Include="..\MLKit.Common\MLKit.Common.csproj" />
+    <ProjectReference Include="..\MLKit.ModelInterpreter\MLKit.ModelInterpreter.csproj" />
+    <ProjectReference Include="..\MLKit.NaturalLanguage\MLKit.NaturalLanguage.csproj" />
+    <ProjectReference Include="..\MLKit.Vision\MLKit.Vision.csproj" />
+  </ItemGroup>
+  
+  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+</Project>
