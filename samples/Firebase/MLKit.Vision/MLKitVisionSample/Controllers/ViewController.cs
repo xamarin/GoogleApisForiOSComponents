@@ -10,7 +10,7 @@ using Firebase.Core;
 using CoreGraphics;
 using System.Text;
 
-namespace MLKitSample {
+namespace MLKitVisionSample {
 	public partial class ViewController : UIViewController, IUIImagePickerControllerDelegate {
 
 		#region Class Variables

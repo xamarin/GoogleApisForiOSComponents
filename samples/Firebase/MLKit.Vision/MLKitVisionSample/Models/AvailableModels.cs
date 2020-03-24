@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MLKitSample {
+namespace MLKitVisionSample {
 	public static class AvailableModels {
 		public static Model [] OnDevice => new [] {
 			Model.TextRecognition,

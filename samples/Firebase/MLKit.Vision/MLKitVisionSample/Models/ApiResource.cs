@@ -1,6 +1,6 @@
 ﻿using System;
 using ObjCRuntime;
-namespace MLKitSample {
+namespace MLKitVisionSample {
 	public enum ApiResource {
 		OnDevice,
 		Cloud 

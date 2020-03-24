@@ -1,8 +1,8 @@
 **Xamarin is not responsible for, nor does it grant any licenses to, third-party packages. Some packages may require or install dependencies which are governed by additional licenses.**
 
-Note: This component depends on [Firebase MLKit for iOS](https://firebase.google.com/docs/ml-kit/), which is subject to the [Google APIs Terms of Service](https://developers.google.com/terms/), the [Google API Services: User Data Policy](https://developers.google.com/terms/api-services-user-data-policy) and the [Firebase Data Processing and Security Terms][https://firebase.google.com/terms/data-processing-terms]
+Note: This component depends on [Firebase MLKit Vision for iOS](https://firebase.google.com/docs/ml-kit/), which is subject to the [Google APIs Terms of Service](https://developers.google.com/terms/), the [Google API Services: User Data Policy](https://developers.google.com/terms/api-services-user-data-policy) and the [Firebase Data Processing and Security Terms][https://firebase.google.com/terms/data-processing-terms]
 
-### Xamarin Component for Firebase MLKit for iOS
+### Xamarin Component for Firebase MLKit Vision for iOS
 
 **The MIT License (MIT)**
 

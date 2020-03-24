@@ -7,8 +7,8 @@
     <ProjectGuid>{8C118A0A-18D5-4E01-A83D-11DBD98DAF2F}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>MLKitSample</RootNamespace>
-    <AssemblyName>MLKitSample</AssemblyName>
+    <RootNamespace>MLKitVisionSample</RootNamespace>
+    <AssemblyName>MLKitVisionSample</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
@@ -143,7 +143,7 @@
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\source\Firebase\MLKit\MLKit.csproj">
       <Project>{B0D91D94-300F-4DEB-A0A7-11DCBDF6FD64}</Project>
-      <Name>MLKit</Name>
+      <Name>MLKit.Vision</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\source\Firebase\InstanceID\InstanceID.csproj">
       <Project>{754D8F56-C3DB-4E33-91D5-45445AB286EF}</Project>
@@ -163,8 +163,8 @@
     <BundleResource Include="Resources\LandmarkRecognition.png" />
   </ItemGroup>
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Core\Core.targets" />
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\MLKit\MLKit.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\MLKit.Common\MLKit.Common.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\MLKit.Vision\MLKit.Vision.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\..\..\packages\Xamarin.Build.Download.0.10.0\build\Xamarin.Build.Download.targets" Condition="Exists('..\..\..\..\packages\Xamarin.Build.Download.0.10.0\build\Xamarin.Build.Download.targets')" />
 </Project>

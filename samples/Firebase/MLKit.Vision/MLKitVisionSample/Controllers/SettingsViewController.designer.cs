@@ -7,7 +7,7 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace MLKitSample
+namespace MLKitVisionSample
 {
 	[Register ("SettingsViewController")]
 	partial class SettingsViewController

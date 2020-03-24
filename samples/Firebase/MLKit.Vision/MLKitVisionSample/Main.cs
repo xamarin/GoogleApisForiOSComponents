@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace MLKitSample {
+namespace MLKitVisionSample {
 	public class Application {
 		// This is the main entry point of the application.
 		static void Main (string [] args)

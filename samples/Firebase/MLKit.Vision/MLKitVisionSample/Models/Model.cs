@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MLKitSample {
+namespace MLKitVisionSample {
 	public struct Model : IEquatable<Model> {
 		readonly string model;
 

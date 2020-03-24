@@ -3,7 +3,7 @@
 using UIKit;
 using Foundation;
 
-namespace MLKitSample {
+namespace MLKitVisionSample {
 	public partial class SettingsViewController : UIViewController, IUITableViewDataSource, IUITableViewDelegate {
 		#region Class Variables
 

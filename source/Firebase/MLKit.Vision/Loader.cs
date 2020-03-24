@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Firebase.MLKit
+namespace Firebase.MLKit.Vision
 {
 	public class Loader
 	{
@@ -20,7 +20,7 @@ namespace ApiDefinition
 	{
 		static Messaging ()
 		{
-			Firebase.MLKit.Loader.ForceLoad ();
+			Firebase.MLKit.Vision.Loader.ForceLoad ();
 		}
 	}
 }

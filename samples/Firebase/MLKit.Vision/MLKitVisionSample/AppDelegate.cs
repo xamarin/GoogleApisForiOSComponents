@@ -3,7 +3,7 @@ using UIKit;
 using Firebase.Core;
 using System;
 
-namespace MLKitSample {
+namespace MLKitVisionSample {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the
 	// User Interface of the application, as well as listening (and optionally responding) to application events from iOS.
 	[Register ("AppDelegate")]

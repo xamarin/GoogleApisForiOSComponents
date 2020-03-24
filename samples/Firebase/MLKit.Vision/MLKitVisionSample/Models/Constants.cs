@@ -2,7 +2,7 @@
 
 using Foundation;
 
-namespace MLKitSample {
+namespace MLKitVisionSample {
 	public static class Constants {
 		public static NSString SelectedApiResource { get; } = new NSString ("ApiResource");
 		public static NSString SelectedModel { get; } = new NSString ("SelectedModel");
