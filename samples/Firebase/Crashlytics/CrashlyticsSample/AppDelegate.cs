@@ -21,9 +21,6 @@ namespace CrashlyticsSample {
 			UIApplication.SharedApplication.StatusBarStyle = UIStatusBarStyle.LightContent;
 
 			App.Configure ();
-			Crashlytics.Configure ();
-
-			Fabric.Fabric.SharedSdk.Debug = true;
 
 			return true;
 		}

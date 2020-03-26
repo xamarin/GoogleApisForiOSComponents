@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.Crashlytics</RootNamespace>
     <AssemblyName>Firebase.Crashlytics</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>3.14.0.4</FileVersion>
+    <FileVersion>4.0.0-beta.5</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=873305</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>3.14.0.4</PackageVersion>
+    <PackageVersion>4.0.0-beta.5</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -35,6 +35,9 @@
   </ItemGroup>
   
   <ItemGroup>
+    <None Include="..\..\..\externals\FirebaseCrashlytics.framework\FirebaseCrashlytics">
+      <Link>FirebaseCrashlytics.framework</Link>
+    </None>
     <None Include="Crashlytics.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.Crashlytics.targets" />
     <None Include="Crashlytics.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.Crashlytics.targets" />
     <None Include="Crashlytics.props" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.Crashlytics.props" />
@@ -42,6 +45,16 @@
     <None Include="readme.txt" Pack="True" PackagePath="readme.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseioscrashlytics_128x128.png" Pack="True" PackagePath="firebaseioscrashlytics_128x128.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <NativeReference Include="..\..\..\externals\FirebaseCrashlytics.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
+      <LinkerFlags>-lc++ -lz</LinkerFlags>
+      <Frameworks>Security SystemConfiguration</Frameworks>
+    </NativeReference>
   </ItemGroup>
 
   <ItemGroup>
@@ -59,6 +72,11 @@
 
   <ItemGroup>
     <PackageReference Include="Xamarin.Build.Download" Version="0.10.0" PrivateAssets="None" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\InstanceID\InstanceID.csproj" PrivateAssets="None" />
   </ItemGroup>
   
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />

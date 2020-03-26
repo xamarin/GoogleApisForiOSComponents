@@ -11,6 +11,7 @@
     <RootNamespace>CrashlyticsSample</RootNamespace>
     <AssemblyName>CrashlyticsSample</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <FirebaseCrashlyticsUploadSymbolsEnabled>true</FirebaseCrashlyticsUploadSymbolsEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -129,6 +130,10 @@
     <ProjectReference Include="..\..\..\..\source\Firebase\Crashlytics\Crashlytics.csproj">
       <Project>{E1558CDF-C9CE-4A78-AA96-9EA75A39D266}</Project>
       <Name>Crashlytics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\source\Firebase\InstanceID\InstanceID.csproj">
+      <Project>{754D8F56-C3DB-4E33-91D5-45445AB286EF}</Project>
+      <Name>InstanceID</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
