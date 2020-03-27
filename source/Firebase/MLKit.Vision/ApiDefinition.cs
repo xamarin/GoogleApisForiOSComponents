@@ -841,7 +841,7 @@ namespace Firebase.MLKit.Vision {
 	[BaseType (typeof (NSObject), Name = "FIRVisionFaceContour")]
 	interface VisionFaceContour {
 		// @property (readonly, nonatomic) FIRFaceContourType _Nonnull type;
-		[BindAs (typeof (FaceLandmarkType))]
+		[BindAs (typeof (FaceContourType))]
 		[Export ("type")]
 		NSString Type { get; }
 
