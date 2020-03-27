@@ -4,10 +4,8 @@ using Foundation;
 using UIKit;
 using UserNotifications;
 
-using Facebook.CoreKit;
 using Firebase.Functions;
 using Firebase.Core;
-using Google.SignIn;
 
 namespace FunctionsSample
 {
@@ -36,28 +34,7 @@ namespace FunctionsSample
 			Settings.AppID = appId;
 			Settings.DisplayName = appName;
 
-			// This method verifies if you have been logged to Facebook into the app before, and keep you logged in after you reopen or kill your app.
 			return ApplicationDelegate.SharedInstance.FinishedLaunching (application, launchOptions);
-		}
-
-		// Support for iOS 9 or later
-		public override bool OpenUrl (UIApplication app, NSUrl url, NSDictionary options)
-		{
-			var openUrlOptions = new UIApplicationOpenUrlOptions (options);
-			return OpenUrl (app, url, openUrlOptions.SourceApplication, openUrlOptions.Annotation);
-		}
-
-		// Support for iOS 8 or before
-		public override bool OpenUrl (UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
-		{
-			// Handle Sign In
-			var result = SignIn.SharedInstance.HandleUrl (url);
-
-			if (result)
-				return result;
-			
-			// We need to handle URLs by passing them to their own OpenUrl in order to make the SSO authentication works.
-			return ApplicationDelegate.SharedInstance.OpenUrl (application, url, sourceApplication, annotation);
 		}
 
 		public static void ShowMessage (string title, string message, UIViewController fromViewController, Action okAction = null)

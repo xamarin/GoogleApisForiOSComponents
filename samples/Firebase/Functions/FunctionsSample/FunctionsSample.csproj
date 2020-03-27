@@ -130,7 +130,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\source\Firebase\Functions\Functions.csproj">
-      <Project>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Project>
+      <Project>{E5719ABE-6807-49C9-9E7A-0997FF4A5365}</Project>
       <Name>Functions</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj">
@@ -139,11 +139,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\user.png" />
     <BundleResource Include="GoogleService-Info.plist" />
-    <BundleResource Include="Resources\PhoneCodes.json" />
-    <BundleResource Include="Resources\CountryNames.json" />
-    <BundleResource Include="Resources\CountryFlags.json" />
   </ItemGroup>
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Core\Core.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
