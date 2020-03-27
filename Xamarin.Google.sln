@@ -117,6 +117,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagManagerSample", "samples
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Functions", "source\Firebase\Functions\Functions.csproj", "{E5719ABE-6807-49C9-9E7A-0997FF4A5365}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionsSample", "samples\Firebase\Functions\FunctionsSample\FunctionsSample.csproj", "{C02A268C-500B-4C3E-81E7-4E40A7AEB323}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
