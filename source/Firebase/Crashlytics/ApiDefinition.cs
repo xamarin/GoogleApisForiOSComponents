@@ -11,6 +11,15 @@ namespace Firebase.Crashlytics {
 	[BaseType (typeof(NSObject), Name = "FIRCrashlytics")]
 	interface Crashlytics
 	{
+		// extern double FirebaseCrashlyticsVersionNumber;
+		[Field ("FirebaseCrashlyticsVersionNumber", "__Internal")]
+		double CurrentVersionNumber { get; }
+
+		// extern const unsigned char [] FirebaseCrashlyticsVersionString;
+		[Internal]
+		[Field ("FirebaseCrashlyticsVersionString", "__Internal")]
+		IntPtr _CurrentVersion { get; }
+
 		// +(instancetype _Nonnull)crashlytics __attribute__((swift_name("crashlytics()")));
 		[Static]
 		[Export ("crashlytics")]

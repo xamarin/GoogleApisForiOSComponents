@@ -11,7 +11,6 @@
     <RootNamespace>CrashlyticsSample</RootNamespace>
     <AssemblyName>CrashlyticsSample</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <FirebaseCrashlyticsUploadSymbolsEnabled>true</FirebaseCrashlyticsUploadSymbolsEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
