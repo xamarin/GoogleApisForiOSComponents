@@ -34,6 +34,16 @@
 			"component": {
 				"type": "git",
 				"git": {
+					"name": "FirebaseFunctions",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"commitHash": "1e3edcc9463d1335968d4911fbcf2221f81cc9a7"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
 					"name": "FirebaseFirestore",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
 					"commitHash": "1e3edcc9463d1335968d4911fbcf2221f81cc9a7"

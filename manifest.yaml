@@ -42,6 +42,10 @@
   BuildScript: ./Firebase.DynamicLinks/build.cake
   TriggerPaths: [ Firebase.DynamicLinks ]
   MacBuildTargets: [ samples, component ]
+- Name: Firebase.iOS.Functions
+  BuildScript: ./Firebase.Functions/build.cake
+  TriggerPaths: [ Firebase.Functions ]
+  MacBuildTargets: [ samples, component ]
 - Name: Firebase.iOS.InstanceID
   BuildScript: ./Firebase.InstanceID/build.cake
   TriggerPaths: [ Firebase.InstanceID ]
