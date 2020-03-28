@@ -17,5 +17,8 @@ namespace Firebase.Functions
 				return currentVersion;
 			}
 		}
+
+		public const string FunctionsErrorDomain = "com.firebase.functions";
+		public const string FUnctionsErrorDetailsKey = "details";
 	}
 }
