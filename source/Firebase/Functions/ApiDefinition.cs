@@ -57,6 +57,7 @@ namespace Firebase.Functions
 
 		//- (void)callWithObject:(nullable id)data completion:(void (^)(FIRHTTPSCallableResult* _Nullable result, NSError *_Nullable error))completion
         [Export("callWithObject:completion:")]
+		[Async]
 		void CallWithObject([NullAllowed] NSObject data, HTTPSCallableResultHandler completion);
 
 		//@property(nonatomic, assign) NSTimeInterval timeoutInterval;
