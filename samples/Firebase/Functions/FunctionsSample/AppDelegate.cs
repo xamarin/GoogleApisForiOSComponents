@@ -31,10 +31,7 @@ namespace FunctionsSample
 
 			App.Configure ();
 
-			Settings.AppID = appId;
-			Settings.DisplayName = appName;
-
-			return ApplicationDelegate.SharedInstance.FinishedLaunching (application, launchOptions);
+			return true;
 		}
 
 		public static void ShowMessage (string title, string message, UIViewController fromViewController, Action okAction = null)
