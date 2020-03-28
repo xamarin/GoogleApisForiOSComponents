@@ -126,7 +126,6 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="MenuViewController.cs" />
-    <Compile Include="UserViewController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\source\Firebase\Functions\Functions.csproj">
