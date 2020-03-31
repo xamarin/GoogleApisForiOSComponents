@@ -16,6 +16,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.Crashlytics][F.Crashlytics.Name]                       | [4.0.0-beta.5][F.Crashlytics.Package]        |
 | [Xamarin.Firebase.iOS.Database][F.Database.Name]                             | [6.1.4.0][F.Database.Package]                |
 | [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                     | [4.0.7.0][F.DynamicLinks.Package]            |
+| [Xamarin.Firebase.iOS.Installations][F.Installations.Name]                   | [1.1.0.0][F.Installations.Package]           |
 | [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                         | [4.3.2.0][F.InstanceID.Package]              |
 | [Xamarin.Firebase.iOS.MLKit][F.MLKit.Name]                                   | [0.19.0.0][F.MLKit.Package]                  |
 | [Xamarin.Firebase.iOS.MLKit.Common][F.MLKit.Common.Name]                     | [0.19.0.0][F.MLKit.Common.Package]           |
@@ -62,6 +63,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Crashlytics             | **4.0.0-beta.5**  | **6.20.0**     |
 | Firebase Database                | **6.1.4.0**       | **6.20.0**     |
 | Firebase Dynamic Links           | **4.0.7.0**       | **6.20.0**     |
+| Firebase Installations           | **1.1.0.0**       | **6.20.0**     |
 | Firebase Instance ID             | **4.3.2.0**       | **6.20.0**     |
 | Firebase MLKit                   | **0.19.0.0**      | **6.20.0**     |
 | Firebase MLKit Common            | **0.19.0.0**      | **6.20.0**     |
@@ -183,6 +185,7 @@ This project is part of the [.NET Foundation][104]
 [F.Crashlytics.Name]: source/Firebase/Crashlytics
 [F.Database.Name]: source/Firebase/Database
 [F.DynamicLinks.Name]: source/Firebase/DynamicLinks
+[F.Installations.Name]: source/Firebase/Installations
 [F.InstanceID.Name]: source/Firebase/InstanceID
 [F.MLKit.Name]: source/Firebase/MLKit
 [F.MLKit.Common.Name]: source/Firebase/MLKit.Common
@@ -205,6 +208,7 @@ This project is part of the [.NET Foundation][104]
 [F.Crashlytics.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Crashlytics/
 [F.Database.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Database/
 [F.DynamicLinks.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.DynamicLinks/
+[F.Installations.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Installations/
 [F.InstanceID.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.InstanceID/
 [F.MLKit.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.MLKit/
 [F.MLKit.Common.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.MLKit.Common/

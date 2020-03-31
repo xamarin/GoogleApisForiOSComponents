@@ -3,27 +3,27 @@
   <PropertyGroup>
     <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
     <IsBindingProject>true</IsBindingProject>
-    <RootNamespace>Firebase.Crashlytics</RootNamespace>
-    <AssemblyName>Firebase.Crashlytics</AssemblyName>
+    <RootNamespace>Firebase.Installations</RootNamespace>
+    <AssemblyName>Firebase.Installations</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>4.0.0-beta.5</FileVersion>
+    <FileVersion>1.1.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>Xamarin.Firebase.iOS.Crashlytics</PackageId>
-    <Title>Firebase APIs Crashlytics iOS Library</Title>
-    <Summary>C# bindings for Firebase APIs Crashlytics iOS Library</Summary>
-    <Description>C# bindings for Firebase APIs Crashlytics iOS Library</Description>
+    <PackageId>Xamarin.Firebase.iOS.Installations</PackageId>
+    <Title>Firebase APIs Installations iOS Library</Title>
+    <Summary>C# bindings for Firebase APIs Installations iOS Library</Summary>
+    <Description>C# bindings for Firebase APIs Installations iOS Library</Description>
     <Authors>Microsoft</Authors>
     <Owners>Microsoft</Owners>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
-    <PackageIcon>firebaseioscrashlytics_128x128.png</PackageIcon>
-    <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=873305</PackageProjectUrl>
+    <PackageIcon>firebaseiosinstallations_128x128.png</PackageIcon>
+    <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865551</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>4.0.0-beta.5</PackageVersion>
+    <PackageVersion>1.1.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -35,25 +35,28 @@
   </ItemGroup>
   
   <ItemGroup>
-    <None Include="..\..\..\externals\FirebaseCrashlytics.framework\FirebaseCrashlytics">
-      <Link>FirebaseCrashlytics.framework</Link>
+    <None Include="..\..\..\externals\FirebaseInstallations.framework\FirebaseInstallations">
+      <Link>FirebaseInstallations.framework</Link>
     </None>
-    <None Include="Crashlytics.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.Crashlytics.targets" />
-    <None Include="Crashlytics.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.Crashlytics.targets" />
-    <None Include="Crashlytics.props" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.Crashlytics.props" />
-    <None Include="Crashlytics.props" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.Crashlytics.props" />
-    <None Include="readme.txt" Pack="True" PackagePath="readme.txt" />
+    <None Include="..\..\..\externals\FBLPromises.framework\FBLPromises">
+      <Link>FBLPromises.framework</Link>
+    </None>
+    <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
-    <None Include="../../../icons/firebaseioscrashlytics_128x128.png" Pack="True" PackagePath="firebaseioscrashlytics_128x128.png" />
+    <None Include="../../../icons/firebaseiosinstallations_128x128.png" Pack="True" PackagePath="firebaseiosinstallations_128x128.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <NativeReference Include="..\..\..\externals\FirebaseCrashlytics.framework">
+    <NativeReference Include="..\..\..\externals\FirebaseInstallations.framework">
       <Kind>Framework</Kind>
       <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>
-      <LinkerFlags>-lc++ -lz</LinkerFlags>
-      <Frameworks>Security SystemConfiguration</Frameworks>
+      <Frameworks>Security</Frameworks>
+    </NativeReference>
+    <NativeReference Include="..\..\..\externals\FBLPromises.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
     </NativeReference>
   </ItemGroup>
 
@@ -76,8 +79,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" PrivateAssets="None" />
-    <ProjectReference Include="..\Installations\Installations.csproj" />
   </ItemGroup>
   
+  <ItemGroup>
+    <Compile Update="Extensions.cs">
+      <SubType></SubType>
+    </Compile>
+  </ItemGroup>
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 </Project>

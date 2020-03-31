@@ -155,6 +155,10 @@
           <Project>{43F378EA-35C8-494E-9685-B00EBBA2A7A3}</Project>
           <Name>MLKit.NaturalLanguage</Name>
         </ProjectReference>
+        <ProjectReference Include="..\..\..\..\source\Firebase\Installations\Installations.csproj">
+          <Project>{65ACD945-5A8A-419D-B9FB-8DFD03C532F4}</Project>
+          <Name>Installations</Name>
+        </ProjectReference>
     </ItemGroup>
     <ItemGroup>
         <BundleResource Include="GoogleService-Info.plist" />

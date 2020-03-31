@@ -72,6 +72,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\Installations\Installations.csproj" />
     <ProjectReference Include="..\InstanceID\InstanceID.csproj" />
   </ItemGroup>
   

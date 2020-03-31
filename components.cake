@@ -9,6 +9,7 @@ Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Cor
 Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Crashlytics",            "4.0.0-beta.5", "8.0", ComponentGroup.Firebase, csprojName: "Crashlytics");
 Artifact FIREBASE_DATABASE_ARTIFACT                = new Artifact ("Firebase.Database",               "6.1.4",        "8.0", ComponentGroup.Firebase, csprojName: "Database");
 Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.DynamicLinks",           "4.0.7",        "8.0", ComponentGroup.Firebase, csprojName: "DynamicLinks");
+Artifact FIREBASE_INSTALLATIONS_ARTIFACT           = new Artifact ("Firebase.Installations",          "1.1.0",        "8.0", ComponentGroup.Firebase, csprojName: "Installations");
 Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.InstanceID",             "4.3.2",        "8.0", ComponentGroup.Firebase, csprojName: "InstanceID");
 Artifact FIREBASE_MLKIT_ARTIFACT                   = new Artifact ("Firebase.MLKit",                  "0.19.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit");
 Artifact FIREBASE_MLKIT_COMMON_ARTIFACT            = new Artifact ("Firebase.MLKit.Common",           "0.19.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit.Common");
@@ -42,6 +43,7 @@ var ARTIFACTS = new Dictionary<string, Artifact> {
 	{ "Firebase.Crashlytics",            FIREBASE_CRASHLYTICS_ARTIFACT },
 	{ "Firebase.Database",               FIREBASE_DATABASE_ARTIFACT },
 	{ "Firebase.DynamicLinks",           FIREBASE_DYNAMIC_LINKS_ARTIFACT },
+	{ "Firebase.Installations",          FIREBASE_INSTALLATIONS_ARTIFACT },
 	{ "Firebase.InstanceID",             FIREBASE_INSTANCE_ID_ARTIFACT },
 	{ "Firebase.MLKit",                  FIREBASE_MLKIT_ARTIFACT },
 	{ "Firebase.MLKit.Common",           FIREBASE_MLKIT_COMMON_ARTIFACT },
@@ -68,22 +70,23 @@ void SetArtifactsDependencies ()
 {
 	FIREBASE_AB_TESTING_ARTIFACT.Dependencies              = new [] { FIREBASE_CORE_ARTIFACT };
 	FIREBASE_AD_MOB_ARTIFACT.Dependencies                  = new [] { FIREBASE_CORE_ARTIFACT, GOOGLE_MOBILE_ADS_ARTIFACT };
-	FIREBASE_ANALYTICS_ARTIFACT.Dependencies               = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT };
+	FIREBASE_ANALYTICS_ARTIFACT.Dependencies               = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT };
 	FIREBASE_AUTH_ARTIFACT.Dependencies                    = new [] { FIREBASE_CORE_ARTIFACT, /* Needed for sample */ GOOGLE_SIGN_IN_ARTIFACT };
 	FIREBASE_CLOUD_FIRESTORE_ARTIFACT.Dependencies         = new [] { FIREBASE_CORE_ARTIFACT, /* Needed for sample */ FIREBASE_AUTH_ARTIFACT };
-	FIREBASE_CLOUD_MESSAGING_ARTIFACT.Dependencies         = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT };
+	FIREBASE_CLOUD_MESSAGING_ARTIFACT.Dependencies         = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT };
 	FIREBASE_CORE_ARTIFACT.Dependencies                    = null;
-	FIREBASE_CRASHLYTICS_ARTIFACT.Dependencies             = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT };
+	FIREBASE_CRASHLYTICS_ARTIFACT.Dependencies             = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT };
 	FIREBASE_DATABASE_ARTIFACT.Dependencies                = new [] { FIREBASE_CORE_ARTIFACT, /* Needed for sample */ FIREBASE_AUTH_ARTIFACT };
 	FIREBASE_DYNAMIC_LINKS_ARTIFACT.Dependencies           = new [] { FIREBASE_CORE_ARTIFACT };
-	FIREBASE_INSTANCE_ID_ARTIFACT.Dependencies             = new [] { FIREBASE_CORE_ARTIFACT };
-	FIREBASE_MLKIT_ARTIFACT.Dependencies                   = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_AB_TESTING_ARTIFACT, FIREBASE_REMOTE_CONFIG_ARTIFACT, FIREBASE_MLKIT_COMMON_ARTIFACT,FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT, FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT, FIREBASE_MLKIT_VISION_ARTIFACT };
-	FIREBASE_MLKIT_COMMON_ARTIFACT.Dependencies            = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT };
-	FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT.Dependencies = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_MLKIT_COMMON_ARTIFACT };
-	FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT.Dependencies  = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_MLKIT_COMMON_ARTIFACT, FIREBASE_AB_TESTING_ARTIFACT, FIREBASE_REMOTE_CONFIG_ARTIFACT };
-	FIREBASE_MLKIT_VISION_ARTIFACT.Dependencies            = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_MLKIT_COMMON_ARTIFACT };
-	FIREBASE_PERFORMANCE_MONITORING_ARTIFACT.Dependencies  = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_AB_TESTING_ARTIFACT, FIREBASE_REMOTE_CONFIG_ARTIFACT };
-	FIREBASE_REMOTE_CONFIG_ARTIFACT.Dependencies           = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_AB_TESTING_ARTIFACT };
+	FIREBASE_INSTALLATIONS_ARTIFACT.Dependencies           = new [] { FIREBASE_CORE_ARTIFACT };
+	FIREBASE_INSTANCE_ID_ARTIFACT.Dependencies             = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT };
+	FIREBASE_MLKIT_ARTIFACT.Dependencies                   = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_AB_TESTING_ARTIFACT, FIREBASE_REMOTE_CONFIG_ARTIFACT, FIREBASE_MLKIT_COMMON_ARTIFACT,FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT, FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT, FIREBASE_MLKIT_VISION_ARTIFACT };
+	FIREBASE_MLKIT_COMMON_ARTIFACT.Dependencies            = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT };
+	FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT.Dependencies = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_MLKIT_COMMON_ARTIFACT };
+	FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT.Dependencies  = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_MLKIT_COMMON_ARTIFACT, FIREBASE_AB_TESTING_ARTIFACT, FIREBASE_REMOTE_CONFIG_ARTIFACT };
+	FIREBASE_MLKIT_VISION_ARTIFACT.Dependencies            = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_MLKIT_COMMON_ARTIFACT };
+	FIREBASE_PERFORMANCE_MONITORING_ARTIFACT.Dependencies  = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_AB_TESTING_ARTIFACT, FIREBASE_REMOTE_CONFIG_ARTIFACT };
+	FIREBASE_REMOTE_CONFIG_ARTIFACT.Dependencies           = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_AB_TESTING_ARTIFACT };
 	FIREBASE_STORAGE_ARTIFACT.Dependencies                 = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_DATABASE_ARTIFACT, /* Needed for sample */ FIREBASE_AUTH_ARTIFACT };
 
 	GOOGLE_ANALYTICS_ARTIFACT.Dependencies    = null;
@@ -95,7 +98,7 @@ void SetArtifactsDependencies ()
 	GOOGLE_MOBILE_ADS_ARTIFACT.Dependencies   = new [] { FIREBASE_CORE_ARTIFACT };
 	GOOGLE_PLACES_ARTIFACT.Dependencies       = new [] { GOOGLE_MAPS_ARTIFACT };
 	GOOGLE_SIGN_IN_ARTIFACT.Dependencies      = new [] { FIREBASE_CORE_ARTIFACT };
-	GOOGLE_TAG_MANAGER_ARTIFACT.Dependencies  = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_ANALYTICS_ARTIFACT, GOOGLE_ANALYTICS_ARTIFACT };
+	GOOGLE_TAG_MANAGER_ARTIFACT.Dependencies  = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_ANALYTICS_ARTIFACT, GOOGLE_ANALYTICS_ARTIFACT };
 }
 
 void SetArtifactsPodSpecs ()
@@ -149,10 +152,12 @@ void SetArtifactsPodSpecs ()
 	FIREBASE_DYNAMIC_LINKS_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.20.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseDynamicLinks", targetName: "FirebaseDynamicLinks", subSpecs: new [] { "DynamicLinks" })
 	};
-	FIREBASE_INSTANCE_ID_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("FirebaseInstanceID",    "4.3.2", frameworkSource: FrameworkSource.Pods),
+	FIREBASE_INSTALLATIONS_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("FirebaseInstallations", "1.1.0", frameworkSource: FrameworkSource.Pods),
 		PodSpec.Create ("PromisesObjC",          "1.2.8", frameworkSource: FrameworkSource.Pods, frameworkName: "FBLPromises", targetName: "PromisesObjC")
+	};
+	FIREBASE_INSTANCE_ID_ARTIFACT.PodSpecs = new [] {
+		PodSpec.Create ("FirebaseInstanceID",    "4.3.2", frameworkSource: FrameworkSource.Pods)
 	};
 	FIREBASE_MLKIT_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.20.0", subSpecs: new [] { "MLCommon", "MLModelInterpreter", "MLNaturalLanguage", "MLVision" })
@@ -267,6 +272,7 @@ void SetArtifactsSamples ()
 	FIREBASE_CRASHLYTICS_ARTIFACT.Samples             = new [] { "CrashlyticsSample" };
 	FIREBASE_DATABASE_ARTIFACT.Samples                = new [] { "DatabaseSample" };
 	FIREBASE_DYNAMIC_LINKS_ARTIFACT.Samples           = new [] { "DynamicLinksSample" };
+	FIREBASE_INSTALLATIONS_ARTIFACT.Samples           = null;
 	FIREBASE_INSTANCE_ID_ARTIFACT.Samples             = null;
 	FIREBASE_MLKIT_ARTIFACT.Samples                   = new [] { "MLKitSample" };
 	FIREBASE_MLKIT_COMMON_ARTIFACT.Samples            = null;

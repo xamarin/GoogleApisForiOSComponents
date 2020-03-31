@@ -1,14 +1,11 @@
 ﻿using System;
-
-namespace Firebase.CloudMessaging
+namespace Firebase.Installations
 {
 	public class Loader
 	{
 		static Loader ()
 		{
 			Firebase.Core.Loader.ForceLoad ();
-			Firebase.Installations.Loader.ForceLoad();
-			Firebase.InstanceID.Loader.ForceLoad ();
 		}
 
 		public static void ForceLoad () { }
@@ -21,7 +18,7 @@ namespace ApiDefinition
 	{
 		static Messaging ()
 		{
-			Firebase.CloudMessaging.Loader.ForceLoad ();
+			Firebase.Installations.Loader.ForceLoad ();
 		}
 	}
 }

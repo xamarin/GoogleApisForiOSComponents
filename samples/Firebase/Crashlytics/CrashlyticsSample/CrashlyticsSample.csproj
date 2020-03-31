@@ -130,9 +130,9 @@
       <Project>{E1558CDF-C9CE-4A78-AA96-9EA75A39D266}</Project>
       <Name>Crashlytics</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\source\Firebase\InstanceID\InstanceID.csproj">
-      <Project>{754D8F56-C3DB-4E33-91D5-45445AB286EF}</Project>
-      <Name>InstanceID</Name>
+    <ProjectReference Include="..\..\..\..\source\Firebase\Installations\Installations.csproj">
+      <Project>{65ACD945-5A8A-419D-B9FB-8DFD03C532F4}</Project>
+      <Name>Installations</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

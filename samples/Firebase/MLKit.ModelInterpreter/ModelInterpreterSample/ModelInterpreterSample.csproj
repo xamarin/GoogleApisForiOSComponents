@@ -139,6 +139,10 @@
       <Project>{108BC6F9-E830-4F3B-85A9-DF7A70A06396}</Project>
       <Name>MLKit.ModelInterpreter</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\source\Firebase\Installations\Installations.csproj">
+      <Project>{65ACD945-5A8A-419D-B9FB-8DFD03C532F4}</Project>
+      <Name>Installations</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Core\Core.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\MLKit.Common\MLKit.Common.targets" />

@@ -5,7 +5,7 @@ namespace Firebase.Crashlytics {
 		static Loader ()
 		{
 			Firebase.Core.Loader.ForceLoad ();
-			Firebase.InstanceID.Loader.ForceLoad ();
+			Firebase.Installations.Loader.ForceLoad();
 		}
 
 		public static void ForceLoad () { }

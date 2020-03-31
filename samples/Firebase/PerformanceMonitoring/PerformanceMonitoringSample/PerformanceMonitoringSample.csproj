@@ -163,6 +163,10 @@
       <Project>{2FC178FA-114D-4A51-A3DF-5EA10E2C71C4}</Project>
       <Name>RemoteConfig</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\source\Firebase\Installations\Installations.csproj">
+      <Project>{65ACD945-5A8A-419D-B9FB-8DFD03C532F4}</Project>
+      <Name>Installations</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="GoogleService-Info.plist" />

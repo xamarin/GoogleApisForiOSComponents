@@ -140,9 +140,9 @@
       <Project>{25783B8D-1423-4CC2-B629-7E7F36A1CF4B}</Project>
       <Name>Analytics</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\source\Firebase\InstanceID\InstanceID.csproj">
-      <Project>{754D8F56-C3DB-4E33-91D5-45445AB286EF}</Project>
-      <Name>InstanceID</Name>
+    <ProjectReference Include="..\..\..\..\source\Firebase\Installations\Installations.csproj">
+      <Project>{65ACD945-5A8A-419D-B9FB-8DFD03C532F4}</Project>
+      <Name>Installations</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Core\Core.targets" />

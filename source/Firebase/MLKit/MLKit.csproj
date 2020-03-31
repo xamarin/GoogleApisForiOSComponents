@@ -30,7 +30,7 @@
     <Owners>Microsoft</Owners>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
     <PackageIcon>firebaseiosmlkit_128x128.png</PackageIcon>
-    <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2027941</PackageProjectUrl>
+    <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2125027</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageVersion>0.19.0</PackageVersion>
@@ -68,6 +68,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\Installations\Installations.csproj" />
     <ProjectReference Include="..\InstanceID\InstanceID.csproj" />
     <ProjectReference Include="..\ABTesting\ABTesting.csproj" />
     <ProjectReference Include="..\RemoteConfig\RemoteConfig.csproj" />
