@@ -16,7 +16,12 @@ namespace NaturalLanguageSample {
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
 			Firebase.Core.App.Configure ();
-			var t = typeof (Firebase.MLKit.NaturalLanguage.NaturalLanguageApi);
+
+			var instanceId = Firebase.InstanceID.InstanceId.SharedInstance;
+			var remoteConfig = Firebase.RemoteConfig.RemoteConfig.SharedInstance;
+			var installations = Firebase.Installations.Installations.DefaultInstance;
+			var abTesting = Firebase.ABTesting.ExperimentController.SharedInstance;
+			var naturalLanguage = Firebase.MLKit.NaturalLanguage.NaturalLanguageApi.DefaultInstance;
 
 			return true;
 		}

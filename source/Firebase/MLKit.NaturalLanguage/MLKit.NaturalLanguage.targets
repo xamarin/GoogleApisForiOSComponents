@@ -29,10 +29,10 @@
 			<Url>https://dl.google.com/dl/cpdc/b09b22f0bb7acf83/FirebaseMLNLTranslate-0.17.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
-		<XamarinBuildRestoreResources Include="_FirebaseMLKitNaturalLanguageItems"/>
+		<XamarinBuildRestoreResources Include="_FMLNtrlLDownloadedItems"/>
 	</ItemGroup>
 	
-	<Target Name="_FirebaseMLKitNaturalLanguageItems">
+	<Target Name="_FMLNtrlLDownloadedItems">
 		<ItemGroup>
 			<!-- From https://dl.google.com/dl/cpdc/7dc8c16825e1eafb/FirebaseMLNaturalLanguage-0.17.0.tar.gz -->
 			<NativeReference Include="$(_FirebaseMLNaturalLanguageSDKBaseFolder)FirebaseMLNaturalLanguage.framework">

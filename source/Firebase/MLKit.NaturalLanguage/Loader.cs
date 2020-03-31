@@ -6,6 +6,7 @@ namespace Firebase.MLKit.NaturalLanguage
 		static Loader ()
 		{
 			Firebase.Core.Loader.ForceLoad ();
+			Firebase.Installations.Loader.ForceLoad();
 			Firebase.InstanceID.Loader.ForceLoad ();
 			Firebase.ABTesting.Loader.ForceLoad ();
 			Firebase.RemoteConfig.Loader.ForceLoad ();

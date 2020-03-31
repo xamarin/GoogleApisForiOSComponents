@@ -17,10 +17,13 @@ namespace MLKitSample {
 			// If not required for your application you can safely delete this method
 			Firebase.Core.App.Configure ();
 
-			var t = typeof (Firebase.MLKit.Common.LocalModel);
-			var t2 = typeof (Firebase.MLKit.ModelInterpreter.CustomLocalModel);
-			var t3 = typeof (Firebase.MLKit.NaturalLanguage.NaturalLanguageApi);
-			var t4 = typeof (Firebase.MLKit.Vision.VisionApi);
+			var instanceId = Firebase.InstanceID.InstanceId.SharedInstance;
+			var remoteConfig = Firebase.RemoteConfig.RemoteConfig.SharedInstance;
+			var installations = Firebase.Installations.Installations.DefaultInstance;
+			var abTesting = Firebase.ABTesting.ExperimentController.SharedInstance;
+			var common = new Firebase.MLKit.ModelInterpreter.CustomRemoteModel ("Dummy");
+			var naturalLanguage = Firebase.MLKit.NaturalLanguage.NaturalLanguageApi.DefaultInstance;
+			var vision = Firebase.MLKit.Vision.VisionApi.Create ();
 
 			return true;
 		}
