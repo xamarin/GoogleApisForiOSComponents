@@ -9,7 +9,7 @@ Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Cor
 Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Crashlytics",            "4.0.0-beta.5", "8.0", ComponentGroup.Firebase, csprojName: "Crashlytics");
 Artifact FIREBASE_DATABASE_ARTIFACT                = new Artifact ("Firebase.Database",               "6.1.4",        "8.0", ComponentGroup.Firebase, csprojName: "Database");
 Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.DynamicLinks",           "4.0.7",        "8.0", ComponentGroup.Firebase, csprojName: "DynamicLinks");
-Artifact FIREBASE_INSTALLATIONS_ARTIFACT           = new Artifact ("Firebase.Installations",          "1.1.0",        "8.0", ComponentGroup.Firebase, csprojName: "Installations");
+Artifact FIREBASE_INSTALLATIONS_ARTIFACT           = new Artifact ("Firebase.Installations",          "1.1.1",        "8.0", ComponentGroup.Firebase, csprojName: "Installations");
 Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.InstanceID",             "4.3.2",        "8.0", ComponentGroup.Firebase, csprojName: "InstanceID");
 Artifact FIREBASE_MLKIT_ARTIFACT                   = new Artifact ("Firebase.MLKit",                  "0.19.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit");
 Artifact FIREBASE_MLKIT_COMMON_ARTIFACT            = new Artifact ("Firebase.MLKit.Common",           "0.19.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit.Common");
@@ -153,7 +153,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("Firebase", "6.20.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseDynamicLinks", targetName: "FirebaseDynamicLinks", subSpecs: new [] { "DynamicLinks" })
 	};
 	FIREBASE_INSTALLATIONS_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("FirebaseInstallations", "1.1.0", frameworkSource: FrameworkSource.Pods),
+		PodSpec.Create ("FirebaseInstallations", "1.1.1", frameworkSource: FrameworkSource.Pods),
 		PodSpec.Create ("PromisesObjC",          "1.2.8", frameworkSource: FrameworkSource.Pods, frameworkName: "FBLPromises", targetName: "PromisesObjC")
 	};
 	FIREBASE_INSTANCE_ID_ARTIFACT.PodSpecs = new [] {
