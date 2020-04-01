@@ -15,8 +15,8 @@
 				"type": "other",
 				"other": {
 					"name": "FirebaseAnalytics",
-					"version": "6.0.4",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/2717022184840456/FirebaseAnalytics-6.0.4.tar.gz"
+					"version": "6.4.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/46d897fc5f537fb6/FirebaseAnalytics-6.4.0.tar.gz"
 				}
 			}
 		},
@@ -57,6 +57,26 @@
 					"name": "FirebaseCore",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
 					"commitHash": "f0d6f5a9ff3af91406d11c79c04e2557c35eb747"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "FirebaseCoreDiagnostics",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"commitHash": "a43ca45c0dc9480fd16165eabc55e1cbaacc1b67"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "FirebaseCoreDiagnosticsInterop",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"commitHash": "6b5ce1cfa2c566a5a6ce55cca340ed6aea91bddd"
 				}
 			}
 		},
@@ -274,6 +294,16 @@
 			"component": {
 				"type": "other",
 				"other": {
+					"name": "GoogleAppMeasurement",
+					"version": "6.4.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/23293a593f8584e1/GoogleAppMeasurement-6.4.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
 					"name": "google-cast-sdk",
 					"version": "4.3.2",
 					"downloadUrl": "https://developers.google.com/cast/downloads/GoogleCastSDK-ios-4.3.2_dynamic.zip"
@@ -337,6 +367,36 @@
 					"name": "GoogleTagManager",
 					"version": "7.1.2",
 					"downloadUrl": "https://dl.google.com/dl/cpdc/e0b99b8644b80573/GoogleTagManager-7.1.2.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "GoogleUtilities",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"commitHash": "956fb1b11b58225768bc2bde9d3ed41835e91d63"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "nanopb",
+					"repositoryUrl": "https://github.com/nanopb/nanopb.git",
+					"commitHash": "04cd1f94cc513b4cb3eac924c74039ccc05a944b"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "PromisesObjC",
+					"repositoryUrl": "https://github.com/google/promises.git",
+					"commitHash": "6b6f4fe3385ed37389fb231bc40be81de2f1230f"
 				}
 			}
 		}
