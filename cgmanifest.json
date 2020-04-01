@@ -74,16 +74,6 @@
 			"component": {
 				"type": "git",
 				"git": {
-					"name": "FirebaseMessaging",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
-					"commitHash": "bac26882e0f36f87fbe651b38333289de8842e69"
-				}
-			}
-		},
-		{
-			"component": {
-				"type": "git",
-				"git": {
 					"name": "FirebaseCore",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
 					"commitHash": "f0d6f5a9ff3af91406d11c79c04e2557c35eb747"
@@ -165,6 +155,16 @@
 				"type": "git",
 				"git": {
 					"name": "FirebaseInstanceID",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"commitHash": "98390cacc37cfbf50963bad32a1144441f0618d1"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "FirebaseMessaging",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
 					"commitHash": "98390cacc37cfbf50963bad32a1144441f0618d1"
 				}
