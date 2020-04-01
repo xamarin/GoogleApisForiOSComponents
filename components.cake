@@ -171,7 +171,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("Firebase", "6.21.0", subSpecs: new [] { "MLModelInterpreter" })
 	};
 	FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.20.0", subSpecs: new [] { "MLNaturalLanguage", "MLNLLanguageID", "MLNLSmartReply", "MLNLTranslate" })
+		PodSpec.Create ("Firebase", "6.21.0", subSpecs: new [] { "MLNaturalLanguage", "MLNLLanguageID", "MLNLSmartReply", "MLNLTranslate" })
 	};
 	FIREBASE_MLKIT_VISION_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.20.0", subSpecs: new [] { "MLVision", "MLVisionAutoML", "MLVisionBarcodeModel", "MLVisionFaceModel", "MLVisionLabelModel", "MLVisionTextModel", "MLVisionObjectDetection" })
