@@ -292,11 +292,11 @@
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "git",
+				"git": {
 					"name": "FirebaseRemoteConfig",
-					"version": "4.2.1",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/12beee1f0ac0f844/FirebaseRemoteConfig-4.2.1.tar.gz"
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"commitHash": "a43ca45c0dc9480fd16165eabc55e1cbaacc1b67"
 				}
 			}
 		},

@@ -180,7 +180,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("Firebase", "6.21.0", subSpecs: new [] { "Performance" })
 	};
 	FIREBASE_REMOTE_CONFIG_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.20.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseRemoteConfig", targetName: "FirebaseRemoteConfig", subSpecs: new [] { "RemoteConfig" })
+		PodSpec.Create ("Firebase", "6.21.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseRemoteConfig", targetName: "FirebaseRemoteConfig", subSpecs: new [] { "RemoteConfig" })
 	};
 	FIREBASE_STORAGE_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.20.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseStorage", targetName: "FirebaseStorage", subSpecs: new [] { "Storage" })
