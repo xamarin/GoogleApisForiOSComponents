@@ -36,7 +36,17 @@
 				"git": {
 					"name": "FirebaseAuth",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
-					"commitHash": "1e3edcc9463d1335968d4911fbcf2221f81cc9a7"
+					"commitHash": "f0d6f5a9ff3af91406d11c79c04e2557c35eb747"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "FirebaseAuthInterop",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"commitHash": "a43ca45c0dc9480fd16165eabc55e1cbaacc1b67"
 				}
 			}
 		},
@@ -387,6 +397,16 @@
 					"name": "GoogleUtilities",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
 					"commitHash": "956fb1b11b58225768bc2bde9d3ed41835e91d63"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "GTMSessionFetcher",
+					"repositoryUrl": "https://github.com/google/gtm-session-fetcher.git",
+					"commitHash": "bb65f9b4b498ff55d253b5df8694227a3ca54b72"
 				}
 			}
 		},
