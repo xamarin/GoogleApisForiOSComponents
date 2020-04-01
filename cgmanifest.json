@@ -102,11 +102,11 @@
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
-					"name": "Crashlytics",
-					"version": "3.10.9",
-					"downloadUrl": "https://kit-downloads.fabric.io/cocoapods/crashlytics/3.10.9/crashlytics.zip"
+				"type": "git",
+				"git": {
+					"name": "FirebaseCrashlytics",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"commitHash": "f0d6f5a9ff3af91406d11c79c04e2557c35eb747"
 				}
 			}
 		},
@@ -327,6 +327,26 @@
 					"name": "google-cast-sdk",
 					"version": "4.3.2",
 					"downloadUrl": "https://developers.google.com/cast/downloads/GoogleCastSDK-ios-4.3.2_dynamic.zip"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "GoogleDataTransport",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"commitHash": "f0d6f5a9ff3af91406d11c79c04e2557c35eb747"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "GoogleDataTransportCCTSupport",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"commitHash": "f0d6f5a9ff3af91406d11c79c04e2557c35eb747"
 				}
 			}
 		},

@@ -2,8 +2,8 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_FirebaseCrashlyticsAssemblyName>Firebase.Crashlytics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseCrashlyticsAssemblyName>
-		<_FirebaseCrashlyticsItemsFolder>FCrshlytcs-4.0.0.beta.5</_FirebaseCrashlyticsItemsFolder>
-		<_FirebaseCrashlyticsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseCrashlyticsItemsFolder)\firebase-ios-sdk-Crashlytics-4.0.0-beta.5\Crashlytics\</_FirebaseCrashlyticsSDKBaseFolder>
+		<_FirebaseCrashlyticsItemsFolder>FCrshlytcs-4.0.0.beta.6</_FirebaseCrashlyticsItemsFolder>
+		<_FirebaseCrashlyticsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseCrashlyticsItemsFolder)\firebase-ios-sdk-Crashlytics-4.0.0-beta.6\Crashlytics\</_FirebaseCrashlyticsSDKBaseFolder>
 		<_FirebaseScriptName>upload-symbols</_FirebaseScriptName>
 		
 		<_FirebaseCrashlyticsUploadSymbolsContinueOnError Condition="'$(FirebaseCrashlyticsUploadSymbolsContinueOnError)'=='True'">True</_FirebaseCrashlyticsUploadSymbolsContinueOnError>
@@ -21,7 +21,7 @@
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_FirebaseCrashlyticsItemsFolder)">
-			<Url>https://github.com/firebase/firebase-ios-sdk/archive/Crashlytics-4.0.0-beta.5.zip</Url>
+			<Url>https://github.com/firebase/firebase-ios-sdk/archive/Crashlytics-4.0.0-beta.6.zip</Url>
 			<Kind>Zip</Kind>
 		</XamarinBuildDownload>
 	</ItemGroup>

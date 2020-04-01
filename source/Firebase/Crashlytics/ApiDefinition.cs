@@ -41,6 +41,10 @@ namespace Firebase.Crashlytics {
 		[Export ("recordError:")]
 		void RecordError (NSError error);
 
+		// -(void)recordExceptionModel:(FIRExceptionModel * _Nonnull)exceptionModel __attribute__((swift_name("record(exceptionModel:)")));
+		[Export ("recordExceptionModel:")]
+		void RecordExceptionModel (ExceptionModel exceptionModel);
+
 		// -(BOOL)didCrashDuringPreviousExecution;
 		[Export ("didCrashDuringPreviousExecution")]
 		bool DidCrashDuringPreviousExecution { get; }
@@ -65,5 +69,38 @@ namespace Firebase.Crashlytics {
 		// -(void)deleteUnsentReports;
 		[Export ("deleteUnsentReports")]
 		void DeleteUnsentReports ();
+	}
+
+	// @interface FIRExceptionModel : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof(NSObject), Name = "FIRExceptionModel")]
+	interface ExceptionModel
+	{
+		// -(instancetype _Nonnull)initWithName:(NSString * _Nonnull)name reason:(NSString * _Nonnull)reason;
+		[Export ("initWithName:reason:")]
+		IntPtr Constructor (string name, string reason);
+
+		// +(instancetype _Nonnull)exceptionModelWithName:(NSString * _Nonnull)name reason:(NSString * _Nonnull)reason __attribute__((availability(swift, unavailable)));
+		[Static]
+		[Export ("exceptionModelWithName:reason:")]
+		ExceptionModel Create (string name, string reason);
+
+		// @property (copy, nonatomic) NSArray<FIRStackFrame *> * _Nonnull stackTrace;
+		[Export ("stackTrace", ArgumentSemantic.Copy)]
+		StackFrame [] StackTrace { get; set; }
+	}
+
+	[DisableDefaultCtor]
+	[BaseType (typeof(NSObject), Name = "FIRStackFrame")]
+	interface StackFrame
+	{
+		// -(instancetype _Nonnull)initWithSymbol:(NSString * _Nonnull)symbol file:(NSString * _Nonnull)file line:(NSInteger)line;
+		[Export ("initWithSymbol:file:line:")]
+		IntPtr Constructor (string symbol, string file, nint line);
+
+		// +(instancetype _Nonnull)stackFrameWithSymbol:(NSString * _Nonnull)symbol file:(NSString * _Nonnull)file line:(NSInteger)line __attribute__((availability(swift, unavailable)));
+		[Static]
+		[Export ("stackFrameWithSymbol:file:line:")]
+		StackFrame Create (string symbol, string file, nint line);
 	}
 }
