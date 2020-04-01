@@ -57,7 +57,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase AdMob                   | **7.57.0.0**      | **6.21.0**     |
 | Firebase Analytics               | **6.4.0.0**       | **6.21.0**     |
 | Firebase Auth                    | **6.5.1.0**       | **6.21.0**     |
-| Firebase Cloud Firestore         | **1.11.2.0**      | **6.20.0**     |
+| Firebase Cloud Firestore         | **1.11.2.0**      | **6.21.0**     |
 | Firebase Cloud Messaging         | **4.3.0.0**       | **6.20.0**     |
 | Firebase Core                    | **6.6.5.0**       | **6.21.0**     |
 | Firebase Crashlytics             | **4.0.0-beta.6**  | **6.21.0**     |

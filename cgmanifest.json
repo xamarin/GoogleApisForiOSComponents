@@ -4,6 +4,26 @@
 			"component": {
 				"type": "git",
 				"git": {
+					"name": "abseil",
+					"repositoryUrl": "https://github.com/abseil/abseil-cpp.git",
+					"commitHash": "aa844899c937bde5d2b24f276b59997e5b668bde"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "BoringSSL-GRPC",
+					"repositoryUrl": "https://github.com/google/boringssl.git",
+					"commitHash": "b29b21a81b32ec273f118f589f46d56ad3332420"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
 					"name": "FirebaseABTesting",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
 					"commitHash": "a43ca45c0dc9480fd16165eabc55e1cbaacc1b67"
@@ -47,16 +67,6 @@
 					"name": "FirebaseAuthInterop",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
 					"commitHash": "a43ca45c0dc9480fd16165eabc55e1cbaacc1b67"
-				}
-			}
-		},
-		{
-			"component": {
-				"type": "git",
-				"git": {
-					"name": "FirebaseFirestore",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
-					"commitHash": "1e3edcc9463d1335968d4911fbcf2221f81cc9a7"
 				}
 			}
 		},
@@ -127,6 +137,16 @@
 					"name": "FirebaseDynamicLinks",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
 					"commitHash": "f0d6f5a9ff3af91406d11c79c04e2557c35eb747"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "FirebaseFirestore",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"commitHash": "54a1db1dc74a95bae875f9d9acd2c820c4b5201a"
 				}
 			}
 		},
@@ -417,6 +437,26 @@
 					"name": "GoogleUtilities",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
 					"commitHash": "956fb1b11b58225768bc2bde9d3ed41835e91d63"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "gRPC-C++",
+					"repositoryUrl": "https://github.com/grpc/grpc.git",
+					"commitHash": "7569ba7a66a2b4dd93b04ad355cc401d06285ee7"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "gRPC-Core",
+					"repositoryUrl": "https://github.com/grpc/grpc.git",
+					"commitHash": "7569ba7a66a2b4dd93b04ad355cc401d06285ee7"
 				}
 			}
 		},
