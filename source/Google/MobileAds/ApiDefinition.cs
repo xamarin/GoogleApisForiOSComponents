@@ -579,6 +579,10 @@ namespace Google.MobileAds {
 	}
 
 	// @interface GADRewardBasedVideoAd : NSObject
+	[Oboslete ("Use RewardedAd instead. Google AdMob publishers, follow instructions here: " +
+		   "https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. " +
+		   "Google Ad Manager publishers, follow instructions here: " +
+		   "https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration.")]
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject),
 		Name = "GADRewardBasedVideoAd",
