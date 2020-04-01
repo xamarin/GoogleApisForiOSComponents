@@ -285,8 +285,8 @@
 				"type": "other",
 				"other": {
 					"name": "FirebasePerformance",
-					"version": "3.1.1",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/8397df6fcb790e44/FirebasePerformance-3.1.1.tar.gz"
+					"version": "3.1.11",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/c543c7b170639336/FirebasePerformance-3.1.11.tar.gz"
 				}
 			}
 		},
@@ -427,6 +427,16 @@
 					"name": "GoogleTagManager",
 					"version": "7.1.2",
 					"downloadUrl": "https://dl.google.com/dl/cpdc/e0b99b8644b80573/GoogleTagManager-7.1.2.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "GoogleToolboxForMac",
+					"repositoryUrl": "https://github.com/google/google-toolbox-for-mac.git",
+					"commitHash": "b82cfeb7b09d970d3cdc33cd0d7c87cbcbc26562"
 				}
 			}
 		},

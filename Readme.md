@@ -23,7 +23,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.MLKit.ModelInterpreter][F.MLKit.ModelInterpreter.Name] | [0.19.0.0][F.MLKit.ModelInterpreter.Package] |
 | [Xamarin.Firebase.iOS.MLKit.NaturalLanguage][F.MLKit.NaturalLanguage.Name]   | [0.17.0.0][F.MLKit.NaturalLanguage.Package]  |
 | [Xamarin.Firebase.iOS.MLKit.Vision][F.MLKit.Vision.Name]                     | [0.19.0.0][F.MLKit.Vision.Package]           |
-| [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name]   | [3.1.10.0][F.PerformanceMonitoring.Package]  |
+| [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name]   | [3.1.11.0][F.PerformanceMonitoring.Package]  |
 | [Xamarin.Firebase.iOS.RemoteConfig][F.RemoteConfig.Name]                     | [4.4.9.0][F.RemoteConfig.Package]            |
 | [Xamarin.Firebase.iOS.Storage][F.Storage.Name]                               | [3.6.0.0][F.Storage.Package]                 |
 | [Xamarin.Google.iOS.Analytics][G.Analytics.Name]                             | [3.17.0.6][G.Analytics.Package]              |
@@ -70,7 +70,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase MLKit Model Interpreter | **0.19.0.0**      | **6.20.0**     |
 | Firebase MLKit Natural Language  | **0.17.0.0**      | **6.20.0**     |
 | Firebase MLKit Vision            | **0.19.0.0**      | **6.20.0**     |
-| Firebase Performance Monitoring  | **3.1.10.0**      | **6.20.0**     |
+| Firebase Performance Monitoring  | **3.1.11.0**      | **6.21.0**     |
 | Firebase RemoteConfig            | **4.4.9.0**       | **6.20.0**     |
 | Firebase Storage                 | **3.6.0.0**       | **6.20.0**     |
 | Google Sign-In                   | **5.0.2.1**       | **6.15.0**     |
