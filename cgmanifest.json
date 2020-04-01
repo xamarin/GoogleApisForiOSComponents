@@ -306,7 +306,7 @@
 				"git": {
 					"name": "FirebaseStorage",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
-					"commitHash": "1e3edcc9463d1335968d4911fbcf2221f81cc9a7"
+					"commitHash": "a43ca45c0dc9480fd16165eabc55e1cbaacc1b67"
 				}
 			}
 		},
