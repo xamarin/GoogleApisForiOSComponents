@@ -174,6 +174,16 @@
 			"component": {
 				"type": "other",
 				"other": {
+					"name": "FirebaseMLCommon",
+					"version": "0.19.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/6af4e180ffe8fd16/FirebaseMLCommon-0.19.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
 					"name": "FirebaseMLVision",
 					"version": "0.13.0",
 					"downloadUrl": "https://dl.google.com/dl/cpdc/54f807345bb50c1b/FirebaseMLVision-0.13.0.tar.gz"
@@ -217,16 +227,6 @@
 					"name": "FirebaseMLVisionTextModel",
 					"version": "0.13.0",
 					"downloadUrl": "https://dl.google.com/dl/cpdc/28b6267e50cfb395/FirebaseMLVisionTextModel-0.13.0.tar.gz"
-				}
-			}
-		},
-		{
-			"component": {
-				"type": "other",
-				"other": {
-					"name": "FirebaseMLCommon",
-					"version": "0.17.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/b3585d54f4d9224f/FirebaseMLCommon-0.17.0.tar.gz"
 				}
 			}
 		},

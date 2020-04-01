@@ -65,8 +65,8 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Dynamic Links           | **4.0.8.0**       | **6.21.0**     |
 | Firebase Installations           | **1.1.1.0**       | **6.21.0**     |
 | Firebase Instance ID             | **4.3.2.0**       | **6.21.0**     |
-| Firebase MLKit                   | **0.19.0.0**      | **6.20.0**     |
-| Firebase MLKit Common            | **0.19.0.0**      | **6.20.0**     |
+| Firebase MLKit                   | **0.19.0.0**      | **6.21.0**     |
+| Firebase MLKit Common            | **0.19.0.0**      | **6.21.0**     |
 | Firebase MLKit Model Interpreter | **0.19.0.0**      | **6.20.0**     |
 | Firebase MLKit Natural Language  | **0.17.0.0**      | **6.20.0**     |
 | Firebase MLKit Vision            | **0.19.0.0**      | **6.20.0**     |
