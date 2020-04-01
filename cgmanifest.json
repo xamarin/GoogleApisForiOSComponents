@@ -5,7 +5,7 @@
 				"type": "git",
 				"git": {
 					"name": "abseil",
-					"repositoryUrl": "https://github.com/abseil/abseil-cpp.git",
+					"repositoryUrl": "https://github.com/abseil/abseil-cpp",
 					"commitHash": "aa844899c937bde5d2b24f276b59997e5b668bde"
 				}
 			}
@@ -15,7 +15,7 @@
 				"type": "git",
 				"git": {
 					"name": "BoringSSL-GRPC",
-					"repositoryUrl": "https://github.com/google/boringssl.git",
+					"repositoryUrl": "https://github.com/google/boringssl",
 					"commitHash": "b29b21a81b32ec273f118f589f46d56ad3332420"
 				}
 			}
@@ -25,7 +25,7 @@
 				"type": "git",
 				"git": {
 					"name": "FirebaseABTesting",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
 					"commitHash": "a43ca45c0dc9480fd16165eabc55e1cbaacc1b67"
 				}
 			}
@@ -45,7 +45,7 @@
 				"type": "git",
 				"git": {
 					"name": "FirebaseAnalyticsInterop",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
 					"commitHash": "6b5ce1cfa2c566a5a6ce55cca340ed6aea91bddd"
 				}
 			}
@@ -55,7 +55,7 @@
 				"type": "git",
 				"git": {
 					"name": "FirebaseAuth",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
 					"commitHash": "f0d6f5a9ff3af91406d11c79c04e2557c35eb747"
 				}
 			}
@@ -65,7 +65,7 @@
 				"type": "git",
 				"git": {
 					"name": "FirebaseAuthInterop",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
 					"commitHash": "a43ca45c0dc9480fd16165eabc55e1cbaacc1b67"
 				}
 			}
@@ -75,7 +75,7 @@
 				"type": "git",
 				"git": {
 					"name": "FirebaseCore",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
 					"commitHash": "f0d6f5a9ff3af91406d11c79c04e2557c35eb747"
 				}
 			}
@@ -85,7 +85,7 @@
 				"type": "git",
 				"git": {
 					"name": "FirebaseCoreDiagnostics",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
 					"commitHash": "a43ca45c0dc9480fd16165eabc55e1cbaacc1b67"
 				}
 			}
@@ -95,7 +95,7 @@
 				"type": "git",
 				"git": {
 					"name": "FirebaseCoreDiagnosticsInterop",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
 					"commitHash": "6b5ce1cfa2c566a5a6ce55cca340ed6aea91bddd"
 				}
 			}
@@ -105,7 +105,7 @@
 				"type": "git",
 				"git": {
 					"name": "FirebaseCrashlytics",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
 					"commitHash": "f0d6f5a9ff3af91406d11c79c04e2557c35eb747"
 				}
 			}
@@ -115,7 +115,7 @@
 				"type": "git",
 				"git": {
 					"name": "FirebaseDatabase",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
 					"commitHash": "6b5ce1cfa2c566a5a6ce55cca340ed6aea91bddd"
 				}
 			}
@@ -125,7 +125,7 @@
 				"type": "git",
 				"git": {
 					"name": "FirebaseDynamicLinks",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
 					"commitHash": "f0d6f5a9ff3af91406d11c79c04e2557c35eb747"
 				}
 			}
@@ -135,7 +135,7 @@
 				"type": "git",
 				"git": {
 					"name": "FirebaseFirestore",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
 					"commitHash": "54a1db1dc74a95bae875f9d9acd2c820c4b5201a"
 				}
 			}
@@ -145,7 +145,7 @@
 				"type": "git",
 				"git": {
 					"name": "FirebaseInstallations",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
 					"commitHash": "f0d6f5a9ff3af91406d11c79c04e2557c35eb747"
 				}
 			}
@@ -155,7 +155,7 @@
 				"type": "git",
 				"git": {
 					"name": "FirebaseInstanceID",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
 					"commitHash": "98390cacc37cfbf50963bad32a1144441f0618d1"
 				}
 			}
@@ -165,7 +165,7 @@
 				"type": "git",
 				"git": {
 					"name": "FirebaseMessaging",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
 					"commitHash": "98390cacc37cfbf50963bad32a1144441f0618d1"
 				}
 			}
@@ -187,56 +187,6 @@
 					"name": "FirebaseMLModelInterpreter",
 					"version": "0.19.0",
 					"downloadUrl": "https://dl.google.com/dl/cpdc/00e5438c83064d53/FirebaseMLModelInterpreter-0.19.0.tar.gz"
-				}
-			}
-		},
-		{
-			"component": {
-				"type": "other",
-				"other": {
-					"name": "FirebaseMLVision",
-					"version": "0.13.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/54f807345bb50c1b/FirebaseMLVision-0.13.0.tar.gz"
-				}
-			}
-		},
-		{
-			"component": {
-				"type": "other",
-				"other": {
-					"name": "FirebaseMLVisionBarcodeModel",
-					"version": "0.13.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/0ca944b28ab85a18/FirebaseMLVisionBarcodeModel-0.13.0.tar.gz"
-				}
-			}
-		},
-		{
-			"component": {
-				"type": "other",
-				"other": {
-					"name": "FirebaseMLVisionFaceModel",
-					"version": "0.13.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/c8c70f4432a51411/FirebaseMLVisionFaceModel-0.13.0.tar.gz"
-				}
-			}
-		},
-		{
-			"component": {
-				"type": "other",
-				"other": {
-					"name": "FirebaseMLVisionLabelModel",
-					"version": "0.13.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/bb0c0641e5b3886e/FirebaseMLVisionLabelModel-0.13.0.tar.gz"
-				}
-			}
-		},
-		{
-			"component": {
-				"type": "other",
-				"other": {
-					"name": "FirebaseMLVisionTextModel",
-					"version": "0.13.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/28b6267e50cfb395/FirebaseMLVisionTextModel-0.13.0.tar.gz"
 				}
 			}
 		},
@@ -275,8 +225,78 @@
 				"type": "other",
 				"other": {
 					"name": "FirebaseMLNLTranslate",
-					"version": "0.16.3",
+					"version": "0.17.0",
 					"downloadUrl": "https://dl.google.com/dl/cpdc/b09b22f0bb7acf83/FirebaseMLNLTranslate-0.17.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseMLVision",
+					"version": "0.19.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/5164ed31243cbcfc/FirebaseMLVision-0.19.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseMLVisionAutoML",
+					"version": "0.19.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/f4534f5e3138797f/FirebaseMLVisionAutoML-0.19.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseMLVisionBarcodeModel",
+					"version": "0.19.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/36e67de7b4cd08fc/FirebaseMLVisionBarcodeModel-0.19.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseMLVisionFaceModel",
+					"version": "0.19.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/3b3c4105b4d96bf2/FirebaseMLVisionFaceModel-0.19.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseMLVisionLabelModel",
+					"version": "0.19.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/c173d8e581641f85/FirebaseMLVisionLabelModel-0.19.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseMLVisionObjectDetection",
+					"version": "0.19.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/69635c932ce31d80/FirebaseMLVisionObjectDetection-0.19.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FirebaseMLVisionTextModel",
+					"version": "0.19.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/6f6ebbb34acb4e37/FirebaseMLVisionTextModel-0.19.0.tar.gz"
 				}
 			}
 		},
@@ -295,7 +315,7 @@
 				"type": "git",
 				"git": {
 					"name": "FirebaseRemoteConfig",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
 					"commitHash": "a43ca45c0dc9480fd16165eabc55e1cbaacc1b67"
 				}
 			}
@@ -305,7 +325,7 @@
 				"type": "git",
 				"git": {
 					"name": "FirebaseStorage",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
 					"commitHash": "a43ca45c0dc9480fd16165eabc55e1cbaacc1b67"
 				}
 			}
@@ -317,6 +337,16 @@
 					"name": "GoogleAnalytics",
 					"version": "3.17.0",
 					"downloadUrl": "https://www.gstatic.com/cpdc/5cd71dd2f756bb01/GoogleAnalytics-3.17.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "GoogleAPIClientForREST",
+					"repositoryUrl": "https://github.com/google/google-api-objectivec-client-for-rest",
+					"commitHash": "2f9d8a885993dde262ca184e2b2e3ac58373bf2b"
 				}
 			}
 		},
@@ -355,7 +385,7 @@
 				"type": "git",
 				"git": {
 					"name": "GoogleDataTransport",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
 					"commitHash": "f0d6f5a9ff3af91406d11c79c04e2557c35eb747"
 				}
 			}
@@ -365,7 +395,7 @@
 				"type": "git",
 				"git": {
 					"name": "GoogleDataTransportCCTSupport",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
 					"commitHash": "f0d6f5a9ff3af91406d11c79c04e2557c35eb747"
 				}
 			}
@@ -435,7 +465,7 @@
 				"type": "git",
 				"git": {
 					"name": "GoogleToolboxForMac",
-					"repositoryUrl": "https://github.com/google/google-toolbox-for-mac.git",
+					"repositoryUrl": "https://github.com/google/google-toolbox-for-mac",
 					"commitHash": "b82cfeb7b09d970d3cdc33cd0d7c87cbcbc26562"
 				}
 			}
@@ -445,7 +475,7 @@
 				"type": "git",
 				"git": {
 					"name": "GoogleUtilities",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
 					"commitHash": "956fb1b11b58225768bc2bde9d3ed41835e91d63"
 				}
 			}
@@ -455,7 +485,7 @@
 				"type": "git",
 				"git": {
 					"name": "gRPC-C++",
-					"repositoryUrl": "https://github.com/grpc/grpc.git",
+					"repositoryUrl": "https://github.com/grpc/grpc",
 					"commitHash": "7569ba7a66a2b4dd93b04ad355cc401d06285ee7"
 				}
 			}
@@ -465,7 +495,7 @@
 				"type": "git",
 				"git": {
 					"name": "gRPC-Core",
-					"repositoryUrl": "https://github.com/grpc/grpc.git",
+					"repositoryUrl": "https://github.com/grpc/grpc",
 					"commitHash": "7569ba7a66a2b4dd93b04ad355cc401d06285ee7"
 				}
 			}
@@ -475,7 +505,7 @@
 				"type": "git",
 				"git": {
 					"name": "GTMSessionFetcher",
-					"repositoryUrl": "https://github.com/google/gtm-session-fetcher.git",
+					"repositoryUrl": "https://github.com/google/gtm-session-fetcher",
 					"commitHash": "bb65f9b4b498ff55d253b5df8694227a3ca54b72"
 				}
 			}
@@ -485,7 +515,7 @@
 				"type": "git",
 				"git": {
 					"name": "leveldb-library",
-					"repositoryUrl": "https://github.com/google/leveldb.git",
+					"repositoryUrl": "https://github.com/google/leveldb",
 					"commitHash": "78b39d68c15ba020c0d60a3906fb66dbf1697595"
 				}
 			}
@@ -495,7 +525,7 @@
 				"type": "git",
 				"git": {
 					"name": "nanopb",
-					"repositoryUrl": "https://github.com/nanopb/nanopb.git",
+					"repositoryUrl": "https://github.com/nanopb/nanopb",
 					"commitHash": "04cd1f94cc513b4cb3eac924c74039ccc05a944b"
 				}
 			}
@@ -505,7 +535,7 @@
 				"type": "git",
 				"git": {
 					"name": "PromisesObjC",
-					"repositoryUrl": "https://github.com/google/promises.git",
+					"repositoryUrl": "https://github.com/google/promises",
 					"commitHash": "6b6f4fe3385ed37389fb231bc40be81de2f1230f"
 				}
 			}
@@ -515,7 +545,7 @@
 				"type": "git",
 				"git": {
 					"name": "Protobuf",
-					"repositoryUrl": "https://github.com/protocolbuffers/protobuf.git",
+					"repositoryUrl": "https://github.com/protocolbuffers/protobuf",
 					"commitHash": "d0bfd5221182da1a7cc280f3337b5e41a89539cf"
 				}
 			}
@@ -535,7 +565,7 @@
 				"type": "git",
 				"git": {
 					"name": "TensorFlowLiteObjC",
-					"repositoryUrl": "https://github.com/tensorflow/tensorflow.git",
+					"repositoryUrl": "https://github.com/tensorflow/tensorflow",
 					"commitHash": "87989f69597d6b2d60de8f112e1e3cea23be7298"
 				}
 			}
