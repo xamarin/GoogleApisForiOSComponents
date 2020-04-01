@@ -99,19 +99,19 @@ namespace Firebase.Analytics
 		public static NSString LevelName { get; } = new NSString ("level_name");
 		public static NSString Success { get; } = new NSString ("success");
 		public static NSString ExtendSession { get; } = new NSString ("extend_session");
-		public static NSString Discount { get; } = @"discount";
-		public static NSString ItemCategory2 { get; } = @"item_category2";
-		public static NSString ItemCategory3 { get; } = @"item_category3";
-		public static NSString ItemCategory4 { get; } = @"item_category4";
-		public static NSString ItemCategory5 { get; } = @"item_category5";
-		public static NSString ItemListID { get; } = @"item_list_id";
-		public static NSString ItemListName { get; } = @"item_list_name";
-		public static NSString Items { get; } = @"items";
-		public static NSString LocationID { get; } = @"location_id";
-		public static NSString PaymentType { get; } = @"payment_type";
-		public static NSString PromotionID { get; } = @"promotion_id";
-		public static NSString PromotionName { get; } = @"promotion_name";
-		public static NSString ShippingTier { get; } = @"shipping_tier";
+		public static NSString Discount { get; } = new NSString ("discount");
+		public static NSString ItemCategory2 { get; } = new NSString ("item_category2");
+		public static NSString ItemCategory3 { get; } = new NSString ("item_category3");
+		public static NSString ItemCategory4 { get; } = new NSString ("item_category4");
+		public static NSString ItemCategory5 { get; } = new NSString ("item_category5");
+		public static NSString ItemListId { get; } = new NSString ("item_list_id");
+		public static NSString ItemListName { get; } = new NSString ("item_list_name");
+		public static NSString Items { get; } = new NSString ("items");
+		public static NSString LocationId { get; } = new NSString ("location_id");
+		public static NSString PaymentType { get; } = new NSString ("payment_type");
+		public static NSString PromotionId { get; } = new NSString ("promotion_id");
+		public static NSString PromotionName { get; } = new NSString ("promotion_name");
+		public static NSString ShippingTier { get; } = new NSString ("shipping_tier");
 	}
 
 	public static class UserPropertyNamesConstants
