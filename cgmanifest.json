@@ -116,7 +116,7 @@
 				"git": {
 					"name": "FirebaseDatabase",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
-					"commitHash": "948309c36428371f3387db18fc6764155775f561"
+					"commitHash": "6b5ce1cfa2c566a5a6ce55cca340ed6aea91bddd"
 				}
 			}
 		},
@@ -427,6 +427,16 @@
 					"name": "GTMSessionFetcher",
 					"repositoryUrl": "https://github.com/google/gtm-session-fetcher.git",
 					"commitHash": "bb65f9b4b498ff55d253b5df8694227a3ca54b72"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "leveldb-library",
+					"repositoryUrl": "https://github.com/google/leveldb.git",
+					"commitHash": "78b39d68c15ba020c0d60a3906fb66dbf1697595"
 				}
 			}
 		},

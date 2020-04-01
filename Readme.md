@@ -61,7 +61,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Cloud Messaging         | **4.3.0.0**       | **6.20.0**     |
 | Firebase Core                    | **6.6.5.0**       | **6.21.0**     |
 | Firebase Crashlytics             | **4.0.0-beta.6**  | **6.21.0**     |
-| Firebase Database                | **6.1.4.0**       | **6.20.0**     |
+| Firebase Database                | **6.1.4.0**       | **6.21.0**     |
 | Firebase Dynamic Links           | **4.0.7.0**       | **6.20.0**     |
 | Firebase Installations           | **1.1.1.0**       | **6.21.0**     |
 | Firebase Instance ID             | **4.3.2.0**       | **6.21.0**     |
