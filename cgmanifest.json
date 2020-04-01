@@ -184,6 +184,16 @@
 			"component": {
 				"type": "other",
 				"other": {
+					"name": "FirebaseMLModelInterpreter",
+					"version": "0.19.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/00e5438c83064d53/FirebaseMLModelInterpreter-0.19.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
 					"name": "FirebaseMLVision",
 					"version": "0.13.0",
 					"downloadUrl": "https://dl.google.com/dl/cpdc/54f807345bb50c1b/FirebaseMLVision-0.13.0.tar.gz"
@@ -227,16 +237,6 @@
 					"name": "FirebaseMLVisionTextModel",
 					"version": "0.13.0",
 					"downloadUrl": "https://dl.google.com/dl/cpdc/28b6267e50cfb395/FirebaseMLVisionTextModel-0.13.0.tar.gz"
-				}
-			}
-		},
-		{
-			"component": {
-				"type": "other",
-				"other": {
-					"name": "FirebaseMLModelInterpreter",
-					"version": "0.17.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/48e78c429d2df3cd/FirebaseMLModelInterpreter-0.17.0.tar.gz"
 				}
 			}
 		},
@@ -517,6 +517,26 @@
 					"name": "Protobuf",
 					"repositoryUrl": "https://github.com/protocolbuffers/protobuf.git",
 					"commitHash": "d0bfd5221182da1a7cc280f3337b5e41a89539cf"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "TensorFlowLiteC",
+					"version": "1.14.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/0e27bc28472e2519/TensorFlowLiteC-1.14.0.tar.gz"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "TensorFlowLiteObjC",
+					"repositoryUrl": "https://github.com/tensorflow/tensorflow.git",
+					"commitHash": "87989f69597d6b2d60de8f112e1e3cea23be7298"
 				}
 			}
 		}
