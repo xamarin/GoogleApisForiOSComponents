@@ -49,19 +49,19 @@ namespace FunctionsSample
 		{
 			var instance = Functions.DefaultInstance;
 
-			var function = instance.HTTPSCallableWithName(functionName);
+			var function = instance.HttpsCallable(functionName);
 
             if (data == null)
             {
-			    function.CallWithCompletion(OnFunctionCompletion);
+			    function.Call(OnFunctionCompletion);
             }
             else
             {
-				function.CallWithObject(data, OnFunctionCompletion);
+				function.Call(data, OnFunctionCompletion);
             }
 		}
 
-        private void OnFunctionCompletion(HTTPSCallableResult result, NSError error)
+        private void OnFunctionCompletion(HttpsCallableResult result, NSError error)
         {
 			Console.WriteLine("Got result: " + result);
             if (error != null)
