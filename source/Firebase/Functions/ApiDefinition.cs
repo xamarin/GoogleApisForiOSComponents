@@ -21,21 +21,21 @@ namespace Firebase.Functions
 		// + (FIRFunctions *)functionsForApp:(FIRAPP *)app;
 		[Static]
 		[Export("functionsForApp:")]
-		Functions CreateForApp(App app);
+		Functions From (App app);
 
 		//+ (FIRFunctions *) functionsForRegion:(NSString*) region;
         [Static]
         [Export("functionsForRegion:")]
-		Functions CreateForRegion(string region);
+		Functions From (string region);
 
 		//+ (FIRFunctions *)functionsForApp:(FIRApp *)app region:(NSString*) region
         [Static]
         [Export("functionsForApp:region")]
-		Functions CreateForApp(App app, string region);
+		Functions From (App app, string region);
 
         //- (FIRHTTPSCallable *)HTTPSCallableWithName:(NSString *)name;
         [Export("HTTPSCallableWithName:")]
-		HTTPSCallable HTTPSCallableWithName(string name);
+		HttpsCallable HttpsCallable (string name);
 
 		//- (void)useFunctionsEmulatorOrigin:(NSString *)origin
 		[Export("useFunctionsEmulatorOrigin:")]
@@ -43,22 +43,22 @@ namespace Firebase.Functions
 	}
 
 	// void (^)(FIRHTTPSCallableResult *_Nullable result, NSError *_Nullable error);
-	delegate void HTTPSCallableResultHandler ([NullAllowed] HTTPSCallableResult result, [NullAllowed] NSError error);
+	delegate void HttpsCallableResultHandler ([NullAllowed] HttpsCallableResult result, [NullAllowed] NSError error);
 
 
     [DisableDefaultCtor]
     [BaseType (typeof (NSObject), Name = "FIRHTTPSCallable")]
-	interface HTTPSCallable
+	interface HttpsCallable
 	{
 		//- (void)callWithCompletion: (void (^)(FIRHTTPSCallableResult *_Nullable result, NSError *_Nullable error))completion;
 		[Export("callWithCompletion:")]
         [Async]
-		void CallWithCompletion(HTTPSCallableResultHandler completion);
+		void Call (HttpsCallableResultHandler completion);
 
 		//- (void)callWithObject:(nullable id)data completion:(void (^)(FIRHTTPSCallableResult* _Nullable result, NSError *_Nullable error))completion
         [Export("callWithObject:completion:")]
 		[Async]
-		void CallWithObject([NullAllowed] NSObject data, HTTPSCallableResultHandler completion);
+		void Call ([NullAllowed] NSObject data, HttpsCallableResultHandler completion);
 
 		//@property(nonatomic, assign) NSTimeInterval timeoutInterval;
         [Export("timeoutInterval")]
@@ -67,7 +67,7 @@ namespace Firebase.Functions
 
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRHTTPSCallableResult")]
-	interface HTTPSCallableResult
+	interface HttpsCallableResult
 	{
 		//@property(nonatomic, strong, readonly) id data;
 		[Export("data")]
