@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
   <PropertyGroup>
     <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
     <IsBindingProject>true</IsBindingProject>
@@ -19,9 +19,9 @@
     <Authors>Microsoft</Authors>
     <Owners>Microsoft</Owners>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
-    <PackageIconUrl>https://raw.githubusercontent.com/xamarin/GoogleApisForiOSComponents/master/icons/firebaseiosmlkitnaturallanguage_128x128.png</PackageIconUrl>
+    <PackageIcon>firebaseiosmlkitnaturallanguage_128x128.png</PackageIcon>
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2109487</PackageProjectUrl>
-    <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=2109658</PackageLicenseUrl>
+    <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageVersion>0.17.0</PackageVersion>
   </PropertyGroup>
@@ -36,6 +36,10 @@
   
   <ItemGroup>
     <None Include="MLKit.NaturalLanguage.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.MLKit.NaturalLanguage.targets" />
+    <None Include="MLKit.NaturalLanguage.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.MLKit.NaturalLanguage.targets" />
+    <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
+    <None Include="License.md" Pack="True" PackagePath="License.md" />
+    <None Include="../../../icons/firebaseiosmlkitnaturallanguage_128x128.png" Pack="True" PackagePath="firebaseiosmlkitnaturallanguage_128x128.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -52,17 +56,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Build.Download" Version="0.10.0" />
-    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.4.0" PrivateAssets="All" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.10.0" PrivateAssets="None" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj" />
-    <ProjectReference Include="..\Installations\Installations.csproj" />
-    <ProjectReference Include="..\InstanceID\InstanceID.csproj" />
-    <ProjectReference Include="..\ABTesting\ABTesting.csproj" />
-    <ProjectReference Include="..\RemoteConfig\RemoteConfig.csproj" />
-    <ProjectReference Include="..\MLKit.Common\MLKit.Common.csproj" />
+    <ProjectReference Include="..\Core\Core.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\Installations\Installations.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\InstanceID\InstanceID.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\ABTesting\ABTesting.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\RemoteConfig\RemoteConfig.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\MLKit.Common\MLKit.Common.csproj" PrivateAssets="None" />
   </ItemGroup>
   
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />

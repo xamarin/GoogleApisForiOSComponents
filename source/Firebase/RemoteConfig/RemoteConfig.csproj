@@ -72,7 +72,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" PrivateAssets="None" />
-    <ProjectReference Include="..\Installations\Installations.csproj" />
+    <ProjectReference Include="..\Installations\Installations.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\InstanceID\InstanceID.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\ABTesting\ABTesting.csproj" PrivateAssets="None" />
   </ItemGroup>

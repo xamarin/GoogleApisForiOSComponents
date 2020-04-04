@@ -67,15 +67,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj" />
-    <ProjectReference Include="..\Installations\Installations.csproj" />
-    <ProjectReference Include="..\InstanceID\InstanceID.csproj" />
-    <ProjectReference Include="..\ABTesting\ABTesting.csproj" />
-    <ProjectReference Include="..\RemoteConfig\RemoteConfig.csproj" />
-    <ProjectReference Include="..\MLKit.Common\MLKit.Common.csproj" />
-    <ProjectReference Include="..\MLKit.ModelInterpreter\MLKit.ModelInterpreter.csproj" />
-    <ProjectReference Include="..\MLKit.NaturalLanguage\MLKit.NaturalLanguage.csproj" />
-    <ProjectReference Include="..\MLKit.Vision\MLKit.Vision.csproj" />
+    <ProjectReference Include="..\Core\Core.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\Installations\Installations.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\InstanceID\InstanceID.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\ABTesting\ABTesting.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\RemoteConfig\RemoteConfig.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\MLKit.Common\MLKit.Common.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\MLKit.ModelInterpreter\MLKit.ModelInterpreter.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\MLKit.NaturalLanguage\MLKit.NaturalLanguage.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\MLKit.Vision\MLKit.Vision.csproj" PrivateAssets="None" />
   </ItemGroup>
   
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />

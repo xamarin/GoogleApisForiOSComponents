@@ -60,6 +60,7 @@
   
   <ItemGroup>
     <ProjectReference Include="..\..\Firebase\Core\Core.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\..\Firebase\Installations\Installations.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\..\Firebase\InstanceID\InstanceID.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\..\Firebase\Analytics\Analytics.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\Analytics\Analytics.csproj" PrivateAssets="None" />
