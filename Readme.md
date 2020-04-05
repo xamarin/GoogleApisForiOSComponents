@@ -17,7 +17,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.Database][F.Database.Name]                             | [6.0.0.2][F.Database.Package]                |
 | [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                     | [4.0.1.2][F.DynamicLinks.Package]            |
 | [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                         | [4.3.0.0][F.InstanceID.Package]              |
-| [Xamarin.Firebase.iOS.CloudFunctions][F.CloudFunctions.Name]                 | [6.4.2.0][F.CloudFunctions.Package]               |
+| [Xamarin.Firebase.iOS.CloudFunctions][F.CloudFunctions.Name]                 | [2.5.1.0][F.CloudFunctions.Package]               |
 | [Xamarin.Firebase.iOS.MLKit][F.MLKit.Name]                                   | [0.13.0.3][F.MLKit.Package]                  |
 | [Xamarin.Firebase.iOS.MLKit.Common][F.MLKit.Common.Name]                     | [0.13.0.2][F.MLKit.Common.Package]           |
 | [Xamarin.Firebase.iOS.MLKit.ModelInterpreter][F.MLKit.ModelInterpreter.Name] | [0.13.0.2][F.MLKit.ModelInterpreter.Package] |

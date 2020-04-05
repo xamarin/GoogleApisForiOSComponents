@@ -9,7 +9,7 @@ Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Cor
 Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Crashlytics",            "3.14.0.3", "8.0", ComponentGroup.Firebase, csprojName: "Crashlytics");
 Artifact FIREBASE_DATABASE_ARTIFACT                = new Artifact ("Firebase.Database",               "6.0.0.2",  "8.0", ComponentGroup.Firebase, csprojName: "Database", ignore: true);
 Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.DynamicLinks",           "4.0.1.2",  "8.0", ComponentGroup.Firebase, csprojName: "DynamicLinks", ignore: true);
-Artifact FIREBASE_CLOUD_FUNCTIONS_ARTIFACT               = new Artifact ("Firebase.CloudFunctions",              "6.4.2",    "8.0", ComponentGroup.Firebase, csprojName: "CloudFunctions");
+Artifact FIREBASE_CLOUD_FUNCTIONS_ARTIFACT         = new Artifact ("Firebase.CloudFunctions",         "2.5.1.0",  "8.0", ComponentGroup.Firebase, csprojName: "CloudFunctions");
 Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.InstanceID",             "4.3.0",    "8.0", ComponentGroup.Firebase, csprojName: "InstanceID");
 Artifact FIREBASE_MLKIT_ARTIFACT                   = new Artifact ("Firebase.MLKit",                  "0.13.0.3", "9.0", ComponentGroup.Firebase, csprojName: "MLKit", ignore: true);
 Artifact FIREBASE_MLKIT_COMMON_ARTIFACT            = new Artifact ("Firebase.MLKit.Common",           "0.13.0.2", "9.0", ComponentGroup.Firebase, csprojName: "MLKit.Common", ignore: true);
@@ -41,7 +41,7 @@ var ARTIFACTS = new Dictionary<string, Artifact> {
 	{ "Firebase.Crashlytics",            FIREBASE_CRASHLYTICS_ARTIFACT },
 	{ "Firebase.Database",               FIREBASE_DATABASE_ARTIFACT },
 	{ "Firebase.DynamicLinks",           FIREBASE_DYNAMIC_LINKS_ARTIFACT },
-	{ "Firebase.CloudFunctions",              FIREBASE_CLOUD_FUNCTIONS_ARTIFACT },
+	{ "Firebase.CloudFunctions",         FIREBASE_CLOUD_FUNCTIONS_ARTIFACT },
 	{ "Firebase.InstanceID",             FIREBASE_INSTANCE_ID_ARTIFACT },
 	{ "Firebase.MLKit",                  FIREBASE_MLKIT_ARTIFACT },
 	{ "Firebase.MLKit.Common",           FIREBASE_MLKIT_COMMON_ARTIFACT },
@@ -74,7 +74,7 @@ void SetArtifactsDependencies ()
 	FIREBASE_CRASHLYTICS_ARTIFACT.Dependencies             = new [] { /* Needed for sample */ FIREBASE_CORE_ARTIFACT };
 	FIREBASE_DATABASE_ARTIFACT.Dependencies                = new [] { FIREBASE_CORE_ARTIFACT, /* Needed for sample */ FIREBASE_AUTH_ARTIFACT };
 	FIREBASE_DYNAMIC_LINKS_ARTIFACT.Dependencies           = new [] { FIREBASE_CORE_ARTIFACT };
-	FIREBASE_CLOUD_FUNCTIONS_ARTIFACT.Dependencies                    = new [] { FIREBASE_CORE_ARTIFACT};
+	FIREBASE_CLOUD_FUNCTIONS_ARTIFACT.Dependencies         = new [] { FIREBASE_CORE_ARTIFACT};
 	FIREBASE_INSTANCE_ID_ARTIFACT.Dependencies             = new [] { FIREBASE_CORE_ARTIFACT };
 	FIREBASE_MLKIT_ARTIFACT.Dependencies                   = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_MLKIT_COMMON_ARTIFACT };
 	FIREBASE_MLKIT_COMMON_ARTIFACT.Dependencies            = new [] { FIREBASE_CORE_ARTIFACT };
@@ -147,7 +147,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("Firebase", "6.5.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseDynamicLinks", targetName: "FirebaseDynamicLinks", subSpecs: new [] { "DynamicLinks" })
 	};
 	FIREBASE_CLOUD_FUNCTIONS_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.15.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCloudFunctions", targetName: "FirebaseCloudFunctions", subSpecs: new [] { "CloudFunctions" })
+		PodSpec.Create ("Firebase", "2.5.1.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCloudFunctions", targetName: "FirebaseCloudFunctions", subSpecs: new [] { "CloudFunctions" })
 	};
 	FIREBASE_INSTANCE_ID_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("FirebaseInstanceID",    "4.3.0", frameworkSource: FrameworkSource.Pods),
