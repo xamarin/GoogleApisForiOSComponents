@@ -30,7 +30,7 @@ namespace Firebase.CloudFunctions
 
 		//+ (FIRFunctions *)functionsForApp:(FIRApp *)app region:(NSString*) region
         [Static]
-        [Export("functionsForApp:region")]
+        [Export("functionsForApp:region:")]
 		CloudFunctions From (App app, string region);
 
         //- (FIRHTTPSCallable *)HTTPSCallableWithName:(NSString *)name;
