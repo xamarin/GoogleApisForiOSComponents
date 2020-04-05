@@ -10,32 +10,32 @@ namespace Firebase.CloudFunctions
 {
 	// @interface FIRFunctions : NSObject
 	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FIRFunctions")]
+	[BaseType(typeof(NSObject), Name = "FIRFunctions")]
 	interface CloudFunctions
 	{
 		// + (FIRFunctions *)functions;
-        [Static]
-        [Export("functions")]
-        CloudFunctions DefaultInstance { get; }
+		[Static]
+		[Export("functions")]
+		CloudFunctions DefaultInstance { get; }
 
 		// + (FIRFunctions *)functionsForApp:(FIRAPP *)app;
 		[Static]
 		[Export("functionsForApp:")]
-		CloudFunctions From (App app);
+		CloudFunctions From(App app);
 
 		//+ (FIRFunctions *) functionsForRegion:(NSString*) region;
-        [Static]
-        [Export("functionsForRegion:")]
-		CloudFunctions From (string region);
+		[Static]
+		[Export("functionsForRegion:")]
+		CloudFunctions From(string region);
 
 		//+ (FIRFunctions *)functionsForApp:(FIRApp *)app region:(NSString*) region
-        [Static]
-        [Export("functionsForApp:region:")]
-		CloudFunctions From (App app, string region);
+		[Static]
+		[Export("functionsForApp:region:")]
+		CloudFunctions From(App app, string region);
 
-        //- (FIRHTTPSCallable *)HTTPSCallableWithName:(NSString *)name;
-        [Export("HTTPSCallableWithName:")]
-		HttpsCallable HttpsCallable (string name);
+		//- (FIRHTTPSCallable *)HTTPSCallableWithName:(NSString *)name;
+		[Export("HTTPSCallableWithName:")]
+		HttpsCallable HttpsCallable(string name);
 
 		//- (void)useFunctionsEmulatorOrigin:(NSString *)origin
 		[Export("useFunctionsEmulatorOrigin:")]
@@ -43,30 +43,30 @@ namespace Firebase.CloudFunctions
 	}
 
 	// void (^)(FIRHTTPSCallableResult *_Nullable result, NSError *_Nullable error);
-	delegate void HttpsCallableResultHandler ([NullAllowed] HttpsCallableResult result, [NullAllowed] NSError error);
+	delegate void HttpsCallableResultHandler([NullAllowed] HttpsCallableResult result, [NullAllowed] NSError error);
 
 
-    [DisableDefaultCtor]
-    [BaseType (typeof (NSObject), Name = "FIRHTTPSCallable")]
+	[DisableDefaultCtor]
+	[BaseType(typeof(NSObject), Name = "FIRHTTPSCallable")]
 	interface HttpsCallable
 	{
 		//- (void)callWithCompletion: (void (^)(FIRHTTPSCallableResult *_Nullable result, NSError *_Nullable error))completion;
 		[Export("callWithCompletion:")]
-        [Async]
-		void Call (HttpsCallableResultHandler completion);
+		[Async]
+		void Call(HttpsCallableResultHandler completion);
 
 		//- (void)callWithObject:(nullable id)data completion:(void (^)(FIRHTTPSCallableResult* _Nullable result, NSError *_Nullable error))completion
-        [Export("callWithObject:completion:")]
+		[Export("callWithObject:completion:")]
 		[Async]
-		void Call ([NullAllowed] NSObject data, HttpsCallableResultHandler completion);
+		void Call([NullAllowed] NSObject data, HttpsCallableResultHandler completion);
 
 		//@property(nonatomic, assign) NSTimeInterval timeoutInterval;
-        [Export("timeoutInterval")]
-        double TimeoutInterval { get; set; }
+		[Export("timeoutInterval")]
+		double TimeoutInterval { get; set; }
 	}
 
 	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FIRHTTPSCallableResult")]
+	[BaseType(typeof(NSObject), Name = "FIRHTTPSCallableResult")]
 	interface HttpsCallableResult
 	{
 		//@property(nonatomic, strong, readonly) id data;

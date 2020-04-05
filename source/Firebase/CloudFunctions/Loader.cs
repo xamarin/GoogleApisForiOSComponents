@@ -1,9 +1,7 @@
 ﻿using System;
-namespace Firebase.CloudFunctions
-{
-	public class Loader
-	{
-		static  Loader ()
+namespace Firebase.CloudFunctions {
+	public class Loader {
+		static Loader ()
 		{
 			Firebase.Core.Loader.ForceLoad ();
 		}
@@ -12,10 +10,8 @@ namespace Firebase.CloudFunctions
 	}
 }
 
-namespace ApiDefinition
-{
-	partial class Messaging
-	{
+namespace ApiDefinition {
+	partial class Messaging {
 		static Messaging ()
 		{
 			Firebase.CloudFunctions.Loader.ForceLoad ();
