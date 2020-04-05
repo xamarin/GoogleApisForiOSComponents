@@ -9,6 +9,7 @@ Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Cor
 Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Crashlytics",            "4.0.0-beta.6", "8.0", ComponentGroup.Firebase, csprojName: "Crashlytics");
 Artifact FIREBASE_DATABASE_ARTIFACT                = new Artifact ("Firebase.Database",               "6.1.4",        "8.0", ComponentGroup.Firebase, csprojName: "Database");
 Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.DynamicLinks",           "4.0.8",        "8.0", ComponentGroup.Firebase, csprojName: "DynamicLinks");
+Artifact FIREBASE_IN_APP_MESSAGING_ARTIFACT        = new Artifact ("Firebase.InAppMessaging",         "0.19.1",       "9.0", ComponentGroup.Firebase, csprojName: "InAppMessaging");
 Artifact FIREBASE_INSTALLATIONS_ARTIFACT           = new Artifact ("Firebase.Installations",          "1.1.1",        "8.0", ComponentGroup.Firebase, csprojName: "Installations");
 Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.InstanceID",             "4.3.2",        "8.0", ComponentGroup.Firebase, csprojName: "InstanceID");
 Artifact FIREBASE_MLKIT_ARTIFACT                   = new Artifact ("Firebase.MLKit",                  "0.19.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit");
@@ -43,6 +44,7 @@ var ARTIFACTS = new Dictionary<string, Artifact> {
 	{ "Firebase.Crashlytics",            FIREBASE_CRASHLYTICS_ARTIFACT },
 	{ "Firebase.Database",               FIREBASE_DATABASE_ARTIFACT },
 	{ "Firebase.DynamicLinks",           FIREBASE_DYNAMIC_LINKS_ARTIFACT },
+	{ "Firebase.InAppMessaging",         FIREBASE_IN_APP_MESSAGING_ARTIFACT },
 	{ "Firebase.Installations",          FIREBASE_INSTALLATIONS_ARTIFACT },
 	{ "Firebase.InstanceID",             FIREBASE_INSTANCE_ID_ARTIFACT },
 	{ "Firebase.MLKit",                  FIREBASE_MLKIT_ARTIFACT },
@@ -78,6 +80,7 @@ void SetArtifactsDependencies ()
 	FIREBASE_CRASHLYTICS_ARTIFACT.Dependencies             = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT };
 	FIREBASE_DATABASE_ARTIFACT.Dependencies                = new [] { FIREBASE_CORE_ARTIFACT, /* Needed for sample */ FIREBASE_AUTH_ARTIFACT };
 	FIREBASE_DYNAMIC_LINKS_ARTIFACT.Dependencies           = new [] { FIREBASE_CORE_ARTIFACT };
+	FIREBASE_IN_APP_MESSAGING_ARTIFACT.Dependencies        = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_AB_TESTING_ARTIFACT };
 	FIREBASE_INSTALLATIONS_ARTIFACT.Dependencies           = new [] { FIREBASE_CORE_ARTIFACT };
 	FIREBASE_INSTANCE_ID_ARTIFACT.Dependencies             = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT };
 	FIREBASE_MLKIT_ARTIFACT.Dependencies                   = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_AB_TESTING_ARTIFACT, FIREBASE_REMOTE_CONFIG_ARTIFACT, FIREBASE_MLKIT_COMMON_ARTIFACT, FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT, FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT, FIREBASE_MLKIT_VISION_ARTIFACT };
@@ -151,6 +154,9 @@ void SetArtifactsPodSpecs ()
 	};
 	FIREBASE_DYNAMIC_LINKS_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.21.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseDynamicLinks", targetName: "FirebaseDynamicLinks", subSpecs: new [] { "DynamicLinks" })
+	};
+	FIREBASE_IN_APP_MESSAGING_ARTIFACT.PodSpecs = new [] {
+		PodSpec.Create ("Firebase", "6.21.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseInAppMessaging", targetName: "FirebaseInAppMessaging", subSpecs: new [] { "InAppMessaging" })
 	};
 	FIREBASE_INSTALLATIONS_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("FirebaseInstallations", "1.1.1", frameworkSource: FrameworkSource.Pods),
@@ -251,12 +257,35 @@ void SetArtifactsExtraPodfileLines ()
 	FIREBASE_AUTH_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
 	FIREBASE_CLOUD_FIRESTORE_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
 	FIREBASE_CLOUD_MESSAGING_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
+	FIREBASE_CRASHLYTICS_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
 	FIREBASE_CORE_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
 	FIREBASE_DATABASE_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
 	FIREBASE_DYNAMIC_LINKS_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
+	FIREBASE_INSTALLATIONS_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
 	FIREBASE_INSTANCE_ID_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
 	FIREBASE_REMOTE_CONFIG_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
 	FIREBASE_STORAGE_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
+
+	var inAppMessagingWorkaround = new [] {
+		"post_install do |installer|",
+		"\tinstaller.pods_project.targets.each do |pod|",
+		"\t\tif pod.name == \"FirebaseInAppMessaging\"",
+		"\t\t\tpod.build_configurations.each do |config|",
+		"\t\t\t\tif config.name == 'Release'",
+		"\t\t\t\t\tputs \"Linking missing 'GoogleUtilities' framework to #{pod.name}\"",
+		"\t\t\t\t\tconfig.build_settings['OTHER_LDFLAGS'] ||= ['$(inherited)','-framework \"GoogleUtilities\"']",
+		"\t\t\t\tend",
+		"\t\t\tend",
+		"\t\tend",
+		"\tend",
+		"end",
+	};
+
+	var inAppMessagingLines = new List<string> ();
+	inAppMessagingLines.AddRange (dynamicFrameworkLines);
+	inAppMessagingLines.AddRange (inAppMessagingWorkaround);
+
+	FIREBASE_IN_APP_MESSAGING_ARTIFACT.ExtraPodfileLines = inAppMessagingLines.ToArray ();
 }
 
 void SetArtifactsSamples ()
@@ -272,6 +301,7 @@ void SetArtifactsSamples ()
 	FIREBASE_CRASHLYTICS_ARTIFACT.Samples             = new [] { "CrashlyticsSample" };
 	FIREBASE_DATABASE_ARTIFACT.Samples                = new [] { "DatabaseSample" };
 	FIREBASE_DYNAMIC_LINKS_ARTIFACT.Samples           = new [] { "DynamicLinksSample" };
+	FIREBASE_IN_APP_MESSAGING_ARTIFACT.Samples        = new [] { "InAppMessagingSample" };
 	FIREBASE_INSTALLATIONS_ARTIFACT.Samples           = null;
 	FIREBASE_INSTANCE_ID_ARTIFACT.Samples             = null;
 	FIREBASE_MLKIT_ARTIFACT.Samples                   = new [] { "MLKitSample" };

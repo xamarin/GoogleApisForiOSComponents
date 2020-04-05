@@ -144,6 +144,16 @@
 			"component": {
 				"type": "git",
 				"git": {
+					"name": "FirebaseInAppMessaging",
+					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
+					"commitHash": "f0d6f5a9ff3af91406d11c79c04e2557c35eb747"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
 					"name": "FirebaseInstallations",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
 					"commitHash": "f0d6f5a9ff3af91406d11c79c04e2557c35eb747"
