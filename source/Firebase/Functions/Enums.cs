@@ -1,10 +1,10 @@
 ﻿using System;
 using ObjCRuntime;
 
-namespace Firebase.Functions
+namespace Firebase.CloudFunctions
 {
     [Native]
-    public enum FunctionsErrorCode : long
+    public enum CloudFunctionsErrorCode : long
     {
         Ok = 0,
         Cancelled = 1,

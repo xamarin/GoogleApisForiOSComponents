@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Firebase.Functions
+namespace Firebase.CloudFunctions
 {
 	public class Loader
 	{
@@ -18,7 +18,7 @@ namespace ApiDefinition
 	{
 		static Messaging ()
 		{
-			Firebase.Functions.Loader.ForceLoad ();
+			Firebase.CloudFunctions.Loader.ForceLoad ();
 		}
 	}
 }

@@ -35,7 +35,7 @@ public Dictionary<string, GoogleBase> CreateComponents ()
 	googleComponents ["Firebase.CrashReporting"] = GetComponent<Firebase.CrashReporting> ();
 	googleComponents ["Firebase.Database"] = GetComponent<Firebase.Database> ();
 	googleComponents ["Firebase.DynamicLinks"] = GetComponent<Firebase.DynamicLinks> ();
-	googleComponents ["Firebase.Functions"] = GetComponent<Firebase.Functions> ();
+	googleComponents ["Firebase.CloudFunctions"] = GetComponent<Firebase.CloudFunctions> ();
 	googleComponents ["Firebase.InstanceID"] = GetComponent<Firebase.InstanceID> ();
 	googleComponents ["Firebase.Invites"] = GetComponent<Firebase.Invites> ();
 	googleComponents ["Firebase.MLKit"] = GetComponent<Firebase.MLKit> ();

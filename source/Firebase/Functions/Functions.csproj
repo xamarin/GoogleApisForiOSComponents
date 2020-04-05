@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
     <IsBindingProject>true</IsBindingProject>
-    <RootNamespace>Firebase.Functions</RootNamespace>
-    <AssemblyName>Firebase.Functions</AssemblyName>
+    <RootNamespace>Firebase.CloudFunctions</RootNamespace>
+    <AssemblyName>Firebase.CloudFunctions</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>6.4.2</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
@@ -12,14 +12,14 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>Xamarin.Firebase.iOS.Functions</PackageId>
-    <Title>Firebase APIs Functions iOS Library</Title>
-    <Summary>C# bindings for Firebase APIs Functions iOS Library</Summary>
-    <Description>C# bindings for Firebase APIs Functions iOS Library</Description>
+    <PackageId>Xamarin.Firebase.iOS.CloudFunctions</PackageId>
+    <Title>Firebase APIs CloudFunctions iOS Library</Title>
+    <Summary>C# bindings for Firebase APIs CloudFunctions iOS Library</Summary>
+    <Description>C# bindings for Firebase APIs CloudFunctions iOS Library</Description>
     <Authors>Microsoft</Authors>
     <Owners>Microsoft</Owners>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
-    <PackageIcon>firebaseiosfunctions_128x128.png</PackageIcon>
+    <PackageIcon>firebaseioscloudfunctions_128x128.png</PackageIcon>
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865530</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
@@ -40,7 +40,7 @@
     </None>
     <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
-    <None Include="../../../icons/firebaseiosfunctions_128x128.png" Pack="True" PackagePath="firebaseiosfunctions_128x128.png" />
+    <None Include="../../../icons/firebaseioscloudfunctions_128x128.png" Pack="True" PackagePath="firebaseioscloudfunctions_128x128.png" />
   </ItemGroup>
 
   <ItemGroup>

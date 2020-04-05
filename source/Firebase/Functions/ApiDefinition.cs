@@ -6,32 +6,32 @@ using ObjCRuntime;
 using CoreGraphics;
 using Firebase.Core;
 
-namespace Firebase.Functions
+namespace Firebase.CloudFunctions
 {
 	// @interface FIRFunctions : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRFunctions")]
-	interface Functions
+	interface CloudFunctions
 	{
 		// + (FIRFunctions *)functions;
         [Static]
         [Export("functions")]
-        Functions DefaultInstance { get; }
+        CloudFunctions DefaultInstance { get; }
 
 		// + (FIRFunctions *)functionsForApp:(FIRAPP *)app;
 		[Static]
 		[Export("functionsForApp:")]
-		Functions From (App app);
+		CloudFunctions From (App app);
 
 		//+ (FIRFunctions *) functionsForRegion:(NSString*) region;
         [Static]
         [Export("functionsForRegion:")]
-		Functions From (string region);
+		CloudFunctions From (string region);
 
 		//+ (FIRFunctions *)functionsForApp:(FIRApp *)app region:(NSString*) region
         [Static]
         [Export("functionsForApp:region")]
-		Functions From (App app, string region);
+		CloudFunctions From (App app, string region);
 
         //- (FIRHTTPSCallable *)HTTPSCallableWithName:(NSString *)name;
         [Export("HTTPSCallableWithName:")]

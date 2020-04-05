@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace FunctionsSample
+namespace CloudFunctionsSample
 {
 	public class Application
 	{

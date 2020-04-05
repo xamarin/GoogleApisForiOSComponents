@@ -7,8 +7,8 @@
     <ProjectGuid>{C02A268C-500B-4C3E-81E7-4E40A7AEB323}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>FunctionsSample</RootNamespace>
-    <AssemblyName>FunctionsSample</AssemblyName>
+    <RootNamespace>CloudFunctionsSample</RootNamespace>
+    <AssemblyName>CloudFunctionsSample</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
@@ -124,9 +124,9 @@
     <Compile Include="MenuViewController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\source\Firebase\Functions\Functions.csproj">
+    <ProjectReference Include="..\..\..\..\source\Firebase\CloudFunctions\CloudFunctions.csproj">
       <Project>{E5719ABE-6807-49C9-9E7A-0997FF4A5365}</Project>
-      <Name>Functions</Name>
+      <Name>CloudFunctions</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj">
       <Project>{9335A59B-3B54-4ED5-8201-B68CFD05CAFB}</Project>

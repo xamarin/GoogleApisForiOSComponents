@@ -115,9 +115,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignInExample", "samples\Go
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagManagerSample", "samples\Google\TagManager\TagManagerSample\TagManagerSample.csproj", "{A557F95D-A084-47BE-8EF8-C5E42AD8C233}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Functions", "source\Firebase\Functions\Functions.csproj", "{E5719ABE-6807-49C9-9E7A-0997FF4A5365}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudFunctions", "source\Firebase\CloudFunctions\CloudFunctions.csproj", "{E5719ABE-6807-49C9-9E7A-0997FF4A5365}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionsSample", "samples\Firebase\Functions\FunctionsSample\FunctionsSample.csproj", "{C02A268C-500B-4C3E-81E7-4E40A7AEB323}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudFunctionsSample", "samples\Firebase\CloudFunctions\CloudFunctionsSample\CloudFunctionsSample.csproj", "{C02A268C-500B-4C3E-81E7-4E40A7AEB323}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

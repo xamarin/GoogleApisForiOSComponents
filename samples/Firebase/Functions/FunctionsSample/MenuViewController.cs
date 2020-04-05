@@ -1,10 +1,10 @@
 ﻿using MonoTouch.Dialog;
 using UIKit;
 using Foundation;
-using Firebase.Functions;
+using Firebase.CloudFunctions;
 using System;
 
-namespace FunctionsSample
+namespace CloudFunctionsSample
 {
 	public class MenuViewController : DialogViewController
 	{
@@ -17,7 +17,7 @@ namespace FunctionsSample
             functionEntry = new EntryElement("Function", "functionName", "helloWorld");
 			dataEntry = new EntryElement("Data", "sample data string", "");
 
-            Root = new RootElement("Firebase Functions Sample") {
+            Root = new RootElement("Firebase CloudFunctions Sample") {
 				new Section ("Select your function") {
 					functionEntry,
 					dataEntry,
@@ -47,7 +47,7 @@ namespace FunctionsSample
 
 		private void CallFunction(string functionName, NSObject data)
 		{
-			var instance = Functions.DefaultInstance;
+			var instance = CloudFunctions.DefaultInstance;
 
 			var function = instance.HttpsCallable(functionName);
 
@@ -67,9 +67,9 @@ namespace FunctionsSample
             if (error != null)
             {
 				Console.WriteLine("Domain: " + error.Domain + " Error: " + error.DebugDescription);
-                if (error.Domain == Functions.FunctionsErrorDomain)
+                if (error.Domain == CloudFunctions.CloudFunctionsErrorDomain)
                 {
-					FunctionsErrorCode code = (FunctionsErrorCode)(long)error.Code;
+					CloudFunctionsErrorCode code = (CloudFunctionsErrorCode)(long)error.Code;
 					Console.WriteLine("Error Code: " + code);
 				}
 				AppDelegate.ShowMessage("Error", error.DebugDescription, NavigationController);

@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using ObjCRuntime;
-namespace Firebase.Functions
+namespace Firebase.CloudFunctions
 {
-	public partial class Functions {
+	public partial class CloudFunctions {
 		static string currentVersion;
 		public static string CurrentVersion { 
 			get {
 				if (currentVersion == null) {
 					IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
-					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "FirebaseFunctionsVersionStr");
+					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "FirebaseCloudFunctionsVersionStr");
 					currentVersion = Marshal.PtrToStringAnsi (ptr);
 					Dlfcn.dlclose (RTLD_MAIN_ONLY);
 				}
@@ -18,7 +18,7 @@ namespace Firebase.Functions
 			}
 		}
 
-		public const string FunctionsErrorDomain = "com.firebase.functions";
-		public const string FUnctionsErrorDetailsKey = "details";
+		public const string CloudFunctionsErrorDomain = "com.firebase.functions";
+		public const string CloudFunctionsErrorDetailsKey = "details";
 	}
 }

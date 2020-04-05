@@ -17,7 +17,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.Database][F.Database.Name]                             | [6.0.0.2][F.Database.Package]                |
 | [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                     | [4.0.1.2][F.DynamicLinks.Package]            |
 | [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                         | [4.3.0.0][F.InstanceID.Package]              |
-| [Xamarin.Firebase.iOS.Functions][F.Functions.Name]                           | [6.4.2.0][F.Functions.Package]               |
+| [Xamarin.Firebase.iOS.CloudFunctions][F.CloudFunctions.Name]                 | [6.4.2.0][F.CloudFunctions.Package]               |
 | [Xamarin.Firebase.iOS.MLKit][F.MLKit.Name]                                   | [0.13.0.3][F.MLKit.Package]                  |
 | [Xamarin.Firebase.iOS.MLKit.Common][F.MLKit.Common.Name]                     | [0.13.0.2][F.MLKit.Common.Package]           |
 | [Xamarin.Firebase.iOS.MLKit.ModelInterpreter][F.MLKit.ModelInterpreter.Name] | [0.13.0.2][F.MLKit.ModelInterpreter.Package] |
@@ -60,7 +60,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Core                    | **6.6.0.0**       | **6.15.0**     |
 | Firebase Database                | **6.0.0.2**       | **6.5.0**      |
 | Firebase Dynamic Links           | **4.0.1.2**       | **6.5.0**      |
-| Firebase Functions               | **6.4.2.0**       | **6.15.0**     |
+| Firebase CloudFunctions               | **6.4.2.0**       | **6.15.0**     |
 | Firebase Instance ID             | **4.3.0.0**       | **6.15.0**     |
 | Firebase MLKit                   | **0.13.0.3**      | **5.13.0*      |
 | Firebase MLKit Common            | **0.13.0.2**      | **5.13.0*      |
@@ -113,7 +113,7 @@ Firebase.Core
 Firebase.Crashlytics
 Firebase.Database
 Firebase.DynamicLinks
-Firebase.Functions
+Firebase.CloudFunctions
 Firebase.InstanceID
 Firebase.MLKit
 Firebase.MLKit.Common
@@ -180,7 +180,7 @@ This project is part of the [.NET Foundation][104]
 [F.Crashlytics.Name]: source/Firebase/Crashlytics
 [F.Database.Name]: source/Firebase/Database
 [F.DynamicLinks.Name]: source/Firebase/DynamicLinks
-[F.Auth.Name]: source/Firebase/Functions
+[F.CloudFunctions.Name]: source/Firebase/CloudFunctions
 [F.InstanceID.Name]: source/Firebase/InstanceID
 [F.MLKit.Name]: source/Firebase/MLKit
 [F.MLKit.Common.Name]: source/Firebase/MLKit.Common
@@ -201,7 +201,7 @@ This project is part of the [.NET Foundation][104]
 [F.Crashlytics.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Crashlytics/
 [F.Database.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Database/
 [F.DynamicLinks.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.DynamicLinks/
-[F.Functions.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Functions/
+[F.CloudFunctions.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Functions/
 [F.InstanceID.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.InstanceID/
 [F.MLKit.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.MLKit/
 [F.MLKit.Common.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.MLKit.Common/
