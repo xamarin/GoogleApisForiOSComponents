@@ -12,6 +12,15 @@ namespace Firebase.InAppMessaging
 	[BaseType (typeof(NSObject), Name = "FIRInAppMessaging")]
 	interface InAppMessaging
 	{
+		// extern double FirebaseInAppMessagingVersionNumber;
+		[Field ("FirebaseInAppMessagingVersionNumber", "__Internal")]
+		double CurrentVersionNumber { get; }
+
+		// extern const unsigned char [] FirebaseInAppMessagingVersionString;
+		[Internal]
+		[Field ("FirebaseInAppMessagingVersionString", "__Internal")]
+		IntPtr _CurrentVersion { get; }
+
 		// +(FIRInAppMessaging * _Nonnull)inAppMessaging __attribute__((swift_name("inAppMessaging()")));
 		[Static]
 		[Export ("inAppMessaging")]
