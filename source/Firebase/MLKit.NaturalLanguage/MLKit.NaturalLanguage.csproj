@@ -37,7 +37,6 @@
   <ItemGroup>
     <None Include="MLKit.NaturalLanguage.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.MLKit.NaturalLanguage.targets" />
     <None Include="MLKit.NaturalLanguage.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.MLKit.NaturalLanguage.targets" />
-    <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseiosmlkitnaturallanguage_128x128.png" Pack="True" PackagePath="firebaseiosmlkitnaturallanguage_128x128.png" />
   </ItemGroup>
