@@ -17,6 +17,7 @@ namespace Firebase.MLKit.Common {
 	}
 
 	// @interface FIRModelDownloadConditions : NSObject <NSCopying>
+	[DisableDefaultCtor]
 	[BaseType (typeof(NSObject), Name = "FIRModelDownloadConditions")]
 	interface ModelDownloadConditions : INSCopying
 	{
