@@ -20,7 +20,7 @@
     <Owners>Microsoft</Owners>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
     <PackageIcon>firebaseioscloudfunctions_128x128.png</PackageIcon>
-    <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865530</PackageProjectUrl>
+    <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2125916</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageVersion>2.5.1.0</PackageVersion>
@@ -48,8 +48,7 @@
       <Kind>Framework</Kind>
       <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>
-      <Frameworks>Security SafariServices</Frameworks>
-      <LinkerFlags>-ObjC -lc++ -lsqlite3 -lz</LinkerFlags>
+      <LinkerFlags>-ObjC</LinkerFlags>
     </NativeReference>
   </ItemGroup>
 
@@ -76,11 +75,4 @@
 
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 
-<!-- We are embedding a framework using NativeReference tag but, on Windows with .NET Core project, 
-     this tags means another thing. On windows, if a NativeReference exists it creates a file named
-     Native.$(AssemblyName).manifest which on macOS is not being generated. This is just to satisfy
-     the MSBuild packing process as it's looking for it. It seems not to be packed in the end. -->
-  <Target Name="_TouchNativeManifestWorkaround" BeforeTargets="GenerateNuspec" Condition="!Exists('$(OutputPath)$(TargetFrameworks)\Native.$(AssemblyName).manifest')">
-    <Touch Files="$(OutputPath)$(TargetFrameworks)\Native.$(AssemblyName).manifest" AlwaysCreate="True" />
-  </Target>
 </Project>
