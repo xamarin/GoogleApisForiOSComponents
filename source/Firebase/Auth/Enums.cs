@@ -11,6 +11,7 @@ namespace Firebase.Auth
 		Production
 	}
 
+	[Obsolete ("Deprecated. Please directly use Email or PreviousEmail properties instead.")]
 	[Native]
 	public enum ActionDataKey : long
 	{
@@ -25,7 +26,9 @@ namespace Firebase.Auth
 		PasswordReset = 1,
 		VerifyEmail = 2,
 		RecoverEmail = 3,
-		EmailLink = 4
+		EmailLink = 4,
+		VerifyAndChangeEmail = 5,
+		RevertSecondFactorAddition = 6
 	}
 
 	[Native]
@@ -92,6 +95,17 @@ namespace Firebase.Auth
 		InvalidDynamicLinkDomain = 17074,
 		RejectedCredential = 17075,
 		GameKitNotLinked = 17076,
+		SecondFactorRequired = 17078,
+		MissingMultiFactorSession = 17081,
+		MissingMultiFactorInfo = 17082,
+		InvalidMultiFactorSession = 17083,
+		MultiFactorInfoNotFound = 17084,
+		AdminRestrictedOperation = 17085,
+		UnverifiedEmail = 17086,
+		SecondFactorAlreadyEnrolled = 17087,
+		MaximumSecondFactorCountExceeded = 17088,
+		UnsupportedFirstFactor = 17089,
+		EmailChangeNeedsVerification = 17090,
 		MissingClientIdentifier = 17993,
 		MissingOrInvalidNonce = 17094,
 		KeychainError = 17995,

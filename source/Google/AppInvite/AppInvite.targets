@@ -75,679 +75,679 @@
 	</ItemGroup>
 	<Target Name="_GSICreDownloadedItems">
 		<ItemGroup>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteACLCollectionTableViewCell.nib">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteACLCollectionTableViewCell.nib" Visible="False">
 				<LogicalName>GINInviteResources.bundle\GINInviteACLCollectionTableViewCell.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteACLCollectionViewCell.nib">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteACLCollectionViewCell.nib" Visible="False">
 				<LogicalName>GINInviteResources.bundle\GINInviteACLCollectionViewCell.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteACLTableViewCell.nib">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteACLTableViewCell.nib" Visible="False">
 				<LogicalName>GINInviteResources.bundle\GINInviteACLTableViewCell.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteACLTableViewHeaderCell.nib">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteACLTableViewHeaderCell.nib" Visible="False">
 				<LogicalName>GINInviteResources.bundle\GINInviteACLTableViewHeaderCell.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteMessageView.nib">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteMessageView.nib" Visible="False">
 				<LogicalName>GINInviteResources.bundle\GINInviteMessageView.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteToastView.nib">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteToastView.nib" Visible="False">
 				<LogicalName>GINInviteResources.bundle\GINInviteToastView.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\Info.plist">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\Info.plist" Visible="False">
 				<LogicalName>GINInviteResources.bundle\Info.plist</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_arrow_back_white_24.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_arrow_back_white_24.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_arrow_back_white_24.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_arrow_back_white_24%402x.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_arrow_back_white_24%402x.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_arrow_back_white_24%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_arrow_back_white_24%403x.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_arrow_back_white_24%403x.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_arrow_back_white_24%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_check_white_24.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_check_white_24.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_check_white_24.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_check_white_24%402x.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_check_white_24%402x.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_check_white_24%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_check_white_24%403x.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_check_white_24%403x.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_check_white_24%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_close_24.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_close_24.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_close_24.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_close_24%402x.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_close_24%402x.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_close_24%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_close_24%403x.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_close_24%403x.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_close_24%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_24.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_24.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_email_24.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_24%402x.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_24%402x.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_email_24%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_24%403x.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_24%403x.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_email_24%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_white_24.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_white_24.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_email_white_24.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_white_24%402x.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_white_24%402x.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_email_white_24%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_white_24%403x.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_email_white_24%403x.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_email_white_24%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_hide_keyboard_24.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_hide_keyboard_24.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_hide_keyboard_24.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_hide_keyboard_24%402x.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_hide_keyboard_24%402x.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_hide_keyboard_24%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_hide_keyboard_24%403x.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_hide_keyboard_24%403x.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_hide_keyboard_24%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_24.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_24.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_notifications_24.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_24%402x.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_24%402x.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_notifications_24%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_24%403x.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_24%403x.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_notifications_24%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_white_24.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_white_24.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_notifications_white_24.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_white_24%402x.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_white_24%402x.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_notifications_white_24%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_white_24%403x.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_notifications_white_24%403x.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_notifications_white_24%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_remove_white_20.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_remove_white_20.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_remove_white_20.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_remove_white_20%402x.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_remove_white_20%402x.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_remove_white_20%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_remove_white_20%403x.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_remove_white_20%403x.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_remove_white_20%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_send_24.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_send_24.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_send_24.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_send_24%402x.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_send_24%402x.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_send_24%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_send_24%403x.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_send_24%403x.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_send_24%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_24.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_24.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_sms_24.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_24%402x.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_24%402x.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_sms_24%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_24%403x.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_24%403x.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_sms_24%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_white_24.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_white_24.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_sms_white_24.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_white_24%402x.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_white_24%402x.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_sms_white_24%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_white_24%403x.png">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ic_sms_white_24%403x.png" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ic_sms_white_24%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\Info.plist">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\Info.plist" Visible="False">
 				<LogicalName>GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\Info.plist</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\UCw-SV-umc-view-U1F-Z1-bjT.nib">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\UCw-SV-umc-view-U1F-Z1-bjT.nib" Visible="False">
 				<LogicalName>GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\UCw-SV-umc-view-U1F-Z1-bjT.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\UIViewController-UCw-SV-umc.nib">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\UIViewController-UCw-SV-umc.nib" Visible="False">
 				<LogicalName>GINInviteResources.bundle\GINInviteBuilderImpl.storyboardc\UIViewController-UCw-SV-umc.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\Info.plist">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\Info.plist" Visible="False">
 				<LogicalName>GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\Info.plist</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\UCw-SV-umc-view-U1F-Z1-bjT.nib">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\UCw-SV-umc-view-U1F-Z1-bjT.nib" Visible="False">
 				<LogicalName>GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\UCw-SV-umc-view-U1F-Z1-bjT.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\UIViewController-UCw-SV-umc.nib">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\UIViewController-UCw-SV-umc.nib" Visible="False">
 				<LogicalName>GINInviteResources.bundle\GINInviteBuilderImplPad.storyboardc\UIViewController-UCw-SV-umc.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ar.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ar.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ar.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ca.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ca.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ca.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\cs.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\cs.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\cs.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\da.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\da.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\da.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\de.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\de.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\de.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\el.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\el.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\el.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\en-AU.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\en-AU.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\en-AU.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\en-GB.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\en-GB.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\en-GB.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\en.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\en.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\en.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\en_GB.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\en_GB.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\en_GB.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\es-MX.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\es-MX.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\es-MX.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\es.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\es.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\es.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\es_MX.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\es_MX.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\es_MX.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\fi.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\fi.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\fi.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\fr.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\fr.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\fr.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\he.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\he.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\he.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\hr.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\hr.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\hr.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\hu.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\hu.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\hu.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\id.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\id.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\id.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\in.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\in.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\in.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\it.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\it.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\it.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\iw.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\iw.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\iw.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ja.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ja.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ja.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ko.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ko.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ko.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ms.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ms.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ms.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\nb.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\nb.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\nb.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\nl.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\nl.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\nl.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\no.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\no.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\no.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\pl.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\pl.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\pl.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\pt-PT.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\pt-PT.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\pt-PT.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\pt.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\pt.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\pt.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\pt_PT.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\pt_PT.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\pt_PT.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ro.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ro.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ro.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ru.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\ru.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\ru.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\sk.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\sk.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\sk.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\sv.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\sv.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\sv.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\th.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\th.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\th.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\tr.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\tr.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\tr.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\uk.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\uk.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\uk.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\vi.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\vi.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\vi.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zh-Hans.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zh-Hans.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\zh-Hans.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zh-Hant.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zh-Hant.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\zh-Hant.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zh_CN.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zh_CN.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\zh_CN.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zh_TW.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_AppInvitesSDKBaseFolder)Resources\GINInviteResources.bundle\zh_TW.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GINInviteResources.bundle\zh_TW.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLCollectionTableViewCell.nib">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLCollectionTableViewCell.nib" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\GPPACLCollectionTableViewCell.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLCollectionViewCell.nib">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLCollectionViewCell.nib" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\GPPACLCollectionViewCell.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLDetailTableViewCell.nib">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLDetailTableViewCell.nib" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\GPPACLDetailTableViewCell.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLSearchView.nib">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLSearchView.nib" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\GPPACLSearchView.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLTableViewCell.nib">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPACLTableViewCell.nib" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\GPPACLTableViewCell.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPDomainRestrictedTableViewCell.nib">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\GPPDomainRestrictedTableViewCell.nib" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\GPPDomainRestrictedTableViewCell.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\Info.plist">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\Info.plist" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\Info.plist</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\Roboto-Bold.ttf">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\Roboto-Bold.ttf" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\Roboto-Bold.ttf</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\Roboto-Medium.ttf">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\Roboto-Medium.ttf" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\Roboto-Medium.ttf</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\Roboto-Regular.ttf">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\Roboto-Regular.ttf" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\Roboto-Regular.ttf</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\circles.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\circles.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\circles.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\circles%402x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\circles%402x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\circles%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\circles%403x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\circles%403x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\circles%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\domain.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\domain.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\domain.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\domain%402x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\domain%402x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\domain%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\domain%403x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\domain%403x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\domain%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\extended.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\extended.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\extended.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\extended%402x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\extended%402x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\extended%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\extended%403x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\extended%403x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\extended%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_black_24.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_black_24.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_checkmark_black_24.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_black_24%402x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_black_24%402x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_checkmark_black_24%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_black_24%403x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_black_24%403x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_checkmark_black_24%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_green_24.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_green_24.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_checkmark_green_24.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_green_24%402x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_green_24%402x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_checkmark_green_24%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_green_24%403x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_checkmark_green_24%403x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_checkmark_green_24%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_circles_black_16.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_circles_black_16.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_circles_black_16.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_circles_black_16%402x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_circles_black_16%402x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_circles_black_16%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_circles_black_16%403x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_circles_black_16%403x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_circles_black_16%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_domain_16.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_domain_16.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_domain_16.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_domain_16%402x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_domain_16%402x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_domain_16%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_domain_16%403x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_domain_16%403x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_domain_16%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_email_black_16.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_email_black_16.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_email_black_16.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_email_black_16%402x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_email_black_16%402x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_email_black_16%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_email_black_16%403x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_email_black_16%403x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_email_black_16%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_extended_circles_black_16.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_extended_circles_black_16.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_extended_circles_black_16.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_extended_circles_black_16%402x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_extended_circles_black_16%402x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_extended_circles_black_16%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_extended_circles_black_16%403x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_extended_circles_black_16%403x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_extended_circles_black_16%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_lock_closed_black_16.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_lock_closed_black_16.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_lock_closed_black_16.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_lock_closed_black_16%402x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_lock_closed_black_16%402x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_lock_closed_black_16%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_lock_closed_black_16%403x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_lock_closed_black_16%403x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_lock_closed_black_16%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_person_black_16.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_person_black_16.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_person_black_16.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_person_black_16%402x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_person_black_16%402x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_person_black_16%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_person_black_16%403x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_person_black_16%403x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_person_black_16%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_public_16.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_public_16.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_public_16.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_public_16%402x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_public_16%402x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_public_16%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_public_16%403x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_public_16%403x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_public_16%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_remove_black_16.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_remove_black_16.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_remove_black_16.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_remove_black_16%402x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_remove_black_16%402x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_remove_black_16%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_remove_black_16%403x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ic_remove_black_16%403x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ic_remove_black_16%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\multiselect.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect%402x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect%402x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\multiselect%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect%403x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect%403x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\multiselect%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect_green.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect_green.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\multiselect_green.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect_green%402x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect_green%402x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\multiselect_green%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect_green%403x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\multiselect_green%403x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\multiselect_green%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\name_gradient.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\name_gradient.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\name_gradient.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\name_gradient%402x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\name_gradient%402x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\name_gradient%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\name_gradient%403x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\name_gradient%403x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\name_gradient%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\person.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\person.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\person.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\person%402x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\person%402x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\person%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\person%403x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\person%403x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\person%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\public.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\public.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\public.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\public%402x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\public%402x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\public%402x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\public%403x.png">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\public%403x.png" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\public%403x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ar.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ar.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ar.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ca.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ca.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ca.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\cs.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\cs.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\cs.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\da.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\da.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\da.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\de.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\de.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\de.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\el.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\el.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\el.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\en.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\en.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\en.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\en_GB.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\en_GB.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\en_GB.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\es.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\es.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\es.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\es_MX.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\es_MX.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\es_MX.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\fi.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\fi.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\fi.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\fr.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\fr.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\fr.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\he.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\he.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\he.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\hr.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\hr.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\hr.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\hu.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\hu.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\hu.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\id.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\id.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\id.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\in.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\in.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\in.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\it.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\it.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\it.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\iw.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\iw.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\iw.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ja.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ja.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ja.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ko.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ko.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ko.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ms.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ms.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ms.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\nb.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\nb.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\nb.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\nl.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\nl.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\nl.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\no.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\no.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\no.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\pl.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\pl.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\pl.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\pt.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\pt.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\pt.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\pt_PT.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\pt_PT.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\pt_PT.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ro.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ro.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ro.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ru.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\ru.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\ru.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\sk.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\sk.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\sk.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\sv.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\sv.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\sv.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\th.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\th.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\th.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\tr.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\tr.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\tr.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\uk.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\uk.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\uk.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\vi.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\vi.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\vi.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\zh_CN.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\zh_CN.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\zh_CN.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\zh_TW.lproj\GooglePlus.strings">
+			<BundleResource Include="$(_GPPCoreSDKBaseFolder)Resources\GPPACLPickerResources.bundle\zh_TW.lproj\GooglePlus.strings" Visible="False">
 				<LogicalName>GPPACLPickerResources.bundle\zh_TW.lproj\GooglePlus.strings</LogicalName>
 			</BundleResource>
 		</ItemGroup>

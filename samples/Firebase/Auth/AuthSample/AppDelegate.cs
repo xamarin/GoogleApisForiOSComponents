@@ -38,7 +38,7 @@ namespace AuthSample
 
 			App.Configure ();
 
-			Settings.AppID = appId;
+			Settings.AppId = appId;
 			Settings.DisplayName = appName;
 
 			// This method verifies if you have been logged to Facebook into the app before, and keep you logged in after you reopen or kill your app.

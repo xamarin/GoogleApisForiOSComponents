@@ -6,7 +6,7 @@
     <RootNamespace>Google.TagManager</RootNamespace>
     <AssemblyName>Google.TagManager</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>7.1.2.2</FileVersion>
+    <FileVersion>7.1.2.3</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865539</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>7.1.2.2</PackageVersion>
+    <PackageVersion>7.1.2.3</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -55,11 +55,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Build.Download" Version="0.9.0" PrivateAssets="None" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.10.0" PrivateAssets="None" />
   </ItemGroup>
   
   <ItemGroup>
     <ProjectReference Include="..\..\Firebase\Core\Core.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\..\Firebase\Installations\Installations.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\..\Firebase\InstanceID\InstanceID.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\..\Firebase\Analytics\Analytics.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\Analytics\Analytics.csproj" PrivateAssets="None" />

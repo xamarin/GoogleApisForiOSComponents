@@ -6,60 +6,103 @@ using ObjCRuntime;
 using CoreGraphics;
 
 namespace Firebase.MLKit.Common {
-	// The first step to creating a binding is to add your native library ("libNativeLibrary.a")
-	// to the project by right-clicking (or Control-clicking) the folder containing this source
-	// file and clicking "Add files..." and then simply select the native library (or libraries)
-	// that you want to bind.
-	//
-	// When you do that, you'll notice that MonoDevelop generates a code-behind file for each
-	// native library which will contain a [LinkWith] attribute. MonoDevelop auto-detects the
-	// architectures that the native library supports and fills in that information for you,
-	// however, it cannot auto-detect any Frameworks or other system libraries that the
-	// native library may depend on, so you'll need to fill in that information yourself.
-	//
-	// Once you've done that, you're ready to move on to binding the API...
-	//
-	//
-	// Here is where you'd define your API definition for the native Objective-C library.
-	//
-	// For example, to bind the following Objective-C class:
-	//
-	//     @interface Widget : NSObject {
-	//     }
-	//
-	// The C# binding would look like this:
-	//
-	//     [BaseType (typeof (NSObject))]
-	//     interface Widget {
-	//     }
-	//
-	// To bind Objective-C properties, such as:
-	//
-	//     @property (nonatomic, readwrite, assign) CGPoint center;
-	//
-	// You would add a property definition in the C# interface like so:
-	//
-	//     [Export ("center")]
-	//     CGPoint Center { get; set; }
-	//
-	// To bind an Objective-C method, such as:
-	//
-	//     -(void) doSomething:(NSObject *)object atIndex:(NSInteger)index;
-	//
-	// You would add a method definition to the C# interface like so:
-	//
-	//     [Export ("doSomething:atIndex:")]
-	//     void DoSomething (NSObject object, int index);
-	//
-	// Objective-C "constructors" such as:
-	//
-	//     -(id)initWithElmo:(ElmoMuppet *)elmo;
-	//
-	// Can be bound as:
-	//
-	//     [Export ("initWithElmo:")]
-	//     IntPtr Constructor (ElmoMuppet elmo);
-	//
-	// For more information, see http://developer.xamarin.com/guides/ios/advanced_topics/binding_objective-c/
-	//
+	// @interface FIRLocalModel : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof(NSObject), Name = "FIRLocalModel")]
+	interface LocalModel
+	{
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull path;
+		[Export ("path")]
+		string Path { get; }
+	}
+
+	// @interface FIRModelDownloadConditions : NSObject <NSCopying>
+	[DisableDefaultCtor]
+	[BaseType (typeof(NSObject), Name = "FIRModelDownloadConditions")]
+	interface ModelDownloadConditions : INSCopying
+	{
+		// @property (readonly, nonatomic) BOOL allowsCellularAccess;
+		[Export ("allowsCellularAccess")]
+		bool AllowsCellularAccess { get; }
+
+		// @property (readonly, nonatomic) BOOL allowsBackgroundDownloading;
+		[Export ("allowsBackgroundDownloading")]
+		bool AllowsBackgroundDownloading { get; }
+
+		// -(instancetype _Nonnull)initWithAllowsCellularAccess:(BOOL)allowsCellularAccess allowsBackgroundDownloading:(BOOL)allowsBackgroundDownloading __attribute__((objc_designated_initializer));
+		[DesignatedInitializer]
+		[Export ("initWithAllowsCellularAccess:allowsBackgroundDownloading:")]
+		IntPtr Constructor (bool allowsCellularAccess, bool allowsBackgroundDownloading);
+	}
+
+	interface ModelDownloadSucceedEventArgs
+	{
+		[Export ("FIRModelDownloadUserInfoKeyRemoteModel")]
+		RemoteModel RemoteModel { get; }
+	}
+
+	interface ModelDownloadFailedEventArgs
+	{
+		[Export ("FIRModelDownloadUserInfoKeyRemoteModel")]
+		RemoteModel RemoteModel { get; }
+
+		[Export ("FIRModelDownloadUserInfoKeyError")]
+		NSError Error { get; }
+	}
+
+	// @interface FIRModelManager : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof(NSObject), Name = "FIRModelManager")]
+	interface ModelManager
+	{
+		// extern const NSNotificationName _Nonnull FIRModelDownloadDidSucceedNotification __attribute__((swift_name("firebaseMLModelDownloadDidSucceed")));
+		[Notification (typeof (ModelDownloadSucceedEventArgs))]
+		[Field ("FIRModelDownloadDidSucceedNotification", "__Internal")]
+		NSString ModelDownloadDidSucceedNotification { get; }
+
+		// extern const NSNotificationName _Nonnull FIRModelDownloadDidFailNotification __attribute__((swift_name("firebaseMLModelDownloadDidFail")));
+		[Notification (typeof (ModelDownloadFailedEventArgs))]
+		[Field ("FIRModelDownloadDidFailNotification", "__Internal")]
+		NSString ModelDownloadDidFailNotification { get; }
+
+		// extern const FIRModelDownloadUserInfoKey _Nonnull FIRModelDownloadUserInfoKeyRemoteModel;
+		[Field ("FIRModelDownloadUserInfoKeyRemoteModel", "__Internal")]
+		NSString ModelDownloadUserInfoKeyRemoteModel { get; }
+
+		// extern const FIRModelDownloadUserInfoKey _Nonnull FIRModelDownloadUserInfoKeyError;
+		[Field ("FIRModelDownloadUserInfoKeyError", "__Internal")]
+		NSString ModelDownloadUserInfoKeyError { get; }
+
+		// +(instancetype _Nonnull)modelManager __attribute__((swift_name("modelManager()")));
+		[Static]
+		[Export ("modelManager")]
+		ModelManager DefaultInstance { get; }
+
+		// +(instancetype _Nonnull)modelManagerForApp:(FIRApp * _Nonnull)app __attribute__((swift_name("modelManager(app:)")));
+		[Static]
+		[Export ("modelManagerForApp:")]
+		ModelManager From (Core.App app);
+
+		// -(BOOL)isModelDownloaded:(FIRRemoteModel * _Nonnull)remoteModel;
+		[Export ("isModelDownloaded:")]
+		bool IsModelDownloaded (RemoteModel remoteModel);
+
+		// -(NSProgress * _Nonnull)downloadModel:(FIRRemoteModel * _Nonnull)remoteModel conditions:(FIRModelDownloadConditions * _Nonnull)conditions __attribute__((swift_name("download(_:conditions:)")));
+		[Export ("downloadModel:conditions:")]
+		NSProgress DownloadModel (RemoteModel remoteModel, ModelDownloadConditions conditions);
+
+		// -(void)deleteDownloadedModel:(FIRRemoteModel * _Nonnull)remoteModel completion:(void (^ _Nonnull)(NSError * _Nullable))completion;
+		[Export ("deleteDownloadedModel:completion:")]
+		void DeleteDownloadedModel (RemoteModel remoteModel, Action<NSError> completion);
+	}
+
+	// @interface FIRRemoteModel : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof(NSObject), Name = "FIRRemoteModel")]
+	interface RemoteModel
+	{
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull name;
+		[Export ("name")]
+		string Name { get; }
+	}
 }

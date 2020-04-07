@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\..\..\packages\Xamarin.Build.Download.0.9.0\build\Xamarin.Build.Download.props" Condition="Exists('..\..\..\..\packages\Xamarin.Build.Download.0.9.0\build\Xamarin.Build.Download.props')" />
+  <Import Project="..\..\..\..\packages\Xamarin.Build.Download.0.10.0\build\Xamarin.Build.Download.props" Condition="Exists('..\..\..\..\packages\Xamarin.Build.Download.0.10.0\build\Xamarin.Build.Download.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
@@ -84,15 +84,19 @@
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
     <Reference Include="MonoTouch.Dialog-1" />
-    <Reference Include="Facebook">
-      <HintPath>..\..\..\..\packages\Xamarin.Facebook.iOS.4.24.0\lib\Xamarin.iOS10\Facebook.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Net.Http" />
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\..\..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Facebook.CoreKit">
+      <HintPath>..\..\..\..\packages\Xamarin.Facebook.CoreKit.iOS.5.12.0\lib\xamarinios10\Facebook.CoreKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook.LoginKit">
+      <HintPath>..\..\..\..\packages\Xamarin.Facebook.LoginKit.iOS.5.12.0\lib\xamarinios10\Facebook.LoginKit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Common.dll" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\Contents.json" />
@@ -176,5 +180,5 @@
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Core\Core.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Google\SignIn\SignIn.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <Import Project="..\..\..\..\packages\Xamarin.Build.Download.0.9.0\build\Xamarin.Build.Download.targets" Condition="Exists('..\..\..\..\packages\Xamarin.Build.Download.0.9.0\build\Xamarin.Build.Download.targets')" />
+  <Import Project="..\..\..\..\packages\Xamarin.Build.Download.0.10.0\build\Xamarin.Build.Download.targets" Condition="Exists('..\..\..\..\packages\Xamarin.Build.Download.0.10.0\build\Xamarin.Build.Download.targets')" />
 </Project>

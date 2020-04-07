@@ -4,6 +4,7 @@ using MonoTouch.Dialog;
 using UIKit;
 
 using Firebase.RemoteConfig;
+using Foundation;
 
 namespace RemoteConfigSample
 {
@@ -46,30 +47,31 @@ namespace RemoteConfigSample
 			Root.Add (timesSection);
 		}
 
-		void FetchFromServer (object sender, EventArgs e)
+		async void FetchFromServer (object sender, EventArgs e)
 		{
 			// CacheExpirationSeconds is set to CacheExpiration here, indicating that any previously
 			// fetched and cached config would be considered expired because it would have been fetched
 			// more than CacheExpiration seconds ago. Thus the next fetch would go to the server unless
 			// throttling is in progress. The default expiration duration is 43200 (12 hours).
-			RemoteConfig.SharedInstance.Fetch (10, (status, error) => {
+			try {
+				var status = await RemoteConfig.SharedInstance.FetchAsync (10);
+
 				switch (status) {
 				case RemoteConfigFetchStatus.Success:
-					AppDelegate.ShowMessage ("Config Fetched!", "The table will be updated", NavigationController, () => {
-						RemoteConfig.SharedInstance.ActivateFetched ();
+					await RemoteConfig.SharedInstance.ActivateAsync ();
 
-						// Now that the values have been updated, you can generate the times table again
-						GenerateTimesTable ();
-					});
+					// Now that the values have been updated, you can generate the times table again
+					GenerateTimesTable ();
 					break;
 
 				case RemoteConfigFetchStatus.Throttled:
 				case RemoteConfigFetchStatus.NoFetchYet:
 				case RemoteConfigFetchStatus.Failure:
-					AppDelegate.ShowMessage ("Config not fetched...", error.LocalizedDescription, NavigationController, null);
-					break;
+					return;
 				}
-			});
+			} catch (NSErrorException ex) {
+				AppDelegate.ShowMessage ("Config not fetched...", ex.Error.LocalizedDescription, NavigationController, null);
+			}
 		}
 	}
 }

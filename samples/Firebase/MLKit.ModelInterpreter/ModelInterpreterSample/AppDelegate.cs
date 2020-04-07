@@ -18,9 +18,9 @@ namespace ModelInterpreterSample {
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
 
-			var t = typeof (Firebase.MLKit.ModelInterpreter.ModelInterpreter);
-			var t2 = Firebase.Core.Configuration.SharedInstance;
-			var t3 = Firebase.InstanceID.InstanceId.SharedInstance;
+			var instanceId = Firebase.InstanceID.InstanceId.SharedInstance;
+			var installations = Firebase.Installations.Installations.DefaultInstance;
+			var modelInterpreter = new Firebase.MLKit.ModelInterpreter.CustomRemoteModel ("Dummy");
 
 			return true;
 		}

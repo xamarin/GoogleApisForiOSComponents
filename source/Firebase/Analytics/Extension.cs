@@ -36,6 +36,13 @@ namespace Firebase.Analytics
 		public static NSString ViewSearchResults { get; } = new NSString ("view_search_results");
 		public static NSString LevelStart { get; } = new NSString ("level_start");
 		public static NSString LevelEnd { get; } = new NSString ("level_end");
+		public static NSString AddShippingInfo { get; } = new NSString ("add_shipping_info");
+		public static NSString Purchase { get; } = new NSString ("purchase");
+		public static NSString Refund { get; } = new NSString ("refund");
+		public static NSString SelectItem { get; } = new NSString ("select_item");
+		public static NSString SelectPromotion { get; } = new NSString ("select_promotion");
+		public static NSString ViewCart { get; } = new NSString ("view_cart");
+		public static NSString ViewPromotion { get; } = new NSString ("view_promotion");
 	}
 
 	public static class ParameterNamesConstants
@@ -92,6 +99,19 @@ namespace Firebase.Analytics
 		public static NSString LevelName { get; } = new NSString ("level_name");
 		public static NSString Success { get; } = new NSString ("success");
 		public static NSString ExtendSession { get; } = new NSString ("extend_session");
+		public static NSString Discount { get; } = new NSString ("discount");
+		public static NSString ItemCategory2 { get; } = new NSString ("item_category2");
+		public static NSString ItemCategory3 { get; } = new NSString ("item_category3");
+		public static NSString ItemCategory4 { get; } = new NSString ("item_category4");
+		public static NSString ItemCategory5 { get; } = new NSString ("item_category5");
+		public static NSString ItemListId { get; } = new NSString ("item_list_id");
+		public static NSString ItemListName { get; } = new NSString ("item_list_name");
+		public static NSString Items { get; } = new NSString ("items");
+		public static NSString LocationId { get; } = new NSString ("location_id");
+		public static NSString PaymentType { get; } = new NSString ("payment_type");
+		public static NSString PromotionId { get; } = new NSString ("promotion_id");
+		public static NSString PromotionName { get; } = new NSString ("promotion_name");
+		public static NSString ShippingTier { get; } = new NSString ("shipping_tier");
 	}
 
 	public static class UserPropertyNamesConstants

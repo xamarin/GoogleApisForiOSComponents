@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<_FirebaseMLKitAssemblyName>Firebase.MLKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseMLKitAssemblyName>
+		<_FirebaseMLKitVersion>0.19.0</_FirebaseMLKitVersion>
+		
+		<_FirebaseMLVisionItemsFolder>FMLVsn-$(_FirebaseMLKitVersion)</_FirebaseMLVisionItemsFolder>
+		<_FirebaseMLVisionSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseMLVisionItemsFolder)\Frameworks\</_FirebaseMLVisionSDKBaseFolder>
+		
+		<_FirebaseMLVisionAutoMLItemsFolder>FMLVsnA-$(_FirebaseMLKitVersion)</_FirebaseMLVisionAutoMLItemsFolder>
+		<_FirebaseMLVisionAutoMLSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseMLVisionAutoMLItemsFolder)\Frameworks\</_FirebaseMLVisionAutoMLSDKBaseFolder>
+
+		<_FirebaseMLVisionBarcodeModelItemsFolder>FMLVsnB-$(_FirebaseMLKitVersion)</_FirebaseMLVisionBarcodeModelItemsFolder>
+		<_FirebaseMLVisionBarcodeModelSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseMLVisionBarcodeModelItemsFolder)\Frameworks\</_FirebaseMLVisionBarcodeModelSDKBaseFolder>
+		
+		<_FirebaseMLVisionFaceModelItemsFolder>FMLVsnF-$(_FirebaseMLKitVersion)</_FirebaseMLVisionFaceModelItemsFolder>
+		<_FirebaseMLVisionFaceModelSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseMLVisionFaceModelItemsFolder)\</_FirebaseMLVisionFaceModelSDKBaseFolder>
+		
+		<_FirebaseMLVisionLabelModelItemsFolder>FMLVsnL-$(_FirebaseMLKitVersion)</_FirebaseMLVisionLabelModelItemsFolder>
+		<_FirebaseMLVisionLabelModelSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseMLVisionLabelModelItemsFolder)\Frameworks\</_FirebaseMLVisionLabelModelSDKBaseFolder>
+		
+		<_FirebaseMLVisionTextModelItemsFolder>FMLVsnT-$(_FirebaseMLKitVersion)</_FirebaseMLVisionTextModelItemsFolder>
+		<_FirebaseMLVisionTextModelSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseMLVisionTextModelItemsFolder)\</_FirebaseMLVisionTextModelSDKBaseFolder>
+		
+		<_FirebaseMLVisionObjectDetectionItemsFolder>FMLVsnO-$(_FirebaseMLKitVersion)</_FirebaseMLVisionObjectDetectionItemsFolder>
+		<_FirebaseMLVisionObjectDetectionSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseMLVisionObjectDetectionItemsFolder)\Frameworks\</_FirebaseMLVisionObjectDetectionSDKBaseFolder>
+	</PropertyGroup>
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+		<XamarinBuildDownload Include="$(_FirebaseMLVisionItemsFolder)">
+			<Url>https://dl.google.com/dl/cpdc/5164ed31243cbcfc/FirebaseMLVision-0.19.0.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildDownload Include="$(_FirebaseMLVisionAutoMLItemsFolder)">
+			<Url>https://dl.google.com/dl/cpdc/f4534f5e3138797f/FirebaseMLVisionAutoML-0.19.0.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildDownload Include="$(_FirebaseMLVisionBarcodeModelItemsFolder)">
+			<Url>https://dl.google.com/dl/cpdc/36e67de7b4cd08fc/FirebaseMLVisionBarcodeModel-0.19.0.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildDownload Include="$(_FirebaseMLVisionFaceModelItemsFolder)">
+			<Url>https://dl.google.com/dl/cpdc/3b3c4105b4d96bf2/FirebaseMLVisionFaceModel-0.19.0.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildDownload Include="$(_FirebaseMLVisionLabelModelItemsFolder)">
+			<Url>https://dl.google.com/dl/cpdc/c173d8e581641f85/FirebaseMLVisionLabelModel-0.19.0.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildDownload Include="$(_FirebaseMLVisionTextModelItemsFolder)">
+			<Url>https://dl.google.com/dl/cpdc/6f6ebbb34acb4e37/FirebaseMLVisionTextModel-0.19.0.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildDownload Include="$(_FirebaseMLVisionObjectDetectionItemsFolder)">
+			<Url>https://dl.google.com/dl/cpdc/69635c932ce31d80/FirebaseMLVisionObjectDetection-0.19.0.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildRestoreResources Include="_FMLVsnDownloadedItems" />
+	</ItemGroup>
+	<Target Name="_FMLVsnDownloadedItems">
+		<ItemGroup>
+			<!-- From https://dl.google.com/dl/cpdc/5164ed31243cbcfc/FirebaseMLVision-0.19.0.tar.gz -->
+			<NativeReference Include="$(_FirebaseMLVisionSDKBaseFolder)FirebaseMLVision.framework">
+				<Kind>Framework</Kind>
+				<SmartLink>True</SmartLink>
+				<ForceLoad>True</ForceLoad>
+				<LinkerFlags>-ObjC</LinkerFlags>
+				<Frameworks>Accelerate AVFoundation CoreGraphics CoreMedia CoreVideo Foundation UIKit</Frameworks>
+			</NativeReference>
+
+			<!-- From https://dl.google.com/dl/cpdc/f4534f5e3138797f/FirebaseMLVisionAutoML-0.19.0.tar.gz -->
+			<NativeReference Include="$(_FirebaseMLVisionAutoMLSDKBaseFolder)FirebaseMLVisionAutoML.framework">
+				<Kind>Framework</Kind>
+				<SmartLink>True</SmartLink>
+				<ForceLoad>True</ForceLoad>
+				<LinkerFlags>-ObjC -lc++</LinkerFlags>
+				<Frameworks>Accelerate CoreGraphics CoreImage CoreMedia CoreVideo Foundation UIKit</Frameworks>
+			</NativeReference>
+
+			<!-- From https://dl.google.com/dl/cpdc/36e67de7b4cd08fc/FirebaseMLVisionBarcodeModel-0.19.0.tar.gz -->
+			<NativeReference Include="$(_FirebaseMLVisionBarcodeModelSDKBaseFolder)FirebaseMLVisionBarcodeModel.framework">
+				<Kind>Framework</Kind>
+				<SmartLink>True</SmartLink>
+				<ForceLoad>True</ForceLoad>
+				<LinkerFlags>-ObjC -lc++</LinkerFlags>
+				<Frameworks>Accelerate CoreGraphics CoreImage CoreMedia CoreVideo Foundation UIKit</Frameworks>
+			</NativeReference>
+
+			<!-- From https://dl.google.com/dl/cpdc/3b3c4105b4d96bf2/FirebaseMLVisionFaceModel-0.19.0.tar.gz -->
+			<NativeReference Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Frameworks\FirebaseMLVisionFaceModel.framework">
+				<Kind>Framework</Kind>
+				<SmartLink>True</SmartLink>
+				<ForceLoad>True</ForceLoad>
+				<LinkerFlags>-ObjC -lc++</LinkerFlags>
+				<Frameworks>Accelerate Foundation</Frameworks>
+			</NativeReference>
+			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\BCLjoy_200.emd" Visible="False">
+				<LogicalName>GoogleMVFaceDetectorResources.bundle\BCLjoy_200.emd</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\BCLlefteyeclosed_200.emd" Visible="False">
+				<LogicalName>GoogleMVFaceDetectorResources.bundle\BCLlefteyeclosed_200.emd</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\BCLrighteyeclosed_200.emd" Visible="False">
+				<LogicalName>GoogleMVFaceDetectorResources.bundle\BCLrighteyeclosed_200.emd</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\blazeface.tfl" Visible="False">
+				<LogicalName>GoogleMVFaceDetectorResources.bundle\blazeface.tfl</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\contours.tfl" Visible="False">
+				<LogicalName>GoogleMVFaceDetectorResources.bundle\contours.tfl</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\fssd_25_8bit_gray_v1.tflite" Visible="False">
+				<LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_25_8bit_gray_v1.tflite</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\fssd_25_8bit_v1.tflite" Visible="False">
+				<LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_25_8bit_v1.tflite</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\fssd_100_8bit_gray_v1.tflite" Visible="False">
+				<LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_100_8bit_gray_v1.tflite</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\fssd_100_8bit_v1.tflite" Visible="False">
+				<LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_100_8bit_v1.tflite</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\LMprec_600.emd" Visible="False">
+				<LogicalName>GoogleMVFaceDetectorResources.bundle\LMprec_600.emd</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\MFT_fssd_accgray.pb" Visible="False">
+				<LogicalName>GoogleMVFaceDetectorResources.bundle\MFT_fssd_accgray.pb</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseMLVisionFaceModelSDKBaseFolder)Resources\GoogleMVFaceDetectorResources\MFT_fssd_fastgray.pb" Visible="False">
+				<LogicalName>GoogleMVFaceDetectorResources.bundle\MFT_fssd_fastgray.pb</LogicalName>
+			</BundleResource>
+
+			<!-- From https://dl.google.com/dl/cpdc/c173d8e581641f85/FirebaseMLVisionLabelModel-0.19.0.tar.gz -->
+			<NativeReference Include="$(_FirebaseMLVisionLabelModelSDKBaseFolder)FirebaseMLVisionLabelModel.framework">
+				<Kind>Framework</Kind>
+				<SmartLink>True</SmartLink>
+				<ForceLoad>True</ForceLoad>
+				<LinkerFlags>-ObjC -lc++</LinkerFlags>
+				<Frameworks>CoreGraphics Foundation UIKit</Frameworks>
+			</NativeReference>
+
+			<!-- From https://dl.google.com/dl/cpdc/6f6ebbb34acb4e37/FirebaseMLVisionTextModel-0.19.0.tar.gz -->
+			<NativeReference Include="$(_FirebaseMLVisionTextModelSDKBaseFolder)Frameworks\FirebaseMLVisionTextModel.framework">
+				<Kind>Framework</Kind>
+				<SmartLink>True</SmartLink>
+				<ForceLoad>True</ForceLoad>
+				<LinkerFlags>-ObjC -lc++</LinkerFlags>
+				<Frameworks>Accelerate CoreImage CoreGraphics CoreMedia CoreVideo Foundation UIKit</Frameworks>
+			</NativeReference>
+			<BundleResource Include="$(_FirebaseMLVisionTextModelSDKBaseFolder)Resources\GoogleMVTextDetectorResources\tflite_lstm_recognizer_latin_0.3.lstm_model" Visible="False">
+				<LogicalName>GoogleMVTextDetectorResources.bundle\tflite_lstm_recognizer_latin_0.3.lstm_model</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseMLVisionTextModelSDKBaseFolder)Resources\GoogleMVTextDetectorResources\region_proposal_text_detector_tflite_gray_quantized.bincfg" Visible="False">
+				<LogicalName>GoogleMVTextDetectorResources.bundle\region_proposal_text_detector_tflite_gray_quantized.bincfg</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseMLVisionTextModelSDKBaseFolder)Resources\GoogleMVTextDetectorResources\rpn_lstm_engine_tflite_latin.bincfg" Visible="False">
+				<LogicalName>GoogleMVTextDetectorResources.bundle\rpn_lstm_engine_tflite_latin.bincfg</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseMLVisionTextModelSDKBaseFolder)Resources\GoogleMVTextDetectorResources\rpn_text_detector_mobile_space_to_depth_quantized_v2.tflite" Visible="False">
+				<LogicalName>GoogleMVTextDetectorResources.bundle\rpn_text_detector_mobile_space_to_depth_quantized_v2.tflite</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseMLVisionTextModelSDKBaseFolder)Resources\GoogleMVTextDetectorResources\tflite_lstm_recognizer_latin_0.3.bincfg" Visible="False">
+				<LogicalName>GoogleMVTextDetectorResources.bundle\tflite_lstm_recognizer_latin_0.3.bincfg</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseMLVisionTextModelSDKBaseFolder)Resources\GoogleMVTextDetectorResources\tflite_lstm_recognizer_latin_0.3.class_lst" Visible="False">
+				<LogicalName>GoogleMVTextDetectorResources.bundle\tflite_lstm_recognizer_latin_0.3.class_lst</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_FirebaseMLVisionTextModelSDKBaseFolder)Resources\GoogleMVTextDetectorResources\tflite_lstm_recognizer_latin_0.3.conv_model" Visible="False">
+				<LogicalName>GoogleMVTextDetectorResources.bundle\tflite_lstm_recognizer_latin_0.3.conv_model</LogicalName>
+			</BundleResource>
+
+			<!-- From https://dl.google.com/dl/cpdc/69635c932ce31d80/FirebaseMLVisionObjectDetection-0.19.0.tar.gz -->
+			<NativeReference Include="$(_FirebaseMLVisionObjectDetectionSDKBaseFolder)FirebaseMLVisionObjectDetection.framework">
+				<Kind>Framework</Kind>
+				<SmartLink>True</SmartLink>
+				<ForceLoad>True</ForceLoad>
+				<LinkerFlags>-ObjC -lc++</LinkerFlags>
+				<Frameworks>Accelerate CoreGraphics CoreImage CoreMedia CoreVideo Foundation UIKit</Frameworks>
+			</NativeReference>
+		</ItemGroup>
+	</Target>
+</Project>

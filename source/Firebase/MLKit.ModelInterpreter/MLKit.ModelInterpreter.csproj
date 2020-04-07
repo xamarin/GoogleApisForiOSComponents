@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.MLKit.ModelInterpreter</RootNamespace>
     <AssemblyName>Firebase.MLKit.ModelInterpreter</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>0.13.0.1</FileVersion>
+    <FileVersion>0.19.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2028942</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>0.13.0.1</PackageVersion>
+    <PackageVersion>0.19.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -37,6 +37,7 @@
   <ItemGroup>
     <None Include="MLKit.ModelInterpreter.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.MLKit.ModelInterpreter.targets" />
     <None Include="MLKit.ModelInterpreter.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.MLKit.ModelInterpreter.targets" />
+    <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseiosmlkitmodelinterpreter_128x128.png" Pack="True" PackagePath="firebaseiosmlkitmodelinterpreter_128x128.png" />
   </ItemGroup>
@@ -55,11 +56,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Build.Download" Version="0.9.0" PrivateAssets="None" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.10.0" PrivateAssets="None" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\Installations\Installations.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\InstanceID\InstanceID.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\MLKit.Common\MLKit.Common.csproj" PrivateAssets="None" />
   </ItemGroup>

@@ -50,7 +50,7 @@
 	</ItemGroup>
 	<Target Name="_GTagMDownloadedItems">
 		<ItemGroup>
-			<BundleResource Include="$(_GoogleTagManagerSDKBaseFolder)Resources\TagManagerResources\TAGRuntime.js.dat">
+			<BundleResource Include="$(_GoogleTagManagerSDKBaseFolder)Resources\TagManagerResources\TAGRuntime.js.dat" Visible="False">
 				<LogicalName>TagManagerResources.bundle\TAGRuntime.js.dat</LogicalName>
 			</BundleResource>
 		</ItemGroup>

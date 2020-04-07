@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
+  <PropertyGroup>
+    <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
+    <IsBindingProject>true</IsBindingProject>
+    <RootNamespace>Firebase.Installations</RootNamespace>
+    <AssemblyName>Firebase.Installations</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.1.1</FileVersion>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Xamarin.Firebase.iOS.Installations</PackageId>
+    <Title>Firebase APIs Installations iOS Library</Title>
+    <Summary>C# bindings for Firebase APIs Installations iOS Library</Summary>
+    <Description>C# bindings for Firebase APIs Installations iOS Library</Description>
+    <Authors>Microsoft</Authors>
+    <Owners>Microsoft</Owners>
+    <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
+    <PackageIcon>firebaseiosinstallations_128x128.png</PackageIcon>
+    <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2125908</PackageProjectUrl>
+    <PackageLicenseFile>License.md</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageVersion>1.1.1</PackageVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="..\..\..\externals\FirebaseInstallations.framework\FirebaseInstallations">
+      <Link>FirebaseInstallations.framework</Link>
+    </None>
+    <None Include="..\..\..\externals\FBLPromises.framework\FBLPromises">
+      <Link>FBLPromises.framework</Link>
+    </None>
+    <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
+    <None Include="License.md" Pack="True" PackagePath="License.md" />
+    <None Include="../../../icons/firebaseiosinstallations_128x128.png" Pack="True" PackagePath="firebaseiosinstallations_128x128.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <NativeReference Include="..\..\..\externals\FirebaseInstallations.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
+      <Frameworks>Security</Frameworks>
+    </NativeReference>
+    <NativeReference Include="..\..\..\externals\FBLPromises.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Enums.cs" />
+    <Compile Remove="ApiDefinition.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="Enums.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Build.Download" Version="0.10.0" PrivateAssets="None" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" PrivateAssets="None" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Update="Extensions.cs">
+      <SubType></SubType>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+</Project>

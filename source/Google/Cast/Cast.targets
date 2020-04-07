@@ -20,6 +20,8 @@
 			<LinkerFlags>-lc++</LinkerFlags>
 			<Frameworks>$(_GoogleCastFrameworks)</Frameworks>
 			<Kind>Framework</Kind>
+			<SmartLink>True</SmartLink>
+			<ForceLoad>True</ForceLoad>
 		</NativeReference>
 	</ItemGroup>
 </Project>
