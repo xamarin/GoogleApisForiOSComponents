@@ -22,112 +22,112 @@
 	</ItemGroup>
 	<Target Name="_GAppIndxngDownloadedItems">
 		<ItemGroup>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\Info.plist">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\Info.plist" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\Info.plist</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\Roboto-Regular.ttf">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\Roboto-Regular.ttf" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\Roboto-Regular.ttf</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\ar.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\ar.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\ar.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\ca.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\ca.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\ca.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\cs.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\cs.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\cs.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\da.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\da.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\da.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\de.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\de.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\de.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\el.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\el.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\el.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\en-GB.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\en-GB.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\en-GB.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\en.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\en.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\en.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\es.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\es.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\es.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\fi.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\fi.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\fi.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\fr.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\fr.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\fr.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\hr.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\hr.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\hr.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\hu.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\hu.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\hu.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\id.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\id.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\id.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\it.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\it.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\it.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\iw.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\iw.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\iw.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\ja.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\ja.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\ja.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\ko.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\ko.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\ko.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\ms.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\ms.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\ms.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\nl.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\nl.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\nl.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\no.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\no.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\no.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\pl.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\pl.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\pl.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\pt-BR.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\pt-BR.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\pt-BR.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\pt-PT.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\pt-PT.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\pt-PT.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\ro.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\ro.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\ro.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\ru.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\ru.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\ru.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\sk.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\sk.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\sk.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\sv.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\sv.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\sv.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\th.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\th.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\th.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\tr.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\tr.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\tr.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\uk.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\uk.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\uk.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\vi.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\vi.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\vi.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\zh-CN.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\zh-CN.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\zh-CN.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\zh-TW.lproj\Localizable.strings">
+			<BundleResource Include="$(_GoogleAppIndexingSDKBaseFolder)Resources\GoogleAppIndexingResources.bundle\zh-TW.lproj\Localizable.strings" Visible="False">
 				<LogicalName>GoogleAppIndexingResources.bundle\zh-TW.lproj\Localizable.strings</LogicalName>
 			</BundleResource>
 		</ItemGroup>

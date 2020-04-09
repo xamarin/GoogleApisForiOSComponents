@@ -6,7 +6,7 @@
     <RootNamespace>Google.MobileAds</RootNamespace>
     <AssemblyName>Google.MobileAds</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>7.53.1</FileVersion>
+    <FileVersion>7.57.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ProcessEnums>true</ProcessEnums>
@@ -24,7 +24,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865562</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>7.53.1</PackageVersion>
+    <PackageVersion>7.57.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -49,6 +49,7 @@
   <ItemGroup>
     <NativeReference Include="..\..\..\externals\PersonalizedAdConsent.framework">
       <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>
       <LinkerFlags>-ObjC</LinkerFlags>
     </NativeReference>
@@ -70,7 +71,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Build.Download" Version="0.9.0" PrivateAssets="None" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.10.0" PrivateAssets="None" />
   </ItemGroup>
   
   <ItemGroup>
@@ -78,12 +79,4 @@
   </ItemGroup>
 
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
-
-  <!-- We are embedding a framework using NativeReference tag but, on Windows with .NET Core project, 
-     this tags means another thing. On windows, if a NativeReference exists it creates a file named
-     Native.$(AssemblyName).manifest which on macOS is not being generated. This is just to satisfy
-     the MSBuild packing process as it's looking for it. It seems not to be packed in the end. -->
-  <Target Name="_TouchNativeManifestWorkaround" BeforeTargets="GenerateNuspec" Condition="!Exists('$(OutputPath)$(TargetFrameworks)\Native.$(AssemblyName).manifest')">
-    <Touch Files="$(OutputPath)$(TargetFrameworks)\Native.$(AssemblyName).manifest" AlwaysCreate="True" />
-  </Target>
 </Project>

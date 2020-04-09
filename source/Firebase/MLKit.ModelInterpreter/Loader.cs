@@ -6,6 +6,7 @@ namespace Firebase.MLKit.ModelInterpreter
 		static Loader ()
 		{
 			Firebase.Core.Loader.ForceLoad ();
+			Firebase.Installations.Loader.ForceLoad();
 			Firebase.InstanceID.Loader.ForceLoad ();
 			Firebase.MLKit.Common.Loader.ForceLoad ();
 		}

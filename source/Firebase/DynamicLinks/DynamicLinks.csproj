@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.DynamicLinks</RootNamespace>
     <AssemblyName>Firebase.DynamicLinks</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>4.0.1.1</FileVersion>
+    <FileVersion>4.0.8</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865537</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>4.0.1.1</PackageVersion>
+    <PackageVersion>4.0.8</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -46,9 +46,10 @@
   <ItemGroup>
     <NativeReference Include="..\..\..\externals\FirebaseDynamicLinks.framework">
       <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>
       <LinkerFlags>-ObjC -lsqlite3 -lz</LinkerFlags>
-      <Frameworks>AssetsLibrary CoreMotion MessageUI QuartzCore Security StoreKit SystemConfiguration UIKit</Frameworks>
+      <Frameworks>QuartzCore</Frameworks>
       <WeakFrameworks>WebKit</WeakFrameworks>
     </NativeReference>
   </ItemGroup>
@@ -67,7 +68,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Build.Download" Version="0.9.0" PrivateAssets="None" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.10.0" PrivateAssets="None" />
   </ItemGroup>
 
   <ItemGroup>
@@ -75,12 +76,4 @@
   </ItemGroup>
   
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
-
-  <!-- We are embedding a framework using NativeReference tag but, on Windows with .NET Core project, 
-     this tags means another thing. On windows, if a NativeReference exists it creates a file named
-     Native.$(AssemblyName).manifest which on macOS is not being generated. This is just to satisfy
-     the MSBuild packing process as it's looking for it. It seems not to be packed in the end. -->
-  <Target Name="_TouchNativeManifestWorkaround" BeforeTargets="GenerateNuspec" Condition="!Exists('$(OutputPath)$(TargetFrameworks)\Native.$(AssemblyName).manifest')">
-    <Touch Files="$(OutputPath)$(TargetFrameworks)\Native.$(AssemblyName).manifest" AlwaysCreate="True" />
-  </Target>
 </Project>

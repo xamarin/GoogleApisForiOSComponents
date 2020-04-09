@@ -25,11 +25,11 @@ namespace AuthSample
 
 			// Handle actions once the user is logged in
 			BtnLogin.Completed += BtnLogin_Completed;
-			BtnLogin.ReadPermissions = readPermissions.ToArray ();
+			BtnLogin.Permissions = readPermissions.ToArray ();
 
 			if (AccessToken.CurrentAccessToken != null) {
 				var credential = FacebookAuthProvider.GetCredential (AccessToken.CurrentAccessToken.TokenString);
-				Auth.DefaultInstance.SignInAndRetrieveDataWithCredential (credential, SignInOnCompletion);
+				Auth.DefaultInstance.SignInWithCredential (credential, SignInOnCompletion);
 			}
 		}
 
@@ -51,7 +51,7 @@ namespace AuthSample
 			var credential = FacebookAuthProvider.GetCredential (AccessToken.CurrentAccessToken.TokenString);
 
 			// Authenticate with Firebase using the credential
-			Auth.DefaultInstance.SignInAndRetrieveDataWithCredential (credential, SignInOnCompletion);
+			Auth.DefaultInstance.SignInWithCredential (credential, SignInOnCompletion);
 		}
 
 		void SignInOnCompletion (AuthDataResult authResult, NSError error)

@@ -137,6 +137,7 @@ namespace Firebase.RemoteConfig
 		void FetchAndActivate ([NullAllowed] RemoteConfigFetchAndActivateCompletionHandler completionHandler);
 
 		// -(void)activateWithCompletionHandler:(FIRRemoteConfigActivateCompletion _Nullable)completionHandler;
+		[Async]
 		[Export ("activateWithCompletionHandler:")]
 		void Activate ([NullAllowed] RemoteConfigActivateCompletionHandler completionHandler);
 

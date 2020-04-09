@@ -53,12 +53,19 @@ namespace CloudMessagingSample
 
 			Messaging.SharedInstance.Delegate = this;
 
-			// To connect with FCM. FCM manages the connection, closing it
-			// when your app goes into the background and reopening it 
-			// whenever the app is foregrounded.
-			Messaging.SharedInstance.ShouldEstablishDirectChannel = true;
+			InstanceId.SharedInstance.GetInstanceId (InstanceIdResultHandler);
 
 			return true;
+		}
+
+		void InstanceIdResultHandler (InstanceIdResult result, NSError error)
+		{
+			if (error != null) {
+				LogInformation (nameof (InstanceIdResultHandler), $"Error: {error.LocalizedDescription}");
+				return;
+			}
+
+			LogInformation (nameof (InstanceIdResultHandler), $"Remote Instance Id token: {result.Token}");
 		}
 
 		[Export ("messaging:didReceiveRegistrationToken:")]

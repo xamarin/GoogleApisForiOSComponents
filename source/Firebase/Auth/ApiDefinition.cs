@@ -110,6 +110,9 @@ namespace Firebase.Auth
 	// typedef void (^FIRApplyActionCodeCallback)(NSError * _Nullable);
 	delegate void ApplyActionCodeHandler ([NullAllowed] NSError error);
 
+	// typedef void (^FIRAuthVoidErrorCallback)(NSError * _Nullable);
+	delegate void AuthVoidErrorHandler ([NullAllowed] NSError error);
+
 	// @interface FIRActionCodeInfo : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRActionCodeInfo")]
@@ -120,8 +123,55 @@ namespace Firebase.Auth
 		ActionCodeOperation Operation { get; }
 
 		// -(NSString * _Nonnull)dataForKey:(FIRActionDataKey)key;
+		[Obsolete ("Deprecated. Please directly use Email or PreviousEmail properties instead.")]
 		[Export ("dataForKey:")]
 		string DataForKey (ActionDataKey key);
+
+		// @property (readonly, copy, nonatomic) NSString * _Nullable email;
+		[NullAllowed]
+		[Export ("email")]
+		string Email { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nullable previousEmail;
+		[NullAllowed]
+		[Export ("previousEmail")]
+		string PreviousEmail { get; }
+	}
+
+	// @interface FIRActionCodeURL : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof(NSObject), Name = "FIRActionCodeURL")]
+	interface ActionCodeUrl
+	{
+		// @property (readonly, copy, nonatomic) NSString * _Nullable APIKey;
+		[NullAllowed]
+		[Export ("APIKey")]
+		string ApiKey { get; }
+
+		// @property (readonly, nonatomic) FIRActionCodeOperation operation;
+		[Export ("operation")]
+		ActionCodeOperation Operation { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nullable code;
+		[NullAllowed]
+		[Export ("code")]
+		string Code { get; }
+
+		// @property (readonly, copy, nonatomic) NSURL * _Nullable continueURL;
+		[NullAllowed]
+		[Export ("continueURL", ArgumentSemantic.Copy)]
+		NSUrl ContinueUrl { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nullable languageCode;
+		[NullAllowed]
+		[Export ("languageCode")]
+		string LanguageCode { get; }
+
+		// +(instancetype _Nullable)actionCodeURLWithLink:(NSString * _Nonnull)link;
+		[Static]
+		[return: NullAllowed]
+		[Export ("actionCodeURLWithLink:")]
+		ActionCodeUrl Create (string link);
 	}
 
 	// typedef void (^FIRCheckActionCodeCallBack)(FIRActionCodeInfo * _Nullable, NSError * _Nullable);
@@ -156,6 +206,10 @@ namespace Firebase.Auth
 		// extern NSString *const _Nonnull FIRAuthErrorUserInfoUpdatedCredentialKey __attribute__((swift_name("AuthErrorUserInfoUpdatedCredentialKey")));
 		[Field ("FIRAuthErrorUserInfoUpdatedCredentialKey", "__Internal")]
 		NSString ErrorUserInfoUpdatedCredentialKey { get; }
+
+		// extern NSString *const _Nonnull FIRAuthErrorUserInfoMultiFactorResolverKey __attribute__((swift_name("AuthErrorUserInfoMultiFactorResolverKey")));
+		[Field ("FIRAuthErrorUserInfoMultiFactorResolverKey", "__Internal")]
+		NSString ErrorUserInfoMultiFactorResolverKey { get; }
 
 		// extern NSString *const _Nonnull FIRAuthStateDidChangeNotification;
 		[Notification]
@@ -406,6 +460,10 @@ namespace Firebase.Auth
 		[Export ("signInProvider")]
 		string SignInProvider { get; }
 
+		// @property (readonly, nonatomic) NSString * _Nonnull signInSecondFactor;
+		[Export ("signInSecondFactor")]
+		string SignInSecondFactor { get; }
+
 		// @property (readonly, nonatomic) NSDictionary<NSString *,id> * _Nonnull claims;
 		[Export ("claims")]
 		NSDictionary<NSString, NSObject> Claims { get; }
@@ -551,6 +609,96 @@ namespace Firebase.Auth
 		AuthCredential GetCredential (string idToken, string accessToken);
 	}
 
+	// typedef void (^FIRMultiFactorSessionCallback)(FIRMultiFactorSession * _Nullable, NSError * _Nullable);
+	delegate void MultiFactorSessionHandler ([NullAllowed] MultiFactorSession session, [NullAllowed] NSError error);
+
+	// @interface FIRMultiFactor : NSObject
+	[BaseType (typeof(NSObject), Name = "FIRMultiFactor")]
+	interface MultiFactor
+	{
+		// extern NSString *const _Nonnull FIRPhoneMultiFactorID __attribute__((swift_name("PhoneMultiFactorID")));
+		[Field ("FIRPhoneMultiFactorID", "__Internal")]
+		NSString PhoneMultiFactorId { get; }
+
+		// @property (readonly, nonatomic) NSArray<FIRMultiFactorInfo *> * _Nonnull enrolledFactors;
+		[Export ("enrolledFactors")]
+		MultiFactorInfo [] EnrolledFactors { get; }
+
+		// -(void)getSessionWithCompletion:(FIRMultiFactorSessionCallback _Nullable)completion;
+		[Export ("getSessionWithCompletion:")]
+		void GetSession ([NullAllowed] MultiFactorSessionHandler completion);
+
+		// -(void)enrollWithAssertion:(FIRMultiFactorAssertion * _Nonnull)assertion displayName:(NSString * _Nullable)displayName completion:(FIRAuthVoidErrorCallback _Nullable)completion;
+		[Export ("enrollWithAssertion:displayName:completion:")]
+		void Enroll (MultiFactorAssertion assertion, [NullAllowed] string displayName, [NullAllowed] AuthVoidErrorHandler completion);
+
+		// -(void)unenrollWithInfo:(FIRMultiFactorInfo * _Nonnull)factorInfo completion:(FIRAuthVoidErrorCallback _Nullable)completion;
+		[Export ("unenrollWithInfo:completion:")]
+		void Unenroll (MultiFactorInfo factorInfo, [NullAllowed] AuthVoidErrorHandler completion);
+
+		// -(void)unenrollWithFactorUID:(NSString * _Nonnull)factorUID completion:(FIRAuthVoidErrorCallback _Nullable)completion;
+		[Export ("unenrollWithFactorUID:completion:")]
+		void Unenroll (string factorUid, [NullAllowed] AuthVoidErrorHandler completion);
+	}
+
+	// @interface FIRMultiFactorAssertion : NSObject
+	[BaseType (typeof(NSObject), Name = "FIRMultiFactorAssertion")]
+	interface MultiFactorAssertion
+	{
+		// @property (readonly, nonatomic) NSString * _Nonnull factorID;
+		[Export ("factorID")]
+		string FactorId { get; }
+	}
+
+	// @interface FIRMultiFactorInfo : NSObject
+	[BaseType (typeof(NSObject), Name = "FIRMultiFactorInfo")]
+	interface MultiFactorInfo
+	{
+		// @property (readonly, nonatomic) NSString * _Nonnull UID;
+		[Export ("UID")]
+		string Uid { get; }
+
+		// @property (readonly, nonatomic) NSString * _Nullable displayName;
+		[NullAllowed]
+		[Export ("displayName")]
+		string DisplayName { get; }
+
+		// @property (readonly, nonatomic) NSDate * _Nonnull enrollmentDate;
+		[Export ("enrollmentDate")]
+		NSDate EnrollmentDate { get; }
+
+		// @property (readonly, nonatomic) NSString * _Nonnull factorID;
+		[Export ("factorID")]
+		string FactorId { get; }
+	}
+
+	// @interface FIRMultiFactorResolver : NSObject
+	[BaseType (typeof(NSObject), Name = "FIRMultiFactorResolver")]
+	interface MultiFactorResolver
+	{
+		// @property (readonly, nonatomic) FIRMultiFactorSession * _Nonnull session;
+		[Export ("session")]
+		MultiFactorSession Session { get; }
+
+		// @property (readonly, nonatomic) NSArray<FIRMultiFactorInfo *> * _Nonnull hints __attribute__((swift_name("hints")));
+		[Export ("hints")]
+		MultiFactorInfo [] Hints { get; }
+
+		// @property (readonly, nonatomic) FIRAuth * _Nonnull auth;
+		[Export ("auth")]
+		Auth Auth { get; }
+
+		// -(void)resolveSignInWithAssertion:(FIRMultiFactorAssertion * _Nonnull)assertion completion:(FIRAuthDataResultCallback _Nullable)completion;
+		[Export ("resolveSignInWithAssertion:completion:")]
+		void ResolveSignIn (MultiFactorAssertion assertion, [NullAllowed] AuthDataResultHandler completion);
+	}
+
+	// @interface FIRMultiFactorSession : NSObject
+	[BaseType (typeof(NSObject), Name = "FIRMultiFactorSession")]
+	interface MultiFactorSession
+	{
+	}
+
 	// @interface FIROAuthCredential : FIRAuthCredential <NSSecureCoding>
 	[DisableDefaultCtor]
 	[BaseType (typeof (AuthCredential), Name = "FIROAuthCredential")]
@@ -661,9 +809,45 @@ namespace Firebase.Auth
 		[Export ("verifyPhoneNumber:UIDelegate:completion:")]
 		void VerifyPhoneNumber (string phoneNumber, [NullAllowed] IAuthUIDelegate uiDelegate, [NullAllowed] VerificationResultHandler completion);
 
+		// -(void)verifyPhoneNumber:(NSString * _Nonnull)phoneNumber UIDelegate:(id<FIRAuthUIDelegate> _Nullable)UIDelegate multiFactorSession:(FIRMultiFactorSession * _Nullable)session completion:(FIRVerificationResultCallback _Nullable)completion;
+		[Async]
+		[Export ("verifyPhoneNumber:UIDelegate:multiFactorSession:completion:")]
+		void VerifyPhoneNumber (string phoneNumber, [NullAllowed] IAuthUIDelegate uiDelegate, [NullAllowed] MultiFactorSession session, [NullAllowed] VerificationResultHandler completion);
+
+		// -(void)verifyPhoneNumberWithMultiFactorInfo:(FIRPhoneMultiFactorInfo * _Nonnull)phoneMultiFactorInfo UIDelegate:(id<FIRAuthUIDelegate> _Nullable)UIDelegate multiFactorSession:(FIRMultiFactorSession * _Nullable)session completion:(FIRVerificationResultCallback _Nullable)completion;
+		[Async]
+		[Export ("verifyPhoneNumberWithMultiFactorInfo:UIDelegate:multiFactorSession:completion:")]
+		void VerifyPhoneNumber (PhoneMultiFactorInfo phoneMultiFactorInfo, [NullAllowed] IAuthUIDelegate uiDelegate, [NullAllowed] MultiFactorSession session, [NullAllowed] VerificationResultHandler completion);
+
 		// -(FIRPhoneAuthCredential * _Nonnull)credentialWithVerificationID:(NSString * _Nonnull)verificationID verificationCode:(NSString * _Nonnull)verificationCode;
 		[Export ("credentialWithVerificationID:verificationCode:")]
 		PhoneAuthCredential GetCredential (string verificationId, string verificationCode);
+	}
+
+	// @interface FIRPhoneMultiFactorAssertion : FIRMultiFactorAssertion
+	[BaseType (typeof(MultiFactorAssertion), Name = "FIRPhoneMultiFactorAssertion")]
+	interface PhoneMultiFactorAssertion
+	{
+	}
+	
+	// @interface FIRPhoneMultiFactorGenerator : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof(NSObject), Name = "FIRPhoneMultiFactorGenerator")]
+	interface PhoneMultiFactorGenerator
+	{
+		// +(FIRPhoneMultiFactorAssertion * _Nonnull)assertionWithCredential:(FIRPhoneAuthCredential * _Nonnull)phoneAuthCredential;
+		[Static]
+		[Export ("assertionWithCredential:")]
+		PhoneMultiFactorAssertion GetAssertion (PhoneAuthCredential phoneAuthCredential);
+	}
+	
+	// @interface FIRPhoneMultiFactorInfo : FIRMultiFactorInfo
+	[BaseType (typeof(MultiFactorInfo), Name = "FIRPhoneMultiFactorInfo")]
+	interface PhoneMultiFactorInfo
+	{
+		// @property (readonly, nonatomic) NSString * _Nonnull phoneNumber;
+		[Export ("phoneNumber")]
+		string PhoneNumber { get; }
 	}
 
 	// @interface FIRTwitterAuthProvider : NSObject
@@ -722,6 +906,10 @@ namespace Firebase.Auth
 		// @property (readonly, nonatomic) FIRUserMetadata * _Nonnull metadata;
 		[Export ("metadata")]
 		UserMetadata Metadata { get; }
+
+		// @property (readonly, nonatomic) FIRMultiFactor * _Nonnull multiFactor;
+		[Export("multiFactor")]
+		MultiFactor MultiFactor { get; }
 
 		// -(void)updateEmail:(NSString * _Nonnull)email completion:(FIRUserProfileChangeCallback _Nullable)completion;
 		[Async]
@@ -820,6 +1008,16 @@ namespace Firebase.Auth
 		[Async]
 		[Export ("deleteWithCompletion:")]
 		void Delete ([NullAllowed] UserProfileChangeHandler completion);
+
+		// -(void)sendEmailVerificationBeforeUpdatingEmail:(NSString * _Nonnull)email completion:(FIRAuthVoidErrorCallback _Nullable)completion;
+		[Async]
+		[Export ("sendEmailVerificationBeforeUpdatingEmail:completion:")]
+		void SendEmailVerificationBeforeUpdatingEmail (string email, [NullAllowed] AuthVoidErrorHandler completion);
+
+		// -(void)sendEmailVerificationBeforeUpdatingEmail:(NSString * _Nonnull)email actionCodeSettings:(FIRActionCodeSettings * _Nonnull)actionCodeSettings completion:(FIRAuthVoidErrorCallback _Nullable)completion;
+		[Async]
+		[Export ("sendEmailVerificationBeforeUpdatingEmail:actionCodeSettings:completion:")]
+		void SendEmailVerificationBeforeUpdatingEmail (string email, ActionCodeSettings actionCodeSettings, [NullAllowed] AuthVoidErrorHandler completion);
 	}
 
 	// @interface FIRUserProfileChangeRequest : NSObject

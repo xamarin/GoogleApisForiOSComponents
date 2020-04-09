@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -46,7 +46,7 @@ namespace AdMobSample
 			if (adViewTableView == null) {
 				// Setup your BannerView, review AdSizeCons class for more Ad sizes. 
 				adViewTableView = new BannerView (size: AdSizeCons.SmartBannerPortrait) {
-					AdUnitID = AdMobConstants.BannerId,
+					AdUnitId = AdMobConstants.BannerId,
 					RootViewController = NavigationController
 				};
 
@@ -85,7 +85,7 @@ namespace AdMobSample
 				// Setup your GADBannerView, review AdSizeCons class for more Ad sizes. 
 				adViewWindow = new BannerView (size: AdSizeCons.SmartBannerPortrait,
 				                               origin: new CGPoint (0, UIScreen.MainScreen.Bounds.Size.Height - AdSizeCons.Banner.Size.Height)) {
-					AdUnitID = AdMobConstants.BannerId,
+					AdUnitId = AdMobConstants.BannerId,
 					RootViewController = NavigationController
 				};
 
@@ -122,7 +122,7 @@ namespace AdMobSample
 			if (!adInterstitial.IsReady)
 				return;
 
-			adInterstitial.PresentFromRootViewController (NavigationController);
+			adInterstitial.Present (NavigationController);
 		}
 
 		void CreateAndRequestInterstitial ()
@@ -142,10 +142,6 @@ namespace AdMobSample
 		Request GetRequest ()
 		{
 			var request = Request.GetDefaultRequest ();
-			// Requests test ads on devices you specify. Your test device ID is printed to the console when
-			// an ad request is made. GADBannerView automatically returns test ads when running on a
-			// simulator. After you get your device ID, add it here
-			request.TestDevices = new [] { Request.SimulatorId.ToString () };
 			return request;
 		}
 	}

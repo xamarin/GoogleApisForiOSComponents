@@ -55,11 +55,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Build.Download" Version="0.9.0" PrivateAssets="None" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.10.0" PrivateAssets="None" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\Installations\Installations.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\InstanceID\InstanceID.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\Analytics\Analytics.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\DynamicLinks\DynamicLinks.csproj" PrivateAssets="None" />

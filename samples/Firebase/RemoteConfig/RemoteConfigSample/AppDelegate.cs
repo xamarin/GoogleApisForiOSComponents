@@ -27,8 +27,6 @@ namespace RemoteConfigSample
 
 			// Use Firebase library to configure APIs
 			App.Configure ();
-			// Enabling developer mode, allows for frequent refreshes of the cache
-			RemoteConfig.SharedInstance.ConfigSettings = new RemoteConfigSettings (true);
 
 			// You can set default parameter values using an NSDictionary object or a plist file.
 			var defaultPlist = NSBundle.MainBundle.PathForResource ("RemoteConfigDefaults", "plist");
@@ -52,13 +50,11 @@ namespace RemoteConfigSample
 			if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
 				var alert = UIAlertController.Create (title, message, UIAlertControllerStyle.Alert);
 				alert.AddAction (UIAlertAction.Create ("Ok", UIAlertActionStyle.Default, (obj) => {
-					if (actionForOk != null) {
-						actionForOk ();
-					}
+					fromViewController.InvokeOnMainThread (() => actionForOk?.Invoke ());
 				}));
 				fromViewController.PresentViewController (alert, true, null);
 			} else {
-				new UIAlertView (title, message, null, "Ok", null).Show ();
+				fromViewController.InvokeOnMainThread (() => new UIAlertView (title, message, null, "Ok", null).Show ());
 			}
 		}
 	}

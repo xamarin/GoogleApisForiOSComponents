@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -44,10 +44,10 @@ namespace CrashlyticsSample {
 			};
 			var nsData = NSDictionary.FromObjectsAndKeys (data.Values.ToArray (), data.Keys.ToArray (), data.Keys.Count);
 
-			Logging.NSLogCallerInformation ($"Hi! Maybe I'm about to crash! Here's some data: {nsData}", nameof (ViewController));
-			Crashlytics.SharedInstance.SetValue (nsData, "data");
+			Crashlytics.SharedInstance.LogCallerInformation ($"Hi! Maybe I'm about to crash! Here's some data: {nsData}", nameof (ViewController));
+			Crashlytics.SharedInstance.SetCustomValue (nsData, "SomeData");
 
-			Crashlytics.SharedInstance.Crash ();
+			throw new NotImplementedException ();
 		}
 
 		public override void DidReceiveMemoryWarning ()

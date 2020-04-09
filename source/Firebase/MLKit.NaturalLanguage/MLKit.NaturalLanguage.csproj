@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
+  <PropertyGroup>
+    <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
+    <IsBindingProject>true</IsBindingProject>
+    <RootNamespace>Firebase.MLKit.NaturalLanguage</RootNamespace>
+    <AssemblyName>Firebase.MLKit.NaturalLanguage</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>0.17.0</FileVersion>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Xamarin.Firebase.iOS.MLKit.NaturalLanguage</PackageId>
+    <Title>Firebase APIs MLKit Natural Language iOS Library</Title>
+    <Summary>C# bindings for Firebase APIs MLKit Natural Language iOS Library</Summary>
+    <Description>C# bindings for Firebase APIs MLKit Natural Language iOS Library</Description>
+    <Authors>Microsoft</Authors>
+    <Owners>Microsoft</Owners>
+    <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
+    <PackageIcon>firebaseiosmlkitnaturallanguage_128x128.png</PackageIcon>
+    <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2109487</PackageProjectUrl>
+    <PackageLicenseFile>License.md</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageVersion>0.17.0</PackageVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="MLKit.NaturalLanguage.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.MLKit.NaturalLanguage.targets" />
+    <None Include="MLKit.NaturalLanguage.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.MLKit.NaturalLanguage.targets" />
+    <None Include="License.md" Pack="True" PackagePath="License.md" />
+    <None Include="../../../icons/firebaseiosmlkitnaturallanguage_128x128.png" Pack="True" PackagePath="firebaseiosmlkitnaturallanguage_128x128.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Enums.cs" />
+    <Compile Remove="ApiDefinition.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="Enums.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Build.Download" Version="0.10.0" PrivateAssets="None" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\Installations\Installations.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\InstanceID\InstanceID.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\ABTesting\ABTesting.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\RemoteConfig\RemoteConfig.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\MLKit.Common\MLKit.Common.csproj" PrivateAssets="None" />
+  </ItemGroup>
+  
+  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+</Project>

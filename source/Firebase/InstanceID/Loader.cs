@@ -6,6 +6,7 @@ namespace Firebase.InstanceID
 		static Loader ()
 		{
 			Firebase.Core.Loader.ForceLoad ();
+			Firebase.Installations.Loader.ForceLoad();
 		}
 
 		public static void ForceLoad () { }

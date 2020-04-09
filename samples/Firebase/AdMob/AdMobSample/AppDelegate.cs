@@ -25,8 +25,28 @@ namespace AdMobSample
 			(Window.RootViewController as UINavigationController).PushViewController (new AdsViewController (), true);
 
 			App.Configure ();
-			// Get your Application Id here: https://apps.admob.com/#account/appmgmt:
-			MobileAds.Configure ("ca-app-pub-XXXXXXXXXXXXXXXX~NNNNNNNNNN");
+
+			/*
+			 * In your app's Info.plist file, add a GADApplicationIdentifier key
+			 * with a string value of your AdMob app ID
+			 * 
+			 * <key>GADApplicationIdentifier</key>
+			 * <string>ca-app-pub-XXXXXXXXXXXXXXXX~NNNNNNNNNN</string>
+			 *
+			 * Get your Application Id here: https://apps.admob.com/#account/appmgmt:
+			 *
+			 * If you're just looking to experiment with the SDK in a Hello World app,
+			 * you can use the sample App ID shown below.
+			 * 
+			 * <string>ca-app-pub-3940256099942544~1458002511</string>
+			 */
+
+			MobileAds.SharedInstance.Start (status => {
+				// Requests test ads on devices you specify. Your test device ID is printed to the console when
+				// an ad request is made. Ads automatically returns test ads when running on a
+				// simulator. After you get your device ID, add it here
+				MobileAds.SharedInstance.RequestConfiguration.TestDeviceIdentifiers = new [] { Request.SimulatorId.ToString () };
+			});
 
 			return true;
 		}

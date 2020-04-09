@@ -6,25 +6,34 @@
     <RootNamespace>Firebase.MLKit</RootNamespace>
     <AssemblyName>Firebase.MLKit</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>0.13.0.2</FileVersion>
+    <FileVersion>0.19.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <ProcessEnums>true</ProcessEnums>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
   </PropertyGroup>
 
   <PropertyGroup>
     <PackageId>Xamarin.Firebase.iOS.MLKit</PackageId>
     <Title>Firebase APIs MLKit iOS Library</Title>
     <Summary>C# bindings for Firebase APIs MLKit iOS Library</Summary>
-    <Description>C# bindings for Firebase APIs MLKit iOS Library</Description>
+    <Description>
+      C# bindings for Firebase APIs MLKit iOS Library.
+
+      This NuGet references:
+      * Xamarin.Firebase.iOS.MLKit.ModelInterpreter
+      * Xamarin.Firebase.iOS.MLKit.NaturalLanguge
+      * Xamarin.Firebase.iOS.MLKit.Vision
+
+      If you don't need all MLKit, please, uninstall this NuGet and install just the one you need.
+    </Description>
     <Authors>Microsoft</Authors>
     <Owners>Microsoft</Owners>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
     <PackageIcon>firebaseiosmlkit_128x128.png</PackageIcon>
-    <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2027941</PackageProjectUrl>
+    <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2125027</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>0.13.0.2</PackageVersion>
+    <PackageVersion>0.19.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -36,8 +45,6 @@
   </ItemGroup>
   
   <ItemGroup>
-    <None Include="MLKit.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.MLKit.targets" />
-    <None Include="MLKit.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.MLKit.targets" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseiosmlkit_128x128.png" Pack="True" PackagePath="firebaseiosmlkit_128x128.png" />
   </ItemGroup>
@@ -48,17 +55,27 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ObjcBindingApiDefinition Include="ApiDefinition.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
-    <ObjcBindingApiDefinition Include="Enums.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
+    <ObjcBindingCoreSource Include="Enums.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Build.Download" Version="0.9.0" PrivateAssets="None" />
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Build.Download" Version="0.10.0" PrivateAssets="None" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\Installations\Installations.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\InstanceID\InstanceID.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\ABTesting\ABTesting.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\RemoteConfig\RemoteConfig.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\MLKit.Common\MLKit.Common.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\MLKit.ModelInterpreter\MLKit.ModelInterpreter.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\MLKit.NaturalLanguage\MLKit.NaturalLanguage.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\MLKit.Vision\MLKit.Vision.csproj" PrivateAssets="None" />
   </ItemGroup>
   
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
