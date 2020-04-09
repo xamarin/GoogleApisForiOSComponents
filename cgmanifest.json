@@ -76,7 +76,7 @@
 				"git": {
 					"name": "FirebaseCore",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "f0d6f5a9ff3af91406d11c79c04e2557c35eb747"
+					"commitHash": "45ba8e19091144c9ca06204a0791640594af3e69"
 				}
 			}
 		},
@@ -86,7 +86,7 @@
 				"git": {
 					"name": "FirebaseCoreDiagnostics",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "a43ca45c0dc9480fd16165eabc55e1cbaacc1b67"
+					"commitHash": "45ba8e19091144c9ca06204a0791640594af3e69"
 				}
 			}
 		},
@@ -406,7 +406,7 @@
 				"git": {
 					"name": "GoogleDataTransport",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "f0d6f5a9ff3af91406d11c79c04e2557c35eb747"
+					"commitHash": "45ba8e19091144c9ca06204a0791640594af3e69"
 				}
 			}
 		},
@@ -416,7 +416,7 @@
 				"git": {
 					"name": "GoogleDataTransportCCTSupport",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "f0d6f5a9ff3af91406d11c79c04e2557c35eb747"
+					"commitHash": "45ba8e19091144c9ca06204a0791640594af3e69"
 				}
 			}
 		},
