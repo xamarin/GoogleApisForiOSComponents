@@ -11,6 +11,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.Analytics][F.Analytics.Name]                           | [6.4.0.0][F.Analytics.Package]               |
 | [Xamarin.Firebase.iOS.Auth][F.Auth.Name]                                     | [6.5.1.0][F.Auth.Package]                    |
 | [Xamarin.Firebase.iOS.CloudFirestore][F.CloudFirestore.Name]                 | [1.11.2.0][F.CloudFirestore.Package]         |
+| [Xamarin.Firebase.iOS.CloudFunctions][F.CloudFunctions.Name]                 | [2.5.1.0][F.CloudFunctions.Package]               |
 | [Xamarin.Firebase.iOS.CloudMessaging][F.CloudMessaging.Name]                 | [4.3.0.0][F.CloudMessaging.Package]          |
 | [Xamarin.Firebase.iOS.Core][F.Core.Name]                                     | [6.6.5.0][F.Core.Package]                    |
 | [Xamarin.Firebase.iOS.Crashlytics][F.Crashlytics.Name]                       | [4.0.0-beta.6][F.Crashlytics.Package]        |
@@ -59,6 +60,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Analytics               | **6.4.0.0**       | **6.21.0**     |
 | Firebase Auth                    | **6.5.1.0**       | **6.21.0**     |
 | Firebase Cloud Firestore         | **1.11.2.0**      | **6.21.0**     |
+| Firebase CloudFunctions          | **2.5.1.0**       | **6.21.0**     |
 | Firebase Cloud Messaging         | **4.3.0.0**       | **6.21.0**     |
 | Firebase Core                    | **6.6.5.0**       | **6.21.0**     |
 | Firebase Crashlytics             | **4.0.0-beta.6**  | **6.21.0**     |
@@ -115,6 +117,7 @@ Firebase.AdMob
 Firebase.Analytics
 Firebase.Auth
 Firebase.CloudFirestore
+Firebase.CloudFunctions
 Firebase.CloudMessaging
 Firebase.Core
 Firebase.Crashlytics
@@ -184,6 +187,7 @@ This project is part of the [.NET Foundation][104]
 [F.Analytics.Name]: source/Firebase/Analytics
 [F.Auth.Name]: source/Firebase/Auth
 [F.CloudFirestore.Name]: source/Firebase/CloudFirestore
+[F.CloudFunctions.Name]: source/Firebase/CloudFunctions
 [F.CloudMessaging.Name]: source/Firebase/CloudMessaging
 [F.Core.Name]: source/Firebase/Core
 [F.Crashlytics.Name]: source/Firebase/Crashlytics
@@ -208,6 +212,7 @@ This project is part of the [.NET Foundation][104]
 [F.Analytics.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Analytics/
 [F.Auth.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Auth/
 [F.CloudFirestore.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.CloudFirestore/
+[F.CloudFunctions.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Functions/
 [F.CloudMessaging.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.CloudMessaging/
 [F.Core.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Core/
 [F.Crashlytics.Package]: https://www.nuget.org/packages/Xamarin.Firebase.iOS.Crashlytics/

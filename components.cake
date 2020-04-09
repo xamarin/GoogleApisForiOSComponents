@@ -4,6 +4,7 @@ Artifact FIREBASE_AD_MOB_ARTIFACT                  = new Artifact ("Firebase.AdM
 Artifact FIREBASE_ANALYTICS_ARTIFACT               = new Artifact ("Firebase.Analytics",              "6.4.0",        "8.0", ComponentGroup.Firebase, csprojName: "Analytics");
 Artifact FIREBASE_AUTH_ARTIFACT                    = new Artifact ("Firebase.Auth",                   "6.5.1",        "8.0", ComponentGroup.Firebase, csprojName: "Auth");
 Artifact FIREBASE_CLOUD_FIRESTORE_ARTIFACT         = new Artifact ("Firebase.CloudFirestore",         "1.11.2",       "8.0", ComponentGroup.Firebase, csprojName: "CloudFirestore");
+Artifact FIREBASE_CLOUD_FUNCTIONS_ARTIFACT         = new Artifact ("Firebase.CloudFunctions",         "2.5.1",        "8.0", ComponentGroup.Firebase, csprojName: "CloudFunctions");
 Artifact FIREBASE_CLOUD_MESSAGING_ARTIFACT         = new Artifact ("Firebase.CloudMessaging",         "4.3.0",        "8.0", ComponentGroup.Firebase, csprojName: "CloudMessaging");
 Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Core",                   "6.6.5",        "8.0", ComponentGroup.Firebase, csprojName: "Core");
 Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Crashlytics",            "4.0.0-beta.6", "8.0", ComponentGroup.Firebase, csprojName: "Crashlytics");
@@ -39,6 +40,7 @@ var ARTIFACTS = new Dictionary<string, Artifact> {
 	{ "Firebase.Analytics",              FIREBASE_ANALYTICS_ARTIFACT },
 	{ "Firebase.Auth",                   FIREBASE_AUTH_ARTIFACT },
 	{ "Firebase.CloudFirestore",         FIREBASE_CLOUD_FIRESTORE_ARTIFACT },
+	{ "Firebase.CloudFunctions",         FIREBASE_CLOUD_FUNCTIONS_ARTIFACT },
 	{ "Firebase.CloudMessaging",         FIREBASE_CLOUD_MESSAGING_ARTIFACT },
 	{ "Firebase.Core",                   FIREBASE_CORE_ARTIFACT },
 	{ "Firebase.Crashlytics",            FIREBASE_CRASHLYTICS_ARTIFACT },
@@ -75,6 +77,7 @@ void SetArtifactsDependencies ()
 	FIREBASE_ANALYTICS_ARTIFACT.Dependencies               = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT };
 	FIREBASE_AUTH_ARTIFACT.Dependencies                    = new [] { FIREBASE_CORE_ARTIFACT, /* Needed for sample */ GOOGLE_SIGN_IN_ARTIFACT };
 	FIREBASE_CLOUD_FIRESTORE_ARTIFACT.Dependencies         = new [] { FIREBASE_CORE_ARTIFACT, /* Needed for sample */ FIREBASE_AUTH_ARTIFACT };
+	FIREBASE_CLOUD_FUNCTIONS_ARTIFACT.Dependencies         = new [] { FIREBASE_CORE_ARTIFACT};
 	FIREBASE_CLOUD_MESSAGING_ARTIFACT.Dependencies         = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT };
 	FIREBASE_CORE_ARTIFACT.Dependencies                    = null;
 	FIREBASE_CRASHLYTICS_ARTIFACT.Dependencies             = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT };
@@ -125,6 +128,9 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("gRPC-Core",      "1.21.0",      frameworkSource: FrameworkSource.Pods, frameworkName: "grpc"),
 		PodSpec.Create ("gRPC-C++",       "0.0.9",       frameworkSource: FrameworkSource.Pods, frameworkName: "grpcpp"),
 		PodSpec.Create ("abseil",         "0.20190808",  frameworkSource: FrameworkSource.Pods, frameworkName: "absl", subSpecs: new [] { "algorithm", "base", "memory", "meta", "strings", "time", "types" })
+	};
+	FIREBASE_CLOUD_FUNCTIONS_ARTIFACT.PodSpecs = new [] {
+		PodSpec.Create ("Firebase", "6.21.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseFunctions", targetName: "FirebaseFunctions", subSpecs: new [] { "Functions" })
 	};
 	FIREBASE_CLOUD_MESSAGING_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.21.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseMessaging", targetName: "FirebaseMessaging", subSpecs: new [] { "Messaging" })
@@ -256,6 +262,7 @@ void SetArtifactsExtraPodfileLines ()
 	FIREBASE_AB_TESTING_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
 	FIREBASE_AUTH_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
 	FIREBASE_CLOUD_FIRESTORE_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
+	FIREBASE_CLOUD_FUNCTIONS_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
 	FIREBASE_CLOUD_MESSAGING_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
 	FIREBASE_CRASHLYTICS_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
 	FIREBASE_CORE_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
