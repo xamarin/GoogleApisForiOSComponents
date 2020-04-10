@@ -35,8 +35,8 @@
 				"type": "other",
 				"other": {
 					"name": "FirebaseAnalytics",
-					"version": "6.4.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/46d897fc5f537fb6/FirebaseAnalytics-6.4.0.tar.gz"
+					"version": "6.4.1",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/870d57e79087d14b/FirebaseAnalytics-6.4.1.tar.gz"
 				}
 			}
 		},
@@ -385,8 +385,8 @@
 				"type": "other",
 				"other": {
 					"name": "GoogleAppMeasurement",
-					"version": "6.4.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/23293a593f8584e1/GoogleAppMeasurement-6.4.0.tar.gz"
+					"version": "6.4.1",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/fe43b2e2ebeb4235/GoogleAppMeasurement-6.4.1.tar.gz"
 				}
 			}
 		},
