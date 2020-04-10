@@ -114,7 +114,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("Firebase", "6.22.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseABTesting", targetName: "FirebaseABTesting", subSpecs: new [] { "ABTesting" })
 	};
 	FIREBASE_AD_MOB_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.21.0", subSpecs: new [] { "AdMob" })
+		PodSpec.Create ("Firebase", "6.22.0", subSpecs: new [] { "AdMob" })
 	};
 	FIREBASE_ANALYTICS_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.22.0", subSpecs: new [] { "Analytics" })
