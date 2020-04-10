@@ -61,7 +61,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Auth                    | **6.5.1.0**       | **6.22.0**     |
 | Firebase Cloud Firestore         | **1.12.0.0**      | **6.22.0**     |
 | Firebase Cloud Functions         | **2.5.1.0**       | **6.22.0**     |
-| Firebase Cloud Messaging         | **4.3.0.0**       | **6.21.0**     |
+| Firebase Cloud Messaging         | **4.3.0.0**       | **6.22.0**     |
 | Firebase Core                    | **6.6.6.0**       | **6.22.0**     |
 | Firebase Crashlytics             | **4.0.0-beta.7**  | **6.22.0**     |
 | Firebase Database                | **6.1.4.0**       | **6.22.0**     |
