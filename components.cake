@@ -175,7 +175,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("Firebase", "6.21.0", subSpecs: new [] { "MLCommon", "MLModelInterpreter", "MLNaturalLanguage", "MLVision" })
 	};
 	FIREBASE_MLKIT_COMMON_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.21.0", subSpecs: new [] { "MLCommon" }),
+		PodSpec.Create ("Firebase", "6.22.0", subSpecs: new [] { "MLCommon" }),
 		PodSpec.Create ("TensorFlowLiteObjC", "1.14.0", frameworkSource: FrameworkSource.Pods, frameworkName: "TFLTensorFlowLite", targetName: "TensorFlowLiteObjC"),
 		PodSpec.Create ("TensorFlowLiteC",    "1.14.0")
 	};
