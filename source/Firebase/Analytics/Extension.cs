@@ -16,6 +16,8 @@ namespace Firebase.Analytics
 		public static NSString EcommercePurchase { get; } = new NSString ("ecommerce_purchase");
 		public static NSString GenerateLead { get; } = new NSString ("generate_lead");
 		public static NSString JoinGroup { get; } = new NSString ("join_group");
+		public static NSString LevelEnd { get; } = new NSString("level_end");
+		public static NSString LevelStart { get; } = new NSString("level_start");
 		public static NSString LevelUp { get; } = new NSString ("level_up");
 		public static NSString Login { get; } = new NSString ("login");
 		public static NSString PostScore { get; } = new NSString ("post_score");
@@ -34,8 +36,6 @@ namespace Firebase.Analytics
 		public static NSString ViewItem { get; } = new NSString ("view_item");
 		public static NSString ViewItemList { get; } = new NSString ("view_item_list");
 		public static NSString ViewSearchResults { get; } = new NSString ("view_search_results");
-		public static NSString LevelStart { get; } = new NSString ("level_start");
-		public static NSString LevelEnd { get; } = new NSString ("level_end");
 		public static NSString AddShippingInfo { get; } = new NSString ("add_shipping_info");
 		public static NSString Purchase { get; } = new NSString ("purchase");
 		public static NSString Refund { get; } = new NSString ("refund");
