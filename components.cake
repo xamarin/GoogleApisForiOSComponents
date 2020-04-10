@@ -120,7 +120,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("Firebase", "6.22.0", subSpecs: new [] { "Analytics" })
 	};
 	FIREBASE_AUTH_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.21.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseAuth", targetName: "FirebaseAuth", subSpecs: new [] { "Auth" })
+		PodSpec.Create ("Firebase", "6.22.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseAuth", targetName: "FirebaseAuth", subSpecs: new [] { "Auth" })
 	};
 	FIREBASE_CLOUD_FIRESTORE_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase",       "6.21.0",      frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseFirestore", targetName: "FirebaseFirestore", subSpecs: new [] { "Firestore" }),
