@@ -136,7 +136,7 @@
 				"git": {
 					"name": "FirebaseFirestore",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "54a1db1dc74a95bae875f9d9acd2c820c4b5201a"
+					"commitHash": "45ba8e19091144c9ca06204a0791640594af3e69"
 				}
 			}
 		},
