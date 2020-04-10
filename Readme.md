@@ -76,7 +76,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase MLKit Vision            | **0.19.0.0**      | **6.21.0**     |
 | Firebase Performance Monitoring  | **3.1.11.0**      | **6.22.0**     |
 | Firebase RemoteConfig            | **4.4.9.0**       | **6.22.0**     |
-| Firebase Storage                 | **3.6.0.0**       | **6.21.0**     |
+| Firebase Storage                 | **3.6.0.0**       | **6.22.0**     |
 | Google Sign-In                   | **5.0.2.1**       | **6.15.0**     |
 | Google Tag Manager               | **7.1.2.3**       | **6.5.0**      |
 
