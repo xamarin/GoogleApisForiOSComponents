@@ -12,7 +12,7 @@ Artifact FIREBASE_DATABASE_ARTIFACT                = new Artifact ("Firebase.Dat
 Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.DynamicLinks",           "4.0.8",        "8.0", ComponentGroup.Firebase, csprojName: "DynamicLinks");
 Artifact FIREBASE_IN_APP_MESSAGING_ARTIFACT        = new Artifact ("Firebase.InAppMessaging",         "0.19.1",       "9.0", ComponentGroup.Firebase, csprojName: "InAppMessaging");
 Artifact FIREBASE_INSTALLATIONS_ARTIFACT           = new Artifact ("Firebase.Installations",          "1.1.1",        "8.0", ComponentGroup.Firebase, csprojName: "Installations");
-Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.InstanceID",             "4.3.2",        "8.0", ComponentGroup.Firebase, csprojName: "InstanceID");
+Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.InstanceID",             "4.3.3",        "8.0", ComponentGroup.Firebase, csprojName: "InstanceID");
 Artifact FIREBASE_MLKIT_ARTIFACT                   = new Artifact ("Firebase.MLKit",                  "0.19.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit");
 Artifact FIREBASE_MLKIT_COMMON_ARTIFACT            = new Artifact ("Firebase.MLKit.Common",           "0.19.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit.Common");
 Artifact FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT = new Artifact ("Firebase.MLKit.ModelInterpreter", "0.19.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit.ModelInterpreter");
@@ -169,7 +169,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("PromisesObjC",          "1.2.8", frameworkSource: FrameworkSource.Pods, frameworkName: "FBLPromises", targetName: "PromisesObjC")
 	};
 	FIREBASE_INSTANCE_ID_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("FirebaseInstanceID",    "4.3.2", frameworkSource: FrameworkSource.Pods)
+		PodSpec.Create ("FirebaseInstanceID",    "4.3.3", frameworkSource: FrameworkSource.Pods)
 	};
 	FIREBASE_MLKIT_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.21.0", subSpecs: new [] { "MLCommon", "MLModelInterpreter", "MLNaturalLanguage", "MLVision" })
