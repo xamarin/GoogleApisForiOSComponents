@@ -106,7 +106,7 @@
 				"git": {
 					"name": "FirebaseCrashlytics",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "f0d6f5a9ff3af91406d11c79c04e2557c35eb747"
+					"commitHash": "45ba8e19091144c9ca06204a0791640594af3e69"
 				}
 			}
 		},

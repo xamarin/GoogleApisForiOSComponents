@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.Crashlytics</RootNamespace>
     <AssemblyName>Firebase.Crashlytics</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>4.0.0-beta.6</FileVersion>
+    <FileVersion>4.0.0-beta.7</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=873305</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>4.0.0-beta.6</PackageVersion>
+    <PackageVersion>4.0.0-beta.7</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
