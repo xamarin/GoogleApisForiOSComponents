@@ -70,7 +70,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Installations           | **1.1.1.0**       | **6.22.0**     |
 | Firebase Instance ID             | **4.3.3.0**       | **6.22.0**     |
 | Firebase MLKit                   | **0.19.0.0**      | **6.21.0**     |
-| Firebase MLKit Common            | **0.19.0.0**      | **6.21.0**     |
+| Firebase MLKit Common            | **0.19.0.0**      | **6.22.0**     |
 | Firebase MLKit Model Interpreter | **0.19.0.0**      | **6.21.0**     |
 | Firebase MLKit Natural Language  | **0.17.0.0**      | **6.21.0**     |
 | Firebase MLKit Vision            | **0.19.0.0**      | **6.21.0**     |
