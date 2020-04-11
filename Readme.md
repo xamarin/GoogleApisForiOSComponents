@@ -72,7 +72,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase MLKit                   | **0.19.0.0**      | **6.21.0**     |
 | Firebase MLKit Common            | **0.19.0.0**      | **6.22.0**     |
 | Firebase MLKit Model Interpreter | **0.19.0.0**      | **6.22.0**     |
-| Firebase MLKit Natural Language  | **0.17.0.0**      | **6.21.0**     |
+| Firebase MLKit Natural Language  | **0.17.0.0**      | **6.22.0**     |
 | Firebase MLKit Vision            | **0.19.0.0**      | **6.21.0**     |
 | Firebase Performance Monitoring  | **3.1.11.0**      | **6.22.0**     |
 | Firebase RemoteConfig            | **4.4.9.0**       | **6.22.0**     |
