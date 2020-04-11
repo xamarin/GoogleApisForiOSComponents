@@ -172,7 +172,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("FirebaseInstanceID",    "4.3.3", frameworkSource: FrameworkSource.Pods)
 	};
 	FIREBASE_MLKIT_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.21.0", subSpecs: new [] { "MLCommon", "MLModelInterpreter", "MLNaturalLanguage", "MLVision" })
+		PodSpec.Create ("Firebase", "6.22.0", subSpecs: new [] { "MLCommon", "MLModelInterpreter", "MLNaturalLanguage", "MLVision" })
 	};
 	FIREBASE_MLKIT_COMMON_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.22.0", subSpecs: new [] { "MLCommon" }),
@@ -186,7 +186,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("Firebase", "6.22.0", subSpecs: new [] { "MLNaturalLanguage", "MLNLLanguageID", "MLNLSmartReply", "MLNLTranslate" })
 	};
 	FIREBASE_MLKIT_VISION_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.21.0", subSpecs: new [] { "MLVision", "MLVisionAutoML", "MLVisionBarcodeModel", "MLVisionFaceModel", "MLVisionLabelModel", "MLVisionTextModel", "MLVisionObjectDetection" })
+		PodSpec.Create ("Firebase", "6.22.0", subSpecs: new [] { "MLVision", "MLVisionAutoML", "MLVisionBarcodeModel", "MLVisionFaceModel", "MLVisionLabelModel", "MLVisionTextModel", "MLVisionObjectDetection" })
 	};
 	FIREBASE_PERFORMANCE_MONITORING_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.22.0", subSpecs: new [] { "Performance" })
