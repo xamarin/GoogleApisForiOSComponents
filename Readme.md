@@ -17,7 +17,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.Crashlytics][F.Crashlytics.Name]                       | [4.0.0-beta.7][F.Crashlytics.Package]        |
 | [Xamarin.Firebase.iOS.Database][F.Database.Name]                             | [6.1.4.0][F.Database.Package]                |
 | [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                     | [4.0.7.0][F.DynamicLinks.Package]            |
-| [Xamarin.Firebase.iOS.InAppMessaging][F.InAppMessaging.Name]                 | [0.19.2.0][F.InAppMessaging.Package]         |
+| [Xamarin.Firebase.iOS.InAppMessaging][F.InAppMessaging.Name]                 | [0.19.2.1][F.InAppMessaging.Package]         |
 | [Xamarin.Firebase.iOS.Installations][F.Installations.Name]                   | [1.1.1.0][F.Installations.Package]           |
 | [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                         | [4.3.3.0][F.InstanceID.Package]              |
 | [Xamarin.Firebase.iOS.MLKit][F.MLKit.Name]                                   | [0.19.0.0][F.MLKit.Package]                  |
@@ -66,7 +66,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Crashlytics             | **4.0.0-beta.7**  | **6.22.0**     |
 | Firebase Database                | **6.1.4.0**       | **6.22.0**     |
 | Firebase Dynamic Links           | **4.0.8.0**       | **6.22.0**     |
-| Firebase In App Messaging        | **0.19.2.0**      | **6.22.0**     |
+| Firebase In App Messaging        | **0.19.2.1**      | **6.22.0**     |
 | Firebase Installations           | **1.1.1.0**       | **6.22.0**     |
 | Firebase Instance ID             | **4.3.3.0**       | **6.22.0**     |
 | Firebase MLKit                   | **0.19.0.0**      | **6.22.0**     |

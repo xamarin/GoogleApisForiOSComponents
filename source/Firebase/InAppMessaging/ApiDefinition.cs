@@ -133,7 +133,7 @@ namespace Firebase.InAppMessaging
 
 	// @interface FIRInAppMessagingDisplayMessage : NSObject
 	[DisableDefaultCtor]
-	[BaseType (typeof(NSObject), Name = "InAppMessagingDisplayMessage")]
+	[BaseType (typeof(NSObject), Name = "FIRInAppMessagingDisplayMessage")]
 	interface InAppMessagingDisplayMessage
 	{
 		// @property (readonly, copy, nonatomic) FIRInAppMessagingCampaignInfo * _Nonnull campaignInfo;
