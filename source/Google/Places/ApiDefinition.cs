@@ -20,7 +20,6 @@ namespace Google.Places
 		NSString Type { get; }
 
 		// @property (readonly, nonatomic, strong) NSArray<NSString *> * _Nonnull types;
-		[BindAs (typeof (PlaceType []))]
 		[Export ("types", ArgumentSemantic.Strong)]
 		NSString [] Types { get; }
 
