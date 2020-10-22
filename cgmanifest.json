@@ -166,7 +166,7 @@
 				"git": {
 					"name": "FirebaseInstallations",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "f0d6f5a9ff3af91406d11c79c04e2557c35eb747"
+					"commitHash": "1a3a8f41a086b0217681c96b7049f0252b5969fc"
 				}
 			}
 		},
