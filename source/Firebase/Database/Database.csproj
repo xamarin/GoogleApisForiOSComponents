@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.Database</RootNamespace>
     <AssemblyName>Firebase.Database</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>6.1.4</FileVersion>
+    <FileVersion>6.6.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865568</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>6.1.4</PackageVersion>
+    <PackageVersion>6.6.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -38,6 +38,9 @@
     <None Include="..\..\..\externals\FirebaseDatabase.framework\FirebaseDatabase">
       <Link>FirebaseDatabase.framework</Link>
     </None>
+    <None Include="..\..\..\externals\leveldb.framework\leveldb">
+      <Link>leveldb.framework</Link>
+    </None>
     <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseiosdatabase_128x128.png" Pack="True" PackagePath="firebaseiosdatabase_128x128.png" />
@@ -48,6 +51,11 @@
       <Kind>Framework</Kind>
       <LinkerFlags>-ObjC -lc++ -licucore</LinkerFlags>
       <Frameworks>CFNetwork Security SystemConfiguration</Frameworks>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+    <NativeReference Include="..\..\..\externals\leveldb.framework">
+      <Kind>Framework</Kind>
       <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>
     </NativeReference>
