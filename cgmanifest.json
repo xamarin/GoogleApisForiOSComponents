@@ -35,8 +35,8 @@
 				"type": "other",
 				"other": {
 					"name": "FirebaseAnalytics",
-					"version": "6.4.1",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/870d57e79087d14b/FirebaseAnalytics-6.4.1.tar.gz"
+					"version": "6.9.0",
+					"downloadUrl": "https://dl.google.com/firebase/ios/analytics/560b7928a9322b07/FirebaseAnalytics-6.9.0.tar.gz"
 				}
 			}
 		},
