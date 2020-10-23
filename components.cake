@@ -4,7 +4,7 @@ Artifact FIREBASE_AD_MOB_ARTIFACT                  = new Artifact ("Firebase.AdM
 Artifact FIREBASE_ANALYTICS_ARTIFACT               = new Artifact ("Firebase.Analytics",              "6.9.0",        "9.0", ComponentGroup.Firebase, csprojName: "Analytics");
 Artifact FIREBASE_AUTH_ARTIFACT                    = new Artifact ("Firebase.Auth",                   "6.9.2",        "9.0", ComponentGroup.Firebase, csprojName: "Auth");
 Artifact FIREBASE_CLOUD_FIRESTORE_ARTIFACT         = new Artifact ("Firebase.CloudFirestore",         "1.19.0",       "9.0", ComponentGroup.Firebase, csprojName: "CloudFirestore");
-Artifact FIREBASE_CLOUD_FUNCTIONS_ARTIFACT         = new Artifact ("Firebase.CloudFunctions",         "2.5.1",        "8.0", ComponentGroup.Firebase, csprojName: "CloudFunctions");
+Artifact FIREBASE_CLOUD_FUNCTIONS_ARTIFACT         = new Artifact ("Firebase.CloudFunctions",         "2.9.0",        "9.0", ComponentGroup.Firebase, csprojName: "CloudFunctions");
 Artifact FIREBASE_CLOUD_MESSAGING_ARTIFACT         = new Artifact ("Firebase.CloudMessaging",         "4.3.0",        "8.0", ComponentGroup.Firebase, csprojName: "CloudMessaging");
 Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Core",                   "6.10.4",       "9.0", ComponentGroup.Firebase, csprojName: "Core");
 Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Crashlytics",            "4.6.2",        "9.0", ComponentGroup.Firebase, csprojName: "Crashlytics");
@@ -132,7 +132,8 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("leveldb-library", "1.22.0",       frameworkSource: FrameworkSource.Pods, frameworkName: "leveldb"),
 	};
 	FIREBASE_CLOUD_FUNCTIONS_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.22.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseFunctions", targetName: "FirebaseFunctions", subSpecs: new [] { "Functions" })
+		PodSpec.Create ("Firebase",           "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseFunctions", targetName: "FirebaseFunctions", subSpecs: new [] { "Functions" }),
+		PodSpec.Create ("GTMSessionFetcher",  "1.3.1",  frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Full" })
 	};
 	FIREBASE_CLOUD_MESSAGING_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.22.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseMessaging", targetName: "FirebaseMessaging", subSpecs: new [] { "Messaging" })

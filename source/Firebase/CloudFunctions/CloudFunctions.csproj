@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.CloudFunctions</RootNamespace>
     <AssemblyName>Firebase.CloudFunctions</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>2.5.1</FileVersion>
+    <FileVersion>2.9.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2125916</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>2.5.1</PackageVersion>
+    <PackageVersion>2.9.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -38,6 +38,9 @@
     <None Include="..\..\..\externals\FirebaseFunctions.framework\FirebaseFunctions">
       <Link>FirebaseFunctions.framework</Link>
     </None>
+    <None Include="..\..\..\externals\GTMSessionFetcher.framework\GTMSessionFetcher">
+      <Link>GTMSessionFetcher.framework</Link>
+    </None>
     <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseioscloudfunctions_128x128.png" Pack="True" PackagePath="firebaseioscloudfunctions_128x128.png" />
@@ -49,6 +52,12 @@
       <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>
       <LinkerFlags>-ObjC</LinkerFlags>
+    </NativeReference>
+    <NativeReference Include="..\..\..\externals\GTMSessionFetcher.framework">
+      <Kind>Framework</Kind>
+      <Frameworks>Security</Frameworks>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
     </NativeReference>
   </ItemGroup>
 
