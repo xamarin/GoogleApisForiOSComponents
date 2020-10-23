@@ -19,7 +19,7 @@ Artifact FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT = new Artifact ("Firebase.MLK
 Artifact FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT  = new Artifact ("Firebase.MLKit.NaturalLanguage",  "0.17.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit.NaturalLanguage");
 Artifact FIREBASE_MLKIT_VISION_ARTIFACT            = new Artifact ("Firebase.MLKit.Vision",           "0.19.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit.Vision");
 Artifact FIREBASE_PERFORMANCE_MONITORING_ARTIFACT  = new Artifact ("Firebase.PerformanceMonitoring",  "3.3.0",        "9.0", ComponentGroup.Firebase, csprojName: "PerformanceMonitoring");
-Artifact FIREBASE_REMOTE_CONFIG_ARTIFACT           = new Artifact ("Firebase.RemoteConfig",           "4.4.9",        "8.0", ComponentGroup.Firebase, csprojName: "RemoteConfig");
+Artifact FIREBASE_REMOTE_CONFIG_ARTIFACT           = new Artifact ("Firebase.RemoteConfig",           "4.9.1",        "9.0", ComponentGroup.Firebase, csprojName: "RemoteConfig");
 Artifact FIREBASE_STORAGE_ARTIFACT                 = new Artifact ("Firebase.Storage",                "3.6.0",        "8.0", ComponentGroup.Firebase, csprojName: "Storage");
 
 // Google artifacts available to be built. These artifacts generate NuGets.
@@ -190,7 +190,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("Protobuf",          "3.12.4",  frameworkSource: FrameworkSource.Pods, frameworkName: "protobuf")
 	};
 	FIREBASE_REMOTE_CONFIG_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.22.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseRemoteConfig", targetName: "FirebaseRemoteConfig", subSpecs: new [] { "RemoteConfig" })
+		PodSpec.Create ("Firebase", "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseRemoteConfig", targetName: "FirebaseRemoteConfig", subSpecs: new [] { "RemoteConfig" })
 	};
 	FIREBASE_STORAGE_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.22.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseStorage", targetName: "FirebaseStorage", subSpecs: new [] { "Storage" })

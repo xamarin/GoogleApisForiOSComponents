@@ -336,7 +336,7 @@
 				"git": {
 					"name": "FirebaseRemoteConfig",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "a43ca45c0dc9480fd16165eabc55e1cbaacc1b67"
+					"commitHash": "1a3a8f41a086b0217681c96b7049f0252b5969fc"
 				}
 			}
 		},
