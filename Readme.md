@@ -7,7 +7,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | Package Id                                                                   | NuGet                                        |
 |------------------------------------------------------------------------------|----------------------------------------------|
 | [Xamarin.Firebase.iOS.ABTesting][F.ABTesting.Name]                           | [4.2.0.0][F.ABTesting.Package]               |
-| [Xamarin.Firebase.iOS.AdMob][F.AdMob.Name]                                   | [7.57.0.0][F.AdMob.Package]                  |
+| [Xamarin.Firebase.iOS.AdMob][F.AdMob.Name]                                   | [7.66.0.0][F.AdMob.Package]                  |
 | [Xamarin.Firebase.iOS.Analytics][F.Analytics.Name]                           | [6.9.0.0][F.Analytics.Package]               |
 | [Xamarin.Firebase.iOS.Auth][F.Auth.Name]                                     | [6.5.1.0][F.Auth.Package]                    |
 | [Xamarin.Firebase.iOS.CloudFirestore][F.CloudFirestore.Name]                 | [1.12.0.0][F.CloudFirestore.Package]         |
@@ -56,7 +56,7 @@ Here's a table that shows in which global version is located each component of F
 | Component Name                   | Component Version | Global Version |
 |----------------------------------|:-----------------:|:--------------:|
 | Firebase A/B Testing             | **4.2.0.0**       | **6.34.0**     |
-| Firebase AdMob                   | **7.57.0.0**      | **6.22.0**     |
+| Firebase AdMob                   | **7.66.0.0**      | **6.34.0**     |
 | Firebase Analytics               | **6.9.0.0**       | **6.34.0**     |
 | Firebase Auth                    | **6.5.1.0**       | **6.22.0**     |
 | Firebase Cloud Firestore         | **1.12.0.0**      | **6.22.0**     |
