@@ -325,8 +325,8 @@
 				"type": "other",
 				"other": {
 					"name": "FirebasePerformance",
-					"version": "3.1.11",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/c543c7b170639336/FirebasePerformance-3.1.11.tar.gz"
+					"version": "3.3.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/ec10178ac6b36ea6/FirebasePerformance-3.3.0.tar.gz"
 				}
 			}
 		},
@@ -576,7 +576,7 @@
 				"git": {
 					"name": "Protobuf",
 					"repositoryUrl": "https://github.com/protocolbuffers/protobuf",
-					"commitHash": "52b2447247f535663ac1c292e088b4b27d2910ef"
+					"commitHash": "c9d2bd2fc781fe67ebf306807b9b6edb4a0d2764"
 				}
 			}
 		},

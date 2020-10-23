@@ -18,7 +18,7 @@ Artifact FIREBASE_MLKIT_COMMON_ARTIFACT            = new Artifact ("Firebase.MLK
 Artifact FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT = new Artifact ("Firebase.MLKit.ModelInterpreter", "0.19.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit.ModelInterpreter");
 Artifact FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT  = new Artifact ("Firebase.MLKit.NaturalLanguage",  "0.17.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit.NaturalLanguage");
 Artifact FIREBASE_MLKIT_VISION_ARTIFACT            = new Artifact ("Firebase.MLKit.Vision",           "0.19.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit.Vision");
-Artifact FIREBASE_PERFORMANCE_MONITORING_ARTIFACT  = new Artifact ("Firebase.PerformanceMonitoring",  "3.1.11",       "8.0", ComponentGroup.Firebase, csprojName: "PerformanceMonitoring");
+Artifact FIREBASE_PERFORMANCE_MONITORING_ARTIFACT  = new Artifact ("Firebase.PerformanceMonitoring",  "3.3.0",        "9.0", ComponentGroup.Firebase, csprojName: "PerformanceMonitoring");
 Artifact FIREBASE_REMOTE_CONFIG_ARTIFACT           = new Artifact ("Firebase.RemoteConfig",           "4.4.9",        "8.0", ComponentGroup.Firebase, csprojName: "RemoteConfig");
 Artifact FIREBASE_STORAGE_ARTIFACT                 = new Artifact ("Firebase.Storage",                "3.6.0",        "8.0", ComponentGroup.Firebase, csprojName: "Storage");
 
@@ -137,7 +137,7 @@ void SetArtifactsPodSpecs ()
 	};
 	FIREBASE_CLOUD_MESSAGING_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseMessaging", targetName: "FirebaseMessaging", subSpecs: new [] { "Messaging" }),
-		PodSpec.Create ("Protobuf", "3.9.2",  frameworkSource: FrameworkSource.Pods, frameworkName: "protobuf")
+		PodSpec.Create ("Protobuf", "3.12.4",  frameworkSource: FrameworkSource.Pods, frameworkName: "protobuf")
 	};
 	FIREBASE_CORE_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase",                "6.34.0",   frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCore", targetName: "FirebaseCore", subSpecs: new [] { "CoreOnly" }),		
@@ -185,7 +185,9 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("Firebase", "6.22.0", subSpecs: new [] { "MLVision", "MLVisionAutoML", "MLVisionBarcodeModel", "MLVisionFaceModel", "MLVisionLabelModel", "MLVisionTextModel", "MLVisionObjectDetection" })
 	};
 	FIREBASE_PERFORMANCE_MONITORING_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.22.0", subSpecs: new [] { "Performance" })
+		PodSpec.Create ("Firebase",          "6.34.0",  subSpecs: new [] { "Performance" }),
+		PodSpec.Create ("GTMSessionFetcher", "1.3.1",   frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Full" }),
+		PodSpec.Create ("Protobuf",          "3.12.4",  frameworkSource: FrameworkSource.Pods, frameworkName: "protobuf")
 	};
 	FIREBASE_REMOTE_CONFIG_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.22.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseRemoteConfig", targetName: "FirebaseRemoteConfig", subSpecs: new [] { "RemoteConfig" })
