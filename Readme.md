@@ -19,7 +19,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                     | [4.0.7.0][F.DynamicLinks.Package]            |
 | [Xamarin.Firebase.iOS.InAppMessaging][F.InAppMessaging.Name]                 | [0.19.2.1][F.InAppMessaging.Package]         |
 | [Xamarin.Firebase.iOS.Installations][F.Installations.Name]                   | [1.7.0.0][F.Installations.Package]           |
-| [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                         | [4.3.3.0][F.InstanceID.Package]              |
+| [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                         | [4.8.0.0][F.InstanceID.Package]              |
 | [Xamarin.Firebase.iOS.MLKit][F.MLKit.Name]                                   | [0.19.0.0][F.MLKit.Package]                  |
 | [Xamarin.Firebase.iOS.MLKit.Common][F.MLKit.Common.Name]                     | [0.19.0.0][F.MLKit.Common.Package]           |
 | [Xamarin.Firebase.iOS.MLKit.ModelInterpreter][F.MLKit.ModelInterpreter.Name] | [0.19.0.0][F.MLKit.ModelInterpreter.Package] |
@@ -68,7 +68,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Dynamic Links           | **4.0.8.0**       | **6.22.0**     |
 | Firebase In App Messaging        | **0.19.2.1**      | **6.22.0**     |
 | Firebase Installations           | **1.7.0.0**       | **6.34.0**     |
-| Firebase Instance ID             | **4.3.3.0**       | **6.22.0**     |
+| Firebase Instance ID             | **4.8.0.0**       | **6.34.0**     |
 | Firebase MLKit                   | **0.19.0.0**      | **6.22.0**     |
 | Firebase MLKit Common            | **0.19.0.0**      | **6.22.0**     |
 | Firebase MLKit Model Interpreter | **0.19.0.0**      | **6.22.0**     |

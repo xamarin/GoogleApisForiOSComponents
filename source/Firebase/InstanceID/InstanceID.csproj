@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.InstanceID</RootNamespace>
     <AssemblyName>Firebase.InstanceID</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>4.3.3</FileVersion>
+    <FileVersion>4.8.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865551</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>4.3.3</PackageVersion>
+    <PackageVersion>4.8.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -38,12 +38,6 @@
     <None Include="..\..\..\externals\FirebaseInstanceID.framework\FirebaseInstanceID">
       <Link>FirebaseInstanceID.framework</Link>
     </None>
-    <None Include="..\..\..\externals\FirebaseInstallations.framework\FirebaseInstallations">
-      <Link>FirebaseInstallations.framework</Link>
-    </None>
-    <None Include="..\..\..\externals\FBLPromises.framework\FBLPromises">
-      <Link>FBLPromises.framework</Link>
-    </None>
     <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseiosinstanceid_128x128.png" Pack="True" PackagePath="firebaseiosinstanceid_128x128.png" />
@@ -56,17 +50,6 @@
       <ForceLoad>True</ForceLoad>
       <LinkerFlags>-ObjC</LinkerFlags>
       <Frameworks>Security</Frameworks>
-    </NativeReference>
-    <NativeReference Include="..\..\..\externals\FirebaseInstallations.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
-      <ForceLoad>True</ForceLoad>
-      <Frameworks>Security</Frameworks>
-    </NativeReference>
-    <NativeReference Include="..\..\..\externals\FBLPromises.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
-      <ForceLoad>True</ForceLoad>
     </NativeReference>
   </ItemGroup>
 
