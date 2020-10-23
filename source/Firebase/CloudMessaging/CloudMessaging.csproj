@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.CloudMessaging</RootNamespace>
     <AssemblyName>Firebase.CloudMessaging</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>4.3.0</FileVersion>
+    <FileVersion>4.7.1</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865576</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>4.3.0</PackageVersion>
+    <PackageVersion>4.7.1</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -38,6 +38,9 @@
     <None Include="..\..\..\externals\FirebaseMessaging.framework\FirebaseMessaging">
       <Link>FirebaseMessaging.framework</Link>
     </None>
+    <None Include="..\..\..\externals\protobuf.framework\protobuf">
+      <Link>protobuf.framework</Link>
+    </None>
     <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseioscloudmessaging_128x128.png" Pack="True" PackagePath="firebaseioscloudmessaging_128x128.png" />
@@ -51,6 +54,11 @@
       <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>
       <LinkerFlags>-lsqlite3</LinkerFlags>
+    </NativeReference>
+    <NativeReference Include="..\..\..\externals\protobuf.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
     </NativeReference>
   </ItemGroup>
 

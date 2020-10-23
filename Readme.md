@@ -12,7 +12,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.Auth][F.Auth.Name]                                     | [6.9.2.0][F.Auth.Package]                    |
 | [Xamarin.Firebase.iOS.CloudFirestore][F.CloudFirestore.Name]                 | [1.19.0.0][F.CloudFirestore.Package]         |
 | [Xamarin.Firebase.iOS.CloudFunctions][F.CloudFunctions.Name]                 | [2.9.0.0][F.CloudFunctions.Package]          |
-| [Xamarin.Firebase.iOS.CloudMessaging][F.CloudMessaging.Name]                 | [4.3.0.0][F.CloudMessaging.Package]          |
+| [Xamarin.Firebase.iOS.CloudMessaging][F.CloudMessaging.Name]                 | [4.7.1.0][F.CloudMessaging.Package]          |
 | [Xamarin.Firebase.iOS.Core][F.Core.Name]                                     | [6.10.4.0][F.Core.Package]                   |
 | [Xamarin.Firebase.iOS.Crashlytics][F.Crashlytics.Name]                       | [4.6.2.0][F.Crashlytics.Package]             |
 | [Xamarin.Firebase.iOS.Database][F.Database.Name]                             | [6.6.0.0][F.Database.Package]                |
@@ -61,7 +61,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Auth                    | **6.9.2.0**       | **6.34.0**     |
 | Firebase Cloud Firestore         | **1.19.0.0**      | **6.34.0**     |
 | Firebase Cloud Functions         | **2.9.0.0**       | **6.34.0**     |
-| Firebase Cloud Messaging         | **4.3.0.0**       | **6.22.0**     |
+| Firebase Cloud Messaging         | **4.7.1.0**       | **6.34.0**     |
 | Firebase Core                    | **6.10.4.0**      | **6.34.0**     |
 | Firebase Crashlytics             | **4.6.2.0**       | **6.34.0**     |
 | Firebase Database                | **6.6.0.0**       | **6.34.0**     |

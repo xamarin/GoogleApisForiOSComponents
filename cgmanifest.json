@@ -186,7 +186,7 @@
 				"git": {
 					"name": "FirebaseMessaging",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "98390cacc37cfbf50963bad32a1144441f0618d1"
+					"commitHash": "1a3a8f41a086b0217681c96b7049f0252b5969fc"
 				}
 			}
 		},
@@ -576,7 +576,7 @@
 				"git": {
 					"name": "Protobuf",
 					"repositoryUrl": "https://github.com/protocolbuffers/protobuf",
-					"commitHash": "fde7cf7358ec7cd69e8db9be4f1fa6a5c431386a"
+					"commitHash": "52b2447247f535663ac1c292e088b4b27d2910ef"
 				}
 			}
 		},
