@@ -26,7 +26,7 @@
 				"git": {
 					"name": "FirebaseABTesting",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "a43ca45c0dc9480fd16165eabc55e1cbaacc1b67"
+					"commitHash": "4813e27906ddb0d1f4c3c395d6d73d6c35660b98"
 				}
 			}
 		},
