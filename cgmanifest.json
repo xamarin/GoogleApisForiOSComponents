@@ -6,7 +6,7 @@
 				"git": {
 					"name": "abseil",
 					"repositoryUrl": "https://github.com/abseil/abseil-cpp",
-					"commitHash": "aa844899c937bde5d2b24f276b59997e5b668bde"
+					"commitHash": "c51510d1d87ebce8615ae1752fd5aca912f6cf4c"
 				}
 			}
 		},
@@ -16,7 +16,7 @@
 				"git": {
 					"name": "BoringSSL-GRPC",
 					"repositoryUrl": "https://github.com/google/boringssl",
-					"commitHash": "b29b21a81b32ec273f118f589f46d56ad3332420"
+					"commitHash": "1c2769383f027befac5b75b6cedd25daf3bf4dcf"
 				}
 			}
 		},
@@ -516,7 +516,7 @@
 				"git": {
 					"name": "gRPC-C++",
 					"repositoryUrl": "https://github.com/grpc/grpc",
-					"commitHash": "7569ba7a66a2b4dd93b04ad355cc401d06285ee7"
+					"commitHash": "e122aae3cecae0e6be11b62fbe81eda55e662a02"
 				}
 			}
 		},
@@ -526,7 +526,7 @@
 				"git": {
 					"name": "gRPC-Core",
 					"repositoryUrl": "https://github.com/grpc/grpc",
-					"commitHash": "7569ba7a66a2b4dd93b04ad355cc401d06285ee7"
+					"commitHash": "e122aae3cecae0e6be11b62fbe81eda55e662a02"
 				}
 			}
 		},

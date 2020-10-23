@@ -2,8 +2,8 @@
 Artifact FIREBASE_AB_TESTING_ARTIFACT              = new Artifact ("Firebase.ABTesting",              "4.2.0",        "9.0", ComponentGroup.Firebase, csprojName: "ABTesting");
 Artifact FIREBASE_AD_MOB_ARTIFACT                  = new Artifact ("Firebase.AdMob",                  "7.66.0",       "9.0", ComponentGroup.Firebase, csprojName: "AdMob");
 Artifact FIREBASE_ANALYTICS_ARTIFACT               = new Artifact ("Firebase.Analytics",              "6.9.0",        "9.0", ComponentGroup.Firebase, csprojName: "Analytics");
-Artifact FIREBASE_AUTH_ARTIFACT                    = new Artifact ("Firebase.Auth",                   "6.5.1",        "9.0", ComponentGroup.Firebase, csprojName: "Auth");
-Artifact FIREBASE_CLOUD_FIRESTORE_ARTIFACT         = new Artifact ("Firebase.CloudFirestore",         "1.12.0",       "8.0", ComponentGroup.Firebase, csprojName: "CloudFirestore");
+Artifact FIREBASE_AUTH_ARTIFACT                    = new Artifact ("Firebase.Auth",                   "6.9.2",        "9.0", ComponentGroup.Firebase, csprojName: "Auth");
+Artifact FIREBASE_CLOUD_FIRESTORE_ARTIFACT         = new Artifact ("Firebase.CloudFirestore",         "1.19.0",       "9.0", ComponentGroup.Firebase, csprojName: "CloudFirestore");
 Artifact FIREBASE_CLOUD_FUNCTIONS_ARTIFACT         = new Artifact ("Firebase.CloudFunctions",         "2.5.1",        "8.0", ComponentGroup.Firebase, csprojName: "CloudFunctions");
 Artifact FIREBASE_CLOUD_MESSAGING_ARTIFACT         = new Artifact ("Firebase.CloudMessaging",         "4.3.0",        "8.0", ComponentGroup.Firebase, csprojName: "CloudMessaging");
 Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Core",                   "6.10.4",       "9.0", ComponentGroup.Firebase, csprojName: "Core");
@@ -124,11 +124,12 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("GTMSessionFetcher",  "1.3.1",  frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Full" })
 	};
 	FIREBASE_CLOUD_FIRESTORE_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase",       "6.22.0",      frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseFirestore", targetName: "FirebaseFirestore", subSpecs: new [] { "Firestore" }),
-		PodSpec.Create ("BoringSSL-GRPC", "0.0.3",       frameworkSource: FrameworkSource.Pods, frameworkName: "openssl_grpc"),
-		PodSpec.Create ("gRPC-Core",      "1.21.0",      frameworkSource: FrameworkSource.Pods, frameworkName: "grpc"),
-		PodSpec.Create ("gRPC-C++",       "0.0.9",       frameworkSource: FrameworkSource.Pods, frameworkName: "grpcpp"),
-		PodSpec.Create ("abseil",         "0.20190808",  frameworkSource: FrameworkSource.Pods, frameworkName: "absl", subSpecs: new [] { "algorithm", "base", "memory", "meta", "strings", "time", "types" })
+		PodSpec.Create ("Firebase",        "6.34.0",       frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseFirestore", targetName: "FirebaseFirestore", subSpecs: new [] { "Firestore" }),
+		PodSpec.Create ("BoringSSL-GRPC",  "0.0.7",        frameworkSource: FrameworkSource.Pods, frameworkName: "openssl_grpc"),
+		PodSpec.Create ("gRPC-Core",       "1.28.2",       frameworkSource: FrameworkSource.Pods, frameworkName: "grpc"),
+		PodSpec.Create ("gRPC-C++",        "1.28.2",       frameworkSource: FrameworkSource.Pods, frameworkName: "grpcpp"),
+		PodSpec.Create ("abseil",          "0.20200225.2", frameworkSource: FrameworkSource.Pods, frameworkName: "absl", subSpecs: new [] { "algorithm", "base", "memory", "meta", "strings", "time", "types" })
+		PodSpec.Create ("leveldb-library", "1.22.0",       frameworkSource: FrameworkSource.Pods, frameworkName: "leveldb"),
 	};
 	FIREBASE_CLOUD_FUNCTIONS_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.22.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseFunctions", targetName: "FirebaseFunctions", subSpecs: new [] { "Functions" })
