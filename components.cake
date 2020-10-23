@@ -9,7 +9,7 @@ Artifact FIREBASE_CLOUD_MESSAGING_ARTIFACT         = new Artifact ("Firebase.Clo
 Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Core",                   "6.10.4",       "9.0", ComponentGroup.Firebase, csprojName: "Core");
 Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Crashlytics",            "4.6.2",        "9.0", ComponentGroup.Firebase, csprojName: "Crashlytics");
 Artifact FIREBASE_DATABASE_ARTIFACT                = new Artifact ("Firebase.Database",               "6.6.0",        "9.0", ComponentGroup.Firebase, csprojName: "Database");
-Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.DynamicLinks",           "4.0.8",        "8.0", ComponentGroup.Firebase, csprojName: "DynamicLinks");
+Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.DynamicLinks",           "4.3.1",        "9.0", ComponentGroup.Firebase, csprojName: "DynamicLinks");
 Artifact FIREBASE_IN_APP_MESSAGING_ARTIFACT        = new Artifact ("Firebase.InAppMessaging",         "0.19.2.1",     "9.0", ComponentGroup.Firebase, csprojName: "InAppMessaging");
 Artifact FIREBASE_INSTALLATIONS_ARTIFACT           = new Artifact ("Firebase.Installations",          "1.7.0",        "9.0", ComponentGroup.Firebase, csprojName: "Installations");
 Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.InstanceID",             "4.8.0",        "9.0", ComponentGroup.Firebase, csprojName: "InstanceID");
@@ -153,7 +153,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("leveldb-library", "1.22.0", frameworkSource: FrameworkSource.Pods, frameworkName: "leveldb"),
 	};
 	FIREBASE_DYNAMIC_LINKS_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.22.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseDynamicLinks", targetName: "FirebaseDynamicLinks", subSpecs: new [] { "DynamicLinks" })
+		PodSpec.Create ("Firebase", "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseDynamicLinks", targetName: "FirebaseDynamicLinks", subSpecs: new [] { "DynamicLinks" })
 	};
 	FIREBASE_IN_APP_MESSAGING_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.22.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseInAppMessaging", targetName: "FirebaseInAppMessaging", subSpecs: new [] { "InAppMessaging" })
