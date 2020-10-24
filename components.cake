@@ -13,8 +13,8 @@ Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.Dyn
 Artifact FIREBASE_IN_APP_MESSAGING_ARTIFACT        = new Artifact ("Firebase.InAppMessaging",         "0.24.0.0",     "9.0", ComponentGroup.Firebase, csprojName: "InAppMessaging");
 Artifact FIREBASE_INSTALLATIONS_ARTIFACT           = new Artifact ("Firebase.Installations",          "1.7.0",        "9.0", ComponentGroup.Firebase, csprojName: "Installations");
 Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.InstanceID",             "4.8.0",        "9.0", ComponentGroup.Firebase, csprojName: "InstanceID");
-Artifact FIREBASE_MLKIT_ARTIFACT                   = new Artifact ("Firebase.MLKit",                  "0.19.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit");
-Artifact FIREBASE_MLKIT_COMMON_ARTIFACT            = new Artifact ("Firebase.MLKit.Common",           "0.19.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit.Common");
+Artifact FIREBASE_MLKIT_ARTIFACT                   = new Artifact ("Firebase.MLKit",                  "0.21.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit");
+Artifact FIREBASE_MLKIT_COMMON_ARTIFACT            = new Artifact ("Firebase.MLKit.Common",           "0.21.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit.Common");
 Artifact FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT = new Artifact ("Firebase.MLKit.ModelInterpreter", "0.19.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit.ModelInterpreter");
 Artifact FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT  = new Artifact ("Firebase.MLKit.NaturalLanguage",  "0.17.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit.NaturalLanguage");
 Artifact FIREBASE_MLKIT_VISION_ARTIFACT            = new Artifact ("Firebase.MLKit.Vision",           "0.19.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit.Vision");
@@ -168,12 +168,12 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("FirebaseInstanceID",    "4.8.0", frameworkSource: FrameworkSource.Pods)
 	};
 	FIREBASE_MLKIT_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.22.0", subSpecs: new [] { "MLCommon", "MLModelInterpreter", "MLNaturalLanguage", "MLVision" })
+		PodSpec.Create ("Firebase", "6.34.0", subSpecs: new [] { "MLCommon", "MLModelInterpreter", "MLNaturalLanguage", "MLVision" })
 	};
 	FIREBASE_MLKIT_COMMON_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.22.0", subSpecs: new [] { "MLCommon" }),
-		PodSpec.Create ("TensorFlowLiteObjC", "1.14.0", frameworkSource: FrameworkSource.Pods, frameworkName: "TFLTensorFlowLite", targetName: "TensorFlowLiteObjC"),
-		PodSpec.Create ("TensorFlowLiteC",    "1.14.0")
+		PodSpec.Create ("Firebase", "6.34.0", subSpecs: new [] { "MLCommon" }),
+		PodSpec.Create ("TensorFlowLiteObjC", "2.3.0", frameworkSource: FrameworkSource.Pods, frameworkName: "TFLTensorFlowLite", targetName: "TensorFlowLiteObjC"),
+		PodSpec.Create ("TensorFlowLiteC",    "2.3.0")
 	};
 	FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.22.0", subSpecs: new [] { "MLModelInterpreter" })

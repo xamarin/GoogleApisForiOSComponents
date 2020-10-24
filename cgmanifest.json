@@ -195,8 +195,8 @@
 				"type": "other",
 				"other": {
 					"name": "FirebaseMLCommon",
-					"version": "0.19.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/6af4e180ffe8fd16/FirebaseMLCommon-0.19.0.tar.gz"
+					"version": "0.21.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/a87f6cd702e135fb/FirebaseMLCommon-0.21.0.tar.gz"
 				}
 			}
 		},
@@ -585,8 +585,8 @@
 				"type": "other",
 				"other": {
 					"name": "TensorFlowLiteC",
-					"version": "1.14.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/0e27bc28472e2519/TensorFlowLiteC-1.14.0.tar.gz"
+					"version": "2.3.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/b03814d8b5a44ad2/TensorFlowLiteC-2.3.0.tar.gz"
 				}
 			}
 		},
@@ -596,7 +596,7 @@
 				"git": {
 					"name": "TensorFlowLiteObjC",
 					"repositoryUrl": "https://github.com/tensorflow/tensorflow",
-					"commitHash": "87989f69597d6b2d60de8f112e1e3cea23be7298"
+					"commitHash": "b36436b087bd8e8701ef51718179037cccdfc26e"
 				}
 			}
 		}

@@ -6,6 +6,8 @@ using ObjCRuntime;
 using CoreGraphics;
 
 namespace Firebase.MLKit.Common {
+	delegate void FilePathHandler([NullAllowed] string filePath, [NullAllowed] NSError error);
+	
 	// @interface FIRLocalModel : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof(NSObject), Name = "FIRLocalModel")]
@@ -94,6 +96,10 @@ namespace Firebase.MLKit.Common {
 		// -(void)deleteDownloadedModel:(FIRRemoteModel * _Nonnull)remoteModel completion:(void (^ _Nonnull)(NSError * _Nullable))completion;
 		[Export ("deleteDownloadedModel:completion:")]
 		void DeleteDownloadedModel (RemoteModel remoteModel, Action<NSError> completion);
+
+		// - (void)getLatestModelFilePath:(FIRRemoteModel *)remoteModel completion:(void (^)(NSString *_Nullable filePath, NSError *_Nullable error))completion;
+        [Export("getLatestModelFilePath:completion:")]
+        void GetLatestModelFilePath(RemoteModel remoteModel, FilePathHandler completion);
 	}
 
 	// @interface FIRRemoteModel : NSObject
