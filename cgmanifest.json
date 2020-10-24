@@ -435,8 +435,8 @@
 				"type": "other",
 				"other": {
 					"name": "GoogleMaps",
-					"version": "3.5.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/828459b9d7d1bde9/GoogleMaps-3.5.0.tar.gz"
+					"version": "3.9.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/04a8fa7edaeaadf5/GoogleMaps-3.9.0.tar.gz"
 				}
 			}
 		},
@@ -465,8 +465,8 @@
 				"type": "other",
 				"other": {
 					"name": "GooglePlaces",
-					"version": "3.5.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/00b161ce89d5920d/GooglePlaces-3.5.0.tar.gz"
+					"version": "3.9.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/73fa5891ae45f00f/GooglePlaces-3.9.0.tar.gz"
 				}
 			}
 		},
