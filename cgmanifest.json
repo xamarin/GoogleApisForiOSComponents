@@ -255,8 +255,8 @@
 				"type": "other",
 				"other": {
 					"name": "FirebaseMLVision",
-					"version": "0.19.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/5164ed31243cbcfc/FirebaseMLVision-0.19.0.tar.gz"
+					"version": "0.21.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/58517163ccbb14d8/FirebaseMLVision-0.21.0.tar.gz"
 				}
 			}
 		},
@@ -265,8 +265,8 @@
 				"type": "other",
 				"other": {
 					"name": "FirebaseMLVisionAutoML",
-					"version": "0.19.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/f4534f5e3138797f/FirebaseMLVisionAutoML-0.19.0.tar.gz"
+					"version": "0.21.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/025231ca6e02f72c/FirebaseMLVisionAutoML-0.21.0.tar.gz"
 				}
 			}
 		},
@@ -275,8 +275,8 @@
 				"type": "other",
 				"other": {
 					"name": "FirebaseMLVisionBarcodeModel",
-					"version": "0.19.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/36e67de7b4cd08fc/FirebaseMLVisionBarcodeModel-0.19.0.tar.gz"
+					"version": "0.21.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/d49ef7f0acea8c37/FirebaseMLVisionBarcodeModel-0.21.0.tar.gz"
 				}
 			}
 		},
@@ -285,8 +285,8 @@
 				"type": "other",
 				"other": {
 					"name": "FirebaseMLVisionFaceModel",
-					"version": "0.19.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/3b3c4105b4d96bf2/FirebaseMLVisionFaceModel-0.19.0.tar.gz"
+					"version": "0.21.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/e85eb80f9f5d114a/FirebaseMLVisionFaceModel-0.21.0.tar.gz"
 				}
 			}
 		},
@@ -295,8 +295,8 @@
 				"type": "other",
 				"other": {
 					"name": "FirebaseMLVisionLabelModel",
-					"version": "0.19.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/c173d8e581641f85/FirebaseMLVisionLabelModel-0.19.0.tar.gz"
+					"version": "0.21.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/46afacc9d7abda8d/FirebaseMLVisionLabelModel-0.21.0.tar.gz"
 				}
 			}
 		},
@@ -305,8 +305,8 @@
 				"type": "other",
 				"other": {
 					"name": "FirebaseMLVisionObjectDetection",
-					"version": "0.19.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/69635c932ce31d80/FirebaseMLVisionObjectDetection-0.19.0.tar.gz"
+					"version": "0.21.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/07464f3761bb8ed6/FirebaseMLVisionObjectDetection-0.21.0.tar.gz"
 				}
 			}
 		},
@@ -315,8 +315,8 @@
 				"type": "other",
 				"other": {
 					"name": "FirebaseMLVisionTextModel",
-					"version": "0.19.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/6f6ebbb34acb4e37/FirebaseMLVisionTextModel-0.19.0.tar.gz"
+					"version": "0.21.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/69cee9e265c539e6/FirebaseMLVisionTextModel-0.21.0.tar.gz"
 				}
 			}
 		},
