@@ -22,7 +22,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                         | [4.8.0.0][F.InstanceID.Package]              |
 | [Xamarin.Firebase.iOS.MLKit][F.MLKit.Name]                                   | [0.21.0.0][F.MLKit.Package]                  |
 | [Xamarin.Firebase.iOS.MLKit.Common][F.MLKit.Common.Name]                     | [0.21.0.0][F.MLKit.Common.Package]           |
-| [Xamarin.Firebase.iOS.MLKit.ModelInterpreter][F.MLKit.ModelInterpreter.Name] | [0.19.0.0][F.MLKit.ModelInterpreter.Package] |
+| [Xamarin.Firebase.iOS.MLKit.ModelInterpreter][F.MLKit.ModelInterpreter.Name] | [0.21.0.0][F.MLKit.ModelInterpreter.Package] |
 | [Xamarin.Firebase.iOS.MLKit.NaturalLanguage][F.MLKit.NaturalLanguage.Name]   | [0.17.0.0][F.MLKit.NaturalLanguage.Package]  |
 | [Xamarin.Firebase.iOS.MLKit.Vision][F.MLKit.Vision.Name]                     | [0.19.0.0][F.MLKit.Vision.Package]           |
 | [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name]   | [3.3.0.0][F.PerformanceMonitoring.Package]   |
@@ -71,7 +71,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Instance ID             | **4.8.0.0**       | **6.34.0**     |
 | Firebase MLKit                   | **0.21.0.0**      | **6.34.0**     |
 | Firebase MLKit Common            | **0.21.0.0**      | **6.34.0**     |
-| Firebase MLKit Model Interpreter | **0.19.0.0**      | **6.22.0**     |
+| Firebase MLKit Model Interpreter | **0.21.0.0**      | **6.34.0**     |
 | Firebase MLKit Natural Language  | **0.17.0.0**      | **6.22.0**     |
 | Firebase MLKit Vision            | **0.19.0.0**      | **6.22.0**     |
 | Firebase Performance Monitoring  | **3.3.0.0**       | **6.34.0**     |
