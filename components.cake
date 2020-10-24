@@ -16,7 +16,7 @@ Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.Ins
 Artifact FIREBASE_MLKIT_ARTIFACT                   = new Artifact ("Firebase.MLKit",                  "0.21.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit");
 Artifact FIREBASE_MLKIT_COMMON_ARTIFACT            = new Artifact ("Firebase.MLKit.Common",           "0.21.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit.Common");
 Artifact FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT = new Artifact ("Firebase.MLKit.ModelInterpreter", "0.21.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit.ModelInterpreter");
-Artifact FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT  = new Artifact ("Firebase.MLKit.NaturalLanguage",  "0.17.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit.NaturalLanguage");
+Artifact FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT  = new Artifact ("Firebase.MLKit.NaturalLanguage",  "0.18.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit.NaturalLanguage");
 Artifact FIREBASE_MLKIT_VISION_ARTIFACT            = new Artifact ("Firebase.MLKit.Vision",           "0.19.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit.Vision");
 Artifact FIREBASE_PERFORMANCE_MONITORING_ARTIFACT  = new Artifact ("Firebase.PerformanceMonitoring",  "3.3.0",        "9.0", ComponentGroup.Firebase, csprojName: "PerformanceMonitoring");
 Artifact FIREBASE_REMOTE_CONFIG_ARTIFACT           = new Artifact ("Firebase.RemoteConfig",           "4.9.1",        "9.0", ComponentGroup.Firebase, csprojName: "RemoteConfig");
@@ -179,7 +179,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("Firebase", "6.34.0", subSpecs: new [] { "MLModelInterpreter" })
 	};
 	FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.22.0", subSpecs: new [] { "MLNaturalLanguage", "MLNLLanguageID", "MLNLSmartReply", "MLNLTranslate" })
+		PodSpec.Create ("Firebase", "6.34.0", subSpecs: new [] { "MLNaturalLanguage", "MLNLLanguageID", "MLNLSmartReply", "MLNLTranslate" })
 	};
 	FIREBASE_MLKIT_VISION_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.22.0", subSpecs: new [] { "MLVision", "MLVisionAutoML", "MLVisionBarcodeModel", "MLVisionFaceModel", "MLVisionLabelModel", "MLVisionTextModel", "MLVisionObjectDetection" })

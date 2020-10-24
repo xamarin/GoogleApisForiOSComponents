@@ -2,31 +2,31 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_FirebaseMLKitNaturalLanguageAssemblyName>Firebase.MLKit.NaturalLanguage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseMLKitNaturalLanguageAssemblyName>
-		<_FirebaseMLKitNaturalLanguageVersion>0.17.0</_FirebaseMLKitNaturalLanguageVersion>
+		<_FirebaseMLKitNaturalLanguageVersion>0.18.0</_FirebaseMLKitNaturalLanguageVersion>
 		<_FirebaseMLNaturalLanguageItemsFolder>FMLNtrlL-$(_FirebaseMLKitNaturalLanguageVersion)</_FirebaseMLNaturalLanguageItemsFolder>
 		<_FirebaseMLNaturalLanguageSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseMLNaturalLanguageItemsFolder)\Frameworks\</_FirebaseMLNaturalLanguageSDKBaseFolder>
 		<_FirebaseMLNLLanguageIDItemsFolder>FMLNLLngI-$(_FirebaseMLKitNaturalLanguageVersion)</_FirebaseMLNLLanguageIDItemsFolder>
 		<_FirebaseMLNLLanguageIDSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseMLNLLanguageIDItemsFolder)\Frameworks\</_FirebaseMLNLLanguageIDSDKBaseFolder>
 		<_FirebaseMLNLSmartReplyItemsFolder>FMLNLSmrtR-$(_FirebaseMLKitNaturalLanguageVersion)</_FirebaseMLNLSmartReplyItemsFolder>
 		<_FirebaseMLNLSmartReplySDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseMLNLSmartReplyItemsFolder)\</_FirebaseMLNLSmartReplySDKBaseFolder>
-		<_FirebaseMLNLTranslateItemsFolder>FMLNLTrnslt-$(_FirebaseMLKitNaturalLanguageVersion)</_FirebaseMLNLTranslateItemsFolder>
+		<_FirebaseMLNLTranslateItemsFolder>FMLNLTrnslt-0.19.0</_FirebaseMLNLTranslateItemsFolder>
 		<_FirebaseMLNLTranslateSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseMLNLTranslateItemsFolder)\</_FirebaseMLNLTranslateSDKBaseFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_FirebaseMLNaturalLanguageItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/7dc8c16825e1eafb/FirebaseMLNaturalLanguage-0.17.0.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/95f13a39ce454a63/FirebaseMLNaturalLanguage-0.18.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildDownload Include="$(_FirebaseMLNLLanguageIDItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/525b910337f728f0/FirebaseMLNLLanguageID-0.17.0.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/b771d954c35c9f80/FirebaseMLNLLanguageID-0.18.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildDownload Include="$(_FirebaseMLNLSmartReplyItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/3e5741543602cc77/FirebaseMLNLSmartReply-0.17.0.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/55fd992beaeb97fa/FirebaseMLNLSmartReply-0.18.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildDownload Include="$(_FirebaseMLNLTranslateItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/b09b22f0bb7acf83/FirebaseMLNLTranslate-0.17.0.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/0dfecfb088b9ce1d/FirebaseMLNLTranslate-0.19.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildRestoreResources Include="_FMLNtrlLDownloadedItems"/>
@@ -34,7 +34,7 @@
 	
 	<Target Name="_FMLNtrlLDownloadedItems">
 		<ItemGroup>
-			<!-- From https://dl.google.com/dl/cpdc/7dc8c16825e1eafb/FirebaseMLNaturalLanguage-0.17.0.tar.gz -->
+			<!-- From https://dl.google.com/dl/cpdc/95f13a39ce454a63/FirebaseMLNaturalLanguage-0.18.0.tar.gz -->
 			<NativeReference Include="$(_FirebaseMLNaturalLanguageSDKBaseFolder)FirebaseMLNaturalLanguage.framework">
 				<Kind>Framework</Kind>
 				<ForceLoad>True</ForceLoad>
@@ -42,7 +42,7 @@
 				<Frameworks>Foundation</Frameworks>
 			</NativeReference>
 
-			<!-- From https://dl.google.com/dl/cpdc/525b910337f728f0/FirebaseMLNLLanguageID-0.17.0.tar.gz -->
+			<!-- From https://dl.google.com/dl/cpdc/b771d954c35c9f80/FirebaseMLNLLanguageID-0.18.0.tar.gz -->
 			<NativeReference Include="$(_FirebaseMLNLLanguageIDSDKBaseFolder)FirebaseMLNLLanguageID.framework">
 				<Kind>Framework</Kind>
 				<ForceLoad>True</ForceLoad>
@@ -50,7 +50,7 @@
 				<Frameworks>Foundation</Frameworks>
 			</NativeReference>
 
-			<!-- From https://dl.google.com/dl/cpdc/3e5741543602cc77/FirebaseMLNLSmartReply-0.17.0.tar.gz -->
+			<!-- From https://dl.google.com/dl/cpdc/55fd992beaeb97fa/FirebaseMLNLSmartReply-0.18.0.tar.gz -->
 			<NativeReference Include="$(_FirebaseMLNLSmartReplySDKBaseFolder)Frameworks\FirebaseMLNLSmartReply.framework">
 				<Kind>Framework</Kind>
 				<ForceLoad>True</ForceLoad>
@@ -64,7 +64,7 @@
 				<LogicalName>PredictOnDeviceResource.bundle\sensitive_model_020817.pb</LogicalName>
 			</BundleResource>
 
-			<!-- From https://dl.google.com/dl/cpdc/b09b22f0bb7acf83/FirebaseMLNLTranslate-0.17.0.tar.gz -->
+			<!-- From https://dl.google.com/dl/cpdc/0dfecfb088b9ce1d/FirebaseMLNLTranslate-0.19.0.tar.gz -->
 			<NativeReference Include="$(_FirebaseMLNLTranslateSDKBaseFolder)Frameworks\FirebaseMLNLTranslate.framework">
 				<Kind>Framework</Kind>
 				<ForceLoad>True</ForceLoad>
@@ -73,10 +73,7 @@
 			</NativeReference>
 			<BundleResource Include="$(_FirebaseMLNLTranslateSDKBaseFolder)Resources\FirebaseMLNLTranslate_resource\generated_rapid_response_client_defaults.json" Visible="False">
 				<LogicalName>FirebaseMLNLTranslate_resource.bundle\generated_rapid_response_client_defaults.json</LogicalName>
-			</BundleResource>
-			<BundleResource Include="$(_FirebaseMLNLTranslateSDKBaseFolder)Resources\FirebaseMLNLTranslate_resource\icudt64l.dat" Visible="False">
-				<LogicalName>FirebaseMLNLTranslate_resource.bundle\icudt64l.dat</LogicalName>
-			</BundleResource>
+			</BundleResource>			
 			<BundleResource Include="$(_FirebaseMLNLTranslateSDKBaseFolder)Resources\FirebaseMLNLTranslate_resource\profiles_r28.json" Visible="False">
 				<LogicalName>FirebaseMLNLTranslate_resource.bundle\profiles_r28.json</LogicalName>
 			</BundleResource>

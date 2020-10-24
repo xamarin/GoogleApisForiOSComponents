@@ -215,8 +215,8 @@
 				"type": "other",
 				"other": {
 					"name": "FirebaseMLNaturalLanguage",
-					"version": "0.17.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/7dc8c16825e1eafb/FirebaseMLNaturalLanguage-0.17.0.tar.gz"
+					"version": "0.18.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/95f13a39ce454a63/FirebaseMLNaturalLanguage-0.18.0.tar.gz"
 				}
 			}
 		},
@@ -225,8 +225,8 @@
 				"type": "other",
 				"other": {
 					"name": "FirebaseMLNLLanguageID",
-					"version": "0.17.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/525b910337f728f0/FirebaseMLNLLanguageID-0.17.0.tar.gz"
+					"version": "0.18.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/b771d954c35c9f80/FirebaseMLNLLanguageID-0.18.0.tar.gz"
 				}
 			}
 		},
@@ -235,8 +235,8 @@
 				"type": "other",
 				"other": {
 					"name": "FirebaseMLNLSmartReply",
-					"version": "0.17.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/3e5741543602cc77/FirebaseMLNLSmartReply-0.17.0.tar.gz"
+					"version": "0.18.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/55fd992beaeb97fa/FirebaseMLNLSmartReply-0.18.0.tar.gz"
 				}
 			}
 		},
@@ -245,8 +245,8 @@
 				"type": "other",
 				"other": {
 					"name": "FirebaseMLNLTranslate",
-					"version": "0.17.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/b09b22f0bb7acf83/FirebaseMLNLTranslate-0.17.0.tar.gz"
+					"version": "0.19.0",
+					"downloadUrl": "https://dl.google.com/dl/cpdc/0dfecfb088b9ce1d/FirebaseMLNLTranslate-0.19.0.tar.gz"
 				}
 			}
 		},
