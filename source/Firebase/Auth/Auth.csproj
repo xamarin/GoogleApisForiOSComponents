@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.Auth</RootNamespace>
     <AssemblyName>Firebase.Auth</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>6.5.1</FileVersion>
+    <FileVersion>6.9.2</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865530</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>6.5.1</PackageVersion>
+    <PackageVersion>6.9.2</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -38,6 +38,9 @@
     <None Include="..\..\..\externals\FirebaseAuth.framework\FirebaseAuth">
       <Link>FirebaseAuth.framework</Link>
     </None>
+    <None Include="..\..\..\externals\GTMSessionFetcher.framework\GTMSessionFetcher">
+      <Link>GTMSessionFetcher.framework</Link>
+    </None>
     <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseiosauth_128x128.png" Pack="True" PackagePath="firebaseiosauth_128x128.png" />
@@ -50,6 +53,12 @@
       <ForceLoad>True</ForceLoad>
       <Frameworks>Security SafariServices</Frameworks>
       <LinkerFlags>-ObjC -lc++ -lsqlite3 -lz</LinkerFlags>
+    </NativeReference>
+    <NativeReference Include="..\..\..\externals\GTMSessionFetcher.framework">
+      <Kind>Framework</Kind>
+      <Frameworks>Security</Frameworks>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
     </NativeReference>
   </ItemGroup>
 

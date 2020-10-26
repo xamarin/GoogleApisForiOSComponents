@@ -56,7 +56,7 @@
 				"git": {
 					"name": "FirebaseAuth",
 					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "f0d6f5a9ff3af91406d11c79c04e2557c35eb747"
+					"commitHash": "28d6a8c102993f18d2bb9f04dff39c83395ca148"
 				}
 			}
 		},
@@ -536,7 +536,7 @@
 				"git": {
 					"name": "GTMSessionFetcher",
 					"repositoryUrl": "https://github.com/google/gtm-session-fetcher",
-					"commitHash": "1d4ef59335abfccee6150ca5c9b436c17c801fa9"
+					"commitHash": "bb65f9b4b498ff55d253b5df8694227a3ca54b72"
 				}
 			}
 		},
