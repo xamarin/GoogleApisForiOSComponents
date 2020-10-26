@@ -7,7 +7,7 @@ Artifact FIREBASE_CLOUD_FIRESTORE_ARTIFACT         = new Artifact ("Firebase.Clo
 Artifact FIREBASE_CLOUD_FUNCTIONS_ARTIFACT         = new Artifact ("Firebase.CloudFunctions",         "2.5.1",        "8.0", ComponentGroup.Firebase, csprojName: "CloudFunctions");
 Artifact FIREBASE_CLOUD_MESSAGING_ARTIFACT         = new Artifact ("Firebase.CloudMessaging",         "4.3.0",        "8.0", ComponentGroup.Firebase, csprojName: "CloudMessaging");
 Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Core",                   "6.10.4",       "9.0", ComponentGroup.Firebase, csprojName: "Core");
-Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Crashlytics",            "4.0.0-beta.7", "8.0", ComponentGroup.Firebase, csprojName: "Crashlytics");
+Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Crashlytics",            "4.6.2",        "9.0", ComponentGroup.Firebase, csprojName: "Crashlytics");
 Artifact FIREBASE_DATABASE_ARTIFACT                = new Artifact ("Firebase.Database",               "6.1.4",        "8.0", ComponentGroup.Firebase, csprojName: "Database");
 Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.DynamicLinks",           "4.0.8",        "8.0", ComponentGroup.Firebase, csprojName: "DynamicLinks");
 Artifact FIREBASE_IN_APP_MESSAGING_ARTIFACT        = new Artifact ("Firebase.InAppMessaging",         "0.19.2.1",     "9.0", ComponentGroup.Firebase, csprojName: "InAppMessaging");
@@ -146,7 +146,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("nanopb",                  "1.30906.0",frameworkSource: FrameworkSource.Pods)
 	};
 	FIREBASE_CRASHLYTICS_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.22.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCrashlytics", targetName: "FirebaseCrashlytics", subSpecs: new [] { "Crashlytics" })
+		PodSpec.Create ("Firebase", "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCrashlytics", targetName: "FirebaseCrashlytics", subSpecs: new [] { "Crashlytics" })
 	};
 	FIREBASE_DATABASE_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.22.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseDatabase", targetName: "FirebaseDatabase", subSpecs: new [] { "Database" })
