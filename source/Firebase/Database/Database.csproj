@@ -37,10 +37,7 @@
   <ItemGroup>
     <None Include="..\..\..\externals\FirebaseDatabase.framework\FirebaseDatabase">
       <Link>FirebaseDatabase.framework</Link>
-    </None>
-    <None Include="..\..\..\externals\leveldb.framework\leveldb">
-      <Link>leveldb.framework</Link>
-    </None>
+    </None>    
     <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseiosdatabase_128x128.png" Pack="True" PackagePath="firebaseiosdatabase_128x128.png" />
@@ -53,12 +50,7 @@
       <Frameworks>CFNetwork Security SystemConfiguration</Frameworks>
       <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>
-    </NativeReference>
-    <NativeReference Include="..\..\..\externals\leveldb.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
-      <ForceLoad>True</ForceLoad>
-    </NativeReference>
+    </NativeReference>    
   </ItemGroup>
 
   <ItemGroup>

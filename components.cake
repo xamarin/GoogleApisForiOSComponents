@@ -120,40 +120,40 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("Firebase", "6.34.0", subSpecs: new [] { "Analytics" })
 	};
 	FIREBASE_AUTH_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase",           "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseAuth", targetName: "FirebaseAuth", subSpecs: new [] { "Auth" }),
-		PodSpec.Create ("GTMSessionFetcher",  "1.3.1",  frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Full" })
+		PodSpec.Create ("Firebase", "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseAuth", targetName: "FirebaseAuth", subSpecs: new [] { "Auth" })
 	};
 	FIREBASE_CLOUD_FIRESTORE_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase",        "6.34.0",       frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseFirestore", targetName: "FirebaseFirestore", subSpecs: new [] { "Firestore" }),
 		PodSpec.Create ("BoringSSL-GRPC",  "0.0.7",        frameworkSource: FrameworkSource.Pods, frameworkName: "openssl_grpc"),
 		PodSpec.Create ("gRPC-Core",       "1.28.2",       frameworkSource: FrameworkSource.Pods, frameworkName: "grpc"),
 		PodSpec.Create ("gRPC-C++",        "1.28.2",       frameworkSource: FrameworkSource.Pods, frameworkName: "grpcpp"),
-		PodSpec.Create ("abseil",          "0.20200225.2", frameworkSource: FrameworkSource.Pods, frameworkName: "absl", subSpecs: new [] { "algorithm", "base", "memory", "meta", "strings", "time", "types" })
-		PodSpec.Create ("leveldb-library", "1.22.0",       frameworkSource: FrameworkSource.Pods, frameworkName: "leveldb"),
+		PodSpec.Create ("abseil",          "0.20200225.0", frameworkSource: FrameworkSource.Pods, frameworkName: "absl", subSpecs: new [] { "algorithm", "base", "memory", "meta", "strings", "time", "types" })
 	};
 	FIREBASE_CLOUD_FUNCTIONS_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase",           "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseFunctions", targetName: "FirebaseFunctions", subSpecs: new [] { "Functions" }),
-		PodSpec.Create ("GTMSessionFetcher",  "1.3.1",  frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Full" })
+		PodSpec.Create ("Firebase",           "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseFunctions", targetName: "FirebaseFunctions", subSpecs: new [] { "Functions" })		
 	};
 	FIREBASE_CLOUD_MESSAGING_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseMessaging", targetName: "FirebaseMessaging", subSpecs: new [] { "Messaging" }),
-		PodSpec.Create ("Protobuf", "3.12.4",  frameworkSource: FrameworkSource.Pods, frameworkName: "protobuf")
+		PodSpec.Create ("Firebase", "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseMessaging", targetName: "FirebaseMessaging", subSpecs: new [] { "Messaging" })		
 	};
 	FIREBASE_CORE_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase",                "6.34.0",   frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCore", targetName: "FirebaseCore", subSpecs: new [] { "CoreOnly" }),		
-		PodSpec.Create ("FirebaseCoreDiagnostics", "1.6.0",    frameworkSource: FrameworkSource.Pods),
+		PodSpec.Create ("Firebase",                "6.34.0",    frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCore", targetName: "FirebaseCore", subSpecs: new [] { "CoreOnly" }),		
+		PodSpec.Create ("FirebaseCoreDiagnostics", "1.6.0",     frameworkSource: FrameworkSource.Pods),
+		PodSpec.Create ("GTMSessionFetcher",       "1.3.1",     frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Full" }),
+		PodSpec.Create ("GoogleAPIClientForREST",  "1.3.11",    frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Vision" }, useDefaultSubspecs: true),
 		PodSpec.Create ("GoogleAppMeasurement",    "6.9.0"),
-		PodSpec.Create ("GoogleDataTransport",     "7.5.1",    frameworkSource: FrameworkSource.Pods),		
-		PodSpec.Create ("PromisesObjC",            "1.2.11",   frameworkSource: FrameworkSource.Pods, frameworkName: "FBLPromises", targetName: "PromisesObjC"),
-		PodSpec.Create ("GoogleUtilities",         "6.7.2",    frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "AppDelegateSwizzler", "Environment", "Logger", "MethodSwizzler", "Network", "NSData+zlib", "Reachability", "UserDefaults", }),		
-		PodSpec.Create ("nanopb",                  "1.30906.0",frameworkSource: FrameworkSource.Pods)
+		PodSpec.Create ("GoogleDataTransport",     "7.5.1",     frameworkSource: FrameworkSource.Pods),
+		PodSpec.Create ("PromisesObjC",            "1.2.10",    frameworkSource: FrameworkSource.Pods, frameworkName: "FBLPromises", targetName: "PromisesObjC"),
+		PodSpec.Create ("GoogleToolboxForMac",     "2.2.2",     frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "NSData+zlib", "NSDictionary+URLArguments", "Logger", "StringEncoding", "URLBuilder" }),
+		PodSpec.Create ("GoogleUtilities",         "6.7.2",     frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "AppDelegateSwizzler", "Environment", "Logger", "ISASwizzler", "MethodSwizzler", "Network", "NSData+zlib", "Reachability", "UserDefaults", }),
+		PodSpec.Create ("nanopb",                  "1.30906.0", frameworkSource: FrameworkSource.Pods),
+		PodSpec.Create ("leveldb-library",         "1.22.0",    frameworkSource: FrameworkSource.Pods, frameworkName: "leveldb"),
+		PodSpec.Create ("Protobuf",                "3.12.0",    frameworkSource: FrameworkSource.Pods, frameworkName: "Protobuf")
 	};
 	FIREBASE_CRASHLYTICS_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCrashlytics", targetName: "FirebaseCrashlytics", subSpecs: new [] { "Crashlytics" })
 	};
 	FIREBASE_DATABASE_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase",        "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseDatabase", targetName: "FirebaseDatabase", subSpecs: new [] { "Database" }),
-		PodSpec.Create ("leveldb-library", "1.22.0", frameworkSource: FrameworkSource.Pods, frameworkName: "leveldb"),
+		PodSpec.Create ("Firebase", "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseDatabase", targetName: "FirebaseDatabase", subSpecs: new [] { "Database" })		
 	};
 	FIREBASE_DYNAMIC_LINKS_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseDynamicLinks", targetName: "FirebaseDynamicLinks", subSpecs: new [] { "DynamicLinks" })
@@ -185,16 +185,13 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("Firebase", "6.34.0", subSpecs: new [] { "MLVision", "MLVisionAutoML", "MLVisionBarcodeModel", "MLVisionFaceModel", "MLVisionLabelModel", "MLVisionTextModel", "MLVisionObjectDetection" })
 	};
 	FIREBASE_PERFORMANCE_MONITORING_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase",          "6.34.0",  subSpecs: new [] { "Performance" }),
-		PodSpec.Create ("GTMSessionFetcher", "1.3.1",   frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Full" }),
-		PodSpec.Create ("Protobuf",          "3.12.4",  frameworkSource: FrameworkSource.Pods, frameworkName: "protobuf")
+		PodSpec.Create ("Firebase", "6.34.0", subSpecs: new [] { "Performance" })
 	};
 	FIREBASE_REMOTE_CONFIG_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseRemoteConfig", targetName: "FirebaseRemoteConfig", subSpecs: new [] { "RemoteConfig" })
 	};
 	FIREBASE_STORAGE_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase",          "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseStorage", targetName: "FirebaseStorage", subSpecs: new [] { "Storage" }),
-		PodSpec.Create ("GTMSessionFetcher", "1.3.1",  frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Full" })
+		PodSpec.Create ("Firebase", "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseStorage", targetName: "FirebaseStorage", subSpecs: new [] { "Storage" })		
 	};
 
 	// Google components

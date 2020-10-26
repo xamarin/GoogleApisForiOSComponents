@@ -6,7 +6,7 @@
 				"git": {
 					"name": "abseil",
 					"repositoryUrl": "https://github.com/abseil/abseil-cpp",
-					"commitHash": "c51510d1d87ebce8615ae1752fd5aca912f6cf4c"
+					"commitHash": "b832dce8489ef7b6231384909fd9b68d5a5ff2b7"
 				}
 			}
 		},
@@ -366,7 +366,7 @@
 				"git": {
 					"name": "GoogleAPIClientForREST",
 					"repositoryUrl": "https://github.com/google/google-api-objectivec-client-for-rest",
-					"commitHash": "430236029b2022ad8aab353af77f86049c8bdd3b"
+					"commitHash": "2f9d8a885993dde262ca184e2b2e3ac58373bf2b"
 				}
 			}
 		},
@@ -566,7 +566,7 @@
 				"git": {
 					"name": "PromisesObjC",
 					"repositoryUrl": "https://github.com/google/promises",
-					"commitHash": "d8accebc8fa32f57196df191e733f946e955c549"
+					"commitHash": "c5cdb6bdc2d3db8ef81e3bc71d55d31baf638837"
 				}
 			}
 		},
@@ -576,7 +576,7 @@
 				"git": {
 					"name": "Protobuf",
 					"repositoryUrl": "https://github.com/protocolbuffers/protobuf",
-					"commitHash": "c9d2bd2fc781fe67ebf306807b9b6edb4a0d2764"
+					"commitHash": "0dd036d675508a4ecf69e61626fd0c88235a661d"
 				}
 			}
 		},

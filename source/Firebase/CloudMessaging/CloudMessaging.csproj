@@ -37,10 +37,7 @@
   <ItemGroup>
     <None Include="..\..\..\externals\FirebaseMessaging.framework\FirebaseMessaging">
       <Link>FirebaseMessaging.framework</Link>
-    </None>
-    <None Include="..\..\..\externals\protobuf.framework\protobuf">
-      <Link>protobuf.framework</Link>
-    </None>
+    </None>    
     <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseioscloudmessaging_128x128.png" Pack="True" PackagePath="firebaseioscloudmessaging_128x128.png" />
@@ -54,12 +51,7 @@
       <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>
       <LinkerFlags>-lsqlite3</LinkerFlags>
-    </NativeReference>
-    <NativeReference Include="..\..\..\externals\protobuf.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
-      <ForceLoad>True</ForceLoad>
-    </NativeReference>
+    </NativeReference>    
   </ItemGroup>
 
   <ItemGroup>

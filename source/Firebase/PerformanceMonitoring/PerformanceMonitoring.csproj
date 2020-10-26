@@ -35,30 +35,10 @@
   </ItemGroup>
   
   <ItemGroup>
-    <None Include="..\..\..\externals\GTMSessionFetcher.framework\GTMSessionFetcher">
-      <Link>GTMSessionFetcher.framework</Link>
-    </None>
-    <None Include="..\..\..\externals\protobuf.framework\protobuf">
-      <Link>protobuf.framework</Link>
-    </None>
     <None Include="PerformanceMonitoring.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.PerformanceMonitoring.targets" />
     <None Include="PerformanceMonitoring.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.PerformanceMonitoring.targets" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseiosperformancemonitoring_128x128.png" Pack="True" PackagePath="firebaseiosperformancemonitoring_128x128.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <NativeReference Include="..\..\..\externals\GTMSessionFetcher.framework">
-      <Kind>Framework</Kind>
-      <Frameworks>Security</Frameworks>
-      <SmartLink>True</SmartLink>
-      <ForceLoad>True</ForceLoad>
-    </NativeReference>
-    <NativeReference Include="..\..\..\externals\protobuf.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
-      <ForceLoad>True</ForceLoad>
-    </NativeReference>
   </ItemGroup>
 
   <ItemGroup>

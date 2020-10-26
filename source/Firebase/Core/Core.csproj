@@ -41,17 +41,32 @@
     <None Include="..\..\..\externals\FirebaseCoreDiagnostics.framework\FirebaseCoreDiagnostics">
       <Link>FirebaseCoreDiagnostics.framework</Link>
     </None>
+    <None Include="..\..\..\externals\GTMSessionFetcher.framework\GTMSessionFetcher">
+      <Link>GTMSessionFetcher.framework</Link>
+    </None>
+    <None Include="..\..\..\externals\GoogleAPIClientForREST.framework\GoogleAPIClientForREST">
+      <Link>GoogleAPIClientForREST.framework</Link>
+    </None>
     <None Include="..\..\..\externals\GoogleDataTransport.framework\GoogleDataTransport">
       <Link>GoogleDataTransport.framework</Link>
     </None>    
     <None Include="..\..\..\externals\FBLPromises.framework\FBLPromises">
       <Link>FBLPromises.framework</Link>
     </None>
+    <None Include="..\..\..\externals\GoogleToolboxForMac.framework\GoogleToolboxForMac">
+      <Link>GoogleToolboxForMac.framework</Link>
+    </None>
     <None Include="..\..\..\externals\GoogleUtilities.framework\GoogleUtilities">
       <Link>GoogleUtilities.framework</Link>
     </None>
     <None Include="..\..\..\externals\nanopb.framework\nanopb">
       <Link>nanopb.framework</Link>
+    </None>
+    <None Include="..\..\..\externals\leveldb.framework\leveldb">
+      <Link>leveldb.framework</Link>
+    </None>
+    <None Include="..\..\..\externals\Protobuf.framework\Protobuf">
+      <Link>Protobuf.framework</Link>
     </None>
     <None Include="Core.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.Core.targets" />
     <None Include="Core.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.Core.targets" />
@@ -73,6 +88,17 @@
       <ForceLoad>True</ForceLoad>
       <Frameworks>Foundation</Frameworks>
     </NativeReference>
+    <NativeReference Include="..\..\..\externals\GTMSessionFetcher.framework">
+      <Kind>Framework</Kind>
+      <Frameworks>Security</Frameworks>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+    <NativeReference Include="..\..\..\externals\GoogleAPIClientForREST.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
     <NativeReference Include="..\..\..\externals\GoogleDataTransport.framework">
       <Kind>Framework</Kind>
       <SmartLink>True</SmartLink>
@@ -84,6 +110,13 @@
       <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>
     </NativeReference>
+    <NativeReference Include="..\..\..\externals\GoogleToolboxForMac.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
+      <LinkerFlags>-lz</LinkerFlags>
+      <Frameworks>SystemConfiguration</Frameworks>
+    </NativeReference>
     <NativeReference Include="..\..\..\externals\GoogleUtilities.framework">
       <Kind>Framework</Kind>
       <SmartLink>True</SmartLink>
@@ -92,6 +125,16 @@
       <Frameworks>Security SystemConfiguration</Frameworks>
     </NativeReference>
     <NativeReference Include="..\..\..\externals\nanopb.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+    <NativeReference Include="..\..\..\externals\leveldb.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+    <NativeReference Include="..\..\..\externals\Protobuf.framework">
       <Kind>Framework</Kind>
       <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>
