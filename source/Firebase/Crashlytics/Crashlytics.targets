@@ -3,8 +3,9 @@
 	<PropertyGroup>
 		<_FirebaseCrashlyticsAssemblyName>Firebase.Crashlytics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseCrashlyticsAssemblyName>
 		<_FirebaseCrashlyticsItemsFolder>FCrshlytcs-4.6.2</_FirebaseCrashlyticsItemsFolder>
-		<_FirebaseCrashlyticsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseCrashlyticsItemsFolder)\firebase-ios-sdk-Crashlytics-4.6.2\Crashlytics\</_FirebaseCrashlyticsSDKBaseFolder>
-		<_FirebaseScriptName>upload-symbols</_FirebaseScriptName>
+		<_FirebaseCrashlyticsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseCrashlyticsItemsFolder)\</_FirebaseCrashlyticsSDKBaseFolder>
+		<!-- Requires a file extension, otherwise XDB will complain  -->
+		<_FirebaseScriptName>upload-symbols.sh</_FirebaseScriptName>
 		
 		<_FirebaseCrashlyticsUploadSymbolsContinueOnError Condition="'$(FirebaseCrashlyticsUploadSymbolsContinueOnError)'=='True'">True</_FirebaseCrashlyticsUploadSymbolsContinueOnError>
 		<_FirebaseCrashlyticsUploadSymbolsContinueOnError Condition="'$(FirebaseCrashlyticsUploadSymbolsContinueOnError)'!='True'">False</_FirebaseCrashlyticsUploadSymbolsContinueOnError>
@@ -21,8 +22,9 @@
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_FirebaseCrashlyticsItemsFolder)">
-			<Url>https://github.com/firebase/firebase-ios-sdk/archive/Crashlytics-4.6.2.zip</Url>
-			<Kind>Zip</Kind>
+			<Url>https://raw.githubusercontent.com/firebase/firebase-ios-sdk/c93d07529993352b6286ec71e58114a8ac8bd949/Crashlytics/upload-symbols</Url>
+			<ToFile>$(_FirebaseCrashlyticsSDKBaseFolder)$(_FirebaseScriptName)</ToFile>
+			<Kind>Uncompressed</Kind>
 		</XamarinBuildDownload>
 	</ItemGroup>
 	
@@ -34,8 +36,12 @@
 	
 	<!-- Target to upload dSYM symbols to Firebase when using Visual Studio for Mac -->
 	<Target Name="_FirebaseCrashlyticsUploadDSymToFirebaseOnMac" >
+		<!-- Make file executable -->
+		<Exec Command="chmod +x '$(_FirebaseCrashlyticsSDKBaseFolder)$(_FirebaseScriptName)'" ContinueOnError="true" />
+		
 		<Message Text="Uploading dSYM to Firebase Console using Firebase $(_FirebaseScriptName) script located at $(_FirebaseCrashlyticsSDKBaseFolder)" />
-		<Exec Command="'$(_FirebaseCrashlyticsSDKBaseFolder)$(_FirebaseScriptName)' -gsp '$(MSBuildProjectDirectory)\GoogleService-Info.plist' -p ios '$(MSBuildProjectDirectory)\$(DeviceSpecificOutputPath)\$(AssemblyName).app.dSYM'"
+		<!-- Upload symbols to Firebase -->
+		<Exec Command="'$(_FirebaseCrashlyticsSDKBaseFolder)$(_FirebaseScriptName)' -gsp '$(MSBuildProjectDirectory)\GoogleService-Info.plist' -p ios '$(MSBuildProjectDirectory)\$(DeviceSpecificOutputPath)$(AssemblyName).app.dSYM'"
 			ContinueOnError="$(_FirebaseCrashlyticsUploadSymbolsContinueOnError)" />
 	</Target>
 
@@ -49,9 +55,11 @@
 
 		<Message Text="Copying Firebase $(_FirebaseScriptName) script located at $(_FirebaseCrashlyticsSDKBaseFolder) to Mac host" />
 		<CopyFilesToBuildServer SessionId="$(BuildSessionId)" Files="@(_CopyFilesToMacOutput)" />
+		<!-- Make file executable -->
 		<Exec SessionId="$(BuildSessionId)" Command="chmod +x $(_FirebaseScriptName)" ContinueOnError="true" />
 		
 		<Message Text="Uploading dSYM to Firebase Console using Firebase $(_FirebaseScriptName) script" />
-		<Exec SessionId="$(BuildSessionId)" Command="'./$(_FirebaseScriptName)' -gsp './GoogleService-Info.plist' -p ios './$(DeviceSpecificOutputPath)\$(AssemblyName).app.dSYM'" ContinueOnError="$(_FirebaseCrashlyticsUploadSymbolsContinueOnError)" />
+		<!-- Upload symbols to Firebase -->
+		<Exec SessionId="$(BuildSessionId)" Command="'./$(_FirebaseScriptName)' -gsp './GoogleService-Info.plist' -p ios './$(DeviceSpecificOutputPath)$(AssemblyName).app.dSYM'" ContinueOnError="$(_FirebaseCrashlyticsUploadSymbolsContinueOnError)" />
 	</Target>
 </Project>
