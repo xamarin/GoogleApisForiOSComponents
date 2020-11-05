@@ -25,6 +25,7 @@ jobs:
       cakeTarget: 'build'
       cakeExtraArgs: '--names=$(SdksNames)'
       windowsImage: ''
+      xcode: '12'
   - ${{ if eq(variables['System.TeamProject'], 'devdiv') }}:
     - template: sign-artifacts/jobs/v1.yml@internal-templates
       parameters:

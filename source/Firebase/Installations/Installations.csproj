@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.Installations</RootNamespace>
     <AssemblyName>Firebase.Installations</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.1.1</FileVersion>
+    <FileVersion>1.7.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2125908</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>1.1.1</PackageVersion>
+    <PackageVersion>1.7.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -37,10 +37,7 @@
   <ItemGroup>
     <None Include="..\..\..\externals\FirebaseInstallations.framework\FirebaseInstallations">
       <Link>FirebaseInstallations.framework</Link>
-    </None>
-    <None Include="..\..\..\externals\FBLPromises.framework\FBLPromises">
-      <Link>FBLPromises.framework</Link>
-    </None>
+    </None>    
     <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseiosinstallations_128x128.png" Pack="True" PackagePath="firebaseiosinstallations_128x128.png" />
@@ -52,11 +49,6 @@
       <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>
       <Frameworks>Security</Frameworks>
-    </NativeReference>
-    <NativeReference Include="..\..\..\externals\FBLPromises.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
-      <ForceLoad>True</ForceLoad>
     </NativeReference>
   </ItemGroup>
 

@@ -98,6 +98,11 @@ namespace Firebase.Crashlytics {
 		[Export ("initWithSymbol:file:line:")]
 		IntPtr Constructor (string symbol, string file, nint line);
 
+		// + (instancetype)stackFrameWithAddress:(NSUInteger)address;
+		[Static]
+		[Export ("stackFrameWithAddress:address")]
+		StackFrame Create (nuint address);
+
 		// +(instancetype _Nonnull)stackFrameWithSymbol:(NSString * _Nonnull)symbol file:(NSString * _Nonnull)file line:(NSInteger)line __attribute__((availability(swift, unavailable)));
 		[Static]
 		[Export ("stackFrameWithSymbol:file:line:")]

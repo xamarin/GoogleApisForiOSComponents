@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.Auth</RootNamespace>
     <AssemblyName>Firebase.Auth</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>6.5.1</FileVersion>
+    <FileVersion>6.9.2</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865530</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>6.5.1</PackageVersion>
+    <PackageVersion>6.9.2</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>

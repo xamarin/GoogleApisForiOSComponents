@@ -626,6 +626,10 @@ namespace Google.Places
 		[Export("UTCOffsetMinutes")]
 		NSNumber UtcOffsetMinutes { get; }
 
+		// @property(nonatomic, readonly) GMSPlacesBusinessStatus businessStatus;
+		[Export("businessStatus")]
+		PlacesBusinessStatus BusinessStatus { get; }
+
 		// -(GMSPlaceOpenStatus)isOpenAtDate:(NSDate * _Nonnull)date;
 		[Export("isOpenAtDate:")]
 		PlaceOpenStatus IsOpen (NSDate date);

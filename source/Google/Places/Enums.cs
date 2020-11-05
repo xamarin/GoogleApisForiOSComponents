@@ -63,6 +63,14 @@ namespace Google.Places {
 		Closed
 	}
 
+	[Native]
+	public enum PlacesBusinessStatus : long {
+		Unknown,
+		Operational,
+		ClosedTemporarily,
+		ClosedPermanently
+	}
+
 	[Flags]
 	[Native]
 	public enum PlaceField : ulong {
@@ -84,6 +92,7 @@ namespace Google.Places {
 		Photos = 1 << 13,
 		UserRatingsTotal = 1 << 14,
 		UtcOffsetMinutes = 1 << 15,
+		BusinessStatus = 1 << 16,
 		All = ulong.MaxValue
 	}
 

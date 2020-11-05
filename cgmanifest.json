@@ -2,591 +2,541 @@
 	"Registrations": [
 		{
 			"component": {
-				"type": "git",
-				"git": {
-					"name": "abseil",
-					"repositoryUrl": "https://github.com/abseil/abseil-cpp",
-					"commitHash": "aa844899c937bde5d2b24f276b59997e5b668bde"
+				"Type": "Pod",
+				"Pod": {
+					"Name": "abseil",
+					"Version": "0.20200225.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
+				"Type": "Pod",
+				"Pod": {
+					"Name": "AppAuth",
+					"Version": "1.3.0"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "Pod",
+				"Pod": {
 					"name": "BoringSSL-GRPC",
-					"repositoryUrl": "https://github.com/google/boringssl",
-					"commitHash": "b29b21a81b32ec273f118f589f46d56ad3332420"
+					"Version": "0.0.7"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseABTesting",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "a43ca45c0dc9480fd16165eabc55e1cbaacc1b67"
+					"Version": "4.2.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseAnalytics",
-					"version": "6.4.1",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/870d57e79087d14b/FirebaseAnalytics-6.4.1.tar.gz"
+					"Version": "6.9.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
-					"name": "FirebaseAnalyticsInterop",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "6b5ce1cfa2c566a5a6ce55cca340ed6aea91bddd"
-				}
-			}
-		},
-		{
-			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseAuth",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "f0d6f5a9ff3af91406d11c79c04e2557c35eb747"
+					"Version": "6.9.2"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
-					"name": "FirebaseAuthInterop",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "a43ca45c0dc9480fd16165eabc55e1cbaacc1b67"
-				}
-			}
-		},
-		{
-			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseCore",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "45ba8e19091144c9ca06204a0791640594af3e69"
+					"Version": "6.10.4"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseCoreDiagnostics",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "45ba8e19091144c9ca06204a0791640594af3e69"
+					"Version": "1.6.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
-					"name": "FirebaseCoreDiagnosticsInterop",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "6b5ce1cfa2c566a5a6ce55cca340ed6aea91bddd"
-				}
-			}
-		},
-		{
-			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseCrashlytics",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "45ba8e19091144c9ca06204a0791640594af3e69"
+					"Version": "4.6.2"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseDatabase",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "6b5ce1cfa2c566a5a6ce55cca340ed6aea91bddd"
+					"Version": "6.6.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseDynamicLinks",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "f0d6f5a9ff3af91406d11c79c04e2557c35eb747"
+					"Version": "4.3.1"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseFirestore",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "45ba8e19091144c9ca06204a0791640594af3e69"
+					"Version": "1.19.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseFunctions",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk.git",
-					"commitHash": "1e3edcc9463d1335968d4911fbcf2221f81cc9a7"
+					"Version": "2.9.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseInAppMessaging",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "45ba8e19091144c9ca06204a0791640594af3e69"
+					"Version": "0.24.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseInstallations",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "f0d6f5a9ff3af91406d11c79c04e2557c35eb747"
+					"Version": "1.7.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseInstanceID",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "45ba8e19091144c9ca06204a0791640594af3e69"
+					"Version": "4.8.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseMessaging",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "98390cacc37cfbf50963bad32a1144441f0618d1"
+					"Version": "4.7.1"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseMLCommon",
-					"version": "0.19.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/6af4e180ffe8fd16/FirebaseMLCommon-0.19.0.tar.gz"
+					"Version": "0.21.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseMLModelInterpreter",
-					"version": "0.19.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/00e5438c83064d53/FirebaseMLModelInterpreter-0.19.0.tar.gz"
+					"Version": "0.21.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseMLNaturalLanguage",
-					"version": "0.17.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/7dc8c16825e1eafb/FirebaseMLNaturalLanguage-0.17.0.tar.gz"
+					"Version": "0.18.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseMLNLLanguageID",
-					"version": "0.17.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/525b910337f728f0/FirebaseMLNLLanguageID-0.17.0.tar.gz"
+					"Version": "0.18.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseMLNLSmartReply",
-					"version": "0.17.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/3e5741543602cc77/FirebaseMLNLSmartReply-0.17.0.tar.gz"
+					"Version": "0.18.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseMLNLTranslate",
-					"version": "0.17.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/b09b22f0bb7acf83/FirebaseMLNLTranslate-0.17.0.tar.gz"
+					"Version": "0.19.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseMLVision",
-					"version": "0.19.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/5164ed31243cbcfc/FirebaseMLVision-0.19.0.tar.gz"
+					"Version": "0.21.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseMLVisionAutoML",
-					"version": "0.19.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/f4534f5e3138797f/FirebaseMLVisionAutoML-0.19.0.tar.gz"
+					"Version": "0.21.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseMLVisionBarcodeModel",
-					"version": "0.19.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/36e67de7b4cd08fc/FirebaseMLVisionBarcodeModel-0.19.0.tar.gz"
+					"Version": "0.21.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseMLVisionFaceModel",
-					"version": "0.19.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/3b3c4105b4d96bf2/FirebaseMLVisionFaceModel-0.19.0.tar.gz"
+					"Version": "0.21.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseMLVisionLabelModel",
-					"version": "0.19.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/c173d8e581641f85/FirebaseMLVisionLabelModel-0.19.0.tar.gz"
+					"Version": "0.21.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseMLVisionObjectDetection",
-					"version": "0.19.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/69635c932ce31d80/FirebaseMLVisionObjectDetection-0.19.0.tar.gz"
+					"Version": "0.21.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseMLVisionTextModel",
-					"version": "0.19.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/6f6ebbb34acb4e37/FirebaseMLVisionTextModel-0.19.0.tar.gz"
+					"Version": "0.21.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebasePerformance",
-					"version": "3.1.11",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/c543c7b170639336/FirebasePerformance-3.1.11.tar.gz"
+					"Version": "3.3.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseRemoteConfig",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "a43ca45c0dc9480fd16165eabc55e1cbaacc1b67"
+					"Version": "4.9.1"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
 					"name": "FirebaseStorage",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "a43ca45c0dc9480fd16165eabc55e1cbaacc1b67"
+					"Version": "3.9.1"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
 					"name": "GoogleAnalytics",
-					"version": "3.17.0",
-					"downloadUrl": "https://www.gstatic.com/cpdc/5cd71dd2f756bb01/GoogleAnalytics-3.17.0.tar.gz"
+					"Version": "3.17.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
 					"name": "GoogleAPIClientForREST",
-					"repositoryUrl": "https://github.com/google/google-api-objectivec-client-for-rest",
-					"commitHash": "2f9d8a885993dde262ca184e2b2e3ac58373bf2b"
+					"Version": "1.4.3"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
 					"name": "GoogleAppIndexing",
-					"version": "2.0.3",
-					"downloadUrl": "https://www.gstatic.com/cpdc/ff375df7e304b800-GoogleAppIndexing-2.0.3.tar.gz"
+					"Version": "2.0.3"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
 					"name": "GoogleAppMeasurement",
-					"version": "6.4.1",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/fe43b2e2ebeb4235/GoogleAppMeasurement-6.4.1.tar.gz"
+					"Version": "6.9.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
 					"name": "google-cast-sdk",
-					"version": "4.3.2",
-					"downloadUrl": "https://developers.google.com/cast/downloads/GoogleCastSDK-ios-4.3.2_dynamic.zip"
+					"Version": "4.4.6"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
 					"name": "GoogleDataTransport",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "45ba8e19091144c9ca06204a0791640594af3e69"
+					"Version": "7.5.1"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
-					"name": "GoogleDataTransportCCTSupport",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "45ba8e19091144c9ca06204a0791640594af3e69"
-				}
-			}
-		},
-		{
-			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
 					"name": "GGLInstanceID",
-					"version": "1.2.1",
-					"downloadUrl": "https://www.gstatic.com/cpdc/170d1b170ae1d063-GGLInstanceID-1.2.1.tar.gz"
+					"Version": "1.2.1"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
+					"name": "GoogleIPhoneUtilities",
+					"Version": "1.2.0"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "Pod",
+				"Pod": {
 					"name": "GoogleMaps",
-					"version": "3.5.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/828459b9d7d1bde9/GoogleMaps-3.5.0.tar.gz"
+					"Version": "3.9.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
 					"name": "Google-Mobile-Ads-SDK",
-					"version": "7.57.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/07dfd0b0ab9f9d12/Google-Mobile-Ads-SDK-7.57.0.tar.gz"
+					"Version": "7.66.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
 					"name": "GooglePlaces",
-					"version": "3.5.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/00b161ce89d5920d/GooglePlaces-3.5.0.tar.gz"
+					"Version": "3.9.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
 					"name": "GoogleSignIn",
-					"version": "5.0.1",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/fd4c1a60ce184799/GoogleSignIn-5.0.1.tar.gz"
+					"Version": "5.0.2"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
 					"name": "GoogleTagManager",
-					"version": "7.1.2",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/e0b99b8644b80573/GoogleTagManager-7.1.2.tar.gz"
+					"Version": "7.1.2"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
 					"name": "GoogleToolboxForMac",
-					"repositoryUrl": "https://github.com/google/google-toolbox-for-mac",
-					"commitHash": "b82cfeb7b09d970d3cdc33cd0d7c87cbcbc26562"
+					"Version": "2.2.2"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
+					"name": "GoogleUserMessagingPlatform",
+					"Version": "1.1.0"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "Pod",
+				"Pod": {
 					"name": "GoogleUtilities",
-					"repositoryUrl": "https://github.com/firebase/firebase-ios-sdk",
-					"commitHash": "956fb1b11b58225768bc2bde9d3ed41835e91d63"
+					"Version": "6.7.2"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
 					"name": "gRPC-C++",
-					"repositoryUrl": "https://github.com/grpc/grpc",
-					"commitHash": "7569ba7a66a2b4dd93b04ad355cc401d06285ee7"
+					"Version": "1.28.2"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
 					"name": "gRPC-Core",
-					"repositoryUrl": "https://github.com/grpc/grpc",
-					"commitHash": "7569ba7a66a2b4dd93b04ad355cc401d06285ee7"
+					"Version": "1.28.2"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
+					"name": "GTMAppAuth",
+					"Version": "1.0.0"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "Pod",
+				"Pod": {
 					"name": "GTMSessionFetcher",
-					"repositoryUrl": "https://github.com/google/gtm-session-fetcher",
-					"commitHash": "bb65f9b4b498ff55d253b5df8694227a3ca54b72"
+					"Version": "1.4.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
 					"name": "leveldb-library",
-					"repositoryUrl": "https://github.com/google/leveldb",
-					"commitHash": "78b39d68c15ba020c0d60a3906fb66dbf1697595"
+					"Version": "1.22.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
 					"name": "nanopb",
-					"repositoryUrl": "https://github.com/nanopb/nanopb",
-					"commitHash": "04cd1f94cc513b4cb3eac924c74039ccc05a944b"
+					"Version": "1.30906.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
 					"name": "PromisesObjC",
-					"repositoryUrl": "https://github.com/google/promises",
-					"commitHash": "6b6f4fe3385ed37389fb231bc40be81de2f1230f"
+					"Version": "1.2.10"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
 					"name": "Protobuf",
-					"repositoryUrl": "https://github.com/protocolbuffers/protobuf",
-					"commitHash": "d0bfd5221182da1a7cc280f3337b5e41a89539cf"
+					"Version": "3.13.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "other",
-				"other": {
+				"type": "Pod",
+				"Pod": {
 					"name": "TensorFlowLiteC",
-					"version": "1.14.0",
-					"downloadUrl": "https://dl.google.com/dl/cpdc/0e27bc28472e2519/TensorFlowLiteC-1.14.0.tar.gz"
+					"Version": "2.3.0"
 				}
 			}
 		},
 		{
 			"component": {
-				"type": "git",
-				"git": {
+				"type": "Pod",
+				"Pod": {
 					"name": "TensorFlowLiteObjC",
-					"repositoryUrl": "https://github.com/tensorflow/tensorflow",
-					"commitHash": "87989f69597d6b2d60de8f112e1e3cea23be7298"
+					"Version": "2.3.0"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "Pod",
+				"Pod": {
+					"name": "Google",
+					"Version": "3.1.0"
 				}
 			}
 		}
