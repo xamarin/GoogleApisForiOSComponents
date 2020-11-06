@@ -2,7 +2,7 @@
 
   <ItemGroup>
     <FirstParty Include="Xamarin.Firebase.*.dll" />
-    <FirstParty Include="Xamarin.Google.*.dll" />
+    <FirstParty Include="Google.*.dll" />
   </ItemGroup>
 
   <ItemGroup>
