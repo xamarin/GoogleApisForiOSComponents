@@ -1,0 +1,16 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <ItemGroup>
+    <FirstParty Include="Firebase.*.dll" />
+    <FirstParty Include="Google.*.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- <ThirdParty Include="..." /> -->
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- <Skip Include="..." /> -->
+  </ItemGroup>
+
+</Project>
