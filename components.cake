@@ -23,16 +23,17 @@ Artifact FIREBASE_REMOTE_CONFIG_ARTIFACT           = new Artifact ("Firebase.Rem
 Artifact FIREBASE_STORAGE_ARTIFACT                 = new Artifact ("Firebase.Storage",                "3.9.1",        "8.0", ComponentGroup.Firebase, csprojName: "Storage");
 
 // Google artifacts available to be built. These artifacts generate NuGets.
-Artifact GOOGLE_ANALYTICS_ARTIFACT    = new Artifact ("Google.Analytics",   "3.17.0.6", "5.0", ComponentGroup.Google, csprojName: "Analytics");
-Artifact GOOGLE_APP_INDEXING_ARTIFACT = new Artifact ("Google.AppIndexing", "2.0.3.8",  "7.0", ComponentGroup.Google, csprojName: "AppIndexing");
-Artifact GOOGLE_CAST_ARTIFACT         = new Artifact ("Google.Cast",        "4.4.6.1",  "9.0", ComponentGroup.Google, csprojName: "Cast");
-Artifact GOOGLE_CORE_ARTIFACT         = new Artifact ("Google.Core",        "3.1.0.4",  "7.0", ComponentGroup.Google, csprojName: "Core");
-Artifact GOOGLE_INSTANCE_ID_ARTIFACT  = new Artifact ("Google.InstanceID",  "1.2.1.18", "7.0", ComponentGroup.Google, csprojName: "InstanceID");
-Artifact GOOGLE_MAPS_ARTIFACT         = new Artifact ("Google.Maps",        "3.9.0.0",  "9.0", ComponentGroup.Google, csprojName: "Maps");
-Artifact GOOGLE_MOBILE_ADS_ARTIFACT   = new Artifact ("Google.MobileAds",   "7.66.0",   "9.0", ComponentGroup.Google, csprojName: "MobileAds");
-Artifact GOOGLE_PLACES_ARTIFACT       = new Artifact ("Google.Places",      "3.9.0.0",  "9.0", ComponentGroup.Google, csprojName: "Places");
-Artifact GOOGLE_SIGN_IN_ARTIFACT      = new Artifact ("Google.SignIn",      "5.0.2.1",  "8.0", ComponentGroup.Google, csprojName: "SignIn");
-Artifact GOOGLE_TAG_MANAGER_ARTIFACT  = new Artifact ("Google.TagManager",  "7.1.2.3",  "8.0", ComponentGroup.Google, csprojName: "TagManager");
+Artifact GOOGLE_ANALYTICS_ARTIFACT                        = new Artifact ("Google.Analytics",             "3.17.0.6", "5.0", ComponentGroup.Google, csprojName: "Analytics");
+Artifact GOOGLE_APP_INDEXING_ARTIFACT                     = new Artifact ("Google.AppIndexing",           "2.0.3.8",  "7.0", ComponentGroup.Google, csprojName: "AppIndexing");
+Artifact GOOGLE_CAST_ARTIFACT                             = new Artifact ("Google.Cast",                  "4.4.6.1",  "9.0", ComponentGroup.Google, csprojName: "Cast");
+Artifact GOOGLE_CORE_ARTIFACT                             = new Artifact ("Google.Core",                  "3.1.0.4",  "7.0", ComponentGroup.Google, csprojName: "Core");
+Artifact GOOGLE_INSTANCE_ID_ARTIFACT                      = new Artifact ("Google.InstanceID",            "1.2.1.18", "7.0", ComponentGroup.Google, csprojName: "InstanceID");
+Artifact GOOGLE_MAPS_ARTIFACT                             = new Artifact ("Google.Maps",                  "3.9.0.0",  "9.0", ComponentGroup.Google, csprojName: "Maps");
+Artifact GOOGLE_MOBILE_ADS_ARTIFACT                       = new Artifact ("Google.MobileAds",             "7.66.1",   "9.0", ComponentGroup.Google, csprojName: "MobileAds");
+Artifact GOOGLE_PLACES_ARTIFACT                           = new Artifact ("Google.Places",                "3.9.0.0",  "9.0", ComponentGroup.Google, csprojName: "Places");
+Artifact GOOGLE_SIGN_IN_ARTIFACT                          = new Artifact ("Google.SignIn",                "5.0.2.1",  "8.0", ComponentGroup.Google, csprojName: "SignIn");
+Artifact GOOGLE_TAG_MANAGER_ARTIFACT                      = new Artifact ("Google.TagManager",            "7.1.2.3",  "8.0", ComponentGroup.Google, csprojName: "TagManager");
+Artifact GOOGLE_USER_MESSAGING_PLATFORM_ARTIFACT          = new Artifact ("Google.UserMessagingPlatform", "1.1.0.0",  "9.0", ComponentGroup.Google, csprojName: "UserMessagingPlatform");
 
 var ARTIFACTS = new Dictionary<string, Artifact> {
 	{ "Firebase.ABTesting",              FIREBASE_AB_TESTING_ARTIFACT },
@@ -58,16 +59,17 @@ var ARTIFACTS = new Dictionary<string, Artifact> {
 	{ "Firebase.RemoteConfig",           FIREBASE_REMOTE_CONFIG_ARTIFACT },
 	{ "Firebase.Storage",                FIREBASE_STORAGE_ARTIFACT },
 
-	{ "Google.Analytics",   GOOGLE_ANALYTICS_ARTIFACT },
-	{ "Google.Appindexing", GOOGLE_APP_INDEXING_ARTIFACT },
-	{ "Google.Cast",        GOOGLE_CAST_ARTIFACT },
-	{ "Google.Core",        GOOGLE_CORE_ARTIFACT },
-	{ "Google.InstanceID",  GOOGLE_INSTANCE_ID_ARTIFACT },
-	{ "Google.Maps",        GOOGLE_MAPS_ARTIFACT },
-	{ "Google.MobileAds",   GOOGLE_MOBILE_ADS_ARTIFACT },
-	{ "Google.Places",      GOOGLE_PLACES_ARTIFACT },
-	{ "Google.SignIn",      GOOGLE_SIGN_IN_ARTIFACT },
-	{ "Google.TagManager",  GOOGLE_TAG_MANAGER_ARTIFACT },
+	{ "Google.Analytics",              GOOGLE_ANALYTICS_ARTIFACT },
+	{ "Google.Appindexing",            GOOGLE_APP_INDEXING_ARTIFACT },
+	{ "Google.Cast",                   GOOGLE_CAST_ARTIFACT },
+	{ "Google.Core",                   GOOGLE_CORE_ARTIFACT },
+	{ "Google.InstanceID",             GOOGLE_INSTANCE_ID_ARTIFACT },
+	{ "Google.Maps",                   GOOGLE_MAPS_ARTIFACT },
+	{ "Google.MobileAds",              GOOGLE_MOBILE_ADS_ARTIFACT },
+	{ "Google.Places",                 GOOGLE_PLACES_ARTIFACT },
+	{ "Google.SignIn",                 GOOGLE_SIGN_IN_ARTIFACT },
+	{ "Google.TagManager",             GOOGLE_TAG_MANAGER_ARTIFACT },
+	{ "Google.UserMessagingPlatform",  GOOGLE_USER_MESSAGING_PLATFORM_ARTIFACT },
 };
 
 void SetArtifactsDependencies ()
@@ -95,16 +97,17 @@ void SetArtifactsDependencies ()
 	FIREBASE_REMOTE_CONFIG_ARTIFACT.Dependencies           = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_AB_TESTING_ARTIFACT };
 	FIREBASE_STORAGE_ARTIFACT.Dependencies                 = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_DATABASE_ARTIFACT, /* Needed for sample */ FIREBASE_AUTH_ARTIFACT };
 
-	GOOGLE_ANALYTICS_ARTIFACT.Dependencies    = null;
-	GOOGLE_APP_INDEXING_ARTIFACT.Dependencies = null;
-	GOOGLE_CAST_ARTIFACT.Dependencies         = new [] { FIREBASE_CORE_ARTIFACT };
-	GOOGLE_CORE_ARTIFACT.Dependencies         = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_ANALYTICS_ARTIFACT };
-	GOOGLE_INSTANCE_ID_ARTIFACT.Dependencies  = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_ANALYTICS_ARTIFACT, GOOGLE_CORE_ARTIFACT };
-	GOOGLE_MAPS_ARTIFACT.Dependencies         = null;
-	GOOGLE_MOBILE_ADS_ARTIFACT.Dependencies   = new [] { FIREBASE_CORE_ARTIFACT };
-	GOOGLE_PLACES_ARTIFACT.Dependencies       = new [] { GOOGLE_MAPS_ARTIFACT };
-	GOOGLE_SIGN_IN_ARTIFACT.Dependencies      = new [] { FIREBASE_CORE_ARTIFACT };
-	GOOGLE_TAG_MANAGER_ARTIFACT.Dependencies  = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_ANALYTICS_ARTIFACT, GOOGLE_ANALYTICS_ARTIFACT };
+	GOOGLE_ANALYTICS_ARTIFACT.Dependencies               = null;
+	GOOGLE_APP_INDEXING_ARTIFACT.Dependencies            = null;
+	GOOGLE_CAST_ARTIFACT.Dependencies                    = new [] { FIREBASE_CORE_ARTIFACT };
+	GOOGLE_CORE_ARTIFACT.Dependencies                    = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_ANALYTICS_ARTIFACT };
+	GOOGLE_INSTANCE_ID_ARTIFACT.Dependencies             = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_ANALYTICS_ARTIFACT, GOOGLE_CORE_ARTIFACT };
+	GOOGLE_MAPS_ARTIFACT.Dependencies                    = null;
+	GOOGLE_MOBILE_ADS_ARTIFACT.Dependencies              = new [] { FIREBASE_CORE_ARTIFACT, GOOGLE_USER_MESSAGING_PLATFORM_ARTIFACT };
+	GOOGLE_PLACES_ARTIFACT.Dependencies                  = new [] { GOOGLE_MAPS_ARTIFACT };
+	GOOGLE_SIGN_IN_ARTIFACT.Dependencies                 = new [] { FIREBASE_CORE_ARTIFACT };
+	GOOGLE_TAG_MANAGER_ARTIFACT.Dependencies             = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_ANALYTICS_ARTIFACT, GOOGLE_ANALYTICS_ARTIFACT };
+	GOOGLE_USER_MESSAGING_PLATFORM_ARTIFACT.Dependencies = null;
 }
 
 void SetArtifactsPodSpecs ()
@@ -216,7 +219,6 @@ void SetArtifactsPodSpecs ()
 	};
 	GOOGLE_MOBILE_ADS_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Google-Mobile-Ads-SDK", "7.66.0"),
-		PodSpec.Create ("GoogleUserMessagingPlatform", "1.1.0")
 	};
 	GOOGLE_PLACES_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("GooglePlaces", "3.9.0")
@@ -228,6 +230,9 @@ void SetArtifactsPodSpecs ()
 	};
 	GOOGLE_TAG_MANAGER_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("GoogleTagManager", "7.1.2")
+	};
+	GOOGLE_USER_MESSAGING_PLATFORM_ARTIFACT.PodSpecs = new [] {
+		PodSpec.Create ("GoogleUserMessagingPlatform", "1.1.0")
 	};
 }
 
@@ -327,4 +332,5 @@ void SetArtifactsSamples ()
 	GOOGLE_PLACES_ARTIFACT.Samples                    = new [] { "GooglePlacesSample" };
 	GOOGLE_SIGN_IN_ARTIFACT.Samples                   = new [] { "SignInExample" };
 	GOOGLE_TAG_MANAGER_ARTIFACT.Samples               = new [] { "TagManagerSample" };
+	GOOGLE_USER_MESSAGING_PLATFORM_ARTIFACT.Samples   = null;
 }

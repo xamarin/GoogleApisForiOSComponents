@@ -3,20 +3,20 @@
   <PropertyGroup>
     <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
     <IsBindingProject>true</IsBindingProject>
-    <RootNamespace>Google.MobileAds</RootNamespace>
-    <AssemblyName>Google.MobileAds</AssemblyName>
+    <RootNamespace>Google.MobileAds.Consent</RootNamespace>
+    <AssemblyName>Google.UserMessagingPlatform</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>7.66.1</FileVersion>
+    <FileVersion>1.1.0.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ProcessEnums>true</ProcessEnums>
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>Xamarin.Google.iOS.MobileAds</PackageId>
-    <Title>Google APIs Mobile Ads iOS Library</Title>
-    <Summary>C# bindings for Google APIs Mobile Ads iOS Library</Summary>
-    <Description>C# bindings for Google APIs Mobile Ads iOS Library</Description>
+    <PackageId>Xamarin.Google.iOS.UserMessagingPlatform</PackageId>
+    <Title>Google APIs User Messaging Platform iOS Library</Title>
+    <Summary>C# bindings for Google APIs User Messaging Platform iOS Library</Summary>
+    <Description>C# bindings for Google APIs ser Messaging Platform iOS Library</Description>
     <Authors>Microsoft</Authors>
     <Owners>Microsoft</Owners>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
@@ -24,7 +24,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865562</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>7.66.1</PackageVersion>
+    <PackageVersion>1.1.0.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -36,23 +36,17 @@
   </ItemGroup>
   
   <ItemGroup>
-    <None Include="MobileAds.targets" Pack="True" PackagePath="build/Xamarin.Google.iOS.MobileAds.targets" />
-    <None Include="MobileAds.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Google.iOS.MobileAds.targets" />
-    <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
+    <None Include="UserMessagingPlatform.targets" Pack="True" PackagePath="build/Xamarin.Google.iOS.UserMessagingPlatform.targets" />
+    <None Include="UserMessagingPlatform.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Google.iOS.UserMessagingPlatform.targets" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/googleiosmobileads_128x128.png" Pack="True" PackagePath="googleiosmobileads_128x128.png" />
   </ItemGroup>
   
   <ItemGroup>
     <Compile Remove="Enums.cs" />
-    <Compile Remove="Structs.cs" />
     <Compile Remove="ApiDefinition.cs" />
   </ItemGroup>
   
-  <ItemGroup>
-    <ObjcBindingCoreSource Include="Structs.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
-  </ItemGroup>
-
   <ItemGroup>
     <ObjcBindingApiDefinition Include="Enums.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
@@ -60,10 +54,6 @@
 
   <ItemGroup>
     <PackageReference Include="Xamarin.Build.Download" Version="0.10.0" PrivateAssets="None" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <ProjectReference Include="..\..\Firebase\Core\Core.csproj" PrivateAssets="None" />
   </ItemGroup>
 
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />

@@ -38,6 +38,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Google.iOS.PlayGames][G.PlayGames.Name]                             | [5.1.1.11][G.PlayGames.Package]              |
 | [Xamarin.Google.iOS.SignIn][G.SignIn.Name]                                   | [5.0.2.1][G.SignIn.Package]                  |
 | [Xamarin.Google.iOS.TagManager][G.TagManager.Name]                           | [7.1.2.3][G.TagManager.Package]              |
+| [Xamarin.Google.iOS.UserMessagingPlatform][G.UserMessagingPlatform.Name]     | [7.57.0.0][G.UserMessagingPlatform.Package]  |
 
 **Deprecated Libraries**
 
@@ -79,6 +80,7 @@ Here's a table that shows in which global version is located each component of F
 | Firebase Storage                 | **3.9.1.0**       | **6.34.0**     |
 | Google Sign-In                   | **5.0.2.1**       | **6.15.0**     |
 | Google Tag Manager               | **7.1.2.3**       | **6.5.0**      |
+| Google User Messaging Platform   | **1.1.0.0**       | **1.1.0**      |
 
 ## Building
 
@@ -145,6 +147,7 @@ Google.MobileAds
 Google.Places
 Google.SignIn
 Google.TagManager
+Google.UserMessagingPlatform
 ```
 
 The following targets can be specified using the `--target=<target-name>`:
@@ -243,6 +246,7 @@ This project is part of the [.NET Foundation][104]
 [G.PlayGames.Name]: source/Google/PlayGames
 [G.SignIn.Name]: source/Google/SignIn
 [G.TagManager.Name]: source/Google/TagManager
+[G.UserMessagingPlatform.Name]: source/Google/UserMessagingPlatform
 
 [comment]: # (URL for active Google component NuGets)
 
@@ -256,6 +260,7 @@ This project is part of the [.NET Foundation][104]
 [G.PlayGames.Package]: https://www.nuget.org/packages/Xamarin.Google.iOS.PlayGames/
 [G.SignIn.Package]: https://www.nuget.org/packages/Xamarin.Google.iOS.SignIn/
 [G.TagManager.Package]: https://www.nuget.org/packages/Xamarin.Google.iOS.TagManager/
+[G.UserMessagingPlatform.Package]: https://www.nuget.org/packages/Xamarin.Google.iOS.UserMessagingPlatform/
 
 
 [comment]: # (Path for deprecated Firebase component folders)
