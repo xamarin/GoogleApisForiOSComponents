@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.PerformanceMonitoring</RootNamespace>
     <AssemblyName>Firebase.PerformanceMonitoring</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>3.3.0</FileVersion>
+    <FileVersion>7.10.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=866312</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>3.3.0</PackageVersion>
+    <PackageVersion>7.10.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -35,10 +35,21 @@
   </ItemGroup>
   
   <ItemGroup>
-    <None Include="PerformanceMonitoring.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.PerformanceMonitoring.targets" />
-    <None Include="PerformanceMonitoring.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.PerformanceMonitoring.targets" />
+    <None Include="..\..\..\externals\FirebasePerformance.framework\FirebasePerformance">
+      <Link>FirebaseFunctions.framework</Link>
+    </None>
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseiosperformancemonitoring_128x128.png" Pack="True" PackagePath="firebaseiosperformancemonitoring_128x128.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <NativeReference Include="..\..\..\externals\FirebasePerformance.framework">
+	    <Kind>Framework</Kind>
+		<SmartLink>True</SmartLink>
+		<ForceLoad>True</ForceLoad>
+		<LinkerFlags>-ObjC -lc++</LinkerFlags>
+		<Frameworks>CoreTelephony QuartzCore SystemConfiguration</Frameworks>
+	</NativeReference>
   </ItemGroup>
 
   <ItemGroup>
@@ -65,6 +76,6 @@
     <ProjectReference Include="..\ABTesting\ABTesting.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\RemoteConfig\RemoteConfig.csproj" PrivateAssets="None" />
   </ItemGroup>
-  
+
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 </Project>
