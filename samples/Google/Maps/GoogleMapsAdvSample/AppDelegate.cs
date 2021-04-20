@@ -31,7 +31,7 @@ namespace GoogleMapsAdvSample
 		//
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
-			MapServices.ProvideAPIKey (MapsApiKey);
+			MapServices.ProvideApiKey (MapsApiKey);
 
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 			

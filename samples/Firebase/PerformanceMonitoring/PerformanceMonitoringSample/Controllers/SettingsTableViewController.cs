@@ -92,7 +92,7 @@ namespace PerformanceMonitoringSample
 
 			void OkAction ()
 			{
-				remoteConfig.ActivateFetched ();
+				remoteConfig.Activate ();
 
 				var indexPaths = TableView.IndexPathsForVisibleRows;
 				foreach (var indexPath in indexPaths) {

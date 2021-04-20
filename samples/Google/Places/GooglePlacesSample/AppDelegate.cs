@@ -34,7 +34,7 @@ namespace GooglePlacesSample
 			// Provide the Maps API with your API key. You may not need
 			// this in your app, however we do need this for the demo 
 			// app as it uses Maps.
-			MapServices.ProvideAPIKey (GoogleApiKey.Key);
+			MapServices.ProvideApiKey (GoogleApiKey.Key);
 
 			var splitViewController = UIStoryboard.FromName ("Main", null).InstantiateViewController (nameof (UISplitViewController)) as UISplitViewController;
 			splitViewController.Delegate = this;

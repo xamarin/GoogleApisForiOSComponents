@@ -7,14 +7,14 @@ using UIKit;
 using CoreGraphics;
 
 using Google.MobileAds;
+using Foundation;
 
 namespace AdMobSample
 {
-	public class AdsViewController : DialogViewController
-	{
+	public class AdsViewController : DialogViewController {
 		BannerView adViewTableView;
 		BannerView adViewWindow;
-		Interstitial adInterstitial;
+		InterstitialAd adInterstitial;
 
 		bool adOnTable;
 		bool adOnWindow;
@@ -46,9 +46,10 @@ namespace AdMobSample
 			if (adViewTableView == null) {
 				// Setup your BannerView, review AdSizeCons class for more Ad sizes. 
 				adViewTableView = new BannerView (size: AdSizeCons.SmartBannerPortrait) {
-					AdUnitId = AdMobConstants.BannerId,
+					
 					RootViewController = NavigationController
 				};
+				adViewTableView.AdUnitId = AdMobConstants.BannerId;
 
 				// Wire AdReceived event to know when the Ad is ready to be displayed
 				adViewTableView.AdReceived += (object sender, EventArgs e) => {
@@ -85,10 +86,10 @@ namespace AdMobSample
 				// Setup your GADBannerView, review AdSizeCons class for more Ad sizes. 
 				adViewWindow = new BannerView (size: AdSizeCons.SmartBannerPortrait,
 				                               origin: new CGPoint (0, UIScreen.MainScreen.Bounds.Size.Height - AdSizeCons.Banner.Size.Height)) {
-					AdUnitId = AdMobConstants.BannerId,
+					
 					RootViewController = NavigationController
 				};
-
+				adViewWindow.AdUnitId = AdMobConstants.BannerId;
 				// Wire AdReceived event to know when the Ad is ready to be displayed
 				adViewWindow.AdReceived += (object sender, EventArgs e) => {
 					if (!adOnWindow) {
@@ -119,24 +120,29 @@ namespace AdMobSample
 
 		void AddToView ()
 		{
-			if (!adInterstitial.IsReady)
-				return;
+			if (adInterstitial?.CanPresent (NavigationController, out _) == true) {				
+				adInterstitial.DismissedContent += (sender, args) => {
+					// Interstitial is a one time use object. That means once an interstitial is shown, HasBeenUsed 
+					// returns true and the interstitial can't be used to load another ad. 
+					// To request another interstitial, you'll need to create a new Interstitial object.
+					adInterstitial.Dispose ();
+					adInterstitial = null;
+					CreateAndRequestInterstitial ();
+				};
 
-			adInterstitial.Present (NavigationController);
+				adInterstitial.Present (NavigationController);
+			}
 		}
 
 		void CreateAndRequestInterstitial ()
 		{
-			adInterstitial = new Interstitial (AdMobConstants.IntersitialId);
-			adInterstitial.ScreenDismissed += (sender, e) => {
-				// Interstitial is a one time use object. That means once an interstitial is shown, HasBeenUsed 
-				// returns true and the interstitial can't be used to load another ad. 
-				// To request another interstitial, you'll need to create a new Interstitial object.
-				adInterstitial.Dispose ();
-				adInterstitial = null;
-				CreateAndRequestInterstitial ();
-			};
-			adInterstitial.LoadRequest (GetRequest ());
+			if (adInterstitial == null) {
+				InterstitialAd.Load (AdMobConstants.IntersitialId, GetRequest (), (ad, err) => {
+					if (ad != null) {
+						adInterstitial = ad;
+					}
+				});				
+			}
 		}
 
 		Request GetRequest ()
@@ -144,5 +150,5 @@ namespace AdMobSample
 			var request = Request.GetDefaultRequest ();
 			return request;
 		}
-	}
+	}	
 }

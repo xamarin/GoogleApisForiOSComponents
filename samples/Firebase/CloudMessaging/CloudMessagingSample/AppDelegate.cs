@@ -105,15 +105,6 @@ namespace CloudMessagingSample
 			completionHandler (UIBackgroundFetchResult.NewData);
 		}
 
-		[Export ("messaging:didReceiveMessage:")]
-		public void DidReceiveMessage (Messaging messaging, RemoteMessage remoteMessage)
-		{
-			// Handle Data messages for iOS 10 and above.
-			HandleMessage (remoteMessage.AppData);
-
-			LogInformation (nameof (DidReceiveMessage), remoteMessage.AppData);
-		}
-
 		void HandleMessage (NSDictionary message)
 		{
 			if (MessageReceived == null)

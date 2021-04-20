@@ -26,7 +26,7 @@ namespace MobileAdsExample
 
 		BannerView adViewTableView;
 		BannerView adViewWindow;
-		Interstitial adInterstitial;
+		InterstitialAd adInterstitial;
 
 		bool adOnTable = false;
 		bool adOnWindow = false;
@@ -75,9 +75,9 @@ namespace MobileAdsExample
 
 				// Setup your BannerView, review AdSizeCons class for more Ad sizes. 
 				adViewTableView = new BannerView (size: AdSizeCons.Banner, origin: new CGPoint (-10, 0)) {
-					AdUnitID = bannerId,
 					RootViewController = navController
 				};
+				adViewTableView.AdUnitId = bannerId;
 
 				// Wire AdReceived event to know when the Ad is ready to be displayed
 				adViewTableView.AdReceived += (object sender, EventArgs e) => {
@@ -114,9 +114,9 @@ namespace MobileAdsExample
 				// Setup your GADBannerView, review AdSizeCons class for more Ad sizes. 
 				adViewWindow = new BannerView (size: AdSizeCons.Banner, 
 					origin: new CGPoint (0, window.Bounds.Size.Height - AdSizeCons.Banner.Size.Height)) {
-					AdUnitID = bannerId,
 					RootViewController = navController
 				};
+				adViewWindow.AdUnitId = bannerId;
 
 				// Wire AdReceived event to know when the Ad is ready to be displayed
 				adViewWindow.AdReceived += (object sender, EventArgs e) => {
@@ -152,35 +152,27 @@ namespace MobileAdsExample
 				return;
 
 			if (adInterstitial == null) {
-				adInterstitial = new Interstitial (intersitialId);
-						
-				adInterstitial.ScreenDismissed += (sender, e) => { 
-					interstitialRequested = false;
+				InterstitialAd.Load (intersitialId, Request.GetDefaultRequest (), (ad, err) => {
+					if (ad != null) {
+						adInterstitial = ad;
 
-					// You need to explicitly Dispose Interstitial when you dont need it anymore
-					// to avoid crashes if pending request are in progress
-					adInterstitial.Dispose ();
-					adInterstitial = null;
-				};
+						adInterstitial.DismissedContent += (sender, e) => {
+							interstitialRequested = false;
+
+							// You need to explicitly Dispose Interstitial when you dont need it anymore
+							// to avoid crashes if pending request are in progress
+							adInterstitial.Dispose ();
+							adInterstitial = null;
+						};
+
+						adInterstitial.Present (navController);
+					}
+					else {
+						interstitialRequested = false;
+					}
+				});
 			}
-
-			interstitialRequested = true;
-			adInterstitial.LoadRequest (Request.GetDefaultRequest ());
-
-			ShowInterstitial ();
 		}
-
-		async void ShowInterstitial ()
-		{
-			// We need to wait until the Intersitial is ready to show
-			do {
-				await Task.Delay (100);
-			} while (!adInterstitial.IsReady);
-
-			// Once is ready, show it
-			InvokeOnMainThread (() => adInterstitial.PresentFromRootViewController (navController));
-		}
-
 	}
 }
 
