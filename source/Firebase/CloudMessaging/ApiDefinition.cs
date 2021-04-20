@@ -16,6 +16,8 @@ namespace Firebase.CloudMessaging
 	// typedef void (^FIRMessagingTopicOperationCompletion)(NSError *_Nullable error);
 	delegate void MessagingTopicOperationCompletionHandler ([NullAllowed] NSError error);
 
+	delegate void DeleteDataCompletionHandler ([NullAllowed] NSError error);
+
 	// @interface FIRMessagingMessageInfo : NSObject
 	[BaseType (typeof (NSObject), Name = "FIRMessagingMessageInfo")]
 	interface MessageInfo
@@ -23,20 +25,6 @@ namespace Firebase.CloudMessaging
 		// @property (readonly, assign, nonatomic) FIRMessagingMessageStatus status;
 		[Export ("status", ArgumentSemantic.Assign)]
 		MessageStatus Status { get; }
-	}
-
-	// @interface FIRMessagingRemoteMessage : NSObject
-	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FIRMessagingRemoteMessage")]
-	interface RemoteMessage
-	{
-		// @property (readonly, copy, nonatomic) NSString * _Nonnull messageID;
-		[Export ("messageID")]
-		string MessageId { get; }
-
-		// @property(nonatomic, readonly, strong, nonnull) NSDictionary *appData;
-		[Export ("appData", ArgumentSemantic.Strong)]
-		NSDictionary AppData { get; }
 	}
 
 	interface IMessagingDelegate
@@ -52,11 +40,6 @@ namespace Firebase.CloudMessaging
 		// @optional -(void)messaging:(FIRMessaging * _Nonnull)messaging didReceiveRegistrationToken:(NSString * _Nonnull)fcmToken;
 		[Export ("messaging:didReceiveRegistrationToken:")]
 		void DidReceiveRegistrationToken (Messaging messaging, string fcmToken);
-
-		// - (void)messaging:(nonnull FIRMessaging *)messaging didReceiveMessage:(nonnull FIRMessagingRemoteMessage *)remoteMessage FIR_SWIFT_NAME(messaging(_:didReceive:)
-		[Obsolete ("FCM direct channel is deprecated, please use APNs for downstream message handling.")]
-		[Export ("messaging:didReceiveMessage:")]
-		void DidReceiveMessage (Messaging messaging, RemoteMessage remoteMessage);
 	}
 
 	// @interface FIRMessaging : NSObject
@@ -64,50 +47,10 @@ namespace Firebase.CloudMessaging
 	[BaseType (typeof (NSObject), Name = "FIRMessaging")]
 	interface Messaging
 	{
-		// extern NSString *const _Nonnull FIRMessagingSendSuccessNotification;
-		[Obsolete]
-		[Notification]
-		[Field ("FIRMessagingSendSuccessNotification", "__Internal")]
-		NSString SendSuccessNotification { get; }
-
-		// extern NSString *const _Nonnull FIRMessagingSendErrorNotification;
-		[Obsolete]
-		[Notification]
-		[Field ("FIRMessagingSendErrorNotification", "__Internal")]
-		NSString SendErrorNotification { get; }
-
-		// extern NSString *const _Nonnull FIRMessagingMessagesDeletedNotification;
-		[Obsolete]
-		[Notification]
-		[Field ("FIRMessagingMessagesDeletedNotification", "__Internal")]
-		NSString MessagesDeletedNotification { get; }
-
-		// extern NSString *const _Nonnull FIRMessagingConnectionStateChangedNotification;
-		[Obsolete]
-		[Notification]
-		[Field ("FIRMessagingConnectionStateChangedNotification", "__Internal")]
-		NSString ConnectionStateChangedNotification { get; }
-
-		// extern NSString *const _Nonnull FIRMessagingRegistrationTokenRefreshedNotification;
-		[Obsolete]
-		[Notification]
-		[Field ("FIRMessagingRegistrationTokenRefreshedNotification", "__Internal")]
-		NSString RegistrationTokenRefreshedNotification { get; }
-
 		// @property(nonatomic, weak, nullable) id<FIRMessagingDelegate> delegate;
 		[NullAllowed]
 		[Export ("delegate", ArgumentSemantic.Weak)]
 		IMessagingDelegate Delegate { get; set; }
-
-		// @property(nonatomic) BOOL shouldEstablishDirectChannel;
-		[Obsolete ("FCM direct channel is deprecated, please use APNs channel for downstream message delivery.")]
-		[Export ("shouldEstablishDirectChannel")]
-		bool ShouldEstablishDirectChannel { get; set; }
-
-		// @property(nonatomic, readonly) BOOL isDirectChannelEstablished;
-		[Obsolete ("FCM direct channel is deprecated, please use APNs channel for downstream message delivery.")]
-		[Export ("isDirectChannelEstablished")]
-		bool IsDirectChannelEstablished { get; }
 
 		// +(instancetype _Nonnull)messaging;
 		[Static]
@@ -138,6 +81,16 @@ namespace Firebase.CloudMessaging
 		[Export ("FCMToken")]
 		string FcmToken { get; }
 
+		// -(void)tokenWithCompletion:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completion;
+		[Export ("tokenWithCompletion:")]
+		[Async]
+		void FetchToken (MessagingDeleteFcmTokenCompletionHandler completion);
+
+		// -(void)deleteTokenWithCompletion:(void (^ _Nonnull)(NSError * _Nullable))completion;
+		[Export ("deleteTokenWithCompletion:")]
+		[Async]
+		void DeleteToken (MessagingDeleteFcmTokenCompletionHandler completion);
+
 		// - (void)retrieveFCMTokenForSenderID:(nonnull NSString *)senderID completion:(nonnull FIRMessagingFCMTokenFetchCompletion) completion FIR_SWIFT_NAME(retrieveFCMToken(forSenderID:completion:));
 		[Async]
 		[Export ("retrieveFCMTokenForSenderID:completion:")]
@@ -166,18 +119,13 @@ namespace Firebase.CloudMessaging
 		[Export ("unsubscribeFromTopic:completion:")]
 		void Unsubscribe (string topic, MessagingTopicOperationCompletionHandler completion);
 
-		// -(void)sendMessage:(NSDictionary * _Nonnull)message to:(NSString * _Nonnull)receiver withMessageID:(NSString * _Nonnull)messageID timeToLive:(int64_t)ttl;
-		[Obsolete ("Upstream messaging through direct channel is deprecated. For realtime updates, use Cloud Firestore, Realtime Database, or other services.")]
-		[Export ("sendMessage:to:withMessageID:timeToLive:")]
-		void SendMessage (NSDictionary nsMessage, string receiver, string messageId, long ttl);
-
-		[Obsolete ("Upstream messaging through direct channel is deprecated. For realtime updates, use Cloud Firestore, Realtime Database, or other services.")]
-		[Wrap ("SendMessage (message == null ? null : NSDictionary.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (message.Values), System.Linq.Enumerable.ToArray (message.Keys), message.Keys.Count), receiver, messageId, ttl)")]
-		void SendMessage (Dictionary<object, object> message, string receiver, string messageId, long ttl);
-
 		// -(FIRMessagingMessageInfo * _Nonnull)appDidReceiveMessage:(NSDictionary * _Nonnull)message;
 		[Export ("appDidReceiveMessage:")]
 		MessageInfo AppDidReceiveMessage (NSDictionary message);
+
+		// - (void)deleteDataWithCompletion:(void (^)(NSError *__nullable error))completion;
+		[Export ("deleteDataWithCompletion:")]
+		void DeleteData (DeleteDataCompletionHandler completion);
 	}
 
 	// @interface FIRMessagingExtensionHelper : NSObject
