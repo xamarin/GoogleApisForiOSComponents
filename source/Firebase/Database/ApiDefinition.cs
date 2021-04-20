@@ -82,6 +82,10 @@ namespace Firebase.Database
 		[Static]
 		[Export ("sdkVersion")]
 		string SdkVersion { get; }
+
+		// - (void) useEmulatorWithHost:(NSString*) host port:(NSInteger) port;		
+		[Export ("useEmulatorWithHost:port:")]
+		void UseEmulatorWithHost (string host, uint port);
 	}
 
 	delegate void DatabaseQueryUpdateHandler (DataSnapshot snapshot);
@@ -168,6 +172,16 @@ namespace Firebase.Database
 		[Export ("queryStartingAtValue:childKey:")]
 		DatabaseQuery GetQueryStartingAtValue ([NullAllowed] NSObject startValue, [NullAllowed] string childKey);
 
+		// - (FIRDatabaseQuery *)queryStartingAfterValue:(nullable id)startAfterValue;
+		[New]
+		[Export ("queryStartingAfterValue:")]
+		DatabaseQuery GetQueryStartingAfterValue ([NullAllowed] NSObject startAfterValue);
+
+		// - (FIRDatabaseQuery *)queryStartingAfterValue:(nullable id)startAfterValue childKey:(nullable NSString *)childKey;
+		[New]
+		[Export ("queryStartingAfterValue:childKey:")]
+		DatabaseQuery GetQueryStartingAfterValue ([NullAllowed] NSObject startAfterValue, [NullAllowed] string childKey);
+
 		// -(FIRDatabaseQuery * _Nonnull)queryEndingAtValue:(id _Nullable)endValue;
 		[Export ("queryEndingAtValue:")]
 		DatabaseQuery GetQueryEndingAtValue ([NullAllowed] NSObject endValue);
@@ -175,6 +189,16 @@ namespace Firebase.Database
 		// -(FIRDatabaseQuery * _Nonnull)queryEndingAtValue:(id _Nullable)endValue childKey:(NSString * _Nullable)childKey;
 		[Export ("queryEndingAtValue:childKey:")]
 		DatabaseQuery GetQueryEndingAtValue ([NullAllowed] NSObject endValue, [NullAllowed] string childKey);
+
+		// - (FIRDatabaseQuery *)queryEndingBeforeValue:(nullable id)endValue;
+		[New]
+		[Export ("queryEndingBeforeValue:")]
+		DatabaseQuery GetQueryEndingBeforeValue ([NullAllowed] NSObject endValue);
+
+		// - (FIRDatabaseQuery *)queryEndingBeforeValue:(nullable id)endValue childKey:(nullable NSString *)childKey;
+		[New]
+		[Export ("queryEndingBeforeValue:childKey:")]
+		DatabaseQuery GetQueryEndingBeforeValue ([NullAllowed] NSObject endValue, [NullAllowed] string childKey);
 
 		// -(FIRDatabaseQuery * _Nonnull)queryEqualToValue:(id _Nullable)value;
 		[Export ("queryEqualToValue:")]
@@ -192,6 +216,7 @@ namespace Firebase.Database
 	delegate void DatabaseReferenceCompletionHandler ([NullAllowed] NSError error, DatabaseReference reference);
 	delegate TransactionResult DatabaseReferenceTransactionHandler (MutableData currentData);
 	delegate void DatabaseReferenceTransactionCompletionHandler ([NullAllowed] NSError error, bool commited, [NullAllowed] DataSnapshot snapshot);
+	delegate void DataSnapshotCompletionHandler ([NullAllowed] NSError error, [NullAllowed] DataSnapshot snapshot);
 
 	// @interface FIRDatabaseReference : FIRDatabaseQuery
 	[BaseType (typeof (DatabaseQuery), Name = "FIRDatabaseReference")]
@@ -269,6 +294,11 @@ namespace Firebase.Database
 		[Export ("observeEventType:andPreviousSiblingKeyWithBlock:withCancelBlock:")]
 		nuint ObserveEvent (DataEventType eventType, DatabaseQueryPreviousSiblingKeyUpdateHandler completionHandler, [NullAllowed] DatabaseQueryCancelHandler cancelHandler);
 
+		// - (void)getDataWithCompletionBlock: (void (^_Nonnull)(NSError* __nullable error, FIRDataSnapshot *snapshot))block;		
+		[New]
+		[Export ("getDataWithCompletionBlock:")]
+		void GetData (DataSnapshotCompletionHandler completionHandler);
+
 		// -(void)observeSingleEventOfType:(FIRDataEventType)eventType withBlock:(void (^ _Nonnull)(FIRDataSnapshot * _Nonnull))block;
 		[New]
 		[Export ("observeSingleEventOfType:withBlock:")]
@@ -338,6 +368,16 @@ namespace Firebase.Database
 		[New]
 		[Export ("queryStartingAtValue:childKey:")]
 		DatabaseQuery GetQueryStartingAtValue ([NullAllowed] NSObject startValue, [NullAllowed] string childKey);
+
+		// - (FIRDatabaseQuery *)queryStartingAfterValue:(nullable id)startAfterValue;
+		[New]
+		[Export ("queryStartingAfterValue:")]
+		DatabaseQuery GetQueryStartingAfterValue ([NullAllowed] NSObject startAfterValue);
+
+		// - (FIRDatabaseQuery *)queryStartingAfterValue:(nullable id)startAfterValue childKey:(nullable NSString *)childKey;
+		[New]
+		[Export ("queryStartingAfterValue:childKey:")]
+		DatabaseQuery GetQueryStartingAfterValue ([NullAllowed] NSObject startAfterValue, [NullAllowed] string childKey);
 
 		// -(FIRDatabaseQuery * _Nonnull)queryEndingAtValue:(id _Nullable)endValue;
 		[New]
