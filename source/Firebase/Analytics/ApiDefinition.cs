@@ -45,7 +45,7 @@ namespace Firebase.Analytics
 		[Export ("setSessionTimeoutInterval:")]
 		void SetSessionTimeoutInterval (double sessionTimeoutInterval);
 
-		// + (NSString *)appInstanceID;
+		// + (nullable NSString *)appInstanceID;
 		[Static]
 		[Export ("appInstanceID")]
 		string AppInstanceId { get; }
@@ -54,6 +54,15 @@ namespace Firebase.Analytics
 		[Static]
 		[Export ("resetAnalyticsData")]
 		void ResetAnalyticsData ();
+
+		// +(void)setDefaultEventParameters:(NSDictionary<NSString *,id> * _Nullable)parameters;
+		[Static]
+		[Export ("setDefaultEventParameters:")]
+		void SetDefaultEventParameters ([NullAllowed] NSDictionary<NSString, NSObject> nsParameters);
+
+		[Static]
+		[Wrap ("SetDefaultEventParameters (parameters == null ? null : parameters.Keys.Count == 0 ? new NSDictionary<NSString, NSObject> () : NSDictionary<NSString, NSObject>.FromObjectsAndKeys (System.Linq.Enumerable.ToArray (parameters.Values), System.Linq.Enumerable.ToArray (parameters.Keys), parameters.Keys.Count))")]
+		void SetDefaultEventParameters ([NullAllowed] Dictionary<object, object> parameters);
 
 		///
 		/// This method comes from a category (FIRAnalytics+AppDelegate.h)
@@ -73,5 +82,15 @@ namespace Firebase.Analytics
 		[Static]
 		[Export ("handleUserActivity:")]
 		void HandleUserActivity (NSObject userActivity);
+
+		///
+		/// This method comes from a category (FIRAnalytics+Constent.h)
+		///
+
+		// + (void)setConsent:(NSDictionary<FIRConsentType, FIRConsentStatus> *)consentSettings;
+		[Static]
+		[Internal]
+		[Export ("setConsent:")]
+		void _SetConsent (NSDictionary<NSString, NSString> consentSettings);
 	}
 }
