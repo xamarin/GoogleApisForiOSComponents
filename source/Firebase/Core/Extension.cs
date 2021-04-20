@@ -1,19 +1,23 @@
 ﻿using System;
-using ObjCRuntime;
 using System.Runtime.InteropServices;
+using Foundation;
+
 namespace Firebase.Core {
 	public partial class App {
-		static string currentVersion;
-		public static string CurrentVersion {
+		// extern NSString * _Nonnull FIRFirebaseVersion () __attribute__((swift_name("FirebaseVersion()")));
+		[DllImport ("__Internal", EntryPoint = "FIRFirebaseVersion")]
+		extern internal static IntPtr _FIRFirebaseVersion ();
+
+		static string firebaseVersion;
+		public static string FirebaseVersion {
 			get {
-				if (currentVersion == null) {
-					IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
-					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "FirebaseCoreVersionString");
-					currentVersion = Marshal.PtrToStringAnsi (ptr);
-					Dlfcn.dlclose (RTLD_MAIN_ONLY);
+				if (firebaseVersion == null) {
+
+					IntPtr verStrPtr = _FIRFirebaseVersion ();
+					firebaseVersion = NSString.FromHandle (verStrPtr);
 				}
 
-				return currentVersion;
+				return firebaseVersion;
 			}
 		}
 	}
