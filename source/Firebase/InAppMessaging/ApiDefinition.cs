@@ -12,15 +12,6 @@ namespace Firebase.InAppMessaging
 	[BaseType (typeof(NSObject), Name = "FIRInAppMessaging")]
 	interface InAppMessaging
 	{
-		// extern double FirebaseInAppMessagingVersionNumber;
-		[Field ("FirebaseInAppMessagingVersionNumber", "__Internal")]
-		double CurrentVersionNumber { get; }
-
-		// extern const unsigned char [] FirebaseInAppMessagingVersionString;
-		[Internal]
-		[Field ("FirebaseInAppMessagingVersionString", "__Internal")]
-		IntPtr _CurrentVersion { get; }
-
 		// +(FIRInAppMessaging * _Nonnull)inAppMessaging __attribute__((swift_name("inAppMessaging()")));
 		[Static]
 		[Export ("inAppMessaging")]
@@ -64,10 +55,6 @@ namespace Firebase.InAppMessaging
 		// @property (readonly, copy, nonatomic) UIColor * _Nonnull buttonBackgroundColor;
 		[Export ("buttonBackgroundColor", ArgumentSemantic.Copy)]
 		UIColor ButtonBackgroundColor { get; }
-
-		// -(instancetype _Nonnull)initWithButtonText:(NSString * _Nonnull)btnText buttonTextColor:(UIColor * _Nonnull)textColor backgroundColor:(UIColor * _Nonnull)bkgColor __attribute__((deprecated("")));
-		[Export ("initWithButtonText:buttonTextColor:backgroundColor:")]
-		IntPtr Constructor (string btnText, UIColor textColor, UIColor bkgColor);
 	}
 
 	// @interface FIRInAppMessagingImageData : NSObject
@@ -105,10 +92,6 @@ namespace Firebase.InAppMessaging
 		// @property (readonly, nonatomic) BOOL renderAsTestMessage;
 		[Export("renderAsTestMessage")]
 		bool RenderAsTestMessage { get; }
-
-		// -(instancetype _Nonnull)initWithMessageID:(NSString * _Nonnull)messageID campaignName:(NSString * _Nonnull)campaignName renderAsTestMessage:(BOOL)renderAsTestMessage __attribute__((deprecated("")));
-		[Export("initWithMessageID:campaignName:renderAsTestMessage:")]
-		IntPtr Constructor(string messageId, string campaignName, bool renderAsTestMessage);
 	}
 
 	// @interface FIRInAppMessagingAction : NSObject
@@ -152,10 +135,6 @@ namespace Firebase.InAppMessaging
 		[NullAllowed]
 		[Export ("appData")]
 		NSDictionary AppData { get; }
-
-		// -(instancetype _Nonnull)initWithMessageID:(NSString * _Nonnull)messageID campaignName:(NSString * _Nonnull)campaignName renderAsTestMessage:(BOOL)renderAsTestMessage messageType:(FIRInAppMessagingDisplayMessageType)messageType triggerType:(FIRInAppMessagingDisplayTriggerType)triggerType __attribute__((deprecated("")));
-		[Export ("initWithMessageID:campaignName:renderAsTestMessage:messageType:triggerType:")]
-		IntPtr Constructor (string messageId, string campaignName, bool renderAsTestMessage, InAppMessagingDisplayMessageType messageType, InAppMessagingDisplayTriggerType triggerType);
 	}
 
 	// @interface FIRInAppMessagingCardDisplay : FIRInAppMessagingDisplayMessage
@@ -237,17 +216,13 @@ namespace Firebase.InAppMessaging
 		[Export ("actionURL")]
 		NSUrl ActionUrl { get; }
 
-		// @property (copy, nonatomic) UIColor * _Nonnull displayBackgroundColor;
+		// @property(nonatomic, copy, nonnull, readonly) UIColor *displayBackgroundColor;
 		[Export ("displayBackgroundColor", ArgumentSemantic.Copy)]
-		UIColor DisplayBackgroundColor { get; set; }
+		UIColor DisplayBackgroundColor { get; }
 
-		// @property (copy, nonatomic) UIColor * _Nonnull textColor;
+		// @property(nonatomic, copy, nonnull, readonly) UIColor *textColor;
 		[Export ("textColor", ArgumentSemantic.Copy)]
-		UIColor TextColor { get; set; }
-
-		// -(instancetype _Nonnull)initWithMessageID:(NSString * _Nonnull)messageID campaignName:(NSString * _Nonnull)campaignName renderAsTestMessage:(BOOL)renderAsTestMessage triggerType:(FIRInAppMessagingDisplayTriggerType)triggerType titleText:(NSString * _Nonnull)title bodyText:(NSString * _Nonnull)bodyText textColor:(UIColor * _Nonnull)textColor backgroundColor:(UIColor * _Nonnull)backgroundColor imageData:(FIRInAppMessagingImageData * _Nullable)imageData actionButton:(FIRInAppMessagingActionButton * _Nullable)actionButton actionURL:(NSURL * _Nullable)actionURL __attribute__((deprecated("")));
-		[Export ("initWithMessageID:campaignName:renderAsTestMessage:triggerType:titleText:bodyText:textColor:backgroundColor:imageData:actionButton:actionURL:")]
-		IntPtr Constructor (string messageId, string campaignName, bool renderAsTestMessage, InAppMessagingDisplayTriggerType triggerType, string title, string bodyText, UIColor textColor, UIColor backgroundColor, [NullAllowed] InAppMessagingImageData imageData, [NullAllowed] InAppMessagingActionButton actionButton, [NullAllowed] NSUrl actionUrl);
+		UIColor TextColor { get; }
 	}
 
 	// @interface FIRInAppMessagingBannerDisplay : FIRInAppMessagingDisplayMessage
@@ -273,18 +248,14 @@ namespace Firebase.InAppMessaging
 		[Export ("displayBackgroundColor", ArgumentSemantic.Copy)]
 		UIColor DisplayBackgroundColor { get; }
 
-		// @property (copy, nonatomic) UIColor * _Nonnull textColor;
+		// @property (nonatomic, copy, nonnull, readonly) UIColor * _Nonnull textColor;
 		[Export ("textColor", ArgumentSemantic.Copy)]
-		UIColor TextColor { get; set; }
+		UIColor TextColor { get; }
 
 		// @property (readonly, nonatomic) NSURL * _Nullable actionURL;
 		[NullAllowed]
 		[Export ("actionURL")]
 		NSUrl ActionUrl { get; }
-
-		// -(instancetype _Nonnull)initWithMessageID:(NSString * _Nonnull)messageID campaignName:(NSString * _Nonnull)campaignName renderAsTestMessage:(BOOL)renderAsTestMessage triggerType:(FIRInAppMessagingDisplayTriggerType)triggerType titleText:(NSString * _Nonnull)title bodyText:(NSString * _Nonnull)bodyText textColor:(UIColor * _Nonnull)textColor backgroundColor:(UIColor * _Nonnull)backgroundColor imageData:(FIRInAppMessagingImageData * _Nullable)imageData actionURL:(NSURL * _Nullable)actionURL __attribute__((deprecated("")));
-		[Export ("initWithMessageID:campaignName:renderAsTestMessage:triggerType:titleText:bodyText:textColor:backgroundColor:imageData:actionURL:")]
-		IntPtr Constructor (string messageId, string campaignName, bool renderAsTestMessage, InAppMessagingDisplayTriggerType triggerType, string title, string bodyText, UIColor textColor, UIColor backgroundColor, [NullAllowed] InAppMessagingImageData imageData, [NullAllowed] NSUrl actionUrl);
 	}
 
 	// @interface FIRInAppMessagingImageOnlyDisplay : FIRInAppMessagingDisplayMessage
@@ -300,10 +271,6 @@ namespace Firebase.InAppMessaging
 		[NullAllowed]
 		[Export ("actionURL")]
 		NSUrl ActionUrl { get; }
-
-		// -(instancetype _Nonnull)initWithMessageID:(NSString * _Nonnull)messageID campaignName:(NSString * _Nonnull)campaignName renderAsTestMessage:(BOOL)renderAsTestMessage triggerType:(FIRInAppMessagingDisplayTriggerType)triggerType imageData:(FIRInAppMessagingImageData * _Nullable)imageData actionURL:(NSURL * _Nullable)actionURL __attribute__((deprecated("")));
-		[Export ("initWithMessageID:campaignName:renderAsTestMessage:triggerType:imageData:actionURL:")]
-		IntPtr Constructor (string messageId, string campaignName, bool renderAsTestMessage, InAppMessagingDisplayTriggerType triggerType, [NullAllowed] InAppMessagingImageData imageData, [NullAllowed] NSUrl actionUrl);
 	}
 
 	interface IInAppMessagingDisplayDelegate { }
@@ -317,10 +284,6 @@ namespace Firebase.InAppMessaging
 		// @optional -(void)messageDismissed:(FIRInAppMessagingDisplayMessage * _Nonnull)inAppMessage dismissType:(FIRInAppMessagingDismissType)dismissType;
 		[Export ("messageDismissed:dismissType:")]
 		void MessageDismissed (InAppMessagingDisplayMessage inAppMessage, InAppMessagingDismissType dismissType);
-
-		// @optional -(void)messageClicked:(FIRInAppMessagingDisplayMessage * _Nonnull)inAppMessage __attribute__((deprecated("")));
-		[Export ("messageClicked:")]
-		void MessageClicked (InAppMessagingDisplayMessage inAppMessage);
 
 		// @optional -(void)messageClicked:(FIRInAppMessagingDisplayMessage * _Nonnull)inAppMessage withAction:(FIRInAppMessagingAction * _Nonnull)action;
 		[Export ("messageClicked:withAction:")]
