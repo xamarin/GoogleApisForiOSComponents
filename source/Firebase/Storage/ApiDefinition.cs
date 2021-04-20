@@ -13,11 +13,6 @@ namespace Firebase.Storage
 	[BaseType (typeof (NSObject), Name = "FIRStorage")]
 	interface Storage
 	{
-		// extern const unsigned char *const FirebaseStorageVersionString;
-		[Internal]
-		[Field ("FIRStorageVersionString", "__Internal")]
-		IntPtr _CurrentVersion { get; }
-
 		// extern NSString *const _Nonnull FIRStorageErrorDomain;
 		[Field ("FIRStorageErrorDomain", "__Internal")]
 		NSString ErrorDomain { get; }
