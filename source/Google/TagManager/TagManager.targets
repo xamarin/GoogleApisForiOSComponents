@@ -13,7 +13,7 @@
 
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GoogleTagManagerItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/e0b99b8644b80573/GoogleTagManager-7.1.2.tar.gz</Url>
+			<Url>https://dl.google.com/firebase/ios/tagmanager/cee45832fc7b6039/GoogleTagManager-7.2.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_GoogleTagManagerSDKBaseFolder)Frameworks\GoogleTagManager.framework">
