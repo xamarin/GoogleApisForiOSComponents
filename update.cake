@@ -38,22 +38,16 @@ public Dictionary<string, GoogleBase> CreateComponents ()
 	googleComponents ["Firebase.CloudFunctions"] = GetComponent<Firebase.CloudFunctions> ();
 	googleComponents ["Firebase.InstanceID"] = GetComponent<Firebase.InstanceID> ();
 	googleComponents ["Firebase.Invites"] = GetComponent<Firebase.Invites> ();
-	googleComponents ["Firebase.MLKit"] = GetComponent<Firebase.MLKit> ();
-	googleComponents ["Firebase.MLKit.Common"] = GetComponent<Firebase.MLKit.Common> ();
-	googleComponents ["Firebase.MLKit.ModelInterpreter"] = GetComponent<Firebase.MLKit.ModelInterpreter> ();
 	googleComponents ["Firebase.PerformanceMonitoring"] = GetComponent<Firebase.PerformanceMonitoring> ();
 	googleComponents ["Firebase.RemoteConfig"] = GetComponent<Firebase.RemoteConfig> ();
 	googleComponents ["Firebase.Storage"] = GetComponent<Firebase.Storage> ();
+	//googleComponents ["Firebase.AppDistribution"] = GetComponent<Firebase.AppDistribution> ();
 
 	googleComponents ["Google.Analytics"] = GetComponent<Google.Analytics> ();
-	googleComponents ["Google.AppIndexing"] = GetComponent<Google.AppIndexing> ();
 	googleComponents ["Google.Cast"] = GetComponent<Google.Cast> ();
-	googleComponents ["Google.Core"] = GetComponent<Google.Core> ();
-	googleComponents ["Google.InstanceID"] = GetComponent<Google.InstanceID> ();
 	googleComponents ["Google.Maps"] = GetComponent<Google.Maps> ();
 	googleComponents ["Google.MobileAds"] = GetComponent<Google.MobileAds> ();
 	googleComponents ["Google.Places"] = GetComponent<Google.Places> ();
-	googleComponents ["Google.PlayGames"] = GetComponent<Google.PlayGames> ();
 	googleComponents ["Google.SignIn"] = GetComponent<Google.SignIn> ();
 	googleComponents ["Google.TagManager"] = GetComponent<Google.TagManager> ();
 

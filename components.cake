@@ -1,38 +1,31 @@
 // Firebase artifacts available to be built. These artifacts generate NuGets.
-Artifact FIREBASE_AB_TESTING_ARTIFACT              = new Artifact ("Firebase.ABTesting",              "4.2.0",        "8.0", ComponentGroup.Firebase, csprojName: "ABTesting");
-Artifact FIREBASE_AD_MOB_ARTIFACT                  = new Artifact ("Firebase.AdMob",                  "7.66.0",       "8.0", ComponentGroup.Firebase, csprojName: "AdMob");
-Artifact FIREBASE_ANALYTICS_ARTIFACT               = new Artifact ("Firebase.Analytics",              "6.9.0",        "8.0", ComponentGroup.Firebase, csprojName: "Analytics");
-Artifact FIREBASE_AUTH_ARTIFACT                    = new Artifact ("Firebase.Auth",                   "6.9.2",        "8.0", ComponentGroup.Firebase, csprojName: "Auth");
-Artifact FIREBASE_CLOUD_FIRESTORE_ARTIFACT         = new Artifact ("Firebase.CloudFirestore",         "1.19.0",       "8.0", ComponentGroup.Firebase, csprojName: "CloudFirestore");
-Artifact FIREBASE_CLOUD_FUNCTIONS_ARTIFACT         = new Artifact ("Firebase.CloudFunctions",         "2.9.0",        "8.0", ComponentGroup.Firebase, csprojName: "CloudFunctions");
-Artifact FIREBASE_CLOUD_MESSAGING_ARTIFACT         = new Artifact ("Firebase.CloudMessaging",         "4.7.1",        "8.0", ComponentGroup.Firebase, csprojName: "CloudMessaging");
-Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Core",                   "6.10.4",       "8.0", ComponentGroup.Firebase, csprojName: "Core");
-Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Crashlytics",            "4.6.2",        "8.0", ComponentGroup.Firebase, csprojName: "Crashlytics");
-Artifact FIREBASE_DATABASE_ARTIFACT                = new Artifact ("Firebase.Database",               "6.6.0",        "8.0", ComponentGroup.Firebase, csprojName: "Database");
-Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.DynamicLinks",           "4.3.1",        "8.0", ComponentGroup.Firebase, csprojName: "DynamicLinks");
-Artifact FIREBASE_IN_APP_MESSAGING_ARTIFACT        = new Artifact ("Firebase.InAppMessaging",         "0.24.0",       "9.0", ComponentGroup.Firebase, csprojName: "InAppMessaging");
-Artifact FIREBASE_INSTALLATIONS_ARTIFACT           = new Artifact ("Firebase.Installations",          "1.7.0",        "8.0", ComponentGroup.Firebase, csprojName: "Installations");
-Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.InstanceID",             "4.8.0",        "8.0", ComponentGroup.Firebase, csprojName: "InstanceID");
-Artifact FIREBASE_MLKIT_ARTIFACT                   = new Artifact ("Firebase.MLKit",                  "0.21.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit");
-Artifact FIREBASE_MLKIT_COMMON_ARTIFACT            = new Artifact ("Firebase.MLKit.Common",           "0.21.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit.Common");
-Artifact FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT = new Artifact ("Firebase.MLKit.ModelInterpreter", "0.21.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit.ModelInterpreter");
-Artifact FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT  = new Artifact ("Firebase.MLKit.NaturalLanguage",  "0.18.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit.NaturalLanguage");
-Artifact FIREBASE_MLKIT_VISION_ARTIFACT            = new Artifact ("Firebase.MLKit.Vision",           "0.21.0",       "9.0", ComponentGroup.Firebase, csprojName: "MLKit.Vision");
-Artifact FIREBASE_PERFORMANCE_MONITORING_ARTIFACT  = new Artifact ("Firebase.PerformanceMonitoring",  "3.3.0",        "8.0", ComponentGroup.Firebase, csprojName: "PerformanceMonitoring");
-Artifact FIREBASE_REMOTE_CONFIG_ARTIFACT           = new Artifact ("Firebase.RemoteConfig",           "4.9.1",        "8.0", ComponentGroup.Firebase, csprojName: "RemoteConfig");
-Artifact FIREBASE_STORAGE_ARTIFACT                 = new Artifact ("Firebase.Storage",                "3.9.1",        "8.0", ComponentGroup.Firebase, csprojName: "Storage");
+Artifact FIREBASE_AB_TESTING_ARTIFACT              = new Artifact ("Firebase.ABTesting",              "7.10.0",    "10.0", ComponentGroup.Firebase, csprojName: "ABTesting");
+Artifact FIREBASE_AD_MOB_ARTIFACT                  = new Artifact ("Firebase.AdMob",                  "8.3.0",     "10.0", ComponentGroup.Firebase, csprojName: "AdMob");
+Artifact FIREBASE_ANALYTICS_ARTIFACT               = new Artifact ("Firebase.Analytics",              "7.10.0",    "10.0", ComponentGroup.Firebase, csprojName: "Analytics");
+Artifact FIREBASE_AUTH_ARTIFACT                    = new Artifact ("Firebase.Auth",                   "7.10.0",    "10.0", ComponentGroup.Firebase, csprojName: "Auth");
+Artifact FIREBASE_CLOUD_FIRESTORE_ARTIFACT         = new Artifact ("Firebase.CloudFirestore",         "7.10.0",    "10.0", ComponentGroup.Firebase, csprojName: "CloudFirestore");
+Artifact FIREBASE_CLOUD_FUNCTIONS_ARTIFACT         = new Artifact ("Firebase.CloudFunctions",         "7.10.0",    "10.0", ComponentGroup.Firebase, csprojName: "CloudFunctions");
+Artifact FIREBASE_CLOUD_MESSAGING_ARTIFACT         = new Artifact ("Firebase.CloudMessaging",         "7.10.0",    "10.0", ComponentGroup.Firebase, csprojName: "CloudMessaging");
+Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Core",                   "7.10.0",    "10.0", ComponentGroup.Firebase, csprojName: "Core");
+Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Crashlytics",            "7.10.0",    "10.0", ComponentGroup.Firebase, csprojName: "Crashlytics");
+Artifact FIREBASE_DATABASE_ARTIFACT                = new Artifact ("Firebase.Database",               "7.10.0",    "10.0", ComponentGroup.Firebase, csprojName: "Database");
+Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.DynamicLinks",           "7.10.0",    "10.0", ComponentGroup.Firebase, csprojName: "DynamicLinks");
+Artifact FIREBASE_IN_APP_MESSAGING_ARTIFACT        = new Artifact ("Firebase.InAppMessaging",         "7.10.0",    "10.0", ComponentGroup.Firebase, csprojName: "InAppMessaging");
+Artifact FIREBASE_INSTALLATIONS_ARTIFACT           = new Artifact ("Firebase.Installations",          "7.10.0",    "10.0", ComponentGroup.Firebase, csprojName: "Installations");
+Artifact FIREBASE_INSTANCE_ID_ARTIFACT             = new Artifact ("Firebase.InstanceID",             "7.10.0",    "10.0", ComponentGroup.Firebase, csprojName: "InstanceID");
+Artifact FIREBASE_PERFORMANCE_MONITORING_ARTIFACT  = new Artifact ("Firebase.PerformanceMonitoring",  "7.10.0",    "10.0", ComponentGroup.Firebase, csprojName: "PerformanceMonitoring");
+Artifact FIREBASE_REMOTE_CONFIG_ARTIFACT           = new Artifact ("Firebase.RemoteConfig",           "7.10.0",    "10.0", ComponentGroup.Firebase, csprojName: "RemoteConfig");
+Artifact FIREBASE_STORAGE_ARTIFACT                 = new Artifact ("Firebase.Storage",                "7.10.0",    "10.0", ComponentGroup.Firebase, csprojName: "Storage");
+//Artifact FIREBASE_APP_DISTRIBUTION_ARTIFACT        = new Artifact ("Firebase.AppDistribution",        "7.10.0",    "10.0", ComponentGroup.Firebase, csprojName: "AppDistribution");
 
 // Google artifacts available to be built. These artifacts generate NuGets.
-Artifact GOOGLE_ANALYTICS_ARTIFACT    = new Artifact ("Google.Analytics",   "3.17.0.6", "5.0", ComponentGroup.Google, csprojName: "Analytics");
-Artifact GOOGLE_APP_INDEXING_ARTIFACT = new Artifact ("Google.AppIndexing", "2.0.3.8",  "7.0", ComponentGroup.Google, csprojName: "AppIndexing");
-Artifact GOOGLE_CAST_ARTIFACT         = new Artifact ("Google.Cast",        "4.4.6.1",  "9.0", ComponentGroup.Google, csprojName: "Cast");
-Artifact GOOGLE_CORE_ARTIFACT         = new Artifact ("Google.Core",        "3.1.0.4",  "7.0", ComponentGroup.Google, csprojName: "Core");
-Artifact GOOGLE_INSTANCE_ID_ARTIFACT  = new Artifact ("Google.InstanceID",  "1.2.1.18", "7.0", ComponentGroup.Google, csprojName: "InstanceID");
-Artifact GOOGLE_MAPS_ARTIFACT         = new Artifact ("Google.Maps",        "3.9.0.0",  "9.0", ComponentGroup.Google, csprojName: "Maps");
-Artifact GOOGLE_MOBILE_ADS_ARTIFACT   = new Artifact ("Google.MobileAds",   "7.66.0",   "9.0", ComponentGroup.Google, csprojName: "MobileAds");
-Artifact GOOGLE_PLACES_ARTIFACT       = new Artifact ("Google.Places",      "3.9.0.0",  "9.0", ComponentGroup.Google, csprojName: "Places");
-Artifact GOOGLE_SIGN_IN_ARTIFACT      = new Artifact ("Google.SignIn",      "5.0.2.1",  "8.0", ComponentGroup.Google, csprojName: "SignIn");
-Artifact GOOGLE_TAG_MANAGER_ARTIFACT  = new Artifact ("Google.TagManager",  "7.1.2.3",  "8.0", ComponentGroup.Google, csprojName: "TagManager");
+Artifact GOOGLE_ANALYTICS_ARTIFACT    = new Artifact ("Google.Analytics",   "3.17.0.7", "5.0",  ComponentGroup.Google, csprojName: "Analytics");
+Artifact GOOGLE_CAST_ARTIFACT         = new Artifact ("Google.Cast",        "4.5.3.0",  "10.0", ComponentGroup.Google, csprojName: "Cast");
+Artifact GOOGLE_MAPS_ARTIFACT         = new Artifact ("Google.Maps",        "4.2.0.0",  "10.0", ComponentGroup.Google, csprojName: "Maps");
+Artifact GOOGLE_MOBILE_ADS_ARTIFACT   = new Artifact ("Google.MobileAds",   "8.3.0.0",  "10.0", ComponentGroup.Google, csprojName: "MobileAds");
+Artifact GOOGLE_PLACES_ARTIFACT       = new Artifact ("Google.Places",      "4.2.0.0",  "10.0", ComponentGroup.Google, csprojName: "Places");
+Artifact GOOGLE_SIGN_IN_ARTIFACT      = new Artifact ("Google.SignIn",      "5.0.2.2",  "10.0", ComponentGroup.Google, csprojName: "SignIn");
+Artifact GOOGLE_TAG_MANAGER_ARTIFACT  = new Artifact ("Google.TagManager",  "7.2.0.0",  "10.0", ComponentGroup.Google, csprojName: "TagManager");
 
 var ARTIFACTS = new Dictionary<string, Artifact> {
 	{ "Firebase.ABTesting",              FIREBASE_AB_TESTING_ARTIFACT },
@@ -49,20 +42,13 @@ var ARTIFACTS = new Dictionary<string, Artifact> {
 	{ "Firebase.InAppMessaging",         FIREBASE_IN_APP_MESSAGING_ARTIFACT },
 	{ "Firebase.Installations",          FIREBASE_INSTALLATIONS_ARTIFACT },
 	{ "Firebase.InstanceID",             FIREBASE_INSTANCE_ID_ARTIFACT },
-	{ "Firebase.MLKit",                  FIREBASE_MLKIT_ARTIFACT },
-	{ "Firebase.MLKit.Common",           FIREBASE_MLKIT_COMMON_ARTIFACT },
-	{ "Firebase.MLKit.ModelInterpreter", FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT },
-	{ "Firebase.MLKit.NaturalLanguage",  FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT },
-	{ "Firebase.MLKit.Vision",           FIREBASE_MLKIT_VISION_ARTIFACT },
 	{ "Firebase.PerformanceMonitoring",  FIREBASE_PERFORMANCE_MONITORING_ARTIFACT },
 	{ "Firebase.RemoteConfig",           FIREBASE_REMOTE_CONFIG_ARTIFACT },
 	{ "Firebase.Storage",                FIREBASE_STORAGE_ARTIFACT },
+	//{ "Firebase.AppDistribution",		 FIREBASE_APP_DISTRIBUTION_ARTIFACT },
 
 	{ "Google.Analytics",   GOOGLE_ANALYTICS_ARTIFACT },
-	{ "Google.Appindexing", GOOGLE_APP_INDEXING_ARTIFACT },
-	{ "Google.Cast",        GOOGLE_CAST_ARTIFACT },
-	{ "Google.Core",        GOOGLE_CORE_ARTIFACT },
-	{ "Google.InstanceID",  GOOGLE_INSTANCE_ID_ARTIFACT },
+	{ "Google.Cast",        GOOGLE_CAST_ARTIFACT },	
 	{ "Google.Maps",        GOOGLE_MAPS_ARTIFACT },
 	{ "Google.MobileAds",   GOOGLE_MOBILE_ADS_ARTIFACT },
 	{ "Google.Places",      GOOGLE_PLACES_ARTIFACT },
@@ -86,145 +72,114 @@ void SetArtifactsDependencies ()
 	FIREBASE_IN_APP_MESSAGING_ARTIFACT.Dependencies        = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_AB_TESTING_ARTIFACT };
 	FIREBASE_INSTALLATIONS_ARTIFACT.Dependencies           = new [] { FIREBASE_CORE_ARTIFACT };
 	FIREBASE_INSTANCE_ID_ARTIFACT.Dependencies             = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT };
-	FIREBASE_MLKIT_ARTIFACT.Dependencies                   = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_AB_TESTING_ARTIFACT, FIREBASE_REMOTE_CONFIG_ARTIFACT, FIREBASE_MLKIT_COMMON_ARTIFACT, FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT, FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT, FIREBASE_MLKIT_VISION_ARTIFACT };
-	FIREBASE_MLKIT_COMMON_ARTIFACT.Dependencies            = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT };
-	FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT.Dependencies = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_MLKIT_COMMON_ARTIFACT };
-	FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT.Dependencies  = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_MLKIT_COMMON_ARTIFACT, FIREBASE_AB_TESTING_ARTIFACT, FIREBASE_REMOTE_CONFIG_ARTIFACT };
-	FIREBASE_MLKIT_VISION_ARTIFACT.Dependencies            = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_MLKIT_COMMON_ARTIFACT };
 	FIREBASE_PERFORMANCE_MONITORING_ARTIFACT.Dependencies  = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_AB_TESTING_ARTIFACT, FIREBASE_REMOTE_CONFIG_ARTIFACT };
 	FIREBASE_REMOTE_CONFIG_ARTIFACT.Dependencies           = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_AB_TESTING_ARTIFACT };
 	FIREBASE_STORAGE_ARTIFACT.Dependencies                 = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_DATABASE_ARTIFACT, /* Needed for sample */ FIREBASE_AUTH_ARTIFACT };
+	//FIREBASE_APP_DISTRIBUTION_ARTIFACT.Dependencies        = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT };
 
 	GOOGLE_ANALYTICS_ARTIFACT.Dependencies    = null;
-	GOOGLE_APP_INDEXING_ARTIFACT.Dependencies = null;
 	GOOGLE_CAST_ARTIFACT.Dependencies         = new [] { FIREBASE_CORE_ARTIFACT };
-	GOOGLE_CORE_ARTIFACT.Dependencies         = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_ANALYTICS_ARTIFACT };
-	GOOGLE_INSTANCE_ID_ARTIFACT.Dependencies  = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_ANALYTICS_ARTIFACT, GOOGLE_CORE_ARTIFACT };
 	GOOGLE_MAPS_ARTIFACT.Dependencies         = null;
 	GOOGLE_MOBILE_ADS_ARTIFACT.Dependencies   = new [] { FIREBASE_CORE_ARTIFACT };
 	GOOGLE_PLACES_ARTIFACT.Dependencies       = new [] { GOOGLE_MAPS_ARTIFACT };
 	GOOGLE_SIGN_IN_ARTIFACT.Dependencies      = new [] { FIREBASE_CORE_ARTIFACT };
-	GOOGLE_TAG_MANAGER_ARTIFACT.Dependencies  = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_ANALYTICS_ARTIFACT, GOOGLE_ANALYTICS_ARTIFACT };
+	GOOGLE_TAG_MANAGER_ARTIFACT.Dependencies  = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_INSTANCE_ID_ARTIFACT, FIREBASE_ANALYTICS_ARTIFACT };
 }
 
 void SetArtifactsPodSpecs ()
 {
 	// Firebase components
 	FIREBASE_AB_TESTING_ARTIFACT.PodSpecs = new [] { 
-		PodSpec.Create ("Firebase", "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseABTesting", targetName: "FirebaseABTesting", subSpecs: new [] { "ABTesting" })
+		PodSpec.Create ("Firebase", "7.10.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseABTesting", targetName: "FirebaseABTesting", subSpecs: new [] { "ABTesting" })
 	};
 	FIREBASE_AD_MOB_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.34.0", subSpecs: new [] { "AdMob" })
+		PodSpec.Create ("Firebase", "7.10.0", subSpecs: new [] { "AdMob" })
 	};
 	FIREBASE_ANALYTICS_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.34.0", subSpecs: new [] { "Analytics" })
+		PodSpec.Create ("Firebase", "7.10.0", subSpecs: new [] { "Analytics" })
 	};
 	FIREBASE_AUTH_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseAuth", targetName: "FirebaseAuth", subSpecs: new [] { "Auth" })
+		PodSpec.Create ("Firebase", "7.10.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseAuth", targetName: "FirebaseAuth", subSpecs: new [] { "Auth" })
 	};
 	FIREBASE_CLOUD_FIRESTORE_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase",        "6.34.0",       frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseFirestore", targetName: "FirebaseFirestore", subSpecs: new [] { "Firestore" }),
+		PodSpec.Create ("Firebase",        "7.10.0",       frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseFirestore", targetName: "FirebaseFirestore", subSpecs: new [] { "Firestore" }),
 		PodSpec.Create ("BoringSSL-GRPC",  "0.0.7",        frameworkSource: FrameworkSource.Pods, frameworkName: "openssl_grpc"),
 		PodSpec.Create ("gRPC-Core",       "1.28.2",       frameworkSource: FrameworkSource.Pods, frameworkName: "grpc"),
 		PodSpec.Create ("gRPC-C++",        "1.28.2",       frameworkSource: FrameworkSource.Pods, frameworkName: "grpcpp"),
 		PodSpec.Create ("abseil",          "0.20200225.0", frameworkSource: FrameworkSource.Pods, frameworkName: "absl", subSpecs: new [] { "algorithm", "base", "memory", "meta", "strings", "time", "types" })
 	};
 	FIREBASE_CLOUD_FUNCTIONS_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseFunctions", targetName: "FirebaseFunctions", subSpecs: new [] { "Functions" })		
+		PodSpec.Create ("Firebase", "7.10.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseFunctions", targetName: "FirebaseFunctions", subSpecs: new [] { "Functions" })		
 	};
 	FIREBASE_CLOUD_MESSAGING_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseMessaging", targetName: "FirebaseMessaging", subSpecs: new [] { "Messaging" })		
+		PodSpec.Create ("Firebase", "7.10.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseMessaging", targetName: "FirebaseMessaging", subSpecs: new [] { "Messaging" })		
 	};
 	FIREBASE_CORE_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase",                "6.34.0",    frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCore", targetName: "FirebaseCore", subSpecs: new [] { "CoreOnly" }),		
-		PodSpec.Create ("FirebaseCoreDiagnostics", "1.6.0",     frameworkSource: FrameworkSource.Pods),
-		PodSpec.Create ("GTMSessionFetcher",       "1.4.0",     frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Full" }),
-		PodSpec.Create ("GoogleAPIClientForREST",  "1.4.3",     frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Vision" }, useDefaultSubspecs: true),
-		PodSpec.Create ("GoogleAppMeasurement",    "6.9.0"),
-		PodSpec.Create ("GoogleDataTransport",     "7.5.1",     frameworkSource: FrameworkSource.Pods),
-		PodSpec.Create ("PromisesObjC",            "1.2.10",    frameworkSource: FrameworkSource.Pods, frameworkName: "FBLPromises", targetName: "PromisesObjC"),
-		PodSpec.Create ("GoogleToolboxForMac",     "2.2.2",     frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "NSData+zlib", "NSDictionary+URLArguments", "Logger", "StringEncoding", "URLBuilder" }),
-		PodSpec.Create ("GoogleUtilities",         "6.7.2",     frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "AppDelegateSwizzler", "Environment", "Logger", "ISASwizzler", "MethodSwizzler", "Network", "NSData+zlib", "Reachability", "UserDefaults", }),
-		PodSpec.Create ("nanopb",                  "1.30906.0", frameworkSource: FrameworkSource.Pods),
-		PodSpec.Create ("leveldb-library",         "1.22.0",    frameworkSource: FrameworkSource.Pods, frameworkName: "leveldb"),
-		PodSpec.Create ("Protobuf",                "3.13.0",    frameworkSource: FrameworkSource.Pods, frameworkName: "Protobuf")
+		PodSpec.Create ("Firebase",                "7.10.0",    frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCore", targetName: "FirebaseCore", subSpecs: new [] { "CoreOnly" }),		
+		PodSpec.Create ("FirebaseCoreDiagnostics", "7.10.0",    frameworkSource: FrameworkSource.Pods),
+		PodSpec.Create ("GTMSessionFetcher",       "1.5.0",     frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Full" }),
+		PodSpec.Create ("GoogleAPIClientForREST",  "1.5.2",     frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Vision" }, useDefaultSubspecs: true),
+		PodSpec.Create ("GoogleAppMeasurement",    "7.10.0"),
+		PodSpec.Create ("GoogleDataTransport",     "8.4.0",     frameworkSource: FrameworkSource.Pods),
+		PodSpec.Create ("PromisesObjC",            "1.2.12",    frameworkSource: FrameworkSource.Pods, frameworkName: "FBLPromises", targetName: "PromisesObjC"),
+		PodSpec.Create ("GoogleToolboxForMac",     "2.3.1",     frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "NSData+zlib", "NSDictionary+URLArguments", "Logger", "StringEncoding", "URLBuilder" }),
+		PodSpec.Create ("GoogleUtilities",         "7.3.1",     frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "AppDelegateSwizzler", "Environment", "Logger", "ISASwizzler", "MethodSwizzler", "Network", "NSData+zlib", "Reachability", "UserDefaults", }),
+		PodSpec.Create ("nanopb",                  "2.30908.0", frameworkSource: FrameworkSource.Pods),
+		PodSpec.Create ("leveldb-library",         "1.22.1",    frameworkSource: FrameworkSource.Pods, frameworkName: "leveldb"),
+		PodSpec.Create ("Protobuf",                "3.15.8",    frameworkSource: FrameworkSource.Pods, frameworkName: "Protobuf")
 	};
 	FIREBASE_CRASHLYTICS_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCrashlytics", targetName: "FirebaseCrashlytics", subSpecs: new [] { "Crashlytics" })
+		PodSpec.Create ("Firebase", "7.10.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCrashlytics", targetName: "FirebaseCrashlytics", subSpecs: new [] { "Crashlytics" })
 	};
 	FIREBASE_DATABASE_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseDatabase", targetName: "FirebaseDatabase", subSpecs: new [] { "Database" })		
+		PodSpec.Create ("Firebase", "7.10.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseDatabase", targetName: "FirebaseDatabase", subSpecs: new [] { "Database" })		
 	};
 	FIREBASE_DYNAMIC_LINKS_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseDynamicLinks", targetName: "FirebaseDynamicLinks", subSpecs: new [] { "DynamicLinks" })
+		PodSpec.Create ("Firebase", "7.10.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseDynamicLinks", targetName: "FirebaseDynamicLinks", subSpecs: new [] { "DynamicLinks" })
 	};
 	FIREBASE_IN_APP_MESSAGING_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseInAppMessaging", targetName: "FirebaseInAppMessaging", subSpecs: new [] { "InAppMessaging" })
+		PodSpec.Create ("Firebase", "7.10.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseInAppMessaging", targetName: "FirebaseInAppMessaging", subSpecs: new [] { "InAppMessaging" })
 	};
 	FIREBASE_INSTALLATIONS_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("FirebaseInstallations", "1.7.0", frameworkSource: FrameworkSource.Pods)
+		PodSpec.Create ("FirebaseInstallations", "7.10.0", frameworkSource: FrameworkSource.Pods)
 	};
 	FIREBASE_INSTANCE_ID_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("FirebaseInstanceID",    "4.8.0", frameworkSource: FrameworkSource.Pods)
-	};
-	FIREBASE_MLKIT_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.34.0", subSpecs: new [] { "MLCommon", "MLModelInterpreter", "MLNaturalLanguage", "MLVision" })
-	};
-	FIREBASE_MLKIT_COMMON_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.34.0", subSpecs: new [] { "MLCommon" }),
-		PodSpec.Create ("TensorFlowLiteObjC", "2.3.0", frameworkSource: FrameworkSource.Pods, frameworkName: "TFLTensorFlowLite", targetName: "TensorFlowLiteObjC"),
-		PodSpec.Create ("TensorFlowLiteC",    "2.3.0")
-	};
-	FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.34.0", subSpecs: new [] { "MLModelInterpreter" })
-	};
-	FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.34.0", subSpecs: new [] { "MLNaturalLanguage", "MLNLLanguageID", "MLNLSmartReply", "MLNLTranslate" })
-	};
-	FIREBASE_MLKIT_VISION_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.34.0", subSpecs: new [] { "MLVision", "MLVisionAutoML", "MLVisionBarcodeModel", "MLVisionFaceModel", "MLVisionLabelModel", "MLVisionTextModel", "MLVisionObjectDetection" })
+		PodSpec.Create ("FirebaseInstanceID",    "7.10.0", frameworkSource: FrameworkSource.Pods)
 	};
 	FIREBASE_PERFORMANCE_MONITORING_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.34.0", subSpecs: new [] { "Performance" })
+		PodSpec.Create ("Firebase", "7.10.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebasePerformance", targetName: "FirebasePerformance",  subSpecs: new [] { "Performance" })
 	};
 	FIREBASE_REMOTE_CONFIG_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseRemoteConfig", targetName: "FirebaseRemoteConfig", subSpecs: new [] { "RemoteConfig" })
+		PodSpec.Create ("Firebase", "7.10.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseRemoteConfig", targetName: "FirebaseRemoteConfig", subSpecs: new [] { "RemoteConfig" })
 	};
 	FIREBASE_STORAGE_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase", "6.34.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseStorage", targetName: "FirebaseStorage", subSpecs: new [] { "Storage" })		
+		PodSpec.Create ("Firebase", "7.10.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseStorage", targetName: "FirebaseStorage", subSpecs: new [] { "Storage" })		
 	};
+	//FIREBASE_APP_DISTRIBUTION_ARTIFACT.PodSpecs = new [] {
+	//	PodSpec.Create ("Firebase", "7.10.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseAppDistribution", targetName: "FirebaseAppDistribution", subSpecs: new [] { "AppDistribution" })		
+	//};	
 
 	// Google components
 	GOOGLE_ANALYTICS_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("GoogleAnalytics", "3.17.0")
 	};
-	GOOGLE_APP_INDEXING_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("GoogleAppIndexing", "2.0.3")
-	};
 	GOOGLE_CAST_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("google-cast-sdk", "4.4.5")
 	};
-	GOOGLE_CORE_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Google", "3.1.0", subSpecs: new [] { "Core" })
-	};
-	GOOGLE_INSTANCE_ID_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("GGLInstanceID", "1.2.1"),
-		PodSpec.Create ("GoogleIPhoneUtilities", "1.2.0")
-	};
 	GOOGLE_MAPS_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("GoogleMaps", "3.9.0")
+		PodSpec.Create ("GoogleMaps", "4.2.0")
 	};
 	GOOGLE_MOBILE_ADS_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Google-Mobile-Ads-SDK", "7.66.0"),
+		PodSpec.Create ("Google-Mobile-Ads-SDK", "8.3.0"),
 		PodSpec.Create ("GoogleUserMessagingPlatform", "1.1.0")
 	};
 	GOOGLE_PLACES_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("GooglePlaces", "3.9.0")
+		PodSpec.Create ("GooglePlaces", "4.2.0")
 	};
 	GOOGLE_SIGN_IN_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("GoogleSignIn", "5.0.2"),
-		PodSpec.Create ("AppAuth",      "1.3.0", frameworkSource: FrameworkSource.Pods),
-		PodSpec.Create ("GTMAppAuth",   "1.0.0", frameworkSource: FrameworkSource.Pods),
+		PodSpec.Create ("AppAuth",      "1.4.0", frameworkSource: FrameworkSource.Pods),
+		PodSpec.Create ("GTMAppAuth",   "1.2.1", frameworkSource: FrameworkSource.Pods),
 	};
 	GOOGLE_TAG_MANAGER_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("GoogleTagManager", "7.1.2")
@@ -266,9 +221,11 @@ void SetArtifactsExtraPodfileLines ()
 	FIREBASE_DYNAMIC_LINKS_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
 	FIREBASE_INSTALLATIONS_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
 	FIREBASE_INSTANCE_ID_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
+	FIREBASE_PERFORMANCE_MONITORING_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
 	FIREBASE_REMOTE_CONFIG_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
 	FIREBASE_STORAGE_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
-
+	//FIREBASE_APP_DISTRIBUTION_ARTIFACT.ExtraPodfileLines = dynamicFrameworkLines;
+	
 	var inAppMessagingWorkaround = new [] {
 		"post_install do |installer|",
 		"\tinstaller.pods_project.targets.each do |pod|",
@@ -307,21 +264,14 @@ void SetArtifactsSamples ()
 	FIREBASE_IN_APP_MESSAGING_ARTIFACT.Samples        = new [] { "InAppMessagingSample" };
 	FIREBASE_INSTALLATIONS_ARTIFACT.Samples           = null;
 	FIREBASE_INSTANCE_ID_ARTIFACT.Samples             = null;
-	FIREBASE_MLKIT_ARTIFACT.Samples                   = new [] { "MLKitSample" };
-	FIREBASE_MLKIT_COMMON_ARTIFACT.Samples            = null;
-	FIREBASE_MLKIT_MODEL_INTERPRETER_ARTIFACT.Samples = new [] { "ModelInterpreterSample" };
-	FIREBASE_MLKIT_NATURAL_LANGUAGE_ARTIFACT.Samples  = new [] { "NaturalLanguageSample" };
-	FIREBASE_MLKIT_VISION_ARTIFACT.Samples            = new [] { "MLKitVisionSample" };
 	FIREBASE_PERFORMANCE_MONITORING_ARTIFACT.Samples  = new [] { "PerformanceMonitoringSample" };
 	FIREBASE_REMOTE_CONFIG_ARTIFACT.Samples           = new [] { "RemoteConfigSample" };
 	FIREBASE_STORAGE_ARTIFACT.Samples                 = new [] { "StorageSample" };
+	//FIREBASE_APP_DISTRIBUTION_ARTIFACT.Samples        = new [] { "AppDistributionSample" };
 
 	// Google components
 	GOOGLE_ANALYTICS_ARTIFACT.Samples                 = new [] { "CuteAnimalsiOS" };
-	GOOGLE_APP_INDEXING_ARTIFACT.Samples              = new [] { "AppIndexingSample" };
 	GOOGLE_CAST_ARTIFACT.Samples                      = new [] { "CastSample" };
-	GOOGLE_CORE_ARTIFACT.Samples                      = null;
-	GOOGLE_INSTANCE_ID_ARTIFACT.Samples               = new [] { "InstanceIDSample" };
 	GOOGLE_MAPS_ARTIFACT.Samples                      = new [] { "GoogleMapsAdvSample", "GoogleMapsSample" };
 	GOOGLE_MOBILE_ADS_ARTIFACT.Samples                = new [] { "MobileAdsExample" };
 	GOOGLE_PLACES_ARTIFACT.Samples                    = new [] { "GooglePlacesSample" };
