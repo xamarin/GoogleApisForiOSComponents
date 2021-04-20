@@ -3,13 +3,13 @@
 
 	<PropertyGroup>
 		<_GooglePlacesAssemblyName>Google.Places, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GooglePlacesAssemblyName>
-		<_GooglePlacesItemsFolder>GPlcs-3.9.0</_GooglePlacesItemsFolder>
+		<_GooglePlacesItemsFolder>GPlcs-4.2.0</_GooglePlacesItemsFolder>
 		<_GooglePlacesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GooglePlacesItemsFolder)\Frameworks\</_GooglePlacesSDKBaseFolder>
 	</PropertyGroup>
 
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GooglePlacesItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/73fa5891ae45f00f/GooglePlaces-3.9.0.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/468b0ce9d2d40d6e/GooglePlaces-4.2.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<NativeReference Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework">
@@ -20,60 +20,44 @@
 		</NativeReference>
 		<XamarinBuildRestoreResources Include="_GPlcsDownloadedItems" />
 	</ItemGroup>
-	<Target Name="_GPlcsDownloadedItems">
+	<Target Name="_GPlcsDownloadedItems">		
 		<ItemGroup>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\build-with-google-black@2x.png" Visible="False">
+				<LogicalName>GooglePlaces.bundle\build-with-google-black@2x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\build-with-google-black@3x.png" Visible="False">
+				<LogicalName>GooglePlaces.bundle\build-with-google-black@3x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\build-with-google-white@2x.png" Visible="False">
+				<LogicalName>GooglePlaces.bundle\build-with-google-white@2x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\build-with-google-white@3x.png" Visible="False">
+				<LogicalName>GooglePlaces.bundle\build-with-google-white@3x.png</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
 			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\Info.plist" Visible="False">
 				<LogicalName>GooglePlaces.bundle\Info.plist</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\oss_licenses_places.txt.gz" Visible="False">
 				<LogicalName>GooglePlaces.bundle\oss_licenses_places.txt.gz</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\build-with-google-black.png" Visible="False">
-				<LogicalName>GooglePlaces.bundle\build-with-google-black.png</LogicalName>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud@2x.png" Visible="False">
+				<LogicalName>GooglePlaces.bundle\sad_cloud@2x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\build-with-google-black%402x.png" Visible="False">
-				<LogicalName>GooglePlaces.bundle\build-with-google-black%402x.png</LogicalName>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud@3x.png" Visible="False">
+				<LogicalName>GooglePlaces.bundle\sad_cloud@3x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\build-with-google-black%403x.png" Visible="False">
-				<LogicalName>GooglePlaces.bundle\build-with-google-black%403x.png</LogicalName>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud_dark@2x.png" Visible="False">
+				<LogicalName>GooglePlaces.bundle\sad_cloud_dark@2x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
-			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\build-with-google-white.png" Visible="False">
-				<LogicalName>GooglePlaces.bundle\build-with-google-white.png</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\build-with-google-white%402x.png" Visible="False">
-				<LogicalName>GooglePlaces.bundle\build-with-google-white%402x.png</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\build-with-google-white%403x.png" Visible="False">
-				<LogicalName>GooglePlaces.bundle\build-with-google-white%403x.png</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud.png" Visible="False">
-				<LogicalName>GooglePlaces.bundle\sad_cloud.png</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud%402x.png" Visible="False">
-				<LogicalName>GooglePlaces.bundle\sad_cloud%402x.png</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud%403x.png" Visible="False">
-				<LogicalName>GooglePlaces.bundle\sad_cloud%403x.png</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud_dark.png" Visible="False">
-				<LogicalName>GooglePlaces.bundle\sad_cloud_dark.png</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud_dark%402x.png" Visible="False">
-				<LogicalName>GooglePlaces.bundle\sad_cloud_dark%402x.png</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud_dark%403x.png" Visible="False">
-				<LogicalName>GooglePlaces.bundle\sad_cloud_dark%403x.png</LogicalName>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sad_cloud_dark@3x.png" Visible="False">
+				<LogicalName>GooglePlaces.bundle\sad_cloud_dark@3x.png</LogicalName>
 				<Optimize>False</Optimize>
 			</BundleResource>
 			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\ar.lproj\GooglePlaces.strings" Visible="False">
@@ -145,6 +129,9 @@
 			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\ja.lproj\GooglePlaces.strings" Visible="False">
 				<LogicalName>GooglePlaces.bundle\ja.lproj\GooglePlaces.strings</LogicalName>
 			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\ka.lproj\GooglePlaces.strings" Visible="False">
+				<LogicalName>GooglePlaces.bundle\ka.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
 			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\ko.lproj\GooglePlaces.strings" Visible="False">
 				<LogicalName>GooglePlaces.bundle\ko.lproj\GooglePlaces.strings</LogicalName>
 			</BundleResource>
@@ -156,6 +143,9 @@
 			</BundleResource>
 			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\ms.lproj\GooglePlaces.strings" Visible="False">
 				<LogicalName>GooglePlaces.bundle\ms.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\my.lproj\GooglePlaces.strings" Visible="False">
+				<LogicalName>GooglePlaces.bundle\my.lproj\GooglePlaces.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\nb.lproj\GooglePlaces.strings" Visible="False">
 				<LogicalName>GooglePlaces.bundle\nb.lproj\GooglePlaces.strings</LogicalName>
@@ -184,8 +174,17 @@
 			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sk.lproj\GooglePlaces.strings" Visible="False">
 				<LogicalName>GooglePlaces.bundle\sk.lproj\GooglePlaces.strings</LogicalName>
 			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sq.lproj\GooglePlaces.strings" Visible="False">
+				<LogicalName>GooglePlaces.bundle\sq.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sr.lproj\GooglePlaces.strings" Visible="False">
+				<LogicalName>GooglePlaces.bundle\sr.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
 			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sv.lproj\GooglePlaces.strings" Visible="False">
 				<LogicalName>GooglePlaces.bundle\sv.lproj\GooglePlaces.strings</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\sw.lproj\GooglePlaces.strings" Visible="False">
+				<LogicalName>GooglePlaces.bundle\sw.lproj\GooglePlaces.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GooglePlacesSDKBaseFolder)GooglePlaces.framework\Resources\GooglePlaces.bundle\th.lproj\GooglePlaces.strings" Visible="False">
 				<LogicalName>GooglePlaces.bundle\th.lproj\GooglePlaces.strings</LogicalName>

@@ -840,10 +840,6 @@ namespace Google.Maps
 		[Export ("panoramaID")]
 		string PanoramaId { get; }
 
-		[Obsolete ("Use PanoramaId property instead. This will be removed in future versions.")]
-		[Wrap ("PanoramaId")]
-		string PanoramaID { get; }
-
 		[Export ("links", ArgumentSemantic.Copy)]
 		PanoramaLink [] Links { get; }
 	}
@@ -930,10 +926,6 @@ namespace Google.Maps
 
 		[Export ("panoramaID", ArgumentSemantic.Copy)]
 		string PanoramaId { get; set; }
-
-		[Obsolete ("Use PanoramaId property instead. This will be removed in future versions.")]
-		[Wrap ("PanoramaId")]
-		string PanoramaID { get; set; }
 	}
 
 	delegate void PanoramaCallback ([NullAllowed] Panorama panorama, [NullAllowed] NSError error);
@@ -1252,15 +1244,15 @@ namespace Google.Maps
 		[Export ("provideAPIKey:")]
 		bool ProvideApiKey (string apiKey);
 
-		[Obsolete ("Use ProvideApiKey static method instead. This will be removed in future versions.")]
-		[Static]
-		[Wrap ("ProvideApiKey (APIKey)")]
-		bool ProvideAPIKey (string APIKey);
-
 		// +(BOOL)provideAPIOptions:(NSArray<NSString *> * _Nonnull)APIOptions;
 		[Static]
 		[Export ("provideAPIOptions:")]
 		bool ProvideApiOptions (string [] apiOptions);
+
+		// + (void)setAbnormalTerminationReportingEnabled:(BOOL)enabled;
+		[Static]
+		[Export ("setAbnormalTerminationReportingEnabled:")]
+		bool AbnormalTerminationReportingEnabled (bool enabled);
 
 		[Static]
 		[Export ("openSourceLicenseInfo")]
@@ -1269,11 +1261,6 @@ namespace Google.Maps
 		[Static]
 		[Export ("SDKVersion")]
 		string SdkVersion { get; }
-
-		[Obsolete ("Use SdkVersion static property instead. This will be removed in future versions.")]
-		[Static]
-		[Wrap ("SdkVersion")]
-		string SDKVersion { get; }
 
 		// +(NSString * _Nonnull)SDKLongVersion;
 		[Static]

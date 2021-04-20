@@ -38,14 +38,6 @@ namespace Google.Places {
 		Saturday = 7
 	}
 
-	[Obsolete ("This enum is currently not supported and should not be used. Use PlaceOpenStatus enum instead.")]
-	[Native]
-	public enum PlacesOpenNowStatus : long {
-		Yes,
-		No,
-		Unknown
-	}
-
 	[Native]
 	public enum PlacesPriceLevel : long {
 		Unknown = -1,
@@ -116,26 +108,6 @@ namespace Google.Places {
 		// extern NSString *const kGMSPlaceTypeAccounting;
 		[Field ("kGMSPlaceTypeAccounting", "__Internal")]
 		Accounting,
-
-		// extern NSString *const kGMSPlaceTypeAdministrativeAreaLevel1;
-		[Field ("kGMSPlaceTypeAdministrativeAreaLevel1", "__Internal")]
-		AdministrativeAreaLevel1,
-
-		// extern NSString *const kGMSPlaceTypeAdministrativeAreaLevel2;
-		[Field ("kGMSPlaceTypeAdministrativeAreaLevel2", "__Internal")]
-		AdministrativeAreaLevel2,
-
-		// extern NSString *const kGMSPlaceTypeAdministrativeAreaLevel3;
-		[Field ("kGMSPlaceTypeAdministrativeAreaLevel3", "__Internal")]
-		AdministrativeAreaLevel3,
-
-		// extern NSString *const kGMSPlaceTypeAdministrativeAreaLevel4;
-		[Field ("kGMSPlaceTypeAdministrativeAreaLevel4", "__Internal")]
-		AdministrativeAreaLevel4,
-
-		// extern NSString *const kGMSPlaceTypeAdministrativeAreaLevel5;
-		[Field ("kGMSPlaceTypeAdministrativeAreaLevel5", "__Internal")]
-		AdministrativeAreaLevel5,
 
 		// extern NSString *const kGMSPlaceTypeAirport;
 		[Field ("kGMSPlaceTypeAirport", "__Internal")]
@@ -233,17 +205,9 @@ namespace Google.Places {
 		[Field ("kGMSPlaceTypeClothingStore", "__Internal")]
 		ClothingStore,
 
-		// extern NSString *const kGMSPlaceTypeColloquialArea;
-		[Field ("kGMSPlaceTypeColloquialArea", "__Internal")]
-		ColloquialArea,
-
 		// extern NSString *const kGMSPlaceTypeConvenienceStore;
 		[Field ("kGMSPlaceTypeConvenienceStore", "__Internal")]
 		ConvenienceStore,
-
-		// extern NSString *const kGMSPlaceTypeCountry;
-		[Field ("kGMSPlaceTypeCountry", "__Internal")]
-		Country,
 
 		// extern NSString *const kGMSPlaceTypeCourthouse;
 		[Field ("kGMSPlaceTypeCourthouse", "__Internal")]
@@ -261,6 +225,10 @@ namespace Google.Places {
 		[Field ("kGMSPlaceTypeDoctor", "__Internal")]
 		Doctor,
 
+		// extern NSString *const kGMSPlaceTypeDrugstore;
+		[Field ("kGMSPlaceTypeDrugstore", "__Internal")]
+		Drugstore,
+
 		// extern NSString *const kGMSPlaceTypeElectrician;
 		[Field ("kGMSPlaceTypeElectrician", "__Internal")]
 		Electrician,
@@ -273,29 +241,13 @@ namespace Google.Places {
 		[Field ("kGMSPlaceTypeEmbassy", "__Internal")]
 		Embassy,
 
-		// extern NSString *const kGMSPlaceTypeEstablishment;
-		[Field ("kGMSPlaceTypeEstablishment", "__Internal")]
-		Establishment,
-
-		// extern NSString *const kGMSPlaceTypeFinance;
-		[Field ("kGMSPlaceTypeFinance", "__Internal")]
-		Finance,
-
 		// extern NSString *const kGMSPlaceTypeFireStation;
 		[Field ("kGMSPlaceTypeFireStation", "__Internal")]
 		FireStation,
 
-		// extern NSString *const kGMSPlaceTypeFloor;
-		[Field ("kGMSPlaceTypeFloor", "__Internal")]
-		Floor,
-
 		// extern NSString *const kGMSPlaceTypeFlorist;
 		[Field ("kGMSPlaceTypeFlorist", "__Internal")]
 		Florist,
-
-		// extern NSString *const kGMSPlaceTypeFood;
-		[Field ("kGMSPlaceTypeFood", "__Internal")]
-		Food,
 
 		// extern NSString *const kGMSPlaceTypeFuneralHome;
 		[Field ("kGMSPlaceTypeFuneralHome", "__Internal")]
@@ -308,14 +260,6 @@ namespace Google.Places {
 		// extern NSString *const kGMSPlaceTypeGasStation;
 		[Field ("kGMSPlaceTypeGasStation", "__Internal")]
 		GasStation,
-
-		// extern NSString *const kGMSPlaceTypeGeneralContractor;
-		[Field ("kGMSPlaceTypeGeneralContractor", "__Internal")]
-		GeneralContractor,
-
-		// extern NSString *const kGMSPlaceTypeGeocode;
-		[Field ("kGMSPlaceTypeGeocode", "__Internal")]
-		Geocode,
 
 		// extern NSString *const kGMSPlaceTypeGroceryOrSupermarket;
 		[Field ("kGMSPlaceTypeGroceryOrSupermarket", "__Internal")]
@@ -333,10 +277,6 @@ namespace Google.Places {
 		[Field ("kGMSPlaceTypeHardwareStore", "__Internal")]
 		HardwareStore,
 
-		// extern NSString *const kGMSPlaceTypeHealth;
-		[Field ("kGMSPlaceTypeHealth", "__Internal")]
-		Health,
-
 		// extern NSString *const kGMSPlaceTypeHinduTemple;
 		[Field ("kGMSPlaceTypeHinduTemple", "__Internal")]
 		HinduTemple,
@@ -352,10 +292,6 @@ namespace Google.Places {
 		// extern NSString *const kGMSPlaceTypeInsuranceAgency;
 		[Field ("kGMSPlaceTypeInsuranceAgency", "__Internal")]
 		InsuranceAgency,
-
-		// extern NSString *const kGMSPlaceTypeIntersection;
-		[Field ("kGMSPlaceTypeIntersection", "__Internal")]
-		Intersection,
 
 		// extern NSString *const kGMSPlaceTypeJewelryStore;
 		[Field ("kGMSPlaceTypeJewelryStore", "__Internal")]
@@ -373,6 +309,10 @@ namespace Google.Places {
 		[Field ("kGMSPlaceTypeLibrary", "__Internal")]
 		Library,
 
+		// extern NSString *const kGMSPlaceTypeLightRailStation;
+		[Field ("kGMSPlaceTypeLightRailStation", "__Internal")]
+		LightRailStation,
+
 		// extern NSString *const kGMSPlaceTypeLiquorStore;
 		[Field ("kGMSPlaceTypeLiquorStore", "__Internal")]
 		LiquorStore,
@@ -380,10 +320,6 @@ namespace Google.Places {
 		// extern NSString *const kGMSPlaceTypeLocalGovernmentOffice;
 		[Field ("kGMSPlaceTypeLocalGovernmentOffice", "__Internal")]
 		LocalGovernmentOffice,
-
-		// extern NSString *const kGMSPlaceTypeLocality;
-		[Field ("kGMSPlaceTypeLocality", "__Internal")]
-		Locality,
 
 		// extern NSString *const kGMSPlaceTypeLocksmith;
 		[Field ("kGMSPlaceTypeLocksmith", "__Internal")]
@@ -421,14 +357,6 @@ namespace Google.Places {
 		[Field ("kGMSPlaceTypeMuseum", "__Internal")]
 		Museum,
 
-		// extern NSString *const kGMSPlaceTypeNaturalFeature;
-		[Field ("kGMSPlaceTypeNaturalFeature", "__Internal")]
-		NaturalFeature,
-
-		// extern NSString *const kGMSPlaceTypeNeighborhood;
-		[Field ("kGMSPlaceTypeNeighborhood", "__Internal")]
-		Neighborhood,
-
 		// extern NSString *const kGMSPlaceTypeNightClub;
 		[Field ("kGMSPlaceTypeNightClub", "__Internal")]
 		NightClub,
@@ -457,53 +385,21 @@ namespace Google.Places {
 		[Field ("kGMSPlaceTypePhysiotherapist", "__Internal")]
 		Physiotherapist,
 
-		// extern NSString *const kGMSPlaceTypePlaceOfWorship;
-		[Field ("kGMSPlaceTypePlaceOfWorship", "__Internal")]
-		PlaceOfWorship,
-
 		// extern NSString *const kGMSPlaceTypePlumber;
 		[Field ("kGMSPlaceTypePlumber", "__Internal")]
 		Plumber,
 
-		// extern NSString *const kGMSPlaceTypePointOfInterest;
-		[Field ("kGMSPlaceTypePointOfInterest", "__Internal")]
-		PointOfInterest,
+		// extern NSString *const kGMSPlaceTypePrimarySchool;
+		[Field ("kGMSPlaceTypePrimarySchool", "__Internal")]
+		PrimarySchool,
 
 		// extern NSString *const kGMSPlaceTypePolice;
 		[Field ("kGMSPlaceTypePolice", "__Internal")]
 		Police,
 
-		// extern NSString *const kGMSPlaceTypePolitical;
-		[Field ("kGMSPlaceTypePolitical", "__Internal")]
-		Political,
-
-		// extern NSString *const kGMSPlaceTypePostBox;
-		[Field ("kGMSPlaceTypePostBox", "__Internal")]
-		PostBox,
-
 		// extern NSString *const kGMSPlaceTypePostOffice;
 		[Field ("kGMSPlaceTypePostOffice", "__Internal")]
 		PostOffice,
-
-		// extern NSString *const kGMSPlaceTypePostalCode;
-		[Field ("kGMSPlaceTypePostalCode", "__Internal")]
-		PostalCode,
-
-		// extern NSString *const kGMSPlaceTypePostalCodePrefix;
-		[Field ("kGMSPlaceTypePostalCodePrefix", "__Internal")]
-		PostalCodePrefix,
-
-		// extern NSString *const kGMSPlaceTypePostalCodeSuffix;
-		[Field ("kGMSPlaceTypePostalCodeSuffix", "__Internal")]
-		PostalCodeSuffix,
-
-		// extern NSString *const kGMSPlaceTypePostalTown;
-		[Field ("kGMSPlaceTypePostalTown", "__Internal")]
-		PostalTown,
-
-		// extern NSString *const kGMSPlaceTypePremise;
-		[Field ("kGMSPlaceTypePremise", "__Internal")]
-		Premise,
 
 		// extern NSString *const kGMSPlaceTypeRealEstateAgency;
 		[Field ("kGMSPlaceTypeRealEstateAgency", "__Internal")]
@@ -517,14 +413,6 @@ namespace Google.Places {
 		[Field ("kGMSPlaceTypeRoofingContractor", "__Internal")]
 		RoofingContractor,
 
-		// extern NSString *const kGMSPlaceTypeRoom;
-		[Field ("kGMSPlaceTypeRoom", "__Internal")]
-		Room,
-
-		// extern NSString *const kGMSPlaceTypeRoute;
-		[Field ("kGMSPlaceTypeRoute", "__Internal")]
-		Route,
-
 		// extern NSString *const kGMSPlaceTypeRvPark;
 		[Field ("kGMSPlaceTypeRvPark", "__Internal")]
 		RvPark,
@@ -532,6 +420,10 @@ namespace Google.Places {
 		// extern NSString *const kGMSPlaceTypeSchool;
 		[Field ("kGMSPlaceTypeSchool", "__Internal")]
 		School,
+
+		// extern NSString *const kGMSPlaceTypeSecondarySchool;
+		[Field ("kGMSPlaceTypeSecondarySchool", "__Internal")]
+		SecondarySchool,
 
 		// extern NSString *const kGMSPlaceTypeShoeStore;
 		[Field ("kGMSPlaceTypeShoeStore", "__Internal")]
@@ -556,6 +448,166 @@ namespace Google.Places {
 		// extern NSString *const kGMSPlaceTypeStore;
 		[Field ("kGMSPlaceTypeStore", "__Internal")]
 		Store,
+
+		// extern NSString *const kGMSPlaceTypeSubwayStation;
+		[Field ("kGMSPlaceTypeSubwayStation", "__Internal")]
+		SubwayStation,
+
+		// extern NSString *const kGMSPlaceTypeSupermarket;
+		[Field ("kGMSPlaceTypeSupermarket", "__Internal")]
+		Supermarket,
+
+		// extern NSString *const kGMSPlaceTypeSynagogue;
+		[Field ("kGMSPlaceTypeSynagogue", "__Internal")]
+		Synagogue,
+
+		// extern NSString *const kGMSPlaceTypeTaxiStand;
+		[Field ("kGMSPlaceTypeTaxiStand", "__Internal")]
+		TaxiStand,
+
+		// extern NSString *const kGMSPlaceTypeTrainStation;
+		[Field ("kGMSPlaceTypeTrainStation", "__Internal")]
+		TrainStation,
+
+		// extern NSString *const kGMSPlaceTypeTravelAgency;
+		[Field ("kGMSPlaceTypeTravelAgency", "__Internal")]
+		TravelAgency,
+
+		// extern NSString *const kGMSPlaceTypeTransitStation;
+		[Field ("kGMSPlaceTypeTransitStation", "__Internal")]
+		TransitStation,
+
+		// extern NSString *const kGMSPlaceTypeTouristAttraction;
+		[Field ("kGMSPlaceTypeTouristAttraction", "__Internal")]
+		TouristAttraction,
+
+		// extern NSString *const kGMSPlaceTypeUniversity;
+		[Field ("kGMSPlaceTypeUniversity", "__Internal")]
+		University,
+
+		// extern NSString *const kGMSPlaceTypeVeterinaryCare;
+		[Field ("kGMSPlaceTypeVeterinaryCare", "__Internal")]
+		VeterinaryCare,
+
+		// extern NSString *const kGMSPlaceTypeZoo;
+		[Field ("kGMSPlaceTypeZoo", "__Internal")]
+		Zoo,
+
+		// extern NSString *const kGMSPlaceTypeAdministrativeAreaLevel1;
+		[Field ("kGMSPlaceTypeAdministrativeAreaLevel1", "__Internal")]
+		AdministrativeAreaLevel1,
+
+		// extern NSString *const kGMSPlaceTypeAdministrativeAreaLevel2;
+		[Field ("kGMSPlaceTypeAdministrativeAreaLevel2", "__Internal")]
+		AdministrativeAreaLevel2,
+
+		// extern NSString *const kGMSPlaceTypeAdministrativeAreaLevel3;
+		[Field ("kGMSPlaceTypeAdministrativeAreaLevel3", "__Internal")]
+		AdministrativeAreaLevel3,
+
+		// extern NSString *const kGMSPlaceTypeAdministrativeAreaLevel4;
+		[Field ("kGMSPlaceTypeAdministrativeAreaLevel4", "__Internal")]
+		AdministrativeAreaLevel4,
+
+		// extern NSString *const kGMSPlaceTypeAdministrativeAreaLevel5;
+		[Field ("kGMSPlaceTypeAdministrativeAreaLevel5", "__Internal")]
+		AdministrativeAreaLevel5,
+
+		// extern NSString *const kGMSPlaceTypeColloquialArea;
+		[Field ("kGMSPlaceTypeColloquialArea", "__Internal")]
+		ColloquialArea,
+
+		// extern NSString *const kGMSPlaceTypeCountry;
+		[Field ("kGMSPlaceTypeCountry", "__Internal")]
+		Country,
+
+		// extern NSString *const kGMSPlaceTypeEstablishment;
+		[Field ("kGMSPlaceTypeEstablishment", "__Internal")]
+		Establishment,
+
+		// extern NSString *const kGMSPlaceTypeFinance;
+		[Field ("kGMSPlaceTypeFinance", "__Internal")]
+		Finance,
+
+		// extern NSString *const kGMSPlaceTypeFloor;
+		[Field ("kGMSPlaceTypeFloor", "__Internal")]
+		Floor,
+
+		// extern NSString *const kGMSPlaceTypeFood;
+		[Field ("kGMSPlaceTypeFood", "__Internal")]
+		Food,
+
+		// extern NSString *const kGMSPlaceTypeGeneralContractor;
+		[Field ("kGMSPlaceTypeGeneralContractor", "__Internal")]
+		GeneralContractor,
+
+		// extern NSString *const kGMSPlaceTypeGeocode;
+		[Field ("kGMSPlaceTypeGeocode", "__Internal")]
+		Geocode,
+
+		// extern NSString *const kGMSPlaceTypeHealth;
+		[Field ("kGMSPlaceTypeHealth", "__Internal")]
+		Health,
+
+		// extern NSString *const kGMSPlaceTypeIntersection;
+		[Field ("kGMSPlaceTypeIntersection", "__Internal")]
+		Intersection,
+
+		// extern NSString *const kGMSPlaceTypeLocality;
+		[Field ("kGMSPlaceTypeLocality", "__Internal")]
+		Locality,
+
+		// extern NSString *const kGMSPlaceTypeNaturalFeature;
+		[Field ("kGMSPlaceTypeNaturalFeature", "__Internal")]
+		NaturalFeature,
+
+		// extern NSString *const kGMSPlaceTypeNeighborhood;
+		[Field ("kGMSPlaceTypeNeighborhood", "__Internal")]
+		Neighborhood,
+
+		// extern NSString *const kGMSPlaceTypePlaceOfWorship;
+		[Field ("kGMSPlaceTypePlaceOfWorship", "__Internal")]
+		PlaceOfWorship,
+
+		// extern NSString *const kGMSPlaceTypePointOfInterest;
+		[Field ("kGMSPlaceTypePointOfInterest", "__Internal")]
+		PointOfInterest,
+
+		// extern NSString *const kGMSPlaceTypePolitical;
+		[Field ("kGMSPlaceTypePolitical", "__Internal")]
+		Political,
+
+		// extern NSString *const kGMSPlaceTypePostBox;
+		[Field ("kGMSPlaceTypePostBox", "__Internal")]
+		PostBox,
+
+		// extern NSString *const kGMSPlaceTypePostalCode;
+		[Field ("kGMSPlaceTypePostalCode", "__Internal")]
+		PostalCode,
+
+		// extern NSString *const kGMSPlaceTypePostalCodePrefix;
+		[Field ("kGMSPlaceTypePostalCodePrefix", "__Internal")]
+		PostalCodePrefix,
+
+		// extern NSString *const kGMSPlaceTypePostalCodeSuffix;
+		[Field ("kGMSPlaceTypePostalCodeSuffix", "__Internal")]
+		PostalCodeSuffix,
+
+		// extern NSString *const kGMSPlaceTypePostalTown;
+		[Field ("kGMSPlaceTypePostalTown", "__Internal")]
+		PostalTown,
+
+		// extern NSString *const kGMSPlaceTypePremise;
+		[Field ("kGMSPlaceTypePremise", "__Internal")]
+		Premise,
+
+		// extern NSString *const kGMSPlaceTypeRoom;
+		[Field ("kGMSPlaceTypeRoom", "__Internal")]
+		Room,
+
+		// extern NSString *const kGMSPlaceTypeRoute;
+		[Field ("kGMSPlaceTypeRoute", "__Internal")]
+		Route,
 
 		// extern NSString *const kGMSPlaceTypeStreetAddress;
 		[Field ("kGMSPlaceTypeStreetAddress", "__Internal")]
@@ -593,40 +645,12 @@ namespace Google.Places {
 		[Field ("kGMSPlaceTypeSubpremise", "__Internal")]
 		Subpremise,
 
-		// extern NSString *const kGMSPlaceTypeSubwayStation;
-		[Field ("kGMSPlaceTypeSubwayStation", "__Internal")]
-		SubwayStation,
+		// extern NSString *const kGMSPlaceTypeTownSquare;
+		[Field ("kGMSPlaceTypeTownSquare", "__Internal")]
+		TownSquare,
 
-		// extern NSString *const kGMSPlaceTypeSynagogue;
-		[Field ("kGMSPlaceTypeSynagogue", "__Internal")]
-		Synagogue,
-
-		// extern NSString *const kGMSPlaceTypeTaxiStand;
-		[Field ("kGMSPlaceTypeTaxiStand", "__Internal")]
-		TaxiStand,
-
-		// extern NSString *const kGMSPlaceTypeTrainStation;
-		[Field ("kGMSPlaceTypeTrainStation", "__Internal")]
-		TrainStation,
-
-		// extern NSString *const kGMSPlaceTypeTransitStation;
-		[Field ("kGMSPlaceTypeTransitStation", "__Internal")]
-		TransitStation,
-
-		// extern NSString *const kGMSPlaceTypeTravelAgency;
-		[Field ("kGMSPlaceTypeTravelAgency", "__Internal")]
-		TravelAgency,
-
-		// extern NSString *const kGMSPlaceTypeUniversity;
-		[Field ("kGMSPlaceTypeUniversity", "__Internal")]
-		University,
-
-		// extern NSString *const kGMSPlaceTypeVeterinaryCare;
-		[Field ("kGMSPlaceTypeVeterinaryCare", "__Internal")]
-		VeterinaryCare,
-
-		// extern NSString *const kGMSPlaceTypeZoo;
-		[Field ("kGMSPlaceTypeZoo", "__Internal")]
-		Zoo
+		// extern NSString *const _Nonnull kGMSPlacesErrorDomain;
+		[Field ("kGMSPlacesErrorDomain", "__Internal")]
+		ErrorDomain,
 	}
 }
