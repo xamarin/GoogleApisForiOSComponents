@@ -11,14 +11,6 @@ namespace Firebase.Auth
 		Production
 	}
 
-	[Obsolete ("Deprecated. Please directly use Email or PreviousEmail properties instead.")]
-	[Native]
-	public enum ActionDataKey : long
-	{
-		EmailKey = 0,
-		FromEmailKey = 1
-	}
-
 	[Native]
 	public enum ActionCodeOperation : long
 	{

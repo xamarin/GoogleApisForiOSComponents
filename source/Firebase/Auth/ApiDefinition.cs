@@ -122,11 +122,6 @@ namespace Firebase.Auth
 		[Export ("operation")]
 		ActionCodeOperation Operation { get; }
 
-		// -(NSString * _Nonnull)dataForKey:(FIRActionDataKey)key;
-		[Obsolete ("Deprecated. Please directly use Email or PreviousEmail properties instead.")]
-		[Export ("dataForKey:")]
-		string DataForKey (ActionDataKey key);
-
 		// @property (readonly, copy, nonatomic) NSString * _Nullable email;
 		[NullAllowed]
 		[Export ("email")]
@@ -182,15 +177,6 @@ namespace Firebase.Auth
 	[BaseType (typeof (NSObject), Name = "FIRAuth")]
 	interface Auth
 	{
-		// extern const double FirebaseAuthVersionNum;
-		[Field ("FirebaseAuthVersionNum", "__Internal")]
-		double CurrentVersionNumber { get; }
-
-		// extern const char *const FirebaseAuthVersionStr;
-		[Internal]
-		[Field ("FirebaseAuthVersionStr", "__Internal")]
-		IntPtr _CurrentVersion { get; }
-
 		// extern NSString *const FIRAuthErrorDomain;
 		[Field ("FIRAuthErrorDomain", "__Internal")]
 		NSString ErrorDomain { get; }
@@ -253,6 +239,10 @@ namespace Firebase.Auth
 		[Export ("userAccessGroup")]
 		string UserAccessGroup { get; }
 
+		// @property (nonatomic) BOOL shareAuthStateAcrossDevices;
+		[Export ("shareAuthStateAcrossDevices")]
+		bool ShareAuthStateAcrossDevices { get; set; }
+
 		[NullAllowed]
 		[Export ("APNSToken", ArgumentSemantic.Strong)]
 		NSData ApnsToken { get; set; }
@@ -261,12 +251,6 @@ namespace Firebase.Auth
 		[Async]
 		[Export ("updateCurrentUser:completion:")]
 		void UpdateCurrentUser (User user, [NullAllowed] UserUpdateHandler completion);
-
-		// -(void)fetchProvidersForEmail:(NSString * _Nonnull)email completion:(FIRProviderQueryCallback _Nullable)completion;
-		[Obsolete ("Use the FetchSignInMethods method instead.")]
-		[Async]
-		[Export ("fetchProvidersForEmail:completion:")]
-		void FetchProviders (string email, [NullAllowed] ProviderQueryHandler completion);
 
 		// -(void)fetchSignInMethodsForEmail:(NSString * _Nonnull)email completion:(FIRSignInMethodQueryCallback _Nullable)completion;
 		[Async]
@@ -287,12 +271,6 @@ namespace Firebase.Auth
 		[Async]
 		[Export ("signInWithProvider:UIDelegate:completion:")]
 		void SignInWithProvider (IFederatedAuthProvider provider, [NullAllowed] IAuthUIDelegate uiDelegate, [NullAllowed] AuthDataResultHandler completion);
-
-		// - (void)signInAndRetrieveDataWithCredential:(FIRAuthCredential *)credential completion:(nullable FIRAuthDataResultCallback) completion;
-		[Obsolete ("Please, use SignInWithCredential method instead.")]
-		[Async]
-		[Export ("signInAndRetrieveDataWithCredential:completion:")]
-		void SignInAndRetrieveDataWithCredential (AuthCredential credential, [NullAllowed] AuthDataResultHandler completion);
 
 		// - (void) signInWithCredential:(FIRAuthCredential*) credential completion:(nullable FIRAuthDataResultCallback) completion;
 		[Async]
@@ -376,6 +354,10 @@ namespace Firebase.Auth
 		// - (void) useAppLanguage;
 		[Export ("useAppLanguage")]
 		void UseAppLanguage ();
+
+		// - (void)useEmulatorWithHost:(NSString *)host port:(NSInteger)port;
+		[Export ("useEmulatorWithHost:port:")]
+		void UseEmulatorWithHost (string host, nint port);
 
 		// - (BOOL)canHandleURL:(nonnull NSURL *)URL;
 		[Export ("canHandleURL:")]
@@ -799,11 +781,6 @@ namespace Firebase.Auth
 		[Export ("providerWithAuth:")]
 		PhoneAuthProvider Create (Auth auth);
 
-		[Obsolete ("Use Create static method instead. This will be removed in future versions.")]
-		[Static]
-		[Wrap ("Create (auth)")]
-		PhoneAuthProvider From (Auth auth);
-
 		// - (void)verifyPhoneNumber:(NSString *)phoneNumber UIDelegate:(nullable id<FIRAuthUIDelegate>)UIDelegate completion:(nullable FIRVerificationResultCallback) completion;
 		[Async]
 		[Export ("verifyPhoneNumber:UIDelegate:completion:")]
@@ -940,12 +917,6 @@ namespace Firebase.Auth
 		[Export ("reauthenticateWithCredential:completion:")]
 		void Reauthenticate (AuthCredential credential, [NullAllowed] UserProfileChangeHandler completion);
 
-		// -(void)reauthenticateAndRetrieveDataWithCredential:(FIRAuthCredential * _Nonnull)credential completion:(FIRAuthDataResultCallback _Nullable)completion;
-		[Obsolete ("Please, use Reauthenticate method instead.")]
-		[Async]
-		[Export ("reauthenticateAndRetrieveDataWithCredential:completion:")]
-		void ReauthenticateAndRetrieveData (AuthCredential credential, [NullAllowed] AuthDataResultHandler completion);
-
 		// -(void)reauthenticateWithProvider:(id<FIRFederatedAuthProvider> _Nonnull)provider UIDelegate:(id<FIRAuthUIDelegate> _Nullable)UIDelegate completion:(FIRAuthDataResultCallback _Nullable)completion __attribute__((swift_name("reauthenticate(with:uiDelegate:completion:)"))) __attribute__((availability(ios, introduced=8.0)));
 		[iOS (8,0)]
 		[Async]
@@ -971,12 +942,6 @@ namespace Firebase.Auth
 		[Async]
 		[Export ("getIDTokenForcingRefresh:completion:")]
 		void GetIdToken (bool forceRefresh, [NullAllowed] AuthTokenHandler completion);
-
-		// -(void)linkAndRetrieveDataWithCredential:(FIRAuthCredential * _Nonnull)credential completion:(FIRAuthDataResultCallback _Nullable)completion;
-		[Obsolete ("Please, use Link method instead.")]
-		[Async]
-		[Export ("linkAndRetrieveDataWithCredential:completion:")]
-		void LinkAndRetrieveData (AuthCredential credential, [NullAllowed] AuthDataResultHandler completion);
 
 		// -(void)linkWithCredential:(FIRAuthCredential * _Nonnull)credential completion:(FIRAuthDataResultCallback _Nullable)completion;
 		[Async]
