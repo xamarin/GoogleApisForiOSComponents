@@ -340,6 +340,8 @@ namespace Firebase.CloudFirestore
 
 	// void (^)(id _Nullable result, NSError *_Nullable error)
 	delegate void TransactionCompletionHandler ([NullAllowed] NSObject result, [NullAllowed] NSError error);
+	// (nullable void (^)(FIRLoadBundleTaskProgress *_Nullable progress, NSError *_Nullable error)
+	delegate void LoadBundleCompletionHandler ([NullAllowed] LoadBundleTaskProgress progress, [NullAllowed] NSError error);
 
 	// @interface FIRFirestore : NSObject
 	[DisableDefaultCtor]
@@ -393,6 +395,10 @@ namespace Firebase.CloudFirestore
 		[Export ("enableLogging:")]
 		void EnableLogging (bool logging);
 
+		// - (void) useEmulatorWithHost:(NSString*) host port:(NSInteger) port;		
+		[Export ("useEmulatorWithHost:port:")]
+		void UseEmulatorWithHost (string host, uint port);
+
 		// -(void)enableNetworkWithCompletion:(void (^ _Nullable)(NSError * _Nullable))completion;
 		[Async]
 		[Export ("enableNetworkWithCompletion:")]
@@ -422,6 +428,68 @@ namespace Firebase.CloudFirestore
 		[Async]
 		[Export ("terminateWithCompletion:")]
 		void Terminate ([NullAllowed] Action<NSError> completion);
+
+		// - (FIRLoadBundleTask *)loadBundle:(NSData *)bundleData;
+		[Export ("loadBundle:")]
+		LoadBundleTask LoadBundle (NSData bundleData);
+
+		// - (FIRLoadBundleTask *)loadBundle:(NSData *)bundleData completion:(nullable void (^)(FIRLoadBundleTaskProgress *_Nullable progress, NSError *_Nullable error))completion;
+		[Export ("loadBundle:completion:")]
+		LoadBundleTask LoadBundle (NSData bundleData, [NullAllowed] LoadBundleCompletionHandler completion);
+
+		// - (FIRLoadBundleTask *)loadBundleStream:(NSInputStream *)bundleStream;
+		[Export ("loadBundleStream:")]
+		LoadBundleTask LoadBundleStream (NSInputStream bundleStream);
+
+		// - (FIRLoadBundleTask *)loadBundleStream:(NSInputStream *)bundleStream completion: (nullable void (^)(FIRLoadBundleTaskProgress *_Nullable progress, NSError *_Nullable error))completion
+		[Export ("loadBundleStream:completion:")]
+		LoadBundleTask LoadBundleStream (NSInputStream bundleStream, [NullAllowed] LoadBundleCompletionHandler completion);
+
+		// - (void)getQueryNamed:(NSString *)name completion:(void (^)(FIRQuery *_Nullable query))completion
+		[Export ("getQueryNamed:completion:")]
+		void GetQueryNamed (NSInputStream bundleStream, Action<Query> completion);
+	}
+
+	// @interface FIRTimestamp : NSObject <NSCopying>
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FIRLoadBundleTaskProgress")]
+	interface LoadBundleTaskProgress {
+		// @property(readonly, nonatomic) NSInteger documentsLoaded;
+		[Export ("documentsLoaded")]
+		nint DocumentsLoaded { get; }
+
+		// @property(readonly, nonatomic) NSInteger totalDocuments;
+		[Export ("totalDocuments")]
+		nint TotalDocuments { get; }
+
+		// @property(readonly, nonatomic) NSInteger bytesLoaded;
+		[Export ("bytesLoaded")]
+		nint BytesLoaded { get; }
+
+		// @property(readonly, nonatomic) NSInteger totalBytes;
+		[Export ("totalBytes")]
+		nint TotalBytes { get; }
+
+		//@property(readonly, nonatomic) FIRLoadBundleTaskState state;
+		[Export ("state")]
+		LoadBundleTaskState State { get; }
+	}
+
+	// @interface FIRTimestamp : NSObject <NSCopying>
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FIRLoadBundleTask")]
+	interface LoadBundleTask {
+		// - (FIRLoadBundleObserverHandle):(void (^)(FIRLoadBundleTaskProgress *progress))observer
+		[Export ("addObserver:")]
+		nint AddObserver (Action<LoadBundleTaskProgress> observer);
+
+		// - (void)removeObserverWithHandle:(FIRLoadBundleObserverHandle)handle
+		[Export ("removeObserverWithHandle:")]
+		void RemoveObserver (nint handle);
+
+		// - (void)removeAllObservers;
+		[Export ("removeAllObservers")]
+		void RemoveAllObservers ();
 	}
 
 	// @interface FIRFirestoreSettings : NSObject <NSCopying>
@@ -447,11 +515,6 @@ namespace Firebase.CloudFirestore
 		// @property (getter = isPersistenceEnabled, nonatomic) BOOL persistenceEnabled;
 		[Export ("persistenceEnabled")]
 		bool PersistenceEnabled { [Bind ("isPersistenceEnabled")] get; set; }
-
-		// @property (getter = areTimestampsInSnapshotsEnabled, nonatomic) BOOL timestampsInSnapshotsEnabled;
-		[Obsolete ("This setting now defaults to true and will be removed in a future release.")]
-		[Export ("timestampsInSnapshotsEnabled")]
-		bool TimestampsInSnapshotsEnabled { [Bind ("areTimestampsInSnapshotsEnabled")] get; set; }
 
 		// @property (assign, nonatomic) int64_t cacheSizeBytes;
 		[Export ("cacheSizeBytes")]
