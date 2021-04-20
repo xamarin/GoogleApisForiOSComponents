@@ -283,12 +283,6 @@ namespace Firebase.DynamicLinks
 		[Export ("componentsWithLink:domainURIPrefix:")]
 		DynamicLinkComponents Create (NSUrl link, string domainUriPrefix);
 
-		[Obsolete("Use the Create static method instead. This will be removed in future versions.")]
-		[Static]
-		[return: NullAllowed]
-		[Wrap ("Create (link, domainUriPrefix)")]
-		DynamicLinkComponents FromLink (NSUrl link, string domainUriPrefix);
-
 		// -(instancetype _Nonnull)initWithLink:(NSURL * _Nonnull)link domain:(NSString * _Nonnull)domain;
 		[Export ("initWithLink:domainURIPrefix:")]
 		IntPtr Constructor (NSUrl link, string domainUriPrefix);
@@ -318,6 +312,10 @@ namespace Firebase.DynamicLinks
 		// @property (readonly, assign, nonatomic) FIRDLMatchType matchType;
 		[Export ("matchType", ArgumentSemantic.Assign)]
 		DynamicLinkMatchType MatchType { get; }
+
+		// @property (readonly, copy, readonly) NSDictionary<NSString *, id> *utmParametersDictionary;
+		[Export ("utmParametersDictionary", ArgumentSemantic.Copy)]
+		NSDictionary<NSString, NSObject> UtmParametersDictionary { get; }
 
 		// @property(nonatomic, copy, readonly, nullable) NSString *minimumAppVersion;
 		[NullAllowed]
@@ -354,9 +352,14 @@ namespace Firebase.DynamicLinks
 		[Export ("dynamicLinkFromCustomSchemeURL:")]
 		DynamicLink FromCustomSchemeUrl (NSUrl url);
 
+		// - (void)dynamicLinkFromUniversalLinkURL:(NSURL *)url completion:(FIRDynamicLinkUniversalLinkHandler)completion		
+		[Export ("dynamicLinkFromUniversalLinkURL:completion:")]
+		void FromUniversalLinkUrl (NSUrl url, DynamicLinkUniversalLinkHandler completion);
+
 		// -(FIRDynamicLink * _Nullable)dynamicLinkFromUniversalLinkURL:(NSURL * _Nonnull)url;
 		[return: NullAllowed]
 		[Export ("dynamicLinkFromUniversalLinkURL:")]
+		[Obsolete("Use 'FromUniversalLinkUrl (NSUrl url, DynamicLinkUniversalLinkHandler completion)' instead")]
 		DynamicLink FromUniversalLinkUrl (NSUrl url);
 
 		// -(BOOL)handleUniversalLink:(NSURL * _Nonnull)url completion:(FIRDynamicLinkUniversalLinkHandler _Nonnull)completion;
