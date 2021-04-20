@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_GoogleCastAssemblyName>Google.Cast, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleCastAssemblyName>
-		<_GoogleCastVersion>4.4.6</_GoogleCastVersion>
+		<_GoogleCastVersion>4.5.3</_GoogleCastVersion>
 		<_GoogleCastItemsFolder Condition="'$(GoogleCastBluetoothEnabled)'=='True'">GCst-$(_GoogleCastVersion)</_GoogleCastItemsFolder>
 		<_GoogleCastItemsFolder Condition="'$(GoogleCastBluetoothEnabled)'!='True'">GCstNB-$(_GoogleCastVersion)</_GoogleCastItemsFolder>
 		<_GoogleCastFrameworks Condition="'$(GoogleCastBluetoothEnabled)'=='True'">Accelerate AudioToolbox AVFoundation CFNetwork CoreBluetooth CoreData CoreGraphics CoreMedia CoreText Foundation MediaAccessibility MediaPlayer QuartzCore Security SystemConfiguration UIKit</_GoogleCastFrameworks>

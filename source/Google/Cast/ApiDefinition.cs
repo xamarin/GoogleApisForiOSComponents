@@ -730,10 +730,6 @@ namespace Google.Cast {
 		[Export ("hasCapabilities:")]
 		bool HasCapabilities (DeviceCapabilities deviceCapabilities);
 
-		[Obsolete ("Use HasCapabilities (DeviceCapabilities) overload method instead. This will be removed in future versions.")]
-		[Wrap ("HasCapabilities ((DeviceCapabilities)(long)deviceCapabilities)")]
-		bool HasCapabilities (nint deviceCapabilities);
-
 		[Export ("setAttribute:forKey:")]
 		void SetAttribute (INSSecureCoding attribute, string key);
 
