@@ -22,10 +22,6 @@ namespace Firebase.Installations
 	[BaseType (typeof(NSObject), Name = "FIRInstallations")]
 	interface Installations
 	{
-		// extern const unsigned char [] FirebaseInstallationsVersionString;
-		[Field("FirebaseInstallationsVersionString", "__Internal")]
-		IntPtr _CurrentVersion { get; }
-
 		// extern const NSNotificationName _Nonnull FIRInstallationIDDidChangeNotification;
 		[Notification (typeof (InstallationIdChangedEventArgs))]
 		[Field ("FIRInstallationIDDidChangeNotification", "__Internal")]

@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.Installations</RootNamespace>
     <AssemblyName>Firebase.Installations</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.7.0</FileVersion>
+    <FileVersion>7.10.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2125908</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>1.7.0</PackageVersion>
+    <PackageVersion>7.10.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -73,10 +73,5 @@
     <ProjectReference Include="..\Core\Core.csproj" PrivateAssets="None" />
   </ItemGroup>
   
-  <ItemGroup>
-    <Compile Update="Extensions.cs">
-      <SubType></SubType>
-    </Compile>
-  </ItemGroup>
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 </Project>
