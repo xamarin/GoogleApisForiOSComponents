@@ -17,25 +17,17 @@ namespace Google.MobileAds
 
 	public enum AdLoaderAdType
 	{
-		// extern NSString *const kGADAdLoaderAdTypeNativeAppInstall;
-		[Field ("kGADAdLoaderAdTypeNativeAppInstall", "__Internal")]
-		NativeAppInstall,
+		// extern NSString *const kGADAdLoaderAdTypeCustomNative;
+		[Field ("kGADAdLoaderAdTypeCustomNative", "__Internal")]
+		CustomNative,
 
-		// extern NSString *const kGADAdLoaderAdTypeNativeContent;
-		[Field ("kGADAdLoaderAdTypeNativeContent", "__Internal")]
-		NativeContent,
+		// extern NSString *const kGADAdLoaderAdTypeGAMBanner;
+		[Field ("kGADAdLoaderAdTypeGAMBanner", "__Internal")]
+		GamBanner,
 
-		// extern NSString *const kGADAdLoaderAdTypeNativeCustomTemplate;
-		[Field ("kGADAdLoaderAdTypeNativeCustomTemplate", "__Internal")]
-		NativeCustomTemplate,
-
-		// extern NSString *const kGADAdLoaderAdTypeDFPBanner;
-		[Field ("kGADAdLoaderAdTypeDFPBanner", "__Internal")]
-		DfpBanner,
-
-		// AD_EXTERN GADAdLoaderAdType const kGADAdLoaderAdTypeUnifiedNative;
-		[Field ("kGADAdLoaderAdTypeUnifiedNative", "__Internal")]
-		UnifiedNative
+		// extern NSString *const kGADAdLoaderAdTypeNative;
+		[Field ("kGADAdLoaderAdTypeNative", "__Internal")]
+		Native
 	}
 
 	[Native]
@@ -75,30 +67,15 @@ namespace Google.MobileAds
 		ServerError = 3,
 		OSVersionTooLow = 4,
 		Timeout = 5,
-		[Obsolete ("Use AdAlreadyUsed enum value instead.")]
-		InterstitialAlreadyUsed = AdAlreadyUsed,
 		MediationDataError = 7,
 		MediationAdapterError = 8,
 		MediationInvalidAdSize = 10,
 		InternalError = 11,
 		InvalidArgument = 12,
 		ReceivedInvalidResponse = 13,
-		[Obsolete ("Use AdAlreadyUsed enum value instead.")]
-		RewardedAdAlreadyUsed = AdAlreadyUsed,
-		[Obsolete ("Use NoFill enum value instead.")]
-		MediationNoFill = NoFill,
+		MediationNoFill = 9,
 		AdAlreadyUsed = 19,
 		ApplicationIdentifierMissing = 20
-	}
-
-	[Obsolete]
-	[Native]
-	public enum InAppPurchaseStatus : long
-	{
-		Error = 0,
-		Successful = 1,
-		Cancel = 2,
-		InvalidProduct = 3
 	}
 
 	[Native]
