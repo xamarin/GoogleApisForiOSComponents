@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using ObjCRuntime;
+using System;
 
 namespace Firebase.ABTesting {
 	// @interface FIRExperimentController : NSObject
@@ -11,13 +12,21 @@ namespace Firebase.ABTesting {
 		[Export ("sharedInstance")]
 		ExperimentController SharedInstance { get; }
 
-		// -(void)updateExperimentsWithServiceOrigin:(NSString * _Nonnull)origin events:(FIRLifecycleEvents * _Nonnull)events policy:(NSObject * _Nonnull)policy lastStartTime:(NSTimeInterval)lastStartTime payloads:(NSArray<NSData *> * _Nonnull)payloads;
-		[Export ("updateExperimentsWithServiceOrigin:events:policy:lastStartTime:payloads:")]
-		void UpdateExperiments (string origin, LifecycleEvents events, NSObject policy, double lastStartTime, NSData [] payloads);
+		// -(void)updateExperimentsWithServiceOrigin:(NSString * _Nonnull)origin events:(FIRLifecycleEvents * _Nonnull)events policy:(ABTExperimentPayloadExperimentOverflowPolicy)policy lastStartTime:(NSTimeInterval)lastStartTime payloads:(NSArray<NSData *> * _Nonnull)payloads completionHandler:(void (^ _Nullable)(NSError * _Nullable))completionHandler;
+		[Export ("updateExperimentsWithServiceOrigin:events:policy:lastStartTime:payloads:completionHandler:")]
+		void UpdateExperiments (string origin, LifecycleEvents events, NSObject policy, double lastStartTime, NSData [] payloads, [NullAllowed] Action<NSError> completionHandler);
 
 		// -(NSTimeInterval)latestExperimentStartTimestampBetweenTimestamp:(NSTimeInterval)timestamp andPayloads:(NSArray<NSData *> * _Nonnull)payloads;
 		[Export ("latestExperimentStartTimestampBetweenTimestamp:andPayloads:")]
 		double GetLatestExperimentStartTimestampBetweenTimestamp (double timestamp, NSData [] payloads);
+
+		// -(void)validateRunningExperimentsForServiceOrigin:(NSString * _Nonnull)origin runningExperimentPayloads:(NSArray<ABTExperimentPayload *> * _Nonnull)payloads;
+		[Export ("validateRunningExperimentsForServiceOrigin:runningExperimentPayloads:")]
+		void ValidateRunningExperiments (string origin, NSObject [] payloads);
+
+		// -(void)activateExperiment:(ABTExperimentPayload * _Nonnull)experimentPayload forServiceOrigin:(NSString * _Nonnull)origin;
+		[Export ("activateExperiment:forServiceOrigin:")]
+		void ActivateExperiment (NSObject experimentPayload, string origin);
 	}
 
 	[Static]
