@@ -19,7 +19,7 @@ namespace Google.Cast {
 		[Field ("kGCKInvalidRequestID", "__Internal")]
 		nint InvalidRequestId { get; }
 	}
-	
+
 	// @interface GCKAdBreakClipVastAdsRequest : NSObject <NSCopying, NSSecureCoding>
 	[Obsolete ("Use the VASTAdsRequest class instead.")]
 	[BaseType (typeof (NSObject), Name = "GCKAdBreakClipVastAdsRequest")]
@@ -241,7 +241,7 @@ namespace Google.Cast {
 		double CurrentAdBreakClipTime { get; }
 
 		// @property (readonly, assign, nonatomic) NSTimeInterval whenSkippable;
-		[Export("whenSkippable")]
+		[Export ("whenSkippable")]
 		double WhenSkippable { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull adBreakID;
@@ -392,6 +392,10 @@ namespace Google.Cast {
 		[Export ("unregisterDeviceProviderForCategory:")]
 		void UnregisterDeviceProviderForCategory (string category);
 
+		// - (void)setLaunchCredentialsData:(GCKCredentialsData *_Nullable)credentialsData;
+		[Export ("setLaunchCredentialsData:")]
+		void SetLaunchCredentialsData ([NullAllowed] CredentialsData credentialsData);
+
 		////////////////////////////////////
 		/// From Category CastContext_UI ///
 		////////////////////////////////////
@@ -509,6 +513,10 @@ namespace Google.Cast {
 		// @property (assign, readwrite, nonatomic) BOOL stopReceiverApplicationWhenEndingSession;
 		[Export ("stopReceiverApplicationWhenEndingSession")]
 		bool StopReceiverApplicationWhenEndingSession { get; set; }
+
+		// @property(nonatomic, assign) BOOL startDiscoveryAfterFirstTapOnCastButton;
+		[Export ("startDiscoveryAfterFirstTapOnCastButton")]
+		bool StartDiscoveryAfterFirstTapOnCastButton { get; set; }
 	}
 
 	// @interface GCKCastSession : GCKSession
@@ -663,6 +671,28 @@ namespace Google.Cast {
 		[Static]
 		[Export ("white")]
 		Color GetWhite ();
+	}
+
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "GCKCredentialsData")]
+	interface CredentialsData {
+		// - (instancetype)initWithCredentials:(NSString *_Nullable)credentials;
+		[Export ("initWithCredentials:")]
+		IntPtr Constructor ([NullAllowed] string credentials);
+
+		// - (instancetype)initWithCredentials:(NSString *_Nullable)credentials credentialsType:(NSString *_Nullable)credentialsType NS_DESIGNATED_INITIALIZER;
+		[Export ("initWithCredentials:credentialsType:")]
+		IntPtr Constructor ([NullAllowed] string credentials, [NullAllowed] string credentialsType);
+
+		// - (NSString *_Nullable)credentials;
+		[NullAllowed]
+		[Export ("credentials")]
+		string Credentials { get; }
+
+		// - (NSString *_Nullable)credentialsType;
+		[NullAllowed]
+		[Export ("credentialsType")]
+		string CredentialsType { get; }
 	}
 
 	[DisableDefaultCtor]
@@ -1001,7 +1031,7 @@ namespace Google.Cast {
 		NSString CustomDataKey { get; }
 
 		// extern NSString *const _Nonnull kGCKErrorDetailedCodeKey __attribute__((visibility("default")));
-		[Field("kGCKErrorDetailedCodeKey", "__Internal")]
+		[Field ("kGCKErrorDetailedCodeKey", "__Internal")]
 		NSString DetailedCodeKey { get; }
 
 		// extern NSString *const _Nonnull kGCKErrorExtraInfoKey __attribute__((visibility("default")));
@@ -1009,7 +1039,7 @@ namespace Google.Cast {
 		NSString ExtraInfoKey { get; }
 
 		// extern NSString *const _Nonnull kGCKErrorReasonKey __attribute__((visibility("default")));
-		[Field("kGCKErrorReasonKey", "__Internal")]
+		[Field ("kGCKErrorReasonKey", "__Internal")]
 		NSString ReasonKey { get; }
 
 		[Field ("kGCKErrorDomain", "__Internal")]
@@ -1129,11 +1159,23 @@ namespace Google.Cast {
 		[Export ("relaunchIfRunning")]
 		bool RelaunchIfRunning { get; set; }
 
+		// @property(nonatomic, assign) BOOL androidReceiverCompatible;
+		[Export ("androidReceiverCompatible")]
+		bool AndroidReceiverCompatible { get; set; }
+
 		[Export ("initWithRelaunchIfRunning:")]
 		IntPtr Constructor (bool relaunchIfRunning);
 
 		[Export ("initWithLanguageCode:relaunchIfRunning:")]
 		IntPtr Constructor ([NullAllowed] string languageCode, bool relaunchIfRunning);
+
+		// - (instancetype)initWithRelaunchIfRunning:(BOOL)relaunchIfRunning androidReceiverCompatible:(BOOL)androidReceiverCompatible;
+		[Export ("initWithRelaunchIfRunning:androidReceiverCompatible:")]
+		IntPtr Constructor (bool relaunchIfRunning, bool androidReceiverCompatible);
+
+		// - (instancetype)initWithRelaunchIfRunning:(BOOL)relaunchIfRunning languageCode:(nullable NSString *)languageCode androidReceiverCompatible:(BOOL)androidReceiverCompatible;
+		[Export ("initWithRelaunchIfRunning:languageCode:androidReceiverCompatible:")]
+		IntPtr Constructor (bool relaunchIfRunning, [NullAllowed] string languageCode, bool androidReceiverCompatible);
 	}
 
 	[DisableDefaultCtor]
@@ -2226,51 +2268,51 @@ namespace Google.Cast {
 		nint QueuePrevious { get; }
 
 		// extern const NSInteger kGCKMediaCommandQueueShuffle __attribute__((visibility("default")));
-		[Field("kGCKMediaCommandQueueShuffle", "__Internal")]
+		[Field ("kGCKMediaCommandQueueShuffle", "__Internal")]
 		nint QueueShuffle { get; }
 
 		// extern const NSInteger kGCKMediaCommandSkipAd __attribute__((visibility("default")));
-		[Field("kGCKMediaCommandSkipAd", "__Internal")]
+		[Field ("kGCKMediaCommandSkipAd", "__Internal")]
 		nint SkipAd { get; }
 
 		// extern const NSInteger kGCKMediaCommandQueueRepeatAll __attribute__((visibility("default")));
-		[Field("kGCKMediaCommandQueueRepeatAll", "__Internal")]
+		[Field ("kGCKMediaCommandQueueRepeatAll", "__Internal")]
 		nint QueueRepeatAll { get; }
 
 		// extern const NSInteger kGCKMediaCommandQueueRepeatOne __attribute__((visibility("default")));
-		[Field("kGCKMediaCommandQueueRepeatOne", "__Internal")]
+		[Field ("kGCKMediaCommandQueueRepeatOne", "__Internal")]
 		nint QueueRepeatOne { get; }
 
 		// extern const NSInteger kGCKMediaCommandQueueRepeat __attribute__((visibility("default")));
-		[Field("kGCKMediaCommandQueueRepeat", "__Internal")]
+		[Field ("kGCKMediaCommandQueueRepeat", "__Internal")]
 		nint QueueRepeat { get; }
 
 		// extern const NSInteger kGCKMediaCommandEditTracks __attribute__((visibility("default")));
-		[Field("kGCKMediaCommandEditTracks", "__Internal")]
+		[Field ("kGCKMediaCommandEditTracks", "__Internal")]
 		nint EditTracks { get; }
 
 		// extern const NSInteger kGCKMediaCommandSetPlaybackRate __attribute__((visibility("default")));
-		[Field("kGCKMediaCommandSetPlaybackRate", "__Internal")]
+		[Field ("kGCKMediaCommandSetPlaybackRate", "__Internal")]
 		nint SetPlaybackRate { get; }
 
 		// extern const NSInteger kGCKMediaCommandLike __attribute__((visibility("default")));
-		[Field("kGCKMediaCommandLike", "__Internal")]
+		[Field ("kGCKMediaCommandLike", "__Internal")]
 		nint Like { get; }
 
 		// extern const NSInteger kGCKMediaCommandDislike __attribute__((visibility("default")));
-		[Field("kGCKMediaCommandDislike", "__Internal")]
+		[Field ("kGCKMediaCommandDislike", "__Internal")]
 		nint Dislike { get; }
 
 		// extern const NSInteger kGCKMediaCommandFollow __attribute__((visibility("default")));
-		[Field("kGCKMediaCommandFollow", "__Internal")]
+		[Field ("kGCKMediaCommandFollow", "__Internal")]
 		nint Follow { get; }
 
 		// extern const NSInteger kGCKMediaCommandUnfollow __attribute__((visibility("default")));
-		[Field("kGCKMediaCommandUnfollow", "__Internal")]
+		[Field ("kGCKMediaCommandUnfollow", "__Internal")]
 		nint Unfollow { get; }
 
 		// extern const NSInteger kGCKMediaCommandStreamTransfer __attribute__((visibility("default")));
-		[Field("kGCKMediaCommandStreamTransfer", "__Internal")]
+		[Field ("kGCKMediaCommandStreamTransfer", "__Internal")]
 		nint StreamTransfer { get; }
 	}
 
