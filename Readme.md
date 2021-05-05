@@ -6,27 +6,27 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 
 | Package Id                                                                   | NuGet                                        |
 |------------------------------------------------------------------------------|----------------------------------------------|
-| [Xamarin.Firebase.iOS.ABTesting][F.ABTesting.Name]                           | [7.10.0.0][F.ABTesting.Package]              |
-| [Xamarin.Firebase.iOS.AdMob][F.AdMob.Name]                                   | [8.3.0.0][F.AdMob.Package]                   |
-| [Xamarin.Firebase.iOS.Analytics][F.Analytics.Name]                           | [7.10.0.0][F.Analytics.Package]              |
-| [Xamarin.Firebase.iOS.Auth][F.Auth.Name]                                     | [7.10.0.0][F.Auth.Package]                   |
-| [Xamarin.Firebase.iOS.CloudFirestore][F.CloudFirestore.Name]                 | [7.10.0.0][F.CloudFirestore.Package]         |
-| [Xamarin.Firebase.iOS.CloudFunctions][F.CloudFunctions.Name]                 | [7.10.0.0][F.CloudFunctions.Package]         |
-| [Xamarin.Firebase.iOS.CloudMessaging][F.CloudMessaging.Name]                 | [7.10.0.0][F.CloudMessaging.Package]         |
-| [Xamarin.Firebase.iOS.Core][F.Core.Name]                                     | [7.10.0.0][F.Core.Package]                   |
-| [Xamarin.Firebase.iOS.Crashlytics][F.Crashlytics.Name]                       | [7.10.0.0][F.Crashlytics.Package]            |
-| [Xamarin.Firebase.iOS.Database][F.Database.Name]                             | [7.10.0.0][F.Database.Package]               |
-| [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                     | [7.10.0.0][F.DynamicLinks.Package]           |
-| [Xamarin.Firebase.iOS.InAppMessaging][F.InAppMessaging.Name]                 | [7.10.0.0][F.InAppMessaging.Package]         |
-| [Xamarin.Firebase.iOS.Installations][F.Installations.Name]                   | [7.10.0.0][F.Installations.Package]          |
-| [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                         | [7.10.0.0][F.InstanceID.Package]             |
-| [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name]   | [7.10.0.0][F.PerformanceMonitoring.Package]  |
-| [Xamarin.Firebase.iOS.RemoteConfig][F.RemoteConfig.Name]                     | [7.10.0.0][F.RemoteConfig.Package]           |
-| [Xamarin.Firebase.iOS.Storage][F.Storage.Name]                               | [7.10.0.0][F.Storage.Package]                |
+| [Xamarin.Firebase.iOS.ABTesting][F.ABTesting.Name]                           | [7.11.0.0][F.ABTesting.Package]              |
+| [Xamarin.Firebase.iOS.AdMob][F.AdMob.Name]                                   | [8.4.0.0][F.AdMob.Package]                   |
+| [Xamarin.Firebase.iOS.Analytics][F.Analytics.Name]                           | [7.11.0.0][F.Analytics.Package]              |
+| [Xamarin.Firebase.iOS.Auth][F.Auth.Name]                                     | [7.11.0.0][F.Auth.Package]                   |
+| [Xamarin.Firebase.iOS.CloudFirestore][F.CloudFirestore.Name]                 | [7.11.0.0][F.CloudFirestore.Package]         |
+| [Xamarin.Firebase.iOS.CloudFunctions][F.CloudFunctions.Name]                 | [7.11.0.0][F.CloudFunctions.Package]         |
+| [Xamarin.Firebase.iOS.CloudMessaging][F.CloudMessaging.Name]                 | [7.11.0.0][F.CloudMessaging.Package]         |
+| [Xamarin.Firebase.iOS.Core][F.Core.Name]                                     | [7.11.0.0][F.Core.Package]                   |
+| [Xamarin.Firebase.iOS.Crashlytics][F.Crashlytics.Name]                       | [7.11.0.0][F.Crashlytics.Package]            |
+| [Xamarin.Firebase.iOS.Database][F.Database.Name]                             | [7.11.0.0][F.Database.Package]               |
+| [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                     | [7.11.0.0][F.DynamicLinks.Package]           |
+| [Xamarin.Firebase.iOS.InAppMessaging][F.InAppMessaging.Name]                 | [7.11.0.0][F.InAppMessaging.Package]         |
+| [Xamarin.Firebase.iOS.Installations][F.Installations.Name]                   | [7.11.0.0][F.Installations.Package]          |
+| [Xamarin.Firebase.iOS.InstanceID][F.InstanceID.Name]                         | [7.11.0.0][F.InstanceID.Package]             |
+| [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name]   | [7.11.0.0][F.PerformanceMonitoring.Package]  |
+| [Xamarin.Firebase.iOS.RemoteConfig][F.RemoteConfig.Name]                     | [7.11.0.0][F.RemoteConfig.Package]           |
+| [Xamarin.Firebase.iOS.Storage][F.Storage.Name]                               | [7.11.0.0][F.Storage.Package]                |
 | [Xamarin.Google.iOS.Analytics][G.Analytics.Name]                             | [3.17.0.7][G.Analytics.Package]              |
 | [Xamarin.Google.iOS.Cast][G.Cast.Name]                                       | [4.5.3.0][G.Cast.Package]                    |
 | [Xamarin.Google.iOS.Maps][G.Maps.Name]                                       | [4.2.0.0][G.Maps.Package]                    |
-| [Xamarin.Google.iOS.MobileAds][G.MobileAds.Name]                             | [8.3.0.0][G.MobileAds.Package]               |
+| [Xamarin.Google.iOS.MobileAds][G.MobileAds.Name]                             | [8.4.0.0][G.MobileAds.Package]               |
 | [Xamarin.Google.iOS.Places][G.Places.Name]                                   | [4.2.0.0][G.Places.Package]                  |
 | [Xamarin.Google.iOS.SignIn][G.SignIn.Name]                                   | [5.0.2.2][G.SignIn.Package]                  |
 | [Xamarin.Google.iOS.TagManager][G.TagManager.Name]                           | [7.2.0.0][G.TagManager.Package]              |
@@ -55,26 +55,26 @@ Here's a table that shows in which global version is located each component of F
 
 | Component Name                   | Component Version | Global Version |
 |----------------------------------|:-----------------:|:--------------:|
-| Firebase A/B Testing             | **7.10.0.0**      | **7.10.0.0**   |
-| Firebase AdMob                   | **7.10.0.0**      | **7.10.0.0**   |
-| Firebase Analytics               | **7.10.0.0**      | **7.10.0.0**   |
-| Firebase Auth                    | **7.10.0.0**      | **7.10.0.0**   |
-| Firebase Cloud Firestore         | **7.10.0.0**      | **7.10.0.0**   |
-| Firebase Cloud Functions         | **7.10.0.0**      | **7.10.0.0**   |
-| Firebase Cloud Messaging         | **7.10.0.0**      | **7.10.0.0**   |
-| Firebase Core                    | **7.10.0.0**      | **7.10.0.0**   |
-| Firebase Crashlytics             | **7.10.0.0**      | **7.10.0.0**   |
-| Firebase Database                | **7.10.0.0**      | **7.10.0.0**   |
-| Firebase Dynamic Links           | **7.10.0.0**      | **7.10.0.0**   |
-| Firebase In App Messaging        | **7.10.0.0**      | **7.10.0.0**   |
-| Firebase Installations           | **7.10.0.0**      | **7.10.0.0**   |
-| Firebase Instance ID             | **7.10.0.0**      | **7.10.0.0**   |
-| Firebase Performance Monitoring  | **7.10.0.0**      | **7.10.0.0**   |
-| Firebase RemoteConfig            | **7.10.0.0**      | **7.10.0.0**   |
-| Firebase Storage                 | **7.10.0.0**      | **7.10.0.0**   |
-| Google Cast                      | **4.5.3.0**       | **7.10.0.0**   |
-| Google Sign-In                   | **5.0.2.2**       | **7.10.0.0**   |
-| Google Tag Manager               | **7.2.0.0**       | **7.10.0.0**   |
+| Firebase A/B Testing             | **7.11.0.0**      | **7.11.0.0**   |
+| Firebase AdMob                   | **7.11.0.0**      | **7.11.0.0**   |
+| Firebase Analytics               | **7.11.0.0**      | **7.11.0.0**   |
+| Firebase Auth                    | **7.11.0.0**      | **7.11.0.0**   |
+| Firebase Cloud Firestore         | **7.11.0.0**      | **7.11.0.0**   |
+| Firebase Cloud Functions         | **7.11.0.0**      | **7.11.0.0**   |
+| Firebase Cloud Messaging         | **7.11.0.0**      | **7.11.0.0**   |
+| Firebase Core                    | **7.11.0.0**      | **7.11.0.0**   |
+| Firebase Crashlytics             | **7.11.0.0**      | **7.11.0.0**   |
+| Firebase Database                | **7.11.0.0**      | **7.11.0.0**   |
+| Firebase Dynamic Links           | **7.11.0.0**      | **7.11.0.0**   |
+| Firebase In App Messaging        | **7.11.0.0**      | **7.11.0.0**   |
+| Firebase Installations           | **7.11.0.0**      | **7.11.0.0**   |
+| Firebase Instance ID             | **7.11.0.0**      | **7.11.0.0**   |
+| Firebase Performance Monitoring  | **7.11.0.0**      | **7.11.0.0**   |
+| Firebase RemoteConfig            | **7.11.0.0**      | **7.11.0.0**   |
+| Firebase Storage                 | **7.11.0.0**      | **7.11.0.0**   |
+| Google Cast                      | **4.5.3.0**       | **7.11.0.0**   |
+| Google Sign-In                   | **5.0.2.2**       | **7.11.0.0**   |
+| Google Tag Manager               | **7.2.0.0**       | **7.11.0.0**   |
 
 ## Building
 

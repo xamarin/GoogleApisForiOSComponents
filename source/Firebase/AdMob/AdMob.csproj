@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.AdMob</RootNamespace>
     <AssemblyName>Firebase.AdMob</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>8.3.0</FileVersion>
+    <FileVersion>8.4.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <IncludeBuildOutput>false</IncludeBuildOutput>
@@ -24,7 +24,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865546</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>8.3.0</PackageVersion>
+    <PackageVersion>8.4.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>

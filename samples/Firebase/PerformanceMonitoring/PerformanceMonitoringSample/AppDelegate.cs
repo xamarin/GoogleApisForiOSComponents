@@ -26,6 +26,9 @@ namespace PerformanceMonitoringSample
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
 
+			// Use Firebase library to configure APIs
+			App.Configure ();
+
 			var navigationController = Window.RootViewController as UINavigationController;
 
 			if (UIDevice.CurrentDevice.CheckSystemVersion (11, 0))
@@ -57,9 +60,6 @@ namespace PerformanceMonitoringSample
 
 			// The following line enables/disables custom traces
 			Performance.SharedInstance.DataCollectionEnabled = isPerformanceMonitoringDataCollectionEnabled;
-
-			// Use Firebase library to configure APIs
-			App.Configure ();
 
 			return true;
 		}
