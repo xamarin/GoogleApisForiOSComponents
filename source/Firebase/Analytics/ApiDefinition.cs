@@ -30,11 +30,6 @@ namespace Firebase.Analytics
 		[Export ("setUserID:")]
 		void SetUserId ([NullAllowed] string userId);
 
-		// + (void)setScreenName:(nullable NSString *)screenName screenClass:(nullable NSString *)screenClassOverride;
-		[Static]
-		[Export ("setScreenName:screenClass:")]
-		void SetScreenNameAndClass ([NullAllowed] string screenName, [NullAllowed] string screenClassOverride);
-
 		// +(void)setAnalyticsCollectionEnabled:(BOOL)analyticsCollectionEnabled;
 		[Static]
 		[Export ("setAnalyticsCollectionEnabled:")]
