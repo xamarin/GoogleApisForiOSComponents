@@ -99,8 +99,11 @@ void BuildSdkOnPodfile (Artifact artifact)
 	if (artifact.PodSpecs?.Length == 0)
 		return;
 
-	var baseArch = Platform.iOSArmV7;
-	var platforms = new [] { baseArch, Platform.iOSArm64, Platform.iOSSimulator64, Platform.iOSSimulator };
+	var baseArch = Platform.iOSArmV7;	
+	// from iOS 11 only 64-bit builds are supported
+	var platforms = Version.TryParse(GetMinimunSupportedVersion(artifact), out var iosVer) && iosVer.Major > 10
+		? new [] { Platform.iOSArm64, Platform.iOSSimulator64 }
+		: new [] { baseArch, Platform.iOSArm64, Platform.iOSSimulator64, Platform.iOSSimulator };
 	var podsProject = "./Pods/Pods.xcodeproj";
 	var workingDirectory = (DirectoryPath)$"./externals/{artifact.Id}";
 
