@@ -129,10 +129,6 @@
       <Project>{9335A59B-3B54-4ED5-8201-B68CFD05CAFB}</Project>
       <Name>Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\source\Firebase\InstanceID\InstanceID.csproj">
-      <Project>{754D8F56-C3DB-4E33-91D5-45445AB286EF}</Project>
-      <Name>InstanceID</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\..\source\Google\TagManager\TagManager.csproj">
       <Project>{3FCDD0B5-F60C-49F7-AAD7-497D02285A38}</Project>
       <Name>TagManager</Name>

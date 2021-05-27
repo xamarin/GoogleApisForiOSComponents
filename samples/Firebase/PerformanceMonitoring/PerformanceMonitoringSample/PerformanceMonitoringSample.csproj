@@ -151,10 +151,6 @@
       <Project>{9335A59B-3B54-4ED5-8201-B68CFD05CAFB}</Project>
       <Name>Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\source\Firebase\InstanceID\InstanceID.csproj">
-      <Project>{754D8F56-C3DB-4E33-91D5-45445AB286EF}</Project>
-      <Name>InstanceID</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\..\source\Firebase\PerformanceMonitoring\PerformanceMonitoring.csproj">
       <Project>{3ECC9FBF-72BB-48E4-B454-56194A422B3A}</Project>
       <Name>PerformanceMonitoring</Name>

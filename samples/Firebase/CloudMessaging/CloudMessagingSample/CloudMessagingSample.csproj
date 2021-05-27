@@ -130,10 +130,6 @@
       <Project>{9335A59B-3B54-4ED5-8201-B68CFD05CAFB}</Project>
       <Name>Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\source\Firebase\InstanceID\InstanceID.csproj">
-      <Project>{754D8F56-C3DB-4E33-91D5-45445AB286EF}</Project>
-      <Name>InstanceID</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\..\source\Firebase\Installations\Installations.csproj">
       <Project>{65ACD945-5A8A-419D-B9FB-8DFD03C532F4}</Project>
       <Name>Installations</Name>

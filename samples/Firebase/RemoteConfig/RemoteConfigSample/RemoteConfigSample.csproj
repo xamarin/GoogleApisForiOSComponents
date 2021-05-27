@@ -127,10 +127,6 @@
       <Project>{9335A59B-3B54-4ED5-8201-B68CFD05CAFB}</Project>
       <Name>Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\source\Firebase\InstanceID\InstanceID.csproj">
-      <Project>{754D8F56-C3DB-4E33-91D5-45445AB286EF}</Project>
-      <Name>InstanceID</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\..\source\Firebase\RemoteConfig\RemoteConfig.csproj">
       <Project>{2FC178FA-114D-4A51-A3DF-5EA10E2C71C4}</Project>
       <Name>RemoteConfig</Name>

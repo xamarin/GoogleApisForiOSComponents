@@ -2,7 +2,6 @@
 using UIKit;
 using UserNotifications;
 
-using Firebase.InstanceID;
 using Firebase.Core;
 using Firebase.CloudMessaging;
 using System;
@@ -53,19 +52,7 @@ namespace CloudMessagingSample
 
 			Messaging.SharedInstance.Delegate = this;
 
-			InstanceId.SharedInstance.GetInstanceId (InstanceIdResultHandler);
-
 			return true;
-		}
-
-		void InstanceIdResultHandler (InstanceIdResult result, NSError error)
-		{
-			if (error != null) {
-				LogInformation (nameof (InstanceIdResultHandler), $"Error: {error.LocalizedDescription}");
-				return;
-			}
-
-			LogInformation (nameof (InstanceIdResultHandler), $"Remote Instance Id token: {result.Token}");
 		}
 
 		[Export ("messaging:didReceiveRegistrationToken:")]
