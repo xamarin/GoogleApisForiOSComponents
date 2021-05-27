@@ -64,8 +64,6 @@ namespace Google.Places {
 		[Export ("delegate", ArgumentSemantic.Weak)]
 		IAutocompleteFetcherDelegate Delegate { get; set; }
 
-		[Export ("initWithFilter:")]
-		AutocompleteFetcher ProvideSessionToken ([NullAllowed] AutocompleteFilter filter);
 		// @property(nonatomic, strong) GMSAutocompleteFilter *autocompleteFilter;
 		[NullAllowed]
 		[Export ("autocompleteFilter", ArgumentSemantic.Strong)]
@@ -545,8 +543,8 @@ namespace Google.Places {
 
 		// @property(nonatomic, strong, readonly) GMSCoordinateBounds *viewport;
 		[NullAllowed]
-		[Export ("viewport", ArgumentSemantic.Strong)]
-		Google.Maps.CoordinateBounds Viewport { get; }
+		[Export ("viewportInfo", ArgumentSemantic.Strong)]
+		PlaceViewportInfo Viewport { get; }
 
 		// @property(nonatomic, copy, readonly) GMS_NSArrayOf(GMSAddressComponent *) *GMS_NULLABLE_PTR addressComponents;
 		[NullAllowed]
@@ -588,6 +586,27 @@ namespace Google.Places {
 		// -(GMSPlaceOpenStatus)isOpen;
 		[Export ("isOpen")]
 		PlaceOpenStatus IsOpen ();
+	}
+
+	// @interface GMSPlaceViewportInfo : NSObject
+	[BaseType (typeof(NSObject), Name = "GMSPlaceViewportInfo")]
+	interface PlaceViewportInfo
+	{
+		// @property (readonly, nonatomic) CLLocationCoordinate2D northEast;
+		[Export ("northEast")]
+		CLLocationCoordinate2D NorthEast { get; }
+
+		// @property (readonly, nonatomic) CLLocationCoordinate2D southWest;
+		[Export ("southWest")]
+		CLLocationCoordinate2D SouthWest { get; }
+
+		// @property (readonly, getter = isValid, nonatomic) BOOL valid;
+		[Export ("valid")]
+		bool Valid { [Bind ("isValid")] get; }
+
+		// -(id)initWithNorthEast:(CLLocationCoordinate2D)northEast southWest:(CLLocationCoordinate2D)southWest;
+		[Export ("initWithNorthEast:southWest:")]
+		IntPtr Constructor (CLLocationCoordinate2D northEast, CLLocationCoordinate2D southWest);
 	}
 
 	// @interface GMSPlaceLikelihood : NSObject <NSCopying>

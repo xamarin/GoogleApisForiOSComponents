@@ -68,4 +68,11 @@ namespace Google.Maps
 		Rhumb,
 		Projected
 	}
+
+	[Native]
+	public enum CollisionBehavior : long {
+		Required,
+		RequiredAndHidesOptional,
+		OptionalAndHidesLowerPriority
+	}
 }
