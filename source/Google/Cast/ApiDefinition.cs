@@ -1106,6 +1106,36 @@ namespace Google.Cast {
 		void DidChangeWritableState (CastChannel channel, bool writable);
 	}
 
+	// @interface GCKHLSSegment : NSObject
+	[BaseType (typeof (NSObject), Name = "GCKHLSSegment")]
+	interface HlsSegment {
+		// +(NSString * _Nullable)mapHLSSegmentFormatToString:(GCKHLSSegmentFormat)hlsSegmentFormat;
+		[Static]
+		[Export ("mapHLSSegmentFormatToString:")]
+		[return: NullAllowed]
+		string MapHlsSegmentFormatToString (HlsSegmentFormat hlsSegmentFormat);
+
+		// +(GCKHLSSegmentFormat)mapHLSSegmentFormatStringToEnum:(NSString * _Nonnull)hlsSegmentFormatString;
+		[Static]
+		[Export ("mapHLSSegmentFormatStringToEnum:")]
+		HlsSegmentFormat MapHlsSegmentFormatStringToEnum (string hlsSegmentFormatString);
+	}
+
+	// @interface GCKHLSVideoSegment : NSObject
+	[BaseType (typeof (NSObject), Name = "GCKHLSVideoSegment")]
+	interface HlsVideoSegment {
+		// +(NSString * _Nullable)mapHLSVideoSegmentFormatToString:(GCKHLSVideoSegmentFormat)hlsVideoSegmentFormat;
+		[Static]
+		[Export ("mapHLSVideoSegmentFormatToString:")]
+		[return: NullAllowed]
+		string MapHlsVideoSegmentFormatToString (HlsVideoSegmentFormat hlsVideoSegmentFormat);
+
+		// +(GCKHLSVideoSegmentFormat)mapHLSVideoSegmentFormatStringToEnum:(NSString * _Nonnull)hlsVideoSegmentFormatString;
+		[Static]
+		[Export ("mapHLSVideoSegmentFormatStringToEnum:")]
+		HlsVideoSegmentFormat MapHlsVideoSegmentFormatStringToEnum (string hlsVideoSegmentFormatString);
+	}
+
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKImage")]
 	interface Image : INSCopying, INSSecureCoding {
@@ -1325,6 +1355,14 @@ namespace Google.Cast {
 		[Export ("startAbsoluteTime")]
 		double StartAbsoluteTime { get; }
 
+		// @property (readonly, nonatomic) GCKHLSSegmentFormat hlsSegmentFormat;
+		[Export ("hlsSegmentFormat")]
+		HlsSegmentFormat HlsSegmentFormat { get; }
+
+		// @property (readonly, nonatomic) GCKHLSVideoSegmentFormat hlsVideoSegmentFormat;
+		[Export ("hlsVideoSegmentFormat")]
+		HlsVideoSegmentFormat HlsVideoSegmentFormat { get; }
+
 		[NullAllowed]
 		[Export ("customData")]
 		NSObject CustomData { get; }
@@ -1405,6 +1443,14 @@ namespace Google.Cast {
 		// @property (nonatomic) NSTimeInterval startAbsoluteTime;
 		[Export ("startAbsoluteTime")]
 		double StartAbsoluteTime { get; set; }
+
+		// @property (readonly, nonatomic) GCKHLSSegmentFormat hlsSegmentFormat;
+		[Export ("hlsSegmentFormat")]
+		HlsSegmentFormat HlsSegmentFormat { get; }
+
+		// @property (readonly, nonatomic) GCKHLSVideoSegmentFormat hlsVideoSegmentFormat;
+		[Export ("hlsVideoSegmentFormat")]
+		HlsVideoSegmentFormat HlsVideoSegmentFormat { get; }
 
 		// @property (readwrite, nonatomic, strong) id _Nullable customData;
 		[NullAllowed]
@@ -2184,11 +2230,13 @@ namespace Google.Cast {
 		// +(NSString * _Nonnull)mapHLSSegmentFormatToString:(GCKHLSSegmentFormat)hlsSegmentFormat;
 		[Static]
 		[Export ("mapHLSSegmentFormatToString:")]
+		[Obsolete ("Use HlsSegment.MapHlsSegmentFormatToString")]
 		string MapHlsSegmentFormatToString (HlsSegmentFormat hlsSegmentFormat);
 
 		// +(GCKHLSSegmentFormat)mapHLSSegmentFormatStringToEnum:(NSString * _Nonnull)hlsSegmentFormatString;
 		[Static]
 		[Export ("mapHLSSegmentFormatStringToEnum:")]
+		[Obsolete ("Use HlsSegment.MapHlsSegmentFormatStringToEnum")]
 		HlsSegmentFormat MapHlsSegmentFormatStringToEnum (string hlsSegmentFormatString);
 
 		// -(instancetype _Nonnull)initWithURL:(NSURL * _Nonnull)url protocolType:(GCKStreamingProtocolType)protocolType initialTime:(NSTimeInterval)initialTime hlsSegmentFormat:(GCKHLSSegmentFormat)hlsSegmentFormat;
@@ -3452,11 +3500,18 @@ namespace Google.Cast {
 	}
 
 	// @interface GCKUICastButton : UIButton
-	[BaseType (typeof (UIButton), Name = "GCKUICastButton")]
+	[BaseType (typeof (UIButton),
+		Name = "GCKUICastButton",
+		Delegates = new string [] { "Delegate" },
+		Events = new Type [] { typeof (UICastButtonDelegate) })]
 	interface UICastButton {
-		// @property (assign, readwrite, nonatomic) BOOL triggersDefaultCastDialog;
+		// @property (assign, nonatomic) BOOL triggersDefaultCastDialog __attribute__((deprecated("Use the GCKUICastButtonDelegate methods to respond to the actions on the cast button.")));
 		[Export ("triggersDefaultCastDialog")]
 		bool TriggersDefaultCastDialog { get; set; }
+
+		// @property (nonatomic, weak) id<GCKUICastButtonDelegate> _Nullable delegate;
+		[NullAllowed, Export ("delegate", ArgumentSemantic.Weak)]
+		UICastButtonDelegate Delegate { get; set; }
 
 		// -(instancetype _Nonnull)initWithFrame:(CGRect)frame;
 		[Export ("initWithFrame:")]
@@ -3466,9 +3521,27 @@ namespace Google.Cast {
 		[Export ("setInactiveIcon:activeIcon:animationIcons:")]
 		void SetInactiveIcon (UIImage inactiveIcon, UIImage activeIcon, UIImage [] animationIcons);
 
-		// - (void)setAccessibilityLabel:(NSString *)label forCastState:(GCKCastState) state;
+		// -(void)setAccessibilityLabel:(NSString * _Nonnull)label forCastState:(GCKCastState)state;
 		[Export ("setAccessibilityLabel:forCastState:")]
 		void SetAccessibilityLabel (string label, CastState state);
+	}
+
+	interface IUICastButtonDelegate {
+	}
+
+	// @protocol GCKUICastButtonDelegate <NSObject>
+	[Protocol, Model (AutoGeneratedName = true)]
+	[BaseType (typeof (NSObject), Name = "GCKUICastButtonDelegate")]
+	interface UICastButtonDelegate {
+		// @optional -(void)castButtonDidTapToPresentLocalNetworkAccessPermissionDialog:(GCKUICastButton * _Nonnull)castButton;
+		[Export ("castButtonDidTapToPresentLocalNetworkAccessPermissionDialog:")]
+		[EventArgs ("CastButtonDidTapToPresentLocalNetworkAccessPermissionDialog")]
+		void CastButtonDidTapToPresentLocalNetworkAccessPermissionDialog (UICastButton castButton);
+
+		// @optional -(void)castButtonDidTap:(GCKUICastButton * _Nonnull)castButton toPresentDialogForCastState:(GCKCastState)castState;
+		[Export ("castButtonDidTap:toPresentDialogForCastState:")]
+		[EventArgs ("CastButtonDidTap")]
+		void CastButtonDidTap (UICastButton castButton, CastState castState);
 	}
 
 	// @interface GCKUICastContainerViewController : UIViewController

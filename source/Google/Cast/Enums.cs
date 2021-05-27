@@ -165,7 +165,8 @@ namespace Google.Cast {
 		Unknown = 99,
 		DeviceAuthenticationMessageParseFailure = 100,
 		DeviceAuthenticationMessageChallengeReceivedFailure = 101,
-		DeviceAuthenticationTimeoutFailure = 102
+		DeviceAuthenticationTimeoutFailure = 102,
+		LaunchRequestCancelled = 103
 	}
 
 	[Native]
@@ -248,7 +249,17 @@ namespace Google.Cast {
 		Aac = 1,
 		Ac3 = 2,
 		Mp3 = 3,
-		Ts = 4
+		Ts = 4,
+		TsAac = 5,
+		EAc3 = 6,
+		Fmp4 = 7
+	}
+
+	[Native]
+	public enum HlsVideoSegmentFormat : long {
+		Undefined = 0,
+		Mpeg2Ts = 1,
+		Fmp4 = 2
 	}
 
 	[Native]

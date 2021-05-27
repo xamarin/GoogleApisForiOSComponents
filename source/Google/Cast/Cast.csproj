@@ -6,7 +6,7 @@
     <RootNamespace>Google.Cast</RootNamespace>
     <AssemblyName>Google.Cast</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>4.5.3.0</FileVersion>
+    <FileVersion>4.6.1.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865570</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>4.5.3.0</PackageVersion>
+    <PackageVersion>4.6.1.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
