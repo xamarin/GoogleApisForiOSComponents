@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.DynamicLinks</RootNamespace>
     <AssemblyName>Firebase.DynamicLinks</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>7.11.0</FileVersion>
+    <FileVersion>8.0.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865537</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>7.11.0</PackageVersion>
+    <PackageVersion>8.0.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
