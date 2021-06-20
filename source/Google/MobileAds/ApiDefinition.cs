@@ -509,8 +509,11 @@ namespace Google.MobileAds {
 	// typedef void (^GADRewardedAdLoadCompletionHandler)(GADRewardedAd *_Nullable rewardedAd, NSError *_Nullable error);
 	delegate void RewardedAdLoadCompletionHandler ([NullAllowed] RewardedAd rewardedAd, [NullAllowed] NSError error);
 
+	// typedef void (^GADUserDidEarnRewardHandler)(void)
+	delegate void UserDidEarnRewardHandler ();
+
 	// @interface GADRewardedAd : NSObject <GADAdMetadataProvider, GADFullScreenPresentingAd>
-	[BaseType (typeof (FullScreenContentDelegate), Name = "GADRewardedAd")]
+	[BaseType (typeof (FullScreenPresentingAd), Name = "GADRewardedAd")]
 	interface RewardedAd : AdMetadataProvider {
 		// + (void)loadWithAdUnitID:(nonnull NSString *)adUnitID request:(nullable GADRequest *)request completionHandler:(nonnull GADRewardedAdLoadCompletionHandler)completionHandler;
 		[Async]
@@ -527,10 +530,9 @@ namespace Google.MobileAds {
 		[Export ("responseInfo")]
 		ResponseInfo ResponseInfo { get; }
 
-		// @property (readonly, nonatomic) GADAdReward * _Nullable reward;
-		[NullAllowed]
-		[Export ("reward")]
-		AdReward Reward { get; }
+		// @property (readonly, nonatomic, nonnull) GADAdReward *adReward;
+		[Export ("adReward")]
+		AdReward AdReward { get; }
 
 		// @property (nonatomic, nullable) GADServerSideVerificationOptions *serverSideVerificationOptions;
 		[NullAllowed]
@@ -546,9 +548,9 @@ namespace Google.MobileAds {
 		[Export ("canPresentFromRootViewController:error:")]
 		bool CanPresent (UIViewController rootViewController, [NullAllowed] out NSError error);
 
-		// -(void)presentFromRootViewController:(UIViewController * _Nonnull)viewController delegate:(id<GADRewardedAdDelegate> _Nonnull)delegate;
-		[Export ("presentFromRootViewController:delegate:")]
-		void Present (UIViewController viewController, IRewardedAdDelegate @delegate);
+		// -(void)presentFromRootViewController:(nonnull UIViewController *)rootViewController userDidEarnRewardHandler:(nonnull GADUserDidEarnRewardHandler)userDidEarnRewardHandler;
+		[Export ("presentFromRootViewController:userDidEarnRewardHandler:")]
+		void Present (UIViewController viewController, UserDidEarnRewardHandler userDidEarnRewardHandler);
 
 		[Export ("adMetadata")]
 		NSDictionary<NSString, NSObject> AdMetadata { get; }
