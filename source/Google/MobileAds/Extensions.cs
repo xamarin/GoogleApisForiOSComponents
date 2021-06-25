@@ -42,15 +42,15 @@ namespace Google.MobileAds
 	{
 		//GAD_EXTERN GADAdSize GADPortraitAnchoredAdaptiveBannerAdSizeWithWidth (CGFloat width);
 		[DllImport ("__Internal", EntryPoint = "GADPortraitAnchoredAdaptiveBannerAdSizeWithWidth")]
-		public static extern AdSize GetPortraitAnchoredAdaptiveBannerAdSize (CGSize size);
+		public static extern AdSize GetPortraitAnchoredAdaptiveBannerAdSize (nfloat width);
 
 		//GAD_EXTERN GADAdSize GADLandscapeAnchoredAdaptiveBannerAdSizeWithWidth (CGFloat width);
 		[DllImport ("__Internal", EntryPoint = "GADLandscapeAnchoredAdaptiveBannerAdSizeWithWidth")]
-		public static extern AdSize GetLandscapeAnchoredAdaptiveBannerAdSize (CGSize size);
+		public static extern AdSize GetLandscapeAnchoredAdaptiveBannerAdSize (nfloat width);
 
 		//GAD_EXTERN GADAdSize GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth (CGFloat width);
 		[DllImport ("__Internal", EntryPoint = "GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth")]
-		public static extern AdSize GetCurrentOrientationAnchoredAdaptiveBannerAdSize (CGSize size);
+		public static extern AdSize GetCurrentOrientationAnchoredAdaptiveBannerAdSize (nfloat width);
 
 		// GADAdSize GADAdSizeFromCGSize(CGSize size);
 		[DllImport ("__Internal", EntryPoint = "GADAdSizeFromCGSize")]
