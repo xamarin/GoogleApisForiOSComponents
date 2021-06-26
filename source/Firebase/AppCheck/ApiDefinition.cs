@@ -32,15 +32,6 @@ namespace Firebase.AppCheck {
 	}
 
 	// @protocol FIRAppCheckProvider <NSObject>
-	/*
-  Check whether adding [Model] to this declaration is appropriate.
-  [Model] is used to generate a C# class that implements this protocol,
-  and might be useful for protocols that consumers are supposed to implement,
-  since consumers can subclass the generated class instead of implementing
-  the generated interface. If consumers are not supposed to implement this
-  protocol, then [Model] is redundant and will generate code that will never
-  be used.
-*/
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "FIRAppCheckProvider")]
 	interface AppCheckProvider {
@@ -51,17 +42,8 @@ namespace Firebase.AppCheck {
 	}
 
 	// @protocol FIRAppCheckProviderFactory <NSObject>
-	/*
-  Check whether adding [Model] to this declaration is appropriate.
-  [Model] is used to generate a C# class that implements this protocol,
-  and might be useful for protocols that consumers are supposed to implement,
-  since consumers can subclass the generated class instead of implementing
-  the generated interface. If consumers are not supposed to implement this
-  protocol, then [Model] is redundant and will generate code that will never
-  be used.
-*/
 	[Protocol]
-	[BaseType (typeof (NSObject), Name = "FIRAppCheckProvider")]
+	[BaseType (typeof (NSObject), Name = "FIRAppCheckProviderFactory")]
 	interface AppCheckProviderFactory {
 		// @required -(id<FIRAppCheckProvider> _Nullable)createProviderWithApp:(FIRApp * _Nonnull)app;
 		[Abstract]
@@ -82,9 +64,8 @@ namespace Firebase.AppCheck {
 		[Export ("expirationDate")]
 		NSDate ExpirationDate { get; }
 
-		// -(instancetype _Nonnull)initWithToken:(NSString * _Nonnull)token expirationDate:(NSDate * _Nonnull)expirationDate __attribute__((objc_designated_initializer));
+		// -(instancetype _Nonnull)initWithToken:(NSString * _Nonnull)token expirationDate:(NSDate * _Nonnull)expirationDate;
 		[Export ("initWithToken:expirationDate:")]
-		[DesignatedInitializer]
 		IntPtr Constructor (string token, NSDate expirationDate);
 	}
 
@@ -115,6 +96,16 @@ namespace Firebase.AppCheck {
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRDeviceCheckProvider")]
 	interface DeviceCheckProvider : AppCheckProvider {
+		// -(instancetype _Nullable)initWithApp:(FIRApp * _Nonnull)app;
+		[Export ("initWithApp:")]
+		IntPtr Constructor (App app);
+	}
+
+	// @interface FIRAppAttestProvider : NSObject <FIRAppCheckProvider>
+	//[NoTV, NoWatch, NoMac, iOS (14, 0)]	
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FIRAppAttestProvider")]
+	interface AppAttestProvider : AppCheckProvider {
 		// -(instancetype _Nullable)initWithApp:(FIRApp * _Nonnull)app;
 		[Export ("initWithApp:")]
 		IntPtr Constructor (App app);
