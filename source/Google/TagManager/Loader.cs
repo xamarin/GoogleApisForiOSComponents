@@ -6,8 +6,8 @@ namespace Google.TagManager
 	{
 		static Loader ()
 		{
-			Firebase.InstanceID.Loader.ForceLoad ();
 			Firebase.Core.Loader.ForceLoad ();
+			Firebase.Installations.Loader.ForceLoad ();
 			Firebase.Analytics.Loader.ForceLoad ();
 			Google.Analytics.Loader.ForceLoad ();
 		}
