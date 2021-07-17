@@ -10,6 +10,18 @@ namespace Firebase.AppCheck {
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FIRAppCheck")]
 	interface AppCheck {
+		// extern NS_SWIFT_NAME(AppCheckTokenDidChange) const NSNotificationName FIRAppCheckAppCheckTokenDidChangeNotification __attribute__((swift_name("AppCheckTokenDidChange")));
+		[Field ("FIRAppCheckAppCheckTokenDidChangeNotification", "__Internal")]
+		NSString TokenDidChangeNotification { get; }
+
+		// extern NS_SWIFT_NAME(AppCheckTokenNotificationKey) NSString *const kFIRAppCheckTokenNotificationKey __attribute__((swift_name("AppCheckTokenNotificationKey")));
+		[Field ("kFIRAppCheckTokenNotificationKey", "__Internal")]
+		NSString TokenNotificationKey { get; }
+
+		// extern NS_SWIFT_NAME(AppCheckAppNameNotificationKey) NSString *const kFIRAppCheckAppNameNotificationKey __attribute__((swift_name("AppCheckAppNameNotificationKey")));
+		[Field ("kFIRAppCheckAppNameNotificationKey", "__Internal")]
+		NSString AppNameNotificationKey { get; }
+
 		// +(instancetype _Nonnull)appCheck __attribute__((swift_name("appCheck()")));
 		[Static]
 		[Export ("appCheck")]
@@ -20,6 +32,10 @@ namespace Firebase.AppCheck {
 		[Export ("appCheckWithApp:")]
 		[return: NullAllowed]
 		AppCheck Create (App firebaseApp);
+
+		// -(void)tokenForcingRefresh:(BOOL)forcingRefresh completion:(void (^ _Nonnull)(FIRAppCheckToken * _Nullable, NSError * _Nullable))handler __attribute__((swift_name("token(forcingRefresh:completion:)")));
+		[Export ("tokenForcingRefresh:completion:")]
+		void TokenForcingRefresh (bool forcingRefresh, TokenCompletionHandler handler);
 
 		// +(void)setAppCheckProviderFactory:(id<FIRAppCheckProviderFactory> _Nullable)factory;
 		[Static]
