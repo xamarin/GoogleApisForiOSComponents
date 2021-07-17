@@ -225,6 +225,11 @@ namespace Google.MobileAds {
 		void DidRecordImpression (BannerView view);
 
 		[EventArgs ("BannerViewE")]
+		[EventName ("ClickRecorded")]
+		[Export ("bannerViewDidRecordClick:")]
+		void DidRecordClick (BannerView view);
+
+		[EventArgs ("BannerViewE")]
 		[Export ("bannerViewWillPresentScreen:")]
 		void WillPresentScreen (BannerView adView);
 
@@ -646,6 +651,12 @@ namespace Google.MobileAds {
 		[EventName ("RecordedImpression")]
 		[Export ("adDidRecordImpression:")]
 		void DidRecordImpression (FullScreenPresentingAd ad);
+
+		// - (void)adDidRecordClick:(nonnull id<GADFullScreenPresentingAd>)ad;
+		[EventArgs ("FullScreenPresentingAd")]
+		[EventName ("RecordedClick")]
+		[Export ("adDidRecordClick:")]
+		void DidRecordClick (FullScreenPresentingAd ad);
 
 		// - (void)ad:(nonnull id<GADFullScreenPresentingAd>)ad
 		[EventArgs ("FullScreenPresentingAdWithError")]
@@ -1537,6 +1548,7 @@ namespace Google.MobileAds {
 		[Export ("customEventBannerDidDismissModal:")]
 		void DidDismissModal (ICustomEventBanner customEvent);
 
+		[Obsolete("Deprecated. No replacement.")]
 		[Abstract]
 		[Export ("customEventBannerWillLeaveApplication:")]
 		void WillLeaveApplication (ICustomEventBanner customEvent);
@@ -1612,6 +1624,7 @@ namespace Google.MobileAds {
 		[Export ("customEventInterstitialDidDismiss:")]
 		void DidDismiss (ICustomEventInterstitial customEvent);
 
+		[Obsolete("Deprecated. No replacement.")]
 		[Export ("customEventInterstitialWillLeaveApplication:")]
 		void WillLeaveApplication (ICustomEventInterstitial customEvent);
 	}
