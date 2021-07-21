@@ -3,7 +3,7 @@
 
 	<PropertyGroup>
 		<_FirebaseAnalyticsAssemblyName>Firebase.Analytics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseAnalyticsAssemblyName>
-		<_FirebaseAnalyticsItemsFolder>FAnlytcs-8.3.0</_FirebaseAnalyticsItemsFolder>
+		<_FirebaseAnalyticsItemsFolder>FAnlytcs-8.4.0</_FirebaseAnalyticsItemsFolder>
 		<_FirebaseAnalyticsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseAnalyticsItemsFolder)\FirebaseAnalytics-8.3.0\Frameworks\</_FirebaseAnalyticsSDKBaseFolder>
 	</PropertyGroup>
 
