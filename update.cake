@@ -40,8 +40,8 @@ public Dictionary<string, GoogleBase> CreateComponents ()
 	googleComponents ["Firebase.PerformanceMonitoring"] = GetComponent<Firebase.PerformanceMonitoring> ();
 	googleComponents ["Firebase.RemoteConfig"] = GetComponent<Firebase.RemoteConfig> ();
 	googleComponents ["Firebase.Storage"] = GetComponent<Firebase.Storage> ();
-	//googleComponents ["Firebase.AppDistribution"] = GetComponent<Firebase.AppDistribution> ();
-	//googleComponents ["Firebase.AppCheck"] = GetComponent<Firebase.AppCheck> ();
+	// googleComponents ["Firebase.AppDistribution"] = GetComponent<Firebase.AppDistribution> ();
+	// googleComponents ["Firebase.AppCheck"] = GetComponent<Firebase.AppCheck> ();
 
 	googleComponents ["Google.Analytics"] = GetComponent<Google.Analytics> ();
 	googleComponents ["Google.Cast"] = GetComponent<Google.Cast> ();
