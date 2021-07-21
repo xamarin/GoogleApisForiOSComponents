@@ -3,7 +3,7 @@
 
 	<PropertyGroup>
 		<_FirebaseCoreAssemblyName>Firebase.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseCoreAssemblyName>
-		<_GoogleAppMeasurementItemsFolder>GAppM-8.3.0</_GoogleAppMeasurementItemsFolder>
+		<_GoogleAppMeasurementItemsFolder>GAppM-8.4.0</_GoogleAppMeasurementItemsFolder>
 		<_GoogleAppMeasurementSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleAppMeasurementItemsFolder)\GoogleAppMeasurement-8.3.0\Frameworks\</_GoogleAppMeasurementSDKBaseFolder>
 	</PropertyGroup>
 
