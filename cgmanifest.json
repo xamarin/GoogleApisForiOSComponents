@@ -221,7 +221,7 @@
 				"type": "Pod",
 				"Pod": {
 					"name": "GoogleAnalytics",
-					"Version": "3.17.0"
+					"Version": "3.20.0"
 				}
 			}
 		},
@@ -293,7 +293,7 @@
 				"type": "Pod",
 				"Pod": {
 					"name": "GoogleTagManager",
-					"Version": "7.3.1"
+					"Version": "7.4.0"
 				}
 			}
 		},

@@ -19,14 +19,14 @@ Artifact FIREBASE_STORAGE_ARTIFACT                 = new Artifact ("Firebase.Sto
 // Artifact FIREBASE_APP_CHECK_ARTIFACT               = new Artifact ("Firebase.AppCheck",               "8.8.0",   "11.0", ComponentGroup.Firebase, csprojName: "AppCheck");
 
 // Google artifacts available to be built. These artifacts generate NuGets.
-Artifact GOOGLE_ANALYTICS_ARTIFACT    = new Artifact ("Google.Analytics",             "3.17.0.7", "5.0",  ComponentGroup.Google, csprojName: "Analytics");
+Artifact GOOGLE_ANALYTICS_ARTIFACT    = new Artifact ("Google.Analytics",             "3.20.0.0", "9.0",  ComponentGroup.Google, csprojName: "Analytics");
 Artifact GOOGLE_CAST_ARTIFACT         = new Artifact ("Google.Cast",                  "4.6.1.0",  "10.0", ComponentGroup.Google, csprojName: "Cast");
 Artifact GOOGLE_MAPS_ARTIFACT         = new Artifact ("Google.Maps",                  "5.1.0.0",  "10.0", ComponentGroup.Google, csprojName: "Maps");
 Artifact GOOGLE_MOBILE_ADS_ARTIFACT   = new Artifact ("Google.MobileAds",             "8.11.0.0", "10.0", ComponentGroup.Google, csprojName: "MobileAds");
 Artifact GOOGLE_UMP_ARTIFACT          = new Artifact ("Google.UserMessagingPlatform", "1.1.0.0",  "10.0", ComponentGroup.Google, csprojName: "UserMessagingPlatform");
 Artifact GOOGLE_PLACES_ARTIFACT       = new Artifact ("Google.Places",                "5.0.0.0",  "10.0", ComponentGroup.Google, csprojName: "Places");
 Artifact GOOGLE_SIGN_IN_ARTIFACT      = new Artifact ("Google.SignIn",                "5.0.2.2",  "10.0", ComponentGroup.Google, csprojName: "SignIn");
-Artifact GOOGLE_TAG_MANAGER_ARTIFACT  = new Artifact ("Google.TagManager",            "7.3.1.0",  "10.0", ComponentGroup.Google, csprojName: "TagManager");
+Artifact GOOGLE_TAG_MANAGER_ARTIFACT  = new Artifact ("Google.TagManager",            "7.4.0.0",  "10.0", ComponentGroup.Google, csprojName: "TagManager");
 
 var ARTIFACTS = new Dictionary<string, Artifact> {
 	{ "Firebase.ABTesting",              FIREBASE_AB_TESTING_ARTIFACT },
@@ -164,7 +164,7 @@ void SetArtifactsPodSpecs ()
 
 	// Google components
 	GOOGLE_ANALYTICS_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("GoogleAnalytics", "3.17.0")
+		PodSpec.Create ("GoogleAnalytics", "3.20.0")
 	};
 	GOOGLE_CAST_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("google-cast-sdk", "4.6.1")
@@ -187,7 +187,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("GTMAppAuth",   "1.2.1", frameworkSource: FrameworkSource.Pods),
 	};
 	GOOGLE_TAG_MANAGER_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("GoogleTagManager", "7.3.1")
+		PodSpec.Create ("GoogleTagManager", "7.4.0")
 	};
 }
 

@@ -22,14 +22,14 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name]   | [8.8.0][F.PerformanceMonitoring.Package]  |
 | [Xamarin.Firebase.iOS.RemoteConfig][F.RemoteConfig.Name]                     | [8.8.0][F.RemoteConfig.Package]           |
 | [Xamarin.Firebase.iOS.Storage][F.Storage.Name]                               | [8.8.0][F.Storage.Package]                |
-| [Xamarin.Google.iOS.Analytics][G.Analytics.Name]                             | [3.17.0.7][G.Analytics.Package]              |
+| [Xamarin.Google.iOS.Analytics][G.Analytics.Name]                             | [3.20.0.0][G.Analytics.Package]              |
 | [Xamarin.Google.iOS.Cast][G.Cast.Name]                                       | [4.6.1.0][G.Cast.Package]                    |
 | [Xamarin.Google.iOS.Maps][G.Maps.Name]                                       | [5.1.0.0][G.Maps.Package]                    |
 | [Xamarin.Google.iOS.MobileAds][G.MobileAds.Name]                             | [8.11.0.0][G.MobileAds.Package]               |
 | [Xamarin.Google.iOS.UserMessagingPlatform][G.UserMessagingPlatform.Name]                             | [1.1.0.0][G.UserMessagingPlatform.Package]               |
 | [Xamarin.Google.iOS.Places][G.Places.Name]                                   | [5.0.0.0][G.Places.Package]                  |
 | [Xamarin.Google.iOS.SignIn][G.SignIn.Name]                                   | [5.0.2.2][G.SignIn.Package]                  |
-| [Xamarin.Google.iOS.TagManager][G.TagManager.Name]                           | [7.3.1.0][G.TagManager.Package]              |
+| [Xamarin.Google.iOS.TagManager][G.TagManager.Name]                           | [7.4.0.0][G.TagManager.Package]              |
 
 **Deprecated Libraries**
 
@@ -75,7 +75,7 @@ Here's a table that shows in which global version is located each component of F
 | Google User Messaging Platform   | **1.1.0.0**       | **8.8.0**      |
 | Google Cast                      | **4.6.1.0**       | **8.8.0**      |
 | Google Sign-In                   | **5.0.2.2**       | **8.8.0**      |
-| Google Tag Manager               | **7.3.1.0**       | **8.8.0**      |
+| Google Tag Manager               | **7.4.0.0**       | **8.8.0**      |
 
 ## Ad Id Support
 
