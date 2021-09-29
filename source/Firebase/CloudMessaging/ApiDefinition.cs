@@ -135,5 +135,9 @@ namespace Firebase.CloudMessaging
 		// -(void)populateNotificationContent:(UNMutableNotificationContent * _Nonnull)content withContentHandler:(void (^ _Nonnull)(UNNotificationContent * _Nonnull))contentHandler;
 		[Export ("populateNotificationContent:withContentHandler:")]
 		void PopulateNotificationContent (UNMutableNotificationContent content, Action<UNNotificationContent> contentHandler);
+
+		// - (void)exportDeliveryMetricsToBigQueryWithMessageInfo:(NSDictionary *)info;
+		[Export ("exportDeliveryMetricsToBigQueryWithMessageInfo:")]
+		void ExportDeliveryMetricsToBigQueryWithMessageInfo (NSDictionary info);
 	}
 }
