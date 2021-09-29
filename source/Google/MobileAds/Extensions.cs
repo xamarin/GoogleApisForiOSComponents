@@ -40,6 +40,22 @@ namespace Google.MobileAds
 	[Preserve (AllMembers = true)]
 	public partial class AdSizeCons
 	{
+		// GAD_EXTERN GADAdSize GADPortraitInlineAdaptiveBannerAdSizeWithWidth(CGFloat width);
+		[DllImport ("__Internal", EntryPoint = "GADPortraitInlineAdaptiveBannerAdSizeWithWidth")]
+		public static extern AdSize GetPortraitInlineAdaptiveBannerAdSize (nfloat width);
+		
+		// GAD_EXTERN GADAdSize GADLandscapeInlineAdaptiveBannerAdSizeWithWidth(CGFloat width);
+		[DllImport ("__Internal", EntryPoint = "GADLandscapeInlineAdaptiveBannerAdSizeWithWidth")]
+		public static extern AdSize GetLandscapeInlineAdaptiveBannerAdSize (nfloat width);
+		
+		// GAD_EXTERN GADAdSize GADCurrentOrientationInlineAdaptiveBannerAdSizeWithWidth(CGFloat width);
+		[DllImport ("__Internal", EntryPoint = "GADCurrentOrientationInlineAdaptiveBannerAdSizeWithWidth")]
+		public static extern AdSize GetCurrentOrientationInlineAdaptiveBannerAdSizeh (nfloat width);
+
+		// GAD_EXTERN GADAdSize GADInlineAdaptiveBannerAdSizeWithWidthAndMaxHeight(CGFloat width, CGFloat maxHeight);
+		[DllImport ("__Internal", EntryPoint = "GADInlineAdaptiveBannerAdSizeWithWidthAndMaxHeight")]
+		public static extern AdSize GetInlineAdaptiveBannerAdSizeWithMaxHeight (nfloat width, nfloat maxHeight);
+
 		//GAD_EXTERN GADAdSize GADPortraitAnchoredAdaptiveBannerAdSizeWithWidth (CGFloat width);
 		[DllImport ("__Internal", EntryPoint = "GADPortraitAnchoredAdaptiveBannerAdSizeWithWidth")]
 		public static extern AdSize GetPortraitAnchoredAdaptiveBannerAdSize (nfloat width);
