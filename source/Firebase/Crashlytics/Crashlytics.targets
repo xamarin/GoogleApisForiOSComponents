@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_FirebaseCrashlyticsAssemblyName>Firebase.Crashlytics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseCrashlyticsAssemblyName>
-		<_FirebaseCrashlyticsItemsFolder>FCrshlytcs-8.4.0</_FirebaseCrashlyticsItemsFolder>
+		<_FirebaseCrashlyticsItemsFolder>FCrshlytcs-8.8.0</_FirebaseCrashlyticsItemsFolder>
 		<_FirebaseCrashlyticsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseCrashlyticsItemsFolder)\</_FirebaseCrashlyticsSDKBaseFolder>
 		<!-- Requires a file extension, otherwise XDB will complain  -->
 		<_FirebaseScriptName>upload-symbols.sh</_FirebaseScriptName>
