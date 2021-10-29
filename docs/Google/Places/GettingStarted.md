@@ -36,7 +36,7 @@ To get started using the Google Places API for iOS, follow these steps to get an
 Your new iOS key appears in the list of API keys for your project. An API key is a string of characters, something like this:
 
 ```
-AIzaSyBdVl-cTICSwYKrZ95SuvNw7dbMuDt1KG0
+AaAaAaAaAa-AaAaAaAaAaAaAaAaAaAaAaAaAaAa
 ```
 
 You can also [look up an existing key][3] in the Google API Console.
