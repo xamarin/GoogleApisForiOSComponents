@@ -266,7 +266,7 @@
 				"type": "Pod",
 				"Pod": {
 					"name": "Google-Mobile-Ads-SDK",
-					"Version": "8.11.0"
+					"Version": "8.12.0"
 				}
 			}
 		},

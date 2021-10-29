@@ -14,27 +14,27 @@ namespace Google.MobileAds {
 	[Static]
 	interface AdSizeCons {
 		[Internal]
-		[Field ("kGADAdSizeBanner", "__Internal")]
+		[Field ("GADAdSizeBanner", "__Internal")]
 		IntPtr _Banner { get; }
 
 		[Internal]
-		[Field ("kGADAdSizeLargeBanner", "__Internal")]
+		[Field ("GADAdSizeLargeBanner", "__Internal")]
 		IntPtr _LargeBanner { get; }
 
 		[Internal]
-		[Field ("kGADAdSizeMediumRectangle", "__Internal")]
+		[Field ("GADAdSizeMediumRectangle", "__Internal")]
 		IntPtr _MediumRectangle { get; }
 
 		[Internal]
-		[Field ("kGADAdSizeFullBanner", "__Internal")]
+		[Field ("GADAdSizeFullBanner", "__Internal")]
 		IntPtr _FullBanner { get; }
 
 		[Internal]
-		[Field ("kGADAdSizeLeaderboard", "__Internal")]
+		[Field ("GADAdSizeLeaderboard", "__Internal")]
 		IntPtr _Leaderboard { get; }
 
 		[Internal]
-		[Field ("kGADAdSizeSkyscraper", "__Internal")]
+		[Field ("GADAdSizeSkyscraper", "__Internal")]
 		IntPtr _Skyscraper { get; }
 
 		[Internal]
@@ -46,11 +46,11 @@ namespace Google.MobileAds {
 		IntPtr _SmartBannerLandscape { get; }
 
 		[Internal]
-		[Field ("kGADAdSizeFluid", "__Internal")]
+		[Field ("GADAdSizeFluid", "__Internal")]
 		IntPtr _Fluid { get; }
 
 		[Internal]
-		[Field ("kGADAdSizeInvalid", "__Internal")]
+		[Field ("GADAdSizeInvalid", "__Internal")]
 		IntPtr _Invalid { get; }
 	}
 	#endregion
@@ -369,7 +369,7 @@ namespace Google.MobileAds {
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GADRequest")]
 	interface Request : INSCopying {
-		[Field ("kGADSimulatorID", "__Internal")]
+		[Field ("GADSimulatorID", "__Internal")]
 		NSString SimulatorId { get; }
 
 		[Static]
@@ -2113,7 +2113,7 @@ namespace Google.MobileAds.DoubleClick {
 	[BaseType (typeof (Google.MobileAds.Request), Name = "GAMRequest")]
 	interface Request {
 		[New]
-		[Field ("kGADSimulatorID", "__Internal")]
+		[Field ("GADSimulatorID", "__Internal")]
 		NSString SimulatorId { get; }
 
 		[New]
