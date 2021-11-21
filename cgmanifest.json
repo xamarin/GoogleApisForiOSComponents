@@ -328,6 +328,15 @@
 			"component": {
 				"type": "Pod",
 				"Pod": {
+					"name": "GoogleUtilitiesComponents",
+					"Version": "1.0.0"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "Pod",
+				"Pod": {
 					"name": "gRPC-C++",
 					"Version": "1.28.2"
 				}
@@ -402,6 +411,177 @@
 				"Pod": {
 					"name": "TensorFlowLiteC",
 					"Version": "2.3.0"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "Pod",
+				"Pod": {
+					"name": "MLKitCommon",
+					"Version": "4.0.0"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "Pod",
+				"Pod": {
+					"name": "MLKitVision",
+					"Version": "2.0.0"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "Pod",
+				"Pod": {
+					"name": "MLImage",
+					"Version": "1.0.0-beta2"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "Pod",
+				"Pod": {
+					"name": "MLKitMDD",
+					"Version": "1.2.0"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "Pod",
+				"Pod": {
+					"name": "SSZipArchive",
+					"Version": "2.4.2"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "Pod",
+				"Pod": {
+					"name": "MLKitTextRecognitionCommon",
+					"Version": "1.0.0-beta2"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "Pod",
+				"Pod": {
+					"name": "MLKitTextRecognition",
+					"Version": "1.4.0-beta2"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "Pod",
+				"Pod": {
+					"name": "MLKitTextRecognitionChinese",
+					"Version": "1.4.0-beta2"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "Pod",
+				"Pod": {
+					"name": "MLKitTextRecognitionDevanagari",
+					"Version": "1.4.0-beta2"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "Pod",
+				"Pod": {
+					"name": "MLKitTextRecognitionJapanese",
+					"Version": "1.4.0-beta2"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "Pod",
+				"Pod": {
+					"name": "MLKitTextRecognitionKorean",
+					"Version": "1.4.0-beta2"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "Pod",
+				"Pod": {
+					"name": "MLKitFaceScanning",
+					"Version": "1.0.0"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "Pod",
+				"Pod": {
+					"name": "MLKitBarcodeScanning",
+					"Version": "1.5.0"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "Pod",
+				"Pod": {
+					"name": "MLKitDigitalInkRecognition",
+					"Version": "1.4.0"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "Pod",
+				"Pod": {
+					"name": "MLKitVisionKit",
+					"Version": "3.0.0"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "Pod",
+				"Pod": {
+					"name": "MLKitImageLabelingCommon",
+					"Version": "2.0.0"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "Pod",
+				"Pod": {
+					"name": "MLKitObjectDetectionCommon",
+					"Version": "2.0.0"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "Pod",
+				"Pod": {
+					"name": "MLKitImageLabeling",
+					"Version": "1.4.0"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "Pod",
+				"Pod": {
+					"name": "MLKitObjectDetection",
+					"Version": "1.4.0"
 				}
 			}
 		}

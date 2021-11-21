@@ -28,6 +28,21 @@ Artifact GOOGLE_PLACES_ARTIFACT       = new Artifact ("Google.Places",          
 Artifact GOOGLE_SIGN_IN_ARTIFACT      = new Artifact ("Google.SignIn",                "5.0.2.2",  "10.0", ComponentGroup.Google, csprojName: "SignIn");
 Artifact GOOGLE_TAG_MANAGER_ARTIFACT  = new Artifact ("Google.TagManager",            "7.4.0.0",  "10.0", ComponentGroup.Google, csprojName: "TagManager");
 
+// MLKit artifacts available to be built. These artifacts generate NuGets.
+Artifact MLKIT_CORE_ARTIFACT                     = new Artifact ("MLKit.Core",                        "4.0.0",   "10.0", ComponentGroup.MLKit, csprojName: "Core");
+Artifact MLKIT_TEXT_RECOGNITION                  = new Artifact ("MLKit.TextRecognition",             "1.0.0",   "10.0", ComponentGroup.MLKit, csprojName: "TextRecognition");
+Artifact MLKIT_VISION_KIT                        = new Artifact ("MLKit.VisionKit",                   "3.0.0",   "10.0", ComponentGroup.MLKit, csprojName: "VisionKit");
+Artifact MLKIT_TEXT_RECOGNITION_LATIN            = new Artifact ("MLKit.TextRecognition.Latin",       "1.4.0",   "10.0", ComponentGroup.MLKit, csprojName: "TextRecognitionLatin");
+Artifact MLKIT_TEXT_RECOGNITION_CHINESE          = new Artifact ("MLKit.TextRecognition.Chinese",     "1.4.0",   "10.0", ComponentGroup.MLKit, csprojName: "TextRecognitionChinese");
+Artifact MLKIT_TEXT_RECOGNITION_DEVANAGARI       = new Artifact ("MLKit.TextRecognition.Devanagari",  "1.4.0",   "10.0", ComponentGroup.MLKit, csprojName: "TextRecognitionDevanagari");
+Artifact MLKIT_TEXT_RECOGNITION_JAPANESE         = new Artifact ("MLKit.TextRecognition.Japanese",    "1.4.0",   "10.0", ComponentGroup.MLKit, csprojName: "TextRecognitionJapanese");
+Artifact MLKIT_TEXT_RECOGNITION_KOREAN           = new Artifact ("MLKit.TextRecognition.Korean",      "1.4.0",   "10.0", ComponentGroup.MLKit, csprojName: "TextRecognitionKorean");
+Artifact MLKIT_FACE_DETECTION                    = new Artifact ("MLKit.FaceDetection",               "1.0.0",   "10.0", ComponentGroup.MLKit, csprojName: "FaceDetection");
+Artifact MLKIT_BARCODE_SCANNING                  = new Artifact ("MLKit.BarcodeScanning",             "1.5.0",   "10.0", ComponentGroup.MLKit, csprojName: "BarcodeScanning");
+Artifact MLKIT_DIGITAL_INK_RECOGNITION           = new Artifact ("MLKit.DigitalInkRecognition",       "1.4.0",   "10.0", ComponentGroup.MLKit, csprojName: "DigitalInkRecognition");
+Artifact MLKIT_IMAGE_LABELING                    = new Artifact ("MLKit.ImageLabeling",               "1.4.0",   "10.0", ComponentGroup.MLKit, csprojName: "ImageLabeling");
+Artifact MLKIT_OBJECT_DETECTION                  = new Artifact ("MLKit.ObjectDetection",             "1.4.0",   "10.0", ComponentGroup.MLKit, csprojName: "ObjectDetection");
+
 var ARTIFACTS = new Dictionary<string, Artifact> {
 	{ "Firebase.ABTesting",              FIREBASE_AB_TESTING_ARTIFACT },
 	{ "Firebase.AdMob",                  FIREBASE_AD_MOB_ARTIFACT },
@@ -56,6 +71,19 @@ var ARTIFACTS = new Dictionary<string, Artifact> {
 	{ "Google.Places",                GOOGLE_PLACES_ARTIFACT },
 	{ "Google.SignIn",                GOOGLE_SIGN_IN_ARTIFACT },
 	{ "Google.TagManager",            GOOGLE_TAG_MANAGER_ARTIFACT },
+
+	{ "MLKit.Core",                       MLKIT_CORE_ARTIFACT },
+	{ "MLKit.TextRecognition",            MLKIT_TEXT_RECOGNITION },
+	{ "MLKit.VisionKit",                  MLKIT_VISION_KIT },
+	{ "MLKit.TextRecognition.Latin",      MLKIT_TEXT_RECOGNITION_LATIN },
+	{ "MLKit.TextRecognition.Chinese",    MLKIT_TEXT_RECOGNITION_CHINESE },
+	{ "MLKit.TextRecognition.Devanagari", MLKIT_TEXT_RECOGNITION_DEVANAGARI },
+	{ "MLKit.TextRecognition.Japanese",   MLKIT_TEXT_RECOGNITION_JAPANESE },
+	{ "MLKit.TextRecognition.Korean",     MLKIT_TEXT_RECOGNITION_KOREAN },
+	{ "MLKit.FaceDetection",              MLKIT_FACE_DETECTION },
+	{ "MLKit.BarcodeScanning",            MLKIT_BARCODE_SCANNING },
+	{ "MLKit.ImageLabeling",              MLKIT_IMAGE_LABELING },
+	{ "MLKit.ObjectDetection",            MLKIT_OBJECT_DETECTION },
 };
 
 void SetArtifactsDependencies ()
@@ -87,6 +115,20 @@ void SetArtifactsDependencies ()
 	GOOGLE_PLACES_ARTIFACT.Dependencies       = new [] { GOOGLE_MAPS_ARTIFACT };
 	GOOGLE_SIGN_IN_ARTIFACT.Dependencies      = new [] { FIREBASE_CORE_ARTIFACT };
 	GOOGLE_TAG_MANAGER_ARTIFACT.Dependencies  = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_ANALYTICS_ARTIFACT };
+
+	MLKIT_CORE_ARTIFACT.Dependencies                      = new [] { FIREBASE_CORE_ARTIFACT };
+	MLKIT_TEXT_RECOGNITION.Dependencies                   = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT };
+	MLKIT_VISION_KIT.Dependencies                         = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT };
+	MLKIT_TEXT_RECOGNITION_LATIN.Dependencies             = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT, MLKIT_TEXT_RECOGNITION };
+	MLKIT_TEXT_RECOGNITION_CHINESE.Dependencies           = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT, MLKIT_TEXT_RECOGNITION };
+	MLKIT_TEXT_RECOGNITION_DEVANAGARI.Dependencies        = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT, MLKIT_TEXT_RECOGNITION };
+	MLKIT_TEXT_RECOGNITION_JAPANESE.Dependencies          = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT, MLKIT_TEXT_RECOGNITION };
+	MLKIT_TEXT_RECOGNITION_KOREAN.Dependencies            = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT, MLKIT_TEXT_RECOGNITION };
+	MLKIT_FACE_DETECTION.Dependencies                     = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT };
+	MLKIT_BARCODE_SCANNING.Dependencies                   = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT };
+	MLKIT_DIGITAL_INK_RECOGNITION.Dependencies            = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT };
+	MLKIT_IMAGE_LABELING.Dependencies                     = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT, MLKIT_VISION_KIT };
+	MLKIT_OBJECT_DETECTION.Dependencies                   = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT, MLKIT_VISION_KIT };
 }
 
 void SetArtifactsPodSpecs ()
@@ -118,18 +160,19 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("Firebase", "8.8.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseMessaging", targetName: "FirebaseMessaging", subSpecs: new [] { "Messaging" })		
 	};
 	FIREBASE_CORE_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase",                "8.8.0",     frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCore", targetName: "FirebaseCore", subSpecs: new [] { "CoreOnly" }),		
-		PodSpec.Create ("FirebaseCoreDiagnostics", "8.8.0",     frameworkSource: FrameworkSource.Pods),
-		PodSpec.Create ("GTMSessionFetcher",       "1.7.0",     frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Full" }),
-		PodSpec.Create ("GoogleAPIClientForREST",  "1.6.0",     frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Vision" }, useDefaultSubspecs: true),
-		PodSpec.Create ("GoogleAppMeasurement",    "8.8.0"),
-		PodSpec.Create ("GoogleDataTransport",     "9.1.0",     frameworkSource: FrameworkSource.Pods),
-		PodSpec.Create ("PromisesObjC",            "2.0.0",     frameworkSource: FrameworkSource.Pods, frameworkName: "FBLPromises", targetName: "PromisesObjC"),
-		PodSpec.Create ("GoogleToolboxForMac",     "2.3.2",     frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "NSData+zlib", "NSDictionary+URLArguments", "Logger", "StringEncoding", "URLBuilder" }),
-		PodSpec.Create ("GoogleUtilities",         "7.5.2",     frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "AppDelegateSwizzler", "Environment", "Logger", "ISASwizzler", "MethodSwizzler", "Network", "NSData+zlib", "Reachability", "UserDefaults", }),
-		PodSpec.Create ("nanopb",                  "2.30908.0", frameworkSource: FrameworkSource.Pods),
-		PodSpec.Create ("leveldb-library",         "1.22.1",    frameworkSource: FrameworkSource.Pods, frameworkName: "leveldb"),
-		PodSpec.Create ("Protobuf",                "3.15.8",    frameworkSource: FrameworkSource.Pods, frameworkName: "Protobuf")
+		PodSpec.Create ("Firebase",                  "8.8.0",     frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCore", targetName: "FirebaseCore", subSpecs: new [] { "CoreOnly" }),		
+		PodSpec.Create ("FirebaseCoreDiagnostics",   "8.8.0",     frameworkSource: FrameworkSource.Pods),
+		PodSpec.Create ("GTMSessionFetcher",         "1.7.0",     frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Full" }),
+		PodSpec.Create ("GoogleAPIClientForREST",    "1.6.0",     frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Vision" }, useDefaultSubspecs: true),
+		PodSpec.Create ("GoogleAppMeasurement",      "8.8.0"),
+		PodSpec.Create ("GoogleDataTransport",       "9.1.0",     frameworkSource: FrameworkSource.Pods),
+		PodSpec.Create ("PromisesObjC",              "2.0.0",     frameworkSource: FrameworkSource.Pods, frameworkName: "FBLPromises", targetName: "PromisesObjC"),
+		PodSpec.Create ("GoogleToolboxForMac",       "2.3.2",     frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "NSData+zlib", "NSDictionary+URLArguments", "Logger", "StringEncoding", "URLBuilder" }),
+		PodSpec.Create ("GoogleUtilities",           "7.5.2",     frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "AppDelegateSwizzler", "Environment", "Logger", "ISASwizzler", "MethodSwizzler", "Network", "NSData+zlib", "Reachability", "UserDefaults", }),
+		PodSpec.Create ("GoogleUtilitiesComponents", "1.0.0",     frameworkSource: FrameworkSource.Pods),
+		PodSpec.Create ("nanopb",                    "2.30908.0", frameworkSource: FrameworkSource.Pods),
+		PodSpec.Create ("leveldb-library",           "1.22.1",    frameworkSource: FrameworkSource.Pods, frameworkName: "leveldb"),
+		PodSpec.Create ("Protobuf",                  "3.15.8",    frameworkSource: FrameworkSource.Pods, frameworkName: "Protobuf")
 	};
 	FIREBASE_CRASHLYTICS_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Firebase", "8.8.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCrashlytics", targetName: "FirebaseCrashlytics", subSpecs: new [] { "Crashlytics" })
@@ -188,6 +231,51 @@ void SetArtifactsPodSpecs ()
 	};
 	GOOGLE_TAG_MANAGER_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("GoogleTagManager", "7.4.0")
+	};
+
+	// MLKit components
+	MLKIT_CORE_ARTIFACT.PodSpecs = new [] { 
+		PodSpec.Create ("MLKitCore",                       "4.0.0"),
+		PodSpec.Create ("MLKitVision",                     "2.0.0"),
+		PodSpec.Create ("MLImage",                         "1.0.0-beta2"),
+		PodSpec.Create ("MLKitMDD",                        "1.2.0"),
+		PodSpec.Create ("SSZipArchive",                    "2.4.2",       frameworkSource: FrameworkSource.Pods),
+	};
+	MLKIT_TEXT_RECOGNITION.PodSpecs = new [] { 
+		PodSpec.Create ("MLKitTextRecognitionCommon",      "1.0.0")
+	};
+	MLKIT_VISION_KIT.PodSpecs = new [] { 
+		PodSpec.Create ("MLKitVisionKit",                  "3.0.0")
+	};
+	MLKIT_TEXT_RECOGNITION_LATIN.PodSpecs = new [] { 
+		PodSpec.Create ("MLKitTextRecognition",            "1.4.0")
+	};
+	MLKIT_TEXT_RECOGNITION_CHINESE.PodSpecs = new [] { 
+		PodSpec.Create ("MLKitTextRecognitionChinese",     "1.4.0")
+	};
+	MLKIT_TEXT_RECOGNITION_DEVANAGARI.PodSpecs = new [] { 
+		PodSpec.Create ("MLKitTextRecognitionDevanagari",  "1.4.0")
+	};
+	MLKIT_TEXT_RECOGNITION_JAPANESE.PodSpecs = new [] { 
+		PodSpec.Create ("MLKitTextRecognitionJapanese",    "1.0.0")
+	};
+	MLKIT_TEXT_RECOGNITION_KOREAN.PodSpecs = new [] { 
+		PodSpec.Create ("MLKitTextRecognitionKorean",      "1.0.0")
+	};
+	MLKIT_FACE_DETECTION.PodSpecs = new [] { 
+		PodSpec.Create ("MLKitFaceDetection",              "1.0.0")
+	};
+	MLKIT_BARCODE_SCANNING.PodSpecs = new [] { 
+		PodSpec.Create ("MLKitBarcodeScanning",            "1.5.0")
+	};
+	MLKIT_DIGITAL_INK_RECOGNITION.PodSpecs = new [] { 
+		PodSpec.Create ("MLKitDigitalInkRecognition",      "1.4.0")
+	};
+	MLKIT_IMAGE_LABELING.PodSpecs = new [] { 
+		PodSpec.Create ("MLKitImageLabeling",              "1.4.0")
+	};
+	MLKIT_OBJECT_DETECTION.PodSpecs = new [] { 
+		PodSpec.Create ("MLKitObjectDetection",            "1.4.0")
 	};
 }
 
@@ -276,10 +364,13 @@ void SetArtifactsSamples ()
 
 	// Google components
 	GOOGLE_ANALYTICS_ARTIFACT.Samples                 = new [] { "CuteAnimalsiOS" };
-	GOOGLE_CAST_ARTIFACT.Samples                      = new [] { "CastSample" };
+	GOOGLE_CAST_ARTIFACT.Samples                                                 = new [] { "CastSample" };
 	GOOGLE_MAPS_ARTIFACT.Samples                      = new [] { "GoogleMapsAdvSample", "GoogleMapsSample" };
 	GOOGLE_MOBILE_ADS_ARTIFACT.Samples                = new [] { "MobileAdsExample" };
 	GOOGLE_PLACES_ARTIFACT.Samples                    = new [] { "GooglePlacesSample" };
 	GOOGLE_SIGN_IN_ARTIFACT.Samples                   = new [] { "SignInExample" };
 	GOOGLE_TAG_MANAGER_ARTIFACT.Samples               = new [] { "TagManagerSample" };
+
+	// MLKit
+	MLKIT_VISION_KIT.Samples                          = new [] { "MLKitVisionSample" };
 }

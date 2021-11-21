@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<_MLKitTextRecogCoreAssemblyName>MLKit.TextRecognition, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_MLKitTextRecogCoreAssemblyName>
+		<_MLKitTextItemsFolder>MLKText-1.0.0beta2</_MLKitTextItemsFolder>
+		<_MLKitTextSDKBaseFolder>$(XamarinBuildDownloadDir)$(_MLKitTextItemsFolder)\</_MLKitTextSDKBaseFolder>
+	</PropertyGroup>
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+		<XamarinBuildDownload Include="$(_MLKitTextItemsFolder)">
+			<Url>https://dl.google.com/dl/cpdc/593d1d80b6447ad5/MLKitTextRecognitionCommon-1.0.0-beta2.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildRestoreResources Include="_MLKitTextDownloadedItems" />
+	</ItemGroup>
+	<Target Name="_MLKitTextDownloadedItems">
+		<ItemGroup>
+			<!-- From https://dl.google.com/dl/cpdc/593d1d80b6447ad5/MLKitTextRecognitionCommon-1.0.0-beta2.tar.gz -->
+			<NativeReference Include="$(_MLKitTextSDKBaseFolder)Frameworks\MLKitTextRecognitionCommon.framework">
+				<Kind>Framework</Kind>
+				<SmartLink>True</SmartLink>
+				<ForceLoad>True</ForceLoad>
+				<LinkerFlags>-lc++</LinkerFlags>
+				<Frameworks>Accelerate AVFoundation CoreGraphics CoreImage CoreMedia CoreVideo Foundation UIKit</Frameworks>
+			</NativeReference>
+		</ItemGroup>
+	</Target>
+</Project>
