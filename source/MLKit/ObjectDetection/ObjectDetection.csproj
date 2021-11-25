@@ -61,7 +61,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" PrivateAssets="None" />
-    <ProjectReference Include="..\VisionKit\VisionKit.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\Vision\Vision.csproj" PrivateAssets="None" />
   </ItemGroup>
   
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />

@@ -13,7 +13,7 @@ using MLKit.FaceDetection;
 using MLKit.TextRecognition;
 using MLKit.DigitalInkRecognition;
 using MLKit.ImageLabeling;
-using MLKit.VisionKit;
+using MLKit.Vision;
 using MLKit.ObjectDetection;
 
 namespace MLKitVisionSample {

@@ -183,9 +183,9 @@
 		<ProjectReference Include="..\..\..\..\source\MLKit\DigitalInkRecognition\DigitalInkRecognition.csproj">
 			<Name>DigitalInkRecognition</Name>
 		</ProjectReference>
-		<ProjectReference Include="..\..\..\..\source\MLKit\VisionKit\VisionKit.csproj">
+		<ProjectReference Include="..\..\..\..\source\MLKit\Vision\Vision.csproj">
 			<Project>{AB6D62E6-8B42-401A-9E9E-E963EA0AE176}</Project>
-			<Name>VisionKit</Name>
+			<Name>Vision</Name>
 		</ProjectReference>
 		<ProjectReference Include="..\..\..\..\source\MLKit\ObjectDetection\ObjectDetection.csproj">
 			<Project>{847E4CEC-590D-4209-954B-0DBCB727DF64}</Project>
@@ -207,7 +207,7 @@
 	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\TextRecognitionDevanagari\TextRecognitionDevanagari.targets" />
 	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\TextRecognitionJapanese\TextRecognitionJapanese.targets" />
 	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\TextRecognitionKorean\TextRecognitionKorean.targets" />
-	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\VisionKit\VisionKit.targets" />
+	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\Vision\Vision.targets" />
 	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\ObjectDetection\ObjectDetection.targets" />
 	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\ImageLabeling\ImageLabeling.targets" />
 	<Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

@@ -53,7 +53,7 @@ public Dictionary<string, GoogleBase> CreateComponents ()
 
 	googleComponents ["MLKit.Core"] = GetComponent<MLKit.Core> ();
 	googleComponents ["MLKit.TextRecognition"] = GetComponent<MLKit.TextRecognition> ();
-	googleComponents ["MLKit.VisionKit"] = GetComponent<MLKit.VisionKit> ();
+	googleComponents ["MLKit.Vision"] = GetComponent<MLKit.Vision> ();
 	googleComponents ["MLKit.TextRecognition.Latin"] = GetComponent<MLKit.TextRecognition.Latin> ();
 	googleComponents ["MLKit.TextRecognition.Chinese"] = GetComponent<MLKit.TextRecognition.Chinese> ();
 	googleComponents ["MLKit.TextRecognition.Devanagari"] = GetComponent<MLKit.TextRecognition.Devanagari> ();

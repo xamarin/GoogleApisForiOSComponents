@@ -147,6 +147,21 @@ Google.UserMessagingPlatform
 Google.Places
 Google.SignIn
 Google.TagManager
+
+// MLKit keys
+MLKit.BarcodeScanning
+MLKit.Core
+MLKit.DigitalInkRecognition
+MLKit.FaceDetection
+MLKit.ImageLabeling
+MLKit.ObjectDetection
+MLKit.TextRecognition
+MLKit.TextRecognition.Chinese
+MLKit.TextRecognition.Devanagari
+MLKit.TextRecognition.Japanese
+MLKit.TextRecognition.Korean
+MLKit.TextRecognition.Latin
+MLKit.Vision
 ```
 
 The following targets can be specified using the `--target=<target-name>`:
@@ -243,6 +258,21 @@ This project is part of the [.NET Foundation][104]
 [G.SignIn.Package]: https://www.nuget.org/packages/Xamarin.Google.iOS.SignIn/
 [G.TagManager.Package]: https://www.nuget.org/packages/Xamarin.Google.iOS.TagManager/
 
+[comment]: # (Path for active MLKit component folders)
+
+[MLK.BarcodeScanning]: source/MLKit/BarcodeScanning
+[MLK.Core]: source/MLKit/Core
+[MLK.DigitalInkRecognition]: source/MLKit/DigitalInkRecognition
+[MLK.FaceDetection]: source/MLKit/FaceDetection
+[MLK.ImageLabeling]: source/MLKit/ImageLabeling
+[MLK.ObjectDetection]: source/MLKit/ObjectDetection
+[MLK.TextRecognition]: source/MLKit/TextRecognition
+[MLK.TextRecognition.Chinese]: source/MLKit/TextRecognitionChinese
+[MLK.TextRecognition.Devanagari]: source/MLKit/TextRecognitionDevanagari
+[MLK.TextRecognition.Japanese]: source/MLKit/TextRecognitionJapanese
+[MLK.TextRecognition.Korean]: source/MLKit/TextRecognitionKorean
+[MLK.TextRecognition.Latin]: source/MLKit/TextRecognitionLatin
+[MLK.Vision]: source/MLKit/Vision
 
 [comment]: # (Path for deprecated Firebase component folders)
 

@@ -7,7 +7,7 @@ using ObjCRuntime;
 
 using MLKit.Core;
 
-namespace MLKit.VisionKit {
+namespace MLKit.Vision {
 	// @interface MLKCommonImageLabelerOptions : NSObject
 	[BaseType (typeof (NSObject), Name = "MLKCommonImageLabelerOptions")]
 	[DisableDefaultCtor]

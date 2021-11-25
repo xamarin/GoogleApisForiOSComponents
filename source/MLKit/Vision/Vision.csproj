@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
     <IsBindingProject>true</IsBindingProject>
-    <RootNamespace>MLKit.VisionKit</RootNamespace>
-    <AssemblyName>MLKit.VisionKit</AssemblyName>
+    <RootNamespace>MLKit.Vision</RootNamespace>
+    <AssemblyName>MLKit.Vision</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>3.0.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
@@ -12,10 +12,10 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>Xamarin.MLKit.iOS.VisionKit</PackageId>
-    <Title>MLKit APIs Vision Kit iOS Library</Title>
-    <Summary>C# bindings for MLKit APIs Vision Kit iOS Library</Summary>
-    <Description>C# bindings for MLKit APIs Vision Kit iOS Library</Description>
+    <PackageId>Xamarin.MLKit.iOS.Vision</PackageId>
+    <Title>MLKit APIs Vision iOS Library</Title>
+    <Summary>C# bindings for MLKit APIs Vision iOS Library</Summary>
+    <Description>C# bindings for MLKit APIs Vision iOS Library</Description>
     <Authors>Microsoft</Authors>
     <Owners>Microsoft</Owners>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
@@ -35,8 +35,8 @@
   </ItemGroup>
   
   <ItemGroup>
-    <None Include="VisionKit.targets" Pack="True" PackagePath="build/Xamarin.MLKit.iOS.VisionKit.targets" />
-    <None Include="VisionKit.targets" Pack="True" PackagePath="buildTransitive/Xamarin.MLKit.iOS.VisionKit.targets" />
+    <None Include="Vision.targets" Pack="True" PackagePath="build/Xamarin.MLKit.iOS.Vision.targets" />
+    <None Include="Vision.targets" Pack="True" PackagePath="buildTransitive/Xamarin.MLKit.iOS.Vision.targets" />
     <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseiosmlkitvision_128x128.png" Pack="True" PackagePath="firebaseiosmlkitvision_128x128.png" />

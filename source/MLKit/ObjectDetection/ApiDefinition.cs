@@ -6,7 +6,7 @@ using CoreGraphics;
 using ObjCRuntime;
 
 using MLKit.Core;
-using MLKit.VisionKit;
+using MLKit.Vision;
 
 namespace MLKit.ObjectDetection {
 	[Static]

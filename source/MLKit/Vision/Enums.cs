@@ -1,7 +1,7 @@
 ﻿using System;
 using ObjCRuntime;
 
-namespace MLKit.VisionKit {
+namespace MLKit.Vision {
 	[Native]
 	public enum DetectorMode : long {
 		SingleImage = 0,

@@ -31,7 +31,7 @@ Artifact GOOGLE_TAG_MANAGER_ARTIFACT  = new Artifact ("Google.TagManager",      
 // MLKit artifacts available to be built. These artifacts generate NuGets.
 Artifact MLKIT_CORE_ARTIFACT                     = new Artifact ("MLKit.Core",                        "4.0.0",   "10.0", ComponentGroup.MLKit, csprojName: "Core");
 Artifact MLKIT_TEXT_RECOGNITION                  = new Artifact ("MLKit.TextRecognition",             "1.0.0",   "10.0", ComponentGroup.MLKit, csprojName: "TextRecognition");
-Artifact MLKIT_VISION_KIT                        = new Artifact ("MLKit.VisionKit",                   "3.0.0",   "10.0", ComponentGroup.MLKit, csprojName: "VisionKit");
+Artifact MLKIT_VISION                            = new Artifact ("MLKit.Vision",                      "3.0.0",   "10.0", ComponentGroup.MLKit, csprojName: "Vision");
 Artifact MLKIT_TEXT_RECOGNITION_LATIN            = new Artifact ("MLKit.TextRecognition.Latin",       "1.4.0",   "10.0", ComponentGroup.MLKit, csprojName: "TextRecognitionLatin");
 Artifact MLKIT_TEXT_RECOGNITION_CHINESE          = new Artifact ("MLKit.TextRecognition.Chinese",     "1.4.0",   "10.0", ComponentGroup.MLKit, csprojName: "TextRecognitionChinese");
 Artifact MLKIT_TEXT_RECOGNITION_DEVANAGARI       = new Artifact ("MLKit.TextRecognition.Devanagari",  "1.4.0",   "10.0", ComponentGroup.MLKit, csprojName: "TextRecognitionDevanagari");
@@ -74,7 +74,7 @@ var ARTIFACTS = new Dictionary<string, Artifact> {
 
 	{ "MLKit.Core",                       MLKIT_CORE_ARTIFACT },
 	{ "MLKit.TextRecognition",            MLKIT_TEXT_RECOGNITION },
-	{ "MLKit.VisionKit",                  MLKIT_VISION_KIT },
+	{ "MLKit.Vision",                     MLKIT_VISION },
 	{ "MLKit.TextRecognition.Latin",      MLKIT_TEXT_RECOGNITION_LATIN },
 	{ "MLKit.TextRecognition.Chinese",    MLKIT_TEXT_RECOGNITION_CHINESE },
 	{ "MLKit.TextRecognition.Devanagari", MLKIT_TEXT_RECOGNITION_DEVANAGARI },
@@ -116,19 +116,19 @@ void SetArtifactsDependencies ()
 	GOOGLE_SIGN_IN_ARTIFACT.Dependencies      = new [] { FIREBASE_CORE_ARTIFACT };
 	GOOGLE_TAG_MANAGER_ARTIFACT.Dependencies  = new [] { FIREBASE_CORE_ARTIFACT, FIREBASE_INSTALLATIONS_ARTIFACT, FIREBASE_ANALYTICS_ARTIFACT };
 
-	MLKIT_CORE_ARTIFACT.Dependencies                      = new [] { FIREBASE_CORE_ARTIFACT };
-	MLKIT_TEXT_RECOGNITION.Dependencies                   = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT };
-	MLKIT_VISION_KIT.Dependencies                         = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT };
-	MLKIT_TEXT_RECOGNITION_LATIN.Dependencies             = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT, MLKIT_TEXT_RECOGNITION };
-	MLKIT_TEXT_RECOGNITION_CHINESE.Dependencies           = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT, MLKIT_TEXT_RECOGNITION };
-	MLKIT_TEXT_RECOGNITION_DEVANAGARI.Dependencies        = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT, MLKIT_TEXT_RECOGNITION };
-	MLKIT_TEXT_RECOGNITION_JAPANESE.Dependencies          = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT, MLKIT_TEXT_RECOGNITION };
-	MLKIT_TEXT_RECOGNITION_KOREAN.Dependencies            = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT, MLKIT_TEXT_RECOGNITION };
-	MLKIT_FACE_DETECTION.Dependencies                     = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT };
-	MLKIT_BARCODE_SCANNING.Dependencies                   = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT };
-	MLKIT_DIGITAL_INK_RECOGNITION.Dependencies            = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT };
-	MLKIT_IMAGE_LABELING.Dependencies                     = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT, MLKIT_VISION_KIT };
-	MLKIT_OBJECT_DETECTION.Dependencies                   = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT, MLKIT_VISION_KIT };
+	MLKIT_CORE_ARTIFACT.Dependencies                = new [] { FIREBASE_CORE_ARTIFACT };
+	MLKIT_TEXT_RECOGNITION.Dependencies             = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT };
+	MLKIT_VISION.Dependencies                       = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT };
+	MLKIT_TEXT_RECOGNITION_LATIN.Dependencies       = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT, MLKIT_TEXT_RECOGNITION };
+	MLKIT_TEXT_RECOGNITION_CHINESE.Dependencies     = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT, MLKIT_TEXT_RECOGNITION };
+	MLKIT_TEXT_RECOGNITION_DEVANAGARI.Dependencies  = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT, MLKIT_TEXT_RECOGNITION };
+	MLKIT_TEXT_RECOGNITION_JAPANESE.Dependencies    = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT, MLKIT_TEXT_RECOGNITION };
+	MLKIT_TEXT_RECOGNITION_KOREAN.Dependencies      = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT, MLKIT_TEXT_RECOGNITION };
+	MLKIT_FACE_DETECTION.Dependencies               = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT };
+	MLKIT_BARCODE_SCANNING.Dependencies             = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT };
+	MLKIT_DIGITAL_INK_RECOGNITION.Dependencies      = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT };
+	MLKIT_IMAGE_LABELING.Dependencies               = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT, MLKIT_VISION };
+	MLKIT_OBJECT_DETECTION.Dependencies             = new [] { FIREBASE_CORE_ARTIFACT, MLKIT_CORE_ARTIFACT, MLKIT_VISION };
 }
 
 void SetArtifactsPodSpecs ()
@@ -147,7 +147,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("Firebase", "8.9.1", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseAuth", targetName: "FirebaseAuth", subSpecs: new [] { "Auth" })
 	};
 	FIREBASE_CLOUD_FIRESTORE_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase",        "8.9.1",       frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseFirestore", targetName: "FirebaseFirestore", subSpecs: new [] { "Firestore" }),
+		PodSpec.Create ("Firebase",        "8.9.1",        frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseFirestore", targetName: "FirebaseFirestore", subSpecs: new [] { "Firestore" }),
 		PodSpec.Create ("BoringSSL-GRPC",  "0.0.7",        frameworkSource: FrameworkSource.Pods, frameworkName: "openssl_grpc"),
 		PodSpec.Create ("gRPC-Core",       "1.28.2",       frameworkSource: FrameworkSource.Pods, frameworkName: "grpc"),
 		PodSpec.Create ("gRPC-C++",        "1.28.2",       frameworkSource: FrameworkSource.Pods, frameworkName: "grpcpp"),
@@ -244,8 +244,8 @@ void SetArtifactsPodSpecs ()
 	MLKIT_TEXT_RECOGNITION.PodSpecs = new [] { 
 		PodSpec.Create ("MLKitTextRecognitionCommon",      "1.0.0")
 	};
-	MLKIT_VISION_KIT.PodSpecs = new [] { 
-		PodSpec.Create ("MLKitVisionKit",                  "3.0.0")
+	MLKIT_VISION.PodSpecs = new [] { 
+		PodSpec.Create ("MLKitVision",                     "3.0.0")
 	};
 	MLKIT_TEXT_RECOGNITION_LATIN.PodSpecs = new [] { 
 		PodSpec.Create ("MLKitTextRecognition",            "1.4.0")
@@ -372,5 +372,5 @@ void SetArtifactsSamples ()
 	GOOGLE_TAG_MANAGER_ARTIFACT.Samples               = new [] { "TagManagerSample" };
 
 	// MLKit
-	MLKIT_VISION_KIT.Samples                          = new [] { "MLKitVisionSample" };
+	MLKIT_VISION.Samples                          = new [] { "MLKitVisionSample" };
 }

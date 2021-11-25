@@ -138,7 +138,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceDetection", "source\MLK
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalInkRecognition", "source\MLKit\DigitalInkRecognition\DigitalInkRecognition.csproj", "{2723A591-AD5B-40B2-8D04-262CEBB20B33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisionKit", "source\MLKit\VisionKit\VisionKit.csproj", "{AB6D62E6-8B42-401A-9E9E-E963EA0AE176}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vision", "source\MLKit\Vision\Vision.csproj", "{AB6D62E6-8B42-401A-9E9E-E963EA0AE176}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageLabeling", "source\MLKit\ImageLabeling\ImageLabeling.csproj", "{AE0A53F7-D079-4363-8B96-6A5C86DA5FA6}"
 EndProject

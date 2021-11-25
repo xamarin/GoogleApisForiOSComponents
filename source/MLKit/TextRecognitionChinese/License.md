@@ -1,8 +1,8 @@
 **Xamarin is not responsible for, nor does it grant any licenses to, third-party packages. Some packages may require or install dependencies which are governed by additional licenses.**
 
-Note: This component depends on [MLKit Core for iOS](https://developers.google.com/ml-kit/guides), which is subject to the [Terms of Service for Firebase Services](https://developers.google.com/ml-kit/terms).
+Note: This component depends on [MLKit Text Recognition Chinese for iOS](https://developers.google.com/ml-kit/guides), which is subject to the [Terms of Service for MLKit](https://developers.google.com/ml-kit/terms).
 
-### Xamarin Component for MLKit Core for iOS
+### Xamarin Component for MLKit Text Recognition Chinese for iOS
 
 **The MIT License (MIT)**
 
