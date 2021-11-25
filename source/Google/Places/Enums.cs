@@ -85,6 +85,8 @@ namespace Google.Places {
 		UserRatingsTotal = 1 << 14,
 		UtcOffsetMinutes = 1 << 15,
 		BusinessStatus = 1 << 16,
+		IconImageUrl = 1 << 17,
+		IconBackgroundColor = 1 << 18,
 		All = ulong.MaxValue
 	}
 

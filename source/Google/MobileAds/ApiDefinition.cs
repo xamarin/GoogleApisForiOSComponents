@@ -458,9 +458,9 @@ namespace Google.MobileAds {
 		[Export ("responseIdentifier")]
 		string AdNetworkClassName { get; }
 
-		// @property(nonatomic, readonly, nonnull) NSDictionary<NSString *, id> *credentials;       
-		[Export ("credentials")]
-		NSDictionary<NSString, NSObject> Credentials { get; }
+		// @property(nonatomic, readonly, nonnull) NSDictionary<NSString *, id> *adUnitMapping;       
+		[Export ("adUnitMapping")]
+		NSDictionary<NSString, NSObject> AdUnitMapping { get; }
 
 		// @property(nonatomic, readonly, nullable) NSError *error;
 		[NullAllowed]
@@ -474,6 +474,11 @@ namespace Google.MobileAds {
 		// @property(nonatomic, readonly, nonnull) NSDictionary<NSString *, id> *dictionaryRepresentation;
 		[Export ("dictionaryRepresentation")]
 		NSDictionary<NSString, NSObject> DictionaryRepresentation { get; }
+
+		// @property(nonatomic, readonly, nonnull) NSDictionary<NSString *, id> *credentials;       
+		[Obsolete ("Use adUnitMapping instead")]
+		[Export ("credentials")]
+		NSDictionary<NSString, NSObject> Credentials { get; }
 	}
 
 	// @interface GADResponseInfo : NSObject

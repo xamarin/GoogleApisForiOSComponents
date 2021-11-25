@@ -586,6 +586,14 @@ namespace Google.Places {
 		// -(GMSPlaceOpenStatus)isOpen;
 		[Export ("isOpen")]
 		PlaceOpenStatus IsOpen ();
+
+		// @property(nonatomic, readonly, nullable) UIColor *iconBackgroundColor;
+		[Export ("iconBackgroundColor")]
+		UIColor IconBackgroundColor { get; }
+
+		// @property(nonatomic, readonly, nullable) NSURL *iconImageURL;
+		[Export ("iconImageURL")]
+		NSUrl IconImageUrl ();
 	}
 
 	// @interface GMSPlaceViewportInfo : NSObject

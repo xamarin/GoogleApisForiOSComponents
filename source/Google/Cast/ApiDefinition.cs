@@ -185,6 +185,10 @@ namespace Google.Cast {
 		[Export ("embedded")]
 		bool Embedded { get; set; }
 
+		// @property(nonatomic, assign, readonly) BOOL expanded;
+		[Export ("expanded")]
+		bool Expanded { get; set; }
+
 		// -(instancetype _Nonnull)initWithAdBreakInfo:(GCKAdBreakInfo * _Nonnull)adBreakInfo;
 		[Export ("initWithAdBreakInfo:")]
 		IntPtr Constructor (AdBreakInfo adBreakInfo);
@@ -222,6 +226,10 @@ namespace Google.Cast {
 		// @property(nonatomic, assign, readonly) BOOL embedded;
 		[Export ("embedded")]
 		bool Embedded { get; }
+
+		// @property(nonatomic, assign, readonly) BOOL expanded;
+		[Export ("expanded")]
+		bool Expanded { get; set; }
 
 		// -(instancetype _Nonnull)initWithPlaybackPosition:(NSTimeInterval)playbackPosition;
 		[Obsolete ("Use the AdBreakInfoBuilder class to initialize AdBreakInfos")]
@@ -1592,6 +1600,16 @@ namespace Google.Cast {
 		[NullAllowed]
 		[Export ("credentialsType")]
 		string CredentialsType { get; }
+
+		// @property(nonatomic, copy, readonly, nullable) NSString *atvCredentials;
+		[NullAllowed]
+		[Export ("atvCredentials")]
+		string AtvCredentials { get; }
+
+		// @property(nonatomic, copy, readonly, nullable) NSString *atvCredentialsType;
+		[NullAllowed]
+		[Export ("atvCredentialsType")]
+		string AtvCredentialsType { get; }
 	}
 
 	// @interface GCKMediaLoadRequestDataBuilder : NSObject
@@ -1640,6 +1658,16 @@ namespace Google.Cast {
 		[NullAllowed]
 		[Export ("credentialsType")]
 		string CredentialsType { get; set; }
+
+		// @property(nonatomic, copy, readonly, nullable) NSString *atvCredentials;
+		[NullAllowed]
+		[Export ("atvCredentials")]
+		string AtvCredentials { get; }
+
+		// @property(nonatomic, copy, readonly, nullable) NSString *atvCredentialsType;
+		[NullAllowed]
+		[Export ("atvCredentialsType")]
+		string AtvCredentialsType { get; }
 
 		// -(instancetype _Nonnull)initWithMediaLoadRequestData:(GCKMediaLoadRequestData * _Nonnull)requestData;
 		[Export ("initWithMediaLoadRequestData:")]

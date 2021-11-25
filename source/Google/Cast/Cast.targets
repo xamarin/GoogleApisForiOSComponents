@@ -2,12 +2,12 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_GoogleCastAssemblyName>Google.Cast, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleCastAssemblyName>
-		<_GoogleCastVersion>4.6.1</_GoogleCastVersion>
+		<_GoogleCastVersion>4.7.0</_GoogleCastVersion>
 		<_GoogleCastItemsFolder Condition="'$(GoogleCastBluetoothEnabled)'=='True'">GCst-$(_GoogleCastVersion)</_GoogleCastItemsFolder>
 		<_GoogleCastItemsFolder Condition="'$(GoogleCastBluetoothEnabled)'!='True'">GCstNB-$(_GoogleCastVersion)</_GoogleCastItemsFolder>
 		<_GoogleCastFrameworks Condition="'$(GoogleCastBluetoothEnabled)'=='True'">Accelerate AudioToolbox AVFoundation CFNetwork CoreBluetooth CoreData CoreGraphics CoreMedia CoreText Foundation MediaAccessibility MediaPlayer QuartzCore Security SystemConfiguration UIKit</_GoogleCastFrameworks>
 		<_GoogleCastFrameworks Condition="'$(GoogleCastBluetoothEnabled)'!='True'">Accelerate AudioToolbox AVFoundation CFNetwork CoreData CoreGraphics CoreMedia CoreText Foundation MediaAccessibility MediaPlayer QuartzCore Security SystemConfiguration UIKit</_GoogleCastFrameworks>
-		<_GoogleCastUrl Condition="'$(GoogleCastBluetoothEnabled)'=='True'">https://dl.google.com/dl/chromecast/sdk/ios/GoogleCastSDK-ios-$(_GoogleCastVersion)_dynamic.zip</_GoogleCastUrl>		
+		<_GoogleCastUrl Condition="'$(GoogleCastBluetoothEnabled)'=='True'">https://dl.google.com/dl/chromecast/sdk/ios/GoogleCastSDK-ios-$(_GoogleCastVersion)_dynamic.zip</_GoogleCastUrl>
 		<_GoogleCastUrl Condition="'$(GoogleCastBluetoothEnabled)'!='True'">https://dl.google.com/dl/chromecast/sdk/ios/GoogleCastSDK-ios-no-bluetooth-$(_GoogleCastVersion)_dynamic.zip</_GoogleCastUrl>
 		<_GoogleCastBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleCastItemsFolder)\GoogleCastSDK-ios-$(_GoogleCastVersion)_dynamic\</_GoogleCastBaseFolder>
 	</PropertyGroup>
@@ -29,993 +29,948 @@
 	<Target Name="_GCastDownloadedItems">
 		<ItemGroup>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\af.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\af.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\af.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\ar.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\ar.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\ar.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\bg.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\bg.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\bg.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\bn.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\bn.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\bn.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\ca.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\ca.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\ca.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB.mom" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB.mom</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB.mom</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB01.mom" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB01.mom</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB01.mom</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB02.mom" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB02.mom</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB02.mom</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB03.mom" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB03.mom</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB03.mom</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB04.mom" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB04.mom</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB04.mom</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB05.mom" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB05.mom</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB05.mom</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB06.mom" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB06.mom</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB06.mom</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB07.mom" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB07.mom</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB07.mom</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB08.mom" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB08.mom</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB08.mom</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB08.omo" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB08.omo</LogicalName>
+			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB09.mom" Visible="False">
+				<LogicalName>GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB09.mom</LogicalName>
+			</BundleResource>
+			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB09.omo" Visible="False">
+				<LogicalName>GoogleCastCoreResources.bundle\CastFrameworkDB.momd\CastFrameworkDB09.omo</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\CastFrameworkDB.momd\VersionInfo.plist" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\CastFrameworkDB.momd\VersionInfo.plist</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\CastFrameworkDB.momd\VersionInfo.plist</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\cs.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\cs.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\cs.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\da.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\da.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\da.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\de.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\de.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\de.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\el.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\el.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\el.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\en.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\en.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\en.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\en_GB.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\en_GB.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\en_GB.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\es.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\es.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\es.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\es_419.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\es_419.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\es_419.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\et.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\et.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\et.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\fa.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\fa.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\fa.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\fi.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\fi.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\fi.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\fil.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\fil.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\fil.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\fr.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\fr.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\fr.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\hi.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\hi.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\hi.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\hr.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\hr.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\hr.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\hu.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\hu.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\hu.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\hy.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\hy.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\hy.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\id.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\id.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\id.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\is.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\is.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\is.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\it.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\it.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\it.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\iw.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\iw.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\iw.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\ja.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\ja.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\ja.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\ka.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\ka.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\ka.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\km.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\km.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\km.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\ko.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\ko.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\ko.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\lo.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\lo.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\lo.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\lt.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\lt.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\lt.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\lv.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\lv.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\lv.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\mk.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\mk.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\mk.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\mn.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\mn.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\mn.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\mr.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\mr.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\mr.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\ms.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\ms.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\ms.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\my.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\my.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\my.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\ne.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\ne.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\ne.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\nl.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\nl.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\nl.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\no.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\no.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\no.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\pl.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\pl.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\pl.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\pt.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\pt.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\pt.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\pt_PT.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\pt_PT.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\pt_PT.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\ro.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\ro.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\ro.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\ru.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\ru.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\ru.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\si.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\si.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\si.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\sk.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\sk.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\sk.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\sl.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\sl.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\sl.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\sr.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\sr.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\sr.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\sv.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\sv.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\sv.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\sw.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\sw.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\sw.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\ta.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\ta.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\ta.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\th.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\th.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\th.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\tr.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\tr.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\tr.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\uk.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\uk.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\uk.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\vi.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\vi.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\vi.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\zh.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\zh.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\zh.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\zh_CN.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\zh_CN.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\zh_CN.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastCoreResources.bundle\zh_TW.lproj\CoreLocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastCoreResources.bundle\zh_TW.lproj\CoreLocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastCoreResources.bundle\zh_TW.lproj\CoreLocalizable.strings</LogicalName>
 			</BundleResource>
 		</ItemGroup>
 		<ItemGroup>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\af.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\af.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\af.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\af.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\af.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\af.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\ar.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\ar.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\ar.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\ar.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\ar.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\ar.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\Info.plist" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\Info.plist</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\Info.plist</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\4HD-aa-FNo-view-1HP-BM-J3I.nib\objects-11.0+.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\4HD-aa-FNo-view-1HP-BM-J3I.nib\objects-11.0+.nib</LogicalName>
+			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\4HD-aa-FNo-view-1HP-BM-J3I.nib" Visible="False">
+				<LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\4HD-aa-FNo-view-1HP-BM-J3I.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\4HD-aa-FNo-view-1HP-BM-J3I.nib\runtime.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\4HD-aa-FNo-view-1HP-BM-J3I.nib\runtime.nib</LogicalName>
+			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\6is-ze-qoP-view-Vah-jq-ZgN.nib" Visible="False">
+				<LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\6is-ze-qoP-view-Vah-jq-ZgN.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\6is-ze-qoP-view-Vah-jq-ZgN.nib\objects-11.0+.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\6is-ze-qoP-view-Vah-jq-ZgN.nib\objects-11.0+.nib</LogicalName>
+			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\9V7-ce-5KJ-view-WQF-my-40r.nib" Visible="False">
+				<LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\9V7-ce-5KJ-view-WQF-my-40r.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\6is-ze-qoP-view-Vah-jq-ZgN.nib\runtime.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\6is-ze-qoP-view-Vah-jq-ZgN.nib\runtime.nib</LogicalName>
+			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\a4H-bv-VbH-view-Xbz-9K-eDJ.nib" Visible="False">
+				<LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\a4H-bv-VbH-view-Xbz-9K-eDJ.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\9V7-ce-5KJ-view-WQF-my-40r.nib\objects-11.0+.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\9V7-ce-5KJ-view-WQF-my-40r.nib\objects-11.0+.nib</LogicalName>
+			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\C87-rF-Kff-view-Z93-bw-eCT.nib" Visible="False">
+				<LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\C87-rF-Kff-view-Z93-bw-eCT.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\9V7-ce-5KJ-view-WQF-my-40r.nib\runtime.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\9V7-ce-5KJ-view-WQF-my-40r.nib\runtime.nib</LogicalName>
+			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\CastContainer.nib" Visible="False">
+				<LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\CastContainer.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\a4H-bv-VbH-view-Xbz-9K-eDJ.nib\objects-11.0+.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\a4H-bv-VbH-view-Xbz-9K-eDJ.nib\objects-11.0+.nib</LogicalName>
+			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\CastInstructions.nib" Visible="False">
+				<LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\CastInstructions.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\a4H-bv-VbH-view-Xbz-9K-eDJ.nib\runtime.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\a4H-bv-VbH-view-Xbz-9K-eDJ.nib\runtime.nib</LogicalName>
+			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\DeviceConnectionNavigation.nib" Visible="False">
+				<LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\DeviceConnectionNavigation.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\C87-rF-Kff-view-Z93-bw-eCT.nib\objects-11.0+.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\C87-rF-Kff-view-Z93-bw-eCT.nib\objects-11.0+.nib</LogicalName>
+			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\egs-hj-bEX-view-MTY-Nw-q8O.nib" Visible="False">
+				<LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\egs-hj-bEX-view-MTY-Nw-q8O.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\C87-rF-Kff-view-Z93-bw-eCT.nib\runtime.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\C87-rF-Kff-view-Z93-bw-eCT.nib\runtime.nib</LogicalName>
+			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\ExpandedMediaControlsViewController.nib" Visible="False">
+				<LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\ExpandedMediaControlsViewController.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\CastContainer.nib\objects-11.0+.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\CastContainer.nib\objects-11.0+.nib</LogicalName>
+			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\GuestModePairingViewController.nib" Visible="False">
+				<LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\GuestModePairingViewController.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\CastContainer.nib\runtime.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\CastContainer.nib\runtime.nib</LogicalName>
+			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\MediaTrackSelectionController.nib" Visible="False">
+				<LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\MediaTrackSelectionController.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\CastInstructions.nib\objects-11.0+.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\CastInstructions.nib\objects-11.0+.nib</LogicalName>
+			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\MediaTrackSelectionNavigation.nib" Visible="False">
+				<LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\MediaTrackSelectionNavigation.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\CastInstructions.nib\runtime.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\CastInstructions.nib\runtime.nib</LogicalName>
+			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\MiniMediaControlsViewController.nib" Visible="False">
+				<LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\MiniMediaControlsViewController.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\DeviceConnectionNavigation.nib\objects-11.0+.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\DeviceConnectionNavigation.nib\objects-11.0+.nib</LogicalName>
+			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\mzQ-08-M2L-view-QcC-yO-nhF.nib" Visible="False">
+				<LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\mzQ-08-M2L-view-QcC-yO-nhF.nib</LogicalName>
 			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\DeviceConnectionNavigation.nib\runtime.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\DeviceConnectionNavigation.nib\runtime.nib</LogicalName>
-			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\egs-hj-bEX-view-MTY-Nw-q8O.nib\objects-11.0+.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\egs-hj-bEX-view-MTY-Nw-q8O.nib\objects-11.0+.nib</LogicalName>
-			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\egs-hj-bEX-view-MTY-Nw-q8O.nib\runtime.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\egs-hj-bEX-view-MTY-Nw-q8O.nib\runtime.nib</LogicalName>
-			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\ExpandedMediaControlsViewController.nib\objects-11.0+.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\ExpandedMediaControlsViewController.nib\objects-11.0+.nib</LogicalName>
-			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\ExpandedMediaControlsViewController.nib\runtime.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\ExpandedMediaControlsViewController.nib\runtime.nib</LogicalName>
-			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\GuestModePairingViewController.nib\objects-11.0+.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\GuestModePairingViewController.nib\objects-11.0+.nib</LogicalName>
-			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\GuestModePairingViewController.nib\runtime.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\GuestModePairingViewController.nib\runtime.nib</LogicalName>
-			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\MediaTrackSelectionController.nib\objects-11.0+.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\MediaTrackSelectionController.nib\objects-11.0+.nib</LogicalName>
-			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\MediaTrackSelectionController.nib\runtime.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\MediaTrackSelectionController.nib\runtime.nib</LogicalName>
-			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\MediaTrackSelectionNavigation.nib\objects-11.0+.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\MediaTrackSelectionNavigation.nib\objects-11.0+.nib</LogicalName>
-			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\MediaTrackSelectionNavigation.nib\runtime.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\MediaTrackSelectionNavigation.nib\runtime.nib</LogicalName>
-			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\MiniMediaControlsViewController.nib\objects-11.0+.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\MiniMediaControlsViewController.nib\objects-11.0+.nib</LogicalName>
-			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\MiniMediaControlsViewController.nib\runtime.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\MiniMediaControlsViewController.nib\runtime.nib</LogicalName>
-			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\mzQ-08-M2L-view-QcC-yO-nhF.nib\objects-11.0+.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\mzQ-08-M2L-view-QcC-yO-nhF.nib\objects-11.0+.nib</LogicalName>
-			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\mzQ-08-M2L-view-QcC-yO-nhF.nib\runtime.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\mzQ-08-M2L-view-QcC-yO-nhF.nib\runtime.nib</LogicalName>
-			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\Osx-kD-8NW-view-pIN-ie-DHT.nib\objects-11.0+.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\Osx-kD-8NW-view-pIN-ie-DHT.nib\objects-11.0+.nib</LogicalName>
-			</BundleResource>
-			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\Osx-kD-8NW-view-pIN-ie-DHT.nib\runtime.nib" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\Osx-kD-8NW-view-pIN-ie-DHT.nib\runtime.nib</LogicalName>
+			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\Osx-kD-8NW-view-pIN-ie-DHT.nib" Visible="False">
+				<LogicalName>GoogleCastUIResources.bundle\Base.lproj\CastComponents.storyboardc\Osx-kD-8NW-view-pIN-ie-DHT.nib</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\bg.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\bg.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\bg.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\bg.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\bg.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\bg.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\bn.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\bn.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\bn.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\bn.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\bn.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\bn.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\ca.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\ca.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\ca.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\ca.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\ca.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\ca.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\cs.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\cs.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\cs.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\cs.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\cs.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\cs.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\da.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\da.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\da.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\da.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\da.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\da.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\de.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\de.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\de.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\de.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\de.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\de.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\el.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\el.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\el.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\el.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\el.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\el.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\en.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\en.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\en.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\en.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\en.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\en.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\en_GB.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\en_GB.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\en_GB.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\en_GB.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\en_GB.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\en_GB.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\es.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\es.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\es.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\es.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\es.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\es.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\es_419.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\es_419.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\es_419.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\es_419.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\es_419.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\es_419.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\et.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\et.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\et.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\et.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\et.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\et.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\fa.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\fa.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\fa.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\fa.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\fa.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\fa.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\fi.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\fi.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\fi.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\fi.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\fi.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\fi.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\fil.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\fil.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\fil.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\fil.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\fil.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\fil.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\fr.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\fr.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\fr.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\fr.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\fr.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\fr.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\hi.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\hi.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\hi.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\hi.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\hi.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\hi.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\hr.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\hr.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\hr.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\hr.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\hr.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\hr.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\hu.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\hu.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\hu.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\hu.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\hu.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\hu.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\hy.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\hy.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\hy.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\hy.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\hy.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\hy.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\audio_track_48pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\audio_track_48pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\audio_track_48pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\audio_track_48pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\audio_track_48pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\audio_track_48pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\audio_track_48pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\audio_track_48pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\audio_track_48pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\cast_connected_24pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\cast_connected_24pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\cast_connected_24pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\cast_connected_24pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\cast_connected_24pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\cast_connected_24pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\cast_connected_24pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\cast_connected_24pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\cast_connected_24pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\cast_disconnected_24pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\cast_disconnected_24pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\cast_disconnected_24pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\cast_disconnected_24pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\cast_disconnected_24pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\cast_disconnected_24pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\cast_disconnected_24pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\cast_disconnected_24pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\cast_disconnected_24pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\cast_on0.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\cast_on0.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\cast_on0.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\cast_on0@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\cast_on0@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\cast_on0@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\cast_on0@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\cast_on0@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\cast_on0@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\cast_on1.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\cast_on1.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\cast_on1.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\cast_on1@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\cast_on1@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\cast_on1@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\cast_on1@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\cast_on1@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\cast_on1@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\cast_on2.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\cast_on2.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\cast_on2.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\cast_on2@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\cast_on2@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\cast_on2@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\cast_on2@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\cast_on2@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\cast_on2@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\closed_caption_36pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\closed_caption_36pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\closed_caption_36pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\closed_caption_36pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\closed_caption_36pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\closed_caption_36pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\closed_caption_36pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\closed_caption_36pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\closed_caption_36pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\closed_caption_48pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\closed_caption_48pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\closed_caption_48pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\closed_caption_48pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\closed_caption_48pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\closed_caption_48pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\closed_caption_48pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\closed_caption_48pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\closed_caption_48pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\collapse_arrow_24pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\collapse_arrow_24pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\collapse_arrow_24pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\collapse_arrow_24pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\collapse_arrow_24pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\collapse_arrow_24pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\collapse_arrow_24pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\collapse_arrow_24pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\collapse_arrow_24pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\forward_30_36pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\forward_30_36pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\forward_30_36pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\forward_30_36pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\forward_30_36pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\forward_30_36pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\forward_30_36pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\forward_30_36pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\forward_30_36pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\forward_30_48pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\forward_30_48pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\forward_30_48pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\forward_30_48pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\forward_30_48pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\forward_30_48pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\forward_30_48pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\forward_30_48pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\forward_30_48pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\hardware_speaker_24pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\hardware_speaker_24pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\hardware_speaker_24pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\hardware_speaker_24pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\hardware_speaker_24pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\hardware_speaker_24pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\hardware_speaker_24pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\hardware_speaker_24pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\hardware_speaker_24pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\hardware_speaker_group_24pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\hardware_speaker_group_24pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\hardware_speaker_group_24pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\hardware_speaker_group_24pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\hardware_speaker_group_24pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\hardware_speaker_group_24pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\hardware_speaker_group_24pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\hardware_speaker_group_24pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\hardware_speaker_group_24pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\hardware_tv_24pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\hardware_tv_24pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\hardware_tv_24pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\hardware_tv_24pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\hardware_tv_24pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\hardware_tv_24pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\hardware_tv_24pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\hardware_tv_24pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\hardware_tv_24pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\ic_close_icon.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\ic_close_icon.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\ic_close_icon.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\ic_close_icon@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\ic_close_icon@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\ic_close_icon@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\ic_close_icon@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\ic_close_icon@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\ic_close_icon@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\pause_48pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\pause_48pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\pause_48pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\pause_48pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\pause_48pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\pause_48pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\pause_48pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\pause_48pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\pause_48pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\pause_circle_filled_64pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\pause_circle_filled_64pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\pause_circle_filled_64pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\pause_circle_filled_64pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\pause_circle_filled_64pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\pause_circle_filled_64pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\pause_circle_filled_64pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\pause_circle_filled_64pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\pause_circle_filled_64pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\play_48pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\play_48pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\play_48pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\play_48pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\play_48pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\play_48pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\play_48pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\play_48pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\play_48pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\play_circle_filled_64pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\play_circle_filled_64pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\play_circle_filled_64pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\play_circle_filled_64pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\play_circle_filled_64pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\play_circle_filled_64pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\play_circle_filled_64pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\play_circle_filled_64pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\play_circle_filled_64pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\replay_30_36pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\replay_30_36pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\replay_30_36pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\replay_30_36pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\replay_30_36pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\replay_30_36pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\replay_30_36pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\replay_30_36pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\replay_30_36pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\replay_30_48pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\replay_30_48pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\replay_30_48pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\replay_30_48pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\replay_30_48pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\replay_30_48pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\replay_30_48pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\replay_30_48pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\replay_30_48pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\skip_next_36pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\skip_next_36pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\skip_next_36pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\skip_next_36pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\skip_next_36pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\skip_next_36pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\skip_next_36pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\skip_next_36pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\skip_next_36pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\skip_next_48pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\skip_next_48pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\skip_next_48pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\skip_next_48pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\skip_next_48pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\skip_next_48pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\skip_next_48pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\skip_next_48pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\skip_next_48pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\skip_previous_36pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\skip_previous_36pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\skip_previous_36pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\skip_previous_36pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\skip_previous_36pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\skip_previous_36pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\skip_previous_36pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\skip_previous_36pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\skip_previous_36pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\skip_previous_48pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\skip_previous_48pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\skip_previous_48pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\skip_previous_48pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\skip_previous_48pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\skip_previous_48pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\skip_previous_48pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\skip_previous_48pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\skip_previous_48pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\sliderthumb_focused_light.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\sliderthumb_focused_light.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\sliderthumb_focused_light.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\sliderthumb_focused_light@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\sliderthumb_focused_light@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\sliderthumb_focused_light@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\sliderthumb_focused_light@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\sliderthumb_focused_light@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\sliderthumb_focused_light@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\sliderthumb_normal_light.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\sliderthumb_normal_light.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\sliderthumb_normal_light.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\sliderthumb_normal_light@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\sliderthumb_normal_light@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\sliderthumb_normal_light@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\sliderthumb_normal_light@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\sliderthumb_normal_light@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\sliderthumb_normal_light@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\stop_36pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\stop_36pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\stop_36pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\stop_36pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\stop_36pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\stop_36pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\stop_36pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\stop_36pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\stop_36pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\stop_48pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\stop_48pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\stop_48pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\stop_48pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\stop_48pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\stop_48pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\stop_48pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\stop_48pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\stop_48pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\volume_mute_36pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\volume_mute_36pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\volume_mute_36pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\volume_mute_36pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\volume_mute_36pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\volume_mute_36pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\volume_mute_36pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\volume_mute_36pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\volume_mute_36pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\volume_mute_48pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\volume_mute_48pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\volume_mute_48pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\volume_mute_48pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\volume_mute_48pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\volume_mute_48pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\volume_mute_48pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\volume_mute_48pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\volume_mute_48pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\volume_off_36pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\volume_off_36pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\volume_off_36pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\volume_off_36pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\volume_off_36pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\volume_off_36pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\volume_off_36pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\volume_off_36pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\volume_off_36pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\volume_off_48pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\volume_off_48pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\volume_off_48pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\volume_off_48pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\volume_off_48pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\volume_off_48pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\volume_off_48pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\volume_off_48pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\volume_off_48pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\volume_up_36pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\volume_up_36pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\volume_up_36pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\volume_up_36pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\volume_up_36pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\volume_up_36pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\volume_up_36pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\volume_up_36pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\volume_up_36pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\volume_up_48pt.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\volume_up_48pt.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\volume_up_48pt.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\volume_up_48pt@2x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\volume_up_48pt@2x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\volume_up_48pt@2x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\Icons\volume_up_48pt@3x.png" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\Icons\volume_up_48pt@3x.png</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\Icons\volume_up_48pt@3x.png</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\id.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\id.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\id.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\id.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\id.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\id.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\is.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\is.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\is.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\is.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\is.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\is.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\it.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\it.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\it.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\it.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\it.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\it.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\iw.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\iw.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\iw.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\iw.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\iw.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\iw.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\ja.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\ja.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\ja.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\ja.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\ja.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\ja.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\ka.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\ka.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\ka.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\ka.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\ka.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\ka.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\km.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\km.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\km.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\km.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\km.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\km.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\ko.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\ko.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\ko.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\ko.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\ko.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\ko.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\lo.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\lo.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\lo.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\lo.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\lo.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\lo.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\lt.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\lt.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\lt.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\lt.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\lt.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\lt.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\lv.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\lv.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\lv.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\lv.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\lv.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\lv.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\mk.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\mk.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\mk.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\mk.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\mk.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\mk.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\mn.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\mn.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\mn.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\mn.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\mn.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\mn.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\mr.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\mr.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\mr.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\mr.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\mr.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\mr.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\ms.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\ms.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\ms.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\ms.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\ms.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\ms.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\my.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\my.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\my.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\my.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\my.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\my.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\ne.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\ne.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\ne.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\ne.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\ne.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\ne.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\nl.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\nl.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\nl.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\nl.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\nl.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\nl.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\no.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\no.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\no.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\no.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\no.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\no.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\pl.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\pl.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\pl.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\pl.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\pl.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\pl.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\pt.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\pt.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\pt.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\pt.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\pt.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\pt.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\pt_PT.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\pt_PT.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\pt_PT.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\pt_PT.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\pt_PT.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\pt_PT.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\ro.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\ro.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\ro.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\ro.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\ro.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\ro.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\ru.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\ru.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\ru.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\ru.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\ru.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\ru.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\si.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\si.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\si.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\si.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\si.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\si.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\sk.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\sk.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\sk.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\sk.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\sk.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\sk.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\sl.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\sl.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\sl.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\sl.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\sl.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\sl.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\sr.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\sr.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\sr.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\sr.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\sr.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\sr.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\sv.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\sv.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\sv.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\sv.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\sv.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\sv.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\sw.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\sw.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\sw.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\sw.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\sw.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\sw.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\ta.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\ta.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\ta.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\ta.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\ta.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\ta.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\th.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\th.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\th.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\th.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\th.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\th.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\tr.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\tr.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\tr.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\tr.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\tr.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\tr.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\uk.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\uk.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\uk.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\uk.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\uk.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\uk.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\vi.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\vi.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\vi.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\vi.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\vi.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\vi.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\zh.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\zh.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\zh.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\zh.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\zh.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\zh.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\zh_CN.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\zh_CN.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\zh_CN.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\zh_CN.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\zh_CN.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\zh_CN.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\zh_TW.lproj\CastComponents.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\zh_TW.lproj\CastComponents.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\zh_TW.lproj\CastComponents.strings</LogicalName>
 			</BundleResource>
 			<BundleResource Include="$(_GoogleCastBaseFolder)GoogleCast.framework\GoogleCastUIResources.bundle\zh_TW.lproj\UILocalizable.strings" Visible="False">
-			   <LogicalName>GoogleCastUIResources.bundle\zh_TW.lproj\UILocalizable.strings</LogicalName>
+				<LogicalName>GoogleCastUIResources.bundle\zh_TW.lproj\UILocalizable.strings</LogicalName>
 			</BundleResource>
 		</ItemGroup>
 	</Target>

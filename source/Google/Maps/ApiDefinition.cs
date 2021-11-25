@@ -1272,6 +1272,11 @@ namespace Google.Maps
 		[Export ("provideAPIOptions:")]
 		bool ProvideApiOptions (string [] apiOptions);
 
+		// + (void)setMetalRendererEnabled:(BOOL)enabled;
+		[Static]
+		[Export ("setMetalRendererEnabled:")]
+		bool SetMetalRendererEnabled (bool enabled);
+
 		// + (void)setAbnormalTerminationReportingEnabled:(BOOL)enabled;
 		[Static]
 		[Export ("setAbnormalTerminationReportingEnabled:")]
@@ -1295,6 +1300,9 @@ namespace Google.Maps
 	[BaseType(typeof(NSObject), Name = "GMSStrokeStyle")]
 	interface StrokeStyle
 	{
+		// @property(nonatomic, strong, nullable) GMSStampStyle *stampStyle;
+		[Export ("stampStyle")]
+		StampStyle StampStyle { get; }
 
 		[Static]
 		[Export ("solidColor:")]
@@ -1436,22 +1444,6 @@ namespace Google.Maps
 		string UserAgent { get; set; }
 	}
 
-	#region Premium
-
-	// @interface GMSMapID : NSObject <NSCopying>
-	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "GMSMapID")]
-	interface MapId : INSCopying {
-		// -(instancetype _Nonnull)initWithIdentifier:(NSString * _Nonnull)identifier __attribute__((objc_designated_initializer));
-		[Export ("initWithIdentifier:")]
-		[DesignatedInitializer]
-		IntPtr Constructor (string identifier);
-
-		// +(instancetype _Nonnull)mapIDWithIdentifier:(NSString * _Nonnull)identifier __attribute__((availability(swift, unavailable)));
-		[Static]
-		[Export ("mapIDWithIdentifier:")]
-		MapId MapIdWithIdentifier (string identifier);
-	}
 
 	// @interface GMSStampStyle : NSObject
 	[DisableDefaultCtor]
@@ -1474,12 +1466,23 @@ namespace Google.Maps
 		[Export ("initWithImage:")]
 		[DesignatedInitializer]
 		IntPtr Constructor (UIImage image);
+	}
 
-		// From a category (GMSStrokeStyle+Premium.h)
+	#region Premium
 
-		// @property (nonatomic, strong) GMSStampStyle * _Nullable stampStyle;
-		[NullAllowed, Export ("stampStyle", ArgumentSemantic.Strong)]
-		StampStyle StampStyle { get; set; }
+	// @interface GMSMapID : NSObject <NSCopying>
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "GMSMapID")]
+	interface MapId : INSCopying {
+		// -(instancetype _Nonnull)initWithIdentifier:(NSString * _Nonnull)identifier __attribute__((objc_designated_initializer));
+		[Export ("initWithIdentifier:")]
+		[DesignatedInitializer]
+		IntPtr Constructor (string identifier);
+
+		// +(instancetype _Nonnull)mapIDWithIdentifier:(NSString * _Nonnull)identifier __attribute__((availability(swift, unavailable)));
+		[Static]
+		[Export ("mapIDWithIdentifier:")]
+		MapId MapIdWithIdentifier (string identifier);
 	}
 
 	#endregion
