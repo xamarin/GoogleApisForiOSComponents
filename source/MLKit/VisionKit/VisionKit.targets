@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<_MLKitVisionRecogCoreAssemblyName>MLKit.VisionKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_MLKitVisionRecogCoreAssemblyName>
+		<_MLKitVisionKitItemsFolder>MLKVisionKit-3.0.0</_MLKitVisionKitItemsFolder>
+		<_MLKitVisionKitSDKBaseFolder>$(XamarinBuildDownloadDir)$(_MLKitVisionKitItemsFolder)\</_MLKitVisionKitSDKBaseFolder>
+		<_MLKitImgLblCommonItemsFolder>MLKImgLblCommon-2.0.0</_MLKitImgLblCommonItemsFolder>
+		<_MLKitImgLblCommonSDKBaseFolder>$(XamarinBuildDownloadDir)$(_MLKitImgLblCommonItemsFolder)\</_MLKitImgLblCommonSDKBaseFolder>
+		<_MLKitObjCommonItemsFolder>MLKObjCommon-2.0.0</_MLKitObjCommonItemsFolder>
+		<_MLKitObjCommonSDKBaseFolder>$(XamarinBuildDownloadDir)$(_MLKitObjCommonItemsFolder)\</_MLKitObjCommonSDKBaseFolder>
+		<_MLKitObjCommonResourcesFolder>$(XamarinBuildDownloadDir)$(_MLKitObjCommonItemsFolder)\Resources\MLKitObjectDetectionCommonResources\</_MLKitObjCommonResourcesFolder>
+	</PropertyGroup>
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+		<XamarinBuildDownload Include="$(_MLKitVisionKitItemsFolder)">
+			<Url>https://dl.google.com/dl/cpdc/c87f69d3542f897d/MLKitVisionKit-3.0.0.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildDownload Include="$(_MLKitImgLblCommonItemsFolder)">
+			<Url>https://dl.google.com/dl/cpdc/44fcc4eedcb5f5ec/MLKitImageLabelingCommon-2.0.0.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildDownload Include="$(_MLKitObjCommonItemsFolder)">
+			<Url>https://dl.google.com/dl/cpdc/e3f4b43a12a05593/MLKitObjectDetectionCommon-2.0.0.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildRestoreResources Include="_MLKitVisionKitDownloadedItems" />
+	</ItemGroup>
+	<Target Name="_MLKitVisionKitDownloadedItems">
+		<ItemGroup>
+			<!-- From https://dl.google.com/dl/cpdc/c87f69d3542f897d/MLKitVisionKit-3.0.0.tar.gz -->
+			<NativeReference Include="$(_MLKitVisionKitSDKBaseFolder)Frameworks\MLKitVisionKit.framework">
+				<Kind>Framework</Kind>
+				<SmartLink>True</SmartLink>
+				<ForceLoad>True</ForceLoad>
+				<LinkerFlags>-lc++</LinkerFlags>
+				<Frameworks>CoreGraphics CoreLocation CoreVideo Foundation UIKit</Frameworks>
+			</NativeReference>
+			<!-- From https://dl.google.com/dl/cpdc/44fcc4eedcb5f5ec/MLKitImageLabelingCommon-2.0.0.tar.gz -->
+			<NativeReference Include="$(_MLKitImgLblCommonSDKBaseFolder)Frameworks\MLKitImageLabelingCommon.framework">
+				<Kind>Framework</Kind>
+				<SmartLink>True</SmartLink>
+				<ForceLoad>True</ForceLoad>
+				<Frameworks>CoreGraphics Foundation</Frameworks>
+			</NativeReference>
+			<!-- From https://dl.google.com/dl/cpdc/e3f4b43a12a05593/MLKitObjectDetectionCommon-2.0.0.tar.gz -->
+			<NativeReference Include="$(_MLKitObjCommonSDKBaseFolder)Frameworks\MLKitObjectDetectionCommon.framework">
+				<Kind>Framework</Kind>
+				<SmartLink>True</SmartLink>
+				<ForceLoad>True</ForceLoad>
+				<Frameworks>CoreGraphics CoreMedia Foundation UIKit</Frameworks>
+			</NativeReference>
+		</ItemGroup>
+		<ItemGroup>
+			<BundleResource Include="$(_MLKitObjCommonResourcesFolder)mobile_object_localizer_3_1_anchors.pb" Visible="False">
+				<LogicalName>MLKitObjectDetectionCommonResources.bundle\mobile_object_localizer_3_1_anchors.pb</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_MLKitObjCommonResourcesFolder)mobile_object_localizer_labelmap.binarypb" Visible="False">
+				<LogicalName>MLKitObjectDetectionCommonResources.bundle\mobile_object_localizer_labelmap.binarypb</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_MLKitObjCommonResourcesFolder)tflite_mobile_object_localizer_3_1.tflite" Visible="False">
+				<LogicalName>MLKitObjectDetectionCommonResources.bundle\tflite_mobile_object_localizer_3_1.tflite</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+		</ItemGroup>
+	</Target>
+</Project>

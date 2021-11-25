@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<_MLKitTextRecogDevanagariAssemblyName>MLKit.TextRecognition.Devanagari, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_MLKitTextRecogDevanagariAssemblyName>
+		<_MLKitTextDevanagariItemsFolder>MLKTextDevanagari-1.0.0beta2</_MLKitTextDevanagariItemsFolder>
+		<_MLKitTextDevanagariSDKBaseFolder>$(XamarinBuildDownloadDir)$(_MLKitTextDevanagariItemsFolder)\</_MLKitTextDevanagariSDKBaseFolder>
+		<_MLKitTextDevanagariResourcesFolder>$(XamarinBuildDownloadDir)$(_MLKitTextDevanagariItemsFolder)\Resources\DevanagariOCRResources\</_MLKitTextDevanagariResourcesFolder>
+	</PropertyGroup>
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+		<XamarinBuildDownload Include="$(_MLKitTextDevanagariItemsFolder)">
+			<Url>https://dl.google.com/dl/cpdc/02ac1cd4dc23f24d/MLKitTextRecognitionDevanagari-1.0.0-beta2.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildRestoreResources Include="_MLKitTextDevanagariDownloadedItems" />
+	</ItemGroup>
+	<Target Name="_MLKitTextDevanagariDownloadedItems">
+		<ItemGroup>
+			<!-- From https://dl.google.com/dl/cpdc/02ac1cd4dc23f24d/MLKitTextRecognitionDevanagari-1.0.0-beta2.tar.gz -->
+			<NativeReference Include="$(_MLKitTextDevanagariSDKBaseFolder)Frameworks\MLKitTextRecognitionDevanagari.framework">
+				<Kind>Framework</Kind>
+				<SmartLink>True</SmartLink>
+				<ForceLoad>True</ForceLoad>
+				<LinkerFlags>-lc++</LinkerFlags>
+				<Frameworks>Accelerate AVFoundation CoreGraphics CoreImage CoreMedia CoreVideo Foundation UIKit</Frameworks>
+			</NativeReference>
+		</ItemGroup>
+		<ItemGroup>
+			<BundleResource Include="$(_MLKitTextDevanagariResourcesFolder)region_proposal_text_detector_tflite_vertical.bincfg" Visible="False">
+				<LogicalName>DevanagariOCRResources.bundle\region_proposal_text_detector_tflite_vertical.bincfg</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_MLKitTextDevanagariResourcesFolder)rpn_lstm_engine_tflite_devanagari_la.bincfg" Visible="False">
+				<LogicalName>DevanagariOCRResources.bundle\rpn_lstm_engine_tflite_devanagari_la.bincfg</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_MLKitTextDevanagariResourcesFolder)rpn_text_detector_mobile_space_to_depth_quantized_v2.tflite" Visible="False">
+				<LogicalName>DevanagariOCRResources.bundle\rpn_text_detector_mobile_space_to_depth_quantized_v2.tflite</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_MLKitTextDevanagariResourcesFolder)tflite_langid.tflite" Visible="False">
+				<LogicalName>DevanagariOCRResources.bundle\tflite_langid.tflite</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_MLKitTextDevanagariResourcesFolder)tflite_lstm_recognizer_devanagari_0.1.bincfg" Visible="False">
+				<LogicalName>DevanagariOCRResources.bundle\tflite_lstm_recognizer_devanagari_0.1.bincfg</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_MLKitTextDevanagariResourcesFolder)tflite_lstm_recognizer_devanagari_0.1.class_lst" Visible="False">
+				<LogicalName>DevanagariOCRResources.bundle\tflite_lstm_recognizer_devanagari_0.1.class_lst</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_MLKitTextDevanagariResourcesFolder)tflite_lstm_recognizer_devanagari_0.1.conv_model" Visible="False">
+				<LogicalName>DevanagariOCRResources.bundle\tflite_lstm_recognizer_devanagari_0.1.conv_model</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_MLKitTextDevanagariResourcesFolder)tflite_lstm_recognizer_devanagari_0.1.lstm_model" Visible="False">
+				<LogicalName>DevanagariOCRResources.bundle\tflite_lstm_recognizer_devanagari_0.1.lstm_model</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_MLKitTextDevanagariResourcesFolder)tflite_lstm_recognizer_latin_0.3.bincfg" Visible="False">
+				<LogicalName>DevanagariOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.bincfg</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_MLKitTextDevanagariResourcesFolder)tflite_lstm_recognizer_latin_0.3.class_lst" Visible="False">
+				<LogicalName>DevanagariOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.class_lst</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_MLKitTextDevanagariResourcesFolder)tflite_lstm_recognizer_latin_0.3.conv_model" Visible="False">
+				<LogicalName>DevanagariOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.conv_model</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_MLKitTextDevanagariResourcesFolder)tflite_lstm_recognizer_latin_0.3.lstm_model" Visible="False">
+				<LogicalName>DevanagariOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.lstm_model</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_MLKitTextDevanagariResourcesFolder)tflite_script_detector_0.3.bincfg" Visible="False">
+				<LogicalName>DevanagariOCRResources.bundle\tflite_script_detector_0.3.bincfg</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_MLKitTextDevanagariResourcesFolder)tflite_script_detector_0.3.conv_model" Visible="False">
+				<LogicalName>DevanagariOCRResources.bundle\tflite_script_detector_0.3.conv_model</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+			<BundleResource Include="$(_MLKitTextDevanagariResourcesFolder)tflite_script_detector_0.3.lstm_model" Visible="False">
+				<LogicalName>DevanagariOCRResources.bundle\tflite_script_detector_0.3.lstm_model</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+		</ItemGroup>
+	</Target>
+</Project>

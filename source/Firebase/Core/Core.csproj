@@ -124,6 +124,11 @@
       <LinkerFlags>-ObjC -lz</LinkerFlags>
       <Frameworks>Security SystemConfiguration</Frameworks>
     </NativeReference>
+    <NativeReference Include="..\..\..\externals\GoogleUtilitiesComponents.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
     <NativeReference Include="..\..\..\externals\nanopb.framework">
       <Kind>Framework</Kind>
       <SmartLink>True</SmartLink>
