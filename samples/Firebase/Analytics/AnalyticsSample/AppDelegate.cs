@@ -1,6 +1,12 @@
-﻿using Foundation;
+﻿using System;
+using System.IO;
+
+using Foundation;
 using UIKit;
 using Firebase.Core;
+
+using Xamarin.iOS.Shared.Helpers;
+using Xamarin.iOS.Shared.ViewControllers;
 
 namespace AnalyticsSample
 {
@@ -22,6 +28,13 @@ namespace AnalyticsSample
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
+
+			// You can download your GoogleService-Info.plist file following the next link:
+			// https://firebase.google.com/docs/ios/setup
+			if (!GoogleServiceInfoPlistHelper.FileExist()) {
+				Window = GoogleServiceInfoPlistHelper.CreateWindowWithFileNotFoundMessage ();
+				return true;
+			}
 
 			Window = new UIWindow (UIScreen.MainScreen.Bounds);
 			navigationController = new UINavigationController (new MainViewController ());

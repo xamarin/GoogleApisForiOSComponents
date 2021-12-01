@@ -3,6 +3,7 @@ using UIKit;
 using Firebase.Core;
 using Google.TagManager;
 using System;
+using Xamarin.iOS.Shared.Helpers;
 
 namespace TagManagerSample
 {
@@ -24,6 +25,13 @@ namespace TagManagerSample
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
+
+			// You can download your GoogleService-Info.plist file following the next link:
+			// https://firebase.google.com/docs/ios/setup
+			if (!GoogleServiceInfoPlistHelper.FileExist ()) {
+				Window = GoogleServiceInfoPlistHelper.CreateWindowWithFileNotFoundMessage ();
+				return true;
+			}
 
 			Window = new UIWindow (UIScreen.MainScreen.Bounds);
 			navigationController = new UINavigationController (new MainViewController ());
