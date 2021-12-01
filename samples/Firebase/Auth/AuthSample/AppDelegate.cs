@@ -8,6 +8,7 @@ using Facebook.CoreKit;
 using Firebase.Auth;
 using Firebase.Core;
 using Google.SignIn;
+using Xamarin.iOS.Shared.Helpers;
 
 namespace AuthSample
 {
@@ -32,6 +33,13 @@ namespace AuthSample
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
+
+			// You can download your GoogleService-Info.plist file following the next link:
+			// https://firebase.google.com/docs/ios/setup
+			if (!GoogleServiceInfoPlistHelper.FileExist ()) {
+				Window = GoogleServiceInfoPlistHelper.CreateWindowWithFileNotFoundMessage ();
+				return true;
+			}
 
 			UIApplication.SharedApplication.StatusBarStyle = UIStatusBarStyle.LightContent;
 			(Window.RootViewController as UINavigationController).PushViewController (new MenuViewController (), true);

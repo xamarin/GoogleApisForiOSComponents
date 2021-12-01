@@ -4,6 +4,7 @@ using Firebase.Core;
 using Firebase.Database;
 using System;
 using System.Collections.Generic;
+using Xamarin.iOS.Shared.Helpers;
 
 namespace DatabaseSample
 {
@@ -26,6 +27,14 @@ namespace DatabaseSample
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
+
+			// You can download your GoogleService-Info.plist file following the next link:
+			// https://firebase.google.com/docs/ios/setup
+			if (!GoogleServiceInfoPlistHelper.FileExist ()) {
+				Window = GoogleServiceInfoPlistHelper.CreateWindowWithFileNotFoundMessage ();
+				return true;
+			}
+
 			UINavigationBar.Appearance.TintColor = UIColor.White;
 			UIApplication.SharedApplication.StatusBarStyle = UIStatusBarStyle.LightContent;
 

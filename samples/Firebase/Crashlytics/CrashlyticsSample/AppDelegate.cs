@@ -3,6 +3,7 @@ using UIKit;
 
 using Firebase.Core;
 using Firebase.Crashlytics;
+using Xamarin.iOS.Shared.Helpers;
 
 namespace CrashlyticsSample {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the
@@ -18,6 +19,13 @@ namespace CrashlyticsSample {
 
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
+			// You can download your GoogleService-Info.plist file following the next link:
+			// https://firebase.google.com/docs/ios/setup
+			if (!GoogleServiceInfoPlistHelper.FileExist ()) {
+				Window = GoogleServiceInfoPlistHelper.CreateWindowWithFileNotFoundMessage ();
+				return true;
+			}
+
 			UIApplication.SharedApplication.StatusBarStyle = UIStatusBarStyle.LightContent;
 
 			App.Configure ();

@@ -171,8 +171,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="../../../Shared/GoogleServiceInfoPlistNotFoundViewController.cs" />
+    <Compile Include="../../../Shared/GoogleServiceInfoPlistHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\user.png" />
-    <BundleResource Include="GoogleService-Info.plist" />
+    <BundleResource Include="GoogleService-Info.plist" Condition="Exists('GoogleService-Info.plist')"/>
     <BundleResource Include="Resources\PhoneCodes.json" />
     <BundleResource Include="Resources\CountryNames.json" />
     <BundleResource Include="Resources\CountryFlags.json" />
