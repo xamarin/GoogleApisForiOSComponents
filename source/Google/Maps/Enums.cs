@@ -45,7 +45,8 @@ namespace Google.Maps
 	public enum MarkerAnimation : ulong
 	{
 		None = 0,
-		Pop
+		Pop,
+		FadeIn
 	}
 
 	[Native]
