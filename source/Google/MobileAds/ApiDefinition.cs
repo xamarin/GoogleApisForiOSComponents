@@ -178,8 +178,8 @@ namespace Google.MobileAds {
 
 	[BaseType (typeof (UIView),
 		Name = "GADBannerView",
-		Delegates = new string [] { "Delegate", "AdSizeDelegate" },
-		Events = new Type [] { typeof (BannerViewDelegate), typeof (AdSizeDelegate) })]
+		Delegates = new string [] { "Delegate", "AdSizeDelegate", "AppEventDelegate" },
+		Events = new Type [] { typeof (BannerViewDelegate), typeof (AdSizeDelegate), typeof(AppEventDelegate) })]
 	interface BannerView {
 
 		[Export ("initWithFrame:")]
@@ -210,6 +210,10 @@ namespace Google.MobileAds {
 		[NullAllowed]
 		[Export ("delegate", ArgumentSemantic.Weak)]
 		IBannerViewDelegate Delegate { get; set; }
+
+		[NullAllowed]
+		[Export ("appEventDelegate", ArgumentSemantic.Weak)]
+		IAppEventDelegate AppEventDelegate { get; set; }
 
 		[Obsolete]
 		[NullAllowed]
@@ -899,9 +903,11 @@ namespace Google.MobileAds {
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "GADAppEventDelegate")]
 	interface AppEventDelegate {
+		[EventArgs ("AppEventDidReceiveAppEvent")]
 		[Export ("adView:didReceiveAppEvent:withInfo:")]
 		void AdViewDidReceiveAppEvent (BannerView banner, string name, [NullAllowed] string info);
 
+		[EventArgs ("AppEventDidReceiveAppEvent")]
 		[Export ("interstitial:didReceiveAppEvent:withInfo:")]
 		void InterstitialDidReceiveAppEvent (Interstitial interstitial, string name, [NullAllowed] string info);
 	}
@@ -2582,8 +2588,8 @@ namespace Google.MobileAds.DoubleClick {
 
 	[BaseType (typeof (Google.MobileAds.BannerView),
 		Name = "DFPBannerView",
-		Delegates = new string [] { "AdSizeDelegate" },
-		Events = new Type [] { typeof (Google.MobileAds.AdSizeDelegate) })]
+		Delegates = new string [] { "AdSizeDelegate", "AppEventDelegate" },
+		Events = new Type [] { typeof (Google.MobileAds.AdSizeDelegate), typeof(Google.MobileAds.AppEventDelegate) })]
 	interface BannerView {
 
 		[Export ("initWithFrame:")]
