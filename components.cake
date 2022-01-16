@@ -213,7 +213,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("google-cast-sdk", "4.7.0")
 	};
 	GOOGLE_MAPS_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("GoogleMaps", "6.0.0")
+		PodSpec.Create ("GoogleMaps", "6.0.1")
 	};
 	GOOGLE_MOBILE_ADS_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Google-Mobile-Ads-SDK", "8.13.0")
