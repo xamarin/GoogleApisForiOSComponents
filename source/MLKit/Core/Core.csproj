@@ -6,7 +6,7 @@
 		<RootNamespace>MLKit.Core</RootNamespace>
 		<AssemblyName>MLKit.Core</AssemblyName>
 		<AssemblyVersion>1.0.0.0</AssemblyVersion>
-		<FileVersion>4.0.0</FileVersion>
+		<FileVersion>5.0.0</FileVersion>
 		<IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	</PropertyGroup>
@@ -22,7 +22,7 @@
 		<PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2007321</PackageProjectUrl>
 		<PackageLicenseFile>License.md</PackageLicenseFile>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-		<PackageVersion>4.0.0</PackageVersion>
+		<PackageVersion>5.0.0</PackageVersion>
 	</PropertyGroup>
 	<ItemGroup>
 		<Reference Include="Xamarin.iOS" />

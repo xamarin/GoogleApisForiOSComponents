@@ -2,20 +2,20 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<_MLKitFaceAssemblyName>MLKit.FaceDetection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_MLKitFaceAssemblyName>
-		<_MLKitFaceItemsFolder>MLKFace-1.4.0</_MLKitFaceItemsFolder>
+		<_MLKitFaceItemsFolder>MLKFace-1.5.0</_MLKitFaceItemsFolder>
 		<_MLKitFaceSDKBaseFolder>$(XamarinBuildDownloadDir)$(_MLKitFaceItemsFolder)\</_MLKitFaceSDKBaseFolder>
 		<_MLKitFaceResourcesFolder>$(XamarinBuildDownloadDir)$(_MLKitFaceItemsFolder)\Resources\GoogleMVFaceDetectorResources\</_MLKitFaceResourcesFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_MLKitFaceItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/11bedb1d8c5e15a9/MLKitFaceDetection-1.4.0.tar.gz</Url>
+			<Url>https://dl.google.com/dl/cpdc/36b88d3c882c11ed/MLKitFaceDetection-1.5.0.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
 		<XamarinBuildRestoreResources Include="_MLKitFaceDownloadedItems" />
 	</ItemGroup>
 	<Target Name="_MLKitFaceDownloadedItems">
 		<ItemGroup>
-			<!-- From https://dl.google.com/dl/cpdc/11bedb1d8c5e15a9/MLKitFaceDetection-1.4.0.tar.gz -->
+			<!-- From https://dl.google.com/dl/cpdc/36b88d3c882c11ed/MLKitFaceDetection-1.5.0.tar.gz -->
 			<NativeReference Include="$(_MLKitFaceSDKBaseFolder)Frameworks\MLKitFaceDetection.framework">
 				<Kind>Framework</Kind>
 				<SmartLink>True</SmartLink>
