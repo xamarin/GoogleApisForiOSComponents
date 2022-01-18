@@ -129,7 +129,11 @@
     <Compile Include="UserPropertyContext.cs" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="GoogleService-Info.plist" />
+    <Compile Include="../../../Shared/GoogleServiceInfoPlistNotFoundViewController.cs" />
+    <Compile Include="../../../Shared/GoogleServiceInfoPlistHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="GoogleService-Info.plist" Condition="Exists('GoogleService-Info.plist')"/>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj">

@@ -6,6 +6,7 @@ using UIKit;
 using Firebase.Core;
 using Firebase.RemoteConfig;
 using Firebase.PerformanceMonitoring;
+using Xamarin.iOS.Shared.Helpers;
 
 namespace PerformanceMonitoringSample
 {
@@ -25,6 +26,13 @@ namespace PerformanceMonitoringSample
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
+
+      // You can download your GoogleService-Info.plist file following the next link:
+			// https://firebase.google.com/docs/ios/setup
+			if (!GoogleServiceInfoPlistHelper.FileExist ()) {
+				Window = GoogleServiceInfoPlistHelper.CreateWindowWithFileNotFoundMessage ();
+				return true;
+			}
 
 			// Use Firebase library to configure APIs
 			App.Configure ();

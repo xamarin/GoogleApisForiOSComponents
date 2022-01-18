@@ -159,7 +159,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="GoogleService-Info.plist" />
+    <Compile Include="../../../Shared/GoogleServiceInfoPlistNotFoundViewController.cs" />
+    <Compile Include="../../../Shared/GoogleServiceInfoPlistHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="GoogleService-Info.plist" Condition="Exists('GoogleService-Info.plist')"/>
     <BundleResource Include="Resources\TextRecognition.png" />
     <BundleResource Include="Resources\BarcodeScanning.png" />
     <BundleResource Include="Resources\FaceDetection.png" />
