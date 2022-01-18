@@ -36,26 +36,33 @@ public Dictionary<string, GoogleBase> CreateComponents ()
 	googleComponents ["Firebase.Database"] = GetComponent<Firebase.Database> ();
 	googleComponents ["Firebase.DynamicLinks"] = GetComponent<Firebase.DynamicLinks> ();
 	googleComponents ["Firebase.CloudFunctions"] = GetComponent<Firebase.CloudFunctions> ();
-	googleComponents ["Firebase.InstanceID"] = GetComponent<Firebase.InstanceID> ();
 	googleComponents ["Firebase.Invites"] = GetComponent<Firebase.Invites> ();
-	googleComponents ["Firebase.MLKit"] = GetComponent<Firebase.MLKit> ();
-	googleComponents ["Firebase.MLKit.Common"] = GetComponent<Firebase.MLKit.Common> ();
-	googleComponents ["Firebase.MLKit.ModelInterpreter"] = GetComponent<Firebase.MLKit.ModelInterpreter> ();
 	googleComponents ["Firebase.PerformanceMonitoring"] = GetComponent<Firebase.PerformanceMonitoring> ();
 	googleComponents ["Firebase.RemoteConfig"] = GetComponent<Firebase.RemoteConfig> ();
 	googleComponents ["Firebase.Storage"] = GetComponent<Firebase.Storage> ();
+	// googleComponents ["Firebase.AppDistribution"] = GetComponent<Firebase.AppDistribution> ();
+	// googleComponents ["Firebase.AppCheck"] = GetComponent<Firebase.AppCheck> ();
 
 	googleComponents ["Google.Analytics"] = GetComponent<Google.Analytics> ();
-	googleComponents ["Google.AppIndexing"] = GetComponent<Google.AppIndexing> ();
 	googleComponents ["Google.Cast"] = GetComponent<Google.Cast> ();
-	googleComponents ["Google.Core"] = GetComponent<Google.Core> ();
-	googleComponents ["Google.InstanceID"] = GetComponent<Google.InstanceID> ();
 	googleComponents ["Google.Maps"] = GetComponent<Google.Maps> ();
 	googleComponents ["Google.MobileAds"] = GetComponent<Google.MobileAds> ();
 	googleComponents ["Google.Places"] = GetComponent<Google.Places> ();
-	googleComponents ["Google.PlayGames"] = GetComponent<Google.PlayGames> ();
 	googleComponents ["Google.SignIn"] = GetComponent<Google.SignIn> ();
 	googleComponents ["Google.TagManager"] = GetComponent<Google.TagManager> ();
+
+	googleComponents ["MLKit.Core"] = GetComponent<MLKit.Core> ();
+	googleComponents ["MLKit.TextRecognition"] = GetComponent<MLKit.TextRecognition> ();
+	googleComponents ["MLKit.Vision"] = GetComponent<MLKit.Vision> ();
+	googleComponents ["MLKit.TextRecognition.Latin"] = GetComponent<MLKit.TextRecognition.Latin> ();
+	googleComponents ["MLKit.TextRecognition.Chinese"] = GetComponent<MLKit.TextRecognition.Chinese> ();
+	googleComponents ["MLKit.TextRecognition.Devanagari"] = GetComponent<MLKit.TextRecognition.Devanagari> ();
+	googleComponents ["MLKit.TextRecognition.Japanese"] = GetComponent<MLKit.TextRecognition.Japanese> ();
+	googleComponents ["MLKit.TextRecognition.Korean"] = GetComponent<MLKit.TextRecognition.Korean> ();
+	googleComponents ["MLKit.FaceDetection"] = GetComponent<MLKit.FaceDetection> ();
+	googleComponents ["MLKit.BarcodeScanning"] = GetComponent<MLKit.BarcodeScanning> ();
+	googleComponents ["MLKit.ImageLabeling"] = GetComponent<MLKit.ImageLabeling> ();
+	googleComponents ["MLKit.ObjectDetection"] = GetComponent<MLKit.ObjectDetection> ();
 
 	googleComponents ["Xamarin.Build.Download"] = GetComponent<Xamarin.Build.Download> ();
 

@@ -7,21 +7,7 @@ using System.Text;
 using ObjCRuntime;
 
 namespace Firebase.Crashlytics {
-	public partial class Crashlytics {
-		static string currentVersion;
-		public static string CurrentVersion {
-			get {
-				if (currentVersion == null) {
-					IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
-					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "FirebaseCrashlyticsVersionString");
-					currentVersion = Marshal.PtrToStringAnsi (ptr);
-					Dlfcn.dlclose (RTLD_MAIN_ONLY);
-				}
-
-				return currentVersion;
-			}
-		}
-
+	public partial class Crashlytics {		
 		public void LogCallerInformation (string message, string className = "", [CallerFilePath] string filePath = "", [CallerMemberName] string memberName = "", [CallerLineNumber] int lineNumber = 0)
 		{
 			var logBuilder = new StringBuilder ();

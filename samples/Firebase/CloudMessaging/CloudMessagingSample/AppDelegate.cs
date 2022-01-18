@@ -2,7 +2,6 @@
 using UIKit;
 using UserNotifications;
 
-using Firebase.InstanceID;
 using Firebase.Core;
 using Firebase.CloudMessaging;
 using System;
@@ -61,19 +60,7 @@ namespace CloudMessagingSample
 
 			Messaging.SharedInstance.Delegate = this;
 
-			InstanceId.SharedInstance.GetInstanceId (InstanceIdResultHandler);
-
 			return true;
-		}
-
-		void InstanceIdResultHandler (InstanceIdResult result, NSError error)
-		{
-			if (error != null) {
-				LogInformation (nameof (InstanceIdResultHandler), $"Error: {error.LocalizedDescription}");
-				return;
-			}
-
-			LogInformation (nameof (InstanceIdResultHandler), $"Remote Instance Id token: {result.Token}");
 		}
 
 		[Export ("messaging:didReceiveRegistrationToken:")]
@@ -111,15 +98,6 @@ namespace CloudMessagingSample
 			LogInformation (nameof (DidReceiveRemoteNotification), userInfo);
 
 			completionHandler (UIBackgroundFetchResult.NewData);
-		}
-
-		[Export ("messaging:didReceiveMessage:")]
-		public void DidReceiveMessage (Messaging messaging, RemoteMessage remoteMessage)
-		{
-			// Handle Data messages for iOS 10 and above.
-			HandleMessage (remoteMessage.AppData);
-
-			LogInformation (nameof (DidReceiveMessage), remoteMessage.AppData);
 		}
 
 		void HandleMessage (NSDictionary message)

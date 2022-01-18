@@ -48,4 +48,12 @@ namespace Firebase.CloudFirestore
 		Server,
 		Cache
 	}
+
+	[Native]
+	public enum LoadBundleTaskState : long
+	{
+		Error,
+		InProgress,
+		Success
+	}
 }

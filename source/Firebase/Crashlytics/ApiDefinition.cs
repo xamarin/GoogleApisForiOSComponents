@@ -6,20 +6,14 @@ using ObjCRuntime;
 using UIKit;
 
 namespace Firebase.Crashlytics {
+	delegate void HasUnsentReportsHandler (bool hasUnsentReports);
+	delegate void CheckAndUpdateUnsentReportsHandler ([NullAllowed] CrashlyticsReport report);
+
 	// @interface FIRCrashlytics : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof(NSObject), Name = "FIRCrashlytics")]
 	interface Crashlytics
 	{
-		// extern double FirebaseCrashlyticsVersionNumber;
-		[Field ("FirebaseCrashlyticsVersionNumber", "__Internal")]
-		double CurrentVersionNumber { get; }
-
-		// extern const unsigned char [] FirebaseCrashlyticsVersionString;
-		[Internal]
-		[Field ("FirebaseCrashlyticsVersionString", "__Internal")]
-		IntPtr _CurrentVersion { get; }
-
 		// +(instancetype _Nonnull)crashlytics __attribute__((swift_name("crashlytics()")));
 		[Static]
 		[Export ("crashlytics")]
@@ -32,6 +26,10 @@ namespace Firebase.Crashlytics {
 		// -(void)setCustomValue:(id _Nonnull)value forKey:(NSString * _Nonnull)key;
 		[Export ("setCustomValue:forKey:")]
 		void SetCustomValue (NSObject value, string key);
+
+		// -(void)setCustomKeysAndValues:(NSDictionary * _Nonnull)keysAndValues;
+		[Export ("setCustomKeysAndValues:")]
+		void SetCustomKeysAndValues (NSDictionary<NSString, NSObject> keysAndValues);
 
 		// -(void)setUserID:(NSString * _Nonnull)userID;
 		[Export ("setUserID:")]
@@ -60,7 +58,11 @@ namespace Firebase.Crashlytics {
 		// -(void)checkForUnsentReportsWithCompletion:(void (^ _Nonnull)(BOOL))completion __attribute__((swift_name("checkForUnsentReports(completion:)")));
 		[Async]
 		[Export ("checkForUnsentReportsWithCompletion:")]
-		void CheckForUnsentReports (Action<bool> completion);
+		void CheckForUnsentReports (HasUnsentReportsHandler completion);
+
+		// -(void)checkAndUpdateUnsentReportsWithCompletion:(void (^ _Nonnull)(FIRCrashlyticsReport * _Nullable))completion __attribute__((swift_name("checkAndUpdateUnsentReports(completion:)")));
+		[Export ("checkAndUpdateUnsentReportsWithCompletion:")]
+		void CheckAndUpdateUnsentReportsWithCompletion (CheckAndUpdateUnsentReportsHandler completionHandler);
 
 		// -(void)sendUnsentReports;
 		[Export ("sendUnsentReports")]
@@ -107,5 +109,38 @@ namespace Firebase.Crashlytics {
 		[Static]
 		[Export ("stackFrameWithSymbol:file:line:")]
 		StackFrame Create (string symbol, string file, nint line);
+	}
+
+	// @interface FIRCrashlyticsReport : NSObject	
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FIRCrashlyticsReport")]
+	interface CrashlyticsReport {
+		// @property (readonly, nonatomic) NSString * _Nonnull reportID;
+		[Export ("reportID")]
+		string ReportID { get; }
+
+		// @property (readonly, nonatomic) NSDate * _Nonnull dateCreated;
+		[Export ("dateCreated")]
+		NSDate DateCreated { get; }
+
+		// @property (readonly, nonatomic) BOOL hasCrash;
+		[Export ("hasCrash")]
+		bool HasCrash { get; }
+
+		// -(void)log:(NSString * _Nonnull)msg;
+		[Export ("log:")]
+		void Log (string msg);
+
+		// -(void)setCustomValue:(id _Nonnull)value forKey:(NSString * _Nonnull)key;
+		[Export ("setCustomValue:forKey:")]
+		void SetCustomValue (NSObject value, string key);
+
+		// -(void)setCustomKeysAndValues:(NSDictionary * _Nonnull)keysAndValues;
+		[Export ("setCustomKeysAndValues:")]
+		void SetCustomKeysAndValues (NSDictionary<NSString, NSObject>  keysAndValues);
+
+		// -(void)setUserID:(NSString * _Nonnull)userID;
+		[Export ("setUserID:")]
+		void SetUserID (string userID);
 	}
 }

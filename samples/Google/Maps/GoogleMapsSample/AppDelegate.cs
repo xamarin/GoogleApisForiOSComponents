@@ -16,7 +16,7 @@ namespace GoogleMapsSample
 
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
-			MapServices.ProvideAPIKey ("<Get your Api Key at https://code.google.com/apis/console/>");
+			MapServices.ProvideApiKey ("<Get your Api Key at https://code.google.com/apis/console/>");
 
 			window = new UIWindow (UIScreen.MainScreen.Bounds) {
 				RootViewController = new MapViewController ()

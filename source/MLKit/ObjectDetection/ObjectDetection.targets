@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<_MLKitVisionRecogCoreAssemblyName>MLKit.ObjectDetection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_MLKitVisionRecogCoreAssemblyName>
+		<_MLKitObjDectItemsFolder>MLKObjDect-1.5.0</_MLKitObjDectItemsFolder>
+		<_MLKitObjDectSDKBaseFolder>$(XamarinBuildDownloadDir)$(_MLKitObjDectItemsFolder)\</_MLKitObjDectSDKBaseFolder>
+		<_MLKitObjDectResourcesFolder>$(XamarinBuildDownloadDir)$(_MLKitObjDectItemsFolder)\Resources\MLKitObjectDetectionResources\</_MLKitObjDectResourcesFolder>
+	</PropertyGroup>
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+		<XamarinBuildDownload Include="$(_MLKitObjDectItemsFolder)">
+			<Url>https://dl.google.com/dl/cpdc/b89490e0be9de993/MLKitObjectDetection-1.5.0.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildRestoreResources Include="_MLKitObjDectDownloadedItems" />
+	</ItemGroup>
+	<Target Name="_MLKitObjDectDownloadedItems">
+		<ItemGroup>
+			<!-- From https://dl.google.com/dl/cpdc/b89490e0be9de993/MLKitObjectDetection-1.5.0.tar.gz -->
+			<NativeReference Include="$(_MLKitObjDectSDKBaseFolder)Frameworks\MLKitObjectDetection.framework">
+				<Kind>Framework</Kind>
+				<SmartLink>True</SmartLink>
+				<ForceLoad>True</ForceLoad>
+				<LinkerFlags>-lc++</LinkerFlags>
+				<Frameworks>Accelerate CoreGraphics CoreImage CoreMedia CoreVideo Foundation UIKit</Frameworks>
+			</NativeReference>
+		</ItemGroup>
+		<ItemGroup>
+			<BundleResource Include="$(_MLKitObjDectResourcesFolder)mobile_object_classifier_v0_2_3_with_metadata.tflite" Visible="False">
+				<LogicalName>MLKitObjectDetectionResources.bundle\mobile_object_classifier_v0_2_3_with_metadata.tflite</LogicalName>
+				<Optimize>False</Optimize>
+			</BundleResource>
+		</ItemGroup>
+	</Target>
+</Project>

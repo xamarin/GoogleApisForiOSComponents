@@ -80,6 +80,9 @@ namespace Google.Maps
 		[Field ("kGMSAccessibilityMyLocation", "__Internal")]
 		NSString AccessibilityMyLocation { get; }
 
+		[Field ("kGMSAccessiblityOutOfQuota", "__Internal")]
+		NSString AccessiblityOutOfQuota { get; }
+
 		[Field ("kGMSEquatorProjectedMeter", "__Internal")]
 		double EquatorProjectedMeter { get; }
 	}
@@ -430,7 +433,6 @@ namespace Google.Maps
 		string ShortName { get; }
 	}
 
-
 	[BaseType (typeof (Layer), Name = "GMSMapLayer")]
 	interface MapLayer
 	{
@@ -664,6 +666,19 @@ namespace Google.Maps
 		// - (BOOL)areEqualForRenderingPosition:(GMSCameraPosition *)position position:(GMSCameraPosition*)otherPosition;
 		[Export ("areEqualForRenderingPosition:position:")]
 		bool Equals (CameraPosition position, CameraPosition otherPosition);
+
+		///
+		/// From a category (GMSMapView+Premium.h)
+		///
+
+		// +(instancetype _Nonnull)mapWithFrame:(CGRect)frame mapID:(GMSMapID * _Nonnull)mapID camera:(GMSCameraPosition * _Nonnull)camera __attribute__((availability(swift, unavailable)));		
+		[Static]
+		[Export ("mapWithFrame:mapID:camera:")]
+		MapView MapWithFrame (CGRect frame, MapId mapId, CameraPosition camera);
+
+		// -(instancetype _Nonnull)initWithFrame:(CGRect)frame mapID:(GMSMapID * _Nonnull)mapID camera:(GMSCameraPosition * _Nonnull)camera;
+		[Export ("initWithFrame:mapID:camera:")]
+		IntPtr Constructor (CGRect frame, MapId mapId, CameraPosition camera);
 	}
 
 	[BaseType (typeof (MapView))]
@@ -753,6 +768,14 @@ namespace Google.Maps
 		[Static]
 		[Export ("markerImageWithColor:")]
 		UIImage MarkerImage ([NullAllowed] UIColor color);
+
+		///
+		/// From a category (GMSMarker+Premium.h)
+		///
+
+		// @property (nonatomic) GMSCollisionBehavior collisionBehavior;
+		[Export ("collisionBehavior", ArgumentSemantic.Assign)]
+		CollisionBehavior CollisionBehavior { get; set; }
 	}
 
 	[DisableDefaultCtor]
@@ -840,10 +863,6 @@ namespace Google.Maps
 		[Export ("panoramaID")]
 		string PanoramaId { get; }
 
-		[Obsolete ("Use PanoramaId property instead. This will be removed in future versions.")]
-		[Wrap ("PanoramaId")]
-		string PanoramaID { get; }
-
 		[Export ("links", ArgumentSemantic.Copy)]
 		PanoramaLink [] Links { get; }
 	}
@@ -930,10 +949,6 @@ namespace Google.Maps
 
 		[Export ("panoramaID", ArgumentSemantic.Copy)]
 		string PanoramaId { get; set; }
-
-		[Obsolete ("Use PanoramaId property instead. This will be removed in future versions.")]
-		[Wrap ("PanoramaId")]
-		string PanoramaID { get; set; }
 	}
 
 	delegate void PanoramaCallback ([NullAllowed] Panorama panorama, [NullAllowed] NSError error);
@@ -1252,15 +1267,20 @@ namespace Google.Maps
 		[Export ("provideAPIKey:")]
 		bool ProvideApiKey (string apiKey);
 
-		[Obsolete ("Use ProvideApiKey static method instead. This will be removed in future versions.")]
-		[Static]
-		[Wrap ("ProvideApiKey (APIKey)")]
-		bool ProvideAPIKey (string APIKey);
-
 		// +(BOOL)provideAPIOptions:(NSArray<NSString *> * _Nonnull)APIOptions;
 		[Static]
 		[Export ("provideAPIOptions:")]
 		bool ProvideApiOptions (string [] apiOptions);
+
+		// + (void)setMetalRendererEnabled:(BOOL)enabled;
+		[Static]
+		[Export ("setMetalRendererEnabled:")]
+		bool SetMetalRendererEnabled (bool enabled);
+
+		// + (void)setAbnormalTerminationReportingEnabled:(BOOL)enabled;
+		[Static]
+		[Export ("setAbnormalTerminationReportingEnabled:")]
+		bool AbnormalTerminationReportingEnabled (bool enabled);
 
 		[Static]
 		[Export ("openSourceLicenseInfo")]
@@ -1269,11 +1289,6 @@ namespace Google.Maps
 		[Static]
 		[Export ("SDKVersion")]
 		string SdkVersion { get; }
-
-		[Obsolete ("Use SdkVersion static property instead. This will be removed in future versions.")]
-		[Static]
-		[Wrap ("SdkVersion")]
-		string SDKVersion { get; }
 
 		// +(NSString * _Nonnull)SDKLongVersion;
 		[Static]
@@ -1285,6 +1300,9 @@ namespace Google.Maps
 	[BaseType(typeof(NSObject), Name = "GMSStrokeStyle")]
 	interface StrokeStyle
 	{
+		// @property(nonatomic, strong, nullable) GMSStampStyle *stampStyle;
+		[Export ("stampStyle")]
+		StampStyle StampStyle { get; }
 
 		[Static]
 		[Export ("solidColor:")]
@@ -1425,4 +1443,47 @@ namespace Google.Maps
 		[Export ("userAgent", ArgumentSemantic.Copy)]
 		string UserAgent { get; set; }
 	}
+
+
+	// @interface GMSStampStyle : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "GMSStampStyle")]	
+	interface StampStyle {
+		// @property (readonly, nonatomic) UIImage * _Nonnull stampImage;
+		[Export ("stampImage")]
+		UIImage StampImage { get; }
+	}
+
+	// @interface GMSTextureStyle : GMSStampStyle
+	[BaseType (typeof (StampStyle), Name = "GMSTextureStyle")]
+	interface TextureStyle {
+		// +(instancetype _Nonnull)textureStyleWithImage:(UIImage * _Nonnull)image __attribute__((availability(swift, unavailable)));		
+		[Static]
+		[Export ("textureStyleWithImage:")]
+		TextureStyle TextureStyleWithImage (UIImage image);
+
+		// -(instancetype _Nonnull)initWithImage:(UIImage * _Nonnull)image __attribute__((objc_designated_initializer));
+		[Export ("initWithImage:")]
+		[DesignatedInitializer]
+		IntPtr Constructor (UIImage image);
+	}
+
+	#region Premium
+
+	// @interface GMSMapID : NSObject <NSCopying>
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "GMSMapID")]
+	interface MapId : INSCopying {
+		// -(instancetype _Nonnull)initWithIdentifier:(NSString * _Nonnull)identifier __attribute__((objc_designated_initializer));
+		[Export ("initWithIdentifier:")]
+		[DesignatedInitializer]
+		IntPtr Constructor (string identifier);
+
+		// +(instancetype _Nonnull)mapIDWithIdentifier:(NSString * _Nonnull)identifier __attribute__((availability(swift, unavailable)));
+		[Static]
+		[Export ("mapIDWithIdentifier:")]
+		MapId MapIdWithIdentifier (string identifier);
+	}
+
+	#endregion
 }

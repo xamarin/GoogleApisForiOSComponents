@@ -45,7 +45,8 @@ namespace Google.Maps
 	public enum MarkerAnimation : ulong
 	{
 		None = 0,
-		Pop
+		Pop,
+		FadeIn
 	}
 
 	[Native]
@@ -67,5 +68,12 @@ namespace Google.Maps
 		Geodesic,
 		Rhumb,
 		Projected
+	}
+
+	[Native]
+	public enum CollisionBehavior : long {
+		Required,
+		RequiredAndHidesOptional,
+		OptionalAndHidesLowerPriority
 	}
 }

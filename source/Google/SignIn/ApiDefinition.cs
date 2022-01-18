@@ -62,10 +62,6 @@ namespace Google.SignIn
 		[Export ("userID")]
 		string UserId { get; }
 
-		[Obsolete ("Use the UserId property instead. This will be removed in future versions.")]
-		[Wrap ("UserId")]
-		string UserID { get; }
-
 		// @property (readonly, nonatomic) GIDProfileData * profile;
 		[Export ("profile")]
 		ProfileData Profile { get; }
@@ -170,10 +166,6 @@ namespace Google.SignIn
 		[Export ("clientID")]
 		string ClientId { get; set; }
 
-		[Obsolete ("Use the ClientId property instead. This will be removed in future versions.")]
-		[Wrap ("ClientId")]
-		string ClientID { get; set; }
-
 		// @property (copy, nonatomic) NSArray * scopes;
 		[Export ("scopes", ArgumentSemantic.Copy)]
 		string [] Scopes { get; set; }
@@ -194,17 +186,9 @@ namespace Google.SignIn
 		[Export ("serverClientID")]
 		string ServerClientId { get; set; }
 
-		[Obsolete ("Use the ServerClientId property instead. This will be removed in future versions.")]
-		[Wrap ("ServerClientId")]
-		string ServerClientID { get; set; }
-
 		// @property (copy, nonatomic) NSString * openIDRealm;
 		[Export ("openIDRealm")]
 		string OpenIdRealm { get; set; }
-
-		[Obsolete ("Use the OpenIdRealm property instead. This will be removed in future versions.")]
-		[Wrap ("OpenIdRealm")]
-		string OpenIDRealm { get; set; }
 
 		// @property(nonatomic, copy) NSString *hostedDomain;
 		[Export ("hostedDomain")]
@@ -219,25 +203,13 @@ namespace Google.SignIn
 		[Export ("handleURL:")]
 		bool HandleUrl (NSUrl url);
 		
-		[Obsolete ("Use the HandleUrl (NSUrl) overload method instead. This will be removed in future versions.")]
-		[Wrap ("HandleUrl (url)")]
-		bool HandleUrl (NSUrl url, string sourceApplication, [NullAllowed] NSObject annotation);
-
 		// -(BOOL)hasPreviousSignIn;
 		[Export ("hasPreviousSignIn")]
 		bool HasPreviousSignIn { get; }
 
-		[Obsolete ("Use the HasPreviousSignIn property instead. This will be removed in future versions.")]
-		[Wrap ("HasPreviousSignIn")]
-		bool HasAuthInKeychain { get; }
-
 		// -(void)restorePreviousSignIn;
 		[Export ("restorePreviousSignIn")]
 		void RestorePreviousSignIn ();
-
-		[Obsolete ("Use the RestorePreviousSignIn method instead. This will be removed in future versions.")]
-		[Wrap ("RestorePreviousSignIn ()")]
-		void SignInUserSilently ();
 
 		// -(void)signIn;
 		[Export ("signIn")]

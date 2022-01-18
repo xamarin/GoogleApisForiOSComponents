@@ -23,19 +23,6 @@ namespace GooglePlacesSample
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
 
-			if (string.IsNullOrWhiteSpace (GoogleApiKey.Key)) {
-				var message = $"Configure the Key property inside GoogleApiKey class for your bundle {NSBundle.MainBundle.BundleIdentifier}";
-				ShowMessage ("Google API Key is missing...", message, Window.RootViewController);
-			}
-
-			// Provide the Places API with your API key.
-			PlacesClient.ProvideApiKey (GoogleApiKey.Key);
-
-			// Provide the Maps API with your API key. You may not need
-			// this in your app, however we do need this for the demo 
-			// app as it uses Maps.
-			MapServices.ProvideAPIKey (GoogleApiKey.Key);
-
 			var splitViewController = UIStoryboard.FromName ("Main", null).InstantiateViewController (nameof (UISplitViewController)) as UISplitViewController;
 			splitViewController.Delegate = this;
 			splitViewController.PreferredDisplayMode = UISplitViewControllerDisplayMode.PrimaryOverlay;
@@ -44,6 +31,20 @@ namespace GooglePlacesSample
 				RootViewController = splitViewController
 			};
 			Window.MakeKeyAndVisible ();
+
+			if (string.IsNullOrWhiteSpace (GoogleApiKey.Key)) {
+				var message = $"Configure the Key property inside GoogleApiKey class for your bundle {NSBundle.MainBundle.BundleIdentifier}";
+				ShowMessage ("Google API Key is missing...", message, Window.RootViewController);
+			}
+			else {
+				// Provide the Places API with your API key.
+				PlacesClient.ProvideApiKey (GoogleApiKey.Key);
+
+				// Provide the Maps API with your API key. You may not need
+				// this in your app, however we do need this for the demo 
+				// app as it uses Maps.
+				MapServices.ProvideApiKey (GoogleApiKey.Key);
+			}
 
 			return true;
 		}

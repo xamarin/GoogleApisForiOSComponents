@@ -13,11 +13,6 @@ namespace Firebase.Storage
 	[BaseType (typeof (NSObject), Name = "FIRStorage")]
 	interface Storage
 	{
-		// extern const unsigned char *const FirebaseStorageVersionString;
-		[Internal]
-		[Field ("FIRStorageVersionString", "__Internal")]
-		IntPtr _CurrentVersion { get; }
-
 		// extern NSString *const _Nonnull FIRStorageErrorDomain;
 		[Field ("FIRStorageErrorDomain", "__Internal")]
 		NSString ErrorDomain { get; }
@@ -73,6 +68,10 @@ namespace Firebase.Storage
 		// -(FIRStorageReference * _Nonnull)referenceWithPath:(NSString * _Nonnull)string;
 		[Export ("referenceWithPath:")]
 		StorageReference GetReferenceFromPath (string path);
+
+		// - (void) useEmulatorWithHost:(NSString*) host port:(NSInteger) port;
+		[Export ("useEmulatorWithHost:port:")]
+		void UseEmulatorWithHost (string host, uint port);
 	}
 
 	// @interface FIRStorageDownloadTask : FIRStorageObservableTask <FIRStorageTaskManagement>

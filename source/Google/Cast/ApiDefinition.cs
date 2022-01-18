@@ -19,7 +19,7 @@ namespace Google.Cast {
 		[Field ("kGCKInvalidRequestID", "__Internal")]
 		nint InvalidRequestId { get; }
 	}
-	
+
 	// @interface GCKAdBreakClipVastAdsRequest : NSObject <NSCopying, NSSecureCoding>
 	[Obsolete ("Use the VASTAdsRequest class instead.")]
 	[BaseType (typeof (NSObject), Name = "GCKAdBreakClipVastAdsRequest")]
@@ -185,6 +185,10 @@ namespace Google.Cast {
 		[Export ("embedded")]
 		bool Embedded { get; set; }
 
+		// @property(nonatomic, assign, readonly) BOOL expanded;
+		[Export ("expanded")]
+		bool Expanded { get; set; }
+
 		// -(instancetype _Nonnull)initWithAdBreakInfo:(GCKAdBreakInfo * _Nonnull)adBreakInfo;
 		[Export ("initWithAdBreakInfo:")]
 		IntPtr Constructor (AdBreakInfo adBreakInfo);
@@ -223,6 +227,10 @@ namespace Google.Cast {
 		[Export ("embedded")]
 		bool Embedded { get; }
 
+		// @property(nonatomic, assign, readonly) BOOL expanded;
+		[Export ("expanded")]
+		bool Expanded { get; set; }
+
 		// -(instancetype _Nonnull)initWithPlaybackPosition:(NSTimeInterval)playbackPosition;
 		[Obsolete ("Use the AdBreakInfoBuilder class to initialize AdBreakInfos")]
 		[Export ("initWithPlaybackPosition:")]
@@ -241,7 +249,7 @@ namespace Google.Cast {
 		double CurrentAdBreakClipTime { get; }
 
 		// @property (readonly, assign, nonatomic) NSTimeInterval whenSkippable;
-		[Export("whenSkippable")]
+		[Export ("whenSkippable")]
 		double WhenSkippable { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull adBreakID;
@@ -392,6 +400,10 @@ namespace Google.Cast {
 		[Export ("unregisterDeviceProviderForCategory:")]
 		void UnregisterDeviceProviderForCategory (string category);
 
+		// - (void)setLaunchCredentialsData:(GCKCredentialsData *_Nullable)credentialsData;
+		[Export ("setLaunchCredentialsData:")]
+		void SetLaunchCredentialsData ([NullAllowed] CredentialsData credentialsData);
+
 		////////////////////////////////////
 		/// From Category CastContext_UI ///
 		////////////////////////////////////
@@ -509,6 +521,10 @@ namespace Google.Cast {
 		// @property (assign, readwrite, nonatomic) BOOL stopReceiverApplicationWhenEndingSession;
 		[Export ("stopReceiverApplicationWhenEndingSession")]
 		bool StopReceiverApplicationWhenEndingSession { get; set; }
+
+		// @property(nonatomic, assign) BOOL startDiscoveryAfterFirstTapOnCastButton;
+		[Export ("startDiscoveryAfterFirstTapOnCastButton")]
+		bool StartDiscoveryAfterFirstTapOnCastButton { get; set; }
 	}
 
 	// @interface GCKCastSession : GCKSession
@@ -666,6 +682,28 @@ namespace Google.Cast {
 	}
 
 	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "GCKCredentialsData")]
+	interface CredentialsData {
+		// - (instancetype)initWithCredentials:(NSString *_Nullable)credentials;
+		[Export ("initWithCredentials:")]
+		IntPtr Constructor ([NullAllowed] string credentials);
+
+		// - (instancetype)initWithCredentials:(NSString *_Nullable)credentials credentialsType:(NSString *_Nullable)credentialsType NS_DESIGNATED_INITIALIZER;
+		[Export ("initWithCredentials:credentialsType:")]
+		IntPtr Constructor ([NullAllowed] string credentials, [NullAllowed] string credentialsType);
+
+		// - (NSString *_Nullable)credentials;
+		[NullAllowed]
+		[Export ("credentials")]
+		string Credentials { get; }
+
+		// - (NSString *_Nullable)credentialsType;
+		[NullAllowed]
+		[Export ("credentialsType")]
+		string CredentialsType { get; }
+	}
+
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKDevice")]
 	interface Device : INSCopying, INSSecureCoding {
 		// extern NSString *const _Nonnull kGCKCastDeviceCategory __attribute__((visibility("default")));
@@ -729,10 +767,6 @@ namespace Google.Cast {
 
 		[Export ("hasCapabilities:")]
 		bool HasCapabilities (DeviceCapabilities deviceCapabilities);
-
-		[Obsolete ("Use HasCapabilities (DeviceCapabilities) overload method instead. This will be removed in future versions.")]
-		[Wrap ("HasCapabilities ((DeviceCapabilities)(long)deviceCapabilities)")]
-		bool HasCapabilities (nint deviceCapabilities);
 
 		[Export ("setAttribute:forKey:")]
 		void SetAttribute (INSSecureCoding attribute, string key);
@@ -1005,7 +1039,7 @@ namespace Google.Cast {
 		NSString CustomDataKey { get; }
 
 		// extern NSString *const _Nonnull kGCKErrorDetailedCodeKey __attribute__((visibility("default")));
-		[Field("kGCKErrorDetailedCodeKey", "__Internal")]
+		[Field ("kGCKErrorDetailedCodeKey", "__Internal")]
 		NSString DetailedCodeKey { get; }
 
 		// extern NSString *const _Nonnull kGCKErrorExtraInfoKey __attribute__((visibility("default")));
@@ -1013,7 +1047,7 @@ namespace Google.Cast {
 		NSString ExtraInfoKey { get; }
 
 		// extern NSString *const _Nonnull kGCKErrorReasonKey __attribute__((visibility("default")));
-		[Field("kGCKErrorReasonKey", "__Internal")]
+		[Field ("kGCKErrorReasonKey", "__Internal")]
 		NSString ReasonKey { get; }
 
 		[Field ("kGCKErrorDomain", "__Internal")]
@@ -1080,6 +1114,36 @@ namespace Google.Cast {
 		void DidChangeWritableState (CastChannel channel, bool writable);
 	}
 
+	// @interface GCKHLSSegment : NSObject
+	[BaseType (typeof (NSObject), Name = "GCKHLSSegment")]
+	interface HlsSegment {
+		// +(NSString * _Nullable)mapHLSSegmentFormatToString:(GCKHLSSegmentFormat)hlsSegmentFormat;
+		[Static]
+		[Export ("mapHLSSegmentFormatToString:")]
+		[return: NullAllowed]
+		string MapHlsSegmentFormatToString (HlsSegmentFormat hlsSegmentFormat);
+
+		// +(GCKHLSSegmentFormat)mapHLSSegmentFormatStringToEnum:(NSString * _Nonnull)hlsSegmentFormatString;
+		[Static]
+		[Export ("mapHLSSegmentFormatStringToEnum:")]
+		HlsSegmentFormat MapHlsSegmentFormatStringToEnum (string hlsSegmentFormatString);
+	}
+
+	// @interface GCKHLSVideoSegment : NSObject
+	[BaseType (typeof (NSObject), Name = "GCKHLSVideoSegment")]
+	interface HlsVideoSegment {
+		// +(NSString * _Nullable)mapHLSVideoSegmentFormatToString:(GCKHLSVideoSegmentFormat)hlsVideoSegmentFormat;
+		[Static]
+		[Export ("mapHLSVideoSegmentFormatToString:")]
+		[return: NullAllowed]
+		string MapHlsVideoSegmentFormatToString (HlsVideoSegmentFormat hlsVideoSegmentFormat);
+
+		// +(GCKHLSVideoSegmentFormat)mapHLSVideoSegmentFormatStringToEnum:(NSString * _Nonnull)hlsVideoSegmentFormatString;
+		[Static]
+		[Export ("mapHLSVideoSegmentFormatStringToEnum:")]
+		HlsVideoSegmentFormat MapHlsVideoSegmentFormatStringToEnum (string hlsVideoSegmentFormatString);
+	}
+
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "GCKImage")]
 	interface Image : INSCopying, INSSecureCoding {
@@ -1133,11 +1197,23 @@ namespace Google.Cast {
 		[Export ("relaunchIfRunning")]
 		bool RelaunchIfRunning { get; set; }
 
+		// @property(nonatomic, assign) BOOL androidReceiverCompatible;
+		[Export ("androidReceiverCompatible")]
+		bool AndroidReceiverCompatible { get; set; }
+
 		[Export ("initWithRelaunchIfRunning:")]
 		IntPtr Constructor (bool relaunchIfRunning);
 
 		[Export ("initWithLanguageCode:relaunchIfRunning:")]
 		IntPtr Constructor ([NullAllowed] string languageCode, bool relaunchIfRunning);
+
+		// - (instancetype)initWithRelaunchIfRunning:(BOOL)relaunchIfRunning androidReceiverCompatible:(BOOL)androidReceiverCompatible;
+		[Export ("initWithRelaunchIfRunning:androidReceiverCompatible:")]
+		IntPtr Constructor (bool relaunchIfRunning, bool androidReceiverCompatible);
+
+		// - (instancetype)initWithRelaunchIfRunning:(BOOL)relaunchIfRunning languageCode:(nullable NSString *)languageCode androidReceiverCompatible:(BOOL)androidReceiverCompatible;
+		[Export ("initWithRelaunchIfRunning:languageCode:androidReceiverCompatible:")]
+		IntPtr Constructor (bool relaunchIfRunning, [NullAllowed] string languageCode, bool androidReceiverCompatible);
 	}
 
 	[DisableDefaultCtor]
@@ -1287,6 +1363,14 @@ namespace Google.Cast {
 		[Export ("startAbsoluteTime")]
 		double StartAbsoluteTime { get; }
 
+		// @property (readonly, nonatomic) GCKHLSSegmentFormat hlsSegmentFormat;
+		[Export ("hlsSegmentFormat")]
+		HlsSegmentFormat HlsSegmentFormat { get; }
+
+		// @property (readonly, nonatomic) GCKHLSVideoSegmentFormat hlsVideoSegmentFormat;
+		[Export ("hlsVideoSegmentFormat")]
+		HlsVideoSegmentFormat HlsVideoSegmentFormat { get; }
+
 		[NullAllowed]
 		[Export ("customData")]
 		NSObject CustomData { get; }
@@ -1367,6 +1451,14 @@ namespace Google.Cast {
 		// @property (nonatomic) NSTimeInterval startAbsoluteTime;
 		[Export ("startAbsoluteTime")]
 		double StartAbsoluteTime { get; set; }
+
+		// @property (readonly, nonatomic) GCKHLSSegmentFormat hlsSegmentFormat;
+		[Export ("hlsSegmentFormat")]
+		HlsSegmentFormat HlsSegmentFormat { get; }
+
+		// @property (readonly, nonatomic) GCKHLSVideoSegmentFormat hlsVideoSegmentFormat;
+		[Export ("hlsVideoSegmentFormat")]
+		HlsVideoSegmentFormat HlsVideoSegmentFormat { get; }
 
 		// @property (readwrite, nonatomic, strong) id _Nullable customData;
 		[NullAllowed]
@@ -1508,6 +1600,16 @@ namespace Google.Cast {
 		[NullAllowed]
 		[Export ("credentialsType")]
 		string CredentialsType { get; }
+
+		// @property(nonatomic, copy, readonly, nullable) NSString *atvCredentials;
+		[NullAllowed]
+		[Export ("atvCredentials")]
+		string AtvCredentials { get; }
+
+		// @property(nonatomic, copy, readonly, nullable) NSString *atvCredentialsType;
+		[NullAllowed]
+		[Export ("atvCredentialsType")]
+		string AtvCredentialsType { get; }
 	}
 
 	// @interface GCKMediaLoadRequestDataBuilder : NSObject
@@ -1556,6 +1658,16 @@ namespace Google.Cast {
 		[NullAllowed]
 		[Export ("credentialsType")]
 		string CredentialsType { get; set; }
+
+		// @property(nonatomic, copy, readonly, nullable) NSString *atvCredentials;
+		[NullAllowed]
+		[Export ("atvCredentials")]
+		string AtvCredentials { get; }
+
+		// @property(nonatomic, copy, readonly, nullable) NSString *atvCredentialsType;
+		[NullAllowed]
+		[Export ("atvCredentialsType")]
+		string AtvCredentialsType { get; }
 
 		// -(instancetype _Nonnull)initWithMediaLoadRequestData:(GCKMediaLoadRequestData * _Nonnull)requestData;
 		[Export ("initWithMediaLoadRequestData:")]
@@ -2146,11 +2258,13 @@ namespace Google.Cast {
 		// +(NSString * _Nonnull)mapHLSSegmentFormatToString:(GCKHLSSegmentFormat)hlsSegmentFormat;
 		[Static]
 		[Export ("mapHLSSegmentFormatToString:")]
+		[Obsolete ("Use HlsSegment.MapHlsSegmentFormatToString")]
 		string MapHlsSegmentFormatToString (HlsSegmentFormat hlsSegmentFormat);
 
 		// +(GCKHLSSegmentFormat)mapHLSSegmentFormatStringToEnum:(NSString * _Nonnull)hlsSegmentFormatString;
 		[Static]
 		[Export ("mapHLSSegmentFormatStringToEnum:")]
+		[Obsolete ("Use HlsSegment.MapHlsSegmentFormatStringToEnum")]
 		HlsSegmentFormat MapHlsSegmentFormatStringToEnum (string hlsSegmentFormatString);
 
 		// -(instancetype _Nonnull)initWithURL:(NSURL * _Nonnull)url protocolType:(GCKStreamingProtocolType)protocolType initialTime:(NSTimeInterval)initialTime hlsSegmentFormat:(GCKHLSSegmentFormat)hlsSegmentFormat;
@@ -2230,51 +2344,51 @@ namespace Google.Cast {
 		nint QueuePrevious { get; }
 
 		// extern const NSInteger kGCKMediaCommandQueueShuffle __attribute__((visibility("default")));
-		[Field("kGCKMediaCommandQueueShuffle", "__Internal")]
+		[Field ("kGCKMediaCommandQueueShuffle", "__Internal")]
 		nint QueueShuffle { get; }
 
 		// extern const NSInteger kGCKMediaCommandSkipAd __attribute__((visibility("default")));
-		[Field("kGCKMediaCommandSkipAd", "__Internal")]
+		[Field ("kGCKMediaCommandSkipAd", "__Internal")]
 		nint SkipAd { get; }
 
 		// extern const NSInteger kGCKMediaCommandQueueRepeatAll __attribute__((visibility("default")));
-		[Field("kGCKMediaCommandQueueRepeatAll", "__Internal")]
+		[Field ("kGCKMediaCommandQueueRepeatAll", "__Internal")]
 		nint QueueRepeatAll { get; }
 
 		// extern const NSInteger kGCKMediaCommandQueueRepeatOne __attribute__((visibility("default")));
-		[Field("kGCKMediaCommandQueueRepeatOne", "__Internal")]
+		[Field ("kGCKMediaCommandQueueRepeatOne", "__Internal")]
 		nint QueueRepeatOne { get; }
 
 		// extern const NSInteger kGCKMediaCommandQueueRepeat __attribute__((visibility("default")));
-		[Field("kGCKMediaCommandQueueRepeat", "__Internal")]
+		[Field ("kGCKMediaCommandQueueRepeat", "__Internal")]
 		nint QueueRepeat { get; }
 
 		// extern const NSInteger kGCKMediaCommandEditTracks __attribute__((visibility("default")));
-		[Field("kGCKMediaCommandEditTracks", "__Internal")]
+		[Field ("kGCKMediaCommandEditTracks", "__Internal")]
 		nint EditTracks { get; }
 
 		// extern const NSInteger kGCKMediaCommandSetPlaybackRate __attribute__((visibility("default")));
-		[Field("kGCKMediaCommandSetPlaybackRate", "__Internal")]
+		[Field ("kGCKMediaCommandSetPlaybackRate", "__Internal")]
 		nint SetPlaybackRate { get; }
 
 		// extern const NSInteger kGCKMediaCommandLike __attribute__((visibility("default")));
-		[Field("kGCKMediaCommandLike", "__Internal")]
+		[Field ("kGCKMediaCommandLike", "__Internal")]
 		nint Like { get; }
 
 		// extern const NSInteger kGCKMediaCommandDislike __attribute__((visibility("default")));
-		[Field("kGCKMediaCommandDislike", "__Internal")]
+		[Field ("kGCKMediaCommandDislike", "__Internal")]
 		nint Dislike { get; }
 
 		// extern const NSInteger kGCKMediaCommandFollow __attribute__((visibility("default")));
-		[Field("kGCKMediaCommandFollow", "__Internal")]
+		[Field ("kGCKMediaCommandFollow", "__Internal")]
 		nint Follow { get; }
 
 		// extern const NSInteger kGCKMediaCommandUnfollow __attribute__((visibility("default")));
-		[Field("kGCKMediaCommandUnfollow", "__Internal")]
+		[Field ("kGCKMediaCommandUnfollow", "__Internal")]
 		nint Unfollow { get; }
 
 		// extern const NSInteger kGCKMediaCommandStreamTransfer __attribute__((visibility("default")));
-		[Field("kGCKMediaCommandStreamTransfer", "__Internal")]
+		[Field ("kGCKMediaCommandStreamTransfer", "__Internal")]
 		nint StreamTransfer { get; }
 	}
 
@@ -3414,11 +3528,18 @@ namespace Google.Cast {
 	}
 
 	// @interface GCKUICastButton : UIButton
-	[BaseType (typeof (UIButton), Name = "GCKUICastButton")]
+	[BaseType (typeof (UIButton),
+		Name = "GCKUICastButton",
+		Delegates = new string [] { "Delegate" },
+		Events = new Type [] { typeof (UICastButtonDelegate) })]
 	interface UICastButton {
-		// @property (assign, readwrite, nonatomic) BOOL triggersDefaultCastDialog;
+		// @property (assign, nonatomic) BOOL triggersDefaultCastDialog __attribute__((deprecated("Use the GCKUICastButtonDelegate methods to respond to the actions on the cast button.")));
 		[Export ("triggersDefaultCastDialog")]
 		bool TriggersDefaultCastDialog { get; set; }
+
+		// @property (nonatomic, weak) id<GCKUICastButtonDelegate> _Nullable delegate;
+		[NullAllowed, Export ("delegate", ArgumentSemantic.Weak)]
+		UICastButtonDelegate Delegate { get; set; }
 
 		// -(instancetype _Nonnull)initWithFrame:(CGRect)frame;
 		[Export ("initWithFrame:")]
@@ -3428,9 +3549,27 @@ namespace Google.Cast {
 		[Export ("setInactiveIcon:activeIcon:animationIcons:")]
 		void SetInactiveIcon (UIImage inactiveIcon, UIImage activeIcon, UIImage [] animationIcons);
 
-		// - (void)setAccessibilityLabel:(NSString *)label forCastState:(GCKCastState) state;
+		// -(void)setAccessibilityLabel:(NSString * _Nonnull)label forCastState:(GCKCastState)state;
 		[Export ("setAccessibilityLabel:forCastState:")]
 		void SetAccessibilityLabel (string label, CastState state);
+	}
+
+	interface IUICastButtonDelegate {
+	}
+
+	// @protocol GCKUICastButtonDelegate <NSObject>
+	[Protocol, Model (AutoGeneratedName = true)]
+	[BaseType (typeof (NSObject), Name = "GCKUICastButtonDelegate")]
+	interface UICastButtonDelegate {
+		// @optional -(void)castButtonDidTapToPresentLocalNetworkAccessPermissionDialog:(GCKUICastButton * _Nonnull)castButton;
+		[Export ("castButtonDidTapToPresentLocalNetworkAccessPermissionDialog:")]
+		[EventArgs ("CastButtonDidTapToPresentLocalNetworkAccessPermissionDialog")]
+		void CastButtonDidTapToPresentLocalNetworkAccessPermissionDialog (UICastButton castButton);
+
+		// @optional -(void)castButtonDidTap:(GCKUICastButton * _Nonnull)castButton toPresentDialogForCastState:(GCKCastState)castState;
+		[Export ("castButtonDidTap:toPresentDialogForCastState:")]
+		[EventArgs ("CastButtonDidTap")]
+		void CastButtonDidTap (UICastButton castButton, CastState castState);
 	}
 
 	// @interface GCKUICastContainerViewController : UIViewController

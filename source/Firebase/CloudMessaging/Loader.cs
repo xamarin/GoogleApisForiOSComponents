@@ -8,7 +8,6 @@ namespace Firebase.CloudMessaging
 		{
 			Firebase.Core.Loader.ForceLoad ();
 			Firebase.Installations.Loader.ForceLoad();
-			Firebase.InstanceID.Loader.ForceLoad ();
 		}
 
 		public static void ForceLoad () { }

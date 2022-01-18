@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.CloudMessaging</RootNamespace>
     <AssemblyName>Firebase.CloudMessaging</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>4.7.1</FileVersion>
+    <FileVersion>8.10.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865576</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>4.7.1</PackageVersion>
+    <PackageVersion>8.10.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -68,13 +68,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Build.Download" Version="0.10.0" PrivateAssets="None" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" PrivateAssets="None" />
   </ItemGroup>
   
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\Installations\Installations.csproj" PrivateAssets="None" />
-    <ProjectReference Include="..\InstanceID\InstanceID.csproj" PrivateAssets="None" />
   </ItemGroup>
 
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />

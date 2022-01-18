@@ -6,10 +6,8 @@ using Foundation;
 using CoreGraphics;
 using UIKit;
 
-namespace Google.MobileAds
-{
-	public partial class AdLoader : NSObject
-	{
+namespace Google.MobileAds {
+	public partial class AdLoader : NSObject {
 		public AdLoader (string adUnitId, UIViewController rootViewController, AdLoaderAdType [] adTypes, AdLoaderOptions [] options) : this (adUnitId, rootViewController, CastAdTypes (adTypes), options)
 		{
 		}
@@ -27,53 +25,43 @@ namespace Google.MobileAds
 		}
 	}
 
-	public partial class NativeCustomTemplateAd
-	{
+	public partial class CustomNativeAd {
 		public static string MediaViewKey { get; } = _MediaViewKey.ToString ();
 	}
 
-	public partial class Request
-	{
+	public partial class Request {
 		public static readonly string GADGoogleAdMobNetworkName = "GoogleAdMobAds";
 	}
 
-	public partial class RequestError : NSError
-	{
-		public RequestError (NSString appDomain, nint code) : this (appDomain, code, null)
-		{
-		}
-	}
-
 	[Preserve (AllMembers = true)]
-	public partial class AdSizeCons
-	{
-		// Deprecated Macros
-		[Obsolete ("Use GADAdSizeCons.Banner Instead")]
-		public static readonly CGSize GAD_SIZE_320x50 = AdSizeCons.Banner.Size;
+	public partial class AdSizeCons {
+		// GAD_EXTERN GADAdSize GADPortraitInlineAdaptiveBannerAdSizeWithWidth(CGFloat width);
+		[DllImport ("__Internal", EntryPoint = "GADPortraitInlineAdaptiveBannerAdSizeWithWidth")]
+		public static extern AdSize GetPortraitInlineAdaptiveBannerAdSize (nfloat width);
 
-		[Obsolete ("Use GADAdSizeCons.MediumRectangle Instead")]
-		public static readonly CGSize GAD_SIZE_300x250 = AdSizeCons.MediumRectangle.Size;
+		// GAD_EXTERN GADAdSize GADLandscapeInlineAdaptiveBannerAdSizeWithWidth(CGFloat width);
+		[DllImport ("__Internal", EntryPoint = "GADLandscapeInlineAdaptiveBannerAdSizeWithWidth")]
+		public static extern AdSize GetLandscapeInlineAdaptiveBannerAdSize (nfloat width);
 
-		[Obsolete ("Use ADAdSizeCons.FullBanner Instead")]
-		public static readonly CGSize GAD_SIZE_468x60 = AdSizeCons.FullBanner.Size;
+		// GAD_EXTERN GADAdSize GADCurrentOrientationInlineAdaptiveBannerAdSizeWithWidth(CGFloat width);
+		[DllImport ("__Internal", EntryPoint = "GADCurrentOrientationInlineAdaptiveBannerAdSizeWithWidth")]
+		public static extern AdSize GetCurrentOrientationInlineAdaptiveBannerAdSizeh (nfloat width);
 
-		[Obsolete ("Use AdSizeCons.Leaderboard Instead")]
-		public static readonly CGSize GAD_SIZE_728x90 = AdSizeCons.Leaderboard.Size;
-
-		[Obsolete ("Use ADAdSizeCons.Skyscraper Instead")]
-		public static readonly CGSize GAD_SIZE_120x600 = AdSizeCons.Skyscraper.Size;
+		// GAD_EXTERN GADAdSize GADInlineAdaptiveBannerAdSizeWithWidthAndMaxHeight(CGFloat width, CGFloat maxHeight);
+		[DllImport ("__Internal", EntryPoint = "GADInlineAdaptiveBannerAdSizeWithWidthAndMaxHeight")]
+		public static extern AdSize GetInlineAdaptiveBannerAdSizeWithMaxHeight (nfloat width, nfloat maxHeight);
 
 		//GAD_EXTERN GADAdSize GADPortraitAnchoredAdaptiveBannerAdSizeWithWidth (CGFloat width);
 		[DllImport ("__Internal", EntryPoint = "GADPortraitAnchoredAdaptiveBannerAdSizeWithWidth")]
-		public static extern AdSize GetPortraitAnchoredAdaptiveBannerAdSize (CGSize size);
+		public static extern AdSize GetPortraitAnchoredAdaptiveBannerAdSize (nfloat width);
 
 		//GAD_EXTERN GADAdSize GADLandscapeAnchoredAdaptiveBannerAdSizeWithWidth (CGFloat width);
 		[DllImport ("__Internal", EntryPoint = "GADLandscapeAnchoredAdaptiveBannerAdSizeWithWidth")]
-		public static extern AdSize GetLandscapeAnchoredAdaptiveBannerAdSize (CGSize size);
+		public static extern AdSize GetLandscapeAnchoredAdaptiveBannerAdSize (nfloat width);
 
 		//GAD_EXTERN GADAdSize GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth (CGFloat width);
 		[DllImport ("__Internal", EntryPoint = "GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth")]
-		public static extern AdSize GetCurrentOrientationAnchoredAdaptiveBannerAdSize (CGSize size);
+		public static extern AdSize GetCurrentOrientationAnchoredAdaptiveBannerAdSize (nfloat width);
 
 		// GADAdSize GADAdSizeFromCGSize(CGSize size);
 		[DllImport ("__Internal", EntryPoint = "GADAdSizeFromCGSize")]
@@ -135,8 +123,8 @@ namespace Google.MobileAds
 			get {
 				if (banner == null) {
 					IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
-					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kGADAdSizeBanner");
-					banner = (AdSize)Marshal.PtrToStructure (ptr, typeof (AdSize));
+					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "GADAdSizeBanner");
+					banner = (AdSize) Marshal.PtrToStructure (ptr, typeof (AdSize));
 					Dlfcn.dlclose (RTLD_MAIN_ONLY);
 				}
 
@@ -149,8 +137,8 @@ namespace Google.MobileAds
 			get {
 				if (largeBanner == null) {
 					IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
-					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kGADAdSizeLargeBanner");
-					largeBanner = (AdSize)Marshal.PtrToStructure (ptr, typeof (AdSize));
+					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "GADAdSizeLargeBanner");
+					largeBanner = (AdSize) Marshal.PtrToStructure (ptr, typeof (AdSize));
 					Dlfcn.dlclose (RTLD_MAIN_ONLY);
 				}
 
@@ -163,8 +151,8 @@ namespace Google.MobileAds
 			get {
 				if (mediumRectangle == null) {
 					IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
-					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kGADAdSizeMediumRectangle");
-					mediumRectangle = (AdSize)Marshal.PtrToStructure (ptr, typeof (AdSize));
+					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "GADAdSizeMediumRectangle");
+					mediumRectangle = (AdSize) Marshal.PtrToStructure (ptr, typeof (AdSize));
 					Dlfcn.dlclose (RTLD_MAIN_ONLY);
 				}
 
@@ -177,8 +165,8 @@ namespace Google.MobileAds
 			get {
 				if (fullBanner == null) {
 					IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
-					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kGADAdSizeFullBanner");
-					fullBanner = (AdSize)Marshal.PtrToStructure (ptr, typeof (AdSize));
+					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "GADAdSizeFullBanner");
+					fullBanner = (AdSize) Marshal.PtrToStructure (ptr, typeof (AdSize));
 					Dlfcn.dlclose (RTLD_MAIN_ONLY);
 				}
 
@@ -191,8 +179,8 @@ namespace Google.MobileAds
 			get {
 				if (leaderboard == null) {
 					IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
-					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kGADAdSizeLeaderboard");
-					leaderboard = (AdSize)Marshal.PtrToStructure (ptr, typeof (AdSize));
+					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "GADAdSizeLeaderboard");
+					leaderboard = (AdSize) Marshal.PtrToStructure (ptr, typeof (AdSize));
 					Dlfcn.dlclose (RTLD_MAIN_ONLY);
 				}
 
@@ -205,8 +193,8 @@ namespace Google.MobileAds
 			get {
 				if (skyscraper == null) {
 					IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
-					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kGADAdSizeSkyscraper");
-					skyscraper = (AdSize)Marshal.PtrToStructure (ptr, typeof (AdSize));
+					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "GADAdSizeSkyscraper");
+					skyscraper = (AdSize) Marshal.PtrToStructure (ptr, typeof (AdSize));
 					Dlfcn.dlclose (RTLD_MAIN_ONLY);
 				}
 
@@ -215,12 +203,13 @@ namespace Google.MobileAds
 		}
 
 		static AdSize? smartBannerPortrait;
+		[Obsolete ("Smart Banner has been deprecated, please use Adaptive Banner. This will be removed in future versions.")]
 		public static AdSize SmartBannerPortrait {
 			get {
 				if (smartBannerPortrait == null) {
 					IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
 					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kGADAdSizeSmartBannerPortrait");
-					smartBannerPortrait = (AdSize)Marshal.PtrToStructure (ptr, typeof (AdSize));
+					smartBannerPortrait = (AdSize) Marshal.PtrToStructure (ptr, typeof (AdSize));
 					Dlfcn.dlclose (RTLD_MAIN_ONLY);
 				}
 
@@ -229,12 +218,13 @@ namespace Google.MobileAds
 		}
 
 		static AdSize? smartBannerLandscape;
+		[Obsolete ("Smart Banner has been deprecated, please use Adaptive Banner. This will be removed in future versions.")]
 		public static AdSize SmartBannerLandscape {
 			get {
 				if (smartBannerLandscape == null) {
 					IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
 					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kGADAdSizeSmartBannerLandscape");
-					smartBannerLandscape = (AdSize)Marshal.PtrToStructure (ptr, typeof (AdSize));
+					smartBannerLandscape = (AdSize) Marshal.PtrToStructure (ptr, typeof (AdSize));
 					Dlfcn.dlclose (RTLD_MAIN_ONLY);
 				}
 
@@ -247,8 +237,8 @@ namespace Google.MobileAds
 			get {
 				if (fluid == null) {
 					IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
-					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kGADAdSizeFluid");
-					fluid = (AdSize)Marshal.PtrToStructure (ptr, typeof (AdSize));
+					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "GADAdSizeFluid");
+					fluid = (AdSize) Marshal.PtrToStructure (ptr, typeof (AdSize));
 					Dlfcn.dlclose (RTLD_MAIN_ONLY);
 				}
 
@@ -261,8 +251,8 @@ namespace Google.MobileAds
 			get {
 				if (invalid == null) {
 					IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
-					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kGADAdSizeInvalid");
-					invalid = (AdSize)Marshal.PtrToStructure (ptr, typeof (AdSize));
+					IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "GADAdSizeInvalid");
+					invalid = (AdSize) Marshal.PtrToStructure (ptr, typeof (AdSize));
 					Dlfcn.dlclose (RTLD_MAIN_ONLY);
 				}
 
@@ -275,19 +265,10 @@ namespace Google.MobileAds
 			return GetNSString (size);
 		}
 	}
-
-	public partial class RewardBasedVideoAd
-	{
-		[Obsolete ("Use IsReady property instead, this will be removed in future versions")]
-		public bool Ready { get { return IsReady; } }
-	}
-
 }
 
-namespace Google.MobileAds.DoubleClick
-{
-	public partial class BannerView : Google.MobileAds.BannerView
-	{
+namespace Google.MobileAds.DoubleClick {
+	public partial class BannerView : Google.MobileAds.BannerView {
 		[Obsolete ("Use ValidAdSizes property.")]
 		public void SetValidAdSizes (params AdSize [] sizes)
 		{

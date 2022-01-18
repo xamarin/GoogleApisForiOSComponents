@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Foundation;
 
 namespace Firebase.Analytics
@@ -8,6 +9,7 @@ namespace Firebase.Analytics
 		public static NSString AddPaymentInfo { get; } = new NSString ("add_payment_info");
 		public static NSString AddToCart { get; } = new NSString ("add_to_cart");
 		public static NSString AddToWishlist { get; } = new NSString ("add_to_wishlist");
+		public static NSString AdImpression { get; } = new NSString ("ad_impression");
 		public static NSString AppOpen { get; } = new NSString ("app_open");
 		public static NSString BeginCheckout { get; } = new NSString ("begin_checkout");
 		public static NSString CampaignDetails { get; } = new NSString ("campaign_details");
@@ -24,6 +26,7 @@ namespace Firebase.Analytics
 		public static NSString PresentOffer { get; } = new NSString ("present_offer");
 		public static NSString PurchaseRefund { get; } = new NSString ("purchase_refund");
 		public static NSString RemoveFromCart { get; } = new NSString ("remove_from_cart");
+		public static NSString ScreenView { get; } = new NSString ("screen_view");
 		public static NSString Search { get; } = new NSString ("search");
 		public static NSString SelectContent { get; } = new NSString ("select_content");
 		public static NSString SetCheckoutOption { get; } = new NSString ("set_checkout_option");
@@ -48,7 +51,11 @@ namespace Firebase.Analytics
 	public static class ParameterNamesConstants
 	{
 		public static NSString AchievementId { get; } = new NSString ("achievement_id");
+		public static NSString AdFormat { get; } = new NSString ("ad_format");
 		public static NSString AdNetworkClickId { get; } = new NSString ("aclid");
+		public static NSString AdPlatform { get; } = new NSString ("ad_platform");
+		public static NSString AdSource { get; } = new NSString ("ad_source");
+		public static NSString AdUnitName { get; } = new NSString ("ad_unit_name");
 		public static NSString Affiliation { get; } = new NSString ("affiliation");
 		public static NSString Campaign { get; } = new NSString ("campaign");
 		public static NSString Character { get; } = new NSString ("character");
@@ -83,6 +90,8 @@ namespace Firebase.Analytics
 		public static NSString Price { get; } = new NSString ("price");
 		public static NSString Quantity { get; } = new NSString ("quantity");
 		public static NSString Score { get; } = new NSString ("score");
+		public static NSString ScreenClass { get; } = new NSString ("screen_class");
+		public static NSString ScreenName { get; } = new NSString ("score_name");
 		public static NSString SearchTerm { get; } = new NSString ("search_term");
 		public static NSString Shipping { get; } = new NSString ("shipping");
 		[Obsolete ("Use Method property instead.")]
@@ -118,6 +127,21 @@ namespace Firebase.Analytics
 	{
 		public static NSString SignUpMethod { get; } = new NSString ("sign_up_method");
 		public static NSString AllowAdPersonalizationSignals { get; } = new NSString ("allow_personalized_ads");
+	}
+
+	public partial class Analytics {
+		public static void SetConsent (Dictionary<ConsentType, ConsentStatus> consentSettings)
+		{
+			var keys = new List<NSString> ();
+			var values = new List<NSString> ();
+
+			foreach (var kv in consentSettings) {
+				keys.Add (global::Firebase.Analytics.ConsentTypeExtensions.GetConstant (kv.Key));
+				values.Add (global::Firebase.Analytics.ConsentStatusExtensions.GetConstant (kv.Value));
+			}
+
+			_SetConsent (new NSDictionary<NSString, NSString> (keys.ToArray (), values.ToArray ()));
+		}
 	}
 }
 

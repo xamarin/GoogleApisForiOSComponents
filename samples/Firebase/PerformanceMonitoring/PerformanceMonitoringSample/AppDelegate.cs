@@ -27,12 +27,15 @@ namespace PerformanceMonitoringSample
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
 
-			// You can download your GoogleService-Info.plist file following the next link:
+      // You can download your GoogleService-Info.plist file following the next link:
 			// https://firebase.google.com/docs/ios/setup
 			if (!GoogleServiceInfoPlistHelper.FileExist ()) {
 				Window = GoogleServiceInfoPlistHelper.CreateWindowWithFileNotFoundMessage ();
 				return true;
 			}
+
+			// Use Firebase library to configure APIs
+			App.Configure ();
 
 			var navigationController = Window.RootViewController as UINavigationController;
 
@@ -65,9 +68,6 @@ namespace PerformanceMonitoringSample
 
 			// The following line enables/disables custom traces
 			Performance.SharedInstance.DataCollectionEnabled = isPerformanceMonitoringDataCollectionEnabled;
-
-			// Use Firebase library to configure APIs
-			App.Configure ();
 
 			return true;
 		}

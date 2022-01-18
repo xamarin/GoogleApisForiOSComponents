@@ -23,23 +23,41 @@ namespace Firebase.CloudFunctions
 		[Export("functionsForApp:")]
 		CloudFunctions From(App app);
 
-		//+ (FIRFunctions *) functionsForRegion:(NSString*) region;
+		// + (instancetype)functionsForApp:(FIRApp *)app customDomain:(NSString *)customDomain
 		[Static]
-		[Export("functionsForRegion:")]
-		CloudFunctions From(string region);
+		[Export("functionsForApp:customDomain:")]
+		CloudFunctions FromCustomDomain(App app, string customDomain);
+				
+		//+ (FIRFunctions *)functionsForCustomDomain:(NSString*) customDomain
+		[Static]
+		[Export ("functionsForCustomDomain:")]
+		CloudFunctions FromCustomDomain (string customDomain);
 
 		//+ (FIRFunctions *)functionsForApp:(FIRApp *)app region:(NSString*) region
 		[Static]
 		[Export("functionsForApp:region:")]
-		CloudFunctions From(App app, string region);
+		CloudFunctions FromRegion(App app, string region);
+
+		//+ (FIRFunctions *) functionsForRegion:(NSString*) region;
+		[Static]
+		[Export ("functionsForRegion:")]
+		CloudFunctions FromRegion (string region);
 
 		//- (FIRHTTPSCallable *)HTTPSCallableWithName:(NSString *)name;
 		[Export("HTTPSCallableWithName:")]
 		HttpsCallable HttpsCallable(string name);
 
+		// @property(nonatomic, readonly, nullable) NSString *emulatorOrigin;
+		[Export("emulatorOrigin")]
+		string EmulatorOrigin { get; }
+
 		//- (void)useFunctionsEmulatorOrigin:(NSString *)origin
 		[Export("useFunctionsEmulatorOrigin:")]
 		void UseFunctionsEmulatorOrigin(string origin);
+
+		//- (void)useEmulatorWithHost:(NSString *)host port:(NSInteger) port;
+		[Export ("useEmulatorWithHost:port:")]
+		void UseEmulatorOriginWithHost (string host, uint port);
 	}
 
 	// void (^)(FIRHTTPSCallableResult *_Nullable result, NSError *_Nullable error);

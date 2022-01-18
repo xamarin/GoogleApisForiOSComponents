@@ -1,11 +1,9 @@
 ﻿using System;
 using ObjCRuntime;
 
-namespace Google.Cast
-{
+namespace Google.Cast {
 	[Native]
-	public enum ConnectionState : long
-	{
+	public enum ConnectionState : long {
 		Disconnected = 0,
 		Connecting = 1,
 		Connected = 2,
@@ -13,8 +11,7 @@ namespace Google.Cast
 	}
 
 	[Native]
-	public enum ConnectionSuspendReason : long
-	{
+	public enum ConnectionSuspendReason : long {
 		Unknown = -1,
 		None = 0,
 		AppBackgrounded = 1,
@@ -24,24 +21,21 @@ namespace Google.Cast
 	}
 
 	[Native]
-	public enum ActiveInputStatus : long
-	{
+	public enum ActiveInputStatus : long {
 		Unknown = -1,
 		Inactive = 0,
 		Active = 1
 	}
 
 	[Native]
-	public enum StandbyStatus : long
-	{
+	public enum StandbyStatus : long {
 		Unknown = -1,
 		Inactive = 0,
 		Active = 1,
 	}
 
 	[Native]
-	public enum CastState : ulong
-	{
+	public enum CastState : ulong {
 		NoDevicesAvailable = 0,
 		NotConnected = 1,
 		Connecting = 2,
@@ -49,8 +43,7 @@ namespace Google.Cast
 	}
 
 	[Native]
-	public enum DeviceStatus : long
-	{
+	public enum DeviceStatus : long {
 		Unknown = -1,
 		Idle = 0,
 		Busy = 1,
@@ -65,6 +58,8 @@ namespace Google.Cast
 		AudioIn = 1 << 3,
 		MultizoneGroup = 1 << 5,
 		DynamicGroup = 1 << 6,
+		MultiChannelGroup = 1 << 7,
+		MultiChannelMember = 1 << 8,
 		MasterOrFixedVolume = 1 << 11,
 		AttenuationOrFixedVolume = 1 << 12,
 		DynamicGroupingSupported = 1 << 16
@@ -73,8 +68,7 @@ namespace Google.Cast
 	[Obsolete ("Use DeviceCapabilities enum instead.")]
 	[Flags]
 	[Native]
-	public enum DeviceCapability : long
-	{
+	public enum DeviceCapability : long {
 		VideoOut = 1 << 0,
 		VideoIn = 1 << 1,
 		AudioOut = 1 << 2,
@@ -87,8 +81,7 @@ namespace Google.Cast
 	}
 
 	[Native]
-	public enum DeviceType : long
-	{
+	public enum DeviceType : long {
 		Generic = 0,
 		Tv,
 		Speaker,
@@ -97,15 +90,13 @@ namespace Google.Cast
 	}
 
 	[Native]
-	public enum DiscoveryState : long
-	{
+	public enum DiscoveryState : long {
 		Stopped = 0,
 		Running = 1
 	}
 
 	[Native]
-	public enum ErrorCode : long
-	{
+	public enum ErrorCode : long {
 		NoError = 0,
 		NetworkError = 1,
 		Timeout = 2,
@@ -150,36 +141,36 @@ namespace Google.Cast
 		DeviceCapabilityNotSupported = 46,
 		CrlInvalid = 47,
 		CrlCheckFailed = 48,
-  		BroadcastMessageEncryptionFailed = 50,
-  		BroadcastKeyExchangeInvalidResponse = 51,
-  		BroadcastKeyExchangeInvalidInput = 52,
-  		BroadcastKeyExchangeEmptyResponse = 53,
-  		BroadcastKeyExchangeRequestTimeout = 54,
-  		BroadcastKeyExchangeFailedToFindDevice = 55,
-  		BroadcastKeyExchangeFailedToConnect = 56,
-  		BroadcastMessageDropped = 57,
-  		BroadcastSocketError = 58,
-  		BroadcastFailedToGenerateEncryptionKey = 59,
+		BroadcastMessageEncryptionFailed = 50,
+		BroadcastKeyExchangeInvalidResponse = 51,
+		BroadcastKeyExchangeInvalidInput = 52,
+		BroadcastKeyExchangeEmptyResponse = 53,
+		BroadcastKeyExchangeRequestTimeout = 54,
+		BroadcastKeyExchangeFailedToFindDevice = 55,
+		BroadcastKeyExchangeFailedToConnect = 56,
+		BroadcastMessageDropped = 57,
+		BroadcastSocketError = 58,
+		BroadcastFailedToGenerateEncryptionKey = 59,
 		GuestModeListenFailed = 60,
-  		RemoteDisplayError = 80,
-  		RemoteDisplayDeviceNotSupported = 81,
-  		RemoteDisplayFeatureNotSupported = 82,
-  		RemoteDisplayConfigurationRejectedByReceiver = 83,
-  		RemoteDisplayOpenGLError = 84,
-  		RemoteDisplayMetalError = 85,
-  		RemoteDisplayAudioConversionError = 86,
+		RemoteDisplayError = 80,
+		RemoteDisplayDeviceNotSupported = 81,
+		RemoteDisplayFeatureNotSupported = 82,
+		RemoteDisplayConfigurationRejectedByReceiver = 83,
+		RemoteDisplayOpenGLError = 84,
+		RemoteDisplayMetalError = 85,
+		RemoteDisplayAudioConversionError = 86,
 		AppDidEnterBackground = 91,
 		Disconnected = 92,
 		UnsupportedFeature = 93,
 		Unknown = 99,
 		DeviceAuthenticationMessageParseFailure = 100,
 		DeviceAuthenticationMessageChallengeReceivedFailure = 101,
-		DeviceAuthenticationTimeoutFailure = 102
+		DeviceAuthenticationTimeoutFailure = 102,
+		LaunchRequestCancelled = 103
 	}
 
 	[Native]
-	public enum LoggerLevel : long
-	{
+	public enum LoggerLevel : long {
 		None = 0,
 		Verbose = 1,
 		Debug = 2,
@@ -190,16 +181,14 @@ namespace Google.Cast
 	}
 
 	[Native]
-	public enum MediaResumeState : long
-	{
+	public enum MediaResumeState : long {
 		Unchanged = 0,
 		Play = 1,
 		Pause = 2
 	}
 
 	[Native]
-	public enum MediaRepeatMode : long
-	{
+	public enum MediaRepeatMode : long {
 		Unchanged = 0,
 		Off = 1,
 		Single = 2,
@@ -208,8 +197,7 @@ namespace Google.Cast
 	}
 
 	[Native]
-	public enum MediaStreamType : long
-	{
+	public enum MediaStreamType : long {
 		None = 0,
 		Buffered = 1,
 		Live = 2,
@@ -217,8 +205,7 @@ namespace Google.Cast
 	}
 
 	[Native]
-	public enum MediaMetadataType : long
-	{
+	public enum MediaMetadataType : long {
 		Generic = 0,
 		Movie = 1,
 		TvShow = 2,
@@ -249,8 +236,7 @@ namespace Google.Cast
 	}
 
 	[Native]
-	public enum StreamingProtocolType : long
-	{
+	public enum StreamingProtocolType : long {
 		Unknown = 0,
 		MpegDash = 1,
 		Hls = 2,
@@ -258,18 +244,26 @@ namespace Google.Cast
 	}
 
 	[Native]
-	public enum HlsSegmentFormat : long
-	{
+	public enum HlsSegmentFormat : long {
 		Undefined = 0,
 		Aac = 1,
 		Ac3 = 2,
 		Mp3 = 3,
-		Ts = 4
+		Ts = 4,
+		TsAac = 5,
+		EAc3 = 6,
+		Fmp4 = 7
 	}
 
 	[Native]
-	public enum MediaPlayerState : long
-	{
+	public enum HlsVideoSegmentFormat : long {
+		Undefined = 0,
+		Mpeg2Ts = 1,
+		Fmp4 = 2
+	}
+
+	[Native]
+	public enum MediaPlayerState : long {
 		Unknown = 0,
 		Idle = 1,
 		Playing = 2,
@@ -279,8 +273,7 @@ namespace Google.Cast
 	}
 
 	[Native]
-	public enum MediaPlayerIdleReason : long
-	{
+	public enum MediaPlayerIdleReason : long {
 		None = 0,
 		Finished = 1,
 		Cancelled = 2,
@@ -289,8 +282,7 @@ namespace Google.Cast
 	}
 
 	[Native]
-	public enum MediaTextTrackStyleEdgeType : long
-	{
+	public enum MediaTextTrackStyleEdgeType : long {
 		Unknown = -1,
 		None = 0,
 		Outline = 1,
@@ -300,8 +292,7 @@ namespace Google.Cast
 	}
 
 	[Native]
-	public enum MediaTextTrackStyleWindowType : long
-	{
+	public enum MediaTextTrackStyleWindowType : long {
 		Unknown = -1,
 		None = 0,
 		Normal = 1,
@@ -309,8 +300,7 @@ namespace Google.Cast
 	}
 
 	[Native]
-	public enum MediaTextTrackStyleFontGenericFamily : long
-	{
+	public enum MediaTextTrackStyleFontGenericFamily : long {
 		Unknown = -1,
 		None = 0,
 		SansSerif = 1,
@@ -323,8 +313,7 @@ namespace Google.Cast
 	}
 
 	[Native]
-	public enum MediaTextTrackStyleFontStyle : long
-	{
+	public enum MediaTextTrackStyleFontStyle : long {
 		Unknown = -1,
 		Normal = 0,
 		Bold = 1,
@@ -333,8 +322,7 @@ namespace Google.Cast
 	}
 
 	[Native]
-	public enum MediaTrackType : long
-	{
+	public enum MediaTrackType : long {
 		Unknown = 0,
 		Text = 1,
 		Audio = 2,
@@ -342,8 +330,7 @@ namespace Google.Cast
 	}
 
 	[Native]
-	public enum MediaTextTrackSubtype : long
-	{
+	public enum MediaTextTrackSubtype : long {
 		Unknown = 0,
 		Subtitles = 1,
 		Captions = 3,
@@ -353,8 +340,7 @@ namespace Google.Cast
 	}
 
 	[Native]
-	public enum NetworkAddressType : long
-	{
+	public enum NetworkAddressType : long {
 		Unknown = 0,
 		IPv4 = 1,
 		IPv6 = 2,
@@ -362,15 +348,13 @@ namespace Google.Cast
 	}
 
 	[Native]
-	public enum RequestAbortReason : long
-	{
+	public enum RequestAbortReason : long {
 		Replaced = 1,
 		Cancelled = 2
 	}
 
 	[Native]
-	public enum SenderApplicationInfoPlatform : long
-	{
+	public enum SenderApplicationInfoPlatform : long {
 		Android = 1,
 		iOS = 2,
 		Chrome = 3,
@@ -378,16 +362,14 @@ namespace Google.Cast
 	}
 
 	[Native]
-	public enum SessionEndAction : long
-	{
+	public enum SessionEndAction : long {
 		Leave = 1,
 		Disconnect = 2,
 		StopCasting = 3
 	}
 
 	[Native]
-	public enum MediaMetadataImageType : long
-	{
+	public enum MediaMetadataImageType : long {
 		Custom = 0,
 		CastDialog = 1,
 		MiniController = 2,
@@ -395,8 +377,7 @@ namespace Google.Cast
 	}
 
 	[Native]
-	public enum UIMediaButtonType : long
-	{
+	public enum UIMediaButtonType : long {
 		None,
 		PlayPauseToggle,
 		SkipNext,
@@ -410,16 +391,14 @@ namespace Google.Cast
 	}
 
 	[Native]
-	public enum UIPlayPauseState : long 
-	{
+	public enum UIPlayPauseState : long {
 		None = 0,
 		Play = 1,
 		Pause = 2
 	}
 
 	[Native]
-	public enum VideoInfoHdrType : long
-	{
+	public enum VideoInfoHdrType : long {
 		Unknown = -1,
 		Sdr = 0,
 		Dv = 1,
