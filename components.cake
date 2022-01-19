@@ -147,7 +147,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("Firebase", "8.10.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseAuth", targetName: "FirebaseAuth", subSpecs: new [] { "Auth" })
 	};
 	FIREBASE_CLOUD_FIRESTORE_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase",        "8.10.0",        frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseFirestore", targetName: "FirebaseFirestore", subSpecs: new [] { "Firestore" }),
+		PodSpec.Create ("Firebase",        "8.10.0",       frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseFirestore", targetName: "FirebaseFirestore", subSpecs: new [] { "Firestore" }),
 		PodSpec.Create ("BoringSSL-GRPC",  "0.0.7",        frameworkSource: FrameworkSource.Pods, frameworkName: "openssl_grpc"),
 		PodSpec.Create ("gRPC-Core",       "1.28.2",       frameworkSource: FrameworkSource.Pods, frameworkName: "grpc"),
 		PodSpec.Create ("gRPC-C++",        "1.28.2",       frameworkSource: FrameworkSource.Pods, frameworkName: "grpcpp"),
@@ -160,8 +160,8 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("Firebase", "8.10.0", frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseMessaging", targetName: "FirebaseMessaging", subSpecs: new [] { "Messaging" })		
 	};
 	FIREBASE_CORE_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("Firebase",                  "8.10.0",     frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCore", targetName: "FirebaseCore", subSpecs: new [] { "CoreOnly" }),		
-		PodSpec.Create ("FirebaseCoreDiagnostics",   "8.10.0",     frameworkSource: FrameworkSource.Pods),
+		PodSpec.Create ("Firebase",                  "8.10.0",    frameworkSource: FrameworkSource.Pods, frameworkName: "FirebaseCore", targetName: "FirebaseCore", subSpecs: new [] { "CoreOnly" }),		
+		PodSpec.Create ("FirebaseCoreDiagnostics",   "8.10.0",    frameworkSource: FrameworkSource.Pods),
 		PodSpec.Create ("GTMSessionFetcher",         "1.7.0",     frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Full" }),
 		PodSpec.Create ("GoogleAPIClientForREST",    "1.6.0",     frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "Vision" }, useDefaultSubspecs: true),
 		PodSpec.Create ("GoogleAppMeasurement",      "8.10.0"),
@@ -364,7 +364,7 @@ void SetArtifactsSamples ()
 
 	// Google components
 	GOOGLE_ANALYTICS_ARTIFACT.Samples                 = new [] { "CuteAnimalsiOS" };
-	GOOGLE_CAST_ARTIFACT.Samples                                                 = new [] { "CastSample" };
+	GOOGLE_CAST_ARTIFACT.Samples                      = new [] { "CastSample" };
 	GOOGLE_MAPS_ARTIFACT.Samples                      = new [] { "GoogleMapsAdvSample", "GoogleMapsSample" };
 	GOOGLE_MOBILE_ADS_ARTIFACT.Samples                = new [] { "MobileAdsExample" };
 	GOOGLE_PLACES_ARTIFACT.Samples                    = new [] { "GooglePlacesSample" };
@@ -372,5 +372,5 @@ void SetArtifactsSamples ()
 	GOOGLE_TAG_MANAGER_ARTIFACT.Samples               = new [] { "TagManagerSample" };
 
 	// MLKit
-	MLKIT_VISION.Samples                          = new [] { "MLKitVisionSample" };
+	MLKIT_VISION.Samples                              = new [] { "MLKitVisionSample" };
 }
