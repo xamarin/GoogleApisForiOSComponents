@@ -16,7 +16,7 @@
 			<Kind>Framework</Kind>
 			<SmartLink>True</SmartLink>
 			<ForceLoad>True</ForceLoad>
-			<Frameworks>CoreGraphics CoreLocation QuartzCore UIKit</Frameworks>
+			<Frameworks>CoreGraphics CoreLocation QuartzCore Security UIKit</Frameworks>
 			<LinkerFlags>-ObjC</LinkerFlags>
 		</NativeReference>
 		<XamarinBuildRestoreResources Include="_GPlcsDownloadedItems" />
