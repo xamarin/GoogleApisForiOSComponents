@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\..\..\packages\Xamarin.Build.Download.0.10.0\build\Xamarin.Build.Download.props" Condition="Exists('..\..\..\..\packages\Xamarin.Build.Download.0.10.0\build\Xamarin.Build.Download.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
@@ -9,6 +8,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>MLKitVisionSample</RootNamespace>
     <AssemblyName>MLKitVisionSample</AssemblyName>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
@@ -76,8 +76,79 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <IOSDebuggerPort>32840</IOSDebuggerPort>
     <MtouchLink>SdkOnly</MtouchLink>
-    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug-NuGet|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug-NuGet</OutputPath>
+    <DefineConstants>__IOS__;__MOBILE__;__UNIFIED__;DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchFastDev>false</MtouchFastDev>
+    <MtouchProfiling>true</MtouchProfiling>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug-NuGet|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug-NuGet</OutputPath>
+    <DefineConstants>__IOS__;__MOBILE__;__UNIFIED__;DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchFastDev>false</MtouchFastDev>
+    <MtouchProfiling>true</MtouchProfiling>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <PlatformTarget>x86</PlatformTarget>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-NuGet|iPhone' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release-NuGet</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <PlatformTarget>x86</PlatformTarget>
+    <MtouchFastDev>false</MtouchFastDev>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-NuGet|iPhoneSimulator' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release-NuGet</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
@@ -118,7 +189,6 @@
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -137,23 +207,23 @@
     <Compile Include="Models\Model.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\source\Firebase\InstanceID\InstanceID.csproj">
+    <ProjectReference Include="..\..\..\..\source\Firebase\InstanceID\InstanceID.csproj" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'">
       <Project>{754D8F56-C3DB-4E33-91D5-45445AB286EF}</Project>
       <Name>InstanceID</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj">
+    <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'">
       <Project>{9335A59B-3B54-4ED5-8201-B68CFD05CAFB}</Project>
       <Name>Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\source\Firebase\MLKit.Common\MLKit.Common.csproj">
+    <ProjectReference Include="..\..\..\..\source\Firebase\MLKit.Common\MLKit.Common.csproj" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'">
       <Project>{90DDF7C4-5223-4863-9687-6211BC5D56E5}</Project>
       <Name>MLKit.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\source\Firebase\MLKit.Vision\MLKit.Vision.csproj">
+    <ProjectReference Include="..\..\..\..\source\Firebase\MLKit.Vision\MLKit.Vision.csproj" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'">
       <Project>{B0D91D94-300F-4DEB-A0A7-11DCBDF6FD64}</Project>
       <Name>MLKit.Vision</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\source\Firebase\Installations\Installations.csproj">
+    <ProjectReference Include="..\..\..\..\source\Firebase\Installations\Installations.csproj" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'">
       <Project>{65ACD945-5A8A-419D-B9FB-8DFD03C532F4}</Project>
       <Name>Installations</Name>
     </ProjectReference>
@@ -170,9 +240,19 @@
     <BundleResource Include="Resources\ImageLabeling.png" />
     <BundleResource Include="Resources\LandmarkRecognition.png" />
   </ItemGroup>
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Core\Core.targets" />
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\MLKit.Common\MLKit.Common.targets" />
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\MLKit.Vision\MLKit.Vision.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <Import Project="..\..\..\..\packages\Xamarin.Build.Download.0.10.0\build\Xamarin.Build.Download.targets" Condition="Exists('..\..\..\..\packages\Xamarin.Build.Download.0.10.0\build\Xamarin.Build.Download.targets')" />
+  <Import Project="$(NuGetPackageRoot)Xamarin.Build.Download\0.11.0\build\Xamarin.Build.Download.props" Condition="Exists('$(NuGetPackageRoot)Xamarin.Build.Download\0.11.0\build\Xamarin.Build.Download.props') AND '$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Core\Core.targets" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\MLKit.Common\MLKit.Common.targets" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'" />
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\MLKit.Vision\MLKit.Vision.targets" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'" />
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(Configuration)' == 'Debug-NuGet' OR '$(Configuration)' == 'Release-NuGet' ">
+    <PackageReference Include="Xamarin.Firebase.iOS.Core" Version="8.10.0" />
+    <PackageReference Include="Xamarin.Firebase.iOS.Installations" Version="8.10.0" />
+    <PackageReference Include="Xamarin.Firebase.iOS.InstanceID" Version="7.11.0" />
+    <PackageReference Include="Xamarin.Firebase.iOS.MLKit.Common" Version="0.21.0" />
+    <PackageReference Include="Xamarin.Firebase.iOS.MLKit.Vision" Version="0.21.0" />
+  </ItemGroup>
 </Project>
