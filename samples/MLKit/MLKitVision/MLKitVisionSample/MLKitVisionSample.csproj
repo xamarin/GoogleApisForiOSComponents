@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\..\..\packages\Xamarin.Build.Download.0.11.0\build\Xamarin.Build.Download.props" Condition="Exists('..\..\..\..\packages\Xamarin.Build.Download.0.11.0\build\Xamarin.Build.Download.props')" />
 	<PropertyGroup>
 		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
 		<Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
@@ -9,6 +8,7 @@
 		<OutputType>Exe</OutputType>
 		<RootNamespace>MLKitVisionSample</RootNamespace>
 		<AssemblyName>MLKitVisionSample</AssemblyName>
+	    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
 		<IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
 		<LangVersion>latest</LangVersion>
 	</PropertyGroup>
@@ -82,6 +82,77 @@
 		<MtouchTlsProvider>Default</MtouchTlsProvider>
 		<PlatformTarget>x86</PlatformTarget>
 	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug-NuGet|iPhone' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<Optimize>false</Optimize>
+		<OutputPath>bin\iPhone\Debug-NuGet</OutputPath>
+		<DefineConstants>__IOS__;__MOBILE__;__UNIFIED__;DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<ConsolePause>false</ConsolePause>
+		<CodesignKey>iPhone Developer</CodesignKey>
+		<DeviceSpecificBuild>true</DeviceSpecificBuild>
+		<MtouchDebug>true</MtouchDebug>
+		<MtouchFastDev>false</MtouchFastDev>
+		<MtouchProfiling>true</MtouchProfiling>
+		<MtouchFloat32>true</MtouchFloat32>
+		<CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+		<MtouchLink>SdkOnly</MtouchLink>
+		<MtouchArch>ARM64</MtouchArch>
+		<MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+		<MtouchTlsProvider>Default</MtouchTlsProvider>
+		<PlatformTarget>x86</PlatformTarget>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug-NuGet|iPhoneSimulator' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<Optimize>false</Optimize>
+		<OutputPath>bin\iPhoneSimulator\Debug-NuGet</OutputPath>
+		<DefineConstants>__IOS__;__MOBILE__;__UNIFIED__;DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<ConsolePause>false</ConsolePause>
+		<CodesignKey>iPhone Developer</CodesignKey>
+		<MtouchDebug>true</MtouchDebug>
+		<MtouchFastDev>false</MtouchFastDev>
+		<MtouchProfiling>true</MtouchProfiling>
+		<MtouchLink>None</MtouchLink>
+		<MtouchArch>x86_64</MtouchArch>
+		<MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+		<MtouchTlsProvider>Default</MtouchTlsProvider>
+		<PlatformTarget>x86</PlatformTarget>
+		<DeviceSpecificBuild>true</DeviceSpecificBuild>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-NuGet|iPhone' ">
+		<Optimize>true</Optimize>
+		<OutputPath>bin\iPhone\Release-NuGet</OutputPath>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<ConsolePause>false</ConsolePause>
+		<CodesignKey>iPhone Developer</CodesignKey>
+		<MtouchFloat32>true</MtouchFloat32>
+		<CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+		<MtouchLink>SdkOnly</MtouchLink>
+		<MtouchArch>ARM64</MtouchArch>
+		<MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+		<MtouchTlsProvider>Default</MtouchTlsProvider>
+		<PlatformTarget>x86</PlatformTarget>
+		<MtouchFastDev>false</MtouchFastDev>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-NuGet|iPhoneSimulator' ">
+		<Optimize>true</Optimize>
+		<OutputPath>bin\iPhoneSimulator\Release-NuGet</OutputPath>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<ConsolePause>false</ConsolePause>
+		<CodesignKey>iPhone Developer</CodesignKey>
+		<MtouchLink>None</MtouchLink>
+		<MtouchArch>x86_64</MtouchArch>
+		<MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+		<MtouchTlsProvider>Default</MtouchTlsProvider>
+		<PlatformTarget>x86</PlatformTarget>
+	</PropertyGroup>
 	<ItemGroup>
 		<Reference Include="System" />
 		<Reference Include="System.Xml" />
@@ -120,7 +191,6 @@
 	<ItemGroup>
 		<None Include="Info.plist" />
 		<None Include="Entitlements.plist" />
-		<None Include="packages.config" />
 	</ItemGroup>
 	<ItemGroup>
 		<Compile Include="Main.cs" />
@@ -148,68 +218,85 @@
 		<BundleResource Include="Resources\ObjectDetectionAndTracking.png" />
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\..\..\..\source\MLKit\TextRecognitionLatin\TextRecognitionLatin.csproj">
+		<ProjectReference Include="..\..\..\..\source\MLKit\TextRecognitionLatin\TextRecognitionLatin.csproj" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'">
 			<Name>TextRecognitionLatin</Name>
 		</ProjectReference>
-		<ProjectReference Include="..\..\..\..\source\MLKit\TextRecognition\TextRecognition.csproj">
+		<ProjectReference Include="..\..\..\..\source\MLKit\TextRecognition\TextRecognition.csproj" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'">
 			<Name>TextRecognition</Name>
 		</ProjectReference>
-		<ProjectReference Include="..\..\..\..\source\MLKit\TextRecognitionKorean\TextRecognitionKorean.csproj">
+		<ProjectReference Include="..\..\..\..\source\MLKit\TextRecognitionKorean\TextRecognitionKorean.csproj" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'">
 			<Name>TextRecognitionKorean</Name>
 		</ProjectReference>
-		<ProjectReference Include="..\..\..\..\source\MLKit\TextRecognitionJapanese\TextRecognitionJapanese.csproj">
+		<ProjectReference Include="..\..\..\..\source\MLKit\TextRecognitionJapanese\TextRecognitionJapanese.csproj" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'">
 			<Name>TextRecognitionJapanese</Name>
 		</ProjectReference>
-		<ProjectReference Include="..\..\..\..\source\MLKit\TextRecognitionDevanagari\TextRecognitionDevanagari.csproj">
+		<ProjectReference Include="..\..\..\..\source\MLKit\TextRecognitionDevanagari\TextRecognitionDevanagari.csproj" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'">
 			<Name>TextRecognitionDevanagari</Name>
 		</ProjectReference>
-		<ProjectReference Include="..\..\..\..\source\MLKit\TextRecognitionChinese\TextRecognitionChinese.csproj">
+		<ProjectReference Include="..\..\..\..\source\MLKit\TextRecognitionChinese\TextRecognitionChinese.csproj" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'">
 			<Name>TextRecognitionChinese</Name>
 		</ProjectReference>
-		<ProjectReference Include="..\..\..\..\source\MLKit\BarcodeScanning\BarcodeScanning.csproj">
+		<ProjectReference Include="..\..\..\..\source\MLKit\BarcodeScanning\BarcodeScanning.csproj" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'">
 			<Name>BarcodeScanning</Name>
 		</ProjectReference>
-		<ProjectReference Include="..\..\..\..\source\MLKit\FaceDetection\FaceDetection.csproj">
+		<ProjectReference Include="..\..\..\..\source\MLKit\FaceDetection\FaceDetection.csproj" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'">
 			<Name>FaceDetection</Name>
 		</ProjectReference>
-		<ProjectReference Include="..\..\..\..\source\MLKit\Core\Core.csproj">
+		<ProjectReference Include="..\..\..\..\source\MLKit\Core\Core.csproj" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'">
 			<Project>{720DD721-A108-488A-83CA-8DACF2D6D506}</Project>
 			<Name>Core</Name>
 		</ProjectReference>
-		<ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj">
+		<ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'">
 			<Project>{9335A59B-3B54-4ED5-8201-B68CFD05CAFB}</Project>
 			<Name>Core</Name>
 		</ProjectReference>
-		<ProjectReference Include="..\..\..\..\source\MLKit\DigitalInkRecognition\DigitalInkRecognition.csproj">
+		<ProjectReference Include="..\..\..\..\source\MLKit\DigitalInkRecognition\DigitalInkRecognition.csproj" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'">
 			<Name>DigitalInkRecognition</Name>
 		</ProjectReference>
-		<ProjectReference Include="..\..\..\..\source\MLKit\Vision\Vision.csproj">
+		<ProjectReference Include="..\..\..\..\source\MLKit\Vision\Vision.csproj" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'">
 			<Project>{AB6D62E6-8B42-401A-9E9E-E963EA0AE176}</Project>
 			<Name>Vision</Name>
 		</ProjectReference>
-		<ProjectReference Include="..\..\..\..\source\MLKit\ObjectDetection\ObjectDetection.csproj">
+		<ProjectReference Include="..\..\..\..\source\MLKit\ObjectDetection\ObjectDetection.csproj" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'">
 			<Project>{847E4CEC-590D-4209-954B-0DBCB727DF64}</Project>
 			<Name>ObjectDetection</Name>
 		</ProjectReference>
-		<ProjectReference Include="..\..\..\..\source\MLKit\ImageLabeling\ImageLabeling.csproj">
+		<ProjectReference Include="..\..\..\..\source\MLKit\ImageLabeling\ImageLabeling.csproj" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'">
 			<Project>{AE0A53F7-D079-4363-8B96-6A5C86DA5FA6}</Project>
 			<Name>ImageLabeling</Name>
 		</ProjectReference>
 	</ItemGroup>
-	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Core\Core.targets" />
-	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\Core\Core.targets" />
-	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\BarcodeScanning\BarcodeScanning.targets" />
-	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\DigitalInkRecognition\DigitalInkRecognition.targets" />
-	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\FaceDetection\FaceDetection.targets" />
-	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\TextRecognition\TextRecognition.targets" />
-	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\TextRecognitionLatin\TextRecognitionLatin.targets" />
-	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\TextRecognitionChinese\TextRecognitionChinese.targets" />
-	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\TextRecognitionDevanagari\TextRecognitionDevanagari.targets" />
-	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\TextRecognitionJapanese\TextRecognitionJapanese.targets" />
-	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\TextRecognitionKorean\TextRecognitionKorean.targets" />
-	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\Vision\Vision.targets" />
-	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\ObjectDetection\ObjectDetection.targets" />
-	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\ImageLabeling\ImageLabeling.targets" />
 	<Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-	<Import Project="..\..\..\..\packages\Xamarin.Build.Download.0.11.0\build\Xamarin.Build.Download.targets" Condition="Exists('..\..\..\..\packages\Xamarin.Build.Download.0.11.0\build\Xamarin.Build.Download.targets')" />
+	<Import Project="$(NuGetPackageRoot)Xamarin.Build.Download\0.11.0\build\Xamarin.Build.Download.props" Condition="Exists('$(NuGetPackageRoot)Xamarin.Build.Download\0.11.0\build\Xamarin.Build.Download.props') AND '$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'" />
+	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Core\Core.targets" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'" />
+	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\Core\Core.targets" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'" />
+	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\BarcodeScanning\BarcodeScanning.targets" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'" />
+	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\DigitalInkRecognition\DigitalInkRecognition.targets" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'" />
+	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\FaceDetection\FaceDetection.targets" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'" />
+	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\TextRecognition\TextRecognition.targets" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'" />
+	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\TextRecognitionLatin\TextRecognitionLatin.targets" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'" />
+	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\TextRecognitionChinese\TextRecognitionChinese.targets" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'" />
+	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\TextRecognitionDevanagari\TextRecognitionDevanagari.targets" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'" />
+	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\TextRecognitionJapanese\TextRecognitionJapanese.targets" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'" />
+	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\TextRecognitionKorean\TextRecognitionKorean.targets" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'" />
+	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\Vision\Vision.targets" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'" />
+	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\ObjectDetection\ObjectDetection.targets" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'" />
+	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\ImageLabeling\ImageLabeling.targets" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'" />
+	<ItemGroup Condition=" '$(Configuration)' == 'Debug-NuGet' OR '$(Configuration)' == 'Release-NuGet' ">
+		<PackageReference Include="Xamarin.Build.Download" Version="0.11.0" />
+		<PackageReference Include="Xamarin.Firebase.iOS.Core" Version="8.10.0" />
+		<PackageReference Include="Xamarin.MLKit.iOS.BarcodeScanning" Version="1.6.0" />
+		<PackageReference Include="Xamarin.MLKit.iOS.Core" Version="5.0.0" />
+		<PackageReference Include="Xamarin.MLKit.iOS.DigitalInkRecognition" Version="1.0.0" />
+		<PackageReference Include="Xamarin.MLKit.iOS.FaceDetection" Version="1.5.0" />
+		<PackageReference Include="Xamarin.MLKit.iOS.ImageLabeling" Version="1.5.0" />
+		<PackageReference Include="Xamarin.MLKit.iOS.ObjectDetection" Version="1.5.0" />
+		<PackageReference Include="Xamarin.MLKit.iOS.TextRecognition" Version="1.0.0.3" />
+		<PackageReference Include="Xamarin.MLKit.iOS.TextRecognition.Chinese" Version="1.0.0.3" />
+		<PackageReference Include="Xamarin.MLKit.iOS.TextRecognition.Devanagari" Version="1.0.0.3" />
+		<PackageReference Include="Xamarin.MLKit.iOS.TextRecognition.Japanese" Version="1.0.0.3" />
+		<PackageReference Include="Xamarin.MLKit.iOS.TextRecognition.Korean" Version="1.0.0.3" />
+		<PackageReference Include="Xamarin.MLKit.iOS.TextRecognition.Latin" Version="1.4.0.3" />
+		<PackageReference Include="Xamarin.MLKit.iOS.Vision" Version="3.0.0" />
+	</ItemGroup>
 </Project>

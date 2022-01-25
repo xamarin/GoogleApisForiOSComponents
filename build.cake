@@ -170,6 +170,7 @@ Task ("libs")
 	foreach (var target in SOURCES_TARGETS)
 		MSBuild(SOLUTION_PATH, c => {
 			c.Configuration = "Release";
+			c.Restore = true;
 			c.MaxCpuCount = 0;
 			c.Targets.Clear();
 			c.Targets.Add($@"source{BACKSLASH}{target}");
@@ -183,6 +184,7 @@ Task ("samples")
 	foreach (var target in SAMPLES_TARGETS)
 		MSBuild(SOLUTION_PATH, c => {
 			c.Configuration = "Release";
+			c.Restore = true;
 			c.MaxCpuCount = 0;
 			c.Targets.Clear();
 			c.Targets.Add($@"samples{BACKSLASH}{target}");
