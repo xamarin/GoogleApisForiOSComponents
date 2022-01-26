@@ -84,6 +84,7 @@ var ARTIFACTS = new Dictionary<string, Artifact> {
 	{ "MLKit.BarcodeScanning",            MLKIT_BARCODE_SCANNING },
 	{ "MLKit.ImageLabeling",              MLKIT_IMAGE_LABELING },
 	{ "MLKit.ObjectDetection",            MLKIT_OBJECT_DETECTION },
+	{ "MLKit.DigitalInkRecognition",      MLKIT_DIGITAL_INK_RECOGNITION },
 };
 
 void SetArtifactsDependencies ()
