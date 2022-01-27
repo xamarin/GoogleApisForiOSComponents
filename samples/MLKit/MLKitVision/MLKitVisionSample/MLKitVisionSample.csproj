@@ -119,7 +119,7 @@
 		<MtouchProfiling>true</MtouchProfiling>
 		<MtouchLink>None</MtouchLink>
 		<MtouchArch>x86_64</MtouchArch>
-		<MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+		<MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
 		<MtouchTlsProvider>Default</MtouchTlsProvider>
 		<PlatformTarget>x86</PlatformTarget>
 		<DeviceSpecificBuild>true</DeviceSpecificBuild>
