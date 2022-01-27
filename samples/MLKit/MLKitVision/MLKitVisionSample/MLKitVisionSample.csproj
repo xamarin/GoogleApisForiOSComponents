@@ -282,8 +282,10 @@
 	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\Vision\Vision.targets" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'" />
 	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\ObjectDetection\ObjectDetection.targets" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'" />
 	<Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\ImageLabeling\ImageLabeling.targets" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'" />
-	<ItemGroup Condition=" '$(Configuration)' == 'Debug-NuGet' OR '$(Configuration)' == 'Release-NuGet' ">
+	<ItemGroup>
 		<PackageReference Include="Xamarin.Build.Download" Version="0.11.0" />
+	</ItemGroup>
+	<ItemGroup Condition=" '$(Configuration)' == 'Debug-NuGet' OR '$(Configuration)' == 'Release-NuGet' ">
 		<PackageReference Include="Xamarin.Firebase.iOS.Core" Version="8.10.0" />
 		<PackageReference Include="Xamarin.MLKit.iOS.BarcodeScanning" Version="1.6.0" />
 		<PackageReference Include="Xamarin.MLKit.iOS.Core" Version="5.0.0" />

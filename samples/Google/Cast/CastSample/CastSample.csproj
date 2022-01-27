@@ -215,9 +215,9 @@
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Google\Cast\Cast.targets" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'" />
   <ItemGroup>
     <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
   </ItemGroup>
   <ItemGroup Condition=" '$(Configuration)' == 'Debug-NuGet' OR '$(Configuration)' == 'Release-NuGet' ">
-    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
     <PackageReference Include="Xamarin.Firebase.iOS.Core" Version="8.10.0" />
     <PackageReference Include="Xamarin.Google.iOS.Cast" Version="4.7.0.0" />
   </ItemGroup>

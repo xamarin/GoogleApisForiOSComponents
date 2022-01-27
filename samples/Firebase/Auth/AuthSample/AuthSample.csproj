@@ -256,11 +256,11 @@
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Google\SignIn\SignIn.targets" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'" />
   <ItemGroup>
     <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" />
-  </ItemGroup>
-  <ItemGroup Condition=" '$(Configuration)' == 'Debug-NuGet' OR '$(Configuration)' == 'Release-NuGet' ">
     <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
     <PackageReference Include="Xamarin.Facebook.CoreKit.iOS" Version="5.12.0" />
     <PackageReference Include="Xamarin.Facebook.LoginKit.iOS" Version="5.12.0" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(Configuration)' == 'Debug-NuGet' OR '$(Configuration)' == 'Release-NuGet' ">
     <PackageReference Include="Xamarin.Firebase.iOS.Auth" Version="8.10.0" />
     <PackageReference Include="Xamarin.Firebase.iOS.Core" Version="8.10.0" />
     <PackageReference Include="Xamarin.Google.iOS.SignIn" Version="5.0.2.2" />
