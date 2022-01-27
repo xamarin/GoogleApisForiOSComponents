@@ -211,6 +211,9 @@
       <Project>{25783B8D-1423-4CC2-B629-7E7F36A1CF4B}</Project>
       <Name>Analytics</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\source\Firebase\Installations\Installations.csproj" Condition="'$(Configuration)' != 'Debug-NuGet' AND '$(Configuration)' != 'Release-NuGet'">
+      <Name>Installations</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="../../../Shared/GoogleServiceInfoPlistNotFoundViewController.cs" />
@@ -232,6 +235,7 @@
   <ItemGroup Condition=" '$(Configuration)' == 'Debug-NuGet' OR '$(Configuration)' == 'Release-NuGet' ">
     <PackageReference Include="Xamarin.Firebase.iOS.Analytics" Version="8.10.0" />
     <PackageReference Include="Xamarin.Firebase.iOS.Core" Version="8.10.0" />
+    <PackageReference Include="Xamarin.Firebase.iOS.Installations" Version="8.10.0" />
     <PackageReference Include="Xamarin.Google.iOS.Analytics" Version="3.20.0.0" />
     <PackageReference Include="Xamarin.Google.iOS.TagManager" Version="7.4.0.0" />
   </ItemGroup>
