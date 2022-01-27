@@ -289,7 +289,7 @@
 		<PackageReference Include="Xamarin.Firebase.iOS.Core" Version="8.10.0" />
 		<PackageReference Include="Xamarin.MLKit.iOS.BarcodeScanning" Version="1.6.0" />
 		<PackageReference Include="Xamarin.MLKit.iOS.Core" Version="5.0.0" />
-		<PackageReference Include="Xamarin.MLKit.iOS.DigitalInkRecognition" Version="1.0.0" />
+		<PackageReference Include="Xamarin.MLKit.iOS.DigitalInkRecognition" Version="1.5.0" />
 		<PackageReference Include="Xamarin.MLKit.iOS.FaceDetection" Version="1.5.0" />
 		<PackageReference Include="Xamarin.MLKit.iOS.ImageLabeling" Version="1.5.0" />
 		<PackageReference Include="Xamarin.MLKit.iOS.ObjectDetection" Version="1.5.0" />
