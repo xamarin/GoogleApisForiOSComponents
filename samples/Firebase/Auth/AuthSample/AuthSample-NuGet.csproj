@@ -158,8 +158,8 @@
     <Compile Include="PhoneNumberAuth\VerificationCodeViewController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="../../../Shared/GoogleServiceInfoPlistNotFoundViewController.cs" />
-    <Compile Include="../../../Shared/GoogleServiceInfoPlistHelper.cs" />
+    <Compile Include="..\..\..\Shared\GoogleServiceInfoPlistNotFoundViewController.cs" />
+    <Compile Include="..\..\..\Shared\GoogleServiceInfoPlistHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\user.png" />
