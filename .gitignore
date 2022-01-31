@@ -13,3 +13,4 @@ build
 _._
 externals
 artifacts
+*.user
