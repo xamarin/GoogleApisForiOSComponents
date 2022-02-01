@@ -187,7 +187,7 @@ Task ("samples")
 			c.Restore = true;
 			c.MaxCpuCount = 0;
 			c.Targets.Clear();
-			c.Targets.Add($@"samples{BACKSLASH}{target}");
+			c.Targets.Add($@"samples-using-source{BACKSLASH}{target}");
 		});
 });
 

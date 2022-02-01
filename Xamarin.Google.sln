@@ -4,7 +4,7 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "source", "source", "{66A8A447-CECE-4C0D-9F8E-8EC790A141F3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{69028465-228C-475F-A932-A161B6F17B75}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples-using-source", "samples-using-source", "{69028465-228C-475F-A932-A161B6F17B75}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Firebase", "Firebase", "{87DAFAF8-C745-44F0-BC8A-503BF4A97082}"
 EndProject
