@@ -51,18 +51,18 @@ public Dictionary<string, GoogleBase> CreateComponents ()
 	googleComponents ["Google.SignIn"] = GetComponent<Google.SignIn> ();
 	googleComponents ["Google.TagManager"] = GetComponent<Google.TagManager> ();
 
-	googleComponents ["MLKit.Core"] = GetComponent<MLKit.Core> ();
-	googleComponents ["MLKit.TextRecognition"] = GetComponent<MLKit.TextRecognition> ();
-	googleComponents ["MLKit.Vision"] = GetComponent<MLKit.Vision> ();
-	googleComponents ["MLKit.TextRecognition.Latin"] = GetComponent<MLKit.TextRecognition.Latin> ();
-	googleComponents ["MLKit.TextRecognition.Chinese"] = GetComponent<MLKit.TextRecognition.Chinese> ();
-	googleComponents ["MLKit.TextRecognition.Devanagari"] = GetComponent<MLKit.TextRecognition.Devanagari> ();
-	googleComponents ["MLKit.TextRecognition.Japanese"] = GetComponent<MLKit.TextRecognition.Japanese> ();
-	googleComponents ["MLKit.TextRecognition.Korean"] = GetComponent<MLKit.TextRecognition.Korean> ();
-	googleComponents ["MLKit.FaceDetection"] = GetComponent<MLKit.FaceDetection> ();
-	googleComponents ["MLKit.BarcodeScanning"] = GetComponent<MLKit.BarcodeScanning> ();
-	googleComponents ["MLKit.ImageLabeling"] = GetComponent<MLKit.ImageLabeling> ();
-	googleComponents ["MLKit.ObjectDetection"] = GetComponent<MLKit.ObjectDetection> ();
+	// googleComponents ["MLKit.Core"] = GetComponent<MLKit.Core> ();
+	// googleComponents ["MLKit.TextRecognition"] = GetComponent<MLKit.TextRecognition> ();
+	// googleComponents ["MLKit.Vision"] = GetComponent<MLKit.Vision> ();
+	// googleComponents ["MLKit.TextRecognition.Latin"] = GetComponent<MLKit.TextRecognition.Latin> ();
+	// googleComponents ["MLKit.TextRecognition.Chinese"] = GetComponent<MLKit.TextRecognition.Chinese> ();
+	// googleComponents ["MLKit.TextRecognition.Devanagari"] = GetComponent<MLKit.TextRecognition.Devanagari> ();
+	// googleComponents ["MLKit.TextRecognition.Japanese"] = GetComponent<MLKit.TextRecognition.Japanese> ();
+	// googleComponents ["MLKit.TextRecognition.Korean"] = GetComponent<MLKit.TextRecognition.Korean> ();
+	// googleComponents ["MLKit.FaceDetection"] = GetComponent<MLKit.FaceDetection> ();
+	// googleComponents ["MLKit.BarcodeScanning"] = GetComponent<MLKit.BarcodeScanning> ();
+	// googleComponents ["MLKit.ImageLabeling"] = GetComponent<MLKit.ImageLabeling> ();
+	// googleComponents ["MLKit.ObjectDetection"] = GetComponent<MLKit.ObjectDetection> ();
 
 	googleComponents ["Xamarin.Build.Download"] = GetComponent<Xamarin.Build.Download> ();
 
