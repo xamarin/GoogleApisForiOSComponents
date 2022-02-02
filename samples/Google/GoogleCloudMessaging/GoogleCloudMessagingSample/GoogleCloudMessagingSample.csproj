@@ -97,12 +97,10 @@
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <Import Project="$(NuGetPackageRoot)Xamarin.Build.Download\0.11.0\build\Xamarin.Build.Download.props" Condition="Exists('$(NuGetPackageRoot)Xamarin.Build.Download\0.11.0\build\Xamarin.Build.Download.props')" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Google.Core\source\Google.Core\Google.Core.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Google.InstanceID\source\Google.InstanceID\Google.InstanceID.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\source\Google.GoogleCloudMessaging\Google.GoogleCloudMessaging.targets" />
   <Import Project="..\packages\Xamarin.Build.Download.0.4.3\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.3\build\Xamarin.Build.Download.targets')" />
-  <Import Project="..\packages\Xamarin.Build.Download.0.4.3\build\Xamarin.Build.Download.props" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.3\build\Xamarin.Build.Download.props')" />
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\Google.Core\source\Google.Core\Google.Core.csproj">
       <Project>{C2355333-621E-4439-9F53-EB717D681699}</Project>
