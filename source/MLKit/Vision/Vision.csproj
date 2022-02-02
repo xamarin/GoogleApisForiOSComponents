@@ -19,7 +19,7 @@
     <Authors>Microsoft</Authors>
     <Owners>Microsoft</Owners>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
-    <PackageIcon>firebaseioscore_128x128.png</PackageIcon>
+    <PackageIcon>firebaseiosmlkit_128x128.png</PackageIcon>
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2007321</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
@@ -39,7 +39,7 @@
     <None Include="Vision.targets" Pack="True" PackagePath="buildTransitive/Xamarin.MLKit.iOS.Vision.targets" />
     <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
-    <None Include="../../../icons/firebaseiosmlkitvision_128x128.png" Pack="True" PackagePath="firebaseiosmlkitvision_128x128.png" />
+    <None Include="../../../icons/firebaseiosmlkit_128x128.png" Pack="True" PackagePath="firebaseiosmlkit_128x128.png" />
   </ItemGroup>
 
   <ItemGroup>
