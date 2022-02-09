@@ -27,8 +27,25 @@ jobs:
       cakeExtraArgs: '--names=$(SdksNames)'
       windowsImage: ''
       xcode: '13.1'
+
+  - ${{ if ne(variables['System.TeamProject'], 'devdiv') }}:
+    - template: compliance/sbom/job.v1.yml@internal-templates
+      parameters:
+        artifactNames: ['nuget']
+        packageName: 'Xamarin Google APIs Components for iOS'
+        packageFilter: '*.nupkg'
+        dependsOn: [ 'build' ]
+
   - ${{ if eq(variables['System.TeamProject'], 'devdiv') }}:
     - template: sign-artifacts/jobs/v2.yml@internal-templates
       parameters:
         dependsOn: [ 'build' ]
+        condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/')
+
+    - template: compliance/sbom/job.v1.yml@internal-templates
+      parameters:
+        artifactNames: ['nuget-signed']
+        packageName: 'Xamarin Google APIs Components for iOS'
+        packageFilter: '*.nupkg'
+        dependsOn: [ 'signing' ]
         condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/')
