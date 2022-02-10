@@ -28,7 +28,7 @@ jobs:
       windowsImage: ''
       xcode: '13.1'
 
-  - ${{ if ne(variables['System.TeamProject'], 'devdiv') }}:
+  - ${{ if and(eq(variables['System.TeamProject'], 'devdiv'), not(startsWith(variables['Build.SourceBranch'], 'refs/tags/'))) }}:
     - template: compliance/sbom/job.v1.yml@internal-templates
       parameters:
         artifactNames: ['nuget']
