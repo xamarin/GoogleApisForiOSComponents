@@ -28,24 +28,19 @@ jobs:
       windowsImage: ''
       xcode: '13.1'
 
-  - ${{ if and(eq(variables['System.TeamProject'], 'devdiv'), not(startsWith(variables['Build.SourceBranch'], 'refs/tags/'))) }}:
-    - template: compliance/sbom/job.v1.yml@internal-templates
-      parameters:
-        artifactNames: ['nuget']
-        packageName: 'Xamarin Google APIs Components for iOS'
-        packageFilter: '*.nupkg'
-        dependsOn: [ 'build' ]
-
   - ${{ if eq(variables['System.TeamProject'], 'devdiv') }}:
     - template: sign-artifacts/jobs/v2.yml@internal-templates
       parameters:
         dependsOn: [ 'build' ]
         condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/')
 
-  - ${{ if and(eq(variables['System.TeamProject'], 'devdiv'), startsWith(variables['Build.SourceBranch'], 'refs/tags/')) }}:
     - template: compliance/sbom/job.v1.yml@internal-templates
       parameters:
-        artifactNames: ['nuget-signed']
         packageName: 'Xamarin Google APIs Components for iOS'
         packageFilter: '*.nupkg'
-        dependsOn: [ 'signing' ]
+        ${{ if not(startsWith(variables['Build.SourceBranch'], 'refs/tags/')) }}:
+          artifactNames: ['nuget']
+          dependsOn: [ 'build' ]
+        ${{ if startsWith(variables['Build.SourceBranch'], 'refs/tags/') }}:
+          artifactNames: ['nuget-signed']
+          dependsOn: [ 'signing' ]
