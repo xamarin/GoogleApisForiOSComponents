@@ -103,7 +103,7 @@ namespace Google.Places {
 		// @property (nonatomic) id<GMSPlaceLocationRestriction> _Nullable locationRestriction;
 		[NullAllowed]
 		[Export ("locationRestriction", ArgumentSemantic.Assign)]
-		NSObject LocationRestriction { get; set; }		
+		NSObject LocationRestriction { get; set; }
 	}
 
 	// @interface GMSAutocompleteMatchFragment : NSObject
@@ -205,15 +205,6 @@ namespace Google.Places {
 		[NullAllowed]
 		[Export ("delegate", ArgumentSemantic.Weak)]
 		IAutocompleteResultsViewControllerDelegate Delegate { get; set; }
-
-		// @property(nonatomic, strong) GMSCoordinateBounds *autocompleteBounds;
-		[NullAllowed]
-		[Export ("autocompleteBounds", ArgumentSemantic.Strong)]
-		Google.Maps.CoordinateBounds AutocompleteBounds { get; set; }
-
-		// @property (assign, nonatomic) GMSAutocompleteBoundsMode autocompleteBoundsMode;
-		[Export ("autocompleteBoundsMode", ArgumentSemantic.Assign)]
-		AutocompleteBoundsMode AutocompleteBoundsMode { get; set; }
 
 		// @property(nonatomic, strong) GMSAutocompleteFilter *autocompleteFilter;
 		[NullAllowed]
@@ -541,10 +532,10 @@ namespace Google.Places {
 		[Export ("attributions", ArgumentSemantic.Copy)]
 		NSAttributedString Attributions { get; }
 
-		// @property(nonatomic, strong, readonly) GMSCoordinateBounds *viewport;
+		// @property(nonatomic, strong, readonly) GMSPlaceViewportInfo *viewport;
 		[NullAllowed]
 		[Export ("viewportInfo", ArgumentSemantic.Strong)]
-		PlaceViewportInfo Viewport { get; }
+		PlaceViewportInfo ViewportInfo { get; }
 
 		// @property(nonatomic, copy, readonly) GMS_NSArrayOf(GMSAddressComponent *) *GMS_NULLABLE_PTR addressComponents;
 		[NullAllowed]
@@ -597,9 +588,8 @@ namespace Google.Places {
 	}
 
 	// @interface GMSPlaceViewportInfo : NSObject
-	[BaseType (typeof(NSObject), Name = "GMSPlaceViewportInfo")]
-	interface PlaceViewportInfo
-	{
+	[BaseType (typeof (NSObject), Name = "GMSPlaceViewportInfo")]
+	interface PlaceViewportInfo {
 		// @property (readonly, nonatomic) CLLocationCoordinate2D northEast;
 		[Export ("northEast")]
 		CLLocationCoordinate2D NorthEast { get; }
@@ -746,9 +736,9 @@ namespace Google.Places {
 		[Export ("currentPlaceWithCallback:")]
 		void CurrentPlace (PlaceLikelihoodListHandler callback);
 
-		// -(void)findAutocompletePredictionsFromQuery:(NSString * _Nonnull)query bounds:(GMSCoordinateBounds * _Nullable)bounds boundsMode:(GMSAutocompleteBoundsMode)boundsMode filter:(GMSAutocompleteFilter * _Nullable)filter sessionToken:(GMSAutocompleteSessionToken * _Nonnull)sessionToken callback:(GMSAutocompletePredictionsCallback _Nonnull)callback;
-		[Export ("findAutocompletePredictionsFromQuery:bounds:boundsMode:filter:sessionToken:callback:")]
-		void FindAutocompletePredictions (string query, [NullAllowed] CoordinateBounds bounds, AutocompleteBoundsMode boundsMode, [NullAllowed] AutocompleteFilter filter, [NullAllowed] AutocompleteSessionToken sessionToken, AutocompletePredictionsHandler callback);
+		// -(void)findAutocompletePredictionsFromQuery:(NSString * _Nonnull)query filter:(GMSAutocompleteFilter * _Nullable)filter sessionToken:(GMSAutocompleteSessionToken * _Nonnull)sessionToken callback:(GMSAutocompletePredictionsCallback _Nonnull)callback;
+		[Export ("findAutocompletePredictionsFromQuery:filter:sessionToken:callback:")]
+		void FindAutocompletePredictions (string query, [NullAllowed] AutocompleteFilter filter, [NullAllowed] AutocompleteSessionToken sessionToken, AutocompletePredictionsHandler callback);
 
 		// -(void)fetchPlaceFromPlaceID:(NSString * _Nonnull)placeID placeFields:(GMSPlaceField)placeFields sessionToken:(GMSAutocompleteSessionToken * _Nullable)sessionToken callback:(GMSPlaceResultCallback _Nonnull)callback;
 		[Export ("fetchPlaceFromPlaceID:placeFields:sessionToken:callback:")]
