@@ -6,26 +6,26 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 
 | Package Id                                                                   | NuGet                                         |
 |------------------------------------------------------------------------------|-----------------------------------------------|
-| [Xamarin.Firebase.iOS.ABTesting][F.ABTesting.Name]                           | [8.11.0][F.ABTesting.Package]                 |
-| [Xamarin.Firebase.iOS.AdMob][F.AdMob.Name]                                   | [8.11.0.0][F.AdMob.Package]                   |
-| [Xamarin.Firebase.iOS.Analytics][F.Analytics.Name]                           | [8.11.0][F.Analytics.Package]                 |
-| [Xamarin.Firebase.iOS.Auth][F.Auth.Name]                                     | [8.11.0][F.Auth.Package]                      |
-| [Xamarin.Firebase.iOS.CloudFirestore][F.CloudFirestore.Name]                 | [8.11.0][F.CloudFirestore.Package]            |
-| [Xamarin.Firebase.iOS.CloudFunctions][F.CloudFunctions.Name]                 | [8.11.0][F.CloudFunctions.Package]            |
-| [Xamarin.Firebase.iOS.CloudMessaging][F.CloudMessaging.Name]                 | [8.11.0][F.CloudMessaging.Package]            |
-| [Xamarin.Firebase.iOS.Core][F.Core.Name]                                     | [8.11.0][F.Core.Package]                      |
-| [Xamarin.Firebase.iOS.Crashlytics][F.Crashlytics.Name]                       | [8.11.0][F.Crashlytics.Package]               |
-| [Xamarin.Firebase.iOS.Database][F.Database.Name]                             | [8.11.0][F.Database.Package]                  |
-| [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                     | [8.11.0][F.DynamicLinks.Package]              |
-| [Xamarin.Firebase.iOS.InAppMessaging][F.InAppMessaging.Name]                 | [8.11.0][F.InAppMessaging.Package]            |
-| [Xamarin.Firebase.iOS.Installations][F.Installations.Name]                   | [8.11.0][F.Installations.Package]             |
-| [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name]   | [8.11.0][F.PerformanceMonitoring.Package]     |
-| [Xamarin.Firebase.iOS.RemoteConfig][F.RemoteConfig.Name]                     | [8.11.0][F.RemoteConfig.Package]              |
-| [Xamarin.Firebase.iOS.Storage][F.Storage.Name]                               | [8.11.0][F.Storage.Package]                   |
+| [Xamarin.Firebase.iOS.ABTesting][F.ABTesting.Name]                           | [8.12.1][F.ABTesting.Package]                 |
+| [Xamarin.Firebase.iOS.AdMob][F.AdMob.Name]                                   | [8.12.1.0][F.AdMob.Package]                   |
+| [Xamarin.Firebase.iOS.Analytics][F.Analytics.Name]                           | [8.12.1][F.Analytics.Package]                 |
+| [Xamarin.Firebase.iOS.Auth][F.Auth.Name]                                     | [8.12.1][F.Auth.Package]                      |
+| [Xamarin.Firebase.iOS.CloudFirestore][F.CloudFirestore.Name]                 | [8.12.1][F.CloudFirestore.Package]            |
+| [Xamarin.Firebase.iOS.CloudFunctions][F.CloudFunctions.Name]                 | [8.12.1][F.CloudFunctions.Package]            |
+| [Xamarin.Firebase.iOS.CloudMessaging][F.CloudMessaging.Name]                 | [8.12.1][F.CloudMessaging.Package]            |
+| [Xamarin.Firebase.iOS.Core][F.Core.Name]                                     | [8.12.1][F.Core.Package]                      |
+| [Xamarin.Firebase.iOS.Crashlytics][F.Crashlytics.Name]                       | [8.12.1][F.Crashlytics.Package]               |
+| [Xamarin.Firebase.iOS.Database][F.Database.Name]                             | [8.12.1][F.Database.Package]                  |
+| [Xamarin.Firebase.iOS.DynamicLinks][F.DynamicLinks.Name]                     | [8.12.1][F.DynamicLinks.Package]              |
+| [Xamarin.Firebase.iOS.InAppMessaging][F.InAppMessaging.Name]                 | [8.12.1][F.InAppMessaging.Package]            |
+| [Xamarin.Firebase.iOS.Installations][F.Installations.Name]                   | [8.12.0][F.Installations.Package]             |
+| [Xamarin.Firebase.iOS.PerformanceMonitoring][F.PerformanceMonitoring.Name]   | [8.12.0][F.PerformanceMonitoring.Package]     |
+| [Xamarin.Firebase.iOS.RemoteConfig][F.RemoteConfig.Name]                     | [8.12.1][F.RemoteConfig.Package]              |
+| [Xamarin.Firebase.iOS.Storage][F.Storage.Name]                               | [8.12.1][F.Storage.Package]                   |
 | [Xamarin.Google.iOS.Analytics][G.Analytics.Name]                             | [3.20.0.0][G.Analytics.Package]               |
 | [Xamarin.Google.iOS.Cast][G.Cast.Name]                                       | [4.7.0.0][G.Cast.Package]                     |
 | [Xamarin.Google.iOS.Maps][G.Maps.Name]                                       | [6.0.1.0][G.Maps.Package]                     |
-| [Xamarin.Google.iOS.MobileAds][G.MobileAds.Name]                             | [8.13.0.0][G.MobileAds.Package]               |
+| [Xamarin.Google.iOS.MobileAds][G.MobileAds.Name]                             | [9.0.0.0][G.MobileAds.Package]                |
 | [Xamarin.Google.iOS.UserMessagingPlatform][G.UserMessagingPlatform.Name]     | [1.1.0.0][G.UserMessagingPlatform.Package]    |
 | [Xamarin.Google.iOS.Places][G.Places.Name]                                   | [6.0.0.0][G.Places.Package]                   |
 | [Xamarin.Google.iOS.SignIn][G.SignIn.Name]                                   | [5.0.2.2][G.SignIn.Package]                   |
@@ -56,26 +56,26 @@ Here's a table that shows in which global version is located each component of F
 
 | Component Name                   | Component Version  | Global Version |
 |----------------------------------|:------------------:|:--------------:|
-| Firebase A/B Testing             | **8.11.0**         | **8.11.0**      |
-| Firebase AdMob                   | **8.11.0**         | **8.11.0**      |
-| Firebase Analytics               | **8.11.0**         | **8.11.0**      |
-| Firebase Auth                    | **8.11.0**         | **8.11.0**      |
-| Firebase Cloud Firestore         | **8.11.0**         | **8.11.0**      |
-| Firebase Cloud Functions         | **8.11.0**         | **8.11.0**      |
-| Firebase Cloud Messaging         | **8.11.0**         | **8.11.0**      |
-| Firebase Core                    | **8.11.0**         | **8.11.0**      |
-| Firebase Crashlytics             | **8.11.0**         | **8.11.0**      |
-| Firebase Database                | **8.11.0**         | **8.11.0**      |
-| Firebase Dynamic Links           | **8.11.0**         | **8.11.0**      |
-| Firebase In App Messaging        | **8.11.0**         | **8.11.0**      |
-| Firebase Installations           | **8.11.0**         | **8.11.0**      |
-| Firebase Performance Monitoring  | **8.11.0**         | **8.11.0**      |
-| Firebase RemoteConfig            | **8.11.0**         | **8.11.0**      |
-| Firebase Storage                 | **8.11.0**         | **8.11.0**      |
-| Google User Messaging Platform   | **1.1.0.0**        | **8.11.0**      |
-| Google Cast                      | **4.7.0.0**        | **8.11.0**      |
-| Google Sign-In                   | **5.0.2.2**        | **8.11.0**      |
-| Google Tag Manager               | **7.4.0.0**        | **8.11.0**      |
+| Firebase A/B Testing             | **8.12.1**         | **8.12.1**      |
+| Firebase AdMob                   | **8.12.1**         | **8.12.1**      |
+| Firebase Analytics               | **8.12.1**         | **8.12.1**      |
+| Firebase Auth                    | **8.12.1**         | **8.12.1**      |
+| Firebase Cloud Firestore         | **8.12.1**         | **8.12.1**      |
+| Firebase Cloud Functions         | **8.12.1**         | **8.12.1**      |
+| Firebase Cloud Messaging         | **8.12.1**         | **8.12.1**      |
+| Firebase Core                    | **8.12.1**         | **8.12.1**      |
+| Firebase Crashlytics             | **8.12.1**         | **8.12.1**      |
+| Firebase Database                | **8.12.1**         | **8.12.1**      |
+| Firebase Dynamic Links           | **8.12.1**         | **8.12.1**      |
+| Firebase In App Messaging        | **8.12.1**         | **8.12.1**      |
+| Firebase Installations           | **8.12.0**         | **8.12.0**      |
+| Firebase Performance Monitoring  | **8.12.0**         | **8.12.0**      |
+| Firebase RemoteConfig            | **8.12.1**         | **8.12.1**      |
+| Firebase Storage                 | **8.12.1**         | **8.12.1**      |
+| Google User Messaging Platform   | **1.1.0.0**        | **8.12.1**      |
+| Google Cast                      | **4.7.0.0**        | **8.12.1**      |
+| Google Sign-In                   | **5.0.2.2**        | **8.12.1**      |
+| Google Tag Manager               | **7.4.0.0**        | **8.12.1**      |
 
 ## Ad Id Support
 

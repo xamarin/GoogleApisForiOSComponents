@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.Database</RootNamespace>
     <AssemblyName>Firebase.Database</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>8.11.0</FileVersion>
+    <FileVersion>8.12.1</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865568</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>8.11.0</PackageVersion>
+    <PackageVersion>8.12.1</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
