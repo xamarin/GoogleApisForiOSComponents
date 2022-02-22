@@ -5,11 +5,9 @@ using CoreGraphics;
 using Foundation;
 using ObjCRuntime;
 
-namespace Google.MobileAds
-{
+namespace Google.MobileAds {
 	[Native]
-	public enum AdFormat : long
-	{
+	public enum AdFormat : long {
 		Banner,
 		Interstitial,
 		Rewarded,
@@ -18,8 +16,7 @@ namespace Google.MobileAds
 		Unknown
 	}
 
-	public enum AdLoaderAdType
-	{
+	public enum AdLoaderAdType {
 		// extern NSString *const GADAdLoaderAdTypeCustomNative;
 		[Field ("GADAdLoaderAdTypeCustomNative", "__Internal")]
 		CustomNative,
@@ -34,8 +31,7 @@ namespace Google.MobileAds
 	}
 
 	[Native]
-	public enum AdValuePrecision : long
-	{
+	public enum AdValuePrecision : long {
 		Unknown = 0,
 		Estimated = 1,
 		PublisherProvided = 2,
@@ -43,8 +39,7 @@ namespace Google.MobileAds
 	}
 
 	[Native]
-	public enum PresentationErrorCode : long
-	{
+	public enum PresentationErrorCode : long {
 		AdNotReady = 15,
 		AdTooLarge = 16,
 		Internal = 17,
@@ -53,8 +48,7 @@ namespace Google.MobileAds
 
 	//GADRequest file
 	[Native]
-	public enum Gender : long
-	{
+	public enum Gender : long {
 		Unknown,
 		Male,
 		Female
@@ -62,8 +56,7 @@ namespace Google.MobileAds
 
 	//GADRequestError file
 	[Native]
-	public enum ErrorCode : long
-	{
+	public enum ErrorCode : long {
 		InvalidRequest = 0,
 		NoFill = 1,
 		NetworkError = 2,
@@ -97,19 +90,30 @@ namespace Google.MobileAds
 	}
 
 	[Native]
-	public enum NativeAdImageAdLoaderOptionsOrientation : long
-	{
+	public enum NativeAdImageAdLoaderOptionsOrientation : long {
 		Any = 1,
 		Portrait = 2,
 		Landscape = 3
 	}
 
 	[Native]
-	public enum AdChoicesPosition : long
-	{
+	public enum AdChoicesPosition : long {
 		TopRightCorner,
 		TopLeftCorner,
 		BottomRightCorner,
 		BottomLeftCorner
+	}
+
+	[Native]
+	public enum BannerAnimationType : long {
+		None = 0,
+		FlipFromLeft = 1,
+		FlipFromRight = 2,
+		CurlUp = 3,
+		CurlDown = 4,
+		SlideFromLeft = 5,
+		SlideFromRight = 6,
+		FadeIn = 7,
+		Random = 8
 	}
 }
