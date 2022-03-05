@@ -6,7 +6,7 @@
     <RootNamespace>Google.MobileAds</RootNamespace>
     <AssemblyName>Google.MobileAds</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>9.0.0.0</FileVersion>
+    <FileVersion>9.1.0.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ProcessEnums>true</ProcessEnums>
@@ -24,7 +24,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865562</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>9.0.0.0</PackageVersion>
+    <PackageVersion>9.1.0.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
