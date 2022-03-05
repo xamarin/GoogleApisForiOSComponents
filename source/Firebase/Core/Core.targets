@@ -1,12 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-
 	<PropertyGroup>
 		<_FirebaseCoreAssemblyName>Firebase.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseCoreAssemblyName>
 		<_GoogleAppMeasurementItemsFolder>GAppM-8.12.0</_GoogleAppMeasurementItemsFolder>
 		<_GoogleAppMeasurementSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleAppMeasurementItemsFolder)\GoogleAppMeasurement-8.12.0\Frameworks\</_GoogleAppMeasurementSDKBaseFolder>
 	</PropertyGroup>
-
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GoogleAppMeasurementItemsFolder)">
 			<Url>https://dl.google.com/firebase/ios/analytics/e018b55bdeb1f6a1/GoogleAppMeasurement-8.12.0.tar.gz</Url>
@@ -15,7 +13,7 @@
 		<XamarinBuildRestoreResources Include="_FCrDownloadedItems" />
 	</ItemGroup>
 	<Target Name="_FCrDownloadedItems">
-		<ItemGroup Condition="'$(FirebaseWithoutAdIdSupport)'!='True'">
+		<ItemGroup Condition="'$(FirebaseAdIdSupport)'!='True'">
 			<!-- From https://dl.google.com/firebase/ios/analytics/e018b55bdeb1f6a1/GoogleAppMeasurement-8.12.0.tar.gz -->
 			<NativeReference Include="$(_GoogleAppMeasurementSDKBaseFolder)GoogleAppMeasurement.xcframework">
 				<Kind>Framework</Kind>
@@ -25,9 +23,9 @@
 				<Frameworks>StoreKit</Frameworks>
 			</NativeReference>
 		</ItemGroup>
-		<ItemGroup Condition="'$(FirebaseWithoutAdIdSupport)'=='True'">
-			<!-- From https://dl.google.com/firebase/ios/analytics/59128155f949f77d/GoogleAppMeasurement-8.9.1.tar.gz -->
-			<NativeReference Include="$(_GoogleAppMeasurementSDKBaseFolder)GoogleAppMeasurementWithoutAdIdSupport.xcframework">
+		<ItemGroup Condition="'$(FirebaseAdIdSupport)'=='True'">
+			<!-- From https://dl.google.com/firebase/ios/analytics/e018b55bdeb1f6a1/GoogleAppMeasurement-8.12.0.tar.gz -->
+			<NativeReference Include="$(_GoogleAppMeasurementSDKBaseFolder)GoogleAppMeasurementIdentitySupport.xcframework">
 				<Kind>Framework</Kind>
 				<SmartLink>True</SmartLink>
 				<ForceLoad>True</ForceLoad>
