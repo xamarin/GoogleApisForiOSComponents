@@ -257,7 +257,7 @@
 				"type": "Pod",
 				"Pod": {
 					"name": "Google-Mobile-Ads-SDK",
-					"Version": "9.0.0"
+					"Version": "9.1.0"
 				}
 			}
 		},
@@ -518,7 +518,7 @@
 				"type": "Pod",
 				"Pod": {
 					"name": "MLKitBarcodeScanning",
-					"Version": "1.6.0"
+					"Version": "1.7.0"
 				}
 			}
 		},
