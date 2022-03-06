@@ -13,9 +13,9 @@
 		<XamarinBuildRestoreResources Include="_FCrDownloadedItems" />
 	</ItemGroup>
 	<Target Name="_FCrDownloadedItems">
-		<ItemGroup Condition="'$(FirebaseAdIdSupport)'!='True'">
+		<ItemGroup Condition="'$(FirebaseWithoutAdIdSupport)'!='True'">
 			<!-- From https://dl.google.com/firebase/ios/analytics/e018b55bdeb1f6a1/GoogleAppMeasurement-8.12.0.tar.gz -->
-			<NativeReference Include="$(_GoogleAppMeasurementSDKBaseFolder)GoogleAppMeasurement.xcframework">
+			<NativeReference Include="$(_GoogleAppMeasurementSDKBaseFolder)GoogleAppMeasurementIdentitySupport.xcframework">
 				<Kind>Framework</Kind>
 				<SmartLink>True</SmartLink>
 				<ForceLoad>True</ForceLoad>
@@ -23,9 +23,9 @@
 				<Frameworks>StoreKit</Frameworks>
 			</NativeReference>
 		</ItemGroup>
-		<ItemGroup Condition="'$(FirebaseAdIdSupport)'=='True'">
+		<ItemGroup>
 			<!-- From https://dl.google.com/firebase/ios/analytics/e018b55bdeb1f6a1/GoogleAppMeasurement-8.12.0.tar.gz -->
-			<NativeReference Include="$(_GoogleAppMeasurementSDKBaseFolder)GoogleAppMeasurementIdentitySupport.xcframework">
+			<NativeReference Include="$(_GoogleAppMeasurementSDKBaseFolder)GoogleAppMeasurement.xcframework">
 				<Kind>Framework</Kind>
 				<SmartLink>True</SmartLink>
 				<ForceLoad>True</ForceLoad>

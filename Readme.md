@@ -79,11 +79,11 @@ Here's a table that shows in which global version is located each component of F
 
 ## Ad Id Support
 
-By default Firebase DOES NOT include Ad Id Support, however, it can be enabled by adding the below property group to your project file.
+By default Firebase includes Ad Id Support, however, it can be disabled by adding the below property group to your project file.
 
 ```xml
 <PropertyGroup>
-  <FirebaseAdIdSupport>True</FirebaseAdIdSupport>
+  <FirebaseWithoutAdIdSupport>True</FirebaseWithoutAdIdSupport>
 </PropertyGroup>
 ```
 
