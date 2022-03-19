@@ -131,27 +131,10 @@ Task ("externals")
 	Information ("// Pods Repo Update Ended             //");
 	Information ("////////////////////////////////////////");
 
-	if (string.IsNullOrWhiteSpace (NAMES)) {
-		foreach (var artifact in ARTIFACTS_TO_BUILD) {
-			UpdateVersionInCsproj (artifact);
-			CreateAndInstallPodfile (artifact);
-			BuildSdkOnPodfileV2 (artifact);
-		}
-	} else {
-		foreach (var artifact in ARTIFACTS_TO_BUILD) {
-			UpdateVersionInCsproj (artifact);
-
-			foreach (var podSpec in artifact.PodSpecs) {
-				if (podSpec.FrameworkSource != FrameworkSource.Pods)
-					continue;
-				
-				if (DirectoryExists (EXTERNALS_PATH.Combine ($"{podSpec.FrameworkName}.framework")))
-					break;
-
-				CreateAndInstallPodfile (artifact);
-				BuildSdkOnPodfileV2 (artifact);
-			}
-		}
+	foreach (var artifact in ARTIFACTS_TO_BUILD) {
+		UpdateVersionInCsproj (artifact);
+		CreateAndInstallPodfile (artifact);
+		BuildSdkOnPodfileV2 (artifact);
 	}
 
 	// Call here custom methods created at custom_externals_download.cake file

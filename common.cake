@@ -398,6 +398,7 @@ void BuildXcodeXcframework (FilePath xcodeProject, PodSpec [] podSpecs, Platform
 		var buildDirectory = workingDirectory.Combine (podSpec.FrameworkName);
 		var xcodeBuildArgs = new ProcessArgumentBuilder();
 		xcodeBuildArgs.Append ("-create-xcframework");
+		xcodeBuildArgs.Append($"-output {workingDirectory}/{podSpec.FrameworkName}.xcframework");
 		
 		foreach (var platform in platforms) {
 			Information ($"Building {podSpec.FrameworkName} framework with {platform.Sdk} platform SDK...");
@@ -441,12 +442,13 @@ void BuildXcodeXcframework (FilePath xcodeProject, PodSpec [] podSpecs, Platform
 			Information (string.Join (",\n", builtFrameworkDirectories.Select (b => b.ToString ()).ToArray ()));
 
 			foreach (var directory in builtFrameworkDirectories) {
-				var frameworkName = directory.GetDirectoryName ().Replace (".framework", "");
+				var builtFrameworkName = directory.GetDirectoryName ().Replace (".framework", "");
 
-				if (string.Equals (frameworkName, podSpec.FrameworkName))
+				if (string.Equals (builtFrameworkName, podSpec.FrameworkName))
 					continue;
 
-				DirectoryPath destinationDirectory = Directory (archiveFrameworksDirectory.Combine ($"{frameworkName}.framework").ToString ().Replace (podSpec.FrameworkName, frameworkName));
+				DirectoryPath destinationDirectory = Directory (archiveFrameworksDirectory.ToString ().Replace ($"{podSpec.FrameworkName}", $"{builtFrameworkName}"));
+				destinationDirectory = destinationDirectory.Combine ($"{builtFrameworkName}.framework");
 
 				Information ($"Copying {directory} to {destinationDirectory}");
 
@@ -455,8 +457,6 @@ void BuildXcodeXcframework (FilePath xcodeProject, PodSpec [] podSpecs, Platform
 		}
 
 		Information ($"Building {podSpec.FrameworkName} xcframework...");
-
-		xcodeBuildArgs.Append($"-output {workingDirectory}/{podSpec.FrameworkName}.xcframework");
 		StartProcess("xcodebuild", new ProcessSettings { Arguments = xcodeBuildArgs });
 	}
 }
