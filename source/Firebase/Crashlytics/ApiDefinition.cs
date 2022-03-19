@@ -23,7 +23,7 @@ namespace Firebase.Crashlytics {
 		[Export ("log:")]
 		void Log (string message);
 
-		// -(void)setCustomValue:(id _Nonnull)value forKey:(NSString * _Nonnull)key;
+		// - (void)setCustomValue:(nullable id)value forKey:(NSString *)key;
 		[Export ("setCustomValue:forKey:")]
 		void SetCustomValue (NSObject value, string key);
 
@@ -31,7 +31,7 @@ namespace Firebase.Crashlytics {
 		[Export ("setCustomKeysAndValues:")]
 		void SetCustomKeysAndValues (NSDictionary<NSString, NSObject> keysAndValues);
 
-		// -(void)setUserID:(NSString * _Nonnull)userID;
+		// -(void)setUserID:(nullable NSString *)userID;
 		[Export ("setUserID:")]
 		void SetUserId (string userId);
 
@@ -131,7 +131,7 @@ namespace Firebase.Crashlytics {
 		[Export ("log:")]
 		void Log (string msg);
 
-		// -(void)setCustomValue:(id _Nonnull)value forKey:(NSString * _Nonnull)key;
+		// -(void)setCustomValue:(nullable id)value forKey:(NSString *)key;
 		[Export ("setCustomValue:forKey:")]
 		void SetCustomValue (NSObject value, string key);
 
@@ -139,7 +139,7 @@ namespace Firebase.Crashlytics {
 		[Export ("setCustomKeysAndValues:")]
 		void SetCustomKeysAndValues (NSDictionary<NSString, NSObject>  keysAndValues);
 
-		// -(void)setUserID:(NSString * _Nonnull)userID;
+		// -(void)setUserID:(nullable NSString *)userID;
 		[Export ("setUserID:")]
 		void SetUserID (string userID);
 	}
