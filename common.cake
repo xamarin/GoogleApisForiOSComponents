@@ -59,7 +59,7 @@ void CreateAndInstallPodfile (Artifact artifact)
 
 	podfile.AddRange (PODFILE_END);
 
-	var podfilePath = $"./externals/{artifact.Id}";
+	var podfilePath = $"./externals/build/{artifact.Id}";
 	EnsureDirectoryExists (podfilePath);
 
 	FileWriteLines ($"{podfilePath}/Podfile", podfile.ToArray ());
@@ -115,9 +115,9 @@ void BuildSdkOnPodfile (Artifact artifact)
 			continue;
 
 		var framework = $"{podSpec.FrameworkName}.framework";
-		var paths = GetDirectories($"{workingDirectory}/Pods/**/{framework}");
+		var frameworkPaths = GetDirectories($"{workingDirectory}/Pods/**/{framework}");
 		
-		if (paths?.Count <= 0) {
+		if (frameworkPaths?.Count <= 0) {
 			if (!podSpec.CanBeBuild)
 				continue;
 
@@ -125,7 +125,7 @@ void BuildSdkOnPodfile (Artifact artifact)
 			// BuildXcodeFatFramework (podsProject, podSpec.TargetName, platforms, libraryTitle: podSpec.FrameworkName, workingDirectory: workingDirectory);
 			// CopyDirectory ($"{workingDirectory}/{framework}", $"./externals/{framework}");
 		} else {
-			foreach (var path in paths)
+			foreach (var path in frameworkPaths)
 				CopyDirectory (path, $"./externals/{framework}");
 		}
 	}
@@ -135,6 +135,53 @@ void BuildSdkOnPodfile (Artifact artifact)
 	foreach (var podSpec in podSpecsToBuild) {
 		var framework = $"{podSpec.FrameworkName}.framework";
 		CopyDirectory ($"{workingDirectory}/{framework}", $"./externals/{framework}");
+	}
+}
+
+void BuildSdkOnPodfileV2 (Artifact artifact)
+{
+	if (artifact.PodSpecs?.Length == 0)
+		return;
+
+	var platforms = new [] { 
+		PlatformV2.Create (Sdk.iPhoneOS),
+		PlatformV2.Create (Sdk.iPhoneSimulator),
+	};
+	var podsProject = "./Pods/Pods.xcodeproj";
+	var workingDirectory = (DirectoryPath)$"./externals/build/{artifact.Id}";
+
+	var podSpecsToBuild = new List<PodSpec> ();
+
+	foreach (var podSpec in artifact.PodSpecs)
+	{
+		if (podSpec.FrameworkSource != FrameworkSource.Pods)
+			continue;
+
+		var frameworkName = $"{podSpec.FrameworkName}.framework";
+		var frameworkPaths = GetDirectories($"{workingDirectory}/Pods/**/{frameworkName}");
+
+		var xcframeworkName = $"{podSpec.FrameworkName}.xcframework";
+		var xcframeworkPaths = GetDirectories($"{workingDirectory}/Pods/**/{xcframeworkName}");
+		
+		if (frameworkPaths?.Count <= 0 && xcframeworkPaths?.Count <= 0) {
+			if (!podSpec.CanBeBuild)
+				continue;
+
+			podSpecsToBuild.Add (podSpec);
+		} else {
+			foreach (var path in frameworkPaths)
+				CopyDirectory (path, $"./externals/{frameworkName}");
+
+			foreach (var path in xcframeworkPaths)
+				CopyDirectory (path, $"./externals/{xcframeworkName}");
+		}
+	}
+
+	BuildXcodeXcframework (podsProject, podSpecsToBuild.ToArray (), platforms, workingDirectory: workingDirectory);
+
+	foreach (var podSpec in podSpecsToBuild) {
+		var xcframeworkName = $"{podSpec.FrameworkName}.xcframework";
+		CopyDirectory ($"{workingDirectory}/{xcframeworkName}", $"./externals/{xcframeworkName}");
 	}
 }
 
@@ -322,18 +369,101 @@ void BuildXcodeFatFramework (FilePath xcodeProject, PodSpec [] podSpecs, Platfor
 		}
 
 		var archPaths = new List<FilePath> ();
-		var paths = GetFiles ($"{workingDirectory}/{libraryTitle}-*/{libraryTitle}");
+		var frameworkPaths = GetFiles ($"{workingDirectory}/{libraryTitle}-*/{libraryTitle}");
 
-		foreach (var path in paths)
+		foreach (var path in frameworkPaths)
 			archPaths.Add (path);
 
 		RunLipoCreate (workingDirectory, fatFramework.CombineWithFilePath (libraryTitle), archPaths.ToArray ());
 	}
 }
 
+void BuildXcodeXcframework (FilePath xcodeProject, PodSpec [] podSpecs, PlatformV2 [] platforms, DirectoryPath workingDirectory = null, Dictionary<string, string> buildSettings = null)
+{
+	if (!IsRunningOnUnix ()) {
+		Warning("{0} is not available on the current platform.", "xcodebuild");
+		return;
+	}
+	
+	Information ("Building the following frameworks:");
+	Information (string.Join (",\n", podSpecs.Select (ps => ps.FrameworkName).ToArray ()));
+
+	workingDirectory = workingDirectory ?? Directory ("./externals/");
+	buildSettings = buildSettings ?? new Dictionary<string, string> ();
+
+	foreach (var podSpec in podSpecs) {
+		Information ($"Building the following framework: {podSpec.FrameworkName}...");
+
+		var target = podSpec.TargetName;
+		var buildDirectory = workingDirectory.Combine (podSpec.FrameworkName);
+		var xcodeBuildArgs = new ProcessArgumentBuilder();
+		xcodeBuildArgs.Append ("-create-xcframework");
+		
+		foreach (var platform in platforms) {
+			Information ($"Building {podSpec.FrameworkName} framework with {platform.Sdk} platform SDK...");
+
+			var sdk = string.Equals (platform.Sdk, Sdk.macCatalyst) ? Sdk.macOS : platform.Sdk;
+			var archs = platform.Archs;
+			var archiveDirectory = buildDirectory.Combine ($"{platform.Sdk}.xcarchive");
+			var archiveFrameworksDirectory = archiveDirectory.Combine ("Products/Library/Frameworks");
+			xcodeBuildArgs.Append ($"-framework {archiveFrameworksDirectory}/{podSpec.FrameworkName}.framework");
+
+			if (DirectoryExists (archiveDirectory))
+				continue;
+
+			var buildSettingsCopy = new Dictionary<string, string> (buildSettings);
+			buildSettingsCopy ["SKIP_INSTALL"] = "NO";
+			buildSettingsCopy ["BUILD_LIBRARIES_FOR_DISTRIBUTION"] = "YES";
+
+			if (string.Equals (platform.Sdk, Sdk.macCatalyst))
+				buildSettingsCopy ["SUPPORTS_MACCATALYST"] = "YES";
+
+			var xcodeBuildSettings = new XCodeBuildSettings {
+				Project = workingDirectory.CombineWithFilePath (xcodeProject).ToString (),
+				Scheme = target,
+				Archive = true,
+				ArchivePath = archiveDirectory.ToString (),
+				Sdk = sdk.Value,
+				Verbose = true,
+				BuildSettings = buildSettingsCopy
+			};
+
+			if (archs != null)
+				xcodeBuildSettings.Arch = string.Join (',', archs.Select (a => a.Value).ToArray ());
+
+			XCodeBuild (xcodeBuildSettings);
+
+			Information ($"Done building {podSpec.FrameworkName} framework with {platform.Sdk} platform SDK...");
+
+			var builtFrameworkDirectories = GetDirectories (archiveFrameworksDirectory.Combine ("*.framework").ToString ());
+			
+			Information ($"Copying the following built frameworks to its respective archives:");
+			Information (string.Join (",\n", builtFrameworkDirectories.Select (b => b.ToString ()).ToArray ()));
+
+			foreach (var directory in builtFrameworkDirectories) {
+				var frameworkName = directory.GetDirectoryName ().Replace (".framework", "");
+
+				if (string.Equals (frameworkName, podSpec.FrameworkName))
+					continue;
+
+				DirectoryPath destinationDirectory = Directory (archiveFrameworksDirectory.Combine ($"{frameworkName}.framework").ToString ().Replace (podSpec.FrameworkName, frameworkName));
+
+				Information ($"Copying {directory} to {destinationDirectory}");
+
+				CopyDirectory (directory, destinationDirectory);
+			}
+		}
+
+		Information ($"Building {podSpec.FrameworkName} xcframework...");
+
+		xcodeBuildArgs.Append($"-output {workingDirectory}/{podSpec.FrameworkName}.xcframework");
+		StartProcess("xcodebuild", new ProcessSettings { Arguments = xcodeBuildArgs });
+	}
+}
+
 bool TargetExistsInXcodeProject (FilePath xcodeProject, string target, DirectoryPath workingDirectory = null)
 {
-	workingDirectory = workingDirectory ?? Directory("./externals/");
+	workingDirectory = workingDirectory ?? Directory ("./externals/");
 
 	var processSettings = new ProcessSettings { 
 		Arguments = $"-project {workingDirectory.CombineWithFilePath (xcodeProject)} -list",

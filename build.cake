@@ -135,7 +135,7 @@ Task ("externals")
 		foreach (var artifact in ARTIFACTS_TO_BUILD) {
 			UpdateVersionInCsproj (artifact);
 			CreateAndInstallPodfile (artifact);
-			BuildSdkOnPodfile (artifact);
+			BuildSdkOnPodfileV2 (artifact);
 		}
 	} else {
 		foreach (var artifact in ARTIFACTS_TO_BUILD) {
@@ -149,7 +149,7 @@ Task ("externals")
 					break;
 
 				CreateAndInstallPodfile (artifact);
-				BuildSdkOnPodfile (artifact);
+				BuildSdkOnPodfileV2 (artifact);
 			}
 		}
 	}

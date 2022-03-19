@@ -12,6 +12,74 @@ enum FrameworkSource
 	Custom
 }
 
+struct Arch
+{
+    public static Arch ArmV7 { get; } = new Arch("armv7");
+    public static Arch ArmV7k { get; } = new Arch("armv7k");
+    public static Arch Arm64 { get; } = new Arch("arm64");
+    public static Arch Arm64e { get; } = new Arch("arm64e");
+    public static Arch Arm64_32 { get; } = new Arch("arm64_32");
+    public static Arch i386 { get; } = new Arch("i386");
+    public static Arch x86_64 { get; } = new Arch("x86_64");
+
+	public string Value { get; private set; }
+
+	Arch (string value)
+	{
+		Value = value;
+	}
+
+	public override string ToString () => Value;
+}
+
+struct Sdk
+{
+    public static Sdk iPhoneOS { get; } = new Sdk("iphoneos");
+    public static Sdk iPhoneSimulator { get; } = new Sdk("iphonesimulator");
+    public static Sdk macCatalyst { get; } = new Sdk("maccatalyst");
+    public static Sdk macOS { get; } = new Sdk("macosx");
+    public static Sdk tvOS { get; } = new Sdk("appletvos");
+    public static Sdk tvSimulator { get; } = new Sdk("appletvsimulator");
+    public static Sdk watchOS { get; } = new Sdk("watchos");
+    public static Sdk watchSimulator { get; } = new Sdk("watchsimulator");
+
+	public string Value { get; private set; }
+
+	Sdk (string value)
+	{
+		Value = value;
+	}
+
+	public override string ToString () => Value;
+}
+
+struct PlatformV2
+{
+	#region Properties
+
+	public Sdk Sdk { get; private set; }
+    // If null, default archs will be used at build time.
+	public Arch[] Archs { get; private set; }
+
+	#endregion
+
+	#region Constructors
+
+	PlatformV2 (Sdk sdk, Arch[] archs) {
+		Sdk = sdk;
+		Archs = archs;
+	}
+
+	#endregion
+
+	#region Public Functionality
+
+	public static PlatformV2 Create (Sdk sdk, Arch[] archs = null) => new PlatformV2 (sdk, archs);
+	public override string ToString () => $"{Sdk} => {string.Join (", ", Archs)}";
+
+	#endregion
+}
+
 struct Platform
 {
 	#region Properties
