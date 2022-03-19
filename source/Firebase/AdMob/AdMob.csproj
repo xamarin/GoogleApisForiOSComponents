@@ -1,8 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
+<Project Sdk="Xamarin.Legacy.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
+    <TargetFrameworks>xamarin.ios10;net6.0-ios</TargetFrameworks>
+    <NoNFloatUsing Condition="'$(TargetFramework)' == 'xamarin.ios10'">true</NoNFloatUsing>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
     <IsBindingProject>true</IsBindingProject>
+    <NoBindingEmbedding>true</NoBindingEmbedding>
+    <SupportedOSPlatformVersion>10.0</SupportedOSPlatformVersion>
     <RootNamespace>Firebase.AdMob</RootNamespace>
     <AssemblyName>Firebase.AdMob</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -26,11 +31,11 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageVersion>8.13.0</PackageVersion>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Reference Include="Xamarin.iOS" />
-  </ItemGroup>
   
+  <ItemGroup>
+    <Compile Include="..\AssemblyInfo.cs" />
+  </ItemGroup>
+
   <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
@@ -40,9 +45,9 @@
     <None Include="../../../icons/firebaseiosadmob_128x128.png" Pack="True" PackagePath="firebaseiosadmob_128x128.png" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="Enums.cs" />
+  <ItemGroup Condition="'$(TargetFramework)' == 'xamarin.ios10'">
     <Compile Remove="ApiDefinition.cs" />
+    <Compile Remove="Enums.cs" />
   </ItemGroup>
   
   <ItemGroup>
@@ -62,5 +67,4 @@
     <ProjectReference Include="..\..\Google\MobileAds\MobileAds.csproj" PrivateAssets="None" />
   </ItemGroup>
   
-  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 </Project>

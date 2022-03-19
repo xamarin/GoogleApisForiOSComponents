@@ -1,8 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
+<Project Sdk="Xamarin.Legacy.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
+    <TargetFrameworks>xamarin.ios10;net6.0-ios</TargetFrameworks>
+    <NoNFloatUsing Condition="'$(TargetFramework)' == 'xamarin.ios10'">true</NoNFloatUsing>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
     <IsBindingProject>true</IsBindingProject>
+    <NoBindingEmbedding>true</NoBindingEmbedding>
+    <SupportedOSPlatformVersion>10.0</SupportedOSPlatformVersion>
     <RootNamespace>Firebase.Core</RootNamespace>
     <AssemblyName>Firebase.Core</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -25,49 +30,16 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageVersion>8.10.0</PackageVersion>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Reference Include="Xamarin.iOS" />
-  </ItemGroup>
   
+  <ItemGroup>
+    <Compile Include="..\AssemblyInfo.cs" />
+  </ItemGroup>
+
   <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
   
-  <ItemGroup>
-    <None Include="..\..\..\externals\FirebaseCore.framework\FirebaseCore">
-      <Link>FirebaseCore.framework</Link>
-    </None>
-    <None Include="..\..\..\externals\FirebaseCoreDiagnostics.framework\FirebaseCoreDiagnostics">
-      <Link>FirebaseCoreDiagnostics.framework</Link>
-    </None>
-    <None Include="..\..\..\externals\GTMSessionFetcher.framework\GTMSessionFetcher">
-      <Link>GTMSessionFetcher.framework</Link>
-    </None>
-    <None Include="..\..\..\externals\GoogleAPIClientForREST.framework\GoogleAPIClientForREST">
-      <Link>GoogleAPIClientForREST.framework</Link>
-    </None>
-    <None Include="..\..\..\externals\GoogleDataTransport.framework\GoogleDataTransport">
-      <Link>GoogleDataTransport.framework</Link>
-    </None>    
-    <None Include="..\..\..\externals\FBLPromises.framework\FBLPromises">
-      <Link>FBLPromises.framework</Link>
-    </None>
-    <None Include="..\..\..\externals\GoogleToolboxForMac.framework\GoogleToolboxForMac">
-      <Link>GoogleToolboxForMac.framework</Link>
-    </None>
-    <None Include="..\..\..\externals\GoogleUtilities.framework\GoogleUtilities">
-      <Link>GoogleUtilities.framework</Link>
-    </None>
-    <None Include="..\..\..\externals\nanopb.framework\nanopb">
-      <Link>nanopb.framework</Link>
-    </None>
-    <None Include="..\..\..\externals\leveldb.framework\leveldb">
-      <Link>leveldb.framework</Link>
-    </None>
-    <None Include="..\..\..\externals\Protobuf.framework\Protobuf">
-      <Link>Protobuf.framework</Link>
-    </None>
+  <ItemGroup>    
     <None Include="Core.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.Core.targets" />
     <None Include="Core.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.Core.targets" />
     <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
@@ -146,9 +118,9 @@
     </NativeReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="Enums.cs" />
+  <ItemGroup Condition="'$(TargetFramework)' == 'xamarin.ios10'">
     <Compile Remove="ApiDefinition.cs" />
+    <Compile Remove="Enums.cs" />
   </ItemGroup>
   
   <ItemGroup>
@@ -163,5 +135,4 @@
     <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" PrivateAssets="None" />
   </ItemGroup>
   
-  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 </Project>
