@@ -1,8 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
+<Project Sdk="Xamarin.Legacy.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
+    <TargetFrameworks>xamarin.ios10;net6.0-ios</TargetFrameworks>
+    <NoNFloatUsing Condition="'$(TargetFramework)' == 'xamarin.ios10'">true</NoNFloatUsing>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
     <IsBindingProject>true</IsBindingProject>
+    <NoBindingEmbedding>true</NoBindingEmbedding>
+    <SupportedOSPlatformVersion>10.0</SupportedOSPlatformVersion>
     <RootNamespace>MLKit.TextRecognition.Devanagari</RootNamespace>
     <AssemblyName>MLKit.TextRecognition.Devanagari</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -25,11 +30,11 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageVersion>1.0.0.3</PackageVersion>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Reference Include="Xamarin.iOS" />
-  </ItemGroup>
   
+  <ItemGroup>
+    <Compile Include="..\AssemblyInfo.cs" />
+  </ItemGroup>
+
   <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
@@ -42,9 +47,9 @@
     <None Include="../../../icons/firebaseiosmlkit_128x128.png" Pack="True" PackagePath="firebaseiosmlkit_128x128.png" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="Enums.cs" />
+  <ItemGroup Condition="'$(TargetFramework)' == 'xamarin.ios10'">
     <Compile Remove="ApiDefinition.cs" />
+    <Compile Remove="Enums.cs" />
   </ItemGroup>
   
   <ItemGroup>
@@ -64,5 +69,4 @@
     <ProjectReference Include="..\TextRecognition\TextRecognition.csproj" PrivateAssets="None" />
   </ItemGroup>
   
-  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 </Project>

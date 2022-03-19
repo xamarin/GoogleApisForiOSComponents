@@ -1,8 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
+<Project Sdk="Xamarin.Legacy.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
+    <TargetFrameworks>xamarin.ios10;net6.0-ios</TargetFrameworks>
+    <NoNFloatUsing Condition="'$(TargetFramework)' == 'xamarin.ios10'">true</NoNFloatUsing>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
     <IsBindingProject>true</IsBindingProject>
+    <NoBindingEmbedding>true</NoBindingEmbedding>
+    <SupportedOSPlatformVersion>10.0</SupportedOSPlatformVersion>
     <RootNamespace>Firebase.CloudFirestore</RootNamespace>
     <AssemblyName>Firebase.CloudFirestore</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -25,31 +30,16 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageVersion>8.10.0</PackageVersion>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Reference Include="Xamarin.iOS" />
-  </ItemGroup>
   
+  <ItemGroup>
+    <Compile Include="..\AssemblyInfo.cs" />
+  </ItemGroup>
+
   <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
   
   <ItemGroup>
-    <None Include="..\..\..\externals\FirebaseFirestore.framework\FirebaseFirestore">
-      <Link>FirebaseFirestore.framework</Link>
-    </None>
-    <None Include="..\..\..\externals\grpc.framework\grpc">
-      <Link>grpc.framework</Link>
-    </None>
-    <None Include="..\..\..\externals\grpcpp.framework\grpcpp">
-      <Link>grpcpp.framework</Link>
-    </None>
-    <None Include="..\..\..\externals\openssl_grpc.framework\openssl_grpc">
-      <Link>openssl_grpc.framework</Link>
-    </None>
-    <None Include="..\..\..\externals\absl.framework\absl">
-      <Link>absl.framework</Link>
-    </None>
     <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseioscloudfirestore_128x128.png" Pack="True" PackagePath="firebaseioscloudfirestore_128x128.png" />
@@ -87,9 +77,9 @@
     </NativeReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="Enums.cs" />
+  <ItemGroup Condition="'$(TargetFramework)' == 'xamarin.ios10'">
     <Compile Remove="ApiDefinition.cs" />
+    <Compile Remove="Enums.cs" />
   </ItemGroup>
   
   <ItemGroup>
@@ -108,5 +98,4 @@
     <ProjectReference Include="..\Core\Core.csproj" PrivateAssets="None" />
   </ItemGroup>
 
-  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 </Project>
