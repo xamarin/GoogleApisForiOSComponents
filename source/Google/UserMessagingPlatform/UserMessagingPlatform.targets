@@ -1,25 +1,24 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<PropertyGroup>
-		<_GoogleUserMessagingPlatformAssemblyName>Google.UserMessagingPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleMobileAdsAssemblyName>
-		<_GoogleUserMessagingPlatformId>GUsrMess-1.1.0</_GoogleUserMessagingPlatformId>
-		<_GoogleUserMessagingPlatformSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleUserMessagingPlatformId)\Frameworks\Release\</_GoogleUserMessagingPlatformSDKBaseFolder>		
-	</PropertyGroup>
-	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">		
-		<XamarinBuildDownload Include="$(_GoogleUserMessagingPlatformId)">
-			<Url>https://dl.google.com/dl/cpdc/624b551688fd020a/GoogleUserMessagingPlatform-1.1.0.tar.gz</Url>
-			<Kind>Tgz</Kind>
-		</XamarinBuildDownload>
-		<XamarinBuildRestoreResources Include="_FUmpMDownloadedItems" />
-	</ItemGroup>
-	<Target Name="_FUmpMDownloadedItems">
-		<ItemGroup>			
-			<!-- From https://dl.google.com/dl/cpdc/624b551688fd020a/GoogleUserMessagingPlatform-1.1.0.tar.gz -->
-			<NativeReference Include="$(_GoogleUserMessagingPlatformSDKBaseFolder)UserMessagingPlatform.framework">
-				<Kind>Framework</Kind>
-				<SmartLink>True</SmartLink>
-				<ForceLoad>True</ForceLoad>
-			</NativeReference>
-		</ItemGroup>
-	</Target>
+﻿<Project>
+  <PropertyGroup>
+    <_GoogleUserMessagingPlatformAssemblyName>Google.UserMessagingPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleMobileAdsAssemblyName>
+    <_GoogleUserMessagingPlatformId>GUsrMess-1.1.0</_GoogleUserMessagingPlatformId>
+    <_GoogleUserMessagingPlatformSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleUserMessagingPlatformId)\Frameworks\Release\</_GoogleUserMessagingPlatformSDKBaseFolder>    
+  </PropertyGroup>
+  <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">    
+    <XamarinBuildDownload Include="$(_GoogleUserMessagingPlatformId)">
+      <Url>https://dl.google.com/dl/cpdc/624b551688fd020a/GoogleUserMessagingPlatform-1.1.0.tar.gz</Url>
+      <Kind>Tgz</Kind>
+    </XamarinBuildDownload>
+    <XamarinBuildRestoreResources Include="_FUmpMDownloadedItems" />
+  </ItemGroup>
+  <Target Name="_FUmpMDownloadedItems">
+    <ItemGroup>      
+      <!-- From https://dl.google.com/dl/cpdc/624b551688fd020a/GoogleUserMessagingPlatform-1.1.0.tar.gz -->
+      <NativeReference Include="$(_GoogleUserMessagingPlatformSDKBaseFolder)UserMessagingPlatform.framework">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+      </NativeReference>
+    </ItemGroup>
+  </Target>
 </Project>

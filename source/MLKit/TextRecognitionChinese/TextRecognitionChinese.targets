@@ -1,94 +1,93 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<PropertyGroup>
-		<_MLKitTextRecogChineseAssemblyName>MLKit.TextRecognition.Chinese, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_MLKitTextRecogChineseAssemblyName>
-		<_MLKitTextChineseItemsFolder>MLKTextChinese-1.0.0beta3</_MLKitTextChineseItemsFolder>
-		<_MLKitTextChineseSDKBaseFolder>$(XamarinBuildDownloadDir)$(_MLKitTextChineseItemsFolder)\</_MLKitTextChineseSDKBaseFolder>
-		<_MLKitTextChineseResourcesFolder>$(XamarinBuildDownloadDir)$(_MLKitTextChineseItemsFolder)\Resources\ChineseOCRResources\</_MLKitTextChineseResourcesFolder>
-	</PropertyGroup>
-	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
-		<XamarinBuildDownload Include="$(_MLKitTextChineseItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/fbd00c26ffcec6f2/MLKitTextRecognitionChinese-1.0.0-beta3.tar.gz</Url>
-			<Kind>Tgz</Kind>
-		</XamarinBuildDownload>
-		<XamarinBuildRestoreResources Include="_MLKitTextChineseDownloadedItems" />
-	</ItemGroup>
-	<Target Name="_MLKitTextChineseDownloadedItems">
-		<ItemGroup>
-			<!-- From https://dl.google.com/dl/cpdc/fbd00c26ffcec6f2/MLKitTextRecognitionChinese-1.0.0-beta3.tar.gz -->
-			<NativeReference Include="$(_MLKitTextChineseSDKBaseFolder)Frameworks\MLKitTextRecognitionChinese.framework">
-				<Kind>Framework</Kind>
-				<SmartLink>True</SmartLink>
-				<ForceLoad>True</ForceLoad>
-				<LinkerFlags>-lc++</LinkerFlags>
-				<Frameworks>Accelerate AVFoundation CoreGraphics CoreImage CoreMedia CoreVideo Foundation UIKit</Frameworks>
-			</NativeReference>
-		</ItemGroup>
-		<ItemGroup>
-			<BundleResource Include="$(_MLKitTextChineseResourcesFolder)region_proposal_text_detector_tflite_vertical.bincfg" Visible="False">
-				<LogicalName>ChineseOCRResources.bundle\region_proposal_text_detector_tflite_vertical.bincfg</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextChineseResourcesFolder)rpn_lstm_engine_tflite_zh_la.bincfg" Visible="False">
-				<LogicalName>ChineseOCRResources.bundle\rpn_lstm_engine_tflite_zh_la.bincfg</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextChineseResourcesFolder)rpn_text_detector_mobile_space_to_depth_quantized_v2.tflite" Visible="False">
-				<LogicalName>ChineseOCRResources.bundle\rpn_text_detector_mobile_space_to_depth_quantized_v2.tflite</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextChineseResourcesFolder)seastar_lstm_recognizer_zh_0.2.class_lst" Visible="False">
-				<LogicalName>ChineseOCRResources.bundle\seastar_lstm_recognizer_zh_0.2.class_lst</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextChineseResourcesFolder)tflite_langid.tflite" Visible="False">
-				<LogicalName>ChineseOCRResources.bundle\tflite_langid.tflite</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextChineseResourcesFolder)tflite_lstm_recognizer_latin_0.3.bincfg" Visible="False">
-				<LogicalName>ChineseOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.bincfg</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextChineseResourcesFolder)tflite_lstm_recognizer_latin_0.3.class_lst" Visible="False">
-				<LogicalName>ChineseOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.class_lst</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextChineseResourcesFolder)tflite_lstm_recognizer_latin_0.3.conv_model" Visible="False">
-				<LogicalName>ChineseOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.conv_model</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextChineseResourcesFolder)tflite_lstm_recognizer_latin_0.3.lstm_model" Visible="False">
-				<LogicalName>ChineseOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.lstm_model</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextChineseResourcesFolder)tflite_lstm_recognizer_zh_0.1.bincfg" Visible="False">
-				<LogicalName>ChineseOCRResources.bundle\tflite_lstm_recognizer_zh_0.1.bincfg</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextChineseResourcesFolder)tflite_lstm_recognizer_zh_0.1.class_lst" Visible="False">
-				<LogicalName>ChineseOCRResources.bundle\tflite_lstm_recognizer_zh_0.1.class_lst</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextChineseResourcesFolder)tflite_lstm_recognizer_zh_0.1.conv_model" Visible="False">
-				<LogicalName>ChineseOCRResources.bundle\tflite_lstm_recognizer_zh_0.1.conv_model</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextChineseResourcesFolder)tflite_lstm_recognizer_zh_0.1.lstm_model" Visible="False">
-				<LogicalName>ChineseOCRResources.bundle\tflite_lstm_recognizer_zh_0.1.lstm_model</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextChineseResourcesFolder)tflite_script_detector_0.3.bincfg" Visible="False">
-				<LogicalName>ChineseOCRResources.bundle\tflite_script_detector_0.3.bincfg</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextChineseResourcesFolder)tflite_script_detector_0.3.conv_model" Visible="False">
-				<LogicalName>ChineseOCRResources.bundle\tflite_script_detector_0.3.conv_model</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextChineseResourcesFolder)tflite_script_detector_0.3.lstm_model" Visible="False">
-				<LogicalName>ChineseOCRResources.bundle\tflite_script_detector_0.3.lstm_model</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-		</ItemGroup>
-	</Target>
+﻿<Project>
+  <PropertyGroup>
+    <_MLKitTextRecogChineseAssemblyName>MLKit.TextRecognition.Chinese, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_MLKitTextRecogChineseAssemblyName>
+    <_MLKitTextChineseItemsFolder>MLKTextChinese-1.0.0beta3</_MLKitTextChineseItemsFolder>
+    <_MLKitTextChineseSDKBaseFolder>$(XamarinBuildDownloadDir)$(_MLKitTextChineseItemsFolder)\</_MLKitTextChineseSDKBaseFolder>
+    <_MLKitTextChineseResourcesFolder>$(XamarinBuildDownloadDir)$(_MLKitTextChineseItemsFolder)\Resources\ChineseOCRResources\</_MLKitTextChineseResourcesFolder>
+  </PropertyGroup>
+  <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+    <XamarinBuildDownload Include="$(_MLKitTextChineseItemsFolder)">
+      <Url>https://dl.google.com/dl/cpdc/fbd00c26ffcec6f2/MLKitTextRecognitionChinese-1.0.0-beta3.tar.gz</Url>
+      <Kind>Tgz</Kind>
+    </XamarinBuildDownload>
+    <XamarinBuildRestoreResources Include="_MLKitTextChineseDownloadedItems" />
+  </ItemGroup>
+  <Target Name="_MLKitTextChineseDownloadedItems">
+    <ItemGroup>
+      <!-- From https://dl.google.com/dl/cpdc/fbd00c26ffcec6f2/MLKitTextRecognitionChinese-1.0.0-beta3.tar.gz -->
+      <NativeReference Include="$(_MLKitTextChineseSDKBaseFolder)Frameworks\MLKitTextRecognitionChinese.framework">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+        <LinkerFlags>-lc++</LinkerFlags>
+        <Frameworks>Accelerate AVFoundation CoreGraphics CoreImage CoreMedia CoreVideo Foundation UIKit</Frameworks>
+      </NativeReference>
+    </ItemGroup>
+    <ItemGroup>
+      <BundleResource Include="$(_MLKitTextChineseResourcesFolder)region_proposal_text_detector_tflite_vertical.bincfg" Visible="False">
+        <LogicalName>ChineseOCRResources.bundle\region_proposal_text_detector_tflite_vertical.bincfg</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextChineseResourcesFolder)rpn_lstm_engine_tflite_zh_la.bincfg" Visible="False">
+        <LogicalName>ChineseOCRResources.bundle\rpn_lstm_engine_tflite_zh_la.bincfg</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextChineseResourcesFolder)rpn_text_detector_mobile_space_to_depth_quantized_v2.tflite" Visible="False">
+        <LogicalName>ChineseOCRResources.bundle\rpn_text_detector_mobile_space_to_depth_quantized_v2.tflite</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextChineseResourcesFolder)seastar_lstm_recognizer_zh_0.2.class_lst" Visible="False">
+        <LogicalName>ChineseOCRResources.bundle\seastar_lstm_recognizer_zh_0.2.class_lst</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextChineseResourcesFolder)tflite_langid.tflite" Visible="False">
+        <LogicalName>ChineseOCRResources.bundle\tflite_langid.tflite</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextChineseResourcesFolder)tflite_lstm_recognizer_latin_0.3.bincfg" Visible="False">
+        <LogicalName>ChineseOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.bincfg</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextChineseResourcesFolder)tflite_lstm_recognizer_latin_0.3.class_lst" Visible="False">
+        <LogicalName>ChineseOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.class_lst</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextChineseResourcesFolder)tflite_lstm_recognizer_latin_0.3.conv_model" Visible="False">
+        <LogicalName>ChineseOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.conv_model</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextChineseResourcesFolder)tflite_lstm_recognizer_latin_0.3.lstm_model" Visible="False">
+        <LogicalName>ChineseOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.lstm_model</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextChineseResourcesFolder)tflite_lstm_recognizer_zh_0.1.bincfg" Visible="False">
+        <LogicalName>ChineseOCRResources.bundle\tflite_lstm_recognizer_zh_0.1.bincfg</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextChineseResourcesFolder)tflite_lstm_recognizer_zh_0.1.class_lst" Visible="False">
+        <LogicalName>ChineseOCRResources.bundle\tflite_lstm_recognizer_zh_0.1.class_lst</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextChineseResourcesFolder)tflite_lstm_recognizer_zh_0.1.conv_model" Visible="False">
+        <LogicalName>ChineseOCRResources.bundle\tflite_lstm_recognizer_zh_0.1.conv_model</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextChineseResourcesFolder)tflite_lstm_recognizer_zh_0.1.lstm_model" Visible="False">
+        <LogicalName>ChineseOCRResources.bundle\tflite_lstm_recognizer_zh_0.1.lstm_model</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextChineseResourcesFolder)tflite_script_detector_0.3.bincfg" Visible="False">
+        <LogicalName>ChineseOCRResources.bundle\tflite_script_detector_0.3.bincfg</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextChineseResourcesFolder)tflite_script_detector_0.3.conv_model" Visible="False">
+        <LogicalName>ChineseOCRResources.bundle\tflite_script_detector_0.3.conv_model</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextChineseResourcesFolder)tflite_script_detector_0.3.lstm_model" Visible="False">
+        <LogicalName>ChineseOCRResources.bundle\tflite_script_detector_0.3.lstm_model</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+    </ItemGroup>
+  </Target>
 </Project>

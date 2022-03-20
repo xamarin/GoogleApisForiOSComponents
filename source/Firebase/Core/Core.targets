@@ -1,39 +1,160 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-
-	<PropertyGroup>
-		<_FirebaseCoreAssemblyName>Firebase.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseCoreAssemblyName>
-		<_GoogleAppMeasurementItemsFolder>GAppM-8.9.1</_GoogleAppMeasurementItemsFolder>
-		<_GoogleAppMeasurementSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleAppMeasurementItemsFolder)\GoogleAppMeasurement-8.9.1\Frameworks\</_GoogleAppMeasurementSDKBaseFolder>
-	</PropertyGroup>
-
-	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
-		<XamarinBuildDownload Include="$(_GoogleAppMeasurementItemsFolder)">
-			<Url>https://dl.google.com/firebase/ios/analytics/59128155f949f77d/GoogleAppMeasurement-8.9.1.tar.gz</Url>
-			<Kind>Tgz</Kind>
-		</XamarinBuildDownload>
-		<XamarinBuildRestoreResources Include="_FCrDownloadedItems" />
-	</ItemGroup>
-	<Target Name="_FCrDownloadedItems">
-		<ItemGroup Condition="'$(FirebaseWithoutAdIdSupport)'!='True'">
-			<!-- From https://dl.google.com/firebase/ios/analytics/59128155f949f77d/GoogleAppMeasurement-8.9.1.tar.gz -->
-			<NativeReference Include="$(_GoogleAppMeasurementSDKBaseFolder)GoogleAppMeasurement.xcframework">
-				<Kind>Framework</Kind>
-				<SmartLink>True</SmartLink>
-				<ForceLoad>True</ForceLoad>
-				<LinkerFlags>-ObjC -lc++ -lsqlite3 -lz</LinkerFlags>
-				<Frameworks>StoreKit</Frameworks>
-			</NativeReference>
-		</ItemGroup>
-		<ItemGroup Condition="'$(FirebaseWithoutAdIdSupport)'=='True'">
-			<!-- From https://dl.google.com/firebase/ios/analytics/59128155f949f77d/GoogleAppMeasurement-8.9.1.tar.gz -->
-			<NativeReference Include="$(_GoogleAppMeasurementSDKBaseFolder)GoogleAppMeasurementWithoutAdIdSupport.xcframework">
-				<Kind>Framework</Kind>
-				<SmartLink>True</SmartLink>
-				<ForceLoad>True</ForceLoad>
-				<LinkerFlags>-ObjC -lc++ -lsqlite3 -lz</LinkerFlags>
-				<Frameworks>StoreKit</Frameworks>
-			</NativeReference>
-		</ItemGroup>
-	</Target>
+﻿<Project>
+  <PropertyGroup>
+    <_FirebaseCoreAssemblyName>Firebase.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseCoreAssemblyName>
+    <_GoogleAppMeasurementItemsFolder>GAppM-8.9.1</_GoogleAppMeasurementItemsFolder>
+    <_GoogleAppMeasurementSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleAppMeasurementItemsFolder)\GoogleAppMeasurement-8.9.1\Frameworks\</_GoogleAppMeasurementSDKBaseFolder>
+  </PropertyGroup>
+  <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+    <XamarinBuildDownload Include="$(_GoogleAppMeasurementItemsFolder)">
+      <Url>https://dl.google.com/firebase/ios/analytics/59128155f949f77d/GoogleAppMeasurement-8.9.1.tar.gz</Url>
+      <Kind>Tgz</Kind>
+    </XamarinBuildDownload>
+    <XamarinBuildRestoreResources Include="_FCrDownloadedItems" />
+  </ItemGroup>
+  <Target Name="_FCrDownloadedItems">
+    <ItemGroup Condition="'$(FirebaseWithoutAdIdSupport)'!='True'">
+      <!-- From https://dl.google.com/firebase/ios/analytics/59128155f949f77d/GoogleAppMeasurement-8.9.1.tar.gz -->
+      <NativeReference Include="$(_GoogleAppMeasurementSDKBaseFolder)GoogleAppMeasurement.xcframework">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+        <LinkerFlags>-ObjC -lc++ -lsqlite3 -lz</LinkerFlags>
+        <Frameworks>StoreKit</Frameworks>
+      </NativeReference>
+    </ItemGroup>
+    <ItemGroup Condition="'$(FirebaseWithoutAdIdSupport)'=='True'">
+      <!-- From https://dl.google.com/firebase/ios/analytics/59128155f949f77d/GoogleAppMeasurement-8.9.1.tar.gz -->
+      <NativeReference Include="$(_GoogleAppMeasurementSDKBaseFolder)GoogleAppMeasurementWithoutAdIdSupport.xcframework">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+        <LinkerFlags>-ObjC -lc++ -lsqlite3 -lz</LinkerFlags>
+        <Frameworks>StoreKit</Frameworks>
+      </NativeReference>
+    </ItemGroup>
+  </Target>
+  <PropertyGroup>
+    <_FirebaseCoreId>FirebaseCore</_FirebaseCoreId>
+    <_FirebaseCoreDiagnosticsId>FirebaseCoreDiagnostics</_FirebaseCoreDiagnosticsId>
+    <_GTMSessionFetcherId>GTMSessionFetcher</_GTMSessionFetcherId>
+    <_GoogleAPIClientForRESTId>GoogleAPIClientForREST</_GoogleAPIClientForRESTId>
+    <_GoogleDataTransportId>GoogleDataTransport</_GoogleDataTransportId>
+    <_FBLPromisesId>FBLPromises</_FBLPromisesId>
+    <_GoogleToolboxForMacId>GoogleToolboxForMac</_GoogleToolboxForMacId>
+    <_GoogleUtilitiesId>GoogleUtilities</_GoogleUtilitiesId>
+    <_GoogleUtilitiesComponentsId>GoogleUtilitiesComponents</_GoogleUtilitiesComponentsId>
+    <_nanopbId>nanopb</_nanopbId>
+    <_leveldbId>leveldb</_leveldbId>
+    <_ProtobufId>Protobuf</_ProtobufId>
+  </PropertyGroup>
+  <ItemGroup Condition="('$(OutputType)' != 'Library' OR '$(IsAppExtension)' == 'True') AND ('$(TargetFrameworks)' == '' AND '$(TargetFramework)' == '')">
+    <_NativeReference Include="$(MSBuildThisFileDirectory)..\lib\xamarinios10\Firebase.Core.resources\FirebaseCore.xcframework">
+      <_Id>$(_FirebaseCoreId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="$(MSBuildThisFileDirectory)..\lib\xamarinios10\Firebase.Core.resources\FirebaseCoreDiagnostics.xcframework">
+      <_Id>$(_FirebaseCoreDiagnosticsId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="$(MSBuildThisFileDirectory)..\lib\xamarinios10\Firebase.Core.resources\GTMSessionFetcher.xcframework">
+      <_Id>$(_GTMSessionFetcherId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="$(MSBuildThisFileDirectory)..\lib\xamarinios10\Firebase.Core.resources\GoogleAPIClientForREST.xcframework">
+      <_Id>$(_GoogleAPIClientForRESTId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="$(MSBuildThisFileDirectory)..\lib\xamarinios10\Firebase.Core.resources\GoogleDataTransport.xcframework">
+      <_Id>$(_GoogleDataTransportId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="$(MSBuildThisFileDirectory)..\lib\xamarinios10\Firebase.Core.resources\FBLPromises.xcframework">
+      <_Id>$(_FBLPromisesId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="$(MSBuildThisFileDirectory)..\lib\xamarinios10\Firebase.Core.resources\GoogleToolboxForMac.xcframework">
+      <_Id>$(_GoogleToolboxForMacId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="$(MSBuildThisFileDirectory)..\lib\xamarinios10\Firebase.Core.resources\GoogleUtilities.xcframework">
+      <_Id>$(_GoogleUtilitiesId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="$(MSBuildThisFileDirectory)..\lib\xamarinios10\Firebase.Core.resources\GoogleUtilitiesComponents.xcframework">
+      <_Id>$(_GoogleUtilitiesComponentsId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="$(MSBuildThisFileDirectory)..\lib\xamarinios10\Firebase.Core.resources\nanopb.xcframework">
+      <_Id>$(_nanopbId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="$(MSBuildThisFileDirectory)..\lib\xamarinios10\Firebase.Core.resources\leveldb.xcframework">
+      <_Id>$(_leveldbId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="$(MSBuildThisFileDirectory)..\lib\xamarinios10\Firebase.Core.resources\Protobuf.xcframework">
+      <_Id>$(_ProtobufId)</_Id>
+    </_NativeReference>
+  </ItemGroup>
+  <Target Name="_ResolveNativeReferencesForFirebaseCore" 
+          BeforeTargets="ResolveNativeReferences"
+          Condition="('$(TargetFrameworks)' == '' AND '$(TargetFramework)' == '') OR '$(IsBindingProject)' == 'true'">
+    <ItemGroup>
+      <_NativeReference Update="@(_NativeReference)" Condition="'%(_NativeReference._Id)' == '$(_FirebaseCoreId)'">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+        <Frameworks>Foundation UIKit</Frameworks>
+      </_NativeReference>
+      <_NativeReference Update="@(_NativeReference)" Condition="'%(_NativeReference._Id)' == '$(_FirebaseCoreDiagnosticsId)'">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+        <Frameworks>Foundation</Frameworks>
+      </_NativeReference>
+      <_NativeReference Update="@(_NativeReference)" Condition="'%(_NativeReference._Id)' == '$(_GTMSessionFetcherId)'">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+      </_NativeReference>
+      <_NativeReference Update="@(_NativeReference)" Condition="'%(_NativeReference._Id)' == '$(_GoogleAPIClientForRESTId)'">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+      </_NativeReference>
+      <_NativeReference Update="@(_NativeReference)" Condition="'%(_NativeReference._Id)' == '$(_GoogleDataTransportId)'">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+        <Frameworks>SystemConfiguration CoreTelephony</Frameworks>
+      </_NativeReference>
+      <_NativeReference Update="@(_NativeReference)" Condition="'%(_NativeReference._Id)' == '$(_FBLPromisesId)'">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+      </_NativeReference>
+      <_NativeReference Update="@(_NativeReference)" Condition="'%(_NativeReference._Id)' == '$(_GoogleToolboxForMacId)'">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+        <Frameworks>SystemConfiguration</Frameworks>
+      </_NativeReference>
+      <_NativeReference Update="@(_NativeReference)" Condition="'%(_NativeReference._Id)' == '$(_GoogleUtilitiesId)'">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+        <Frameworks>Security SystemConfiguration</Frameworks>
+      </_NativeReference>
+      <_NativeReference Update="@(_NativeReference)" Condition="'%(_NativeReference._Id)' == '$(_GoogleUtilitiesComponentsId)'">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+      </_NativeReference>
+      <_NativeReference Update="@(_NativeReference)" Condition="'%(_NativeReference._Id)' == '$(_nanopbId)'">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+      </_NativeReference>
+      <_NativeReference Update="@(_NativeReference)" Condition="'%(_NativeReference._Id)' == '$(_leveldbId)'">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+      </_NativeReference>
+      <_NativeReference Update="@(_NativeReference)" Condition="'%(_NativeReference._Id)' == '$(_ProtobufId)'">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+      </_NativeReference>
+      <NativeReference Include="@(_NativeReference)" />
+    </ItemGroup>
+  </Target>
 </Project>

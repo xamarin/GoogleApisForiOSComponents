@@ -1,90 +1,89 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<PropertyGroup>
-		<_MLKitTextRecogKoreanAssemblyName>MLKit.TextRecognition.Korean, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_MLKitTextRecogKoreanAssemblyName>
-		<_MLKitTextKoreanItemsFolder>MLKTextKorean-1.0.0beta3</_MLKitTextKoreanItemsFolder>
-		<_MLKitTextKoreanSDKBaseFolder>$(XamarinBuildDownloadDir)$(_MLKitTextKoreanItemsFolder)\</_MLKitTextKoreanSDKBaseFolder>
-		<_MLKitTextKoreanResourcesFolder>$(XamarinBuildDownloadDir)$(_MLKitTextKoreanItemsFolder)\Resources\KoreanOCRResources\</_MLKitTextKoreanResourcesFolder>
-	</PropertyGroup>
-	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
-		<XamarinBuildDownload Include="$(_MLKitTextKoreanItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/1540fa2f11efaf10/MLKitTextRecognitionKorean-1.0.0-beta3.tar.gz</Url>
-			<Kind>Tgz</Kind>
-		</XamarinBuildDownload>
-		<XamarinBuildRestoreResources Include="_MLKitTextKoreanDownloadedItems" />
-	</ItemGroup>
-	<Target Name="_MLKitTextKoreanDownloadedItems">
-		<ItemGroup>
-			<!-- From https://dl.google.com/dl/cpdc/1540fa2f11efaf10/MLKitTextRecognitionKorean-1.0.0-beta3.tar.gz -->
-			<NativeReference Include="$(_MLKitTextKoreanSDKBaseFolder)Frameworks\MLKitTextRecognitionKorean.framework">
-				<Kind>Framework</Kind>
-				<SmartLink>True</SmartLink>
-				<ForceLoad>True</ForceLoad>
-				<LinkerFlags>-lc++</LinkerFlags>
-				<Frameworks>Accelerate AVFoundation CoreGraphics CoreImage CoreMedia CoreVideo Foundation UIKit</Frameworks>
-			</NativeReference>
-		</ItemGroup>
-		<ItemGroup>
-			<BundleResource Include="$(_MLKitTextKoreanResourcesFolder)region_proposal_text_detector_tflite_vertical.bincfg" Visible="False">
-				<LogicalName>KoreanOCRResources.bundle\region_proposal_text_detector_tflite_vertical.bincfg</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextKoreanResourcesFolder)rpn_lstm_engine_tflite_ko_la.bincfg" Visible="False">
-				<LogicalName>KoreanOCRResources.bundle\rpn_lstm_engine_tflite_ko_la.bincfg</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextKoreanResourcesFolder)rpn_text_detector_mobile_space_to_depth_quantized_v2.tflite" Visible="False">
-				<LogicalName>KoreanOCRResources.bundle\rpn_text_detector_mobile_space_to_depth_quantized_v2.tflite</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextKoreanResourcesFolder)tflite_langid.tflite" Visible="False">
-				<LogicalName>KoreanOCRResources.bundle\tflite_langid.tflite</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextKoreanResourcesFolder)tflite_lstm_recognizer_ko_0.1.bincfg" Visible="False">
-				<LogicalName>KoreanOCRResources.bundle\tflite_lstm_recognizer_ko_0.1.bincfg</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextKoreanResourcesFolder)tflite_lstm_recognizer_ko_0.1.class_lst" Visible="False">
-				<LogicalName>KoreanOCRResources.bundle\tflite_lstm_recognizer_ko_0.1.class_lst</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextKoreanResourcesFolder)tflite_lstm_recognizer_ko_0.1.conv_model" Visible="False">
-				<LogicalName>KoreanOCRResources.bundle\tflite_lstm_recognizer_ko_0.1.conv_model</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextKoreanResourcesFolder)tflite_lstm_recognizer_ko_0.1.lstm_model" Visible="False">
-				<LogicalName>KoreanOCRResources.bundle\tflite_lstm_recognizer_ko_0.1.lstm_model</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextKoreanResourcesFolder)tflite_lstm_recognizer_latin_0.3.bincfg" Visible="False">
-				<LogicalName>KoreanOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.bincfg</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextKoreanResourcesFolder)tflite_lstm_recognizer_latin_0.3.class_lst" Visible="False">
-				<LogicalName>KoreanOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.class_lst</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextKoreanResourcesFolder)tflite_lstm_recognizer_latin_0.3.conv_model" Visible="False">
-				<LogicalName>KoreanOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.conv_model</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextKoreanResourcesFolder)tflite_lstm_recognizer_latin_0.3.lstm_model" Visible="False">
-				<LogicalName>KoreanOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.lstm_model</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextKoreanResourcesFolder)tflite_script_detector_0.3.bincfg" Visible="False">
-				<LogicalName>KoreanOCRResources.bundle\tflite_script_detector_0.3.bincfg</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextKoreanResourcesFolder)tflite_script_detector_0.3.conv_model" Visible="False">
-				<LogicalName>KoreanOCRResources.bundle\tflite_script_detector_0.3.conv_model</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextKoreanResourcesFolder)tflite_script_detector_0.3.lstm_model" Visible="False">
-				<LogicalName>KoreanOCRResources.bundle\tflite_script_detector_0.3.lstm_model</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-		</ItemGroup>
-	</Target>
+﻿<Project>
+  <PropertyGroup>
+    <_MLKitTextRecogKoreanAssemblyName>MLKit.TextRecognition.Korean, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_MLKitTextRecogKoreanAssemblyName>
+    <_MLKitTextKoreanItemsFolder>MLKTextKorean-1.0.0beta3</_MLKitTextKoreanItemsFolder>
+    <_MLKitTextKoreanSDKBaseFolder>$(XamarinBuildDownloadDir)$(_MLKitTextKoreanItemsFolder)\</_MLKitTextKoreanSDKBaseFolder>
+    <_MLKitTextKoreanResourcesFolder>$(XamarinBuildDownloadDir)$(_MLKitTextKoreanItemsFolder)\Resources\KoreanOCRResources\</_MLKitTextKoreanResourcesFolder>
+  </PropertyGroup>
+  <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+    <XamarinBuildDownload Include="$(_MLKitTextKoreanItemsFolder)">
+      <Url>https://dl.google.com/dl/cpdc/1540fa2f11efaf10/MLKitTextRecognitionKorean-1.0.0-beta3.tar.gz</Url>
+      <Kind>Tgz</Kind>
+    </XamarinBuildDownload>
+    <XamarinBuildRestoreResources Include="_MLKitTextKoreanDownloadedItems" />
+  </ItemGroup>
+  <Target Name="_MLKitTextKoreanDownloadedItems">
+    <ItemGroup>
+      <!-- From https://dl.google.com/dl/cpdc/1540fa2f11efaf10/MLKitTextRecognitionKorean-1.0.0-beta3.tar.gz -->
+      <NativeReference Include="$(_MLKitTextKoreanSDKBaseFolder)Frameworks\MLKitTextRecognitionKorean.framework">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+        <LinkerFlags>-lc++</LinkerFlags>
+        <Frameworks>Accelerate AVFoundation CoreGraphics CoreImage CoreMedia CoreVideo Foundation UIKit</Frameworks>
+      </NativeReference>
+    </ItemGroup>
+    <ItemGroup>
+      <BundleResource Include="$(_MLKitTextKoreanResourcesFolder)region_proposal_text_detector_tflite_vertical.bincfg" Visible="False">
+        <LogicalName>KoreanOCRResources.bundle\region_proposal_text_detector_tflite_vertical.bincfg</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextKoreanResourcesFolder)rpn_lstm_engine_tflite_ko_la.bincfg" Visible="False">
+        <LogicalName>KoreanOCRResources.bundle\rpn_lstm_engine_tflite_ko_la.bincfg</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextKoreanResourcesFolder)rpn_text_detector_mobile_space_to_depth_quantized_v2.tflite" Visible="False">
+        <LogicalName>KoreanOCRResources.bundle\rpn_text_detector_mobile_space_to_depth_quantized_v2.tflite</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextKoreanResourcesFolder)tflite_langid.tflite" Visible="False">
+        <LogicalName>KoreanOCRResources.bundle\tflite_langid.tflite</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextKoreanResourcesFolder)tflite_lstm_recognizer_ko_0.1.bincfg" Visible="False">
+        <LogicalName>KoreanOCRResources.bundle\tflite_lstm_recognizer_ko_0.1.bincfg</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextKoreanResourcesFolder)tflite_lstm_recognizer_ko_0.1.class_lst" Visible="False">
+        <LogicalName>KoreanOCRResources.bundle\tflite_lstm_recognizer_ko_0.1.class_lst</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextKoreanResourcesFolder)tflite_lstm_recognizer_ko_0.1.conv_model" Visible="False">
+        <LogicalName>KoreanOCRResources.bundle\tflite_lstm_recognizer_ko_0.1.conv_model</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextKoreanResourcesFolder)tflite_lstm_recognizer_ko_0.1.lstm_model" Visible="False">
+        <LogicalName>KoreanOCRResources.bundle\tflite_lstm_recognizer_ko_0.1.lstm_model</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextKoreanResourcesFolder)tflite_lstm_recognizer_latin_0.3.bincfg" Visible="False">
+        <LogicalName>KoreanOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.bincfg</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextKoreanResourcesFolder)tflite_lstm_recognizer_latin_0.3.class_lst" Visible="False">
+        <LogicalName>KoreanOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.class_lst</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextKoreanResourcesFolder)tflite_lstm_recognizer_latin_0.3.conv_model" Visible="False">
+        <LogicalName>KoreanOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.conv_model</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextKoreanResourcesFolder)tflite_lstm_recognizer_latin_0.3.lstm_model" Visible="False">
+        <LogicalName>KoreanOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.lstm_model</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextKoreanResourcesFolder)tflite_script_detector_0.3.bincfg" Visible="False">
+        <LogicalName>KoreanOCRResources.bundle\tflite_script_detector_0.3.bincfg</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextKoreanResourcesFolder)tflite_script_detector_0.3.conv_model" Visible="False">
+        <LogicalName>KoreanOCRResources.bundle\tflite_script_detector_0.3.conv_model</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextKoreanResourcesFolder)tflite_script_detector_0.3.lstm_model" Visible="False">
+        <LogicalName>KoreanOCRResources.bundle\tflite_script_detector_0.3.lstm_model</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+    </ItemGroup>
+  </Target>
 </Project>
