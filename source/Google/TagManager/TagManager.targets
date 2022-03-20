@@ -1,33 +1,32 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<PropertyGroup>
-		<_GoogleTagManagerAssemblyName>Google.TagManager, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleTagManagerAssemblyName>
-		<_GoogleTagManagerItemsFolder>GTagM-7.4.0</_GoogleTagManagerItemsFolder>
-		<_GoogleTagManagerSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleTagManagerItemsFolder)\</_GoogleTagManagerSDKBaseFolder>
-		<_GoogleTagManageFrameworksBaseFolder>$(_GoogleTagManagerSDKBaseFolder)GoogleTagManager-7.4.0\Frameworks\</_GoogleTagManageFrameworksBaseFolder>
-	</PropertyGroup>
-	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
-		<XamarinBuildDownload Include="$(_GoogleTagManagerItemsFolder)">
-			<Url>https://dl.google.com/firebase/ios/tagmanager/405c0e6ab8f653b7/GoogleTagManager-7.4.0.tar.gz</Url>
-			<Kind>Tgz</Kind>
-		</XamarinBuildDownload>
-		<NativeReference Include="$(_GoogleTagManageFrameworksBaseFolder)GoogleTagManager.xcframework">
-			<Kind>Framework</Kind>
-			<SmartLink>True</SmartLink>
-			<ForceLoad>True</ForceLoad>
-			<LinkerFlags>-ObjC -lsqlite3 -lz</LinkerFlags>
-			<Frameworks>AdSupport CoreTelephony JavaScriptCore SystemConfiguration UIKit</Frameworks>
-		</NativeReference>
-		<XamarinBuildRestoreResources Include="_GTagMDownloadedItems" />
-	</ItemGroup>
-	<Target Name="_GTagMDownloadedItems">
-		<ItemGroup>
-			<BundleResource Include="$(_GoogleTagManageFrameworksBaseFolder)GoogleTagManager.xcframework\Resources\TagManagerResources.bundle\Info.plist" Visible="False">
-				<LogicalName>TagManagerResources.bundle\Info.plist</LogicalName>
-			</BundleResource>
-			<BundleResource Include="$(_GoogleTagManageFrameworksBaseFolder)GoogleTagManager.xcframework\Resources\TagManagerResources.bundle\TAGRuntime.js.dat" Visible="False">
-				<LogicalName>TagManagerResources.bundle\TAGRuntime.js.dat</LogicalName>
-			</BundleResource>
-		</ItemGroup>
-	</Target>
+﻿<Project>
+  <PropertyGroup>
+    <_GoogleTagManagerAssemblyName>Google.TagManager, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleTagManagerAssemblyName>
+    <_GoogleTagManagerItemsFolder>GTagM-7.4.0</_GoogleTagManagerItemsFolder>
+    <_GoogleTagManagerSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleTagManagerItemsFolder)\</_GoogleTagManagerSDKBaseFolder>
+    <_GoogleTagManageFrameworksBaseFolder>$(_GoogleTagManagerSDKBaseFolder)GoogleTagManager-7.4.0\Frameworks\</_GoogleTagManageFrameworksBaseFolder>
+  </PropertyGroup>
+  <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+    <XamarinBuildDownload Include="$(_GoogleTagManagerItemsFolder)">
+      <Url>https://dl.google.com/firebase/ios/tagmanager/405c0e6ab8f653b7/GoogleTagManager-7.4.0.tar.gz</Url>
+      <Kind>Tgz</Kind>
+    </XamarinBuildDownload>
+    <NativeReference Include="$(_GoogleTagManageFrameworksBaseFolder)GoogleTagManager.xcframework">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
+      <LinkerFlags>-ObjC -lsqlite3 -lz</LinkerFlags>
+      <Frameworks>AdSupport CoreTelephony JavaScriptCore SystemConfiguration UIKit</Frameworks>
+    </NativeReference>
+    <XamarinBuildRestoreResources Include="_GTagMDownloadedItems" />
+  </ItemGroup>
+  <Target Name="_GTagMDownloadedItems">
+    <ItemGroup>
+      <BundleResource Include="$(_GoogleTagManageFrameworksBaseFolder)GoogleTagManager.xcframework\Resources\TagManagerResources.bundle\Info.plist" Visible="False">
+        <LogicalName>TagManagerResources.bundle\Info.plist</LogicalName>
+      </BundleResource>
+      <BundleResource Include="$(_GoogleTagManageFrameworksBaseFolder)GoogleTagManager.xcframework\Resources\TagManagerResources.bundle\TAGRuntime.js.dat" Visible="False">
+        <LogicalName>TagManagerResources.bundle\TAGRuntime.js.dat</LogicalName>
+      </BundleResource>
+    </ItemGroup>
+  </Target>
 </Project>

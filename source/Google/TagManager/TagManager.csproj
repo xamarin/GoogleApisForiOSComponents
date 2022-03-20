@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Xamarin.Legacy.Sdk">
+﻿<Project Sdk="Xamarin.Legacy.Sdk">
   <PropertyGroup>
     <TargetFrameworks>xamarin.ios10;net6.0-ios</TargetFrameworks>
     <NoNFloatUsing Condition="'$(TargetFramework)' == 'xamarin.ios10'">true</NoNFloatUsing>
@@ -15,7 +14,6 @@
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
-
   <PropertyGroup>
     <PackageId>Xamarin.Google.iOS.TagManager</PackageId>
     <Title>Google APIs Tag Manager iOS Library</Title>
@@ -30,44 +28,35 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageVersion>7.4.0.0</PackageVersion>
   </PropertyGroup>
-  
   <ItemGroup>
     <Compile Include="..\AssemblyInfo.cs" />
   </ItemGroup>
-
   <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
-  
   <ItemGroup>
     <None Include="TagManager.targets" Pack="True" PackagePath="build/Xamarin.Google.iOS.TagManager.targets" />
     <None Include="TagManager.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Google.iOS.TagManager.targets" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/googleiostagmanager_128x128.png" Pack="True" PackagePath="googleiostagmanager_128x128.png" />
   </ItemGroup>
-
   <ItemGroup Condition="'$(TargetFramework)' == 'xamarin.ios10'">
     <Compile Remove="ApiDefinition.cs" />
     <Compile Remove="Enums.cs" />
   </ItemGroup>
-  
   <ItemGroup>
     <ObjcBindingCoreSource Include="Enums.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
   </ItemGroup>
-
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" PrivateAssets="None" />
   </ItemGroup>
-  
   <ItemGroup>
     <ProjectReference Include="..\..\Firebase\Core\Core.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\..\Firebase\Installations\Installations.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\..\Firebase\Analytics\Analytics.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\Analytics\Analytics.csproj" PrivateAssets="None" />
   </ItemGroup>
-
 </Project>

@@ -1,34 +1,33 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<PropertyGroup>
-		<_MLKitVisionRecogCoreAssemblyName>MLKit.ImageLabeling, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_MLKitVisionRecogCoreAssemblyName>
-		<_MLKitImgLblItemsFolder>MLKImgLbl-1.5.0</_MLKitImgLblItemsFolder>
-		<_MLKitImgLblSDKBaseFolder>$(XamarinBuildDownloadDir)$(_MLKitImgLblItemsFolder)\</_MLKitImgLblSDKBaseFolder>
-		<_MLKitImgLblResourcesFolder>$(XamarinBuildDownloadDir)$(_MLKitImgLblItemsFolder)\Resources\MLKitImageLabelingResources\</_MLKitImgLblResourcesFolder>
-	</PropertyGroup>
-	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
-		<XamarinBuildDownload Include="$(_MLKitImgLblItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/4c38b40cab50dfae/MLKitImageLabeling-1.5.0.tar.gz</Url>
-			<Kind>Tgz</Kind>
-		</XamarinBuildDownload>
-		<XamarinBuildRestoreResources Include="_MLKitImgLblDownloadedItems" />
-	</ItemGroup>
-	<Target Name="_MLKitImgLblDownloadedItems">
-		<ItemGroup>
-			<!-- From https://dl.google.com/dl/cpdc/4c38b40cab50dfae/MLKitImageLabeling-1.5.0.tar.gz -->
-			<NativeReference Include="$(_MLKitImgLblSDKBaseFolder)Frameworks\MLKitImageLabeling.framework">
-				<Kind>Framework</Kind>
-				<SmartLink>True</SmartLink>
-				<ForceLoad>True</ForceLoad>
-				<LinkerFlags>-lc++</LinkerFlags>
-				<Frameworks>CoreGraphics CoreLocation CoreVideo Foundation UIKit</Frameworks>
-			</NativeReference>
-		</ItemGroup>
-		<ItemGroup>
-			<BundleResource Include="$(_MLKitImgLblResourcesFolder)mobile_ica_8bit_with_metadata.tflite" Visible="False">
-				<LogicalName>MLKitImageLabelingResources.bundle\mobile_ica_8bit_with_metadata.tflite</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-		</ItemGroup>
-	</Target>
+﻿<Project>
+  <PropertyGroup>
+    <_MLKitVisionRecogCoreAssemblyName>MLKit.ImageLabeling, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_MLKitVisionRecogCoreAssemblyName>
+    <_MLKitImgLblItemsFolder>MLKImgLbl-1.5.0</_MLKitImgLblItemsFolder>
+    <_MLKitImgLblSDKBaseFolder>$(XamarinBuildDownloadDir)$(_MLKitImgLblItemsFolder)\</_MLKitImgLblSDKBaseFolder>
+    <_MLKitImgLblResourcesFolder>$(XamarinBuildDownloadDir)$(_MLKitImgLblItemsFolder)\Resources\MLKitImageLabelingResources\</_MLKitImgLblResourcesFolder>
+  </PropertyGroup>
+  <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+    <XamarinBuildDownload Include="$(_MLKitImgLblItemsFolder)">
+      <Url>https://dl.google.com/dl/cpdc/4c38b40cab50dfae/MLKitImageLabeling-1.5.0.tar.gz</Url>
+      <Kind>Tgz</Kind>
+    </XamarinBuildDownload>
+    <XamarinBuildRestoreResources Include="_MLKitImgLblDownloadedItems" />
+  </ItemGroup>
+  <Target Name="_MLKitImgLblDownloadedItems">
+    <ItemGroup>
+      <!-- From https://dl.google.com/dl/cpdc/4c38b40cab50dfae/MLKitImageLabeling-1.5.0.tar.gz -->
+      <NativeReference Include="$(_MLKitImgLblSDKBaseFolder)Frameworks\MLKitImageLabeling.framework">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+        <LinkerFlags>-lc++</LinkerFlags>
+        <Frameworks>CoreGraphics CoreLocation CoreVideo Foundation UIKit</Frameworks>
+      </NativeReference>
+    </ItemGroup>
+    <ItemGroup>
+      <BundleResource Include="$(_MLKitImgLblResourcesFolder)mobile_ica_8bit_with_metadata.tflite" Visible="False">
+        <LogicalName>MLKitImageLabelingResources.bundle\mobile_ica_8bit_with_metadata.tflite</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+    </ItemGroup>
+  </Target>
 </Project>

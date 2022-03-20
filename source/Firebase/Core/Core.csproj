@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Xamarin.Legacy.Sdk">
+﻿<Project Sdk="Xamarin.Legacy.Sdk">
   <PropertyGroup>
     <TargetFrameworks>xamarin.ios10;net6.0-ios</TargetFrameworks>
     <NoNFloatUsing Condition="'$(TargetFramework)' == 'xamarin.ios10'">true</NoNFloatUsing>
@@ -15,7 +14,6 @@
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
-
   <PropertyGroup>
     <PackageId>Xamarin.Firebase.iOS.Core</PackageId>
     <Title>Firebase APIs Core iOS Library</Title>
@@ -30,15 +28,12 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageVersion>8.10.0</PackageVersion>
   </PropertyGroup>
-  
   <ItemGroup>
     <Compile Include="..\AssemblyInfo.cs" />
   </ItemGroup>
-
   <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
-  
   <ItemGroup>    
     <None Include="Core.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.Core.targets" />
     <None Include="Core.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.Core.targets" />
@@ -46,93 +41,64 @@
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseioscore_128x128.png" Pack="True" PackagePath="firebaseioscore_128x128.png" />
   </ItemGroup>
-
+  <!-- An iOS app project cannot find Xcframeworks within a NuGet if a TFM
+       previous than net6.0-ios is used.
+       https://github.com/xamarin/xamarin-macios/issues/13693
+       You must include the Xcframework's NativeReference tag into the iOS app
+       project so sidecar can work properly. -->
+  <!-- This workaround was designed like this to have the same
+       the NativeReference tag for the iOS binding and for the .targets file -->
+  <Import Project="Core.targets" />
   <ItemGroup>
-    <NativeReference Include="..\..\..\externals\FirebaseCore.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
-      <ForceLoad>True</ForceLoad>
-      <Frameworks>Foundation UIKit</Frameworks>
-    </NativeReference>
-    <NativeReference Include="..\..\..\externals\FirebaseCoreDiagnostics.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
-      <ForceLoad>True</ForceLoad>
-      <Frameworks>Foundation</Frameworks>
-    </NativeReference>
-    <NativeReference Include="..\..\..\externals\GTMSessionFetcher.framework">
-      <Kind>Framework</Kind>
-      <Frameworks>Security</Frameworks>
-      <SmartLink>True</SmartLink>
-      <ForceLoad>True</ForceLoad>
-    </NativeReference>
-    <NativeReference Include="..\..\..\externals\GoogleAPIClientForREST.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
-      <ForceLoad>True</ForceLoad>
-    </NativeReference>
-    <NativeReference Include="..\..\..\externals\GoogleDataTransport.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
-      <ForceLoad>True</ForceLoad>
-      <Frameworks>SystemConfiguration CoreTelephony</Frameworks>
-    </NativeReference>  
-    <NativeReference Include="..\..\..\externals\FBLPromises.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
-      <ForceLoad>True</ForceLoad>
-    </NativeReference>
-    <NativeReference Include="..\..\..\externals\GoogleToolboxForMac.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
-      <ForceLoad>True</ForceLoad>
-      <LinkerFlags>-lz</LinkerFlags>
-      <Frameworks>SystemConfiguration</Frameworks>
-    </NativeReference>
-    <NativeReference Include="..\..\..\externals\GoogleUtilities.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
-      <ForceLoad>True</ForceLoad>
-      <LinkerFlags>-ObjC -lz</LinkerFlags>
-      <Frameworks>Security SystemConfiguration</Frameworks>
-    </NativeReference>
-    <NativeReference Include="..\..\..\externals\GoogleUtilitiesComponents.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
-      <ForceLoad>True</ForceLoad>
-    </NativeReference>
-    <NativeReference Include="..\..\..\externals\nanopb.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
-      <ForceLoad>True</ForceLoad>
-    </NativeReference>
-    <NativeReference Include="..\..\..\externals\leveldb.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
-      <ForceLoad>True</ForceLoad>
-    </NativeReference>
-    <NativeReference Include="..\..\..\externals\Protobuf.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
-      <ForceLoad>True</ForceLoad>
-    </NativeReference>
+    <_NativeReference Include="..\..\..\externals\FirebaseCore.xcframework">
+      <_Id>$(_FirebaseCoreId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="..\..\..\externals\FirebaseCoreDiagnostics.xcframework">
+      <_Id>$(_FirebaseCoreDiagnosticsId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="..\..\..\externals\GTMSessionFetcher.xcframework">
+      <_Id>$(_GTMSessionFetcherId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="..\..\..\externals\GoogleAPIClientForREST.xcframework">
+      <_Id>$(_GoogleAPIClientForRESTId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="..\..\..\externals\GoogleDataTransport.xcframework">
+      <_Id>$(_GoogleDataTransportId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="..\..\..\externals\FBLPromises.xcframework">
+      <_Id>$(_FBLPromisesId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="..\..\..\externals\GoogleToolboxForMac.xcframework">
+      <_Id>$(_GoogleToolboxForMacId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="..\..\..\externals\GoogleUtilities.xcframework">
+      <_Id>$(_GoogleUtilitiesId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="..\..\..\externals\GoogleUtilitiesComponents.xcframework">
+      <_Id>$(_GoogleUtilitiesComponentsId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="..\..\..\externals\nanopb.xcframework">
+      <_Id>$(_nanopbId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="..\..\..\externals\leveldb.xcframework">
+      <_Id>$(_leveldbId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="..\..\..\externals\Protobuf.xcframework">
+      <_Id>$(_ProtobufId)</_Id>
+    </_NativeReference>
   </ItemGroup>
-
+  <!-- End of workaround -->
   <ItemGroup Condition="'$(TargetFramework)' == 'xamarin.ios10'">
     <Compile Remove="ApiDefinition.cs" />
     <Compile Remove="Enums.cs" />
   </ItemGroup>
-  
   <ItemGroup>
     <ObjcBindingCoreSource Include="Enums.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
   </ItemGroup>
-
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" PrivateAssets="None" />
   </ItemGroup>
-  
 </Project>

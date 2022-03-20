@@ -1,78 +1,77 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<PropertyGroup>
-		<_MLKitFaceAssemblyName>MLKit.FaceDetection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_MLKitFaceAssemblyName>
-		<_MLKitFaceItemsFolder>MLKFace-1.5.0</_MLKitFaceItemsFolder>
-		<_MLKitFaceSDKBaseFolder>$(XamarinBuildDownloadDir)$(_MLKitFaceItemsFolder)\</_MLKitFaceSDKBaseFolder>
-		<_MLKitFaceResourcesFolder>$(XamarinBuildDownloadDir)$(_MLKitFaceItemsFolder)\Resources\GoogleMVFaceDetectorResources\</_MLKitFaceResourcesFolder>
-	</PropertyGroup>
-	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
-		<XamarinBuildDownload Include="$(_MLKitFaceItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/36b88d3c882c11ed/MLKitFaceDetection-1.5.0.tar.gz</Url>
-			<Kind>Tgz</Kind>
-		</XamarinBuildDownload>
-		<XamarinBuildRestoreResources Include="_MLKitFaceDownloadedItems" />
-	</ItemGroup>
-	<Target Name="_MLKitFaceDownloadedItems">
-		<ItemGroup>
-			<!-- From https://dl.google.com/dl/cpdc/36b88d3c882c11ed/MLKitFaceDetection-1.5.0.tar.gz -->
-			<NativeReference Include="$(_MLKitFaceSDKBaseFolder)Frameworks\MLKitFaceDetection.framework">
-				<Kind>Framework</Kind>
-				<SmartLink>True</SmartLink>
-				<ForceLoad>True</ForceLoad>
-				<LinkerFlags>-lc++</LinkerFlags>
-				<Frameworks>Accelerate AVFoundation CoreGraphics CoreMedia CoreVideo Foundation UIKit</Frameworks>
-			</NativeReference>
-		</ItemGroup>
-		<ItemGroup>
-			<BundleResource Include="$(_MLKitFaceResourcesFolder)BCLjoy_200.emd" Visible="False">
-				<LogicalName>GoogleMVFaceDetectorResources.bundle\BCLjoy_200.emd</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitFaceResourcesFolder)BCLlefteyeclosed_200.emd" Visible="False">
-				<LogicalName>GoogleMVFaceDetectorResources.bundle\BCLlefteyeclosed_200.emd</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitFaceResourcesFolder)BCLrighteyeclosed_200.emd" Visible="False">
-				<LogicalName>GoogleMVFaceDetectorResources.bundle\BCLrighteyeclosed_200.emd</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitFaceResourcesFolder)blazeface.tfl" Visible="False">
-				<LogicalName>GoogleMVFaceDetectorResources.bundle\blazeface.tfl</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitFaceResourcesFolder)contours.tfl" Visible="False">
-				<LogicalName>GoogleMVFaceDetectorResources.bundle\contours.tfl</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitFaceResourcesFolder)fssd_25_8bit_gray_v1.tflite" Visible="False">
-				<LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_25_8bit_gray_v1.tflite</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitFaceResourcesFolder)fssd_25_8bit_v1.tflite" Visible="False">
-				<LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_25_8bit_v1.tflite</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitFaceResourcesFolder)fssd_100_8bit_gray_v1.tflite" Visible="False">
-				<LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_100_8bit_gray_v1.tflite</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitFaceResourcesFolder)fssd_100_8bit_v1.tflite" Visible="False">
-				<LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_100_8bit_v1.tflite</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitFaceResourcesFolder)LMprec_600.emd" Visible="False">
-				<LogicalName>GoogleMVFaceDetectorResources.bundle\LMprec_600.emd</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitFaceResourcesFolder)MFT_fssd_accgray.pb" Visible="False">
-				<LogicalName>GoogleMVFaceDetectorResources.bundle\MFT_fssd_accgray.pb</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitFaceResourcesFolder)MFT_fssd_fastgray.pb" Visible="False">
-				<LogicalName>GoogleMVFaceDetectorResources.bundle\MFT_fssd_fastgray.pb</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-		</ItemGroup>
-	</Target>
+﻿<Project>
+  <PropertyGroup>
+    <_MLKitFaceAssemblyName>MLKit.FaceDetection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_MLKitFaceAssemblyName>
+    <_MLKitFaceItemsFolder>MLKFace-1.5.0</_MLKitFaceItemsFolder>
+    <_MLKitFaceSDKBaseFolder>$(XamarinBuildDownloadDir)$(_MLKitFaceItemsFolder)\</_MLKitFaceSDKBaseFolder>
+    <_MLKitFaceResourcesFolder>$(XamarinBuildDownloadDir)$(_MLKitFaceItemsFolder)\Resources\GoogleMVFaceDetectorResources\</_MLKitFaceResourcesFolder>
+  </PropertyGroup>
+  <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+    <XamarinBuildDownload Include="$(_MLKitFaceItemsFolder)">
+      <Url>https://dl.google.com/dl/cpdc/36b88d3c882c11ed/MLKitFaceDetection-1.5.0.tar.gz</Url>
+      <Kind>Tgz</Kind>
+    </XamarinBuildDownload>
+    <XamarinBuildRestoreResources Include="_MLKitFaceDownloadedItems" />
+  </ItemGroup>
+  <Target Name="_MLKitFaceDownloadedItems">
+    <ItemGroup>
+      <!-- From https://dl.google.com/dl/cpdc/36b88d3c882c11ed/MLKitFaceDetection-1.5.0.tar.gz -->
+      <NativeReference Include="$(_MLKitFaceSDKBaseFolder)Frameworks\MLKitFaceDetection.framework">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+        <LinkerFlags>-lc++</LinkerFlags>
+        <Frameworks>Accelerate AVFoundation CoreGraphics CoreMedia CoreVideo Foundation UIKit</Frameworks>
+      </NativeReference>
+    </ItemGroup>
+    <ItemGroup>
+      <BundleResource Include="$(_MLKitFaceResourcesFolder)BCLjoy_200.emd" Visible="False">
+        <LogicalName>GoogleMVFaceDetectorResources.bundle\BCLjoy_200.emd</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitFaceResourcesFolder)BCLlefteyeclosed_200.emd" Visible="False">
+        <LogicalName>GoogleMVFaceDetectorResources.bundle\BCLlefteyeclosed_200.emd</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitFaceResourcesFolder)BCLrighteyeclosed_200.emd" Visible="False">
+        <LogicalName>GoogleMVFaceDetectorResources.bundle\BCLrighteyeclosed_200.emd</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitFaceResourcesFolder)blazeface.tfl" Visible="False">
+        <LogicalName>GoogleMVFaceDetectorResources.bundle\blazeface.tfl</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitFaceResourcesFolder)contours.tfl" Visible="False">
+        <LogicalName>GoogleMVFaceDetectorResources.bundle\contours.tfl</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitFaceResourcesFolder)fssd_25_8bit_gray_v1.tflite" Visible="False">
+        <LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_25_8bit_gray_v1.tflite</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitFaceResourcesFolder)fssd_25_8bit_v1.tflite" Visible="False">
+        <LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_25_8bit_v1.tflite</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitFaceResourcesFolder)fssd_100_8bit_gray_v1.tflite" Visible="False">
+        <LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_100_8bit_gray_v1.tflite</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitFaceResourcesFolder)fssd_100_8bit_v1.tflite" Visible="False">
+        <LogicalName>GoogleMVFaceDetectorResources.bundle\fssd_100_8bit_v1.tflite</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitFaceResourcesFolder)LMprec_600.emd" Visible="False">
+        <LogicalName>GoogleMVFaceDetectorResources.bundle\LMprec_600.emd</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitFaceResourcesFolder)MFT_fssd_accgray.pb" Visible="False">
+        <LogicalName>GoogleMVFaceDetectorResources.bundle\MFT_fssd_accgray.pb</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitFaceResourcesFolder)MFT_fssd_fastgray.pb" Visible="False">
+        <LogicalName>GoogleMVFaceDetectorResources.bundle\MFT_fssd_fastgray.pb</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+    </ItemGroup>
+  </Target>
 </Project>

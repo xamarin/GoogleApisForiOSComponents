@@ -1,38 +1,37 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<PropertyGroup>
-		<_MLKitInkAssemblyName>MLKit.DigitalInkRecognition, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_MLKitInkAssemblyName>
-		<_MLKitInkItemsFolder>MLKInk-1.5.0</_MLKitInkItemsFolder>
-		<_MLKitInkSDKBaseFolder>$(XamarinBuildDownloadDir)$(_MLKitInkItemsFolder)\</_MLKitInkSDKBaseFolder>
-		<_MLKitInkResourcesFolder>$(XamarinBuildDownloadDir)$(_MLKitInkItemsFolder)\Resources\MLKitDigitalInkRecognition_resource\</_MLKitInkResourcesFolder>
-	</PropertyGroup>
-	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
-		<XamarinBuildDownload Include="$(_MLKitInkItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/1a57efb28f1de779/MLKitDigitalInkRecognition-1.5.0.tar.gz</Url>
-			<Kind>Tgz</Kind>
-		</XamarinBuildDownload>
-		<XamarinBuildRestoreResources Include="_MLKitInkDownloadedItems" />
-	</ItemGroup>
-	<Target Name="_MLKitInkDownloadedItems">
-		<ItemGroup>
-			<!-- From https://dl.google.com/dl/cpdc/1a57efb28f1de779/MLKitDigitalInkRecognition-1.5.0.tar.gz -->
-			<NativeReference Include="$(_MLKitInkSDKBaseFolder)Frameworks\MLKitDigitalInkRecognition.framework">
-				<Kind>Framework</Kind>
-				<SmartLink>True</SmartLink>
-				<ForceLoad>True</ForceLoad>
-				<LinkerFlags>-lc++ -lz</LinkerFlags>
-				<Frameworks>Foundation</Frameworks>
-			</NativeReference>
-		</ItemGroup>
-		<ItemGroup>
-			<BundleResource Include="$(_MLKitInkResourcesFolder)manifest.json" Visible="False">
-				<LogicalName>MLKitDigitalInkRecognition_resource.bundle\manifest.json</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitInkResourcesFolder)packmapping.pb" Visible="False">
-				<LogicalName>MLKitDigitalInkRecognition_resource.bundle\packmapping.pb</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-		</ItemGroup>
-	</Target>
+﻿<Project>
+  <PropertyGroup>
+    <_MLKitInkAssemblyName>MLKit.DigitalInkRecognition, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_MLKitInkAssemblyName>
+    <_MLKitInkItemsFolder>MLKInk-1.5.0</_MLKitInkItemsFolder>
+    <_MLKitInkSDKBaseFolder>$(XamarinBuildDownloadDir)$(_MLKitInkItemsFolder)\</_MLKitInkSDKBaseFolder>
+    <_MLKitInkResourcesFolder>$(XamarinBuildDownloadDir)$(_MLKitInkItemsFolder)\Resources\MLKitDigitalInkRecognition_resource\</_MLKitInkResourcesFolder>
+  </PropertyGroup>
+  <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+    <XamarinBuildDownload Include="$(_MLKitInkItemsFolder)">
+      <Url>https://dl.google.com/dl/cpdc/1a57efb28f1de779/MLKitDigitalInkRecognition-1.5.0.tar.gz</Url>
+      <Kind>Tgz</Kind>
+    </XamarinBuildDownload>
+    <XamarinBuildRestoreResources Include="_MLKitInkDownloadedItems" />
+  </ItemGroup>
+  <Target Name="_MLKitInkDownloadedItems">
+    <ItemGroup>
+      <!-- From https://dl.google.com/dl/cpdc/1a57efb28f1de779/MLKitDigitalInkRecognition-1.5.0.tar.gz -->
+      <NativeReference Include="$(_MLKitInkSDKBaseFolder)Frameworks\MLKitDigitalInkRecognition.framework">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+        <LinkerFlags>-lc++ -lz</LinkerFlags>
+        <Frameworks>Foundation</Frameworks>
+      </NativeReference>
+    </ItemGroup>
+    <ItemGroup>
+      <BundleResource Include="$(_MLKitInkResourcesFolder)manifest.json" Visible="False">
+        <LogicalName>MLKitDigitalInkRecognition_resource.bundle\manifest.json</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitInkResourcesFolder)packmapping.pb" Visible="False">
+        <LogicalName>MLKitDigitalInkRecognition_resource.bundle\packmapping.pb</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+    </ItemGroup>
+  </Target>
 </Project>

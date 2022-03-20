@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Xamarin.Legacy.Sdk">
+﻿<Project Sdk="Xamarin.Legacy.Sdk">
   <PropertyGroup>
     <TargetFrameworks>xamarin.ios10;net6.0-ios</TargetFrameworks>
     <NoNFloatUsing Condition="'$(TargetFramework)' == 'xamarin.ios10'">true</NoNFloatUsing>
@@ -15,7 +14,6 @@
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
-
   <PropertyGroup>
     <PackageId>Xamarin.MLKit.iOS.TextRecognition.Japanese</PackageId>
     <Title>MLKit APIs Text Recognition Japanese iOS Library</Title>
@@ -30,15 +28,12 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageVersion>1.0.0.3</PackageVersion>
   </PropertyGroup>
-  
   <ItemGroup>
     <Compile Include="..\AssemblyInfo.cs" />
   </ItemGroup>
-
   <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
-  
   <ItemGroup>
     <None Include="TextRecognitionJapanese.targets" Pack="True" PackagePath="build/Xamarin.MLKit.iOS.TextRecognitionJapanese.targets" />
     <None Include="TextRecognitionJapanese.targets" Pack="True" PackagePath="buildTransitive/Xamarin.MLKit.iOS.TextRecognitionJapanese.targets" />
@@ -46,27 +41,21 @@
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseiosmlkit_128x128.png" Pack="True" PackagePath="firebaseiosmlkit_128x128.png" />
   </ItemGroup>
-
   <ItemGroup Condition="'$(TargetFramework)' == 'xamarin.ios10'">
     <Compile Remove="ApiDefinition.cs" />
     <Compile Remove="Enums.cs" />
   </ItemGroup>
-  
   <ItemGroup>
     <ObjcBindingCoreSource Include="Enums.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
   </ItemGroup>
-
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" PrivateAssets="None" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\TextRecognition\TextRecognition.csproj" PrivateAssets="None" />
   </ItemGroup>
-  
 </Project>

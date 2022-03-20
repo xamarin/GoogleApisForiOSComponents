@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Xamarin.Legacy.Sdk">
+﻿<Project Sdk="Xamarin.Legacy.Sdk">
   <PropertyGroup>
     <TargetFrameworks>xamarin.ios10;net6.0-ios</TargetFrameworks>
     <NoNFloatUsing Condition="'$(TargetFramework)' == 'xamarin.ios10'">true</NoNFloatUsing>
@@ -15,7 +14,6 @@
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
-
   <PropertyGroup>
     <PackageId>Xamarin.Firebase.iOS.CloudFirestore</PackageId>
     <Title>Firebase APIs Cloud Firestore iOS Library</Title>
@@ -30,72 +28,59 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageVersion>8.10.0</PackageVersion>
   </PropertyGroup>
-  
   <ItemGroup>
     <Compile Include="..\AssemblyInfo.cs" />
   </ItemGroup>
-
   <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
-  
   <ItemGroup>
+    <None Include="CloudFirestore.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.CloudFirestore.targets" />
+    <None Include="CloudFirestore.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.CloudFirestore.targets" />
     <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseioscloudfirestore_128x128.png" Pack="True" PackagePath="firebaseioscloudfirestore_128x128.png" />
   </ItemGroup>
-
+  <!-- An iOS app project cannot find Xcframeworks within a NuGet if a TFM
+       previous than net6.0-ios is used.
+       https://github.com/xamarin/xamarin-macios/issues/13693
+       You must include the Xcframework's NativeReference tag into the iOS app
+       project so sidecar can work properly. -->
+  <!-- This workaround was designed like this to have the same
+       the NativeReference tag for the iOS binding and for the .targets file -->
+  <Import Project="CloudFirestore.targets" />
   <ItemGroup>
-    <NativeReference Include="..\..\..\externals\FirebaseFirestore.framework">
-      <Kind>Framework</Kind>
-      <Frameworks>MobileCoreServices SystemConfiguration</Frameworks>
-      <SmartLink>True</SmartLink>
-      <ForceLoad>True</ForceLoad>
-      <LinkerFlags>-ObjC -lc++</LinkerFlags>
-    </NativeReference>
-    <NativeReference Include="..\..\..\externals\grpc.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
-      <ForceLoad>True</ForceLoad>
-      <LinkerFlags>-lc++ -lz</LinkerFlags>
-    </NativeReference>
-    <NativeReference Include="..\..\..\externals\grpcpp.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
-      <ForceLoad>True</ForceLoad>
-    </NativeReference>
-    <NativeReference Include="..\..\..\externals\openssl_grpc.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
-      <ForceLoad>True</ForceLoad>
-    </NativeReference>
-    <NativeReference Include="..\..\..\externals\absl.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
-      <ForceLoad>True</ForceLoad>
-      <LinkerFlags>-lc++</LinkerFlags>
-    </NativeReference>
+    <_NativeReference Include="..\..\..\externals\FirebaseFirestore.xcframework">
+      <_Id>$(_FirebaseFirestoreId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="..\..\..\externals\grpc.xcframework">
+      <_Id>$(_grpcId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="..\..\..\externals\grpcpp.xcframework">
+      <_Id>$(_grpcppId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="..\..\..\externals\openssl_grpc.xcframework">
+      <_Id>$(_openssl_grpcId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="..\..\..\externals\absl.xcframework">
+      <_Id>$(_abslId)</_Id>
+    </_NativeReference>
   </ItemGroup>
-
+  <!-- End of workaround -->
   <ItemGroup Condition="'$(TargetFramework)' == 'xamarin.ios10'">
     <Compile Remove="ApiDefinition.cs" />
     <Compile Remove="Enums.cs" />
   </ItemGroup>
-  
   <ItemGroup>
     <ObjcBindingCoreSource Include="Enums.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
   </ItemGroup>
-
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" PrivateAssets="None" />
   </ItemGroup>
-  
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" PrivateAssets="None" />
   </ItemGroup>
-
 </Project>

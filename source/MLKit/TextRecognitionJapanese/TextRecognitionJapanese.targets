@@ -1,90 +1,89 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<PropertyGroup>
-		<_MLKitTextRecogJapaneseAssemblyName>MLKit.TextRecognition.Japanese, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_MLKitTextRecogJapaneseAssemblyName>
-		<_MLKitTextJapaneseItemsFolder>MLKTextJapanese-1.0.0beta3</_MLKitTextJapaneseItemsFolder>
-		<_MLKitTextJapaneseSDKBaseFolder>$(XamarinBuildDownloadDir)$(_MLKitTextJapaneseItemsFolder)\</_MLKitTextJapaneseSDKBaseFolder>
-		<_MLKitTextJapaneseResourcesFolder>$(XamarinBuildDownloadDir)$(_MLKitTextJapaneseItemsFolder)\Resources\JapaneseOCRResources\</_MLKitTextJapaneseResourcesFolder>
-	</PropertyGroup>
-	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
-		<XamarinBuildDownload Include="$(_MLKitTextJapaneseItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/094ba2d541a08563/MLKitTextRecognitionJapanese-1.0.0-beta3.tar.gz</Url>
-			<Kind>Tgz</Kind>
-		</XamarinBuildDownload>
-		<XamarinBuildRestoreResources Include="_MLKitTextJapaneseDownloadedItems" />
-	</ItemGroup>
-	<Target Name="_MLKitTextJapaneseDownloadedItems">
-		<ItemGroup>
-			<!-- From https://dl.google.com/dl/cpdc/094ba2d541a08563/MLKitTextRecognitionJapanese-1.0.0-beta3.tar.gz -->
-			<NativeReference Include="$(_MLKitTextJapaneseSDKBaseFolder)Frameworks\MLKitTextRecognitionJapanese.framework">
-				<Kind>Framework</Kind>
-				<SmartLink>True</SmartLink>
-				<ForceLoad>True</ForceLoad>
-				<LinkerFlags>-lc++</LinkerFlags>
-				<Frameworks>Accelerate AVFoundation CoreGraphics CoreImage CoreMedia CoreVideo Foundation UIKit</Frameworks>
-			</NativeReference>
-		</ItemGroup>
-		<ItemGroup>
-			<BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)region_proposal_text_detector_tflite_vertical.bincfg" Visible="False">
-				<LogicalName>JapaneseOCRResources.bundle\region_proposal_text_detector_tflite_vertical.bincfg</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)rpn_lstm_engine_tflite_ja_la.bincfg" Visible="False">
-				<LogicalName>JapaneseOCRResources.bundle\rpn_lstm_engine_tflite_ja_la.bincfg</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)rpn_text_detector_mobile_space_to_depth_quantized_v2.tflite" Visible="False">
-				<LogicalName>JapaneseOCRResources.bundle\rpn_text_detector_mobile_space_to_depth_quantized_v2.tflite</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)tflite_langid.tflite" Visible="False">
-				<LogicalName>JapaneseOCRResources.bundle\tflite_langid.tflite</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)tflite_lstm_recognizer_ja_0.1.bincfg" Visible="False">
-				<LogicalName>JapaneseOCRResources.bundle\tflite_lstm_recognizer_ja_0.1.bincfg</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)tflite_lstm_recognizer_ja_0.1.class_lst" Visible="False">
-				<LogicalName>JapaneseOCRResources.bundle\tflite_lstm_recognizer_ja_0.1.class_lst</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)tflite_lstm_recognizer_ja_0.1.conv_model" Visible="False">
-				<LogicalName>JapaneseOCRResources.bundle\tflite_lstm_recognizer_ja_0.1.conv_model</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)tflite_lstm_recognizer_ja_0.1.lstm_model" Visible="False">
-				<LogicalName>JapaneseOCRResources.bundle\tflite_lstm_recognizer_ja_0.1.lstm_model</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)tflite_lstm_recognizer_latin_0.3.bincfg" Visible="False">
-				<LogicalName>JapaneseOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.bincfg</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)tflite_lstm_recognizer_latin_0.3.class_lst" Visible="False">
-				<LogicalName>JapaneseOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.class_lst</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)tflite_lstm_recognizer_latin_0.3.conv_model" Visible="False">
-				<LogicalName>JapaneseOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.conv_model</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)tflite_lstm_recognizer_latin_0.3.lstm_model" Visible="False">
-				<LogicalName>JapaneseOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.lstm_model</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)tflite_script_detector_0.3.bincfg" Visible="False">
-				<LogicalName>JapaneseOCRResources.bundle\tflite_script_detector_0.3.bincfg</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)tflite_script_detector_0.3.conv_model" Visible="False">
-				<LogicalName>JapaneseOCRResources.bundle\tflite_script_detector_0.3.conv_model</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)tflite_script_detector_0.3.lstm_model" Visible="False">
-				<LogicalName>JapaneseOCRResources.bundle\tflite_script_detector_0.3.lstm_model</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-		</ItemGroup>
-	</Target>
+﻿<Project>
+  <PropertyGroup>
+    <_MLKitTextRecogJapaneseAssemblyName>MLKit.TextRecognition.Japanese, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_MLKitTextRecogJapaneseAssemblyName>
+    <_MLKitTextJapaneseItemsFolder>MLKTextJapanese-1.0.0beta3</_MLKitTextJapaneseItemsFolder>
+    <_MLKitTextJapaneseSDKBaseFolder>$(XamarinBuildDownloadDir)$(_MLKitTextJapaneseItemsFolder)\</_MLKitTextJapaneseSDKBaseFolder>
+    <_MLKitTextJapaneseResourcesFolder>$(XamarinBuildDownloadDir)$(_MLKitTextJapaneseItemsFolder)\Resources\JapaneseOCRResources\</_MLKitTextJapaneseResourcesFolder>
+  </PropertyGroup>
+  <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+    <XamarinBuildDownload Include="$(_MLKitTextJapaneseItemsFolder)">
+      <Url>https://dl.google.com/dl/cpdc/094ba2d541a08563/MLKitTextRecognitionJapanese-1.0.0-beta3.tar.gz</Url>
+      <Kind>Tgz</Kind>
+    </XamarinBuildDownload>
+    <XamarinBuildRestoreResources Include="_MLKitTextJapaneseDownloadedItems" />
+  </ItemGroup>
+  <Target Name="_MLKitTextJapaneseDownloadedItems">
+    <ItemGroup>
+      <!-- From https://dl.google.com/dl/cpdc/094ba2d541a08563/MLKitTextRecognitionJapanese-1.0.0-beta3.tar.gz -->
+      <NativeReference Include="$(_MLKitTextJapaneseSDKBaseFolder)Frameworks\MLKitTextRecognitionJapanese.framework">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+        <LinkerFlags>-lc++</LinkerFlags>
+        <Frameworks>Accelerate AVFoundation CoreGraphics CoreImage CoreMedia CoreVideo Foundation UIKit</Frameworks>
+      </NativeReference>
+    </ItemGroup>
+    <ItemGroup>
+      <BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)region_proposal_text_detector_tflite_vertical.bincfg" Visible="False">
+        <LogicalName>JapaneseOCRResources.bundle\region_proposal_text_detector_tflite_vertical.bincfg</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)rpn_lstm_engine_tflite_ja_la.bincfg" Visible="False">
+        <LogicalName>JapaneseOCRResources.bundle\rpn_lstm_engine_tflite_ja_la.bincfg</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)rpn_text_detector_mobile_space_to_depth_quantized_v2.tflite" Visible="False">
+        <LogicalName>JapaneseOCRResources.bundle\rpn_text_detector_mobile_space_to_depth_quantized_v2.tflite</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)tflite_langid.tflite" Visible="False">
+        <LogicalName>JapaneseOCRResources.bundle\tflite_langid.tflite</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)tflite_lstm_recognizer_ja_0.1.bincfg" Visible="False">
+        <LogicalName>JapaneseOCRResources.bundle\tflite_lstm_recognizer_ja_0.1.bincfg</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)tflite_lstm_recognizer_ja_0.1.class_lst" Visible="False">
+        <LogicalName>JapaneseOCRResources.bundle\tflite_lstm_recognizer_ja_0.1.class_lst</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)tflite_lstm_recognizer_ja_0.1.conv_model" Visible="False">
+        <LogicalName>JapaneseOCRResources.bundle\tflite_lstm_recognizer_ja_0.1.conv_model</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)tflite_lstm_recognizer_ja_0.1.lstm_model" Visible="False">
+        <LogicalName>JapaneseOCRResources.bundle\tflite_lstm_recognizer_ja_0.1.lstm_model</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)tflite_lstm_recognizer_latin_0.3.bincfg" Visible="False">
+        <LogicalName>JapaneseOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.bincfg</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)tflite_lstm_recognizer_latin_0.3.class_lst" Visible="False">
+        <LogicalName>JapaneseOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.class_lst</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)tflite_lstm_recognizer_latin_0.3.conv_model" Visible="False">
+        <LogicalName>JapaneseOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.conv_model</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)tflite_lstm_recognizer_latin_0.3.lstm_model" Visible="False">
+        <LogicalName>JapaneseOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.lstm_model</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)tflite_script_detector_0.3.bincfg" Visible="False">
+        <LogicalName>JapaneseOCRResources.bundle\tflite_script_detector_0.3.bincfg</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)tflite_script_detector_0.3.conv_model" Visible="False">
+        <LogicalName>JapaneseOCRResources.bundle\tflite_script_detector_0.3.conv_model</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextJapaneseResourcesFolder)tflite_script_detector_0.3.lstm_model" Visible="False">
+        <LogicalName>JapaneseOCRResources.bundle\tflite_script_detector_0.3.lstm_model</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+    </ItemGroup>
+  </Target>
 </Project>

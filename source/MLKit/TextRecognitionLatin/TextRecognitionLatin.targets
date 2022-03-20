@@ -1,62 +1,61 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<PropertyGroup>
-		<_MLKitTextRecogLatinAssemblyName>MLKit.TextRecognition.Latin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_MLKitTextRecogLatinAssemblyName>
-		<_MLKitTextLatinItemsFolder>MLKTextLatin-1.4.0beta3</_MLKitTextLatinItemsFolder>
-		<_MLKitTextLatinSDKBaseFolder>$(XamarinBuildDownloadDir)$(_MLKitTextLatinItemsFolder)\</_MLKitTextLatinSDKBaseFolder>
-		<_MLKitTextLatinResourcesFolder>$(XamarinBuildDownloadDir)$(_MLKitTextLatinItemsFolder)\Resources\LatinOCRResources\</_MLKitTextLatinResourcesFolder>
-	</PropertyGroup>
-	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
-		<XamarinBuildDownload Include="$(_MLKitTextLatinItemsFolder)">
-			<Url>https://dl.google.com/dl/cpdc/95f11403570867d4/MLKitTextRecognition-1.4.0-beta3.tar.gz</Url>
-			<Kind>Tgz</Kind>
-		</XamarinBuildDownload>
-		<XamarinBuildRestoreResources Include="_MLKitTextLatinDownloadedItems" />
-	</ItemGroup>
-	<Target Name="_MLKitTextLatinDownloadedItems">
-		<ItemGroup>
-			<!-- From https://dl.google.com/dl/cpdc/95f11403570867d4/MLKitTextRecognition-1.4.0-beta3.tar.gz -->
-			<NativeReference Include="$(_MLKitTextLatinSDKBaseFolder)Frameworks\MLKitTextRecognition.framework">
-				<Kind>Framework</Kind>
-				<SmartLink>True</SmartLink>
-				<ForceLoad>True</ForceLoad>
-				<LinkerFlags>-lc++</LinkerFlags>
-				<Frameworks>Accelerate AVFoundation CoreGraphics CoreImage CoreMedia CoreVideo Foundation UIKit</Frameworks>
-			</NativeReference>
-		</ItemGroup>
-		<ItemGroup>
-			<BundleResource Include="$(_MLKitTextLatinResourcesFolder)region_proposal_text_detector_tflite_gray_quantized.bincfg" Visible="False">
-				<LogicalName>LatinOCRResources.bundle\region_proposal_text_detector_tflite_gray_quantized.bincfg</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextLatinResourcesFolder)rpn_lstm_engine_tflite_latin.bincfg" Visible="False">
-				<LogicalName>LatinOCRResources.bundle\rpn_lstm_engine_tflite_latin.bincfg</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextLatinResourcesFolder)rpn_text_detector_mobile_space_to_depth_quantized_v2.tflite" Visible="False">
-				<LogicalName>LatinOCRResources.bundle\rpn_text_detector_mobile_space_to_depth_quantized_v2.tflite</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextLatinResourcesFolder)tflite_langid.tflite" Visible="False">
-				<LogicalName>LatinOCRResources.bundle\tflite_langid.tflite</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextLatinResourcesFolder)tflite_lstm_recognizer_latin_0.3.bincfg" Visible="False">
-				<LogicalName>LatinOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.bincfg</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextLatinResourcesFolder)tflite_lstm_recognizer_latin_0.3.class_lst" Visible="False">
-				<LogicalName>LatinOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.class_lst</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextLatinResourcesFolder)tflite_lstm_recognizer_latin_0.3.conv_model" Visible="False">
-				<LogicalName>LatinOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.conv_model</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-			<BundleResource Include="$(_MLKitTextLatinResourcesFolder)tflite_lstm_recognizer_latin_0.3.lstm_model" Visible="False">
-				<LogicalName>LatinOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.lstm_model</LogicalName>
-				<Optimize>False</Optimize>
-			</BundleResource>
-		</ItemGroup>
-	</Target>
+﻿<Project>
+  <PropertyGroup>
+    <_MLKitTextRecogLatinAssemblyName>MLKit.TextRecognition.Latin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_MLKitTextRecogLatinAssemblyName>
+    <_MLKitTextLatinItemsFolder>MLKTextLatin-1.4.0beta3</_MLKitTextLatinItemsFolder>
+    <_MLKitTextLatinSDKBaseFolder>$(XamarinBuildDownloadDir)$(_MLKitTextLatinItemsFolder)\</_MLKitTextLatinSDKBaseFolder>
+    <_MLKitTextLatinResourcesFolder>$(XamarinBuildDownloadDir)$(_MLKitTextLatinItemsFolder)\Resources\LatinOCRResources\</_MLKitTextLatinResourcesFolder>
+  </PropertyGroup>
+  <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+    <XamarinBuildDownload Include="$(_MLKitTextLatinItemsFolder)">
+      <Url>https://dl.google.com/dl/cpdc/95f11403570867d4/MLKitTextRecognition-1.4.0-beta3.tar.gz</Url>
+      <Kind>Tgz</Kind>
+    </XamarinBuildDownload>
+    <XamarinBuildRestoreResources Include="_MLKitTextLatinDownloadedItems" />
+  </ItemGroup>
+  <Target Name="_MLKitTextLatinDownloadedItems">
+    <ItemGroup>
+      <!-- From https://dl.google.com/dl/cpdc/95f11403570867d4/MLKitTextRecognition-1.4.0-beta3.tar.gz -->
+      <NativeReference Include="$(_MLKitTextLatinSDKBaseFolder)Frameworks\MLKitTextRecognition.framework">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+        <LinkerFlags>-lc++</LinkerFlags>
+        <Frameworks>Accelerate AVFoundation CoreGraphics CoreImage CoreMedia CoreVideo Foundation UIKit</Frameworks>
+      </NativeReference>
+    </ItemGroup>
+    <ItemGroup>
+      <BundleResource Include="$(_MLKitTextLatinResourcesFolder)region_proposal_text_detector_tflite_gray_quantized.bincfg" Visible="False">
+        <LogicalName>LatinOCRResources.bundle\region_proposal_text_detector_tflite_gray_quantized.bincfg</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextLatinResourcesFolder)rpn_lstm_engine_tflite_latin.bincfg" Visible="False">
+        <LogicalName>LatinOCRResources.bundle\rpn_lstm_engine_tflite_latin.bincfg</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextLatinResourcesFolder)rpn_text_detector_mobile_space_to_depth_quantized_v2.tflite" Visible="False">
+        <LogicalName>LatinOCRResources.bundle\rpn_text_detector_mobile_space_to_depth_quantized_v2.tflite</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextLatinResourcesFolder)tflite_langid.tflite" Visible="False">
+        <LogicalName>LatinOCRResources.bundle\tflite_langid.tflite</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextLatinResourcesFolder)tflite_lstm_recognizer_latin_0.3.bincfg" Visible="False">
+        <LogicalName>LatinOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.bincfg</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextLatinResourcesFolder)tflite_lstm_recognizer_latin_0.3.class_lst" Visible="False">
+        <LogicalName>LatinOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.class_lst</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextLatinResourcesFolder)tflite_lstm_recognizer_latin_0.3.conv_model" Visible="False">
+        <LogicalName>LatinOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.conv_model</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+      <BundleResource Include="$(_MLKitTextLatinResourcesFolder)tflite_lstm_recognizer_latin_0.3.lstm_model" Visible="False">
+        <LogicalName>LatinOCRResources.bundle\tflite_lstm_recognizer_latin_0.3.lstm_model</LogicalName>
+        <Optimize>False</Optimize>
+      </BundleResource>
+    </ItemGroup>
+  </Target>
 </Project>

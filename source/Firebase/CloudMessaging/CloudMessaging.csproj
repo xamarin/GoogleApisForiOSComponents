@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Xamarin.Legacy.Sdk">
+﻿<Project Sdk="Xamarin.Legacy.Sdk">
   <PropertyGroup>
     <TargetFrameworks>xamarin.ios10;net6.0-ios</TargetFrameworks>
     <NoNFloatUsing Condition="'$(TargetFramework)' == 'xamarin.ios10'">true</NoNFloatUsing>
@@ -15,7 +14,6 @@
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
-
   <PropertyGroup>
     <PackageId>Xamarin.Firebase.iOS.CloudMessaging</PackageId>
     <Title>Firebase APIs Cloud Messaging iOS Library</Title>
@@ -30,53 +28,48 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageVersion>8.10.0</PackageVersion>
   </PropertyGroup>
-  
   <ItemGroup>
     <Compile Include="..\AssemblyInfo.cs" />
   </ItemGroup>
-
   <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
-  
   <ItemGroup>
-    
+    <None Include="CloudMessaging.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.CloudMessaging.targets" />
+    <None Include="CloudMessaging.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.CloudMessaging.targets" />
     <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseioscloudmessaging_128x128.png" Pack="True" PackagePath="firebaseioscloudmessaging_128x128.png" />
   </ItemGroup>
-
+  <!-- An iOS app project cannot find Xcframeworks within a NuGet if a TFM
+       previous than net6.0-ios is used.
+       https://github.com/xamarin/xamarin-macios/issues/13693
+       You must include the Xcframework's NativeReference tag into the iOS app
+       project so sidecar can work properly. -->
+  <!-- This workaround was designed like this to have the same
+       the NativeReference tag for the iOS binding and for the .targets file -->
+  <Import Project="CloudMessaging.targets" />
   <ItemGroup>
-    <NativeReference Include="..\..\..\externals\FirebaseMessaging.framework">
-      <Kind>Framework</Kind>
-      <Frameworks>SystemConfiguration</Frameworks>
-      <WeakFrameworks>UserNotifications</WeakFrameworks>
-      <SmartLink>True</SmartLink>
-      <ForceLoad>True</ForceLoad>
-      <LinkerFlags>-lsqlite3</LinkerFlags>
-    </NativeReference>    
+    <_NativeReference Include="..\..\..\externals\FirebaseMessaging.xcframework">
+      <_Id>$(_FirebaseMessagingId)</_Id>
+    </_NativeReference>
   </ItemGroup>
-
+  <!-- End of workaround -->
   <ItemGroup Condition="'$(TargetFramework)' == 'xamarin.ios10'">
     <Compile Remove="ApiDefinition.cs" />
     <Compile Remove="Enums.cs" />
   </ItemGroup>
-  
   <ItemGroup>
     <ObjcBindingCoreSource Include="Enums.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
   </ItemGroup>
-
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" PrivateAssets="None" />
   </ItemGroup>
-  
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\Installations\Installations.csproj" PrivateAssets="None" />
   </ItemGroup>
-
 </Project>
