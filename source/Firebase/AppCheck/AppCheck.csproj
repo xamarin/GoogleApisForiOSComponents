@@ -46,7 +46,7 @@
        You must include the Xcframework's NativeReference tag into the iOS app
        project so sidecar can work properly. -->
   <!-- This workaround was designed like this to have the same
-       the NativeReference tag for the iOS binding and for the .targets file -->
+       NativeReference tag for the iOS binding and for the .targets file -->
   <Import Project="AppCheck.targets" />
   <ItemGroup>
     <_NativeReference Include="..\..\..\externals\FirebaseAppCheck.xcframework">
