@@ -5,6 +5,10 @@ using Foundation;
 using ObjCRuntime;
 using CoreGraphics;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace Firebase.Auth
 {
 	// @interface FIRActionCodeSettings : NSObject

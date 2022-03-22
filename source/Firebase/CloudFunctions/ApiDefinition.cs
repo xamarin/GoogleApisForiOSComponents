@@ -6,6 +6,10 @@ using ObjCRuntime;
 using CoreGraphics;
 using Firebase.Core;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace Firebase.CloudFunctions
 {
 	// @interface FIRFunctions : NSObject

@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using Foundation;
 using ObjCRuntime;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace Firebase.Analytics
 {
 	// @interface FIRAnalytics : NSObject

@@ -7,6 +7,10 @@ using ObjCRuntime;
 using StoreKit;
 using UIKit;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace Google.MobileAds {
 	#region CustomLib
 	// This is a custom class created by me and is not part of Google Admob lib
@@ -153,7 +157,7 @@ namespace Google.MobileAds {
 		// -(instancetype)initWithRewardType:(NSString *)rewardType rewardAmount:(NSDecimalNumber *)rewardAmount __attribute__((objc_designated_initializer));
 		[DesignatedInitializer]
 		[Export ("initWithRewardType:rewardAmount:")]
-		IntPtr Constructor (string rewardType, NSDecimalNumber rewardAmount);
+		NativeHandle Constructor (string rewardType, NSDecimalNumber rewardAmount);
 	}
 
 	[BaseType (typeof (UIView),
@@ -162,10 +166,10 @@ namespace Google.MobileAds {
 		Events = new Type [] { typeof (BannerViewDelegate), typeof (AdSizeDelegate) })]
 	interface BannerView {
 		[Export ("initWithAdSize:origin:")]
-		IntPtr Constructor (AdSize size, CGPoint origin);
+		NativeHandle Constructor (AdSize size, CGPoint origin);
 
 		[Export ("initWithAdSize:")]
-		IntPtr Constructor (AdSize size);
+		NativeHandle Constructor (AdSize size);
 
 		[NullAllowed]
 		[Export ("adUnitID", ArgumentSemantic.Copy)]
@@ -840,13 +844,13 @@ namespace Google.MobileAds {
 	interface SearchBannerView {
 
 		[Export ("initWithFrame:")]
-		IntPtr Constructor (CGRect frame);
+		NativeHandle Constructor (CGRect frame);
 
 		[Export ("initWithAdSize:origin:")]
-		IntPtr Constructor (AdSize size, CGPoint origin);
+		NativeHandle Constructor (AdSize size, CGPoint origin);
 
 		[Export ("initWithAdSize:")]
-		IntPtr Constructor (AdSize size);
+		NativeHandle Constructor (AdSize size);
 
 		// @property(nonatomic, weak) IBOutlet id<GADAdSizeDelegate> adSizeDelegate;
 		[New]
@@ -1005,7 +1009,7 @@ namespace Google.MobileAds {
 	[BaseType (typeof (UIView), Name = "GADNativeAdView")]
 	interface NativeAdView {
 		[Export ("initWithFrame:")]
-		IntPtr Constructor (CGRect frame);
+		NativeHandle Constructor (CGRect frame);
 
 		// @property (nonatomic, strong) GADNativeAd * _Nullable nativeAd;
 		[NullAllowed]
@@ -1381,7 +1385,7 @@ namespace Google.MobileAds {
 
 		// -(instancetype)initWithAdUnitID:(NSString *)adUnitID rootViewController:(UIViewController *)rootViewController adTypes:(NSArray *)adTypes options:(NSArray *)options;
 		[Export ("initWithAdUnitID:rootViewController:adTypes:options:")]
-		IntPtr Constructor (string adUnitID, [NullAllowed] UIViewController rootViewController, NSString [] adTypes, [NullAllowed] AdLoaderOptions [] options);
+		NativeHandle Constructor (string adUnitID, [NullAllowed] UIViewController rootViewController, NSString [] adTypes, [NullAllowed] AdLoaderOptions [] options);
 
 		// -(void)loadRequest:(GADRequest *)request;
 		[Export ("loadRequest:")]
@@ -1502,11 +1506,11 @@ namespace Google.MobileAds {
 	interface NativeAdImage {
 		// -(instancetype)initWithImage:(UIImage *)image;
 		[Export ("initWithImage:")]
-		IntPtr Constructor (UIImage image);
+		NativeHandle Constructor (UIImage image);
 
 		// -(instancetype)initWithURL:(NSURL *)URL scale:(CGFloat)scale;
 		[Export ("initWithURL:scale:")]
-		IntPtr Constructor (NSUrl url, nfloat scale);
+		NativeHandle Constructor (NSUrl url, nfloat scale);
 
 		// @property (readonly, nonatomic, strong) UIImage * image;
 		[NullAllowed]
@@ -2116,13 +2120,13 @@ namespace Google.MobileAds.DoubleClick {
 
 		[Export ("initWithFrame:")]
 		
-		IntPtr Constructor (CGRect frame);
+		NativeHandle Constructor (CGRect frame);
 
 		[Export ("initWithAdSize:origin:")]
-		IntPtr Constructor (AdSize size, CGPoint origin);
+		NativeHandle Constructor (AdSize size, CGPoint origin);
 
 		[Export ("initWithAdSize:")]
-		IntPtr Constructor (AdSize size);
+		NativeHandle Constructor (AdSize size);
 
 		[New]
 		[NullAllowed]

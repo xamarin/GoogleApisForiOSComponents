@@ -5,6 +5,10 @@ using Foundation;
 using ObjCRuntime;
 using CoreGraphics;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace Firebase.DynamicLinks
 {
 	// typedef void (^FIRDynamicLinkShortenerCompletion)(NSURL * _Nullable, NSArray<NSString *> * _Nullable, NSError * _Nullable);
@@ -51,7 +55,7 @@ namespace Firebase.DynamicLinks
 
 		// -(instancetype _Nonnull)initWithSource:(NSString * _Nonnull)source medium:(NSString * _Nonnull)medium campaign:(NSString * _Nonnull)campaign;
 		[Export ("initWithSource:medium:campaign:")]
-		IntPtr Constructor (string source, string medium, string campaign);
+		NativeHandle Constructor (string source, string medium, string campaign);
 	}
 
 	// @interface FIRDynamicLinkIOSParameters : NSObject
@@ -100,7 +104,7 @@ namespace Firebase.DynamicLinks
 
 		// -(instancetype _Nonnull)initWithBundleID:(NSString * _Nonnull)bundleID;
 		[Export ("initWithBundleID:")]
-		IntPtr Constructor (string bundleId);
+		NativeHandle Constructor (string bundleId);
 	}
 
 	[BaseType (typeof (NSObject), Name = "FIRDynamicLinkItunesConnectAnalyticsParameters")]
@@ -152,7 +156,7 @@ namespace Firebase.DynamicLinks
 
 		// -(instancetype _Nonnull)initWithPackageName:(NSString * _Nonnull)packageName;
 		[Export ("initWithPackageName:")]
-		IntPtr Constructor (string packageName);
+		NativeHandle Constructor (string packageName);
 	}
 
 	// @interface FIRDynamicLinkSocialMetaTagParameters : NSObject
@@ -285,7 +289,7 @@ namespace Firebase.DynamicLinks
 
 		// -(instancetype _Nonnull)initWithLink:(NSURL * _Nonnull)link domain:(NSString * _Nonnull)domain;
 		[Export ("initWithLink:domainURIPrefix:")]
-		IntPtr Constructor (NSUrl link, string domainUriPrefix);
+		NativeHandle Constructor (NSUrl link, string domainUriPrefix);
 
 		// +(void)shortenURL:(NSURL * _Nonnull)url options:(FIRDynamicLinkComponentsOptions * _Nullable)options completion:(FIRDynamicLinkShortenerCompletion _Nonnull)completion;
 		[Static]

@@ -5,6 +5,10 @@ using Foundation;
 using ObjCRuntime;
 using CoreFoundation;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace Firebase.CloudFirestore
 {
 	// void (^ _Nullable)(NSError * _Nullable)
@@ -293,7 +297,7 @@ namespace Firebase.CloudFirestore
 	{
 		// -(instancetype _Nonnull)initWithFields:(NSArray<NSString *> * _Nonnull)fieldNames;
 		[Export ("initWithFields:")]
-		IntPtr Constructor (string [] fieldNames);
+		NativeHandle Constructor (string [] fieldNames);
 
 		// +(instancetype _Nonnull)documentID;
 		[Static]
@@ -529,7 +533,7 @@ namespace Firebase.CloudFirestore
 		// -(instancetype _Nonnull)initWithLatitude:(double)latitude longitude:(double)longitude __attribute__((objc_designated_initializer));
 		[DesignatedInitializer]
 		[Export ("initWithLatitude:longitude:")]
-		IntPtr Constructor (double latitude, double longitude);
+		NativeHandle Constructor (double latitude, double longitude);
 
 		// @property (readonly, nonatomic) double latitude;
 		[Export ("latitude")]
@@ -821,7 +825,7 @@ namespace Firebase.CloudFirestore
 		// -(instancetype _Nonnull)initWithSeconds:(int64_t)seconds nanoseconds:(int32_t)nanoseconds __attribute__((objc_designated_initializer));
 		[Export ("initWithSeconds:nanoseconds:")]
 		[DesignatedInitializer]
-		IntPtr Constructor (long seconds, int nanoseconds);
+		NativeHandle Constructor (long seconds, int nanoseconds);
 
 		// +(instancetype _Nonnull)timestampWithSeconds:(int64_t)seconds nanoseconds:(int32_t)nanoseconds;
 		[Static]

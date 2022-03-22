@@ -5,6 +5,10 @@ using Foundation;
 using ObjCRuntime;
 using UserNotifications;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace Firebase.CloudMessaging
 {
 	// typedef void(^FIRMessagingFCMTokenFetchCompletion)(NSString * _Nullable FCMToken, NSError* _Nullable error) FIR_SWIFT_NAME(MessagingFCMTokenFetchCompletion);

@@ -7,6 +7,10 @@ using ObjCRuntime;
 
 using MLKit.Core;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace MLKit.BarcodeScanning {
 	// @interface MLKBarcodeScannerOptions : NSObject
 	[BaseType (typeof (NSObject), Name = "MLKBarcodeScannerOptions")]
@@ -18,7 +22,7 @@ namespace MLKit.BarcodeScanning {
 		// -(instancetype _Nonnull)initWithFormats:(MLKBarcodeFormat)formats __attribute__((objc_designated_initializer));
 		[Export ("initWithFormats:")]
 		[DesignatedInitializer]
-		IntPtr Constructor (BarcodeFormat formats);
+		NativeHandle Constructor (BarcodeFormat formats);
 	}
 
 	// @interface MLKBarcodeAddress : NSObject

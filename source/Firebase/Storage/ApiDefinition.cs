@@ -6,6 +6,10 @@ using ObjCRuntime;
 using CoreGraphics;
 using CoreFoundation;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace Firebase.Storage
 {
 	// @interface FIRStorage : NSObject
@@ -181,7 +185,7 @@ namespace Firebase.Storage
 		// -(instancetype _Nullable)initWithDictionary:(NSDictionary * _Nonnull)dictionary __attribute__((objc_designated_initializer));
 		[DesignatedInitializer]
 		[Export ("initWithDictionary:")]
-		IntPtr Constructor (NSDictionary dictionary);
+		NativeHandle Constructor (NSDictionary dictionary);
 
 		// -(NSDictionary * _Nonnull)dictionaryRepresentation;
 		[Export ("dictionaryRepresentation")]

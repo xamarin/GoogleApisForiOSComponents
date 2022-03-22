@@ -6,6 +6,10 @@ using ObjCRuntime;
 using CoreGraphics;
 using CoreFoundation;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace Firebase.Database
 {
 	// @interface FIRDatabase : NSObject

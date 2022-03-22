@@ -8,6 +8,10 @@ using CoreGraphics;
 using CoreLocation;
 using Google.Maps;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace Google.Places {
 	// @interface GMSAddressComponent : NSObject
 	[BaseType (typeof (NSObject), Name = "GMSAddressComponent")]
@@ -61,7 +65,7 @@ namespace Google.Places {
 	interface AutocompleteFetcher {
 		// - (instancetype)initWithFilter:(nullable GMSAutocompleteFilter *)filter NS_DESIGNATED_INITIALIZER;
 		[Export ("initWithFilter:")]
-		IntPtr Constructor ([NullAllowed] AutocompleteFilter filter);
+		NativeHandle Constructor ([NullAllowed] AutocompleteFilter filter);
 
 		// @property(nonatomic, weak) id<GMSAutocompleteFetcherDelegate> delegate;
 		[NullAllowed]
@@ -630,7 +634,7 @@ namespace Google.Places {
 
 		// -(id)initWithNorthEast:(CLLocationCoordinate2D)northEast southWest:(CLLocationCoordinate2D)southWest;
 		[Export ("initWithNorthEast:southWest:")]
-		IntPtr Constructor (CLLocationCoordinate2D northEast, CLLocationCoordinate2D southWest);
+		NativeHandle Constructor (CLLocationCoordinate2D northEast, CLLocationCoordinate2D southWest);
 	}
 
 	// @interface GMSPlaceLikelihood : NSObject <NSCopying>
@@ -648,7 +652,7 @@ namespace Google.Places {
 		// -(instancetype)initWithPlace:(GMSPlace *)place likelihood:(double)likelihood;
 		[DesignatedInitializer]
 		[Export ("initWithPlace:likelihood:")]
-		IntPtr Constructor (Place place, double likelihood);
+		NativeHandle Constructor (Place place, double likelihood);
 	}
 
 	// @interface GMSPlaceLikelihoodList : NSObject

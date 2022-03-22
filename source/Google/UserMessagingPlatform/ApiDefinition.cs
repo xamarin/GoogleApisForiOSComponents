@@ -7,6 +7,10 @@ using ObjCRuntime;
 using StoreKit;
 using UIKit;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace Google.UserMessagingPlatform
 {
 	// typedef void (^UMPConsentFormLoadCompletionHandler)(UMPConsentForm * _Nullable, NSError * _Nullable);

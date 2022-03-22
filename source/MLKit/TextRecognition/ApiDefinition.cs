@@ -7,6 +7,10 @@ using ObjCRuntime;
 
 using MLKit.Core;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace MLKit.TextRecognition {
 	// @interface MLKCommonTextRecognizerOptions : NSObject
 	[BaseType (typeof (NSObject), Name = "MLKCommonTextRecognizerOptions")]

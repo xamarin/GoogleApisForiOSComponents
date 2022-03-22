@@ -7,6 +7,10 @@ using CoreLocation;
 using CoreAnimation;
 using CoreGraphics;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace Google.Maps
 {
 	#region CustomLib
@@ -155,19 +159,19 @@ namespace Google.Maps
 		double ViewingAngle { get; }
 
 		[Export ("initWithTarget:zoom:bearing:viewingAngle:")]
-		IntPtr Constructor (CLLocationCoordinate2D target, float zoom, double bearing, double viewingAngle);
+		NativeHandle Constructor (CLLocationCoordinate2D target, float zoom, double bearing, double viewingAngle);
 
 		// -(instancetype _Nonnull)initWithTarget:(CLLocationCoordinate2D)target zoom:(float)zoom;
 		[Export ("initWithTarget:zoom:")]
-		IntPtr Constructor (CLLocationCoordinate2D target, float zoom);
+		NativeHandle Constructor (CLLocationCoordinate2D target, float zoom);
 
 		// -(instancetype _Nonnull)initWithLatitude:(CLLocationDegrees)latitude longitude:(CLLocationDegrees)longitude zoom:(float)zoom;
 		[Export ("initWithLatitude:longitude:zoom:")]
-		IntPtr Constructor (double latitude, double longitude, float zoom);
+		NativeHandle Constructor (double latitude, double longitude, float zoom);
 
 		// -(instancetype _Nonnull)initWithLatitude:(CLLocationDegrees)latitude longitude:(CLLocationDegrees)longitude zoom:(float)zoom bearing:(CLLocationDirection)bearing viewingAngle:(double)viewingAngle;
 		[Export ("initWithLatitude:longitude:zoom:bearing:viewingAngle:")]
-		IntPtr Constructor (double latitude, double longitude, float zoom, double bearing, double viewingAngle);
+		NativeHandle Constructor (double latitude, double longitude, float zoom, double bearing, double viewingAngle);
 
 		[Static, Export ("cameraWithTarget:zoom:")]
 		CameraPosition FromCamera (CLLocationCoordinate2D target, float zoom);
@@ -288,13 +292,13 @@ namespace Google.Maps
 		bool Valid { [Bind ("isValid")] get; }
 
 		[Export ("initWithCoordinate:coordinate:")]
-		IntPtr Constructor (CLLocationCoordinate2D coord1, CLLocationCoordinate2D coord2);
+		NativeHandle Constructor (CLLocationCoordinate2D coord1, CLLocationCoordinate2D coord2);
 
 		[Export ("initWithRegion:")]
-		IntPtr Constructor (VisibleRegion region);
+		NativeHandle Constructor (VisibleRegion region);
 
 		[Export ("initWithPath:")]
-		IntPtr Constructor (Google.Maps.Path path);
+		NativeHandle Constructor (Google.Maps.Path path);
 
 		[Export ("includingCoordinate:")]
 		CoordinateBounds Including (CLLocationCoordinate2D coordinate);
@@ -567,7 +571,7 @@ namespace Google.Maps
 	{
 
 		[Export ("initWithFrame:")]
-		IntPtr Constructor (CGRect frame);
+		NativeHandle Constructor (CGRect frame);
 
 		[NullAllowed]
 		[Export ("delegate", ArgumentSemantic.Assign)]
@@ -644,7 +648,7 @@ namespace Google.Maps
 
 		// -(instancetype _Nonnull)initWithFrame:(CGRect)frame camera:(GMSCameraPosition * _Nonnull)camera;
 		[Export ("initWithFrame:camera:")]
-		IntPtr Constructor (CGRect frame, CameraPosition camera);
+		NativeHandle Constructor (CGRect frame, CameraPosition camera);
 
 		[Static]
 		[Export ("mapWithFrame:camera:")]
@@ -686,7 +690,7 @@ namespace Google.Maps
 
 		// -(instancetype _Nonnull)initWithFrame:(CGRect)frame mapID:(GMSMapID * _Nonnull)mapID camera:(GMSCameraPosition * _Nonnull)camera;
 		[Export ("initWithFrame:mapID:camera:")]
-		IntPtr Constructor (CGRect frame, MapId mapId, CameraPosition camera);
+		NativeHandle Constructor (CGRect frame, MapId mapId, CameraPosition camera);
 	}
 
 	[BaseType (typeof (MapView))]
@@ -880,7 +884,7 @@ namespace Google.Maps
 	{
 
 		[Export ("initWithOrientation:zoom:FOV:")]
-		IntPtr Constructor (Orientation orientation, float zoom, double fov);
+		NativeHandle Constructor (Orientation orientation, float zoom, double fov);
 
 		[Static]
 		[Export ("cameraWithOrientation:zoom:")]
@@ -1042,7 +1046,7 @@ namespace Google.Maps
 	{
 
 		[Export ("initWithFrame:")]
-		IntPtr Constructor (CGRect frame);
+		NativeHandle Constructor (CGRect frame);
 
 		[NullAllowed]
 		[Export ("panorama")]
@@ -1133,7 +1137,7 @@ namespace Google.Maps
 		Path GetPath { get; }
 
 		[Export ("initWithPath:")]
-		IntPtr Constructor (Path path);
+		NativeHandle Constructor (Path path);
 
 		[Export ("count")]
 		nuint Count { get; }
@@ -1481,7 +1485,7 @@ namespace Google.Maps
 		// -(instancetype _Nonnull)initWithImage:(UIImage * _Nonnull)image __attribute__((objc_designated_initializer));
 		[Export ("initWithImage:")]
 		[DesignatedInitializer]
-		IntPtr Constructor (UIImage image);
+		NativeHandle Constructor (UIImage image);
 	}
 
 	#region Premium
@@ -1493,7 +1497,7 @@ namespace Google.Maps
 		// -(instancetype _Nonnull)initWithIdentifier:(NSString * _Nonnull)identifier __attribute__((objc_designated_initializer));
 		[Export ("initWithIdentifier:")]
 		[DesignatedInitializer]
-		IntPtr Constructor (string identifier);
+		NativeHandle Constructor (string identifier);
 
 		// +(instancetype _Nonnull)mapIDWithIdentifier:(NSString * _Nonnull)identifier __attribute__((availability(swift, unavailable)));
 		[Static]

@@ -5,6 +5,10 @@ using Foundation;
 using ObjCRuntime;
 using UIKit;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace Firebase.InAppMessaging
 {
 	// @interface FIRInAppMessaging : NSObject
@@ -73,7 +77,7 @@ namespace Firebase.InAppMessaging
 
 		// -(instancetype _Nonnull)initWithImageURL:(NSString * _Nonnull)imageURL imageData:(NSData * _Nonnull)imageData __attribute__((deprecated("")));
 		[Export ("initWithImageURL:imageData:")]
-		IntPtr Constructor (string imageUrl, NSData imageData);
+		NativeHandle Constructor (string imageUrl, NSData imageData);
 	}
 
 	// @interface FIRInAppMessagingCampaignInfo : NSObject
@@ -111,7 +115,7 @@ namespace Firebase.InAppMessaging
 
 		// -(instancetype _Nonnull)initWithActionText:(NSString * _Nullable)actionText actionURL:(NSURL * _Nullable)actionURL;
 		[Export ("initWithActionText:actionURL:")]
-		IntPtr Constructor ([NullAllowed] string actionText, [NullAllowed] NSUrl actionUrl);
+		NativeHandle Constructor ([NullAllowed] string actionText, [NullAllowed] NSUrl actionUrl);
 	}
 
 	// @interface FIRInAppMessagingDisplayMessage : NSObject

@@ -2,6 +2,10 @@
 using ObjCRuntime;
 using System;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace Firebase.ABTesting {
 	// @interface FIRExperimentController : NSObject
 	[DisableDefaultCtor]
