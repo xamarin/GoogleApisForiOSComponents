@@ -9,6 +9,10 @@
 var TARGET = Argument ("t", Argument ("target", "build"));
 var NAMES = Argument ("names", "");
 
+var BUILD_COMMIT = EnvironmentVariable("BUILD_COMMIT") ?? "DEV";
+var BUILD_NUMBER = EnvironmentVariable("BUILD_NUMBER") ?? "DEBUG";
+var BUILD_TIMESTAMP = DateTime.UtcNow.ToString();
+
 var IS_LOCAL_BUILD = true;
 var BACKSLASH = string.Empty;
 
@@ -143,21 +147,32 @@ Task ("externals")
 	// 	FirebaseCoreDownload ();
 });
 
+Task ("ci-setup")
+	.WithCriteria (!BuildSystem.IsLocalBuild)
+	.Does (() => 
+{
+	var glob = "./source/**/AssemblyInfo.cs";
+
+	ReplaceTextInFiles(glob, "{BUILD_COMMIT}", BUILD_COMMIT);
+	ReplaceTextInFiles(glob, "{BUILD_NUMBER}", BUILD_NUMBER);
+	ReplaceTextInFiles(glob, "{BUILD_TIMESTAMP}", BUILD_TIMESTAMP);
+});
+
 Task ("libs")
 	.IsDependentOn("externals")
+	.IsDependentOn("ci-setup")
 	.Does(() =>
 {
-	CleanVisualStudioSolution ();
-	RestoreVisualStudioSolution ();
-
+	var msBuildSettings = new DotNetCoreMSBuildSettings ();
+	var dotNetCoreBuildSettings = new DotNetCoreBuildSettings { 
+		Configuration = "Release",
+		MSBuildSettings = msBuildSettings
+	};
+	
 	foreach (var target in SOURCES_TARGETS)
-		MSBuild(SOLUTION_PATH, c => {
-			c.Configuration = "Release";
-			c.Restore = true;
-			c.MaxCpuCount = 0;
-			c.Targets.Clear();
-			c.Targets.Add($@"source{BACKSLASH}{target}");
-		});
+		msBuildSettings.Targets.Add($@"source\{target}");
+	
+	DotNetCoreBuild(SOLUTION_PATH, dotNetCoreBuildSettings);
 });
 
 Task ("samples")
