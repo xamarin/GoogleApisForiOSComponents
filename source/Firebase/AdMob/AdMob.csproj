@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <IsBindingProject>true</IsBindingProject>
-    <NoBindingEmbedding>true</NoBindingEmbedding>
+    <NoBindingEmbedding>false</NoBindingEmbedding>
     <SupportedOSPlatformVersion>10.0</SupportedOSPlatformVersion>
     <RootNamespace>Firebase.AdMob</RootNamespace>
     <AssemblyName>Firebase.AdMob</AssemblyName>

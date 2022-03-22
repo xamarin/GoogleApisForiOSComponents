@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <IsBindingProject>true</IsBindingProject>
+    <NoBindingEmbedding>false</NoBindingEmbedding>
     <SupportedOSPlatformVersion>10.0</SupportedOSPlatformVersion>
     <RootNamespace>MLKit.TextRecognition.Korean</RootNamespace>
     <AssemblyName>MLKit.TextRecognition.Korean</AssemblyName>
