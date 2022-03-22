@@ -29,7 +29,7 @@
     <PackageVersion>6.0.1.1</PackageVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\AssemblyInfo.cs" />
+    <Compile Include="..\..\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
