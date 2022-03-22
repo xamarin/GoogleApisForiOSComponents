@@ -1,32 +1,32 @@
 // Firebase artifacts available to be built. These artifacts generate NuGets.
-Artifact FIREBASE_AB_TESTING_ARTIFACT              = new Artifact ("Firebase.ABTesting",              "8.10.0", "10.0", ComponentGroup.Firebase, csprojName: "ABTesting");
-Artifact FIREBASE_AD_MOB_ARTIFACT                  = new Artifact ("Firebase.AdMob",                  "8.13.0", "10.0", ComponentGroup.Firebase, csprojName: "AdMob");
-Artifact FIREBASE_ANALYTICS_ARTIFACT               = new Artifact ("Firebase.Analytics",              "8.10.0", "10.0", ComponentGroup.Firebase, csprojName: "Analytics");
-Artifact FIREBASE_AUTH_ARTIFACT                    = new Artifact ("Firebase.Auth",                   "8.10.0", "10.0", ComponentGroup.Firebase, csprojName: "Auth");
-Artifact FIREBASE_CLOUD_FIRESTORE_ARTIFACT         = new Artifact ("Firebase.CloudFirestore",         "8.10.0", "10.0", ComponentGroup.Firebase, csprojName: "CloudFirestore");
-Artifact FIREBASE_CLOUD_FUNCTIONS_ARTIFACT         = new Artifact ("Firebase.CloudFunctions",         "8.10.0", "10.0", ComponentGroup.Firebase, csprojName: "CloudFunctions");
-Artifact FIREBASE_CLOUD_MESSAGING_ARTIFACT         = new Artifact ("Firebase.CloudMessaging",         "8.10.0", "10.0", ComponentGroup.Firebase, csprojName: "CloudMessaging");
-Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Core",                   "8.10.0", "10.0", ComponentGroup.Firebase, csprojName: "Core");
-Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Crashlytics",            "8.10.0", "10.0", ComponentGroup.Firebase, csprojName: "Crashlytics");
-Artifact FIREBASE_DATABASE_ARTIFACT                = new Artifact ("Firebase.Database",               "8.10.0", "10.0", ComponentGroup.Firebase, csprojName: "Database");
-Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.DynamicLinks",           "8.10.0", "10.0", ComponentGroup.Firebase, csprojName: "DynamicLinks");
-Artifact FIREBASE_IN_APP_MESSAGING_ARTIFACT        = new Artifact ("Firebase.InAppMessaging",         "8.10.0", "10.0", ComponentGroup.Firebase, csprojName: "InAppMessaging");
-Artifact FIREBASE_INSTALLATIONS_ARTIFACT           = new Artifact ("Firebase.Installations",          "8.10.0", "10.0", ComponentGroup.Firebase, csprojName: "Installations");
-Artifact FIREBASE_PERFORMANCE_MONITORING_ARTIFACT  = new Artifact ("Firebase.PerformanceMonitoring",  "8.10.0", "10.0", ComponentGroup.Firebase, csprojName: "PerformanceMonitoring");
-Artifact FIREBASE_REMOTE_CONFIG_ARTIFACT           = new Artifact ("Firebase.RemoteConfig",           "8.10.0", "10.0", ComponentGroup.Firebase, csprojName: "RemoteConfig");
-Artifact FIREBASE_STORAGE_ARTIFACT                 = new Artifact ("Firebase.Storage",                "8.10.0", "10.0", ComponentGroup.Firebase, csprojName: "Storage");
-// Artifact FIREBASE_APP_DISTRIBUTION_ARTIFACT        = new Artifact ("Firebase.AppDistribution",        "8.10.0",   "10.0", ComponentGroup.Firebase, csprojName: "AppDistribution");
-// Artifact FIREBASE_APP_CHECK_ARTIFACT               = new Artifact ("Firebase.AppCheck",               "8.10.0",   "11.0", ComponentGroup.Firebase, csprojName: "AppCheck");
+Artifact FIREBASE_AB_TESTING_ARTIFACT              = new Artifact ("Firebase.ABTesting",              "8.10.0.1", "10.0", ComponentGroup.Firebase, csprojName: "ABTesting");
+Artifact FIREBASE_AD_MOB_ARTIFACT                  = new Artifact ("Firebase.AdMob",                  "8.13.0.1", "10.0", ComponentGroup.Firebase, csprojName: "AdMob");
+Artifact FIREBASE_ANALYTICS_ARTIFACT               = new Artifact ("Firebase.Analytics",              "8.10.0.1", "10.0", ComponentGroup.Firebase, csprojName: "Analytics");
+Artifact FIREBASE_AUTH_ARTIFACT                    = new Artifact ("Firebase.Auth",                   "8.10.0.1", "10.0", ComponentGroup.Firebase, csprojName: "Auth");
+Artifact FIREBASE_CLOUD_FIRESTORE_ARTIFACT         = new Artifact ("Firebase.CloudFirestore",         "8.10.0.1", "10.0", ComponentGroup.Firebase, csprojName: "CloudFirestore");
+Artifact FIREBASE_CLOUD_FUNCTIONS_ARTIFACT         = new Artifact ("Firebase.CloudFunctions",         "8.10.0.1", "10.0", ComponentGroup.Firebase, csprojName: "CloudFunctions");
+Artifact FIREBASE_CLOUD_MESSAGING_ARTIFACT         = new Artifact ("Firebase.CloudMessaging",         "8.10.0.1", "10.0", ComponentGroup.Firebase, csprojName: "CloudMessaging");
+Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Core",                   "8.10.0.1", "10.0", ComponentGroup.Firebase, csprojName: "Core");
+Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Crashlytics",            "8.10.0.1", "10.0", ComponentGroup.Firebase, csprojName: "Crashlytics");
+Artifact FIREBASE_DATABASE_ARTIFACT                = new Artifact ("Firebase.Database",               "8.10.0.1", "10.0", ComponentGroup.Firebase, csprojName: "Database");
+Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.DynamicLinks",           "8.10.0.1", "10.0", ComponentGroup.Firebase, csprojName: "DynamicLinks");
+Artifact FIREBASE_IN_APP_MESSAGING_ARTIFACT        = new Artifact ("Firebase.InAppMessaging",         "8.10.0.1", "10.0", ComponentGroup.Firebase, csprojName: "InAppMessaging");
+Artifact FIREBASE_INSTALLATIONS_ARTIFACT           = new Artifact ("Firebase.Installations",          "8.10.0.1", "10.0", ComponentGroup.Firebase, csprojName: "Installations");
+Artifact FIREBASE_PERFORMANCE_MONITORING_ARTIFACT  = new Artifact ("Firebase.PerformanceMonitoring",  "8.10.0.1", "10.0", ComponentGroup.Firebase, csprojName: "PerformanceMonitoring");
+Artifact FIREBASE_REMOTE_CONFIG_ARTIFACT           = new Artifact ("Firebase.RemoteConfig",           "8.10.0.1", "10.0", ComponentGroup.Firebase, csprojName: "RemoteConfig");
+Artifact FIREBASE_STORAGE_ARTIFACT                 = new Artifact ("Firebase.Storage",                "8.10.0.1", "10.0", ComponentGroup.Firebase, csprojName: "Storage");
+// Artifact FIREBASE_APP_DISTRIBUTION_ARTIFACT        = new Artifact ("Firebase.AppDistribution",        "8.10.0.1",   "10.0", ComponentGroup.Firebase, csprojName: "AppDistribution");
+// Artifact FIREBASE_APP_CHECK_ARTIFACT               = new Artifact ("Firebase.AppCheck",               "8.10.0.1",   "11.0", ComponentGroup.Firebase, csprojName: "AppCheck");
 
 // Google artifacts available to be built. These artifacts generate NuGets.
-Artifact GOOGLE_ANALYTICS_ARTIFACT    = new Artifact ("Google.Analytics",             "3.20.0.0", "9.0",  ComponentGroup.Google, csprojName: "Analytics");
-Artifact GOOGLE_CAST_ARTIFACT         = new Artifact ("Google.Cast",                  "4.7.0.0",  "12.0", ComponentGroup.Google, csprojName: "Cast");
-Artifact GOOGLE_MAPS_ARTIFACT         = new Artifact ("Google.Maps",                  "6.0.1.0",  "12.0", ComponentGroup.Google, csprojName: "Maps");
-Artifact GOOGLE_MOBILE_ADS_ARTIFACT   = new Artifact ("Google.MobileAds",             "8.13.0.0", "10.0", ComponentGroup.Google, csprojName: "MobileAds");
-Artifact GOOGLE_UMP_ARTIFACT          = new Artifact ("Google.UserMessagingPlatform", "1.1.0.0",  "10.0", ComponentGroup.Google, csprojName: "UserMessagingPlatform");
-Artifact GOOGLE_PLACES_ARTIFACT       = new Artifact ("Google.Places",                "6.0.0.0",  "12.0", ComponentGroup.Google, csprojName: "Places");
-Artifact GOOGLE_SIGN_IN_ARTIFACT      = new Artifact ("Google.SignIn",                "5.0.2.2",  "10.0", ComponentGroup.Google, csprojName: "SignIn");
-Artifact GOOGLE_TAG_MANAGER_ARTIFACT  = new Artifact ("Google.TagManager",            "7.4.0.0",  "10.0", ComponentGroup.Google, csprojName: "TagManager");
+Artifact GOOGLE_ANALYTICS_ARTIFACT    = new Artifact ("Google.Analytics",             "3.20.0.1", "9.0",  ComponentGroup.Google, csprojName: "Analytics");
+Artifact GOOGLE_CAST_ARTIFACT         = new Artifact ("Google.Cast",                  "4.7.0.1",  "12.0", ComponentGroup.Google, csprojName: "Cast");
+Artifact GOOGLE_MAPS_ARTIFACT         = new Artifact ("Google.Maps",                  "6.0.1.1",  "12.0", ComponentGroup.Google, csprojName: "Maps");
+Artifact GOOGLE_MOBILE_ADS_ARTIFACT   = new Artifact ("Google.MobileAds",             "8.13.0.1", "10.0", ComponentGroup.Google, csprojName: "MobileAds");
+Artifact GOOGLE_UMP_ARTIFACT          = new Artifact ("Google.UserMessagingPlatform", "1.1.0.1",  "10.0", ComponentGroup.Google, csprojName: "UserMessagingPlatform");
+Artifact GOOGLE_PLACES_ARTIFACT       = new Artifact ("Google.Places",                "6.0.0.1",  "12.0", ComponentGroup.Google, csprojName: "Places");
+Artifact GOOGLE_SIGN_IN_ARTIFACT      = new Artifact ("Google.SignIn",                "5.0.2.3",  "10.0", ComponentGroup.Google, csprojName: "SignIn");
+Artifact GOOGLE_TAG_MANAGER_ARTIFACT  = new Artifact ("Google.TagManager",            "7.4.0.1",  "10.0", ComponentGroup.Google, csprojName: "TagManager");
 
 // MLKit artifacts available to be built. These artifacts generate NuGets.
 Artifact MLKIT_CORE_ARTIFACT                     = new Artifact ("MLKit.Core",                        "5.0.0",    "10.0", ComponentGroup.MLKit, csprojName: "Core");
