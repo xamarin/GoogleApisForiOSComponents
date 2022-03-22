@@ -5,7 +5,6 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <IsBindingProject>true</IsBindingProject>
-    <NoBindingEmbedding>true</NoBindingEmbedding>
     <SupportedOSPlatformVersion>10.0</SupportedOSPlatformVersion>
     <RootNamespace>MLKit.FaceDetection</RootNamespace>
     <AssemblyName>MLKit.FaceDetection</AssemblyName>
