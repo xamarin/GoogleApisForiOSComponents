@@ -166,6 +166,7 @@ Task ("libs")
 	var msBuildSettings = new DotNetCoreMSBuildSettings ();
 	var dotNetCoreBuildSettings = new DotNetCoreBuildSettings { 
 		Configuration = "Release",
+		Verbosity = DotNetCoreVerbosity.Diagnostic,
 		MSBuildSettings = msBuildSettings
 	};
 	
