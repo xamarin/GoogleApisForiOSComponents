@@ -10,7 +10,7 @@
     <RootNamespace>Google.UserMessagingPlatform</RootNamespace>
     <AssemblyName>Google.UserMessagingPlatform</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.1.0.0</FileVersion>
+    <FileVersion>1.1.0.1</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ProcessEnums>true</ProcessEnums>
@@ -27,7 +27,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865562</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>1.1.0.0</PackageVersion>
+    <PackageVersion>1.1.0.1</PackageVersion>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\AssemblyInfo.cs" />

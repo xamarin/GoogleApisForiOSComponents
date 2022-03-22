@@ -10,7 +10,7 @@
     <RootNamespace>Google.Maps</RootNamespace>
     <AssemblyName>Google.Maps</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>6.0.1.0</FileVersion>
+    <FileVersion>6.0.1.1</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -26,7 +26,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865548</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>6.0.1.0</PackageVersion>
+    <PackageVersion>6.0.1.1</PackageVersion>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\AssemblyInfo.cs" />
