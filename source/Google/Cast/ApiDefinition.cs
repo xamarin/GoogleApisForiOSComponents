@@ -6,6 +6,10 @@ using UIKit;
 using CoreGraphics;
 using SessionOptions = Foundation.NSDictionary<Foundation.NSString, Foundation.INSCoding>;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace Google.Cast {
 	[Static]
 	interface Common {
@@ -148,12 +152,12 @@ namespace Google.Cast {
 
 		// -(instancetype _Nonnull)initWithAdBreakClipInfo:(GCKAdBreakClipInfo * _Nonnull)adBreakClipInfo;
 		[Export ("initWithAdBreakClipInfo:")]
-		IntPtr Constructor (AdBreakClipInfo adBreakClipInfo);
+		NativeHandle Constructor (AdBreakClipInfo adBreakClipInfo);
 
 		// -(instancetype _Nonnull)initWithAdBreakClipID:(NSString * _Nonnull)adBreakClipID __attribute__((objc_designated_initializer));
 		[DesignatedInitializer]
 		[Export ("initWithAdBreakClipID:")]
-		IntPtr Constructor (string adBreakClipId);
+		NativeHandle Constructor (string adBreakClipId);
 
 		// -(GCKAdBreakClipInfo * _Nonnull)build;
 		[Export ("build")]
@@ -191,12 +195,12 @@ namespace Google.Cast {
 
 		// -(instancetype _Nonnull)initWithAdBreakInfo:(GCKAdBreakInfo * _Nonnull)adBreakInfo;
 		[Export ("initWithAdBreakInfo:")]
-		IntPtr Constructor (AdBreakInfo adBreakInfo);
+		NativeHandle Constructor (AdBreakInfo adBreakInfo);
 
 		// -(instancetype _Nonnull)initWithAdBreakID:(NSString * _Nonnull)adBreakID adBreakClipIds:(NSArray<NSString *> * _Nullable)adBreakClipIDs __attribute__((objc_designated_initializer));
 		[DesignatedInitializer]
 		[Export ("initWithAdBreakID:adBreakClipIds:")]
-		IntPtr Constructor (string adBreakId, [NullAllowed] string [] adBreakClipIds);
+		NativeHandle Constructor (string adBreakId, [NullAllowed] string [] adBreakClipIds);
 
 		// -(GCKAdBreakInfo * _Nonnull)build;
 		[Export ("build")]
@@ -234,7 +238,7 @@ namespace Google.Cast {
 		// -(instancetype _Nonnull)initWithPlaybackPosition:(NSTimeInterval)playbackPosition;
 		[Obsolete ("Use the AdBreakInfoBuilder class to initialize AdBreakInfos")]
 		[Export ("initWithPlaybackPosition:")]
-		IntPtr Constructor (double playbackPosition);
+		NativeHandle Constructor (double playbackPosition);
 	}
 
 	// @interface GCKAdBreakStatus : NSObject <NSCopying>
@@ -315,7 +319,7 @@ namespace Google.Cast {
 		bool IsWritable { get; }
 
 		[Export ("initWithNamespace:")]
-		IntPtr Constructor (string protocolNamespace);
+		NativeHandle Constructor (string protocolNamespace);
 
 		[Export ("didReceiveTextMessage:")]
 		void DidReceiveTextMessage (string message);
@@ -480,17 +484,17 @@ namespace Google.Cast {
 	interface CastOptions : INSCopying, INSSecureCoding {
 		// -(instancetype _Nonnull)initWithDiscoveryCriteria:(GCKDiscoveryCriteria * _Nonnull)discoveryCriteria;
 		[Export ("initWithDiscoveryCriteria:")]
-		IntPtr Constructor (DiscoveryCriteria discoveryCriteria);
+		NativeHandle Constructor (DiscoveryCriteria discoveryCriteria);
 
 		// -(instancetype _Nonnull)initWithReceiverApplicationID:(NSString * _Nonnull)applicationID;
 		[Obsolete ("Use Constructor (DiscoveryCriteria) overload instead.")]
 		[Export ("initWithReceiverApplicationID:")]
-		IntPtr Constructor (string applicationId);
+		NativeHandle Constructor (string applicationId);
 
 		// -(instancetype _Nonnull)initWithSupportedNamespaces:(NSArray<NSString *> * _Nonnull)namespaces;
 		[Obsolete ("Use Constructor (DiscoveryCriteria) overload instead.")]
 		[Export ("initWithSupportedNamespaces:")]
-		IntPtr Constructor (string [] namespaces);
+		NativeHandle Constructor (string [] namespaces);
 
 		// @property (assign, readwrite, nonatomic) BOOL physicalVolumeButtonsWillControlDeviceVolume;
 		[Export ("physicalVolumeButtonsWillControlDeviceVolume")]
@@ -545,7 +549,7 @@ namespace Google.Cast {
 
 		// -(instancetype _Nonnull)initWithDevice:(GCKDevice * _Nonnull)device sessionID:(NSString * _Nullable)sessionID sessionOptions:(GCKSessionOptions * _Nullable)sessionOptions castOptions:(GCKCastOptions * _Nonnull)castOptions;
 		[Export ("initWithDevice:sessionID:sessionOptions:castOptions:")]
-		IntPtr Constructor (Device device, [NullAllowed] string sessionId, [NullAllowed] SessionOptions sessionOptions, CastOptions castOptions);
+		NativeHandle Constructor (Device device, [NullAllowed] string sessionId, [NullAllowed] SessionOptions sessionOptions, CastOptions castOptions);
 
 		// -(BOOL)addChannel:(GCKCastChannel * _Nonnull)channel;
 		[Export ("addChannel:")]
@@ -631,23 +635,23 @@ namespace Google.Cast {
 		nfloat Alpha { get; }
 
 		[Export ("initWithRed:green:blue:alpha:")]
-		IntPtr Constructor (nfloat red, nfloat green, nfloat blue, nfloat alpha);
+		NativeHandle Constructor (nfloat red, nfloat green, nfloat blue, nfloat alpha);
 
 		[Export ("initWithRed:green:blue:")]
-		IntPtr Constructor (nfloat red, nfloat green, nfloat blue);
+		NativeHandle Constructor (nfloat red, nfloat green, nfloat blue);
 
 		[Export ("initWithUIColor:")]
-		IntPtr Constructor (UIColor color);
+		NativeHandle Constructor (UIColor color);
 
 		[Export ("initWithCGColor:")]
-		IntPtr Constructor (CGColor color);
+		NativeHandle Constructor (CGColor color);
 
 		// -(instancetype _Nonnull)initWithCGColor:(CGColorRef _Nonnull)color alpha:(CGFloat)alpha;
 		[Export ("initWithCGColor:alpha:")]
-		IntPtr Constructor (CGColor color, nfloat alpha);
+		NativeHandle Constructor (CGColor color, nfloat alpha);
 
 		[Export ("initWithCSSString:")]
-		IntPtr Constructor (string cssString);
+		NativeHandle Constructor (string cssString);
 
 		[Export ("CSSString")]
 		string CSSString { get; }
@@ -690,11 +694,11 @@ namespace Google.Cast {
 	interface CredentialsData {
 		// - (instancetype)initWithCredentials:(NSString *_Nullable)credentials;
 		[Export ("initWithCredentials:")]
-		IntPtr Constructor ([NullAllowed] string credentials);
+		NativeHandle Constructor ([NullAllowed] string credentials);
 
 		// - (instancetype)initWithCredentials:(NSString *_Nullable)credentials credentialsType:(NSString *_Nullable)credentialsType NS_DESIGNATED_INITIALIZER;
 		[Export ("initWithCredentials:credentialsType:")]
-		IntPtr Constructor ([NullAllowed] string credentials, [NullAllowed] string credentialsType);
+		NativeHandle Constructor ([NullAllowed] string credentials, [NullAllowed] string credentialsType);
 
 		// - (NSString *_Nullable)credentials;
 		[NullAllowed]
@@ -811,7 +815,7 @@ namespace Google.Cast {
 		// -(instancetype _Nonnull)initWithDeviceCategory:(NSString * _Nonnull)deviceCategory;
 		[DesignatedInitializer]
 		[Export ("initWithDeviceCategory:")]
-		IntPtr Constructor (string deviceCategory);
+		NativeHandle Constructor (string deviceCategory);
 
 		// -(void)startDiscovery;
 		[Export ("startDiscovery")]
@@ -893,7 +897,7 @@ namespace Google.Cast {
 
 		// -(instancetype _Nonnull)initWithApplicationID:(NSString * _Nonnull)applicationID;
 		[Export ("initWithApplicationID:")]
-		IntPtr Constructor (string applicationId);
+		NativeHandle Constructor (string applicationId);
 
 		// -(instancetype _Nonnull)initWithNamespaces:(NSSet<NSString *> * _Nonnull)namespaces;
 		[Internal]
@@ -1087,7 +1091,7 @@ namespace Google.Cast {
 		IGenericChannelDelegate Delegate { get; set; }
 
 		[Export ("initWithNamespace:")]
-		IntPtr Constructor (string protocolNamespace);
+		NativeHandle Constructor (string protocolNamespace);
 	}
 
 	interface IGenericChannelDelegate {
@@ -1170,7 +1174,7 @@ namespace Google.Cast {
 		nint Height { get; }
 
 		[Export ("initWithURL:width:height:")]
-		IntPtr Constructor (NSUrl url, nint width, nint height);
+		NativeHandle Constructor (NSUrl url, nint width, nint height);
 	}
 
 	[DisableDefaultCtor]
@@ -1214,18 +1218,18 @@ namespace Google.Cast {
 		bool AndroidReceiverCompatible { get; set; }
 
 		[Export ("initWithRelaunchIfRunning:")]
-		IntPtr Constructor (bool relaunchIfRunning);
+		NativeHandle Constructor (bool relaunchIfRunning);
 
 		[Export ("initWithLanguageCode:relaunchIfRunning:")]
-		IntPtr Constructor ([NullAllowed] string languageCode, bool relaunchIfRunning);
+		NativeHandle Constructor ([NullAllowed] string languageCode, bool relaunchIfRunning);
 
 		// - (instancetype)initWithRelaunchIfRunning:(BOOL)relaunchIfRunning androidReceiverCompatible:(BOOL)androidReceiverCompatible;
 		[Export ("initWithRelaunchIfRunning:androidReceiverCompatible:")]
-		IntPtr Constructor (bool relaunchIfRunning, bool androidReceiverCompatible);
+		NativeHandle Constructor (bool relaunchIfRunning, bool androidReceiverCompatible);
 
 		// - (instancetype)initWithRelaunchIfRunning:(BOOL)relaunchIfRunning languageCode:(nullable NSString *)languageCode androidReceiverCompatible:(BOOL)androidReceiverCompatible;
 		[Export ("initWithRelaunchIfRunning:languageCode:androidReceiverCompatible:")]
-		IntPtr Constructor (bool relaunchIfRunning, [NullAllowed] string languageCode, bool androidReceiverCompatible);
+		NativeHandle Constructor (bool relaunchIfRunning, [NullAllowed] string languageCode, bool androidReceiverCompatible);
 	}
 
 	[DisableDefaultCtor]
@@ -1393,11 +1397,11 @@ namespace Google.Cast {
 
 		[Obsolete ("Use the MediaInformationBuilder class to initialize MediaInformation objects.")]
 		[Export ("initWithContentID:streamType:contentType:metadata:adBreaks:adBreakClips:streamDuration:mediaTracks:textTrackStyle:customData:")]
-		IntPtr Constructor (string contentId, MediaStreamType streamType, string contentType, [NullAllowed] MediaMetadata metadata, [NullAllowed] AdBreakInfo adBreaks, [NullAllowed] AdBreakClipInfo adBreakClips, double streamDuration, [NullAllowed] MediaTrack [] mediaTracks, [NullAllowed] MediaTextTrackStyle textTrackStyle, [NullAllowed] NSObject customData);
+		NativeHandle Constructor (string contentId, MediaStreamType streamType, string contentType, [NullAllowed] MediaMetadata metadata, [NullAllowed] AdBreakInfo adBreaks, [NullAllowed] AdBreakClipInfo adBreakClips, double streamDuration, [NullAllowed] MediaTrack [] mediaTracks, [NullAllowed] MediaTextTrackStyle textTrackStyle, [NullAllowed] NSObject customData);
 
 		[Obsolete ("Use the MediaInformationBuilder class to initialize MediaInformation objects.")]
 		[Export ("initWithContentID:streamType:contentType:metadata:streamDuration:mediaTracks:textTrackStyle:customData:")]
-		IntPtr Constructor (string contentId, MediaStreamType streamType, string contentType, [NullAllowed] MediaMetadata metadata, double streamDuration, [NullAllowed] MediaTrack [] mediaTracks, [NullAllowed] MediaTextTrackStyle textTrackStyle, [NullAllowed] NSObject customData);
+		NativeHandle Constructor (string contentId, MediaStreamType streamType, string contentType, [NullAllowed] MediaMetadata metadata, double streamDuration, [NullAllowed] MediaTrack [] mediaTracks, [NullAllowed] MediaTextTrackStyle textTrackStyle, [NullAllowed] NSObject customData);
 
 		// -(GCKMediaTrack * _Nullable)mediaTrackWithID:(NSInteger)trackID;
 		[return: NullAllowed]
@@ -1483,7 +1487,7 @@ namespace Google.Cast {
 
 		// -(instancetype _Nonnull)initWithContentURL:(NSURL * _Nonnull)contentURL;
 		[Export ("initWithContentURL:")]
-		IntPtr Constructor (NSUrl contentUrl);
+		NativeHandle Constructor (NSUrl contentUrl);
 
 		// -(instancetype _Nonnull)initWithEntity:(NSString * _Nonnull)entity;
 		[Internal]
@@ -1492,7 +1496,7 @@ namespace Google.Cast {
 
 		// -(instancetype _Nonnull)initWithMediaInformation:(GCKMediaInformation * _Nonnull)mediaInfo;
 		[Export ("initWithMediaInformation:")]
-		IntPtr Constructor (MediaInformation mediaInfo);
+		NativeHandle Constructor (MediaInformation mediaInfo);
 
 		// -(instancetype _Nonnull)initWithContentID:(NSString * _Nonnull)contentID;
 		[Internal]
@@ -1502,7 +1506,7 @@ namespace Google.Cast {
 		// -(instancetype _Nonnull)initWithContentID:(NSString * _Nonnull)contentID entity:(NSString * _Nonnull)entity;
 		[Obsolete ("Use the Constructor (NSUrl) or the Constructor (string, MediaInformationBuilderParameterType.IsEntity) constructors instead.")]
 		[Export ("initWithContentID:entity:")]
-		IntPtr Constructor (string contentID, string entity);
+		NativeHandle Constructor (string contentID, string entity);
 
 		// -(GCKMediaInformation * _Nonnull)build;
 		[Export ("build")]
@@ -1687,7 +1691,7 @@ namespace Google.Cast {
 
 		// -(instancetype _Nonnull)initWithMediaLoadRequestData:(GCKMediaLoadRequestData * _Nonnull)requestData;
 		[Export ("initWithMediaLoadRequestData:")]
-		IntPtr Constructor (MediaLoadRequestData requestData);
+		NativeHandle Constructor (MediaLoadRequestData requestData);
 
 		// -(GCKMediaLoadRequestData * _Nonnull)build;
 		[Export ("build")]
@@ -1795,7 +1799,7 @@ namespace Google.Cast {
 		MediaMetadataType MetadataType { get; }
 
 		[Export ("initWithMetadataType:")]
-		IntPtr Constructor (MediaMetadataType metadataType);
+		NativeHandle Constructor (MediaMetadataType metadataType);
 
 		[Export ("images")]
 		Image [] Images ();
@@ -1871,16 +1875,16 @@ namespace Google.Cast {
 
 		// -(instancetype _Nonnull)initWithRemoteMediaClient:(GCKRemoteMediaClient * _Nonnull)remoteMediaClient;
 		[Export ("initWithRemoteMediaClient:")]
-		IntPtr Constructor (RemoteMediaClient remoteMediaClient);
+		NativeHandle Constructor (RemoteMediaClient remoteMediaClient);
 
 		// -(instancetype _Nonnull)initWithRemoteMediaClient:(GCKRemoteMediaClient * _Nonnull)remoteMediaClient cacheSize:(NSUInteger)cacheSize;
 		[Export ("initWithRemoteMediaClient:cacheSize:")]
-		IntPtr Constructor (RemoteMediaClient remoteMediaClient, nuint cacheSize);
+		NativeHandle Constructor (RemoteMediaClient remoteMediaClient, nuint cacheSize);
 
 		// -(instancetype _Nonnull)initWithRemoteMediaClient:(GCKRemoteMediaClient * _Nonnull)remoteMediaClient cacheSize:(NSUInteger)cacheSize maxFetchCount:(NSUInteger)maxFetchCount __attribute__((objc_designated_initializer));
 		[DesignatedInitializer]
 		[Export ("initWithRemoteMediaClient:cacheSize:maxFetchCount:")]
-		IntPtr Constructor (RemoteMediaClient remoteMediaClient, nuint cacheSize, nuint maxFetchCount);
+		NativeHandle Constructor (RemoteMediaClient remoteMediaClient, nuint cacheSize, nuint maxFetchCount);
 
 		// -(void)addDelegate:(id<GCKMediaQueueDelegate> _Nonnull)delegate;
 		[Export ("addDelegate:")]
@@ -2037,11 +2041,11 @@ namespace Google.Cast {
 
 		// -(instancetype _Nonnull)initWithContainerType:(GCKMediaQueueContainerType)containerType;
 		[Export ("initWithContainerType:")]
-		IntPtr Constructor (MediaQueueContainerType containerType);
+		NativeHandle Constructor (MediaQueueContainerType containerType);
 
 		// -(instancetype _Nonnull)initWithContainerMetadata:(GCKMediaQueueContainerMetadata * _Nonnull)containerMetadata;
 		[Export ("initWithContainerMetadata:")]
-		IntPtr Constructor (MediaQueueContainerMetadata containerMetadata);
+		NativeHandle Constructor (MediaQueueContainerMetadata containerMetadata);
 
 		// -(GCKMediaQueueContainerMetadata * _Nonnull)build;
 		[Export ("build")]
@@ -2141,11 +2145,11 @@ namespace Google.Cast {
 
 		// -(instancetype _Nonnull)initWithQueueType:(GCKMediaQueueType)queueType;
 		[Export ("initWithQueueType:")]
-		IntPtr Constructor (MediaQueueType queueType);
+		NativeHandle Constructor (MediaQueueType queueType);
 
 		// -(instancetype _Nonnull)initWithQueueData:(GCKMediaQueueData * _Nonnull)queueData;
 		[Export ("initWithQueueData:")]
-		IntPtr Constructor (MediaQueueData queueData);
+		NativeHandle Constructor (MediaQueueData queueData);
 
 		// -(GCKMediaQueueData * _Nonnull)build;
 		[Export ("build")]
@@ -2263,10 +2267,10 @@ namespace Google.Cast {
 		NSObject CustomData { get; set; }
 
 		[Export ("init")]
-		IntPtr Constructor ();
+		NativeHandle Constructor ();
 
 		[Export ("initWithMediaQueueItem:")]
-		IntPtr Constructor ([NullAllowed] MediaQueueItem item);
+		NativeHandle Constructor ([NullAllowed] MediaQueueItem item);
 
 		[Export ("build")]
 		MediaQueueItem Build ();
@@ -2289,11 +2293,11 @@ namespace Google.Cast {
 
 		// -(instancetype _Nonnull)initWithURL:(NSURL * _Nonnull)url protocolType:(GCKStreamingProtocolType)protocolType initialTime:(NSTimeInterval)initialTime hlsSegmentFormat:(GCKHLSSegmentFormat)hlsSegmentFormat;
 		[Export ("initWithURL:protocolType:initialTime:hlsSegmentFormat:")]
-		IntPtr Constructor (NSUrl url, StreamingProtocolType protocolType, double initialTime, HlsSegmentFormat hlsSegmentFormat);
+		NativeHandle Constructor (NSUrl url, StreamingProtocolType protocolType, double initialTime, HlsSegmentFormat hlsSegmentFormat);
 
 		// -(instancetype _Nonnull)initWithURL:(NSURL * _Nonnull)url protocolType:(GCKStreamingProtocolType)protocolType;
 		[Export ("initWithURL:protocolType:")]
-		IntPtr Constructor (NSUrl url, StreamingProtocolType protocolType);
+		NativeHandle Constructor (NSUrl url, StreamingProtocolType protocolType);
 
 		// @property (readwrite, nonatomic, strong) NSURL * _Nonnull mediaURL;
 		[Export ("mediaURL", ArgumentSemantic.Strong)]
@@ -2511,7 +2515,7 @@ namespace Google.Cast {
 		MediaQueueData QueueData { get; }
 
 		[Export ("initWithSessionID:mediaInformation:")]
-		IntPtr Constructor (nint mediaSessionId, [NullAllowed] MediaInformation mediaInformation);
+		NativeHandle Constructor (nint mediaSessionId, [NullAllowed] MediaInformation mediaInformation);
 
 		[Export ("isMediaCommandSupported:")]
 		bool IsMediaCommandSupported (nint command);
@@ -2582,7 +2586,7 @@ namespace Google.Cast {
 	[BaseType (typeof (NSObject), Name = "GCKMediaTrack")]
 	interface MediaTrack : INSCopying, INSSecureCoding {
 		[Export ("initWithIdentifier:contentIdentifier:contentType:type:textSubtype:name:languageCode:customData:")]
-		IntPtr Constructor (nint identifier, [NullAllowed] string contentIdentifier, string contentType, MediaTrackType type, MediaTextTrackSubtype textSubtype, [NullAllowed] string name, [NullAllowed] string languageCode, [NullAllowed] NSObject customData);
+		NativeHandle Constructor (nint identifier, [NullAllowed] string contentIdentifier, string contentType, MediaTrackType type, MediaTextTrackSubtype textSubtype, [NullAllowed] string name, [NullAllowed] string languageCode, [NullAllowed] NSObject customData);
 
 		[Export ("identifier")]
 		nint Identifier { get; }
@@ -2637,12 +2641,12 @@ namespace Google.Cast {
 		// -(instancetype _Nonnull)initWithJSONObject:(id _Nonnull)JSONObject;
 		[Obsolete ("MultizoneStatus class should only be initialized internally.")]
 		[Export ("initWithJSONObject:")]
-		IntPtr Constructor (NSObject JSONObject);
+		NativeHandle Constructor (NSObject JSONObject);
 
 		// -(instancetype _Nonnull)initWithDevices:(NSArray<GCKMultizoneDevice *> * _Nonnull)devices;
 		[Obsolete ("MultizoneStatus class should only be initialized internally.")]
 		[Export ("initWithDevices:")]
-		IntPtr Constructor (MultizoneDevice [] devices);
+		NativeHandle Constructor (MultizoneDevice [] devices);
 	}
 
 	// @interface GCKNetworkAddress : NSObject <NSCopying, NSCoding>
@@ -2665,11 +2669,11 @@ namespace Google.Cast {
 
 		// -(instancetype _Nonnull)initWithType:(GCKNetworkAddressType)type ipAddress:(NSString * _Nullable)ipAddress;
 		[Export ("initWithType:ipAddress:")]
-		IntPtr Constructor (NetworkAddressType type, [NullAllowed] string ipAddress);
+		NativeHandle Constructor (NetworkAddressType type, [NullAllowed] string ipAddress);
 
 		// -(instancetype _Nonnull)initWithType:(GCKNetworkAddressType)type addressData:(NSData * _Nullable)addressData;
 		[Export ("initWithType:addressData:")]
-		IntPtr Constructor (NetworkAddressType type, [NullAllowed] NSData addressData);
+		NativeHandle Constructor (NetworkAddressType type, [NullAllowed] NSData addressData);
 
 		// +(GCKNetworkAddress * _Nonnull)wildcardAddressOfType:(GCKNetworkAddressType)type;
 		[Static]
@@ -3291,11 +3295,11 @@ namespace Google.Cast {
 
 		// -(instancetype _Nonnull)initWithDevice:(GCKDevice * _Nonnull)device traits:(GCKSessionTraits * _Nonnull)traits sessionID:(NSString * _Nullable)sessionID;
 		[Export ("initWithDevice:traits:sessionID:")]
-		IntPtr Constructor (Device device, [NullAllowed] SessionTraits traits, [NullAllowed] string sessionId);
+		NativeHandle Constructor (Device device, [NullAllowed] SessionTraits traits, [NullAllowed] string sessionId);
 
 		// -(instancetype _Nonnull)initWithDevice:(GCKDevice * _Nonnull)device traits:(GCKSessionTraits * _Nonnull)traits sessionID:(NSString * _Nullable)sessionID sessionOptions:(GCKSessionOptions * _Nullable)sessionOptions;
 		[Export ("initWithDevice:traits:sessionID:sessionOptions:")]
-		IntPtr Constructor (Device device, [NullAllowed] SessionTraits traits, [NullAllowed] string sessionId, [NullAllowed] SessionOptions sessionOptions);
+		NativeHandle Constructor (Device device, [NullAllowed] SessionTraits traits, [NullAllowed] string sessionId, [NullAllowed] SessionOptions sessionOptions);
 
 		// - (GCKRequest*) setDeviceVolume:(float) volume;
 		[Export ("setDeviceVolume:")]
@@ -3544,7 +3548,7 @@ namespace Google.Cast {
 		// -(instancetype _Nonnull)initWithMinimumVolume:(float)minimumVolume maximumVolume:(float)maximumVolume volumeIncrement:(float)volumeIncrement supportsMuting:(BOOL)supportsMuting __attribute__((objc_designated_initializer));
 		[DesignatedInitializer]
 		[Export ("initWithMinimumVolume:maximumVolume:volumeIncrement:supportsMuting:")]
-		IntPtr Constructor (float minimumVolume, float maximumVolume, float volumeIncrement, bool supportsMuting);
+		NativeHandle Constructor (float minimumVolume, float maximumVolume, float volumeIncrement, bool supportsMuting);
 
 		// -(BOOL)isFixedVolume;
 		[Export ("isFixedVolume")]
@@ -3556,7 +3560,7 @@ namespace Google.Cast {
 	[BaseType (typeof (UIMultistateButton), Name = "GCKUIButton")]
 	interface GCKUIButton {
 		[Export ("initWithFrame:")]
-		IntPtr Constructor (CGRect frame);
+		NativeHandle Constructor (CGRect frame);
 
 		// @property (assign, readwrite, nonatomic) UIControlState applicationState;
 		[Export ("applicationState", ArgumentSemantic.Assign)]
@@ -3579,7 +3583,7 @@ namespace Google.Cast {
 
 		// -(instancetype _Nonnull)initWithFrame:(CGRect)frame;
 		[Export ("initWithFrame:")]
-		IntPtr Constructor (CGRect frame);
+		NativeHandle Constructor (CGRect frame);
 
 		// -(void)setInactiveIcon:(UIImage * _Nonnull)inactiveIcon activeIcon:(UIImage * _Nonnull)activeIcon animationIcons:(NSArray<UIImage *> * _Nonnull)animationIcons;
 		[Export ("setInactiveIcon:activeIcon:animationIcons:")]
@@ -3612,7 +3616,7 @@ namespace Google.Cast {
 	[BaseType (typeof (UIViewController), Name = "GCKUICastContainerViewController")]
 	interface UICastContainerViewController {
 		[Export ("initWithNibName:bundle:")]
-		IntPtr Constructor (string nibName, NSBundle bundle);
+		NativeHandle Constructor (string nibName, NSBundle bundle);
 
 		// @property (readonly, nonatomic, strong) UIViewController * _Nullable contentViewController;
 		[NullAllowed]
@@ -3700,7 +3704,7 @@ namespace Google.Cast {
 	[BaseType (typeof (UIViewController), Name = "GCKUIExpandedMediaControlsViewController")]
 	interface UIExpandedMediaControlsViewController : UIMediaButtonBarProtocol {
 		[Export ("initWithNibName:bundle:")]
-		IntPtr Constructor (string nibName, NSBundle bundle);
+		NativeHandle Constructor (string nibName, NSBundle bundle);
 
 		// @property (assign, readwrite, nonatomic) BOOL hideStreamPositionControlsForLiveContent;
 		[Export ("hideStreamPositionControlsForLiveContent")]
@@ -3744,11 +3748,11 @@ namespace Google.Cast {
 
 		// -(instancetype _Nonnull)initWithImageType:(GCKMediaMetadataImageType)imageType imageSize:(CGSize)imageSize;
 		[Export ("initWithImageType:imageSize:")]
-		IntPtr Constructor (MediaMetadataImageType imageType, CGSize imageSize);
+		NativeHandle Constructor (MediaMetadataImageType imageType, CGSize imageSize);
 
 		// -(instancetype _Nonnull)initWithImageType:(GCKMediaMetadataImageType)imageType imageSize:(CGSize)imageSize customData:(NSObject<NSCoding> * _Nullable)customData;
 		[Export ("initWithImageType:imageSize:customData:")]
-		IntPtr Constructor (MediaMetadataImageType imageType, CGSize imageSize, [NullAllowed] INSSecureCoding customData);
+		NativeHandle Constructor (MediaMetadataImageType imageType, CGSize imageSize, [NullAllowed] INSSecureCoding customData);
 	}
 
 	interface IUIImagePicker {
@@ -4105,7 +4109,7 @@ namespace Google.Cast {
 	[BaseType (typeof (UITabBarController), Name = "GCKUIMediaTrackSelectionViewController")]
 	interface UIMediaTrackSelectionViewController {
 		[Export ("initWithNibName:bundle:")]
-		IntPtr Constructor (string nibName, NSBundle bundle);
+		NativeHandle Constructor (string nibName, NSBundle bundle);
 
 		// @property (readwrite, nonatomic, weak) id<GCKUIMediaTrackSelectionViewControllerDelegate> _Nullable selectionDelegate;
 		[NullAllowed]
@@ -4149,7 +4153,7 @@ namespace Google.Cast {
 		   Events = new Type [] { typeof (UIMiniMediaControlsViewControllerDelegate) })]
 	interface UIMiniMediaControlsViewController : UIMediaButtonBarProtocol {
 		[Export ("initWithNibName:bundle:")]
-		IntPtr Constructor (string nibName, NSBundle bundle);
+		NativeHandle Constructor (string nibName, NSBundle bundle);
 
 		// @property (readwrite, nonatomic, weak) id<GCKUIMiniMediaControlsViewControllerDelegate> _Nullable delegate;
 		[NullAllowed]
@@ -4206,7 +4210,7 @@ namespace Google.Cast {
 	interface UIPlaybackRateController {
 		[DesignatedInitializer]
 		[Export ("init")]
-		IntPtr Constructor ();
+		NativeHandle Constructor ();
 
 		// @property (assign, readwrite, nonatomic) float playbackRate;
 		[Export ("playbackRate")]
@@ -4222,7 +4226,7 @@ namespace Google.Cast {
 	interface UIPlayPauseToggleController {
 		[DesignatedInitializer]
 		[Export ("init")]
-		IntPtr Constructor ();
+		NativeHandle Constructor ();
 
 		// @property(nonatomic, assign, readwrite) GCKUIPlayPauseState playPauseState;
 		[Export ("playPauseState")]
@@ -4238,7 +4242,7 @@ namespace Google.Cast {
 	interface UIStreamPositionController {
 		[DesignatedInitializer]
 		[Export ("init")]
-		IntPtr Constructor ();
+		NativeHandle Constructor ();
 
 		// @property (nonatomic, assign, readwrite) NSTimeInterval streamPosition;
 		[Export ("streamPosition")]
@@ -4566,7 +4570,7 @@ namespace Google.Cast {
 		// -(instancetype _Nullable)initWithAdTagURL:(NSURL * _Nullable)adTagURL adsResponse:(NSString * _Nullable)adsResponse __attribute__((objc_designated_initializer));
 		[DesignatedInitializer]
 		[Export ("initWithAdTagURL:adsResponse:")]
-		IntPtr Constructor ([NullAllowed] NSUrl adTagUrl, [NullAllowed] string adsResponse);
+		NativeHandle Constructor ([NullAllowed] NSUrl adTagUrl, [NullAllowed] string adsResponse);
 	}
 
 	// @interface GCKVideoInfo : NSObject

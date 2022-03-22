@@ -2,6 +2,10 @@
 using Firebase.Core;
 using Foundation;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace Firebase.AppCheck {
 	// typedef void (^)(FIRAppCheckToken *_Nullable token, NSError *_Nullable error)
 	delegate void TokenCompletionHandler (AppCheckToken token, NSError error);
@@ -82,7 +86,7 @@ namespace Firebase.AppCheck {
 
 		// -(instancetype _Nonnull)initWithToken:(NSString * _Nonnull)token expirationDate:(NSDate * _Nonnull)expirationDate;
 		[Export ("initWithToken:expirationDate:")]
-		IntPtr Constructor (string token, NSDate expirationDate);
+		NativeHandle Constructor (string token, NSDate expirationDate);
 	}
 
 	// @interface FIRAppCheckDebugProvider : NSObject <FIRAppCheckProvider>	
@@ -91,7 +95,7 @@ namespace Firebase.AppCheck {
 	interface AppCheckDebugProvider : AppCheckProvider {
 		// -(instancetype _Nullable)initWithApp:(FIRApp * _Nonnull)app;
 		[Export ("initWithApp:")]
-		IntPtr Constructor (App app);
+		NativeHandle Constructor (App app);
 
 		// -(NSString * _Nonnull)localDebugToken;
 		[Export ("localDebugToken")]
@@ -114,7 +118,7 @@ namespace Firebase.AppCheck {
 	interface DeviceCheckProvider : AppCheckProvider {
 		// -(instancetype _Nullable)initWithApp:(FIRApp * _Nonnull)app;
 		[Export ("initWithApp:")]
-		IntPtr Constructor (App app);
+		NativeHandle Constructor (App app);
 	}
 
 	// @interface FIRAppAttestProvider : NSObject <FIRAppCheckProvider>
@@ -124,7 +128,7 @@ namespace Firebase.AppCheck {
 	interface AppAttestProvider : AppCheckProvider {
 		// -(instancetype _Nullable)initWithApp:(FIRApp * _Nonnull)app;
 		[Export ("initWithApp:")]
-		IntPtr Constructor (App app);
+		NativeHandle Constructor (App app);
 	}
 
 	// @interface FIRDeviceCheckProviderFactory : NSObject <FIRAppCheckProviderFactory>

@@ -5,6 +5,10 @@ using Foundation;
 using ObjCRuntime;
 using CoreGraphics;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace Google.SignIn
 {
 	// typedef void (^GIDAuthenticationHandler)(GIDAuthentication *authentication, NSError *error);

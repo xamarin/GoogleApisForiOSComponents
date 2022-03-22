@@ -6,6 +6,10 @@ using CoreMedia;
 using CoreVideo;
 using ObjCRuntime;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace MLKit.Core {
 	delegate void ErrorCallback ([NullAllowed] NSError error);
 
@@ -43,7 +47,7 @@ namespace MLKit.Core {
 	interface CustomRemoteModel {
 		// -(instancetype _Nonnull)initWithRemoteModelSource:(MLKRemoteModelSource * _Nonnull)remoteModelSource;
 		[Export ("initWithRemoteModelSource:")]
-		IntPtr Constructor (RemoteModelSource remoteModelSource);
+		NativeHandle Constructor (RemoteModelSource remoteModelSource);
 	}
 
 	interface ILocalModelPath : INativeObject, IDisposable { }
@@ -63,11 +67,11 @@ namespace MLKit.Core {
 
 		// -(instancetype _Nonnull)initWithPath:(NSString * _Nonnull)path;
 		[Export ("initWithPath:")]
-		IntPtr Constructor (ILocalModelPath path);
+		NativeHandle Constructor (ILocalModelPath path);
 
 		// -(instancetype _Nullable)initWithManifestPath:(NSString * _Nonnull)manifestPath;
 		[Export ("initWithManifestPath:")]
-		IntPtr Constructor (ILocalModelManifestPath manifestPath);
+		NativeHandle Constructor (ILocalModelManifestPath manifestPath);
 	}
 
 	// @interface MLKModelDownloadConditions : NSObject <NSCopying>
@@ -84,7 +88,7 @@ namespace MLKit.Core {
 		// -(instancetype _Nonnull)initWithAllowsCellularAccess:(BOOL)allowsCellularAccess allowsBackgroundDownloading:(BOOL)allowsBackgroundDownloading __attribute__((objc_designated_initializer));
 		[Export ("initWithAllowsCellularAccess:allowsBackgroundDownloading:")]
 		[DesignatedInitializer]
-		IntPtr Constructor (bool allowsCellularAccess, bool allowsBackgroundDownloading);
+		NativeHandle Constructor (bool allowsCellularAccess, bool allowsBackgroundDownloading);
 	}
 
 	// @interface MLKModelManager : NSObject
@@ -150,17 +154,17 @@ namespace MLKit.Core {
 		// -(instancetype _Nullable)initWithImage:(UIImage * _Nonnull)image __attribute__((objc_designated_initializer));
 		[Export ("initWithImage:")]
 		[DesignatedInitializer]
-		IntPtr Constructor (UIImage image);
+		NativeHandle Constructor (UIImage image);
 
 		// -(instancetype _Nullable)initWithPixelBuffer:(CVPixelBufferRef _Nonnull)pixelBuffer __attribute__((objc_designated_initializer));
 		[Export ("initWithPixelBuffer:")]
 		[DesignatedInitializer]
-		IntPtr Constructor (CVPixelBuffer pixelBuffer);
+		NativeHandle Constructor (CVPixelBuffer pixelBuffer);
 
 		// -(instancetype _Nullable)initWithSampleBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer __attribute__((objc_designated_initializer));
 		[Export ("initWithSampleBuffer:")]
 		[DesignatedInitializer]
-		IntPtr Constructor (CMSampleBuffer sampleBuffer);
+		NativeHandle Constructor (CMSampleBuffer sampleBuffer);
 	}
 
 	// @interface MLKVision3DPoint
@@ -190,12 +194,12 @@ namespace MLKit.Core {
 		// -(instancetype _Nonnull)initWithImage:(UIImage * _Nonnull)image __attribute__((objc_designated_initializer));
 		[Export ("initWithImage:")]
 		[DesignatedInitializer]
-		IntPtr Constructor (UIImage image);
+		NativeHandle Constructor (UIImage image);
 
 		// -(instancetype _Nonnull)initWithBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer __attribute__((objc_designated_initializer));
 		[Export ("initWithBuffer:")]
 		[DesignatedInitializer]
-		IntPtr Constructor (CMSampleBuffer sampleBuffer);
+		NativeHandle Constructor (CMSampleBuffer sampleBuffer);
 	}
 
 	// @interface MLKVisionPoint : NSObject

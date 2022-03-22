@@ -5,6 +5,10 @@ using Foundation;
 using ObjCRuntime;
 using CoreGraphics;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace Firebase.Core
 {
 	// typedef void (^FIRAppVoidBoolCallback)(BOOL);
@@ -150,10 +154,10 @@ namespace Firebase.Core
 
 		// - (instancetype)initWithContentsOfFile:(NSString *)plistPath;
 		[Export ("initWithContentsOfFile:")]
-		IntPtr Constructor (string plistPath);
+		NativeHandle Constructor (string plistPath);
 
 		// - (instancetype)initWithGoogleAppID:(NSString *)googleAppID GCMSenderID:(NSString*) GCMSenderID;
 		[Export ("initWithGoogleAppID:GCMSenderID:")]
-		IntPtr Constructor (string googleAppId, string gcmSenderId);
+		NativeHandle Constructor (string googleAppId, string gcmSenderId);
 	}
 }

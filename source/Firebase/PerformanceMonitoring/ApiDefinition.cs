@@ -5,6 +5,10 @@ using Foundation;
 using ObjCRuntime;
 using CoreGraphics;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace Firebase.PerformanceMonitoring
 {
 	// @interface FIRHTTPMetric : NSObject <FIRPerformanceAttributable>
@@ -14,7 +18,7 @@ namespace Firebase.PerformanceMonitoring
 	{
 		// -(instancetype _Nullable)initWithURL:(NSURL * _Nonnull)URL HTTPMethod:(FIRHTTPMethod)httpMethod;
 		[Export ("initWithURL:HTTPMethod:")]
-		IntPtr Constructor (NSUrl url, HttpMethod httpMethod);
+		NativeHandle Constructor (NSUrl url, HttpMethod httpMethod);
 
 		// @property (assign, nonatomic) NSInteger responseCode;
 		[Export ("responseCode")]

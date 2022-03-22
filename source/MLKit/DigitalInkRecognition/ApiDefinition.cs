@@ -7,6 +7,10 @@ using ObjCRuntime;
 
 using MLKit.Core;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace MLKit.DigitalInkRecognition {
 	#region ModelIdentifiers
 	[Static]
@@ -1860,7 +1864,7 @@ namespace MLKit.DigitalInkRecognition {
 		// -(instancetype _Nonnull)initWithPreContext:(NSString * _Nullable)preContext writingArea:(MLKWritingArea * _Nullable)writingArea __attribute__((objc_designated_initializer));
 		[Export ("initWithPreContext:writingArea:")]
 		[DesignatedInitializer]
-		IntPtr Constructor ([NullAllowed] string preContext, [NullAllowed] WritingArea writingArea);
+		NativeHandle Constructor ([NullAllowed] string preContext, [NullAllowed] WritingArea writingArea);
 	}
 
 	// @interface MLKDigitalInkRecognitionModelIdentifier : NSObject
@@ -1926,7 +1930,7 @@ namespace MLKit.DigitalInkRecognition {
 
 		// -(instancetype _Nonnull)initWithModelIdentifier:(MLKDigitalInkRecognitionModelIdentifier * _Nonnull)modelIdentifier __attribute__((swift_name("init(modelIdentifier:)")));
 		[Export ("initWithModelIdentifier:")]
-		IntPtr Constructor (DigitalInkRecognitionModelIdentifier modelIdentifier);
+		NativeHandle Constructor (DigitalInkRecognitionModelIdentifier modelIdentifier);
 	}
 
 	// @interface MLKDigitalInkRecognitionResult : NSObject
@@ -1974,7 +1978,7 @@ namespace MLKit.DigitalInkRecognition {
 		// -(instancetype _Nonnull)initWithModel:(MLKDigitalInkRecognitionModel * _Nonnull)model __attribute__((objc_designated_initializer));
 		[Export ("initWithModel:")]
 		[DesignatedInitializer]
-		IntPtr Constructor (DigitalInkRecognitionModel model);
+		NativeHandle Constructor (DigitalInkRecognitionModel model);
 	}
 
 	// @interface MLKStrokePoint : NSObject
@@ -1995,11 +1999,11 @@ namespace MLKit.DigitalInkRecognition {
 
 		// -(instancetype _Nonnull)initWithX:(float)x y:(float)y t:(long)t;
 		[Export ("initWithX:y:t:")]
-		IntPtr Constructor (float x, float y, nint t);
+		NativeHandle Constructor (float x, float y, nint t);
 
 		// -(instancetype _Nonnull)initWithX:(float)x y:(float)y;
 		[Export ("initWithX:y:")]
-		IntPtr Constructor (float x, float y);
+		NativeHandle Constructor (float x, float y);
 	}
 
 	// @interface MLKStroke : NSObject
@@ -2013,7 +2017,7 @@ namespace MLKit.DigitalInkRecognition {
 		// -(instancetype _Nonnull)initWithPoints:(NSArray<MLKStrokePoint *> * _Nonnull)points __attribute__((objc_designated_initializer));
 		[Export ("initWithPoints:")]
 		[DesignatedInitializer]
-		IntPtr Constructor (StrokePoint [] points);
+		NativeHandle Constructor (StrokePoint [] points);
 	}
 
 	// @interface MLKInk : NSObject
@@ -2027,7 +2031,7 @@ namespace MLKit.DigitalInkRecognition {
 		// -(instancetype _Nonnull)initWithStrokes:(NSArray<MLKStroke *> * _Nonnull)strokes __attribute__((objc_designated_initializer));
 		[Export ("initWithStrokes:")]
 		[DesignatedInitializer]
-		IntPtr Constructor (Stroke [] strokes);
+		NativeHandle Constructor (Stroke [] strokes);
 	}
 
 	// @interface MLKWritingArea : NSObject
@@ -2045,6 +2049,6 @@ namespace MLKit.DigitalInkRecognition {
 		// -(instancetype _Nonnull)initWithWidth:(float)width height:(float)height __attribute__((objc_designated_initializer));
 		[Export ("initWithWidth:height:")]
 		[DesignatedInitializer]
-		IntPtr Constructor (float width, float height);
+		NativeHandle Constructor (float width, float height);
 	}
 }

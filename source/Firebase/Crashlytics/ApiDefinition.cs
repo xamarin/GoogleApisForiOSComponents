@@ -5,6 +5,10 @@ using Foundation;
 using ObjCRuntime;
 using UIKit;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace Firebase.Crashlytics {
 	delegate void HasUnsentReportsHandler (bool hasUnsentReports);
 	delegate void CheckAndUpdateUnsentReportsHandler ([NullAllowed] CrashlyticsReport report);
@@ -80,7 +84,7 @@ namespace Firebase.Crashlytics {
 	{
 		// -(instancetype _Nonnull)initWithName:(NSString * _Nonnull)name reason:(NSString * _Nonnull)reason;
 		[Export ("initWithName:reason:")]
-		IntPtr Constructor (string name, string reason);
+		NativeHandle Constructor (string name, string reason);
 
 		// +(instancetype _Nonnull)exceptionModelWithName:(NSString * _Nonnull)name reason:(NSString * _Nonnull)reason __attribute__((availability(swift, unavailable)));
 		[Static]
@@ -98,7 +102,7 @@ namespace Firebase.Crashlytics {
 	{
 		// -(instancetype _Nonnull)initWithSymbol:(NSString * _Nonnull)symbol file:(NSString * _Nonnull)file line:(NSInteger)line;
 		[Export ("initWithSymbol:file:line:")]
-		IntPtr Constructor (string symbol, string file, nint line);
+		NativeHandle Constructor (string symbol, string file, nint line);
 
 		// + (instancetype)stackFrameWithAddress:(NSUInteger)address;
 		[Static]

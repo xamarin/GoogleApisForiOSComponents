@@ -8,6 +8,10 @@ using ObjCRuntime;
 using MLKit.Core;
 using MLKit.Vision;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace MLKit.ObjectDetection {
 	[Static]
 	interface DetectedObjectLabel {
