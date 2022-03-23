@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProjectGuid>{282BA32F-876B-49B9-94E0-7A64E7CB8412}</ProjectGuid>
+    <ProjectGuid>{FE873419-4655-45E5-8FBD-FA1432BEF0D3}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>AnalyticsSample</RootNamespace>
-    <AssemblyName>AnalyticsSample</AssemblyName>
+    <RootNamespace>CloudFirestoreSample</RootNamespace>
+    <AssemblyName>CloudFirestoreSample</AssemblyName>
     <OutputPath>bin\$(Platform)\$(Configuration)-NuGet</OutputPath>
     <IntermediateOutputPath>obj\$(Platform)\$(Configuration)-NuGet</IntermediateOutputPath>
     <MSBuildProjectExtensionsPath>obj\$(MSBuildProjectName)\</MSBuildProjectExtensionsPath>
@@ -30,7 +30,7 @@
     <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
-    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
@@ -48,7 +48,7 @@
     <MtouchFastDev>false</MtouchFastDev>
     <MtouchProfiling>true</MtouchProfiling>
     <MtouchLink>None</MtouchLink>
-    <MtouchArch>i386, x86_64</MtouchArch>
+    <MtouchArch>x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
@@ -63,7 +63,7 @@
     <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
-    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
@@ -76,7 +76,7 @@
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchLink>None</MtouchLink>
-    <MtouchArch>i386, x86_64</MtouchArch>
+    <MtouchArch>x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
@@ -86,22 +86,9 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="MonoTouch.Dialog-1" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\152.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\167.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\20.png">
@@ -128,16 +115,29 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="Assets.xcassets\AppIcon.appiconset\" />
+    <Folder Include="Assets.xcassets\Back.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
+    <InterfaceDefinition Include="Main.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -146,11 +146,29 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="MainViewController.cs" />
-    <Compile Include="LogEventViewController.cs" />
-    <Compile Include="ConstantViewController.cs" />
-    <Compile Include="UserPropertyViewController.cs" />
-    <Compile Include="UserPropertyContext.cs" />
+    <Compile Include="Models\Folder.cs" />
+    <Compile Include="Models\Note.cs" />
+    <Compile Include="Controllers\FoldersTableViewController.cs" />
+    <Compile Include="Controllers\FoldersTableViewController.designer.cs">
+      <DependentUpon>FoldersTableViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\NoteViewController.cs" />
+    <Compile Include="Controllers\NoteViewController.designer.cs">
+      <DependentUpon>NoteViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\NotesTableViewController.cs" />
+    <Compile Include="Controllers\NotesTableViewController.designer.cs">
+      <DependentUpon>NotesTableViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FolderTableViewCell.cs" />
+    <Compile Include="Views\FolderTableViewCell.designer.cs">
+      <DependentUpon>FolderTableViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NoteTableViewCell.cs" />
+    <Compile Include="Views\NoteTableViewCell.designer.cs">
+      <DependentUpon>NoteTableViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIAlertHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\..\Shared\GoogleServiceInfoPlistNotFoundViewController.cs" />
@@ -162,8 +180,8 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" />
-    <PackageReference Include="Xamarin.Firebase.iOS.Analytics" Version="8.10.0" />
-    <PackageReference Include="Xamarin.Firebase.iOS.Core" Version="8.10.0" />
-    <PackageReference Include="Xamarin.Firebase.iOS.Installations" Version="8.10.0" />
+    <PackageReference Include="Xamarin.Firebase.iOS.Auth" Version="8.10.0.1" />
+    <PackageReference Include="Xamarin.Firebase.iOS.CloudFirestore" Version="8.10.0.1" />
+    <PackageReference Include="Xamarin.Firebase.iOS.Core" Version="8.10.0.1" />
   </ItemGroup>
 </Project>

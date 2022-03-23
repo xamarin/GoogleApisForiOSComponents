@@ -1,18 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3F54945A-FBA3-4A59-937E-C416CFD462F7}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{99409881-B9A3-46F0-96F5-A06F7691A65C}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>AppInviteSample</RootNamespace>
+    <RootNamespace>MobileAdsExample</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>AppInviteSample</AssemblyName>
+    <AssemblyName>MobileAdsExample</AssemblyName>
     <OutputPath>bin\$(Platform)\$(Configuration)-NuGet</OutputPath>
     <IntermediateOutputPath>obj\$(Platform)\$(Configuration)-NuGet</IntermediateOutputPath>
     <MSBuildProjectExtensionsPath>obj\$(MSBuildProjectName)\</MSBuildProjectExtensionsPath>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <BuildIpa>True</BuildIpa>
+    <ConsolePause>False</ConsolePause>
+    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignProvision>Automatic:AppStore</CodesignProvision>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,7 +73,7 @@
     <MtouchFastDev>false</MtouchFastDev>
     <MtouchProfiling>true</MtouchProfiling>
     <MtouchLink>None</MtouchLink>
-    <MtouchArch>i386, x86_64</MtouchArch>
+    <MtouchArch>x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
@@ -76,7 +101,7 @@
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchLink>None</MtouchLink>
-    <MtouchArch>i386, x86_64</MtouchArch>
+    <MtouchArch>x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
@@ -86,24 +111,10 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="MonoTouch.Dialog-1" />
   </ItemGroup>
   <ItemGroup>
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\AppIcon-60%402x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\AppIcon-60%403x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\AppIcon-76.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\AppIcon-76%402x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Contents.json" />
-    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-568h%402x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-Landscape%402x~ipad.png" />
-    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-Landscape~ipad.png" />
-    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-Portrait%402x~ipad.png" />
-    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-Portrait~ipad.png" />
-    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default%402x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Logo.imageset\Contents.json" />
-    <ImageAsset Include="Resources\Images.xcassets\Logo.imageset\FriendlyPing-Logo.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Watermark.imageset\Contents.json" />
-    <ImageAsset Include="Resources\Images.xcassets\Watermark.imageset\FriendlyPing-Watermark.png" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -112,36 +123,14 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="ViewController.cs" />
-    <Compile Include="ViewController.designer.cs">
-      <DependentUpon>ViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SignInViewController.cs" />
-    <Compile Include="SignInViewController.designer.cs">
-      <DependentUpon>SignInViewController.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <Import Project="..\packages\Xamarin.Build.Download.0.4.3\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.3\build\Xamarin.Build.Download.targets')" />
-  </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="GoogleService-Info.plist" />
-    <BundleResource Include="Resources\appbg.png" />
-    <BundleResource Include="Resources\Icon%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\Images.xcassets\LaunchImage.launchimage\" />
-    <Folder Include="Resources\Images.xcassets\Logo.imageset\" />
-    <Folder Include="Resources\Images.xcassets\Watermark.imageset\" />
-  </ItemGroup>
-  <ItemGroup>
-    <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
-    <InterfaceDefinition Include="Main.storyboard" />
+    <Content Include="Default-568h%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" />
-    <PackageReference Include="Xamarin.Google.iOS.AppInvite" Version="1.0.2.4" />
-    <PackageReference Include="Xamarin.Google.iOS.Core" Version="3.1.0.4" />
-    <PackageReference Include="Xamarin.Google.iOS.SignIn" Version="5.0.2.2" />
+    <PackageReference Include="Xamarin.Firebase.iOS.Core" Version="8.10.0.1" />
+    <PackageReference Include="Xamarin.Google.iOS.MobileAds" Version="8.13.0.1" />
   </ItemGroup>
 </Project>

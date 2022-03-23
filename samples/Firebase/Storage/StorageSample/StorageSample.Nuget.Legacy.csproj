@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProjectGuid>{63EB1A5A-C778-41B8-9D48-3DF2D4CB47A8}</ProjectGuid>
+    <ProjectGuid>{73B8E300-75D2-4726-967D-1887107A93D7}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>RemoteConfigSample</RootNamespace>
-    <AssemblyName>RemoteConfigSample</AssemblyName>
+    <RootNamespace>StorageSample</RootNamespace>
+    <AssemblyName>StorageSample</AssemblyName>
     <OutputPath>bin\$(Platform)\$(Configuration)-NuGet</OutputPath>
     <IntermediateOutputPath>obj\$(Platform)\$(Configuration)-NuGet</IntermediateOutputPath>
     <MSBuildProjectExtensionsPath>obj\$(MSBuildProjectName)\</MSBuildProjectExtensionsPath>
@@ -86,7 +86,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="MonoTouch.Dialog-1" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\Contents.json">
@@ -146,7 +145,29 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="RemoteConfigViewController.cs" />
+    <Compile Include="NotesViewController.cs" />
+    <Compile Include="NotesViewController.designer.cs">
+      <DependentUpon>NotesViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NoteViewController.cs" />
+    <Compile Include="NoteViewController.designer.cs">
+      <DependentUpon>NoteViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NoteCell.cs" />
+    <Compile Include="NoteCell.designer.cs">
+      <DependentUpon>NoteCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Note.cs" />
+    <Compile Include="UIAlertHelper.cs" />
+    <Compile Include="PhotosViewController.cs" />
+    <Compile Include="PhotosViewController.designer.cs">
+      <DependentUpon>PhotosViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PhotoCell.cs" />
+    <Compile Include="PhotoCell.designer.cs">
+      <DependentUpon>PhotoCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\..\Shared\GoogleServiceInfoPlistNotFoundViewController.cs" />
@@ -154,14 +175,13 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="GoogleService-Info.plist" Condition="Exists('GoogleService-Info.plist')" />
-    <BundleResource Include="RemoteConfigDefaults.plist" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" />
-    <PackageReference Include="Xamarin.Firebase.iOS.ABTesting" Version="8.10.0" />
-    <PackageReference Include="Xamarin.Firebase.iOS.Core" Version="8.10.0" />
-    <PackageReference Include="Xamarin.Firebase.iOS.Installations" Version="8.10.0" />
-    <PackageReference Include="Xamarin.Firebase.iOS.RemoteConfig" Version="8.10.0" />
+    <PackageReference Include="Xamarin.Firebase.iOS.Auth" Version="8.10.0.1" />
+    <PackageReference Include="Xamarin.Firebase.iOS.Core" Version="8.10.0.1" />
+    <PackageReference Include="Xamarin.Firebase.iOS.Database" Version="8.10.0.1" />
+    <PackageReference Include="Xamarin.Firebase.iOS.Storage" Version="8.10.0.1" />
   </ItemGroup>
 </Project>

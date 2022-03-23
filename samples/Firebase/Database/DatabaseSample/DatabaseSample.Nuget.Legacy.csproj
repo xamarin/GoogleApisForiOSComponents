@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProjectGuid>{22505EF4-4BCD-42A9-BA0F-DD7BCACEE150}</ProjectGuid>
+    <ProjectGuid>{25C1AA1D-E6D8-4FA6-88D9-D6E683F5AAA9}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>TagManagerSample</RootNamespace>
-    <AssemblyName>TagManagerSample</AssemblyName>
+    <RootNamespace>DatabaseSample</RootNamespace>
+    <AssemblyName>DatabaseSample</AssemblyName>
     <OutputPath>bin\$(Platform)\$(Configuration)-NuGet</OutputPath>
     <IntermediateOutputPath>obj\$(Platform)\$(Configuration)-NuGet</IntermediateOutputPath>
     <MSBuildProjectExtensionsPath>obj\$(MSBuildProjectName)\</MSBuildProjectExtensionsPath>
@@ -86,7 +86,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="MonoTouch.Dialog-1" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\Contents.json">
@@ -134,10 +133,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="Resources\container\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
+    <InterfaceDefinition Include="Main.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -146,11 +145,30 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="ConstantViewController.cs" />
-    <Compile Include="LogEventViewController.cs" />
-    <Compile Include="MainViewController.cs" />
-    <Compile Include="UserPropertyContext.cs" />
-    <Compile Include="UserPropertyViewController.cs" />
+    <Compile Include="NotesViewController.cs" />
+    <Compile Include="NotesViewController.designer.cs">
+      <DependentUpon>NotesViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="NoteViewController.cs" />
+    <Compile Include="NoteViewController.designer.cs">
+      <DependentUpon>NoteViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoldersViewController.cs" />
+    <Compile Include="FoldersViewController.designer.cs">
+      <DependentUpon>FoldersViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FolderCell.cs" />
+    <Compile Include="FolderCell.designer.cs">
+      <DependentUpon>FolderCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Folder.cs" />
+    <Compile Include="UIAlertHelper.cs" />
+    <Compile Include="NoteCell.cs" />
+    <Compile Include="NoteCell.designer.cs">
+      <DependentUpon>NoteCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Note.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\..\Shared\GoogleServiceInfoPlistNotFoundViewController.cs" />
@@ -158,15 +176,12 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="GoogleService-Info.plist" Condition="Exists('GoogleService-Info.plist')" />
-    <BundleResource Include="Resources\container\GTM-NB7LRB.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" />
-    <PackageReference Include="Xamarin.Firebase.iOS.Analytics" Version="8.10.0" />
-    <PackageReference Include="Xamarin.Firebase.iOS.Core" Version="8.10.0" />
-    <PackageReference Include="Xamarin.Firebase.iOS.Installations" Version="8.10.0" />
-    <PackageReference Include="Xamarin.Google.iOS.Analytics" Version="3.20.0.0" />
-    <PackageReference Include="Xamarin.Google.iOS.TagManager" Version="7.4.0.0" />
+    <PackageReference Include="Xamarin.Firebase.iOS.Auth" Version="8.10.0.1" />
+    <PackageReference Include="Xamarin.Firebase.iOS.Core" Version="8.10.0.1" />
+    <PackageReference Include="Xamarin.Firebase.iOS.Database" Version="8.10.0.1" />
   </ItemGroup>
 </Project>

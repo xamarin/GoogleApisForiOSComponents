@@ -1,19 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProjectGuid>{F7885EAF-48B7-44B5-9DAC-5A01043FB19D}</ProjectGuid>
+    <ProjectGuid>{282BA32F-876B-49B9-94E0-7A64E7CB8412}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>MLKitVisionSample</RootNamespace>
-    <AssemblyName>MLKitVisionSample</AssemblyName>
+    <RootNamespace>AnalyticsSample</RootNamespace>
+    <AssemblyName>AnalyticsSample</AssemblyName>
     <OutputPath>bin\$(Platform)\$(Configuration)-NuGet</OutputPath>
     <IntermediateOutputPath>obj\$(Platform)\$(Configuration)-NuGet</IntermediateOutputPath>
     <MSBuildProjectExtensionsPath>obj\$(MSBuildProjectName)\</MSBuildProjectExtensionsPath>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,7 +30,7 @@
     <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
-    <MtouchArch>ARM64</MtouchArch>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
@@ -49,8 +48,8 @@
     <MtouchFastDev>false</MtouchFastDev>
     <MtouchProfiling>true</MtouchProfiling>
     <MtouchLink>None</MtouchLink>
-    <MtouchArch>x86_64</MtouchArch>
-    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <MtouchArch>i386, x86_64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
@@ -64,7 +63,7 @@
     <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
-    <MtouchArch>ARM64</MtouchArch>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
@@ -77,7 +76,7 @@
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchLink>None</MtouchLink>
-    <MtouchArch>x86_64</MtouchArch>
+    <MtouchArch>i386, x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
@@ -87,6 +86,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="MonoTouch.Dialog-1" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\Contents.json">
@@ -131,27 +131,13 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\settings.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\settings.imageset\settings.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\settings.imageset\settings%402x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\settings.imageset\settings%403x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="Models\" />
-    <Folder Include="Controllers\" />
+    <Folder Include="Assets.xcassets\AppIcon.appiconset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
-    <InterfaceDefinition Include="Main.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -160,44 +146,24 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="Controllers\ViewController.cs" />
-    <Compile Include="Controllers\ViewController.designer.cs">
-      <DependentUpon>ViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\SettingsViewController.cs" />
-    <Compile Include="Controllers\SettingsViewController.designer.cs">
-      <DependentUpon>SettingsViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Constants.cs" />
-    <Compile Include="Models\TextRecognitionScript.cs" />
-    <Compile Include="Models\VisionType.cs" />
-    <Compile Include="StringExtensions.cs" />
+    <Compile Include="MainViewController.cs" />
+    <Compile Include="LogEventViewController.cs" />
+    <Compile Include="ConstantViewController.cs" />
+    <Compile Include="UserPropertyViewController.cs" />
+    <Compile Include="UserPropertyContext.cs" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\TextRecognition.png" />
-    <BundleResource Include="Resources\FaceDetection.png" />
-    <BundleResource Include="Resources\ImageLabeling.png" />
-    <BundleResource Include="GoogleService-Info.plist" />
-    <BundleResource Include="Resources\BarcodeScanning.png" />
-    <BundleResource Include="Resources\DigitalInkRecognition.png" />
-    <BundleResource Include="Resources\ObjectDetectionAndTracking.png" />
+    <Compile Include="..\..\..\Shared\GoogleServiceInfoPlistNotFoundViewController.cs" />
+    <Compile Include="..\..\..\Shared\GoogleServiceInfoPlistHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="GoogleService-Info.plist" Condition="Exists('GoogleService-Info.plist')" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" />
-    <PackageReference Include="Xamarin.Firebase.iOS.Core" Version="8.10.0" />
-    <PackageReference Include="Xamarin.MLKit.iOS.BarcodeScanning" Version="1.6.0" />
-    <PackageReference Include="Xamarin.MLKit.iOS.Core" Version="5.0.0" />
-    <PackageReference Include="Xamarin.MLKit.iOS.DigitalInkRecognition" Version="1.5.0" />
-    <PackageReference Include="Xamarin.MLKit.iOS.FaceDetection" Version="1.5.0" />
-    <PackageReference Include="Xamarin.MLKit.iOS.ImageLabeling" Version="1.5.0" />
-    <PackageReference Include="Xamarin.MLKit.iOS.ObjectDetection" Version="1.5.0" />
-    <PackageReference Include="Xamarin.MLKit.iOS.TextRecognition" Version="1.0.0.3" />
-    <PackageReference Include="Xamarin.MLKit.iOS.TextRecognition.Chinese" Version="1.0.0.3" />
-    <PackageReference Include="Xamarin.MLKit.iOS.TextRecognition.Devanagari" Version="1.0.0.3" />
-    <PackageReference Include="Xamarin.MLKit.iOS.TextRecognition.Japanese" Version="1.0.0.3" />
-    <PackageReference Include="Xamarin.MLKit.iOS.TextRecognition.Korean" Version="1.0.0.3" />
-    <PackageReference Include="Xamarin.MLKit.iOS.TextRecognition.Latin" Version="1.4.0.3" />
-    <PackageReference Include="Xamarin.MLKit.iOS.Vision" Version="3.0.0" />
+    <PackageReference Include="Xamarin.Firebase.iOS.Analytics" Version="8.10.0.1" />
+    <PackageReference Include="Xamarin.Firebase.iOS.Core" Version="8.10.0.1" />
+    <PackageReference Include="Xamarin.Firebase.iOS.Installations" Version="8.10.0.1" />
   </ItemGroup>
 </Project>

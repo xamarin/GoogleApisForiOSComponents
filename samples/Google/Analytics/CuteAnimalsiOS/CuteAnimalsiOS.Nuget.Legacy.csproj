@@ -3,16 +3,49 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProjectGuid>{3DFE3B18-B72D-4ED4-A21F-A1A0836AF252}</ProjectGuid>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4E47A8B9-702E-47D8-B1C9-D6C46E03C97A}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>GooglePlacesSample</RootNamespace>
-    <AssemblyName>GooglePlacesSample</AssemblyName>
+    <RootNamespace>CuteAnimalsiOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>CuteAnimalsiOS</AssemblyName>
     <OutputPath>bin\$(Platform)\$(Configuration)-NuGet</OutputPath>
     <IntermediateOutputPath>obj\$(Platform)\$(Configuration)-NuGet</IntermediateOutputPath>
     <MSBuildProjectExtensionsPath>obj\$(MSBuildProjectName)\</MSBuildProjectExtensionsPath>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>__MOBILE__;__IOS__;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <BuildIpa>true</BuildIpa>
+    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchLink>SdkOnly</MtouchLink>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>__MOBILE__;__IOS__;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>Automatic:AppStore</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,7 +63,7 @@
     <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
-    <MtouchArch>ARM64</MtouchArch>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
@@ -48,7 +81,7 @@
     <MtouchFastDev>false</MtouchFastDev>
     <MtouchProfiling>true</MtouchProfiling>
     <MtouchLink>None</MtouchLink>
-    <MtouchArch>x86_64</MtouchArch>
+    <MtouchArch>i386, x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
@@ -63,7 +96,7 @@
     <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
-    <MtouchArch>ARM64</MtouchArch>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
@@ -76,7 +109,7 @@
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchLink>None</MtouchLink>
-    <MtouchArch>x86_64</MtouchArch>
+    <MtouchArch>i386, x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
@@ -85,25 +118,32 @@
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
+    <Reference Include="MonoTouch.Dialog-1" />
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-    <Folder Include="Samples\" />
-    <Folder Include="Models\" />
-    <Folder Include="Views\" />
-  </ItemGroup>
-  <ItemGroup>
-    <InterfaceDefinition Include="LaunchScreen.storyboard" />
-    <InterfaceDefinition Include="Main.storyboard" />
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\Bunny-1.jpg" />
+    <BundleResource Include="Resources\Bunny-2.jpg" />
+    <BundleResource Include="Resources\Bunny-3.jpg" />
+    <BundleResource Include="Resources\Cat-1.jpg" />
+    <BundleResource Include="Resources\Cat-2.jpg" />
+    <BundleResource Include="Resources\Cat-3.jpg" />
+    <BundleResource Include="Resources\Cat-4.jpg" />
+    <BundleResource Include="Resources\Lion-1.jpg" />
+    <BundleResource Include="Resources\Lion-2.jpg" />
+    <BundleResource Include="Resources\Lion-3.jpg" />
+    <BundleResource Include="Resources\Lion-4.jpg" />
+    <BundleResource Include="Resources\Monkey-1.jpg" />
+    <BundleResource Include="Resources\Monkey-2.jpg" />
+    <BundleResource Include="Resources\Monkey-3.jpg" />
+    <BundleResource Include="Resources\Monkey-4.jpg" />
+    <BundleResource Include="Resources\Monkey-5.jpg" />
+    <BundleResource Include="Resources\Tiger-1.jpg" />
+    <BundleResource Include="Resources\Tiger-2.jpg" />
+    <BundleResource Include="Resources\Monkey-8.jpg" />
+    <BundleResource Include="Resources\Monkey-7.jpg" />
+    <BundleResource Include="Resources\Monkey-6.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -112,41 +152,13 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="Samples\AutocompleteBaseViewController.cs" />
-    <Compile Include="Samples\AutocompleteBaseViewController.designer.cs">
-      <DependentUpon>AutocompleteBaseViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Samples\UISearchAutocompleteViewController.cs" />
-    <Compile Include="Samples\UISearchAutocompleteViewController.designer.cs">
-      <DependentUpon>UISearchAutocompleteViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MenuTableViewController.cs" />
-    <Compile Include="MenuTableViewController.designer.cs">
-      <DependentUpon>MenuTableViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GoogleApiKey.cs" />
-    <Compile Include="Models\SampleInformation.cs" />
-    <Compile Include="Samples\GoogleOpenSourceViewController.cs" />
-    <Compile Include="Samples\GoogleOpenSourceViewController.designer.cs">
-      <DependentUpon>GoogleOpenSourceViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SamplesGenerator.cs" />
-    <Compile Include="Models\StyledAutocompleteViewController.cs" />
-    <Compile Include="Models\StyledAutocompleteViewController.designer.cs">
-      <DependentUpon>StyledAutocompleteViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\PhotoCollectionViewCell.cs" />
-    <Compile Include="Views\PhotoCollectionViewCell.designer.cs">
-      <DependentUpon>PhotoCollectionViewCell.cs</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\thumbnail.png" />
+    <Compile Include="DVCMenu.cs" />
+    <Compile Include="DVCCategory.cs" />
+    <Compile Include="AnimalViewController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" />
-    <PackageReference Include="Xamarin.Google.iOS.Maps" Version="6.0.1.0" />
-    <PackageReference Include="Xamarin.Google.iOS.Places" Version="6.0.0.0" />
+    <PackageReference Include="Xamarin.Google.iOS.Analytics" Version="3.20.0.1" />
   </ItemGroup>
 </Project>
