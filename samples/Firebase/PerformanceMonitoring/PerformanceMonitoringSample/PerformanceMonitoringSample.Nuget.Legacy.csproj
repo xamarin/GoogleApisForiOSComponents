@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProjectGuid>{25C1AA1D-E6D8-4FA6-88D9-D6E683F5AAA9}</ProjectGuid>
+    <ProjectGuid>{0E0C07EC-DF17-4E5B-BEA1-8946BCA65634}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>DatabaseSample</RootNamespace>
-    <AssemblyName>DatabaseSample</AssemblyName>
+    <RootNamespace>PerformanceMonitoringSample</RootNamespace>
+    <AssemblyName>PerformanceMonitoringSample</AssemblyName>
     <OutputPath>bin\$(Platform)\$(Configuration)-NuGet</OutputPath>
     <IntermediateOutputPath>obj\$(Platform)\$(Configuration)-NuGet</IntermediateOutputPath>
     <MSBuildProjectExtensionsPath>obj\$(MSBuildProjectName)\</MSBuildProjectExtensionsPath>
@@ -86,6 +86,8 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="MonoTouch.Dialog-1" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\Contents.json">
@@ -130,9 +132,24 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\settings.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\settings.imageset\settings.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\settings.imageset\settings%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\settings.imageset\settings%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Assets.xcassets\settings.imageset\" />
+    <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -145,30 +162,23 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="NotesViewController.cs" />
-    <Compile Include="NotesViewController.designer.cs">
-      <DependentUpon>NotesViewController.cs</DependentUpon>
+    <Compile Include="Controllers\ImageViewController.cs" />
+    <Compile Include="Controllers\ImageViewController.designer.cs">
+      <DependentUpon>ImageViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="ExtensionMethods.cs" />
-    <Compile Include="NoteViewController.cs" />
-    <Compile Include="NoteViewController.designer.cs">
-      <DependentUpon>NoteViewController.cs</DependentUpon>
+    <Compile Include="Controllers\MenuTableViewController.cs" />
+    <Compile Include="Controllers\MenuTableViewController.designer.cs">
+      <DependentUpon>MenuTableViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="FoldersViewController.cs" />
-    <Compile Include="FoldersViewController.designer.cs">
-      <DependentUpon>FoldersViewController.cs</DependentUpon>
+    <Compile Include="Controllers\DownloadManager.cs" />
+    <Compile Include="Controllers\SettingsTableViewController.cs" />
+    <Compile Include="Controllers\SettingsTableViewController.designer.cs">
+      <DependentUpon>SettingsTableViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="FolderCell.cs" />
-    <Compile Include="FolderCell.designer.cs">
-      <DependentUpon>FolderCell.cs</DependentUpon>
+    <Compile Include="Views\SettingTableViewCell.cs" />
+    <Compile Include="Views\SettingTableViewCell.designer.cs">
+      <DependentUpon>SettingTableViewCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="Folder.cs" />
-    <Compile Include="UIAlertHelper.cs" />
-    <Compile Include="NoteCell.cs" />
-    <Compile Include="NoteCell.designer.cs">
-      <DependentUpon>NoteCell.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Note.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\..\Shared\GoogleServiceInfoPlistNotFoundViewController.cs" />
@@ -176,12 +186,16 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="GoogleService-Info.plist" Condition="Exists('GoogleService-Info.plist')" />
+    <BundleResource Include="Resources\error.png" />
+    <BundleResource Include="RemoteConfigDefaults.plist" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" />
-    <PackageReference Include="Xamarin.Firebase.iOS.Auth" Version="8.10.0" />
-    <PackageReference Include="Xamarin.Firebase.iOS.Core" Version="8.10.0" />
-    <PackageReference Include="Xamarin.Firebase.iOS.Database" Version="8.10.0" />
+    <PackageReference Include="Xamarin.Firebase.iOS.ABTesting" Version="8.10.0.1" />
+    <PackageReference Include="Xamarin.Firebase.iOS.Core" Version="8.10.0.1" />
+    <PackageReference Include="Xamarin.Firebase.iOS.Installations" Version="8.10.0.1" />
+    <PackageReference Include="Xamarin.Firebase.iOS.PerformanceMonitoring" Version="8.10.0.1" />
+    <PackageReference Include="Xamarin.Firebase.iOS.RemoteConfig" Version="8.10.0.1" />
   </ItemGroup>
 </Project>

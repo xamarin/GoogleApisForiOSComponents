@@ -5,12 +5,12 @@
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{3F54945A-FBA3-4A59-937E-C416CFD462F7}</ProjectGuid>
+    <ProjectGuid>{49C747A7-E3C0-470A-9610-614087056956}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>MobileAdsExample</RootNamespace>
+    <RootNamespace>GoogleMapsAdvSample</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>MobileAdsExample</AssemblyName>
+    <AssemblyName>GoogleMapsAdvSample</AssemblyName>
     <OutputPath>bin\$(Platform)\$(Configuration)-NuGet</OutputPath>
     <IntermediateOutputPath>obj\$(Platform)\$(Configuration)-NuGet</IntermediateOutputPath>
     <MSBuildProjectExtensionsPath>obj\$(MSBuildProjectName)\</MSBuildProjectExtensionsPath>
@@ -18,11 +18,11 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>
-    <Optimize>True</Optimize>
+    <Optimize>true</Optimize>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <BuildIpa>True</BuildIpa>
-    <ConsolePause>False</ConsolePause>
+    <BuildIpa>true</BuildIpa>
+    <ConsolePause>false</ConsolePause>
     <CodesignProvision>Automatic:AdHoc</CodesignProvision>
     <CodesignKey>iPhone Distribution</CodesignKey>
     <MtouchLink>SdkOnly</MtouchLink>
@@ -30,10 +30,10 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
     <DebugType>none</DebugType>
-    <Optimize>True</Optimize>
+    <Optimize>true</Optimize>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>False</ConsolePause>
+    <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Distribution</CodesignKey>
     <CodesignProvision>Automatic:AppStore</CodesignProvision>
     <MtouchLink>SdkOnly</MtouchLink>
@@ -55,7 +55,7 @@
     <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
-    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
@@ -88,7 +88,7 @@
     <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
-    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
@@ -115,6 +115,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Samples\" />
+    <Folder Include="Samples\Map Demos\" />
+    <Folder Include="Samples\Overlay Demos\" />
+    <Folder Include="Samples\Camera Demos\" />
+    <Folder Include="Samples\Services Demos\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -123,14 +128,47 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="DVCMenu.cs" />
+    <Compile Include="Samples\Map Demos\TrafficMapViewController.cs" />
+    <Compile Include="Samples\Map Demos\MyLocationViewController.cs" />
+    <Compile Include="Samples\Map Demos\MapTypesViewController.cs" />
+    <Compile Include="Samples\Map Demos\GestureControlViewController.cs" />
+    <Compile Include="Samples\Map Demos\BasicMapViewController.cs" />
+    <Compile Include="Samples\Overlay Demos\MarkersViewController.cs" />
+    <Compile Include="Samples\Overlay Demos\CustomMarkersViewController.cs" />
+    <Compile Include="Samples\Overlay Demos\MarkerEventsViewController.cs" />
+    <Compile Include="Samples\Overlay Demos\PolygonsViewController.cs" />
+    <Compile Include="Samples\Overlay Demos\PolylinesViewController.cs" />
+    <Compile Include="Samples\Overlay Demos\GroundOverlayViewController.cs" />
+    <Compile Include="Samples\Camera Demos\FitBoundsViewController.cs" />
+    <Compile Include="Samples\Camera Demos\CameraViewController.cs" />
+    <Compile Include="Samples\Camera Demos\MapLayerViewController.cs" />
+    <Compile Include="Samples\Services Demos\GeocoderViewController.cs" />
+    <Compile Include="Samples\Overlay Demos\TileLayerViewController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <Content Include="Default-568h%402x.png" />
+    <BundleResource Include="Resources\arrow.png" />
+    <BundleResource Include="Resources\arrow%402x.png" />
+    <BundleResource Include="Resources\australia_large.png" />
+    <BundleResource Include="Resources\australia_large%402x.png" />
+    <BundleResource Include="Resources\australia.png" />
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\glow-marker.png" />
+    <BundleResource Include="Resources\glow-marker%402x.png" />
+    <BundleResource Include="Resources\Icon-72.png" />
+    <BundleResource Include="Resources\Icon-72%402x.png" />
+    <BundleResource Include="Resources\Icon.png" />
+    <BundleResource Include="Resources\Icon%402x.png" />
+    <BundleResource Include="Resources\newark_nj_1922.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="LaunchScreen.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" />
-    <PackageReference Include="Xamarin.Firebase.iOS.Core" Version="8.10.0" />
-    <PackageReference Include="Xamarin.Google.iOS.MobileAds" Version="8.13.0.0" />
+    <PackageReference Include="Xamarin.Google.iOS.Maps" Version="6.0.1.1" />
   </ItemGroup>
 </Project>
