@@ -1,17 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <TargetFramework>net6.0-ios</TargetFramework>
+    <RuntimeIdentifiers Condition="!Exists('$(ProjectAssetsFile)')">iossimulator-x64;ios-arm64</RuntimeIdentifiers>
+    <RuntimeIdentifiers Condition="Exists('$(ProjectAssetsFile)')"></RuntimeIdentifiers>
+    <RuntimeIdentifier>iossimulator-x64</RuntimeIdentifier>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProjectGuid>{B52A268C-500B-4C3E-81E7-4E40A7AEA34C}</ProjectGuid>
-    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+    <SupportedOSPlatformVersion>10.0</SupportedOSPlatformVersion>
     <RootNamespace>AuthSample</RootNamespace>
     <AssemblyName>AuthSample</AssemblyName>
-    <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
-    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)</IntermediateOutputPath>
-    <MSBuildProjectExtensionsPath>obj\$(MSBuildProjectName)\</MSBuildProjectExtensionsPath>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <Platforms>iPhoneSimulator;iPhone</Platforms>
+    <Configurations>Debug;Release</Configurations>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -28,7 +32,6 @@
     <MtouchArch>i386, x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
-    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>pdbonly</DebugType>
@@ -42,7 +45,6 @@
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
-    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>pdbonly</DebugType>
@@ -54,7 +56,6 @@
     <MtouchArch>i386, x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
-    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -74,141 +75,28 @@
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
-    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="Xamarin.iOS" />
-    <Reference Include="MonoTouch.Dialog-1" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.IO.Compression" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Facebook.CoreKit">
-      <HintPath>..\..\..\..\packages\Xamarin.Facebook.CoreKit.iOS.5.12.0\lib\xamarinios10\Facebook.CoreKit.dll</HintPath>
-    </Reference>
-    <Reference Include="Facebook.LoginKit">
-      <HintPath>..\..\..\..\packages\Xamarin.Facebook.LoginKit.iOS.5.12.0\lib\xamarinios10\Facebook.LoginKit.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Drawing.Common.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageAsset Include="Assets.xcassets\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\152.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\167.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\20.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\29.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\60.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\76.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-    <Folder Include="PasswordAuth\" />
-    <Folder Include="GoogleAuth\" />
-    <Folder Include="FacebookAuth\" />
-    <Folder Include="PhoneNumberAuth\" />
-    <Folder Include="Models\" />
-    <Folder Include="Models\Contexts\" />
-    <Folder Include="Assets.xcassets\AppIcon.appiconset\" />
-  </ItemGroup>
-  <ItemGroup>
-    <InterfaceDefinition Include="LaunchScreen.storyboard" />
-    <InterfaceDefinition Include="Main.storyboard" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Info.plist" />
-    <None Include="Entitlements.plist" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Main.cs" />
-    <Compile Include="AppDelegate.cs" />
-    <Compile Include="MenuViewController.cs" />
-    <Compile Include="UserViewController.cs" />
-    <Compile Include="PasswordAuth\PasswordLoginViewController.cs" />
-    <Compile Include="PasswordAuth\NewAccountViewController.cs" />
-    <Compile Include="GoogleAuth\SignInLoginViewController.cs" />
-    <Compile Include="GoogleAuth\SignInLoginViewController.designer.cs">
+    <Compile Update="GoogleAuth\SignInLoginViewController.designer.cs">
       <DependentUpon>SignInLoginViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="FacebookAuth\FacebookLoginViewController.cs" />
-    <Compile Include="FacebookAuth\FacebookLoginViewController.designer.cs">
+    <Compile Update="FacebookAuth\FacebookLoginViewController.designer.cs">
       <DependentUpon>FacebookLoginViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="PhoneNumberAuth\PhoneNumberViewController.cs" />
-    <Compile Include="PhoneNumberAuth\CountriesViewController.cs" />
-    <Compile Include="Models\Contexts\NewAccountContext.cs" />
-    <Compile Include="Models\Contexts\PasswordContext.cs" />
-    <Compile Include="Models\CountriesManager.cs" />
-    <Compile Include="PhoneNumberAuth\VerificationCodeViewController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\source\Firebase\Auth\Auth.csproj">
-      <Project>{1BF6B7AD-47B3-49F5-918C-8E405309C934}</Project>
-      <Name>Auth</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj">
-      <Project>{9335A59B-3B54-4ED5-8201-B68CFD05CAFB}</Project>
-      <Name>Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\source\Google\SignIn\SignIn.csproj">
-      <Project>{CF20170E-821A-4706-BFCE-5650F3D1B3F0}</Project>
-      <Name>SignIn</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\source\Firebase\Auth\Auth.csproj" />
+    <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj" />
+    <ProjectReference Include="..\..\..\..\source\Google\SignIn\SignIn.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\..\Shared\GoogleServiceInfoPlistNotFoundViewController.cs" />
     <Compile Include="..\..\..\Shared\GoogleServiceInfoPlistHelper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\user.png" />
+    <None Remove="GoogleService-Info.plist" Condition="Exists('GoogleService-Info.plist')" />
     <BundleResource Include="GoogleService-Info.plist" Condition="Exists('GoogleService-Info.plist')" />
-    <BundleResource Include="Resources\PhoneCodes.json" />
-    <BundleResource Include="Resources\CountryNames.json" />
-    <BundleResource Include="Resources\CountryFlags.json" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Core\Core.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Google\SignIn\SignIn.targets" />
   <ItemGroup>

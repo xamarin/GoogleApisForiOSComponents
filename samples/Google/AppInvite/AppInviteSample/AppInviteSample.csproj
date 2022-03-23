@@ -1,18 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <TargetFramework>net6.0-ios</TargetFramework>
+    <RuntimeIdentifiers Condition="!Exists('$(ProjectAssetsFile)')">iossimulator-x64;ios-arm64</RuntimeIdentifiers>
+    <RuntimeIdentifiers Condition="Exists('$(ProjectAssetsFile)')"></RuntimeIdentifiers>
+    <RuntimeIdentifier>iossimulator-x64</RuntimeIdentifier>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{42BF8B57-0C86-4198-8AB7-F724D5E6B7E5}</ProjectGuid>
     <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+    <SupportedOSPlatformVersion>10.0</SupportedOSPlatformVersion>
     <RootNamespace>AppInviteSample</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <Platforms>iPhoneSimulator;iPhone</Platforms>
+    <Configurations>Debug;Release</Configurations>
+    <IsPackable>false</IsPackable>
     <AssemblyName>AppInviteSample</AssemblyName>
-    <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
-    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)</IntermediateOutputPath>
-    <MSBuildProjectExtensionsPath>obj\$(MSBuildProjectName)\</MSBuildProjectExtensionsPath>
-    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -64,77 +67,26 @@
     <MtouchDebug>true</MtouchDebug>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="Xamarin.iOS" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\AppIcon-60%402x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\AppIcon-60%403x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\AppIcon-76.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\AppIcon-76%402x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Contents.json" />
-    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-568h%402x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-Landscape%402x~ipad.png" />
-    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-Landscape~ipad.png" />
-    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-Portrait%402x~ipad.png" />
-    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-Portrait~ipad.png" />
-    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default%402x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Logo.imageset\Contents.json" />
-    <ImageAsset Include="Resources\Images.xcassets\Logo.imageset\FriendlyPing-Logo.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Watermark.imageset\Contents.json" />
-    <ImageAsset Include="Resources\Images.xcassets\Watermark.imageset\FriendlyPing-Watermark.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Info.plist" />
-    <None Include="Entitlements.plist" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Main.cs" />
-    <Compile Include="AppDelegate.cs" />
-    <Compile Include="ViewController.cs" />
-    <Compile Include="ViewController.designer.cs">
+    <Compile Update="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="SignInViewController.cs" />
-    <Compile Include="SignInViewController.designer.cs">
+    <Compile Update="SignInViewController.designer.cs">
       <DependentUpon>SignInViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Google.Core\source\Google.Core\Google.Core.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Google.SignIn\source\Google.SignIn\Google.SignIn.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\source\Google.AppInvite\Google.AppInvite.targets" />
   <Import Project="..\packages\Xamarin.Build.Download.0.4.3\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.3\build\Xamarin.Build.Download.targets')" />
   <ItemGroup>
-    <ProjectReference Include="..\..\..\source\Google.AppInvite\Google.AppInvite.csproj">
-      <Project>{E892C1B7-DFBF-4760-9F0C-681BB519741D}</Project>
-      <Name>Google.AppInvite</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Google.Core\source\Google.Core\Google.Core.csproj">
-      <Project>{C2355333-621E-4439-9F53-EB717D681699}</Project>
-      <Name>Google.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Google.SignIn\source\Google.SignIn\Google.SignIn.csproj">
-      <Project>{3C142652-0DF6-4919-9F58-0FD8FA3A9F6D}</Project>
-      <Name>Google.SignIn</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\..\..\source\Google.AppInvite\Google.AppInvite.csproj" />
+    <ProjectReference Include="..\..\..\..\Google.Core\source\Google.Core\Google.Core.csproj" />
+    <ProjectReference Include="..\..\..\..\Google.SignIn\source\Google.SignIn\Google.SignIn.csproj" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="GoogleService-Info.plist" />
     <BundleResource Include="Resources\appbg.png" />
     <BundleResource Include="Resources\Icon%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\Images.xcassets\LaunchImage.launchimage\" />
-    <Folder Include="Resources\Images.xcassets\Logo.imageset\" />
-    <Folder Include="Resources\Images.xcassets\Watermark.imageset\" />
-  </ItemGroup>
-  <ItemGroup>
-    <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
-    <InterfaceDefinition Include="Main.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" />

@@ -8,9 +8,6 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>MLKitVisionSample</RootNamespace>
     <AssemblyName>MLKitVisionSample</AssemblyName>
-    <OutputPath>bin\$(Platform)\$(Configuration)-NuGet</OutputPath>
-    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)-NuGet</IntermediateOutputPath>
-    <MSBuildProjectExtensionsPath>obj\$(MSBuildProjectName)\</MSBuildProjectExtensionsPath>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <LangVersion>latest</LangVersion>

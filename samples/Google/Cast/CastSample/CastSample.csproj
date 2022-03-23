@@ -1,19 +1,22 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Google\Cast\Cast.props" />
   <PropertyGroup>
+    <TargetFramework>net6.0-ios</TargetFramework>
+    <RuntimeIdentifiers Condition="!Exists('$(ProjectAssetsFile)')">iossimulator-x64;ios-arm64</RuntimeIdentifiers>
+    <RuntimeIdentifiers Condition="Exists('$(ProjectAssetsFile)')"></RuntimeIdentifiers>
+    <RuntimeIdentifier>iossimulator-x64</RuntimeIdentifier>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProjectGuid>{715CE4E1-EF89-411D-BA91-8227129D5704}</ProjectGuid>
-    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+    <SupportedOSPlatformVersion>12.0</SupportedOSPlatformVersion>
     <RootNamespace>CastSample</RootNamespace>
     <AssemblyName>CastSample</AssemblyName>
-    <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
-    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)</IntermediateOutputPath>
-    <MSBuildProjectExtensionsPath>obj\$(MSBuildProjectName)\</MSBuildProjectExtensionsPath>
-    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <Platforms>iPhoneSimulator;iPhone</Platforms>
+    <Configurations>Debug;Release</Configurations>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,7 +34,6 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
-    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>pdbonly</DebugType>
@@ -45,7 +47,6 @@
     <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
-    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>pdbonly</DebugType>
@@ -57,7 +58,6 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
-    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -77,72 +77,19 @@
     <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
-    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="Xamarin.iOS" />
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-    <Folder Include="POCO\" />
-    <Folder Include="Models\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Views\" />
-  </ItemGroup>
-  <ItemGroup>
-    <InterfaceDefinition Include="LaunchScreen.storyboard" />
-    <InterfaceDefinition Include="Main.storyboard" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Info.plist" />
-    <None Include="Entitlements.plist" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Main.cs" />
-    <Compile Include="AppDelegate.cs" />
-    <Compile Include="POCO\Track.cs" />
-    <Compile Include="POCO\Source.cs" />
-    <Compile Include="POCO\Video.cs" />
-    <Compile Include="Models\MediaListModel.cs" />
-    <Compile Include="POCO\Category.cs" />
-    <Compile Include="Controllers\TableViewController.cs" />
-    <Compile Include="Controllers\TableViewController.designer.cs">
+    <Compile Update="Controllers\TableViewController.designer.cs">
       <DependentUpon>TableViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\MediaCell.cs" />
-    <Compile Include="Views\MediaCell.designer.cs">
+    <Compile Update="Views\MediaCell.designer.cs">
       <DependentUpon>MediaCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\ImageFetcher.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj">
-      <Project>{9335A59B-3B54-4ED5-8201-B68CFD05CAFB}</Project>
-      <Name>Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\source\Google\Cast\Cast.csproj">
-      <Project>{D71F8108-A163-4E1B-BFB5-EF58FEBADD33}</Project>
-      <Name>Cast</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj" />
+    <ProjectReference Include="..\..\..\..\source\Google\Cast\Cast.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Videos.json" />
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Google\Cast\Cast.targets" />
   <ItemGroup>
     <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" />

@@ -1,19 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <TargetFramework>net6.0-ios</TargetFramework>
+    <RuntimeIdentifiers Condition="!Exists('$(ProjectAssetsFile)')">iossimulator-x64;ios-arm64</RuntimeIdentifiers>
+    <RuntimeIdentifiers Condition="Exists('$(ProjectAssetsFile)')"></RuntimeIdentifiers>
+    <RuntimeIdentifier>iossimulator-x64</RuntimeIdentifier>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProjectGuid>{8C118A0A-18D5-4E01-A83D-11DBD98DAF2F}</ProjectGuid>
-    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+    <SupportedOSPlatformVersion>10.0</SupportedOSPlatformVersion>
     <RootNamespace>MLKitVisionSample</RootNamespace>
     <AssemblyName>MLKitVisionSample</AssemblyName>
-    <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
-    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)</IntermediateOutputPath>
-    <MSBuildProjectExtensionsPath>obj\$(MSBuildProjectName)\</MSBuildProjectExtensionsPath>
-    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <LangVersion>latest</LangVersion>
+    <Platforms>iPhoneSimulator;iPhone</Platforms>
+    <Configurations>Debug;Release</Configurations>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -29,9 +31,7 @@
     <MtouchProfiling>true</MtouchProfiling>
     <MtouchLink>None</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
-    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
-    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <Optimize>true</Optimize>
@@ -43,9 +43,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchArch>ARM64</MtouchArch>
-    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
-    <PlatformTarget>x86</PlatformTarget>
     <MtouchFastDev>false</MtouchFastDev>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
@@ -56,9 +54,7 @@
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchLink>None</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
-    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
-    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -77,160 +73,44 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>None</MtouchLink>
     <MtouchArch>ARM64</MtouchArch>
-    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
-    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="Xamarin.iOS" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageAsset Include="Assets.xcassets\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\152.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\167.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\20.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\29.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\60.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\76.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\settings.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\settings.imageset\settings.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\settings.imageset\settings%402x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\settings.imageset\settings%403x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-    <Folder Include="Models\" />
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-  <ItemGroup>
-    <InterfaceDefinition Include="LaunchScreen.storyboard" />
-    <InterfaceDefinition Include="Main.storyboard" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Info.plist" />
-    <None Include="Entitlements.plist" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Main.cs" />
-    <Compile Include="AppDelegate.cs" />
-    <Compile Include="Controllers\ViewController.cs" />
-    <Compile Include="Controllers\ViewController.designer.cs">
+    <Compile Update="Controllers\ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\SettingsViewController.cs" />
-    <Compile Include="Controllers\SettingsViewController.designer.cs">
+    <Compile Update="Controllers\SettingsViewController.designer.cs">
       <DependentUpon>SettingsViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Constants.cs" />
-    <Compile Include="Models\TextRecognitionScript.cs" />
-    <Compile Include="Models\VisionType.cs" />
-    <Compile Include="StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\TextRecognition.png" />
-    <BundleResource Include="Resources\FaceDetection.png" />
-    <BundleResource Include="Resources\ImageLabeling.png" />
     <BundleResource Include="GoogleService-Info.plist" />
-    <BundleResource Include="Resources\BarcodeScanning.png" />
-    <BundleResource Include="Resources\DigitalInkRecognition.png" />
-    <BundleResource Include="Resources\ObjectDetectionAndTracking.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\source\MLKit\TextRecognitionLatin\TextRecognitionLatin.csproj">
-      <Name>TextRecognitionLatin</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\source\MLKit\TextRecognition\TextRecognition.csproj">
-      <Name>TextRecognition</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\source\MLKit\TextRecognitionKorean\TextRecognitionKorean.csproj">
-      <Name>TextRecognitionKorean</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\source\MLKit\TextRecognitionJapanese\TextRecognitionJapanese.csproj">
-      <Name>TextRecognitionJapanese</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\source\MLKit\TextRecognitionDevanagari\TextRecognitionDevanagari.csproj">
-      <Name>TextRecognitionDevanagari</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\source\MLKit\TextRecognitionChinese\TextRecognitionChinese.csproj">
-      <Name>TextRecognitionChinese</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\source\MLKit\BarcodeScanning\BarcodeScanning.csproj">
-      <Name>BarcodeScanning</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\source\MLKit\FaceDetection\FaceDetection.csproj">
-      <Name>FaceDetection</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\source\MLKit\Core\Core.csproj">
-      <Project>{720DD721-A108-488A-83CA-8DACF2D6D506}</Project>
-      <Name>Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj">
-      <Project>{9335A59B-3B54-4ED5-8201-B68CFD05CAFB}</Project>
-      <Name>Core</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\source\MLKit\Core\Core.csproj" />
+    <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj" />
     <ProjectReference Include="..\..\..\..\source\MLKit\DigitalInkRecognition\DigitalInkRecognition.csproj">
-      <Name>DigitalInkRecognition</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\source\MLKit\Vision\Vision.csproj">
-      <Project>{AB6D62E6-8B42-401A-9E9E-E963EA0AE176}</Project>
-      <Name>Vision</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\source\MLKit\ObjectDetection\ObjectDetection.csproj">
-      <Project>{847E4CEC-590D-4209-954B-0DBCB727DF64}</Project>
-      <Name>ObjectDetection</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\source\MLKit\ImageLabeling\ImageLabeling.csproj">
-      <Project>{AE0A53F7-D079-4363-8B96-6A5C86DA5FA6}</Project>
-      <Name>ImageLabeling</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\source\MLKit\Vision\Vision.csproj" />
+    <ProjectReference Include="..\..\..\..\source\MLKit\ObjectDetection\ObjectDetection.csproj" />
+    <ProjectReference Include="..\..\..\..\source\MLKit\ImageLabeling\ImageLabeling.csproj" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Core\Core.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\Core\Core.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\MLKit\BarcodeScanning\BarcodeScanning.targets" />

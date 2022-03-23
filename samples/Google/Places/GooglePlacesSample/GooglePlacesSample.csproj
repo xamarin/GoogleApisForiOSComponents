@@ -1,18 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <TargetFramework>net6.0-ios</TargetFramework>
+    <RuntimeIdentifiers Condition="!Exists('$(ProjectAssetsFile)')">iossimulator-x64;ios-arm64</RuntimeIdentifiers>
+    <RuntimeIdentifiers Condition="Exists('$(ProjectAssetsFile)')"></RuntimeIdentifiers>
+    <RuntimeIdentifier>iossimulator-x64</RuntimeIdentifier>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProjectGuid>{B55BE51C-E261-4A23-9ACB-2FE7FFF89E22}</ProjectGuid>
-    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+    <SupportedOSPlatformVersion>12.0</SupportedOSPlatformVersion>
     <RootNamespace>GooglePlacesSample</RootNamespace>
     <AssemblyName>GooglePlacesSample</AssemblyName>
-    <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
-    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)</IntermediateOutputPath>
-    <MSBuildProjectExtensionsPath>obj\$(MSBuildProjectName)\</MSBuildProjectExtensionsPath>
-    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <Platforms>iPhoneSimulator;iPhone</Platforms>
+    <Configurations>Debug;Release</Configurations>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,7 +33,6 @@
     <MtouchLink>None</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
-    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>pdbonly</DebugType>
@@ -43,7 +45,6 @@
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
-    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>pdbonly</DebugType>
@@ -55,7 +56,6 @@
     <MtouchLink>None</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
-    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -76,81 +76,31 @@
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
-    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="Xamarin.iOS" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-    <Folder Include="Samples\" />
-    <Folder Include="Models\" />
-    <Folder Include="Views\" />
-  </ItemGroup>
-  <ItemGroup>
-    <InterfaceDefinition Include="LaunchScreen.storyboard" />
-    <InterfaceDefinition Include="Main.storyboard" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Info.plist" />
-    <None Include="Entitlements.plist" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Main.cs" />
-    <Compile Include="AppDelegate.cs" />
-    <Compile Include="Samples\AutocompleteBaseViewController.cs" />
-    <Compile Include="Samples\AutocompleteBaseViewController.designer.cs">
+    <Compile Update="Samples\AutocompleteBaseViewController.designer.cs">
       <DependentUpon>AutocompleteBaseViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Samples\UISearchAutocompleteViewController.cs" />
-    <Compile Include="Samples\UISearchAutocompleteViewController.designer.cs">
+    <Compile Update="Samples\UISearchAutocompleteViewController.designer.cs">
       <DependentUpon>UISearchAutocompleteViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuTableViewController.cs" />
-    <Compile Include="MenuTableViewController.designer.cs">
+    <Compile Update="MenuTableViewController.designer.cs">
       <DependentUpon>MenuTableViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="GoogleApiKey.cs" />
-    <Compile Include="Models\SampleInformation.cs" />
-    <Compile Include="Samples\GoogleOpenSourceViewController.cs" />
-    <Compile Include="Samples\GoogleOpenSourceViewController.designer.cs">
+    <Compile Update="Samples\GoogleOpenSourceViewController.designer.cs">
       <DependentUpon>GoogleOpenSourceViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\SamplesGenerator.cs" />
-    <Compile Include="Models\StyledAutocompleteViewController.cs" />
-    <Compile Include="Models\StyledAutocompleteViewController.designer.cs">
+    <Compile Update="Models\StyledAutocompleteViewController.designer.cs">
       <DependentUpon>StyledAutocompleteViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\PhotoCollectionViewCell.cs" />
-    <Compile Include="Views\PhotoCollectionViewCell.designer.cs">
+    <Compile Update="Views\PhotoCollectionViewCell.designer.cs">
       <DependentUpon>PhotoCollectionViewCell.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\source\Google\Maps\Maps.csproj">
-      <Project>{2D4887E5-F5E4-4C2B-9F35-EAE5E562E43B}</Project>
-      <Name>Maps</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\source\Google\Places\Places.csproj">
-      <Project>{FC514AE9-BE75-467B-91CC-B5FFC0AFBEC4}</Project>
-      <Name>Places</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\source\Google\Maps\Maps.csproj" />
+    <ProjectReference Include="..\..\..\..\source\Google\Places\Places.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\thumbnail.png" />
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Google\Places\Places.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Google\Maps\Maps.targets" />
   <ItemGroup>

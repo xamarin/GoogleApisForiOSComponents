@@ -1,20 +1,23 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <TargetFramework>net6.0-ios</TargetFramework>
+    <RuntimeIdentifiers Condition="!Exists('$(ProjectAssetsFile)')">iossimulator-x64;ios-arm64</RuntimeIdentifiers>
+    <RuntimeIdentifiers Condition="Exists('$(ProjectAssetsFile)')"></RuntimeIdentifiers>
+    <RuntimeIdentifier>iossimulator-x64</RuntimeIdentifier>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{1AA78CE3-4FB5-4A85-B38C-320A5C8BDC8D}</ProjectGuid>
-    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+    <SupportedOSPlatformVersion>12.0</SupportedOSPlatformVersion>
     <RootNamespace>GoogleMapsAdvSample</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <Platforms>iPhoneSimulator;iPhone</Platforms>
+    <Configurations>Debug;Release</Configurations>
+    <IsPackable>false</IsPackable>
     <AssemblyName>GoogleMapsAdvSample</AssemblyName>
-    <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
-    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)</IntermediateOutputPath>
-    <MSBuildProjectExtensionsPath>obj\$(MSBuildProjectName)\</MSBuildProjectExtensionsPath>
-    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -68,98 +71,36 @@
     <MtouchLink>SdkOnly</MtouchLink>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
-    <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <BuildIpa>true</BuildIpa>
-    <ConsolePause>false</ConsolePause>
-    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
-    <CodesignKey>iPhone Distribution</CodesignKey>
-    <MtouchLink>SdkOnly</MtouchLink>
-    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
-    <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Distribution</CodesignKey>
-    <CodesignProvision>Automatic:AppStore</CodesignProvision>
-    <MtouchLink>SdkOnly</MtouchLink>
-    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="Xamarin.iOS" />
-    <Reference Include="MonoTouch.Dialog-1" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-    <Folder Include="Samples\" />
-    <Folder Include="Samples\Map Demos\" />
-    <Folder Include="Samples\Overlay Demos\" />
-    <Folder Include="Samples\Camera Demos\" />
-    <Folder Include="Samples\Services Demos\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Info.plist" />
-    <None Include="Entitlements.plist" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Main.cs" />
-    <Compile Include="AppDelegate.cs" />
-    <Compile Include="DVCMenu.cs" />
-    <Compile Include="Samples\Map Demos\TrafficMapViewController.cs" />
-    <Compile Include="Samples\Map Demos\MyLocationViewController.cs" />
-    <Compile Include="Samples\Map Demos\MapTypesViewController.cs" />
-    <Compile Include="Samples\Map Demos\GestureControlViewController.cs" />
-    <Compile Include="Samples\Map Demos\BasicMapViewController.cs" />
-    <Compile Include="Samples\Overlay Demos\MarkersViewController.cs" />
-    <Compile Include="Samples\Overlay Demos\CustomMarkersViewController.cs" />
-    <Compile Include="Samples\Overlay Demos\MarkerEventsViewController.cs" />
-    <Compile Include="Samples\Overlay Demos\PolygonsViewController.cs" />
-    <Compile Include="Samples\Overlay Demos\PolylinesViewController.cs" />
-    <Compile Include="Samples\Overlay Demos\GroundOverlayViewController.cs" />
-    <Compile Include="Samples\Camera Demos\FitBoundsViewController.cs" />
-    <Compile Include="Samples\Camera Demos\CameraViewController.cs" />
-    <Compile Include="Samples\Camera Demos\MapLayerViewController.cs" />
-    <Compile Include="Samples\Services Demos\GeocoderViewController.cs" />
-    <Compile Include="Samples\Overlay Demos\TileLayerViewController.cs" />
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Google\Maps\Maps.targets" />
   <ItemGroup>
-    <BundleResource Include="Resources\arrow.png" />
-    <BundleResource Include="Resources\arrow%402x.png" />
-    <BundleResource Include="Resources\australia_large.png" />
-    <BundleResource Include="Resources\australia_large%402x.png" />
-    <BundleResource Include="Resources\australia.png" />
-    <BundleResource Include="Resources\Default-568h%402x.png" />
-    <BundleResource Include="Resources\Default.png" />
-    <BundleResource Include="Resources\Default%402x.png" />
-    <BundleResource Include="Resources\glow-marker.png" />
-    <BundleResource Include="Resources\glow-marker%402x.png" />
-    <BundleResource Include="Resources\Icon-72.png" />
-    <BundleResource Include="Resources\Icon-72%402x.png" />
-    <BundleResource Include="Resources\Icon.png" />
-    <BundleResource Include="Resources\Icon%402x.png" />
-    <BundleResource Include="Resources\newark_nj_1922.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\source\Google\Maps\Maps.csproj">
-      <Project>{2D4887E5-F5E4-4C2B-9F35-EAE5E562E43B}</Project>
-      <Name>Maps</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <InterfaceDefinition Include="LaunchScreen.storyboard" />
+    <ProjectReference Include="..\..\..\..\source\Google\Maps\Maps.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\Default%402x.png">
+      <Link>Resources\Default%402x.png</Link>
+    </BundleResource>
+    <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\arrow%402x.png">
+      <Link>Resources\arrow%402x.png</Link>
+    </BundleResource>
+    <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\glow-marker%402x.png">
+      <Link>Resources\glow-marker%402x.png</Link>
+    </BundleResource>
+    <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\Icon-72%402x.png">
+      <Link>Resources\Icon-72%402x.png</Link>
+    </BundleResource>
+    <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\Icon%402x.png">
+      <Link>Resources\Icon%402x.png</Link>
+    </BundleResource>
+    <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\Default-568h%402x.png">
+      <Link>Resources\Default-568h%402x.png</Link>
+    </BundleResource>
+    <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\australia_large%402x.png">
+      <Link>Resources\australia_large%402x.png</Link>
+    </BundleResource>
   </ItemGroup>
 </Project>

@@ -8,9 +8,6 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>TagManagerSample</RootNamespace>
     <AssemblyName>TagManagerSample</AssemblyName>
-    <OutputPath>bin\$(Platform)\$(Configuration)-NuGet</OutputPath>
-    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)-NuGet</IntermediateOutputPath>
-    <MSBuildProjectExtensionsPath>obj\$(MSBuildProjectName)\</MSBuildProjectExtensionsPath>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
   </PropertyGroup>
