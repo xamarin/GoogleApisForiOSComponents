@@ -930,7 +930,6 @@ namespace Firebase.Auth
 		void Reauthenticate (AuthCredential credential, [NullAllowed] UserProfileChangeHandler completion);
 
 		// -(void)reauthenticateWithProvider:(id<FIRFederatedAuthProvider> _Nonnull)provider UIDelegate:(id<FIRAuthUIDelegate> _Nullable)UIDelegate completion:(FIRAuthDataResultCallback _Nullable)completion __attribute__((swift_name("reauthenticate(with:uiDelegate:completion:)"))) __attribute__((availability(ios, introduced=8.0)));
-		[iOS (8,0)]
 		[Async]
 		[Export ("reauthenticateWithProvider:UIDelegate:completion:")]
 		void Reauthenticate (FederatedAuthProvider provider, [NullAllowed] AuthUIDelegate @delegate, [NullAllowed] AuthDataResultHandler completion);
@@ -961,7 +960,6 @@ namespace Firebase.Auth
 		void Link (AuthCredential credential, [NullAllowed] AuthDataResultHandler completion);
 
 		// -(void)linkWithProvider:(id<FIRFederatedAuthProvider> _Nonnull)provider UIDelegate:(id<FIRAuthUIDelegate> _Nullable)UIDelegate completion:(FIRAuthDataResultCallback _Nullable)completion __attribute__((swift_name("link(with:uiDelegate:completion:)"))) __attribute__((availability(ios, introduced=8.0)));
-		[iOS (8,0)]
 		[Async]
 		[Export ("linkWithProvider:UIDelegate:completion:")]
 		void Link (FederatedAuthProvider provider, [NullAllowed] AuthUIDelegate @delegate, [NullAllowed] AuthDataResultHandler completion);
