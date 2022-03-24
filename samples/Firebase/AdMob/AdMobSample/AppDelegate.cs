@@ -28,6 +28,7 @@ public class AppDelegate : UIApplicationDelegate {
 		vc.View!.AddSubview (new UILabel (Window!.Frame) {
 			BackgroundColor = UIColor.White,
 			TextAlignment = UITextAlignment.Center,
+			Lines = 0,
 			Text = $"Hello, iOS!\nRunning {nameof (AdMobSample)} with .net6.0!"
 		});
 		Window.RootViewController = vc;
