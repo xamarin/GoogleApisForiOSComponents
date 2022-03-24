@@ -24,7 +24,7 @@ Xamarin creates and maintains Xamarin.iOS bindings for the Google APIs for iOS L
 | [Xamarin.Firebase.iOS.Storage][F.Storage.Name]                               | [8.14.0][F.Storage.Package]                   |
 | [Xamarin.Google.iOS.Analytics][G.Analytics.Name]                             | [3.20.0.0][G.Analytics.Package]               |
 | [Xamarin.Google.iOS.Cast][G.Cast.Name]                                       | [4.7.0.0][G.Cast.Package]                     |
-| [Xamarin.Google.iOS.Maps][G.Maps.Name]                                       | [6.1.0.0][G.Maps.Package]                     |
+| [Xamarin.Google.iOS.Maps][G.Maps.Name]                                       | [6.1.1.0][G.Maps.Package]                     |
 | [Xamarin.Google.iOS.MobileAds][G.MobileAds.Name]                             | [9.2.0.0][G.MobileAds.Package]                |
 | [Xamarin.Google.iOS.UserMessagingPlatform][G.UserMessagingPlatform.Name]     | [1.1.0.0][G.UserMessagingPlatform.Package]    |
 | [Xamarin.Google.iOS.Places][G.Places.Name]                                   | [6.0.0.0][G.Places.Package]                   |

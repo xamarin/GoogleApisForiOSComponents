@@ -248,7 +248,7 @@
 				"type": "Pod",
 				"Pod": {
 					"name": "GoogleMaps",
-					"Version": "6.1.0"
+					"Version": "6.1.1"
 				}
 			}
 		},
