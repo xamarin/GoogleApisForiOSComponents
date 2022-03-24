@@ -1129,7 +1129,7 @@ namespace Google.MobileAds {
 		// - (void)performClickOnAssetWithKey:(nonnull NSString *)assetKey;
 		[return: NullAllowed]
 		[Export ("performClickOnAssetWithKey:")]
-		void RecordImpression (NSString assetKey);
+		void PerformClickOnAsset (NSString assetKey);
 
 		// - (void)recordImpression;
 		[Export ("recordImpression")]
