@@ -99,12 +99,13 @@ namespace StorageSample
 
 				var alert = new UIAlertView (title, message, null, destructiveTitle, buttons.ToArray ());
 				alert.Dismissed += (sender, e) => {
-					if (e.ButtonIndex <= 0)
+					var buttonIndex = (nint) e.ButtonIndex;
+					if (buttonIndex <= 0)
 						destructiveAction?.Invoke ();
-					else if (otherTitles == null || e.ButtonIndex > otherTitles.Length)
+					else if (otherTitles == null || buttonIndex > otherTitles.Length)
 						cancelAction?.Invoke ();
 					else
-						otherActions [e.ButtonIndex - 1]?.Invoke ();
+						otherActions [buttonIndex - 1]?.Invoke ();
 				};
 				alert.Show ();
 			}
@@ -167,7 +168,8 @@ namespace StorageSample
 					AlertViewStyle = UIAlertViewStyle.PlainTextInput
 				};
 				alert.Dismissed += (sender, e) => {
-					if (e.ButtonIndex == 0) {
+					var buttonIndex = (nint) e.ButtonIndex;
+					if (buttonIndex == 0) {
 						result?.Invoke (true, null);
 					} else {
 						var value = (sender as UIAlertView).GetTextField (0).Text;
