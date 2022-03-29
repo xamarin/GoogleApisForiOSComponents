@@ -6,7 +6,7 @@
 #load "components.cake"
 #load "common.cake"
 
-var TARGET = Argument ("t", Argument ("target", "build"));
+var TARGET = Argument ("t", Argument ("target", "ci"));
 var NAMES = Argument ("names", "");
 
 var BUILD_COMMIT = EnvironmentVariable("BUILD_COMMIT") ?? "DEV";
@@ -222,6 +222,12 @@ Task ("clean")
 	if (DirectoryExists ("./output/"))
 		DeleteDirectory ("./output", deleteDirectorySettings);
 });
+
+Task ("ci")
+	.IsDependentOn("externals")
+	.IsDependentOn("libs")
+	.IsDependentOn("nuget")
+	.IsDependentOn("samples");
 
 Teardown (context =>
 {
