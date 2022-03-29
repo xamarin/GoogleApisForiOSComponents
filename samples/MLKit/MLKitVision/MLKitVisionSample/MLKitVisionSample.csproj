@@ -16,64 +16,45 @@
     <Platforms>iPhoneSimulator;iPhone</Platforms>
     <Configurations>Debug;Release</Configurations>
     <IsPackable>false</IsPackable>
+    <ProvisioningType>manual</ProvisioningType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Developer</CodesignKey>
-    <MtouchDebug>true</MtouchDebug>
-    <MtouchFastDev>false</MtouchFastDev>
-    <MtouchProfiling>true</MtouchProfiling>
     <MtouchLink>None</MtouchLink>
-    <MtouchArch>x86_64</MtouchArch>
-    <MtouchTlsProvider>Default</MtouchTlsProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
+    <CodesignKey>iPhone Developer</CodesignKey>
     <Optimize>true</Optimize>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Developer</CodesignKey>
-    <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
-    <MtouchArch>ARM64</MtouchArch>
-    <MtouchTlsProvider>Default</MtouchTlsProvider>
-    <MtouchFastDev>false</MtouchFastDev>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <Optimize>true</Optimize>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchLink>None</MtouchLink>
-    <MtouchArch>x86_64</MtouchArch>
-    <MtouchTlsProvider>Default</MtouchTlsProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
+    <CodesignKey>iPhone Developer</CodesignKey>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Developer</CodesignKey>
-    <DeviceSpecificBuild>true</DeviceSpecificBuild>
-    <MtouchDebug>true</MtouchDebug>
-    <MtouchFastDev>false</MtouchFastDev>
-    <MtouchProfiling>true</MtouchProfiling>
-    <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>None</MtouchLink>
-    <MtouchArch>ARM64</MtouchArch>
-    <MtouchTlsProvider>Default</MtouchTlsProvider>
   </PropertyGroup>
   <ItemGroup>
     <Compile Update="Controllers\ViewController.designer.cs">
