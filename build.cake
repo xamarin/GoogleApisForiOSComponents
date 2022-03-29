@@ -196,14 +196,16 @@ Task ("nuget")
 {
 	EnsureDirectoryExists("./output/");
 
+	var dotNetCorePackSettings = new DotNetCorePackSettings {
+		Configuration = "Release",
+		NoRestore = true,
+		NoBuild = true,
+		OutputDirectory = "./output/",
+		Verbosity = DotNetCoreVerbosity.Diagnostic,
+	};
+
 	foreach (var target in SOURCES_TARGETS)
-		MSBuild(SOLUTION_PATH, c => {
-			c.Configuration = "Release";
-			c.MaxCpuCount = 0;
-			c.Targets.Clear();
-			c.Targets.Add($@"source{BACKSLASH}{target}:Pack");
-			c.Properties.Add("PackageOutputPath", new [] { "../../../output/" });
-		});
+		DotNetCorePack($"./source/{target}", dotNetCorePackSettings);
 });
 
 Task ("clean")
