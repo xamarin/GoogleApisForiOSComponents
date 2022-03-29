@@ -40,7 +40,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RemoteConfig", "source\Fire
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Storage", "source\Firebase\Storage\Storage.csproj", "{03D44E24-A726-44F9-8EC9-4B136F15B817}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Analytics", "source\Google\Analytics\Analytics.csproj", "{36FD3346-EA1E-41A3-91D2-1C380E97BA34}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Analytics", "source\Google\Analytics\Analytics.csproj", "{36FD3346-EA1E-41A3-91D2-1C380E97BA34}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cast", "source\Google\Cast\Cast.csproj", "{D71F8108-A163-4E1B-BFB5-EF58FEBADD33}"
 EndProject
@@ -76,11 +76,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteConfigSample", "sampl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageSample", "samples\Firebase\Storage\StorageSample\StorageSample.csproj", "{87BCF68D-05D6-4E40-9550-AE74C37AFA89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CuteAnimalsiOS", "samples\Google\Analytics\CuteAnimalsiOS\CuteAnimalsiOS.csproj", "{EBF60C41-86FD-4FFC-853A-72591179EDB8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalyticsSample", "samples\Google\Analytics\AnalyticsSample\AnalyticsSample.csproj", "{EBF60C41-86FD-4FFC-853A-72591179EDB8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CastSample", "samples\Google\Cast\CastSample\CastSample.csproj", "{715CE4E1-EF89-411D-BA91-8227129D5704}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleMapsAdvSample", "samples\Google\Maps\GoogleMapsAdvSample\GoogleMapsAdvSample.csproj", "{1AA78CE3-4FB5-4A85-B38C-320A5C8BDC8D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleMapsSample", "samples\Google\Maps\GoogleMapsSample\GoogleMapsSample.csproj", "{2F8EC051-F3A4-43C0-928C-734423FBF1D0}"
 EndProject
@@ -561,18 +559,6 @@ Global
 		{715CE4E1-EF89-411D-BA91-8227129D5704}.Release|iPhone.Build.0 = Release|iPhone
 		{715CE4E1-EF89-411D-BA91-8227129D5704}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{715CE4E1-EF89-411D-BA91-8227129D5704}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
-		{1AA78CE3-4FB5-4A85-B38C-320A5C8BDC8D}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
-		{1AA78CE3-4FB5-4A85-B38C-320A5C8BDC8D}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
-		{1AA78CE3-4FB5-4A85-B38C-320A5C8BDC8D}.Debug|iPhone.ActiveCfg = Debug|iPhone
-		{1AA78CE3-4FB5-4A85-B38C-320A5C8BDC8D}.Debug|iPhone.Build.0 = Debug|iPhone
-		{1AA78CE3-4FB5-4A85-B38C-320A5C8BDC8D}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
-		{1AA78CE3-4FB5-4A85-B38C-320A5C8BDC8D}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
-		{1AA78CE3-4FB5-4A85-B38C-320A5C8BDC8D}.Release|Any CPU.ActiveCfg = Release|iPhone
-		{1AA78CE3-4FB5-4A85-B38C-320A5C8BDC8D}.Release|Any CPU.Build.0 = Release|iPhone
-		{1AA78CE3-4FB5-4A85-B38C-320A5C8BDC8D}.Release|iPhone.ActiveCfg = Release|iPhone
-		{1AA78CE3-4FB5-4A85-B38C-320A5C8BDC8D}.Release|iPhone.Build.0 = Release|iPhone
-		{1AA78CE3-4FB5-4A85-B38C-320A5C8BDC8D}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
-		{1AA78CE3-4FB5-4A85-B38C-320A5C8BDC8D}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{2F8EC051-F3A4-43C0-928C-734423FBF1D0}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
 		{2F8EC051-F3A4-43C0-928C-734423FBF1D0}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
 		{2F8EC051-F3A4-43C0-928C-734423FBF1D0}.Debug|iPhone.ActiveCfg = Debug|iPhone
@@ -915,7 +901,6 @@ Global
 		{87BCF68D-05D6-4E40-9550-AE74C37AFA89} = {A8FBB637-BB67-45CD-9883-E203FE66EC13}
 		{EBF60C41-86FD-4FFC-853A-72591179EDB8} = {7154BBDA-0E15-4967-B3B9-7623F914F697}
 		{715CE4E1-EF89-411D-BA91-8227129D5704} = {7154BBDA-0E15-4967-B3B9-7623F914F697}
-		{1AA78CE3-4FB5-4A85-B38C-320A5C8BDC8D} = {7154BBDA-0E15-4967-B3B9-7623F914F697}
 		{2F8EC051-F3A4-43C0-928C-734423FBF1D0} = {7154BBDA-0E15-4967-B3B9-7623F914F697}
 		{0FFC84D3-DC23-433C-8675-500FD96CCD73} = {7154BBDA-0E15-4967-B3B9-7623F914F697}
 		{B55BE51C-E261-4A23-9ACB-2FE7FFF89E22} = {7154BBDA-0E15-4967-B3B9-7623F914F697}
