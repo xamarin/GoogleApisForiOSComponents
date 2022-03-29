@@ -1,0 +1,82 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0-ios</TargetFramework>
+    <RuntimeIdentifiers Condition="!Exists('$(ProjectAssetsFile)')">iossimulator-x64;ios-arm64</RuntimeIdentifiers>
+    <RuntimeIdentifiers Condition="Exists('$(ProjectAssetsFile)')"></RuntimeIdentifiers>
+    <RuntimeIdentifier>iossimulator-x64</RuntimeIdentifier>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+    <SupportedOSPlatformVersion>12.0</SupportedOSPlatformVersion>
+    <RootNamespace>GooglePlacesSample</RootNamespace>
+    <AssemblyName>GooglePlacesSample</AssemblyName>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <Platforms>iPhoneSimulator;iPhone</Platforms>
+    <Configurations>Debug;Release</Configurations>
+    <IsPackable>false</IsPackable>
+    <ProvisioningType>manual</ProvisioningType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="Samples\AutocompleteBaseViewController.designer.cs">
+      <DependentUpon>AutocompleteBaseViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Samples\UISearchAutocompleteViewController.designer.cs">
+      <DependentUpon>UISearchAutocompleteViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Update="MenuTableViewController.designer.cs">
+      <DependentUpon>MenuTableViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Samples\GoogleOpenSourceViewController.designer.cs">
+      <DependentUpon>GoogleOpenSourceViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Models\StyledAutocompleteViewController.designer.cs">
+      <DependentUpon>StyledAutocompleteViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PhotoCollectionViewCell.designer.cs">
+      <DependentUpon>PhotoCollectionViewCell.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" />
+    <PackageReference Include="Xamarin.Google.iOS.Maps" Version="6.0.1.1" />
+    <PackageReference Include="Xamarin.Google.iOS.Places" Version="6.0.0.1" />
+  </ItemGroup>
+</Project>
