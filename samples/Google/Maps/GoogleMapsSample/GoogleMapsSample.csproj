@@ -17,19 +17,17 @@
     <Platforms>iPhoneSimulator;iPhone</Platforms>
     <Configurations>Debug;Release</Configurations>
     <IsPackable>false</IsPackable>
+    <ProvisioningType>manual</ProvisioningType>
     <AssemblyName>GoogleMapsSample</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>True</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>False</Optimize>
-    <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
     <MtouchLink>None</MtouchLink>
-    <MtouchDebug>True</MtouchDebug>
-    <MtouchArch>x86_64</MtouchArch>
     <MtouchExtraArgs>--registrar:static</MtouchExtraArgs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
@@ -38,43 +36,38 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
-    <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>Full</MtouchLink>
     <MtouchExtraArgs>--registrar:static</MtouchExtraArgs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
+    <CodesignKey>iPhone Developer</CodesignKey>
     <DebugSymbols>True</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>False</Optimize>
-    <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
-    <MtouchDebug>True</MtouchDebug>
-    <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchI18n>
     </MtouchI18n>
-    <MtouchArch>ARM64</MtouchArch>
     <IpaPackageName>
     </IpaPackageName>
     <MtouchLink>SdkOnly</MtouchLink>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
+    <CodesignKey>iPhone Developer</CodesignKey>
     <DebugType>none</DebugType>
     <Optimize>True</Optimize>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
-    <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchI18n>
     </MtouchI18n>
-    <MtouchArch>ARM64</MtouchArch>
     <MtouchLink>SdkOnly</MtouchLink>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
-  <ItemGroup>
-  </ItemGroup>
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Google\Maps\Maps.targets" />
   <ItemGroup>
     <BundleResource Include="Default-568h%402x.png" />
