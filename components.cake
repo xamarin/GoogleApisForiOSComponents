@@ -350,6 +350,7 @@ void SetArtifactsSamples ()
 	FIREBASE_ANALYTICS_ARTIFACT.Samples               = new [] { "AnalyticsSample" };
 	FIREBASE_AUTH_ARTIFACT.Samples                    = new [] { "AuthSample" };
 	FIREBASE_CLOUD_FIRESTORE_ARTIFACT.Samples         = new [] { "CloudFirestoreSample" };
+	FIREBASE_CLOUD_FUNCTIONS_ARTIFACT.Samples         = new [] { "CloudFunctionsSample" };
 	FIREBASE_CLOUD_MESSAGING_ARTIFACT.Samples         = new [] { "CloudMessagingSample" };
 	FIREBASE_CORE_ARTIFACT.Samples                    = null;
 	FIREBASE_CRASHLYTICS_ARTIFACT.Samples             = new [] { "CrashlyticsSample" };
@@ -364,9 +365,9 @@ void SetArtifactsSamples ()
 	//FIREBASE_APP_CHECK_ARTIFACT.Samples               = new [] { "AppCheckSample" };
 
 	// Google components
-	GOOGLE_ANALYTICS_ARTIFACT.Samples                 = new [] { "CuteAnimalsiOS" };
+	GOOGLE_ANALYTICS_ARTIFACT.Samples                 = new [] { "AnalyticsSample" };
 	GOOGLE_CAST_ARTIFACT.Samples                      = new [] { "CastSample" };
-	GOOGLE_MAPS_ARTIFACT.Samples                      = new [] { "GoogleMapsAdvSample", "GoogleMapsSample" };
+	GOOGLE_MAPS_ARTIFACT.Samples                      = new [] { "GoogleMapsSample" };
 	GOOGLE_MOBILE_ADS_ARTIFACT.Samples                = new [] { "MobileAdsExample" };
 	GOOGLE_PLACES_ARTIFACT.Samples                    = new [] { "GooglePlacesSample" };
 	GOOGLE_SIGN_IN_ARTIFACT.Samples                   = new [] { "SignInExample" };
