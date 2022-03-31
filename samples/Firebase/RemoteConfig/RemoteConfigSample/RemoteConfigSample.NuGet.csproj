@@ -55,12 +55,6 @@
     <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\source\Firebase\ABTesting\ABTesting.csproj" />
-    <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj" />
-    <ProjectReference Include="..\..\..\..\source\Firebase\RemoteConfig\RemoteConfig.csproj" />
-    <ProjectReference Include="..\..\..\..\source\Firebase\Installations\Installations.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="..\..\..\Shared\GoogleServiceInfoPlistNotFoundViewController.cs" />
     <Compile Include="..\..\..\Shared\GoogleServiceInfoPlistHelper.cs" />
   </ItemGroup>
@@ -68,7 +62,6 @@
     <None Remove="GoogleService-Info.plist" Condition="Exists('GoogleService-Info.plist')" />
     <BundleResource Include="GoogleService-Info.plist" Condition="Exists('GoogleService-Info.plist')" />
   </ItemGroup>
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Core\Core.targets" />
   <ItemGroup>
     <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" />
     <PackageReference Include="Xamarin.Firebase.iOS.ABTesting" Version="8.10.0.1" />
