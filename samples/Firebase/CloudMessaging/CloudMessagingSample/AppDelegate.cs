@@ -30,6 +30,7 @@ public class AppDelegate : UIApplicationDelegate {
 		var vc = new UIViewController ();
 		vc.View!.AddSubview (new UILabel (Window!.Frame) {
 			BackgroundColor = UIColor.White,
+			TextColor = UIColor.Black,
 			TextAlignment = UITextAlignment.Center,
 			Lines = 0,
 			Text = $"Hello, iOS!\nRunning {nameof (CloudMessagingSample)} with .net6.0!"
