@@ -57,10 +57,6 @@
     <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\source\Google\MobileAds\MobileAds.csproj" />
-    <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="..\..\..\Shared\GoogleServiceInfoPlistNotFoundViewController.cs" />
     <Compile Include="..\..\..\Shared\GoogleServiceInfoPlistHelper.cs" />
   </ItemGroup>
@@ -68,8 +64,6 @@
     <None Remove="GoogleService-Info.plist" Condition="Exists('GoogleService-Info.plist')" />
     <BundleResource Include="GoogleService-Info.plist" Condition="Exists('GoogleService-Info.plist')" />
   </ItemGroup>
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Firebase\Core\Core.targets" />
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Google\MobileAds\MobileAds.targets" />
   <ItemGroup>
     <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" />
     <PackageReference Include="Xamarin.Firebase.iOS.AdMob" Version="8.13.0.1" />
