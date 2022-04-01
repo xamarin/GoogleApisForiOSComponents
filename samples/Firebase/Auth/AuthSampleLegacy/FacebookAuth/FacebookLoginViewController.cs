@@ -9,7 +9,7 @@ using Facebook.LoginKit;
 
 namespace AuthSample
 {
-	public partial class FacebookLoginViewController : UIViewController
+	public partial class FacebookLoginViewController : UIViewController, ILoginButtonDelegate
 	{
 		// This permission is set by default, even if you don't add it, but FB recommends to add it anyway
 		List<string> readPermissions = new List<string> { "public_profile" };
@@ -24,7 +24,7 @@ namespace AuthSample
 			// Perform any additional setup after loading the view, typically from a nib.
 
 			// Handle actions once the user is logged in
-			BtnLogin.Completed += BtnLogin_Completed;
+			BtnLogin.Delegate = this;
 			BtnLogin.Permissions = readPermissions.ToArray ();
 
 			if (AccessToken.CurrentAccessToken != null) {
@@ -33,15 +33,15 @@ namespace AuthSample
 			}
 		}
 
-		void BtnLogin_Completed (object sender, LoginButtonCompletedEventArgs e)
+		public void DidComplete (LoginButton loginButton, LoginManagerLoginResult result, NSError error)
 		{
-			if (e.Error != null) {
+			if (error != null) {
 				// Handle if there was an error
-				AppDelegate.ShowMessage ("Could not login!", e.Error.Description, NavigationController);
+				AppDelegate.ShowMessage ("Could not login!", error.Description, NavigationController);
 				return;
 			}
 
-			if (e.Result.IsCancelled) {
+			if (result.IsCancelled) {
 				// Handle if the user cancelled the login request
 				AppDelegate.ShowMessage ("Could not login!", "The user cancelled the login", NavigationController);
 				return;
@@ -52,6 +52,10 @@ namespace AuthSample
 
 			// Authenticate with Firebase using the credential
 			Auth.DefaultInstance.SignInWithCredential (credential, SignInOnCompletion);
+		}
+
+		public void DidLogOut (LoginButton loginButton)
+		{
 		}
 
 		void SignInOnCompletion (AuthDataResult authResult, NSError error)
