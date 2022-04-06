@@ -15,6 +15,7 @@ resources:
       endpoint: xamarin
 
 variables:
+  DotNetVersion: 6.0.201
   BUILD_COMMIT: $(Build.SourceVersion)
   BUILD_NUMBER: $(Build.BuildNumber)
 
@@ -23,10 +24,19 @@ jobs:
     parameters:
       timeoutInMinutes: 180
       areaPath: 'DevDiv\Xamarin SDK\iOS and Mac'
-      cakeTarget: 'build'
+      cakeTarget: 'ci'
       cakeExtraArgs: '--names=$(SdksNames)'
       windowsImage: ''
-      xcode: '13.1'
+      xcode: '13.2'
+      initSteps:
+        - task: UseDotNet@2
+          displayName: install .NET $(DotNetVersion)
+          inputs:
+            version: $(DotNetVersion)
+        - pwsh: |
+            dotnet workload install ios
+          displayName: Install .NET 6 iOS Workload
+          condition: eq(variables['System.JobName'], 'macos')
 
   - ${{ if eq(variables['System.TeamProject'], 'devdiv') }}:
     - template: sign-artifacts/jobs/v2.yml@internal-templates
