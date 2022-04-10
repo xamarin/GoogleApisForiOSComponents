@@ -91,7 +91,7 @@ namespace Firebase.Analytics
 		public static NSString Quantity { get; } = new NSString ("quantity");
 		public static NSString Score { get; } = new NSString ("score");
 		public static NSString ScreenClass { get; } = new NSString ("screen_class");
-		public static NSString ScreenName { get; } = new NSString ("score_name");
+		public static NSString ScreenName { get; } = new NSString ("screen_name");
 		public static NSString SearchTerm { get; } = new NSString ("search_term");
 		public static NSString Shipping { get; } = new NSString ("shipping");
 		[Obsolete ("Use Method property instead.")]

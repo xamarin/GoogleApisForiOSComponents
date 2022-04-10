@@ -5,12 +5,6 @@ using ObjCRuntime;
 
 namespace Google.Places {
 	[Native]
-	public enum AutocompleteBoundsMode : ulong {
-		Bias,
-		Restrict
-	}
-
-	[Native]
 	public enum PlacesAutocompleteTypeFilter : long {
 		NoFilter,
 		Geocode,

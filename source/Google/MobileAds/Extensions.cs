@@ -91,6 +91,10 @@ namespace Google.MobileAds {
 		[DllImport ("__Internal", EntryPoint = "GADAdSizeIsFluid")]
 		public static extern bool AdSizeIsFluid (AdSize size);
 
+		// extern GADAdSize GADClosestValidSizeForAdSizes (GADAdSize original, NSArray<NSValue *> * _Nonnull possibleAdSizes);
+		[DllImport ("__Internal", EntryPoint = "GADClosestValidSizeForAdSizes")]
+		static extern AdSize ClosestValidSizeForAdSizes (AdSize original, NSValue [] possibleAdSizes);
+
 		// NSString *NSStringFromGADAdSize(GADAdSize size);
 		[DllImport ("__Internal", EntryPoint = "NSStringFromGADAdSize")]
 		static extern IntPtr _GetNSString (AdSize size);
