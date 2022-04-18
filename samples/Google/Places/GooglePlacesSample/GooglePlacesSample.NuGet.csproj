@@ -75,7 +75,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.11.1" />
     <PackageReference Include="Xamarin.Google.iOS.Maps" Version="6.0.1.1" />
     <PackageReference Include="Xamarin.Google.iOS.Places" Version="6.0.0.1" />
   </ItemGroup>

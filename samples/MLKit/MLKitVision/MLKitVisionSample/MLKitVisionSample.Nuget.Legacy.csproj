@@ -181,7 +181,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.11.1" />
     <PackageReference Include="Xamarin.Firebase.iOS.Core" Version="8.10.0.1" />
     <PackageReference Include="Xamarin.MLKit.iOS.BarcodeScanning" Version="1.6.0.1" />
     <PackageReference Include="Xamarin.MLKit.iOS.Core" Version="5.0.0.1" />
