@@ -126,7 +126,7 @@
     <Content Include="Default-568h%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.11.1" />
     <PackageReference Include="Xamarin.Firebase.iOS.Core" Version="8.10.0.1" />
     <PackageReference Include="Xamarin.Google.iOS.MobileAds" Version="8.13.0.1" />
   </ItemGroup>

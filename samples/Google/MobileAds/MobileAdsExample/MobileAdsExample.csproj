@@ -75,6 +75,6 @@
     <ProjectReference Include="..\..\..\..\source\Firebase\Core\Core.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.11.1" />
   </ItemGroup>
 </Project>

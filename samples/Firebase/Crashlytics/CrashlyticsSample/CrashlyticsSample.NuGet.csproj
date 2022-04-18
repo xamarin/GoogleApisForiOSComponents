@@ -69,7 +69,7 @@
     <BundleResource Include="GoogleService-Info.plist" Condition="Exists('GoogleService-Info.plist')" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.11.1" />
     <PackageReference Include="Xamarin.Firebase.iOS.Core" Version="8.10.0.1" />
     <PackageReference Include="Xamarin.Firebase.iOS.Crashlytics" Version="8.10.0.1" />
     <PackageReference Include="Xamarin.Firebase.iOS.Installations" Version="8.10.0.1" />

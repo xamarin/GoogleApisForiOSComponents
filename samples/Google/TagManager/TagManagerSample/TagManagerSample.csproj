@@ -77,6 +77,6 @@
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Google\Analytics\Analytics.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\source\Google\TagManager\TagManager.targets" />
   <ItemGroup>
-    <PackageReference Include="Xamarin.Build.Download" Version="0.11.0" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.11.1" />
   </ItemGroup>
 </Project>
