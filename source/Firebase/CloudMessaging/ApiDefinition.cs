@@ -84,7 +84,7 @@ namespace Firebase.CloudMessaging
 		// -(void)tokenWithCompletion:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completion;
 		[Export ("tokenWithCompletion:")]
 		[Async]
-		void FetchToken (MessagingDeleteFcmTokenCompletionHandler completion);
+		void FetchToken (MessagingFcmTokenFetchCompletionHandler completion);
 
 		// -(void)deleteTokenWithCompletion:(void (^ _Nonnull)(NSError * _Nullable))completion;
 		[Export ("deleteTokenWithCompletion:")]
