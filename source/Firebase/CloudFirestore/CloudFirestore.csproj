@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.CloudFirestore</RootNamespace>
     <AssemblyName>Firebase.CloudFirestore</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>8.14.0</FileVersion>
+    <FileVersion>8.15.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2030883</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>8.14.0</PackageVersion>
+    <PackageVersion>8.15.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -46,6 +46,9 @@
     </None>
     <None Include="..\..\..\externals\openssl_grpc.framework\openssl_grpc">
       <Link>openssl_grpc.framework</Link>
+    </None>
+    <None Include="..\..\..\externals\uv.framework\uv">
+      <Link>uv.framework</Link>
     </None>
     <None Include="..\..\..\externals\absl.framework\absl">
       <Link>absl.framework</Link>

@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.Analytics</RootNamespace>
     <AssemblyName>Firebase.Analytics</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>8.14.0</FileVersion>
+    <FileVersion>8.15.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ProcessEnums>true</ProcessEnums>
@@ -24,7 +24,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865559</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>8.14.0</PackageVersion>
+    <PackageVersion>8.15.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
