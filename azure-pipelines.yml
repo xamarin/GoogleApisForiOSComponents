@@ -15,7 +15,7 @@ resources:
       endpoint: xamarin
 
 variables:
-  DotNetVersion: 6.0.201
+  DotNetVersion: 6.0.300
   BUILD_COMMIT: $(Build.SourceVersion)
   BUILD_NUMBER: $(Build.BuildNumber)
 
@@ -34,7 +34,7 @@ jobs:
           inputs:
             version: $(DotNetVersion)
         - pwsh: |
-            dotnet workload install ios
+            dotnet workload install ios --from-rollback-file https://maui.blob.core.windows.net/metadata/rollbacks/6.0.3xx.json --source https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet6/nuget/v3/index.json --source https://api.nuget.org/v3/index.json
           displayName: Install .NET 6 iOS Workload
           condition: eq(variables['System.JobName'], 'macos')
 
