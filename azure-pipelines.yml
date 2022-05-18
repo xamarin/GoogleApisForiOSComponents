@@ -25,7 +25,7 @@ jobs:
       timeoutInMinutes: 180
       areaPath: 'DevDiv\Xamarin SDK\iOS and Mac'
       cakeTarget: 'ci'
-      cakeExtraArgs: '--names=$(SdksNames)'
+      cakeExtraArgs: '--names="$(SdksNames)"'
       windowsImage: ''
       xcode: '13.2'
       initSteps:
