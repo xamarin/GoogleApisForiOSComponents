@@ -30,8 +30,13 @@ jobs:
       xcode: '13.2'
       cake: '0.33.0'
       initSteps:
+        # Cake v0.33.0 uses this version
         - task: UseDotNet@2
-          displayName: install .NET $(DotNetVersion)
+          displayName: Install .NET 2.1.818
+          inputs:
+            version: '2.1.818'
+        - task: UseDotNet@2
+          displayName: Install .NET $(DotNetVersion)
           inputs:
             version: $(DotNetVersion)
         - pwsh: |
