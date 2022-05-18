@@ -28,6 +28,7 @@ jobs:
       cakeExtraArgs: '--names=$(SdksNames)'
       windowsImage: ''
       xcode: '13.2'
+      cake: '0.33.0'
       initSteps:
         - task: UseDotNet@2
           displayName: install .NET $(DotNetVersion)
