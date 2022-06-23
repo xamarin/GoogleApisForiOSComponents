@@ -65,7 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Build.Download" Version="0.11.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Xamarin.Firebase.iOS.Core" Version="8.10.0.1" />
     <PackageReference Include="Xamarin.Google.iOS.Cast" Version="4.7.0.1" />
   </ItemGroup>
