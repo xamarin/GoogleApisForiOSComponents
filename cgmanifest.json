@@ -1,410 +1,411 @@
 {
-	"Registrations": [
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "Firebase",
-					"Version": "8.10.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "BoringSSL-GRPC",
-					"Version": "0.0.7"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "gRPC-Core",
-					"Version": "1.28.2"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "gRPC-C++",
-					"Version": "1.28.2"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "abseil",
-					"Version": "0.20200225.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "FirebaseCoreDiagnostics",
-					"Version": "8.10.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "GTMSessionFetcher",
-					"Version": "1.7.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "GoogleAPIClientForREST",
-					"Version": "1.6.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "GoogleAppMeasurement",
-					"Version": "8.10.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "GoogleDataTransport",
-					"Version": "9.1.2"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "PromisesObjC",
-					"Version": "2.0.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "GoogleToolboxForMac",
-					"Version": "2.3.2"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "GoogleUtilities",
-					"Version": "7.6.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "GoogleUtilitiesComponents",
-					"Version": "1.0.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "nanopb",
-					"Version": "2.30908.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "leveldb-library",
-					"Version": "1.22.1"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "Protobuf",
-					"Version": "3.15.8"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "FirebaseInstallations",
-					"Version": "8.10.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "GoogleAnalytics",
-					"Version": "3.20.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "google-cast-sdk",
-					"Version": "4.7.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "GoogleMaps",
-					"Version": "6.0.1"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "Google-Mobile-Ads-SDK",
-					"Version": "8.13.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "GoogleUserMessagingPlatform",
-					"Version": "1.1.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "GooglePlaces",
-					"Version": "6.0.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "GoogleSignIn",
-					"Version": "5.0.2"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "AppAuth",
-					"Version": "1.4.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "GTMAppAuth",
-					"Version": "1.2.1"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "GoogleTagManager",
-					"Version": "7.4.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "MLKitCore",
-					"Version": "5.0.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "MLKitVision",
-					"Version": "3.0.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "MLImage",
-					"Version": "1.0.0-beta2"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "MLKitMDD",
-					"Version": "3.0.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "SSZipArchive",
-					"Version": "2.4.2"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "MLKitTextRecognitionCommon",
-					"Version": "1.0.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "MLKitVision",
-					"Version": "3.0.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "MLKitTextRecognition",
-					"Version": "1.4.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "MLKitTextRecognitionChinese",
-					"Version": "1.0.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "MLKitTextRecognitionDevanagari",
-					"Version": "1.0.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "MLKitTextRecognitionJapanese",
-					"Version": "1.0.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "MLKitTextRecognitionKorean",
-					"Version": "1.0.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "MLKitFaceDetection",
-					"Version": "1.5.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "MLKitBarcodeScanning",
-					"Version": "1.6.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "MLKitDigitalInkRecognition",
-					"Version": "1.5.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "MLKitImageLabeling",
-					"Version": "1.5.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "MLKitObjectDetection",
-					"Version": "1.5.0"
-				}
-			}
-		}
-	],
-	"version": 1
+  "$schema": "https://json.schemastore.org/component-detection-manifest.json",
+  "Registrations": [
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "Firebase",
+          "Version": "8.10.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "BoringSSL-GRPC",
+          "Version": "0.0.7"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "gRPC-Core",
+          "Version": "1.28.2"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "gRPC-C++",
+          "Version": "1.28.2"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "abseil",
+          "Version": "0.20200225.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "FirebaseCoreDiagnostics",
+          "Version": "8.10.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "GTMSessionFetcher",
+          "Version": "1.7.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "GoogleAPIClientForREST",
+          "Version": "1.6.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "GoogleAppMeasurement",
+          "Version": "8.10.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "GoogleDataTransport",
+          "Version": "9.1.2"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "PromisesObjC",
+          "Version": "2.0.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "GoogleToolboxForMac",
+          "Version": "2.3.2"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "GoogleUtilities",
+          "Version": "7.6.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "GoogleUtilitiesComponents",
+          "Version": "1.0.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "nanopb",
+          "Version": "2.30908.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "leveldb-library",
+          "Version": "1.22.1"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "Protobuf",
+          "Version": "3.15.8"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "FirebaseInstallations",
+          "Version": "8.10.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "GoogleAnalytics",
+          "Version": "3.20.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "google-cast-sdk",
+          "Version": "4.7.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "GoogleMaps",
+          "Version": "6.0.1"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "Google-Mobile-Ads-SDK",
+          "Version": "8.13.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "GoogleUserMessagingPlatform",
+          "Version": "1.1.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "GooglePlaces",
+          "Version": "6.0.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "GoogleSignIn",
+          "Version": "5.0.2"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "AppAuth",
+          "Version": "1.4.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "GTMAppAuth",
+          "Version": "1.2.1"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "GoogleTagManager",
+          "Version": "7.4.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "MLKitCore",
+          "Version": "5.0.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "MLKitVision",
+          "Version": "3.0.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "MLImage",
+          "Version": "1.0.0-beta2"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "MLKitMDD",
+          "Version": "3.0.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "SSZipArchive",
+          "Version": "2.4.2"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "MLKitTextRecognitionCommon",
+          "Version": "1.0.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "MLKitVision",
+          "Version": "3.0.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "MLKitTextRecognition",
+          "Version": "1.4.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "MLKitTextRecognitionChinese",
+          "Version": "1.0.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "MLKitTextRecognitionDevanagari",
+          "Version": "1.0.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "MLKitTextRecognitionJapanese",
+          "Version": "1.0.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "MLKitTextRecognitionKorean",
+          "Version": "1.0.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "MLKitFaceDetection",
+          "Version": "1.5.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "MLKitBarcodeScanning",
+          "Version": "1.6.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "MLKitDigitalInkRecognition",
+          "Version": "1.5.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "MLKitImageLabeling",
+          "Version": "1.5.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "MLKitObjectDetection",
+          "Version": "1.5.0"
+        }
+      }
+    }
+  ],
+  "version": 1
 }
