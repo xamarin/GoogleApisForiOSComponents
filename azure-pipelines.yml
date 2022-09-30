@@ -16,6 +16,8 @@ resources:
 
 variables:
   DotNetVersion: 6.0.401
+  DotNet6Source: https://aka.ms/dotnet6/nuget/index.json
+  NuGetOrgSource: https://api.nuget.org/v3/index.json
   BUILD_COMMIT: $(Build.SourceVersion)
   BUILD_NUMBER: $(Build.BuildNumber)
 
@@ -40,7 +42,7 @@ jobs:
           inputs:
             version: $(DotNetVersion)
         - pwsh: |
-            dotnet workload install ios --from-rollback-file https://maui.blob.core.windows.net/metadata/rollbacks/6.0.3xx.json --source https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet6/nuget/v3/index.json --source https://api.nuget.org/v3/index.json
+            dotnet workload install ios --verbosity diag --from-rollback-file https://maui.blob.core.windows.net/metadata/rollbacks/6.0.4xx.json --source $(Dotnet6Source) --source $(NuGetOrgSource)
           displayName: Install .NET 6 iOS Workload
           condition: eq(variables['System.JobName'], 'macos')
 
