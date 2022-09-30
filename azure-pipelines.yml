@@ -15,7 +15,7 @@ resources:
       endpoint: xamarin
 
 variables:
-  DotNetVersion: 6.0.300
+  DotNetVersion: 6.0.401
   BUILD_COMMIT: $(Build.SourceVersion)
   BUILD_NUMBER: $(Build.BuildNumber)
 
