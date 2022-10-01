@@ -29,7 +29,7 @@ jobs:
       cakeTarget: 'ci'
       cakeExtraArgs: '--names=$(SdksNames)'
       windowsImage: ''
-      xcode: '13.2'
+      xcode: '13.2.1'
       cake: '0.33.0'
       initSteps:
         # Cake v0.33.0 uses this version
