@@ -46,10 +46,10 @@
 
   <Target Name="_GoogleAnalyticsStripBitcodeFromFrameworksOnMac">
     <!-- Get the frameworks to strip bitcode -->
-    <FindInList 
-      CaseSensitive="false"
+    <FindInList
       List="@(_FrameworkNativeReference)"
-      ItemSpecToFind="%(_FrameworkNamesToStripBitcode.Identity)">
+      ItemSpecToFind="%(_FrameworkNamesToStripBitcode.Identity)"
+      MatchFileNameOnly="True">
       <Output TaskParameter="ItemFound" ItemName="_FrameworksToStripBitcode"/>
     </FindInList>
 
@@ -65,10 +65,10 @@
   <Target Name="_GoogleAnalyticsStripBitcodeFromFrameworksOnWindows"
           Condition="'$(IsMacEnabled)'=='true'">
     <!-- Get the frameworks to strip bitcode -->
-    <FindInList 
-      CaseSensitive="false"
+    <FindInList
       List="@(_FrameworkNativeReference)"
-      ItemSpecToFind="%(_FrameworkNamesToStripBitcode.Identity)">
+      ItemSpecToFind="%(_FrameworkNamesToStripBitcode.Identity)"
+      MatchFileNameOnly="True">
       <Output TaskParameter="ItemFound" ItemName="_FrameworksToStripBitcode"/>
     </FindInList>
 

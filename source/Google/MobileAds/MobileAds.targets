@@ -20,6 +20,11 @@
       <!-- From https://dl.google.com/dl/cpdc/7a51a535dad39fe5/Google-Mobile-Ads-SDK-8.13.0.tar.gz -->
       <NativeReference Include="$(_GoogleMobileAdsSDKBaseFolder)GoogleMobileAds.xcframework">
         <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+        <LinkerFlags>-ObjC -lz -lsqlite3</LinkerFlags>
+        <Frameworks>AudioToolbox AVFoundation CFNetwork CoreGraphics CoreMedia CoreTelephony CoreVideo MediaPlayer MessageUI MobileCoreServices QuartzCore Security StoreKit SystemConfiguration</Frameworks>
+        <WeakFrameworks>AdSupport JavaScriptCore SafariServices WebKit</WeakFrameworks>
       </NativeReference>
     </ItemGroup>
   </Target>
