@@ -157,4 +157,68 @@
       <NativeReference Include="@(_NativeReference)" />
     </ItemGroup>
   </Target>
+
+  <!--  -->
+  <!-- Targets to strip bitcode from specified frameworks -->
+  <!--  -->
+
+  <!-- Framework names to strip bitcode -->
+  <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+    <_FrameworkNamesToStripBitcode Include="GoogleAppMeasurement" Condition="'$(FirebaseWithoutAdIdSupport)'!='True'" />
+    <_FrameworkNamesToStripBitcode Include="GoogleAppMeasurementIdentitySupport" Condition="'$(FirebaseWithoutAdIdSupport)'=='True'" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <!-- Properties used to strip bitcode from frameworks when using Visual Studio for Mac -->
+    <_FirebaseStripBitcodeFromFrameworksMasterAfterTargets Condition="'$(OS)'=='Unix'">_ExpandNativeReferences</_FirebaseStripBitcodeFromFrameworksMasterAfterTargets>
+    <_FirebaseStripBitcodeFromFrameworksMasterDependsOnTargets Condition="'$(OS)'=='Unix'">_FirebaseStripBitcodeFromFrameworksOnMac</_FirebaseStripBitcodeFromFrameworksMasterDependsOnTargets>
+
+    <!-- Properties used to strip bitcode from frameworks when using Visual Studio for Windows -->
+    <_FirebaseStripBitcodeFromFrameworksMasterAfterTargets Condition="'$(OS)'!='Unix'">_ComputeFrameworkFilesToPublish</_FirebaseStripBitcodeFromFrameworksMasterAfterTargets>
+    <_FirebaseStripBitcodeFromFrameworksMasterDependsOnTargets Condition="'$(OS)'!='Unix'">_FirebaseStripBitcodeFromFrameworksOnWindows</_FirebaseStripBitcodeFromFrameworksMasterDependsOnTargets>
+  </PropertyGroup>
+  
+  <Target Name="_FirebaseStripBitcodeFromFrameworksMasterTarget" 
+          Condition="'$(_FirebaseStripBitcodeFromFrameworksMasterDependsOnTargets)'!='' AND ('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True') AND '$(_SdkIsSimulator)'=='False' AND @(_FrameworkNamesToStripBitcode->Count()) != 0"
+          AfterTargets="$(_FirebaseStripBitcodeFromFrameworksMasterAfterTargets)"
+          DependsOnTargets="$(_FirebaseStripBitcodeFromFrameworksMasterDependsOnTargets)" />
+
+  <Target Name="_FirebaseStripBitcodeFromFrameworksOnMac">
+    <!-- Get the frameworks to strip bitcode -->
+    <FindInList 
+      List="@(_FrameworkNativeReference)"
+      ItemSpecToFind="%(_FrameworkNamesToStripBitcode.Identity)"
+      MatchFileNameOnly="True">
+      <Output TaskParameter="ItemFound" ItemName="_FrameworksToStripBitcode"/>
+    </FindInList>
+
+    <!-- Find the bitcode_strip command -->
+    <Exec Command="xcrun -find bitcode_strip" ConsoleToMSBuild="true">
+      <Output TaskParameter="ConsoleOutput" PropertyName="_BitcodeStripCommand" />
+    </Exec>
+
+    <!-- Strip the bitcode from frameworks -->
+    <Exec Command="$(_BitcodeStripCommand) %(_FrameworksToStripBitcode.Identity) -r -o %(_FrameworksToStripBitcode.Identity)" />
+  </Target>
+
+  <Target Name="_FirebaseStripBitcodeFromFrameworksOnWindows"
+          Condition="'$(IsMacEnabled)'=='true'">
+    <!-- Get the frameworks to strip bitcode -->
+    <FindInList 
+      CaseSensitive="false"
+      List="@(_FrameworkNativeReference)"
+      ItemSpecToFind="%(_FrameworkNamesToStripBitcode.Identity)"
+      MatchFileNameOnly="True">
+      <Output TaskParameter="ItemFound" ItemName="_FrameworksToStripBitcode"/>
+    </FindInList>
+
+    <!-- Strip the bitcode from frameworks -->
+    <Exec SessionId="$(BuildSessionId)"
+          Command="&quot;%24(xcrun -find bitcode_strip)&quot; %(_FrameworksToStripBitcode.Identity) -r -o %(_FrameworksToStripBitcode.Identity)" />
+
+    <CopyFileFromBuildServer 
+      SessionId="$(BuildSessionId)" 
+      File="%(_FrameworksToStripBitcode.Identity)" 
+      TargetFile="%(_FrameworksToStripBitcode.Identity)" />    
+  </Target>
 </Project>

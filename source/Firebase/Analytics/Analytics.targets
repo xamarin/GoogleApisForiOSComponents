@@ -4,6 +4,10 @@
     <_FirebaseAnalyticsItemsFolder>FAnlytcs-8.9.1</_FirebaseAnalyticsItemsFolder>
     <_FirebaseAnalyticsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseAnalyticsItemsFolder)\FirebaseAnalytics-8.9.1\Frameworks\</_FirebaseAnalyticsSDKBaseFolder>
   </PropertyGroup>
+  <!-- Framework names to strip bitcode -->
+  <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+    <_FrameworkNamesToStripBitcode Include="FirebaseAnalytics" />
+  </ItemGroup>
   <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
     <XamarinBuildDownload Include="$(_FirebaseAnalyticsItemsFolder)">
       <Url>https://dl.google.com/firebase/ios/analytics/66ce3623aa8037ff/FirebaseAnalytics-8.9.1.tar.gz</Url>

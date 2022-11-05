@@ -5,6 +5,10 @@
     <_GoogleTagManagerSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleTagManagerItemsFolder)\</_GoogleTagManagerSDKBaseFolder>
     <_GoogleTagManageFrameworksBaseFolder>$(_GoogleTagManagerSDKBaseFolder)GoogleTagManager-7.4.0\Frameworks\</_GoogleTagManageFrameworksBaseFolder>
   </PropertyGroup>
+  <!-- Framework names to strip bitcode -->
+  <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+    <_FrameworkNamesToStripBitcode Include="GoogleTagManager" />
+  </ItemGroup>
   <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
     <XamarinBuildDownload Include="$(_GoogleTagManagerItemsFolder)">
       <Url>https://dl.google.com/firebase/ios/tagmanager/405c0e6ab8f653b7/GoogleTagManager-7.4.0.tar.gz</Url>

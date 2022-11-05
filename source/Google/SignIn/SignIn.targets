@@ -4,6 +4,10 @@
     <_GoogleSignInItemsFolder>GSgnI-5.0.2</_GoogleSignInItemsFolder>
     <_GoogleSignInSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleSignInItemsFolder)\</_GoogleSignInSDKBaseFolder>
   </PropertyGroup>
+  <!-- Framework names to strip bitcode -->
+  <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+    <_FrameworkNamesToStripBitcode Include="GoogleSignIn" />
+  </ItemGroup>
   <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
     <XamarinBuildDownload Include="$(_GoogleSignInItemsFolder)">
       <Url>https://dl.google.com/dl/cpdc/4d5ad0c02cd38abf/GoogleSignIn-5.0.2.tar.gz</Url>
