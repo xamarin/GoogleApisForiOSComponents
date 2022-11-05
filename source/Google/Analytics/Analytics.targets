@@ -19,4 +19,66 @@
       <Frameworks>CoreData SystemConfiguration</Frameworks>
     </NativeReference>
   </ItemGroup>
+
+  <!--  -->
+  <!-- Targets to strip bitcode from specified frameworks -->
+  <!--  -->
+
+  <!-- Framework names to strip bitcode -->
+  <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+    <_FrameworkNamesToStripBitcode Include="GoogleAnalytics" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <!-- Properties used to strip bitcode from frameworks when using Visual Studio for Mac -->
+    <_GoogleAnalyticsStripBitcodeFromFrameworksMasterAfterTargets Condition="'$(OS)'=='Unix'">_ExpandNativeReferences</_GoogleAnalyticsStripBitcodeFromFrameworksMasterAfterTargets>
+    <_GoogleAnalyticsStripBitcodeFromFrameworksMasterDependsOnTargets Condition="'$(OS)'=='Unix'">_GoogleAnalyticsStripBitcodeFromFrameworksOnMac</_GoogleAnalyticsStripBitcodeFromFrameworksMasterDependsOnTargets>
+
+    <!-- Properties used to strip bitcode from frameworks when using Visual Studio for Windows -->
+    <_GoogleAnalyticsStripBitcodeFromFrameworksMasterAfterTargets Condition="'$(OS)'!='Unix'">_ComputeFrameworkFilesToPublish</_GoogleAnalyticsStripBitcodeFromFrameworksMasterAfterTargets>
+    <_GoogleAnalyticsStripBitcodeFromFrameworksMasterDependsOnTargets Condition="'$(OS)'!='Unix'">_GoogleAnalyticsStripBitcodeFromFrameworksOnWindows</_GoogleAnalyticsStripBitcodeFromFrameworksMasterDependsOnTargets>
+  </PropertyGroup>
+  
+  <Target Name="_GoogleAnalyticsStripBitcodeFromFrameworksMasterTarget" 
+          Condition="'$(_GoogleAnalyticsStripBitcodeFromFrameworksMasterDependsOnTargets)'!='' AND ('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True') AND '$(_SdkIsSimulator)'=='False' AND @(_FrameworkNamesToStripBitcode->Count()) != 0"
+          AfterTargets="$(_GoogleAnalyticsStripBitcodeFromFrameworksMasterAfterTargets)"
+          DependsOnTargets="$(_GoogleAnalyticsStripBitcodeFromFrameworksMasterDependsOnTargets)" />
+
+  <Target Name="_GoogleAnalyticsStripBitcodeFromFrameworksOnMac">
+    <!-- Get the frameworks to strip bitcode -->
+    <FindInList 
+      CaseSensitive="false"
+      List="@(_FrameworkNativeReference)"
+      ItemSpecToFind="%(_FrameworkNamesToStripBitcode.Identity)">
+      <Output TaskParameter="ItemFound" ItemName="_FrameworksToStripBitcode"/>
+    </FindInList>
+
+    <!-- Find the bitcode_strip command -->
+    <Exec Command="xcrun -find bitcode_strip" ConsoleToMSBuild="true">
+      <Output TaskParameter="ConsoleOutput" PropertyName="_BitcodeStripCommand" />
+    </Exec>
+
+    <!-- Strip the bitcode from frameworks -->
+    <Exec Command="$(_BitcodeStripCommand) %(_FrameworksToStripBitcode.Identity) -r -o %(_FrameworksToStripBitcode.Identity)" />
+  </Target>
+
+  <Target Name="_GoogleAnalyticsStripBitcodeFromFrameworksOnWindows"
+          Condition="'$(IsMacEnabled)'=='true'">
+    <!-- Get the frameworks to strip bitcode -->
+    <FindInList 
+      CaseSensitive="false"
+      List="@(_FrameworkNativeReference)"
+      ItemSpecToFind="%(_FrameworkNamesToStripBitcode.Identity)">
+      <Output TaskParameter="ItemFound" ItemName="_FrameworksToStripBitcode"/>
+    </FindInList>
+
+    <!-- Strip the bitcode from frameworks -->
+    <Exec SessionId="$(BuildSessionId)"
+          Command="&quot;%24(xcrun -find bitcode_strip)&quot; %(_FrameworksToStripBitcode.Identity) -r -o %(_FrameworksToStripBitcode.Identity)" />
+
+    <CopyFileFromBuildServer 
+      SessionId="$(BuildSessionId)" 
+      File="%(_FrameworksToStripBitcode.Identity)" 
+      TargetFile="%(_FrameworksToStripBitcode.Identity)" />    
+  </Target>
 </Project>

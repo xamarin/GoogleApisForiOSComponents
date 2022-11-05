@@ -4,6 +4,10 @@
     <_GoogleMobileAdsId>FAdM-8.13.0</_GoogleMobileAdsId>
     <_GoogleMobileAdsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleMobileAdsId)\Frameworks\GoogleMobileAdsFramework-Current\</_GoogleMobileAdsSDKBaseFolder>    
   </PropertyGroup>
+  <!-- Framework names to strip bitcode -->
+  <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+    <_FrameworkNamesToStripBitcode Include="GoogleMobileAds" />
+  </ItemGroup>
   <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
     <XamarinBuildDownload Include="$(_GoogleMobileAdsId)">
       <Url>https://dl.google.com/dl/cpdc/7a51a535dad39fe5/Google-Mobile-Ads-SDK-8.13.0.tar.gz</Url>
@@ -17,21 +21,6 @@
       <NativeReference Include="$(_GoogleMobileAdsSDKBaseFolder)GoogleMobileAds.xcframework">
         <Kind>Framework</Kind>
       </NativeReference>
-    </ItemGroup>
-  </Target>
-  <!-- ResolveNativeReferences task is omitting NativeReference metadata of Xcframeworks
-     https://github.com/xamarin/xamarin-macios/issues/13843
-     Here's a workaround to include the missing metada meanwhile the fix hit stable -->
-  <Target Name="_AddMissingMetadataForGoogleMobileAds" AfterTargets="_ExpandNativeReferences">
-    <ItemGroup>
-      <!-- From https://dl.google.com/dl/cpdc/7a51a535dad39fe5/Google-Mobile-Ads-SDK-8.13.0.tar.gz -->
-      <_FrameworkNativeReference Update="@(_FrameworkNativeReference)" Condition="'%(_FrameworkNativeReference.Filename)' == 'GoogleMobileAds'">
-        <SmartLink>True</SmartLink>
-        <ForceLoad>True</ForceLoad>
-        <LinkerFlags>-ObjC -lz -lsqlite3</LinkerFlags>
-        <Frameworks>AudioToolbox AVFoundation CFNetwork CoreGraphics CoreMedia CoreTelephony CoreVideo MediaPlayer MessageUI MobileCoreServices QuartzCore Security StoreKit SystemConfiguration</Frameworks>
-        <WeakFrameworks>AdSupport JavaScriptCore SafariServices WebKit</WeakFrameworks>
-      </_FrameworkNativeReference>
     </ItemGroup>
   </Target>
 </Project>
