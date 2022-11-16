@@ -26,7 +26,7 @@ jobs:
   - template: .ci/build.yml@components
     parameters:
       timeoutInMinutes: 180
-      areaPath: 'DevDiv\Xamarin SDK\iOS and Mac'
+      areaPath: 'DevDiv\VS Client - Runtime SDKs\iOS and Mac\External Bindings'
       cakeTarget: 'ci'
       cakeExtraArgs: '--names=$(SdksNames)'
       windowsImage: ''
