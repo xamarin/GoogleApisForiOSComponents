@@ -25,6 +25,7 @@ variables:
 jobs:
   - template: .ci/build.yml@components
     parameters:
+      runCodeQL: true
       timeoutInMinutes: 180
       areaPath: 'DevDiv\VS Client - Runtime SDKs\iOS and Mac\External Bindings'
       cakeTarget: 'ci'
