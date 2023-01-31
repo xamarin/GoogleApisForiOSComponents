@@ -32,8 +32,8 @@ steps:
     - checkout: self
 
     # CodeQL Init
-    - task: CodeQL3000Init@0
-      displayName: CodeQL Init
+#     - task: CodeQL3000Init@0
+#       displayName: CodeQL Init
 
     # Component Governance
     - template: security/component-governance/v0.yml@yaml-templates
@@ -48,30 +48,30 @@ steps:
     - template: security/publish-report/v2.yml@yaml-templates
 
     # CodeQL Finalize
-    - task: CodeQL3000Finalize@0
-      displayName: CodeQL Finalize
+#     - task: CodeQL3000Finalize@0
+#       displayName: CodeQL Finalize
 
     # TSA Upload
-    - task: TSAUpload@1
-      continueOnError: true
-      inputs:
-        tsaVersion: 'TsaV2'
-        codebase: 'NewOrUpdate'
-        tsaEnvironment: 'PROD'
-        codeBaseName: $(codeBaseName)
-        notifyAlwaysV2: false
-        instanceUrlForTsaV2: 'DEVDIV'
-        projectNameDEVDIV: 'DevDiv'
-        areaPath: $(areaPath)
-        iterationPath: $(iterationPath)
-        uploadAPIScan: false
-        uploadBinSkim: false
-        uploadCredScan: true
-        uploadFortifySCA: false
-        uploadFxCop: false
-        uploadModernCop: false
-        uploadPoliCheck: true
-        uploadPREfast: false
-        uploadRoslyn: false
-        uploadTSLint: false
-        uploadAsync: true
+#     - task: TSAUpload@1
+#       continueOnError: true
+#       inputs:
+#         tsaVersion: 'TsaV2'
+#         codebase: 'NewOrUpdate'
+#         tsaEnvironment: 'PROD'
+#         codeBaseName: $(codeBaseName)
+#         notifyAlwaysV2: false
+#         instanceUrlForTsaV2: 'DEVDIV'
+#         projectNameDEVDIV: 'DevDiv'
+#         areaPath: $(areaPath)
+#         iterationPath: $(iterationPath)
+#         uploadAPIScan: false
+#         uploadBinSkim: false
+#         uploadCredScan: true
+#         uploadFortifySCA: false
+#         uploadFxCop: false
+#         uploadModernCop: false
+#         uploadPoliCheck: true
+#         uploadPREfast: false
+#         uploadRoslyn: false
+#         uploadTSLint: false
+#         uploadAsync: true
