@@ -3,6 +3,7 @@ variables:
   areaPath: 'DevDiv\VS Client - Runtime SDKs\[Archived] Components'
   iterationPath: 'DevDiv\Future Backlog'
   Codeql.Enabled: true
+  CodeQL.Cadence: 0 # Remove this variable when CodeQL is working ok. This is for testing only.
   timeoutInMinutes: 360
   continueOnError: 'true'
   poolName: 'Azure Pipelines'
