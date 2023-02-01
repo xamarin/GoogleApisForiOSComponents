@@ -8,7 +8,7 @@
     ],
     "instanceUrl": "https://devdiv.visualstudio.com/",
     "projectName": "DevDiv",
-    "areaPath": "DevDiv\VS Client - Runtime SDKs\[Archived] Components",
-    "iterationPath": "DevDiv\Future Backlog",
+    "areaPath": "DevDiv\\VS Client - Runtime SDKs\\[Archived] Components",
+    "iterationPath": "DevDiv\\Future Backlog",
     "allTools": true
 }
