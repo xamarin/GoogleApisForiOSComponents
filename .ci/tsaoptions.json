@@ -1,7 +1,7 @@
 {
     "codebaseName": "xamarin_GoogleApisForiOSComponents",
     "notificationAliases": [
-        "dotnet-maui-eng@microsoft.com"
+        "xamacomd@microsoft.com"
     ],
     "codebaseAdmins": [
         "REDMOND\\vsengxamarin"
