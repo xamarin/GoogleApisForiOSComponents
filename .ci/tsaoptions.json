@@ -1,0 +1,14 @@
+{
+    "codebaseName": "xamarin_GoogleApisForiOSComponents",
+    "notificationAliases": [
+        "dotnet-maui-eng@microsoft.com"
+    ],
+    "codebaseAdmins": [
+        "REDMOND\\vsengxamarin"
+    ],
+    "instanceUrl": "https://devdiv.visualstudio.com/",
+    "projectName": "DevDiv",
+    "areaPath": "DevDiv\VS Client - Runtime SDKs\[Archived] Components",
+    "iterationPath": "DevDiv\Future Backlog",
+    "allTools": true
+}
