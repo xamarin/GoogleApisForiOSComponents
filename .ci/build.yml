@@ -49,18 +49,12 @@ jobs:
     dependsOn: ${{ parameters.dependsOn }}
     variables:
       Codeql.Enabled: ${{ parameters.runCodeQL }}
-      CodeQL.Cadence: 0 # Remove this variable when CodeQL is working ok. This is for testing only.
       Codeql.TSAEnabled: true
       Codeql.TSAOptionsPath: '.ci/tsaoptions.json'
     pool:
       vmImage: ${{ parameters.macosImage }}
     steps:
       - checkout: self
-      - ${{ if eq(variables['System.TeamProject'], 'devdiv') }}:
-        - task: CodeQL3000Init@0
-          displayName: CodeQL 3000 Init
-          condition: and(succeeded(), eq(variables['Codeql.Enabled'], 'true'), eq(variables['Build.SourceBranch'], 'refs/heads/test-codeql'))
-
       # before the build starts, make sure the tooling is as expected
       - bash: sudo $AGENT_HOMEDIRECTORY/scripts/select-xamarin-sdk.sh ${{ parameters.mono }}
         displayName: 'Switch to the latest Xamarin SDK'
@@ -335,9 +329,6 @@ jobs:
             scanType: 'Register'
             verbosity: 'Verbose'
             alertWarningLevel: 'High'
-        - task: CodeQL3000Finalize@0
-          displayName: CodeQL 3000 Finalize
-          condition: and(succeeded(), eq(variables['Codeql.Enabled'], 'true'), eq(variables['Build.SourceBranch'], 'refs/heads/test-codeql'))
 
   - ${{ if and(eq(parameters.runChecks, 'true'), eq(variables['System.TeamProject'], 'devdiv')) }}:
     - job: ${{ parameters.name }}_checks
