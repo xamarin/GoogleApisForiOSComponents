@@ -50,6 +50,8 @@ jobs:
     variables:
       Codeql.Enabled: ${{ parameters.runCodeQL }}
       CodeQL.Cadence: 0 # Remove this variable when CodeQL is working ok. This is for testing only.
+      Codeql.TSAEnabled: true
+      Codeql.TSAOptionsPath: '.ci/tsaoptions.json'
     pool:
       vmImage: ${{ parameters.macosImage }}
     steps:
