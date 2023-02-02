@@ -6,6 +6,7 @@ using Foundation;
 using ObjCRuntime;
 using StoreKit;
 using UIKit;
+using WebKit;
 
 #if !NET
 using NativeHandle = System.IntPtr;
@@ -117,6 +118,10 @@ namespace Google.MobileAds {
 		// - (void)presentAdInspectorFromViewController:(nonnull UIViewController *)viewController completionHandler: (nullable GADAdInspectorCompletionHandler)completionHandler;
 		[Export ("presentAdInspectorFromViewController:viewController:")]
 		void PresentAdInspectorFromViewController (UIViewController viewConroller, AdInspectorCompletionHandler completionHandler);
+
+		// - (void)registerWebView:(nonnull WKWebView *)webView;
+		[Export ("registerWebView:")]
+		void RegisterWebView (WKWebView webView);
 	}
 
 	// @interface GADMultipleAdsAdLoaderOptions : GADAdLoaderOptions
