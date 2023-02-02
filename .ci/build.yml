@@ -18,7 +18,7 @@ parameters:
                                                             # macOS-latest = macOS-10.15
                                                             # macOS-11 required for XCode 13.1
   mono: 'Latest'                                            # the version of mono to use
-  xcode: '14.0.0'                                           # the version of Xcode to use
+  xcode: '14.0.1'                                           # the version of Xcode to use
   cake: '0.33.0'                                            # the version of Cake to use
   apiTools: '1.3.4'                                         # the version of the api-tools CLI to use
   xharness: '1.0.0-prerelease.20602.1'
