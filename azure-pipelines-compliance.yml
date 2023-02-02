@@ -16,6 +16,7 @@ resources:
       ref: refs/heads/issoto-testing-codeql
 
 variables:
+  CodeQL.Cadence: 0 # For testing purposes only. Remove it when CodeQL is working correctly.
   DotNetVersion: 6.0.402
   DotNet6Source: https://aka.ms/dotnet6/nuget/index.json
   NuGetOrgSource: https://api.nuget.org/v3/index.json
@@ -34,7 +35,7 @@ jobs:
       cakeExtraArgs: '--names=$(SdksNames)'
       windowsImage: ''
       macosImage: 'macOS-12'
-      xcode: '14.0.0'
+      xcode: '14.0.1'
       cake: '0.33.0'
       initSteps:
         # CodeQL Init
@@ -57,20 +58,3 @@ jobs:
         # CodeQL Finalize
         - task: CodeQL3000Finalize@0
           displayName: CodeQL Finalize
-        
-  - ${{ if eq(variables['System.TeamProject'], 'devdiv') }}:
-    - template: sign-artifacts/jobs/v2.yml@internal-templates
-      parameters:
-        dependsOn: [ 'build' ]
-        condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/')
-
-    - template: compliance/sbom/job.v1.yml@internal-templates                 # Software Bill of Materials (SBOM): https://eng.ms/docs/cloud-ai-platform/devdiv/one-engineering-system-1es/1es-docs/secure-supply-chain/ado-sbom-generator
-      parameters:
-        packageName: 'Xamarin Google APIs Components for iOS'
-        packageFilter: '*.nupkg'
-        ${{ if not(startsWith(variables['Build.SourceBranch'], 'refs/tags/')) }}:
-          artifactNames: ['nuget']
-          dependsOn: [ 'build' ]
-        ${{ if startsWith(variables['Build.SourceBranch'], 'refs/tags/') }}:
-          artifactNames: ['nuget-signed']
-          dependsOn: [ 'signing' ]
