@@ -1,6 +1,5 @@
 trigger:
   - main
-  - refs/tags/*
 
 resources:
   repositories:
