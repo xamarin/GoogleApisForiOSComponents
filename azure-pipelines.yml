@@ -9,13 +9,8 @@ resources:
       name: xamarin/yaml-templates
       endpoint: xamarin
       ref: refs/heads/main
-    - repository: components
-      type: github
-      name: xamarin/XamarinComponents
-      endpoint: xamarin
 
 variables:
-  Codeql.Enabled: true
   DotNetVersion: 6.0.402
   DotNet6Source: https://aka.ms/dotnet6/nuget/index.json
   NuGetOrgSource: https://api.nuget.org/v3/index.json
@@ -23,31 +18,12 @@ variables:
   BUILD_NUMBER: $(Build.BuildNumber)
 
 jobs:
-  - template: .ci/build.yml@components
+  - template: .ci/build.yml
     parameters:
       runCodeQL: true
-      timeoutInMinutes: 180
+      timeoutInMinutes: 240
       areaPath: 'DevDiv\VS Client - Runtime SDKs\iOS and Mac\External Bindings'
-      cakeTarget: 'ci'
       cakeExtraArgs: '--names=$(SdksNames)'
-      windowsImage: ''
-      macosImage: 'macOS-12'
-      xcode: '14.0.0'
-      cake: '0.33.0'
-      initSteps:
-        # Cake v0.33.0 uses this version
-        - task: UseDotNet@2
-          displayName: Install .NET 2.1.818
-          inputs:
-            version: '2.1.818'
-        - task: UseDotNet@2
-          displayName: Install .NET $(DotNetVersion)
-          inputs:
-            version: $(DotNetVersion)
-        - pwsh: |
-            dotnet workload install ios --verbosity diag --from-rollback-file https://maui.blob.core.windows.net/metadata/rollbacks/6.0.4xx.json --source $(Dotnet6Source) --source $(NuGetOrgSource)
-          displayName: Install .NET 6 iOS Workload
-          condition: eq(variables['System.JobName'], 'macos')
 
   - ${{ if eq(variables['System.TeamProject'], 'devdiv') }}:
     - template: sign-artifacts/jobs/v2.yml@internal-templates
