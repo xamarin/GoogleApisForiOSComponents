@@ -40,6 +40,7 @@ parameters:
   namesFilter: ''                                           # [manifest, directories] the names of the items to build
   targetsFilter: 'ci'                                       # [manifest, directories] the targets of the items to build
   runCodeQL: 'false'
+  tsaOptionsPath: '.ci/tsaoptions.json'
 
 jobs:
   - job: ${{ parameters.name }}
@@ -50,7 +51,7 @@ jobs:
     variables:
       Codeql.Enabled: ${{ parameters.runCodeQL }}
       Codeql.TSAEnabled: true
-      Codeql.TSAOptionsPath: '.ci/tsaoptions.json'
+      Codeql.TSAOptionsPath: ${{ parameters.tsaOptionsPath }}
     pool:
       vmImage: ${{ parameters.macosImage }}
     steps:
@@ -379,27 +380,9 @@ jobs:
             GdnExportGdnToolTSLint: false
         - task: PublishSecurityAnalysisLogs@3
           displayName: 'Publish security analysis logs'
-        - task: TSAUpload@1
+        - task: TSAUpload@2
           continueOnError: true
           inputs:
-            tsaVersion: 'TsaV2'
-            codebase: 'NewOrUpdate'
-            tsaEnvironment: 'PROD'
-            codeBaseName: '$(CODEBASE_NAME)'
-            notificationAlias: 'xamacomd@microsoft.com'
-            notifyAlwaysV2: false
-            instanceUrlForTsaV2: 'DEVDIV'
-            projectNameDEVDIV: 'DevDiv'
-            areaPath: '${{ parameters.areaPath }}'
-            iterationPath: 'DevDiv\Future Backlog'
-            uploadAPIScan: false
-            uploadBinSkim: false
-            uploadCredScan: true
-            uploadFortifySCA: false
-            uploadFxCop: false
-            uploadModernCop: false
-            uploadPoliCheck: true
-            uploadPREfast: false
-            uploadRoslyn: false
-            uploadTSLint: false
-            uploadAsync: true
+            GdnPublishTsaOnboard: true
+            GdnPublishTsaConfigFile: ${{ parameters.tsaOptionsPath }}
+            GdnPublishTsaExportedResultsPublishable: true
