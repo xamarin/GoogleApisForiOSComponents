@@ -1,59 +1,77 @@
-trigger:
-  - main
+variables:
+  codeBaseName: 'xamarin_GoogleApisForiOSComponents'
+  areaPath: 'DevDiv\VS Client - Runtime SDKs\[Archived] Components'
+  iterationPath: 'DevDiv\Future Backlog'
+  Codeql.Enabled: true
+  timeoutInMinutes: 360
+  continueOnError: 'true'
+  poolName: 'Azure Pipelines'
+  imageName: 'macOS-latest'
+  verbosity: 'diagnostic'
 
 resources:
   repositories:
-    - repository: internal-templates
+    - repository: yaml-templates
       type: github
       name: xamarin/yaml-templates
       endpoint: xamarin
       ref: refs/heads/main
-    - repository: components
-      type: github
-      name: xamarin/XamarinComponents
-      endpoint: xamarin
-      ref: refs/heads/issoto-testing-codeql
 
-variables:
-  CodeQL.Cadence: 0 # For testing purposes only. Remove it when CodeQL is working correctly.
-  DotNetVersion: 6.0.402
-  DotNet6Source: https://aka.ms/dotnet6/nuget/index.json
-  NuGetOrgSource: https://api.nuget.org/v3/index.json
-  BUILD_COMMIT: $(Build.SourceVersion)
-  BUILD_NUMBER: $(Build.BuildNumber)
+schedules:
+  - cron: '0 12 * * 0'
+    displayName: 'Weekly Compliance Check'
+    branches:
+      include: [ 'main' ]
+    always: false
 
-jobs:
-  - template: .ci/build.yml@components
-    parameters:
-      enableCodeQLOnMac: true
-      enableCodeQLTSA: true
-      codeQLTSAOptionsPath: '.ci/tsaoptions.json'
-      timeoutInMinutes: 180
-      areaPath: 'DevDiv\VS Client - Runtime SDKs\iOS and Mac\External Bindings'
-      cakeTarget: 'ci'
-      cakeExtraArgs: '--names=$(SdksNames)'
-      windowsImage: ''
-      macosImage: 'macOS-12'
-      xcode: '14.0.1'
-      cake: '0.33.0'
-      initSteps:
-        # CodeQL Init
-        - task: CodeQL3000Init@0
-          displayName: CodeQL Init
-        # Cake v0.33.0 uses this version
-        - task: UseDotNet@2
-          displayName: Install .NET 2.1.818
-          inputs:
-            version: '2.1.818'
-        - task: UseDotNet@2
-          displayName: Install .NET $(DotNetVersion)
-          inputs:
-            version: $(DotNetVersion)
-        - pwsh: |
-            dotnet workload install ios --verbosity diag --from-rollback-file https://maui.blob.core.windows.net/metadata/rollbacks/6.0.4xx.json --source $(Dotnet6Source) --source $(NuGetOrgSource)
-          displayName: Install .NET 6 iOS Workload
-          condition: eq(variables['System.JobName'], 'macos')
-      postBuildSteps:
-        # CodeQL Finalize
-        - task: CodeQL3000Finalize@0
-          displayName: CodeQL Finalize
+pool:
+  name: $(poolName)
+  vmImage: $(imageName)
+
+steps:
+    - checkout: self
+
+    # CodeQL Init
+    - task: CodeQL3000Init@0
+      displayName: CodeQL Init
+
+    # Component Governance
+    - template: security/component-governance/v0.yml@yaml-templates
+
+    # CredScan
+    - template: security/credscan/v3.yml@yaml-templates
+
+    # PoliCheck
+    - template: security/policheck/v2.yml@yaml-templates
+
+    # Publish Report
+    - template: security/publish-report/v2.yml@yaml-templates
+
+    # CodeQL Finalize
+    - task: CodeQL3000Finalize@0
+      displayName: CodeQL Finalize
+
+    # TSA Upload
+    - task: TSAUpload@1
+      continueOnError: true
+      inputs:
+        tsaVersion: 'TsaV2'
+        codebase: 'NewOrUpdate'
+        tsaEnvironment: 'PROD'
+        codeBaseName: $(codeBaseName)
+        notifyAlwaysV2: false
+        instanceUrlForTsaV2: 'DEVDIV'
+        projectNameDEVDIV: 'DevDiv'
+        areaPath: $(areaPath)
+        iterationPath: $(iterationPath)
+        uploadAPIScan: false
+        uploadBinSkim: false
+        uploadCredScan: true
+        uploadFortifySCA: false
+        uploadFxCop: false
+        uploadModernCop: false
+        uploadPoliCheck: true
+        uploadPREfast: false
+        uploadRoslyn: false
+        uploadTSLint: false
+        uploadAsync: true
