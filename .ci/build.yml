@@ -338,13 +338,6 @@ jobs:
       pool:
         name: 'Hosted Windows 2019 with VS2019'
       steps:
-        - pwsh: |
-            $repo = "$(Build.Repository.Id)"
-            $repo = $repo.Substring($repo.IndexOf("/") + 1)
-            $branch = "${{ parameters.masterBranchName }}"
-            $CODEBASE_NAME = $repo + "_" + $branch
-            echo "Using codebase: $CODEBASE_NAME"
-            Write-Host "##vso[task.setvariable variable=CODEBASE_NAME]$CODEBASE_NAME"
         - task: CredScan@3
           displayName: 'Analyze source for credentials'
         - task: PoliCheck@2
