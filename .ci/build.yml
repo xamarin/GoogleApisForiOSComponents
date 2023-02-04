@@ -346,10 +346,10 @@ jobs:
             Write-Host "##vso[task.setvariable variable=CODEBASE_NAME]$CODEBASE_NAME"
         - task: CredScan@3
           displayName: 'Analyze source for credentials'
-        - task: PoliCheck@1
+        - task: PoliCheck@2
           inputs:
-            inputType: 'Basic'
-            targetType: 'F'
+            targetType: F
+            targetArgument: '$(Build.SourcesDirectory)'
         - task: SdtReport@1
           displayName: 'Create security analysis report'
           inputs:
