@@ -344,10 +344,8 @@ jobs:
             $CODEBASE_NAME = $repo + "_" + $branch
             echo "Using codebase: $CODEBASE_NAME"
             Write-Host "##vso[task.setvariable variable=CODEBASE_NAME]$CODEBASE_NAME"
-        - task: CredScan@2
+        - task: CredScan@3
           displayName: 'Analyze source for credentials'
-          inputs:
-            toolMajorVersion: 'V2'
         - task: PoliCheck@1
           inputs:
             inputType: 'Basic'
