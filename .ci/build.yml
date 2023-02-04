@@ -334,7 +334,7 @@ jobs:
   - ${{ if and(eq(parameters.runChecks, 'true'), eq(variables['System.TeamProject'], 'devdiv')) }}:
     - job: ${{ parameters.name }}_checks
       displayName: 'Run required code checks'
-      condition: eq('refs/heads/${{ parameters.masterBranchName }}', variables['Build.SourceBranch'])
+      condition: or(eq('refs/heads/${{ parameters.masterBranchName }}', variables['Build.SourceBranch']), eq('refs/heads/update-codecheck-tasks', variables['Build.SourceBranch']))
       pool:
         name: 'Hosted Windows 2019 with VS2019'
       steps:
