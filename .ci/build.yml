@@ -350,24 +350,33 @@ jobs:
           inputs:
             targetType: F
             targetArgument: '$(Build.SourcesDirectory)'
-        - task: SdtReport@1
+        - task: SdtReport@2
           displayName: 'Create security analysis report'
           inputs:
-            AllTools: false
-            APIScan: false
-            BinSkim: false
-            CodesignValidation: false
-            CredScan: true
-            FortifySCA: false
-            FxCop: false
-            ModernCop: false
-            MSRD: false
-            PoliCheck: true
-            RoslynAnalyzers: false
-            SDLNativeRules: false
-            Semmle: false
-            TSLint: false
-            ToolLogsNotFoundAction: 'Standard'
+            GdnExportAllTools: false
+            GdnExportGdnToolApiScan: false
+            GdnExportGdnToolArmory: false
+            GdnExportGdnToolBandit: false
+            GdnExportGdnToolBinSkim: false
+            GdnExportGdnToolCodesignValidation: false
+            GdnExportGdnToolCredScan: true
+            GdnExportGdnToolCredScanSeverity: 'Default'
+            GdnExportGdnToolCSRF: false
+            GdnExportGdnToolDetekt: false
+            GdnExportGdnToolESLint: false
+            GdnExportGdnToolFlawfinder: false
+            GdnExportGdnToolFortifySca: false
+            GdnExportGdnToolFxCop: false
+            GdnExportGdnToolGosec: false
+            GdnExportGdnToolModernCop: false
+            GdnExportGdnToolPoliCheck: true
+            GdnExportGdnToolPoliCheckSeverity: 'Default'
+            GdnExportGdnToolRoslynAnalyzers: false
+            GdnExportGdnToolPSScriptAnalyzer: false
+            GdnExportGdnToolSDLNativeRules: false
+            GdnExportGdnToolSemmle: false
+            GdnExportGdnToolSpotBugs: false
+            GdnExportGdnToolTSLint: false
         - task: PublishSecurityAnalysisLogs@3
           displayName: 'Publish security analysis logs'
         - task: TSAUpload@1
