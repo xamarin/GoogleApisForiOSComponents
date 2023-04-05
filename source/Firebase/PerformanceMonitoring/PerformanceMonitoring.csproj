@@ -35,8 +35,6 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="PerformanceMonitoring.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.PerformanceMonitoring.targets" />
-    <None Include="PerformanceMonitoring.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.PerformanceMonitoring.targets" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseiosperformancemonitoring_128x128.png" Pack="True" PackagePath="firebaseiosperformancemonitoring_128x128.png" />
   </ItemGroup>
