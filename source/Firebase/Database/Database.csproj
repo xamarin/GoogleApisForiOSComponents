@@ -35,26 +35,19 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Database.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.Database.targets" />
-    <None Include="Database.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.Database.targets" />
     <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseiosdatabase_128x128.png" Pack="True" PackagePath="firebaseiosdatabase_128x128.png" />
   </ItemGroup>
-  <!-- An iOS app project cannot find Xcframeworks within a NuGet if a TFM
-       previous than net6.0-ios is used.
-       https://github.com/xamarin/xamarin-macios/issues/13693
-       You must include the Xcframework's NativeReference tag into the iOS app
-       project so sidecar can work properly. -->
-  <!-- This workaround was designed like this to have the same
-       NativeReference tag for the iOS binding and for the .targets file -->
-  <Import Project="Database.targets" />
   <ItemGroup>
-    <_NativeReference Include="..\..\..\externals\FirebaseDatabase.xcframework">
-      <_Id>$(_FirebaseDatabaseId)</_Id>
-    </_NativeReference>
+    <NativeReference Include="..\..\..\externals\FirebaseDatabase.xcframework">
+        <Kind>Framework</Kind>
+        <LinkerFlags>-ObjC -lc++ -licucore</LinkerFlags>
+        <Frameworks>CFNetwork Security SystemConfiguration</Frameworks>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+    </NativeReference>
   </ItemGroup>
-  <!-- End of workaround -->
   <ItemGroup Condition="'$(TargetFramework)' == 'xamarin.ios10'">
     <Compile Remove="ApiDefinition.cs" />
     <Compile Remove="Enums.cs" />

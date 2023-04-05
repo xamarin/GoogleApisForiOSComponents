@@ -5,7 +5,7 @@
     <_FirebaseCrashlyticsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FirebaseCrashlyticsItemsFolder)\</_FirebaseCrashlyticsSDKBaseFolder>
     <!-- Requires a file extension, otherwise XDB will complain  -->
     <_FirebaseScriptName>upload-symbols.sh</_FirebaseScriptName>
-    
+
     <_FirebaseCrashlyticsUploadSymbolsContinueOnError Condition="'$(FirebaseCrashlyticsUploadSymbolsContinueOnError)'=='True'">True</_FirebaseCrashlyticsUploadSymbolsContinueOnError>
     <_FirebaseCrashlyticsUploadSymbolsContinueOnError Condition="'$(FirebaseCrashlyticsUploadSymbolsContinueOnError)'!='True'">False</_FirebaseCrashlyticsUploadSymbolsContinueOnError>
 
@@ -35,7 +35,7 @@
   <Target Name="_FirebaseCrashlyticsUploadDSymToFirebaseOnMac" >
     <!-- Make file executable -->
     <Exec Command="chmod +x '$(_FirebaseCrashlyticsSDKBaseFolder)$(_FirebaseScriptName)'" ContinueOnError="true" />
-    
+
     <Message Text="Uploading dSYM to Firebase Console using Firebase $(_FirebaseScriptName) script located at $(_FirebaseCrashlyticsSDKBaseFolder)" />
     <!-- Upload symbols to Firebase -->
     <Exec Command="'$(_FirebaseCrashlyticsSDKBaseFolder)$(_FirebaseScriptName)' -gsp '$(MSBuildProjectDirectory)\GoogleService-Info.plist' -p ios '$(MSBuildProjectDirectory)\$(DeviceSpecificOutputPath)$(AssemblyName).app.dSYM'"
@@ -47,37 +47,15 @@
       <_CopyFilesToMacOutput Include="$(_FirebaseCrashlyticsSDKBaseFolder)$(_FirebaseScriptName)">
         <TargetPath>$(_FirebaseScriptName)</TargetPath>
       </_CopyFilesToMacOutput>
-    </ItemGroup>  
+    </ItemGroup>
 
     <Message Text="Copying Firebase $(_FirebaseScriptName) script located at $(_FirebaseCrashlyticsSDKBaseFolder) to Mac host" />
     <CopyFilesToBuildServer SessionId="$(BuildSessionId)" Files="@(_CopyFilesToMacOutput)" />
     <!-- Make file executable -->
     <Exec SessionId="$(BuildSessionId)" Command="chmod +x $(_FirebaseScriptName)" ContinueOnError="true" />
-    
+
     <Message Text="Uploading dSYM to Firebase Console using Firebase $(_FirebaseScriptName) script" />
     <!-- Upload symbols to Firebase -->
     <Exec SessionId="$(BuildSessionId)" Command="'./$(_FirebaseScriptName)' -gsp './GoogleService-Info.plist' -p ios './$(DeviceSpecificOutputPath)$(AssemblyName).app.dSYM'" ContinueOnError="$(_FirebaseCrashlyticsUploadSymbolsContinueOnError)" />
-  </Target>
-  <PropertyGroup>
-    <_FirebaseCrashlyticsId>FirebaseCrashlytics</_FirebaseCrashlyticsId>
-  </PropertyGroup>
-  <ItemGroup Condition="('$(OutputType)' != 'Library' OR '$(IsAppExtension)' == 'True') AND ('$(TargetFrameworks)' == '' AND '$(TargetFramework)' == '')">
-    <_NativeReference Include="$(MSBuildThisFileDirectory)..\lib\xamarinios10\Firebase.Crashlytics.resources\FirebaseCrashlytics.xcframework">
-      <_Id>$(_FirebaseCrashlyticsId)</_Id>
-    </_NativeReference>
-  </ItemGroup>
-  <Target Name="_ResolveNativeReferencesForFirebaseCrashlytics" 
-          BeforeTargets="ResolveNativeReferences"
-          Condition="('$(TargetFrameworks)' == '' AND '$(TargetFramework)' == '') OR '$(IsBindingProject)' == 'true'">
-    <ItemGroup>
-      <_NativeReference Update="@(_NativeReference)" Condition="'%(_NativeReference._Id)' == '$(_FirebaseCrashlyticsId)'">
-        <Kind>Framework</Kind>
-        <SmartLink>True</SmartLink>
-        <ForceLoad>True</ForceLoad>
-        <LinkerFlags>-lc++ -lz</LinkerFlags>
-        <Frameworks>Security SystemConfiguration</Frameworks>
-      </_NativeReference>
-      <NativeReference Include="@(_NativeReference)" />
-    </ItemGroup>
   </Target>
 </Project>

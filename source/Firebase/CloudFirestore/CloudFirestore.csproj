@@ -35,38 +35,41 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="CloudFirestore.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.CloudFirestore.targets" />
-    <None Include="CloudFirestore.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.CloudFirestore.targets" />
     <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseioscloudfirestore_128x128.png" Pack="True" PackagePath="firebaseioscloudfirestore_128x128.png" />
   </ItemGroup>
-  <!-- An iOS app project cannot find Xcframeworks within a NuGet if a TFM
-       previous than net6.0-ios is used.
-       https://github.com/xamarin/xamarin-macios/issues/13693
-       You must include the Xcframework's NativeReference tag into the iOS app
-       project so sidecar can work properly. -->
-  <!-- This workaround was designed like this to have the same
-       NativeReference tag for the iOS binding and for the .targets file -->
-  <Import Project="CloudFirestore.targets" />
   <ItemGroup>
-    <_NativeReference Include="..\..\..\externals\FirebaseFirestore.xcframework">
-      <_Id>$(_FirebaseFirestoreId)</_Id>
-    </_NativeReference>
-    <_NativeReference Include="..\..\..\externals\grpc.xcframework">
-      <_Id>$(_grpcId)</_Id>
-    </_NativeReference>
-    <_NativeReference Include="..\..\..\externals\grpcpp.xcframework">
-      <_Id>$(_grpcppId)</_Id>
-    </_NativeReference>
-    <_NativeReference Include="..\..\..\externals\openssl_grpc.xcframework">
-      <_Id>$(_openssl_grpcId)</_Id>
-    </_NativeReference>
-    <_NativeReference Include="..\..\..\externals\absl.xcframework">
-      <_Id>$(_abslId)</_Id>
-    </_NativeReference>
+    <NativeReference Include="..\..\..\externals\FirebaseFirestore.xcframework">
+        <Kind>Framework</Kind>
+        <Frameworks>MobileCoreServices SystemConfiguration</Frameworks>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+        <LinkerFlags>-ObjC -lc++</LinkerFlags>
+    </NativeReference>
+    <NativeReference Include="..\..\..\externals\grpc.xcframework">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+        <LinkerFlags>-lc++ -lz</LinkerFlags>
+    </NativeReference>
+    <NativeReference Include="..\..\..\externals\grpcpp.xcframework">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+    </NativeReference>
+    <NativeReference Include="..\..\..\externals\openssl_grpc.xcframework">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+    </NativeReference>
+    <NativeReference Include="..\..\..\externals\absl.xcframework">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+        <LinkerFlags>-lc++</LinkerFlags>
+    </NativeReference>
   </ItemGroup>
-  <!-- End of workaround -->
   <ItemGroup Condition="'$(TargetFramework)' == 'xamarin.ios10'">
     <Compile Remove="ApiDefinition.cs" />
     <Compile Remove="Enums.cs" />
