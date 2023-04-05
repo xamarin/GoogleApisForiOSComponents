@@ -35,8 +35,6 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="CloudMessaging.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.CloudMessaging.targets" />
-    <None Include="CloudMessaging.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.CloudMessaging.targets" />
     <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseioscloudmessaging_128x128.png" Pack="True" PackagePath="firebaseioscloudmessaging_128x128.png" />

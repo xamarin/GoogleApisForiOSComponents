@@ -35,8 +35,6 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="CloudFirestore.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.CloudFirestore.targets" />
-    <None Include="CloudFirestore.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.CloudFirestore.targets" />
     <None Include="External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseioscloudfirestore_128x128.png" Pack="True" PackagePath="firebaseioscloudfirestore_128x128.png" />
