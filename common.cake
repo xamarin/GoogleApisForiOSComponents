@@ -414,7 +414,7 @@ void BuildXcodeXcframework (FilePath xcodeProject, PodSpec [] podSpecs, Platform
 
 			var buildSettingsCopy = new Dictionary<string, string> (buildSettings);
 			buildSettingsCopy ["SKIP_INSTALL"] = "NO";
-			buildSettingsCopy ["BUILD_LIBRARIES_FOR_DISTRIBUTION"] = "YES";
+			buildSettingsCopy ["BUILD_LIBRARY_FOR_DISTRIBUTION"] = "YES";
 
 			if (string.Equals (platform.Sdk, Sdk.macCatalyst))
 				buildSettingsCopy ["SUPPORTS_MACCATALYST"] = "YES";
