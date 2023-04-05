@@ -50,12 +50,19 @@
        NativeReference tag for the iOS binding and for the .targets file -->
   <Import Project="SignIn.targets" />
   <ItemGroup>
-    <_NativeReference Include="..\..\..\externals\AppAuth.xcframework">
-      <_Id>$(_AppAuthId)</_Id>
-    </_NativeReference>
-    <_NativeReference Include="..\..\..\externals\GTMAppAuth.xcframework">
-      <_Id>$(_GTMAppAuthId)</_Id>
-    </_NativeReference>
+    <NativeReference Include="..\..\..\externals\AppAuth.xcframework">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+        <Frameworks>SafariServices</Frameworks>
+        <WeakFrameworks>AuthenticationServices</WeakFrameworks>
+    </NativeReference>
+    <NativeReference Include="..\..\..\externals\GTMAppAuth.xcframework">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+        <Frameworks>Security SystemConfiguration SafariServices</Frameworks>
+    </NativeReference>
   </ItemGroup>
   <!-- End of workaround -->
   <ItemGroup Condition="'$(TargetFramework)' == 'xamarin.ios10'">

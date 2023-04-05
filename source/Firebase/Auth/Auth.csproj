@@ -50,9 +50,13 @@
        NativeReference tag for the iOS binding and for the .targets file -->
   <Import Project="Auth.targets" />
   <ItemGroup>
-    <_NativeReference Include="..\..\..\externals\FirebaseAuth.xcframework">
-      <_Id>$(_FirebaseAuthId)</_Id>
-    </_NativeReference>
+    <NativeReference Include="..\..\..\externals\FirebaseAuth.xcframework">
+        <Kind>Framework</Kind>
+        <SmartLink>True</SmartLink>
+        <ForceLoad>True</ForceLoad>
+        <Frameworks>Security SafariServices</Frameworks>
+        <LinkerFlags>-ObjC -lc++ -lsqlite3 -lz</LinkerFlags>
+    </NativeReference>
   </ItemGroup>
   <!-- End of workaround -->
   <ItemGroup Condition="'$(TargetFramework)' == 'xamarin.ios10'">
