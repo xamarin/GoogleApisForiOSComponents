@@ -41,7 +41,6 @@
     <None Include="License.md" Pack="True" PackagePath="License.md" />
     <None Include="../../../icons/firebaseioscloudmessaging_128x128.png" Pack="True" PackagePath="firebaseioscloudmessaging_128x128.png" />
   </ItemGroup>
-  <Import Project="CloudMessaging.targets" />
   <ItemGroup>
     <NativeReference Include="..\..\..\externals\FirebaseMessaging.xcframework">
         <Kind>Framework</Kind>
