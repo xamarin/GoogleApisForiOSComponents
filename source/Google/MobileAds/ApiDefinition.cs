@@ -865,6 +865,11 @@ namespace Google.MobileAds {
 		   Delegates = new [] { "Delegate", "UnconfirmedClickDelegate" },
 		   Events = new [] { typeof (NativeAdDelegate), typeof (NativeAdUnconfirmedClickDelegate) })]
 	interface NativeAd {
+		// @property (readonly, copy, nonatomic) NSString * _Nullable headline;
+		[NullAllowed]
+		[Export ("headline")]
+		string Headline { get; }
+
 		// @property (readonly, copy, nonatomic) NSString * _Nullable callToAction;
 		[NullAllowed]
 		[Export ("callToAction")]
