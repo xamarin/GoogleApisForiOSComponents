@@ -924,10 +924,10 @@ namespace Firebase.Auth
 		[Export ("reloadWithCompletion:")]
 		void Reload ([NullAllowed] UserProfileChangeHandler completion);
 
-		// -(void)reauthenticateWithCredential:(FIRAuthCredential * _Nonnull)credential completion:(FIRUserProfileChangeCallback _Nullable)completion;
+		// -(void)reauthenticateWithCredential:(FIRAuthCredential * _Nonnull)credential completion:(FIRAuthDataResultCallback _Nullable)completion;
 		[Async]
 		[Export ("reauthenticateWithCredential:completion:")]
-		void Reauthenticate (AuthCredential credential, [NullAllowed] UserProfileChangeHandler completion);
+		void Reauthenticate (AuthCredential credential, [NullAllowed] AuthDataResultHandler completion);
 
 		// -(void)reauthenticateWithProvider:(id<FIRFederatedAuthProvider> _Nonnull)provider UIDelegate:(id<FIRAuthUIDelegate> _Nullable)UIDelegate completion:(FIRAuthDataResultCallback _Nullable)completion __attribute__((swift_name("reauthenticate(with:uiDelegate:completion:)"))) __attribute__((availability(ios, introduced=8.0)));
 		[Async]
