@@ -3,5 +3,6 @@
         <BaseOutputPath>bin\$(MSBuildProjectName)\</BaseOutputPath>
         <BaseIntermediateOutputPath>obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
         <MSBuildProjectExtensionsPath>obj\$(MSBuildProjectName)\</MSBuildProjectExtensionsPath>
+        <CompressBindingResourcePackage>true</CompressBindingResourcePackage>
     </PropertyGroup>
 </Project>
